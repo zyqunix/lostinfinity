@@ -1,6 +1,4 @@
 package xol.lostinfinity.client;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/client/TextFmt.class */
 public enum TextFmt {
     Black('0'),
     Dark_Blue('1'),
@@ -24,13 +22,10 @@ public enum TextFmt {
     Underline('n'),
     Italic('o'),
     Reset('r');
-
     protected final char ch;
-
     TextFmt(char ch) {
         this.ch = ch;
     }
-
     public static String getFormatting(TextFmt... fmt) {
         StringBuilder builder = new StringBuilder();
         for (TextFmt fmts : fmt) {
@@ -38,13 +33,11 @@ public enum TextFmt {
         }
         return builder.toString();
     }
-
     public static String format(String str) {
-        return str.replace("&", "§");
+        return str.replace("&", "Â§");
     }
-
     @Override // java.lang.Enum
     public String toString() {
-        return "§" + this.ch;
+        return "Â§" + this.ch;
     }
 }

@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.misc;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -17,13 +16,10 @@ import xol.lostinfinity.init.PotionInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.basics.ItemBasic;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/misc/ItemSuperChargedInjection.class */
 public class ItemSuperChargedInjection extends ItemBasic {
     public ItemSuperChargedInjection(String regName) {
         super(regName, TabsInit.TAB_AUXMATS);
     }
-
     public boolean func_111207_a(ItemStack stack, EntityPlayer playerIn, EntityLivingBase target, EnumHand hand) {
         if (target instanceof EntityPlayer) {
             if (!playerIn.field_70170_p.field_72995_K) {
@@ -33,7 +29,6 @@ public class ItemSuperChargedInjection extends ItemBasic {
         }
         return super.func_111207_a(stack, playerIn, target, hand);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Inject another player to grant them Super-Charged.");

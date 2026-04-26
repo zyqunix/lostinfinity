@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.render;
-
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -10,15 +9,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import xol.lostinfinity.projectile.entity.EntityBossPortalEffect;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/render/RenderBossPortalEffect.class */
 public class RenderBossPortalEffect<T extends Entity> extends Render<T> {
     public static final ResourceLocation TEXTURE_PORTAL_EFFECT = new ResourceLocation("lostinfinity:textures/particles/tentacle_portal.png");
-
     public RenderBossPortalEffect(RenderManager renderManager) {
         super(renderManager);
     }
-
     public void func_76986_a(T entity, double x, double y, double z, float entityYaw, float partialTicks) {
         EntityBossPortalEffect attackEntity = (EntityBossPortalEffect) entity;
         Vec3d target = attackEntity.func_174791_d();
@@ -51,7 +46,6 @@ public class RenderBossPortalEffect<T extends Entity> extends Render<T> {
             GlStateManager.func_179084_k();
         }
     }
-
     protected ResourceLocation func_110775_a(T entity) {
         return null;
     }

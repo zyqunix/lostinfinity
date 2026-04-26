@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.model.galaxy;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -9,8 +8,6 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/galaxy/ModelGalaxyGulper.class */
 public class ModelGalaxyGulper extends ModelBase {
     private final ModelRenderer mouth_middle;
     private final ModelRenderer mouth_left;
@@ -61,7 +58,6 @@ public class ModelGalaxyGulper extends ModelBase {
     private List<ModelRenderer> left_bone_list = new ArrayList();
     private List<ModelRenderer> front_bone_list = new ArrayList();
     private List<ModelRenderer> right_bone_list = new ArrayList();
-
     public ModelGalaxyGulper() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -266,7 +262,6 @@ public class ModelGalaxyGulper extends ModelBase {
         Collections.shuffle(this.left_bone_list);
         Collections.shuffle(this.right_bone_list);
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.mouth_middle.func_78785_a(f5);
         this.mouth_left.func_78785_a(f5);
@@ -288,13 +283,11 @@ public class ModelGalaxyGulper extends ModelBase {
         }
         GlStateManager.func_179084_k();
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         for (int i = 0; i < this.left_bone_list.size(); i++) {
             ModelRenderer left_bone = this.left_bone_list.get(i);

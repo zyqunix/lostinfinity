@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.model;
-
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -8,8 +7,6 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.mob.entity.misc.EntityPlayerLimb;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/ModelPlayerLimb.class */
 @SideOnly(Side.CLIENT)
 public class ModelPlayerLimb extends ModelBiped {
     public ModelRenderer bipedLeftArmwear;
@@ -18,7 +15,6 @@ public class ModelPlayerLimb extends ModelBiped {
     public ModelRenderer bipedRightLegwear;
     public ModelRenderer bipedBodyWear;
     private final boolean smallArms;
-
     public ModelPlayerLimb(float modelSize, boolean smallArmsIn) {
         super(modelSize, 0.0f, 64, 64);
         this.smallArms = smallArmsIn;
@@ -59,7 +55,6 @@ public class ModelPlayerLimb extends ModelBiped {
         this.bipedBodyWear.func_78790_a(-4.0f, 0.0f, -2.0f, 8, 12, 4, modelSize + 0.25f);
         this.bipedBodyWear.func_78793_a(0.0f, 0.0f, 0.0f);
     }
-
     public void func_78088_a(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
         GlStateManager.func_179094_E();
         EntityPlayerLimb entityLimb = (EntityPlayerLimb) entityIn;
@@ -82,7 +77,6 @@ public class ModelPlayerLimb extends ModelBiped {
         }
         GlStateManager.func_179121_F();
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         EntityPlayerLimb entityLimb = (EntityPlayerLimb) entityIn;
         int limbToRender = entityLimb.getLimb();

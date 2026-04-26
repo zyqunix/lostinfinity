@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import java.util.Iterator;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -16,21 +15,16 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.mob.ai.IBasicAI;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityMirrorZombie.class */
 public class EntityMirrorZombie extends EntityMob implements IMaxAttack, IBasicAI {
     private float lastHp;
-
     public EntityMirrorZombie(World worldIn) {
         super(worldIn);
         this.lastHp = -999.0f;
         func_70105_a(2.2f, 6.0f);
     }
-
     protected void func_184651_r() {
         initBasicTasks(this);
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(1.0d);
@@ -38,7 +32,6 @@ public class EntityMirrorZombie extends EntityMob implements IMaxAttack, IBasicA
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(1000.0d);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -47,7 +40,6 @@ public class EntityMirrorZombie extends EntityMob implements IMaxAttack, IBasicA
         }
         return false;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         this.field_70143_R = -1.0f;
@@ -73,36 +65,28 @@ public class EntityMirrorZombie extends EntityMob implements IMaxAttack, IBasicA
         }
         this.lastHp = func_110143_aJ();
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundEvents.field_187930_hd;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundEvents.field_187934_hh;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundEvents.field_187899_gZ;
     }
-
     protected boolean func_70692_ba() {
         int time = (int) (this.field_70170_p.func_72820_D() % 24000);
         return time > 13000 && time < 18000;
     }
-
     public boolean func_70814_o() {
         return true;
     }
-
     public int func_70641_bl() {
         return 1;
     }
-
     public boolean func_70601_bi() {
         return this.field_70170_p.func_175659_aa() != EnumDifficulty.PEACEFUL;
     }
-
     protected ResourceLocation func_184647_J() {
         return LootTableRegistry.ENTITIES_MIRRORZOMBIE;
     }

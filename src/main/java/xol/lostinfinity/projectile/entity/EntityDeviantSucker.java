@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import java.util.ArrayList;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -12,17 +11,13 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.item.tool.ItemDeviantRelocator;
 import xol.lostinfinity.mob.entity.base.EntityDeviantMob;
 import xol.lostinfinity.mob.entity.base.EntityFloatingDeviant;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityDeviantSucker.class */
 public class EntityDeviantSucker extends EntityBaseThrowable {
     public EntityDeviantSucker(World par1World) {
         super(par1World);
     }
-
     public EntityDeviantSucker(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -44,7 +39,6 @@ public class EntityDeviantSucker extends EntityBaseThrowable {
         }
         func_184185_a(SoundInit.SCANNER, 1.0f, 1.0f);
     }
-
     protected float func_70185_h() {
         return 0.05f;
     }

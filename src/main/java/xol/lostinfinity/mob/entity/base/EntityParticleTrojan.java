@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.base;
-
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -10,12 +9,9 @@ import xol.lostinfinity.block.misc.BlockCthulhuSpawner;
 import xol.lostinfinity.block.tileentity.TileEntityFusionTable;
 import xol.lostinfinity.init.ParticleInit;
 import xol.lostinfinity.item.weapon.ItemHeadCollector;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/base/EntityParticleTrojan.class */
 public class EntityParticleTrojan extends EntityImmaterial {
     private static final DataParameter<Integer> PARTICLE_FX = EntityDataManager.func_187226_a(EntityParticleTrojan.class, DataSerializers.field_187192_b);
     private static final DataParameter<Integer> EXTRA_PARTICLE_DATA = EntityDataManager.func_187226_a(EntityParticleTrojan.class, DataSerializers.field_187192_b);
-
     public EntityParticleTrojan(World worldIn) {
         super(worldIn);
         func_70105_a(0.001f, 0.001f);
@@ -23,41 +19,33 @@ public class EntityParticleTrojan extends EntityImmaterial {
         func_82142_c(true);
         func_189654_d(true);
     }
-
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(PARTICLE_FX, 0);
         this.field_70180_af.func_187214_a(EXTRA_PARTICLE_DATA, 0);
     }
-
     public int getFX() {
         return ((Integer) this.field_70180_af.func_187225_a(PARTICLE_FX)).intValue();
     }
-
     public void setFX(int fx) {
         this.field_70180_af.func_187227_b(PARTICLE_FX, Integer.valueOf(fx));
     }
-
     public int getFXData() {
         return ((Integer) this.field_70180_af.func_187225_a(EXTRA_PARTICLE_DATA)).intValue();
     }
-
     public void setFX(int fx, int extraData) {
         this.field_70180_af.func_187227_b(PARTICLE_FX, Integer.valueOf(fx));
         this.field_70180_af.func_187227_b(EXTRA_PARTICLE_DATA, Integer.valueOf(extraData));
     }
-
     public void func_70037_a(NBTTagCompound compound) {
         super.func_70037_a(compound);
         setFX(compound.func_74762_e("PartFX"), compound.func_74762_e("PartData"));
     }
-
     public void func_70014_b(NBTTagCompound compound) {
         super.func_70014_b(compound);
         compound.func_74768_a("PartFX", getFX());
         compound.func_74768_a("PartData", getFXData());
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityImmaterial
     public void func_70636_d() {
         super.func_70636_d();
@@ -90,7 +78,7 @@ public class EntityParticleTrojan extends EntityImmaterial {
                             this.field_70170_p.func_175682_a(ParticleInit.QUANTUM_MARK, true, this.field_70165_t + getROD(2), this.field_70163_u + getROD(1), this.field_70161_v + getROD(2), 0.0d, 0.0d, 0.0d, new int[0]);
                         }
                         break;
-                    case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+                    case TileEntityFusionTable.BOARD_ROWS :
                         for (int i6 = 0; i6 < 3; i6++) {
                             this.field_70170_p.func_175682_a(ParticleInit.ATTRACT_FIELD, true, this.field_70165_t + getROD(1), this.field_70163_u + getROD(1), this.field_70161_v + getROD(1), 0.0d, 0.0d, 0.0d, new int[0]);
                         }
@@ -100,7 +88,7 @@ public class EntityParticleTrojan extends EntityImmaterial {
                             this.field_70170_p.func_175682_a(ParticleInit.REPEL_FIELD, true, this.field_70165_t + getROD(1), this.field_70163_u + getROD(1), this.field_70161_v + getROD(1), 0.0d, 0.0d, 0.0d, new int[0]);
                         }
                         break;
-                    case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+                    case TileEntityFusionTable.BOARD_COLUMNS :
                         for (int i8 = 0; i8 < 2; i8++) {
                             this.field_70170_p.func_175682_a(ParticleInit.SLAM, true, this.field_70165_t + getROD(1), this.field_70163_u + getROD(1), this.field_70161_v + getROD(1), 0.0d, 0.0d, 0.0d, new int[0]);
                         }
@@ -116,7 +104,7 @@ public class EntityParticleTrojan extends EntityImmaterial {
                     case 9:
                         this.field_70170_p.func_175682_a(ParticleInit.EXPLOSION, true, this.field_70165_t, this.field_70163_u, this.field_70161_v, 0.0d, 0.0d, 0.0d, new int[0]);
                         break;
-                    case ItemHeadCollector.CHARGE_LIMIT /* 10 */:
+                    case ItemHeadCollector.CHARGE_LIMIT :
                         for (int i10 = 0; i10 < 3; i10++) {
                             this.field_70170_p.func_175682_a(ParticleInit.EXPLOSION_RING, true, this.field_70165_t + getROD(2), this.field_70163_u + getROD(1), this.field_70161_v + getROD(2), 0.0d, 0.0d, 0.0d, new int[0]);
                         }
@@ -179,7 +167,7 @@ public class EntityParticleTrojan extends EntityImmaterial {
                     case 23:
                         this.field_70170_p.func_175682_a(ParticleInit.POWER_FIELD, true, this.field_70165_t, this.field_70163_u, this.field_70161_v, 0.0d, 0.0d, 0.0d, new int[0]);
                         break;
-                    case TileEntityFusionTable.BOARD_SIZE /* 24 */:
+                    case TileEntityFusionTable.BOARD_SIZE :
                         this.field_70170_p.func_175682_a(ParticleInit.POWER_LOSS, true, this.field_70165_t, this.field_70163_u, this.field_70161_v, 0.0d, 0.0d, 0.0d, new int[0]);
                         break;
                     case 25:
@@ -207,7 +195,7 @@ public class EntityParticleTrojan extends EntityImmaterial {
                             this.field_70170_p.func_175682_a(ParticleInit.CORRUPTION_MAGIC, true, this.field_70165_t + getROD(4), this.field_70163_u + getROD(1), this.field_70161_v + getROD(4), 0.0d, 0.0d, 0.0d, new int[0]);
                         }
                         break;
-                    case BlockCthulhuSpawner.BLOCK_DISTANCE /* 30 */:
+                    case BlockCthulhuSpawner.BLOCK_DISTANCE :
                         for (int i25 = 0; i25 < 3; i25++) {
                             this.field_70170_p.func_175682_a(ParticleInit.NATURE_RING, true, this.field_70165_t, this.field_70163_u, this.field_70161_v, 0.0d, 0.0d, 0.0d, new int[0]);
                         }
@@ -418,17 +406,14 @@ public class EntityParticleTrojan extends EntityImmaterial {
             func_70106_y();
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityImmaterial
     public boolean func_70067_L() {
         return false;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityImmaterial
     public boolean func_70104_M() {
         return false;
     }
-
     private double getROD(int multi) {
         return ((-0.5d) + this.field_70146_Z.nextDouble()) * ((double) multi);
     }

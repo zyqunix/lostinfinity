@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import java.util.UUID;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,20 +15,16 @@ import xol.lostinfinity.block.tileentity.TileEntityFusionTable;
 import xol.lostinfinity.init.ParticleInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.mob.entity.mount.EntityJetMount;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityCourseRing.class */
 public class EntityCourseRing extends Entity {
     protected static final DataParameter<EnumFacing> FACING = EntityDataManager.func_187226_a(EntityCourseRing.class, DataSerializers.field_187202_l);
     protected static final DataParameter<Integer> INDEX = EntityDataManager.func_187226_a(EntityCourseRing.class, DataSerializers.field_187192_b);
     protected static final DataParameter<Boolean> NEXT = EntityDataManager.func_187226_a(EntityCourseRing.class, DataSerializers.field_187198_h);
     private UUID ownerId;
-
     public EntityCourseRing(World worldIn) {
         super(worldIn);
         this.ownerId = null;
         func_70105_a(1.0f, 1.0f);
     }
-
     public void func_70030_z() {
         Vec3d rightDir;
         super.func_70030_z();
@@ -55,7 +50,7 @@ public class EntityCourseRing extends Entity {
                 case 3:
                     rightDir = new Vec3d(0.0d, 0.0d, 1.0d);
                     break;
-                case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+                case TileEntityFusionTable.BOARD_ROWS :
                     rightDir = new Vec3d(-1.0d, 0.0d, 0.0d);
                     break;
                 default:
@@ -81,12 +76,8 @@ public class EntityCourseRing extends Entity {
             }
         }
     }
-
-    /* JADX INFO: renamed from: xol.lostinfinity.mob.entity.misc.EntityCourseRing$1, reason: invalid class name */
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityCourseRing$1.class */
-    static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] $SwitchMap$net$minecraft$util$EnumFacing = new int[EnumFacing.values().length];
-
+    static  class AnonymousClass1 {
+        static final  int[] $SwitchMap$net$minecraft$util$EnumFacing = new int[EnumFacing.values().length];
         static {
             try {
                 $SwitchMap$net$minecraft$util$EnumFacing[EnumFacing.WEST.ordinal()] = 1;
@@ -106,15 +97,12 @@ public class EntityCourseRing extends Entity {
             }
         }
     }
-
     private EnumFacing getFacing() {
         return (EnumFacing) this.field_70180_af.func_187225_a(FACING);
     }
-
     private int getIndex() {
         return ((Integer) this.field_70180_af.func_187225_a(INDEX)).intValue();
     }
-
     public void func_70100_b_(EntityPlayer entityIn) {
         super.func_70100_b_(entityIn);
         if (!this.field_70170_p.field_72995_K && !this.field_70128_L) {
@@ -129,37 +117,29 @@ public class EntityCourseRing extends Entity {
             }
         }
     }
-
     protected void func_70088_a() {
         this.field_70180_af.func_187214_a(FACING, EnumFacing.NORTH);
         this.field_70180_af.func_187214_a(INDEX, 0);
         this.field_70180_af.func_187214_a(NEXT, false);
     }
-
     public void setFacing(EnumFacing facing) {
         this.field_70180_af.func_187227_b(FACING, facing);
     }
-
     public void setIndex(int i) {
         this.field_70180_af.func_187227_b(INDEX, Integer.valueOf(i));
     }
-
     protected void func_70037_a(NBTTagCompound compound) {
         this.ownerId = compound.func_186857_a("ownerID");
     }
-
     protected void func_70014_b(NBTTagCompound compound) {
         compound.func_186854_a("ownerID", this.ownerId);
     }
-
     private boolean getNext() {
         return ((Boolean) this.field_70180_af.func_187225_a(NEXT)).booleanValue();
     }
-
     public void setNext() {
         this.field_70180_af.func_187227_b(NEXT, true);
     }
-
     public void setOwner(EntityPlayer owner) {
         this.ownerId = owner.func_110124_au();
     }

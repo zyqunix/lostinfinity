@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -23,11 +22,8 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.weapon.ItemHeadCollector;
 import xol.lostinfinity.util.coordinates.ContestCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockContestGame.class */
 public class BlockContestGame extends Block {
     private int game;
-
     public BlockContestGame(String name, int screen_type) {
         super(Material.field_151573_f);
         func_149663_c(name);
@@ -40,7 +36,6 @@ public class BlockContestGame extends Block {
         BlockInit.BLOCKS.add(this);
         ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(getRegistryName()));
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (playerIn.func_70093_af() || worldIn.field_73011_w.func_186058_p() != DimensionInit.grandmasterOutpost) {
             return true;
@@ -76,7 +71,7 @@ public class BlockContestGame extends Block {
                         teleport_to = ContestCoordinates.redlightLobbyPos();
                         playerIn.func_145747_a(new TextComponentString(TextFmt.Aqua + "The Grandmaster: " + TextFmt.Gold + "Yes good choice adventurer! Our take on a classic children's game, just with a little added " + TextFmt.getFormatting(TextFmt.Red, TextFmt.Italic) + "death."));
                         break;
-                    case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+                    case TileEntityFusionTable.BOARD_ROWS :
                         teleport_to = ContestCoordinates.bombersLobbyPos();
                         playerIn.func_145747_a(new TextComponentString(TextFmt.Aqua + "The Grandmaster: " + TextFmt.Gold + "Nothing like being trapped in a small space with a load of explosives. This one is a real " + TextFmt.getFormatting(TextFmt.Yellow, TextFmt.Italic) + "blast" + TextFmt.Reset + TextFmt.Gold + " to watch."));
                         break;
@@ -84,7 +79,7 @@ public class BlockContestGame extends Block {
                         teleport_to = ContestCoordinates.duelLobbyPos();
                         playerIn.func_145747_a(new TextComponentString(TextFmt.Aqua + "The Grandmaster: " + TextFmt.Gold + "So someone has something you want and they won't just give it to you? Well, at the Duel Arena you can take it from them!"));
                         break;
-                    case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+                    case TileEntityFusionTable.BOARD_COLUMNS :
                         teleport_to = ContestCoordinates.lightBridgeLobbyPos();
                         playerIn.func_145747_a(new TextComponentString(TextFmt.Aqua + "The Grandmaster: " + TextFmt.Gold + "Good choice. This game is a game to " + TextFmt.getFormatting(TextFmt.Green, TextFmt.Italic) + "remember" + TextFmt.Reset + TextFmt.Gold + ". You can work together on this one, just don't work together too well."));
                         break;
@@ -100,7 +95,7 @@ public class BlockContestGame extends Block {
                         teleport_to = ContestCoordinates.laserTagLobbyPos();
                         playerIn.func_145747_a(new TextComponentString(TextFmt.Aqua + "The Grandmaster: " + TextFmt.Gold + "You fancy a game of laser tag hmm? Well these lasers won't disintegrate eachother like many of the toys we have around eachother. Not to say, we couldn't make them do that though if you are up for it..."));
                         break;
-                    case ItemHeadCollector.CHARGE_LIMIT /* 10 */:
+                    case ItemHeadCollector.CHARGE_LIMIT :
                         teleport_to = ContestCoordinates.parkourLobbyPos();
                         playerIn.func_145747_a(new TextComponentString(TextFmt.Aqua + "The Grandmaster: " + TextFmt.Gold + "You're really " + TextFmt.getFormatting(TextFmt.Aqua, TextFmt.Italic) + "jumping" + TextFmt.Reset + TextFmt.Gold + " for the opportunity to compete in this game. Let's get your legs to work contender!"));
                         break;
@@ -143,13 +138,13 @@ public class BlockContestGame extends Block {
                 case 3:
                     lostinfinity.instance.packetHandler.sendTitleToPlayer(new PacketTextTitle(true, false, 80, 30, 30, "Redlight Greenbridge"), playerIn);
                     break;
-                case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+                case TileEntityFusionTable.BOARD_ROWS :
                     lostinfinity.instance.packetHandler.sendTitleToPlayer(new PacketTextTitle(true, false, 80, 30, 30, "Bombers"), playerIn);
                     break;
                 case 5:
                     lostinfinity.instance.packetHandler.sendTitleToPlayer(new PacketTextTitle(true, false, 80, 30, 30, "The Duel Arena"), playerIn);
                     break;
-                case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+                case TileEntityFusionTable.BOARD_COLUMNS :
                     lostinfinity.instance.packetHandler.sendTitleToPlayer(new PacketTextTitle(true, false, 80, 30, 30, "The Light Bridge"), playerIn);
                     break;
                 case 7:
@@ -161,7 +156,7 @@ public class BlockContestGame extends Block {
                 case 9:
                     lostinfinity.instance.packetHandler.sendTitleToPlayer(new PacketTextTitle(true, false, 80, 30, 30, "Laser Warz"), playerIn);
                     break;
-                case ItemHeadCollector.CHARGE_LIMIT /* 10 */:
+                case ItemHeadCollector.CHARGE_LIMIT :
                     lostinfinity.instance.packetHandler.sendTitleToPlayer(new PacketTextTitle(true, false, 80, 30, 30, "Parkour Trials"), playerIn);
                     break;
                 case 11:

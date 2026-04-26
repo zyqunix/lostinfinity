@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.render;
-
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -7,16 +6,12 @@ import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/render/RenderProjectileBase.class */
 public abstract class RenderProjectileBase<T extends Entity> extends Render<T> {
     private final float scale;
-
     public RenderProjectileBase(RenderManager manager, float scaleIn) {
         super(manager);
         this.scale = scaleIn;
     }
-
     public void func_76986_a(T entity, double x, double y, double z, float entityYaw, float partialTicks) {
         GlStateManager.func_179094_E();
         func_180548_c(entity);

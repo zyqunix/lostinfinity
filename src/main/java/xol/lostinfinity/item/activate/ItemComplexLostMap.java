@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.activate;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -34,11 +33,8 @@ import xol.lostinfinity.mob.entity.starforge.EntityHurler;
 import xol.lostinfinity.mob.entity.starforge.EntityHypnosaur;
 import xol.lostinfinity.mob.entity.starforge.EntityRavager;
 import xol.lostinfinity.mob.entity.starforge.EntityShimmer;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/activate/ItemComplexLostMap.class */
 public class ItemComplexLostMap extends Item {
     private String originatorName;
-
     public ItemComplexLostMap(String regName, String originator) {
         this.originatorName = "";
         func_77637_a(TabsInit.TAB_MAPS);
@@ -48,7 +44,6 @@ public class ItemComplexLostMap extends Item {
         this.originatorName = originator;
         ItemInit.ITEMS.add(this);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (!stack.func_77942_o()) {
@@ -101,7 +96,6 @@ public class ItemComplexLostMap extends Item {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     private static Class<? extends Entity> getEntityTest(int type) {
         switch (type) {
             case 0:
@@ -112,11 +106,11 @@ public class ItemComplexLostMap extends Item {
                 return EntityHurler.class;
             case 3:
                 return EntityEssenceDweller.class;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 return EntityCrawker.class;
             case 5:
                 return EntityHypnosaur.class;
-            case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+            case TileEntityFusionTable.BOARD_COLUMNS :
                 return EntityGravhead.class;
             case 7:
                 return EntityRavager.class;
@@ -124,7 +118,6 @@ public class ItemComplexLostMap extends Item {
                 return EntityFlutterfyre.class;
         }
     }
-
     private String getEntityTestName(int type) {
         switch (type) {
             case 0:
@@ -135,11 +128,11 @@ public class ItemComplexLostMap extends Item {
                 return "Hurler";
             case 3:
                 return "Essence Dweller";
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 return "Crawker";
             case 5:
                 return "Hypnosaur";
-            case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+            case TileEntityFusionTable.BOARD_COLUMNS :
                 return "Gravhead";
             case 7:
                 return "Ravager";
@@ -147,7 +140,6 @@ public class ItemComplexLostMap extends Item {
                 return "Flutterfyre";
         }
     }
-
     private String randomBiome() {
         List<BiomeDictionary.Type> types_to_pick = new ArrayList<>();
         types_to_pick.add(BiomeDictionary.Type.COLD);
@@ -170,7 +162,6 @@ public class ItemComplexLostMap extends Item {
         Collections.shuffle(types_to_pick);
         return types_to_pick.get(0).getName();
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Complete the 3 stages of the map.");

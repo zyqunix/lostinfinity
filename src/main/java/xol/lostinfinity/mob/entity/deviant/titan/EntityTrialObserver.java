@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.deviant.titan;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -46,74 +45,58 @@ import xol.lostinfinity.mob.entity.deviant.EntityDeviantStray;
 import xol.lostinfinity.mob.entity.deviant.EntityDeviantVex;
 import xol.lostinfinity.mob.entity.deviant.EntityDeviantZombie;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/deviant/titan/EntityTrialObserver.class */
 public class EntityTrialObserver extends EntityMob implements IMaxAttack {
     private static final DataParameter<Byte> TYPE = EntityDataManager.func_187226_a(EntityTrialObserver.class, DataSerializers.field_187191_a);
     private static final DataParameter<Byte> STAGE = EntityDataManager.func_187226_a(EntityTrialObserver.class, DataSerializers.field_187191_a);
-
     public EntityTrialObserver(World worldIn) {
         super(worldIn);
         func_70105_a(5.0f, 4.0f);
         func_184224_h(true);
     }
-
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(TYPE, (byte) 0);
         this.field_70180_af.func_187214_a(STAGE, (byte) 0);
     }
-
     public byte getEventType() {
         return ((Byte) this.field_70180_af.func_187225_a(TYPE)).byteValue();
     }
-
     public void setEventType(byte f) {
         this.field_70180_af.func_187227_b(TYPE, Byte.valueOf(f));
     }
-
     public byte getStage() {
         return ((Byte) this.field_70180_af.func_187225_a(STAGE)).byteValue();
     }
-
     public void setStage(byte f) {
         this.field_70180_af.func_187227_b(STAGE, Byte.valueOf(f));
     }
-
     public void func_70014_b(NBTTagCompound tag) {
         super.func_70014_b(tag);
         tag.func_74774_a("EventType", getEventType());
         tag.func_74774_a("EventStage", getStage());
     }
-
     public void func_70037_a(NBTTagCompound tag) {
         super.func_70037_a(tag);
         setEventType(tag.func_74771_c("EventType"));
         setStage(tag.func_74771_c("EventStage"));
     }
-
     protected SoundEvent func_184639_G() {
         return null;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return null;
     }
-
     protected SoundEvent func_184615_bR() {
         return null;
     }
-
     private void messagePlayers(String str) {
         for (EntityPlayer near_pl : this.field_70170_p.func_72872_a(EntityPlayer.class, getArenaAABB())) {
             near_pl.func_145747_a(new TextComponentString(str));
         }
     }
-
     protected AxisAlignedBB getArenaAABB() {
         return new AxisAlignedBB(new BlockPos(-493.0d, 60.0d, 407.0d), new BlockPos(548.0d, 85.0d, 460.0d));
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         this.field_70143_R = -1.0f;
@@ -152,7 +135,6 @@ public class EntityTrialObserver extends EntityMob implements IMaxAttack {
             }
         }
     }
-
     private void summonWave(World worldIn) {
         switch (getStage()) {
             case 1:
@@ -173,7 +155,7 @@ public class EntityTrialObserver extends EntityMob implements IMaxAttack {
                     summonSuperMutant(worldIn);
                 }
                 break;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 messagePlayers("The second deviant wave has arrived.");
                 for (int repeats4 = 0; repeats4 < 10; repeats4++) {
                     summonDeviant(worldIn);
@@ -185,7 +167,7 @@ public class EntityTrialObserver extends EntityMob implements IMaxAttack {
                     summonSuperMutant(worldIn);
                 }
                 break;
-            case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+            case TileEntityFusionTable.BOARD_COLUMNS :
                 messagePlayers("The mixed wave has arrived.");
                 for (int repeats6 = 0; repeats6 < 5; repeats6++) {
                     summonDeviant(worldIn);
@@ -205,21 +187,18 @@ public class EntityTrialObserver extends EntityMob implements IMaxAttack {
                 break;
         }
     }
-
     private void summonBasic(World worldIn) {
         EntityLiving mob = getBasicCreature(worldIn);
         BlockPos spawnLoc = validSpawnPos(worldIn);
         mob.func_70107_b(spawnLoc.func_177958_n(), spawnLoc.func_177956_o(), spawnLoc.func_177952_p());
         worldIn.func_72838_d(mob);
     }
-
     private void summonDeviant(World worldIn) {
         EntityDeviantMob mob = getDeviantCreature(worldIn);
         BlockPos spawnLoc = validSpawnPos(worldIn);
         mob.func_70107_b(spawnLoc.func_177958_n(), spawnLoc.func_177956_o(), spawnLoc.func_177952_p());
         worldIn.func_72838_d(mob);
     }
-
     private void summonSuperMutant(World worldIn) {
         EntityDeviantMob mob = getDeviantCreature(worldIn);
         mob.setMutation(1);
@@ -227,7 +206,6 @@ public class EntityTrialObserver extends EntityMob implements IMaxAttack {
         mob.func_70107_b(spawnLoc.func_177958_n(), spawnLoc.func_177956_o(), spawnLoc.func_177952_p());
         worldIn.func_72838_d(mob);
     }
-
     private BlockPos validSpawnPos(World worldIn) {
         boolean inAir = false;
         BlockPos pos = null;
@@ -241,7 +219,6 @@ public class EntityTrialObserver extends EntityMob implements IMaxAttack {
         }
         return pos;
     }
-
     private EntityLiving getBasicCreature(World worldin) {
         switch (getEventType()) {
             case 0:
@@ -252,11 +229,11 @@ public class EntityTrialObserver extends EntityMob implements IMaxAttack {
                 return new EntitySpider(this.field_70170_p);
             case 3:
                 return new EntityCreeper(this.field_70170_p);
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 return new EntityEnderman(this.field_70170_p);
             case 5:
                 return new EntityLlama(this.field_70170_p);
-            case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+            case TileEntityFusionTable.BOARD_COLUMNS :
                 return new EntityMagmaCube(this.field_70170_p);
             case 7:
                 return new EntityPigZombie(this.field_70170_p);
@@ -264,7 +241,7 @@ public class EntityTrialObserver extends EntityMob implements IMaxAttack {
                 return new EntityStray(this.field_70170_p);
             case 9:
                 return new EntityVex(this.field_70170_p);
-            case ItemHeadCollector.CHARGE_LIMIT /* 10 */:
+            case ItemHeadCollector.CHARGE_LIMIT :
                 return new EntityZombie(this.field_70170_p);
             case 11:
                 return new EntityShulker(this.field_70170_p);
@@ -272,7 +249,6 @@ public class EntityTrialObserver extends EntityMob implements IMaxAttack {
                 return new EntityBlaze(this.field_70170_p);
         }
     }
-
     private EntityDeviantMob getDeviantCreature(World worldin) {
         switch (getEventType()) {
             case 0:
@@ -283,11 +259,11 @@ public class EntityTrialObserver extends EntityMob implements IMaxAttack {
                 return new EntityDeviantSpider(this.field_70170_p);
             case 3:
                 return new EntityDeviantCreeper(this.field_70170_p);
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 return new EntityDeviantEnderman(this.field_70170_p);
             case 5:
                 return new EntityDeviantLlama(this.field_70170_p);
-            case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+            case TileEntityFusionTable.BOARD_COLUMNS :
                 return new EntityDeviantMagmacube(this.field_70170_p);
             case 7:
                 return new EntityDeviantPiglin(this.field_70170_p);
@@ -295,7 +271,7 @@ public class EntityTrialObserver extends EntityMob implements IMaxAttack {
                 return new EntityDeviantStray(this.field_70170_p);
             case 9:
                 return new EntityDeviantVex(this.field_70170_p);
-            case ItemHeadCollector.CHARGE_LIMIT /* 10 */:
+            case ItemHeadCollector.CHARGE_LIMIT :
                 return new EntityDeviantZombie(this.field_70170_p);
             case 11:
                 return new EntityDeviantShulker(this.field_70170_p);
@@ -303,7 +279,6 @@ public class EntityTrialObserver extends EntityMob implements IMaxAttack {
                 return new EntityDeviantBlaze(this.field_70170_p);
         }
     }
-
     private EntityDeviantTitan getTitanCreature(World worldin) {
         switch (getEventType()) {
             case 0:
@@ -314,11 +289,11 @@ public class EntityTrialObserver extends EntityMob implements IMaxAttack {
                 return new EntityTitanSpider(this.field_70170_p);
             case 3:
                 return new EntityTitanCreeper(this.field_70170_p);
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 return new EntityTitanEnderman(this.field_70170_p);
             case 5:
                 return new EntityTitanLlama(this.field_70170_p);
-            case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+            case TileEntityFusionTable.BOARD_COLUMNS :
                 return new EntityTitanMagmacube(this.field_70170_p);
             case 7:
                 return new EntityTitanPiglin(this.field_70170_p);
@@ -326,7 +301,7 @@ public class EntityTrialObserver extends EntityMob implements IMaxAttack {
                 return new EntityTitanStray(this.field_70170_p);
             case 9:
                 return new EntityTitanVex(this.field_70170_p);
-            case ItemHeadCollector.CHARGE_LIMIT /* 10 */:
+            case ItemHeadCollector.CHARGE_LIMIT :
                 return new EntityTitanZombie(this.field_70170_p);
             case 11:
                 return new EntityTitanShulker(this.field_70170_p);

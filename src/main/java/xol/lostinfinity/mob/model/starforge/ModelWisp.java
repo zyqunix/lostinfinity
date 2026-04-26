@@ -1,17 +1,13 @@
 package xol.lostinfinity.mob.model.starforge;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/starforge/ModelWisp.class */
 public class ModelWisp extends ModelBase {
     private final ModelRenderer Cube;
     private final ModelRenderer Body;
-
     public ModelWisp() {
         this.field_78090_t = 64;
         this.field_78089_u = 64;
@@ -25,7 +21,6 @@ public class ModelWisp extends ModelBase {
         this.Body.field_78804_l.add(new ModelBox(this.Body, 0, 13, -5.0f, 0.5f, -1.0f, 10, 2, 2, 0.0f, false));
         this.Body.field_78804_l.add(new ModelBox(this.Body, 0, 18, -7.0f, -2.5f, -1.0f, 14, 2, 2, 0.0f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.Body.func_78785_a(f5);
         GlStateManager.func_179147_l();
@@ -34,13 +29,11 @@ public class ModelWisp extends ModelBase {
         this.Cube.func_78785_a(f5);
         GlStateManager.func_179084_k();
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.Cube.field_78796_g = ageInTicks * 0.1f;
         this.Body.field_78795_f = ageInTicks * 0.05f;

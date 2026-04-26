@@ -1,12 +1,9 @@
 package xol.lostinfinity.mob.model.deviant;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/deviant/ModelDeviantGuardian.class */
 public class ModelDeviantGuardian extends ModelBase {
     private final ModelRenderer head;
     private final ModelRenderer arm1;
@@ -40,7 +37,6 @@ public class ModelDeviantGuardian extends ModelBase {
     private final ModelRenderer[] spinesX = new ModelRenderer[4];
     private final ModelRenderer[] spinesXY = new ModelRenderer[4];
     private final ModelRenderer[] spinesZ = new ModelRenderer[4];
-
     public ModelDeviantGuardian() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -203,17 +199,14 @@ public class ModelDeviantGuardian extends ModelBase {
         this.spinesXY[2] = this.spikepart10;
         this.spinesXY[3] = this.spikepart11;
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.head.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.arm1.field_78795_f = 0.5f * MathHelper.func_76126_a(ageInTicks * 0.1f);
         this.arm1.field_78796_g = 0.5f * MathHelper.func_76126_a(ageInTicks * 0.1f);

@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.tileentity;
-
 import java.util.ArrayList;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -17,8 +16,6 @@ import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.coordinates.GalaxyCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/tileentity/TileEntityDrillConsole.class */
 public class TileEntityDrillConsole extends TileEntity {
     private static final Vec3i forwardDir = new Vec3i(-1, 0, 0);
     private static final Vec3i rightDir = new Vec3i(0, 0, -1);
@@ -28,7 +25,6 @@ public class TileEntityDrillConsole extends TileEntity {
     private BlockPos drillPos = null;
     private int drillHeight = 0;
     private boolean drilling = false;
-
     public void adjustDrill(boolean down) {
         Block drillBeamBlock = BlockInit.drillShaft;
         Block drillHeadBlock = BlockInit.drillHead;
@@ -71,7 +67,6 @@ public class TileEntityDrillConsole extends TileEntity {
             }
         }
     }
-
     public void activateDrill(EntityPlayer player) {
         if (!this.field_145850_b.field_72995_K && !this.drilling) {
             Block beamBlock = BlockInit.drillBeam;
@@ -108,7 +103,6 @@ public class TileEntityDrillConsole extends TileEntity {
             }
         }
     }
-
     public void moveDrill(int i) {
         Vec3i dir;
         BlockPos testPos;

@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -23,19 +22,15 @@ import xol.lostinfinity.item.classify.IModeSelect;
 import xol.lostinfinity.item.classify.ISwitchModels;
 import xol.lostinfinity.projectile.entity.EntitySelectionLaser;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemRayOfSelection.class */
 public class ItemRayOfSelection extends ItemCooldown implements IMaxAttack, ISwitchModels, IHeldTick, IModeSelect, ICustomHoldPose {
     public ItemRayOfSelection(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_INFINITYWEP);
         setModelSwitch("characters", this, 4);
     }
-
     public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
         return false;
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (!showDurabilityBar(stack)) {
@@ -51,19 +46,16 @@ public class ItemRayOfSelection extends ItemCooldown implements IMaxAttack, ISwi
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 500;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Light_Purple + "Right Click: Toggle cycling through groups of characters.");
         tooltip.add(TextFmt.Red + "When shooting an entity who's name begins with a character in the group:");
         tooltip.add(TextFmt.Green + "Deal 150% maximum life damage to the entity.");
     }
-
     @Override // xol.lostinfinity.item.classify.IHeldTick
     public void heldTick(EntityPlayer player, EnumHand hand, ItemStack stack) {
         int data;
@@ -78,7 +70,6 @@ public class ItemRayOfSelection extends ItemCooldown implements IMaxAttack, ISwi
             stack.func_77978_p().func_74768_a("characters_data", data);
         }
     }
-
     @Override // xol.lostinfinity.item.classify.IModeSelect
     public void modeUpdate(ItemStack stack, EntityPlayer player) {
         if (!stack.func_77942_o()) {

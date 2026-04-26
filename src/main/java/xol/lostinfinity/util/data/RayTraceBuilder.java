@@ -1,5 +1,4 @@
 package xol.lostinfinity.util.data;
-
 import com.google.common.base.Predicate;
 import javax.annotation.Nullable;
 import net.minecraft.block.material.Material;
@@ -12,8 +11,6 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import xol.lostinfinity.mob.entity.base.EntityImmaterial;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/data/RayTraceBuilder.class */
 public class RayTraceBuilder {
     private int distance;
     private float raySize;
@@ -25,91 +22,71 @@ public class RayTraceBuilder {
     private EnumParticleTypes trailFX;
     private int trailDelay;
     private CustomTrace customTrace;
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/data/RayTraceBuilder$CustomTrace.class */
     @FunctionalInterface
     public interface CustomTrace {
         void trace(Vec3d vec3d, Vec3d vec3d2, float f);
     }
-
     public static RayTraceBuilder block(int distance) {
         return new RayTraceBuilder().distance(distance).raySize(0.4f).blockFilter(RayTraceBuilder::checkSolid);
     }
-
     public static RayTraceBuilder forward(int distance) {
         return new RayTraceBuilder().distance(distance).raySize(0.4f).force(true);
     }
-
     public static RayTraceBuilder immaterial(int distance) {
         return new RayTraceBuilder().distance(distance).raySize(0.4f).blockFilter(RayTraceBuilder::checkNotAir);
     }
-
     public static RayTraceBuilder entity(Class<? extends Entity> entityClass, int distance) {
         return new RayTraceBuilder().distance(distance).raySize(0.4f).blockFilter(RayTraceBuilder::checkSolid).entityClass(entityClass).entityFilter(RayTraceBuilder::checkEntityImmaterial);
     }
-
     public static RayTraceBuilder fx(Class<? extends Entity> entityClass, int distance, EnumParticleTypes trailFX) {
         return new RayTraceBuilder().distance(distance).raySize(0.4f).blockFilter(RayTraceBuilder::checkSolid).entityClass(entityClass).entityFilter(RayTraceBuilder::checkEntityImmaterial).trailFX(trailFX).trailDelay(3);
     }
-
     public static RayTraceBuilder force(int distance) {
         return new RayTraceBuilder().distance(distance).raySize(0.4f).force(true).blockFilter(RayTraceBuilder::checkSolid);
     }
-
     public RayTraceBuilder distance(int distance) {
         this.distance = distance;
         return this;
     }
-
     public RayTraceBuilder raySize(float raySize) {
         this.raySize = Math.max(0.1f, raySize);
         return this;
     }
-
     public RayTraceBuilder force(boolean force) {
         this.force = force;
         return this;
     }
-
     public RayTraceBuilder blockFilter(Predicate<IBlockState> filter) {
         this.blockFilter = filter;
         return this;
     }
-
     public RayTraceBuilder entityClass(Class<? extends Entity> entityClass) {
         this.entityClass = entityClass;
         return this;
     }
-
     public RayTraceBuilder entityFilter(Predicate<Entity> filter) {
         this.entityFilter = filter;
         return this;
     }
-
     public RayTraceBuilder maxEntity(int maxEntity) {
         this.maxEntity = maxEntity;
         return this;
     }
-
     public RayTraceBuilder trailFX(EnumParticleTypes trailFX) {
         this.trailFX = trailFX;
         return this;
     }
-
     public RayTraceBuilder trailDelay(int trailDelay) {
         this.trailDelay = trailDelay;
         return this;
     }
-
     public RayTraceBuilder custom(CustomTrace customTrace) {
         this.customTrace = customTrace;
         return this;
     }
-
     public CustomRayTraceResult trace(Entity entity, boolean useEyeHeight) {
         return trace(entity.field_70170_p, entity, useEyeHeight ? entity.func_174824_e(1.0f) : entity.func_174791_d(), entity.func_70040_Z());
     }
-
     public CustomRayTraceResult trace(World world, @Nullable Entity entity, Vec3d pos, Vec3d dir) {
         CustomRayTraceResult result = new CustomRayTraceResult();
         Vec3d lastPos = pos;
@@ -152,19 +129,15 @@ public class RayTraceBuilder {
         }
         return null;
     }
-
     public static boolean checkSolid(IBlockState block) {
         return block.func_185904_a() != Material.field_151579_a && block.func_185904_a().func_76230_c();
     }
-
     public static boolean checkImmaterial(IBlockState block) {
         return (block.func_185904_a() == Material.field_151579_a || block.func_185904_a().func_76230_c()) ? false : true;
     }
-
     public static boolean checkNotAir(IBlockState block) {
         return block.func_185904_a() != Material.field_151579_a;
     }
-
     public static boolean checkEntityImmaterial(Entity entity) {
         return !(entity instanceof EntityImmaterial);
     }

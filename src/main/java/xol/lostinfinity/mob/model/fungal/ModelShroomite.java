@@ -1,19 +1,15 @@
 package xol.lostinfinity.mob.model.fungal;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import xol.lostinfinity.mob.entity.fungal.EntityShroomite;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/fungal/ModelShroomite.class */
 public class ModelShroomite extends ModelBase {
     private final ModelRenderer Body_1;
     private final ModelRenderer Leg_Left_1;
     private final ModelRenderer Leg_Right_1;
     private final ModelRenderer Cap_1;
-
     public ModelShroomite() {
         this.field_78090_t = 64;
         this.field_78089_u = 32;
@@ -34,17 +30,14 @@ public class ModelShroomite extends ModelBase {
         this.Cap_1.field_78804_l.add(new ModelBox(this.Cap_1, 0, 0, -6.0f, 0.0f, -6.0f, 12, 5, 12, 0.0f, false));
         this.Cap_1.field_78804_l.add(new ModelBox(this.Cap_1, 36, 23, -3.5f, 5.0f, -3.5f, 7, 2, 7, 0.0f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.Body_1.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         super.func_78087_a(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);
         this.Leg_Left_1.field_78795_f = MathHelper.func_76134_b(limbSwing * 0.6662f) * 0.8f * limbSwingAmount;

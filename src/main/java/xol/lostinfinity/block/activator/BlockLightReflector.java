@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import java.util.ArrayList;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -15,27 +14,19 @@ import xol.lostinfinity.block.basic.BlockBasicRotational;
 import xol.lostinfinity.block.tileentity.TileEntityFusionTable;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.init.TabsInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockLightReflector.class */
 public class BlockLightReflector extends BlockBasicRotational {
     public BlockLightReflector(String name) {
         this(name, 60.0f, Material.field_151576_e);
         func_149715_a(0.7f);
     }
-
     public BlockLightReflector(String name, float hardness, Material material) {
         this(name, hardness, material, TabsInit.TAB_BLOCKS);
     }
-
     public BlockLightReflector(String name, float hardness, Material material, CreativeTabs tab) {
         super(name, hardness, material, tab);
     }
-
-    /* JADX INFO: renamed from: xol.lostinfinity.block.activator.BlockLightReflector$1, reason: invalid class name */
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockLightReflector$1.class */
-    static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] $SwitchMap$net$minecraft$util$EnumFacing = new int[EnumFacing.values().length];
-
+    static  class AnonymousClass1 {
+        static final  int[] $SwitchMap$net$minecraft$util$EnumFacing = new int[EnumFacing.values().length];
         static {
             try {
                 $SwitchMap$net$minecraft$util$EnumFacing[EnumFacing.NORTH.ordinal()] = 1;
@@ -55,7 +46,6 @@ public class BlockLightReflector extends BlockBasicRotational {
             }
         }
     }
-
     public IBlockState getStateNextRotation(IBlockState state) {
         EnumFacing facing = state.func_177229_b(field_185512_D);
         switch (AnonymousClass1.$SwitchMap$net$minecraft$util$EnumFacing[facing.ordinal()]) {
@@ -65,13 +55,12 @@ public class BlockLightReflector extends BlockBasicRotational {
                 return func_176223_P().func_177226_a(field_185512_D, EnumFacing.SOUTH);
             case 3:
                 return func_176223_P().func_177226_a(field_185512_D, EnumFacing.WEST);
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 return func_176223_P().func_177226_a(field_185512_D, EnumFacing.NORTH);
             default:
                 return state;
         }
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!worldIn.field_72995_K) {
             worldIn.func_175656_a(pos, getStateNextRotation(state));
@@ -80,11 +69,9 @@ public class BlockLightReflector extends BlockBasicRotational {
         }
         return true;
     }
-
     public IBlockState getStateWithFacing(EnumFacing facing) {
         return func_176223_P().func_177226_a(field_185512_D, facing);
     }
-
     public ArrayList<Vec3d> getBeamDirs(IBlockState state) {
         EnumFacing facing = state.func_177229_b(field_185512_D);
         ArrayList<Vec3d> beamDirs = new ArrayList<>();
@@ -101,7 +88,7 @@ public class BlockLightReflector extends BlockBasicRotational {
                 beamDirs.add(new Vec3d(0.0d, 0.0d, 1.0d));
                 beamDirs.add(new Vec3d(-1.0d, 0.0d, 0.0d));
                 break;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 beamDirs.add(new Vec3d(-1.0d, 0.0d, 0.0d));
                 beamDirs.add(new Vec3d(0.0d, 0.0d, -1.0d));
                 break;

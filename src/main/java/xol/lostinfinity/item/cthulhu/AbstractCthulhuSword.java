@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.cthulhu;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemSword;
@@ -10,8 +9,6 @@ import xol.lostinfinity.common.packets.serverbound.PacketCthulhuBarrier;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.mob.entity.cthulhu.EntityCthulhu;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/cthulhu/AbstractCthulhuSword.class */
 public abstract class AbstractCthulhuSword extends ItemSword {
     public AbstractCthulhuSword(String regName) {
         super(Item.ToolMaterial.DIAMOND);
@@ -21,12 +18,10 @@ public abstract class AbstractCthulhuSword extends ItemSword {
         func_77625_d(1);
         ItemInit.ITEMS.add(this);
     }
-
     @SideOnly(Side.CLIENT)
     protected static void sendCthulhuPacket(int flag, int value, int entityId) {
         lostinfinity.instance.packetHandler.sendServerBasicPacket(new PacketCthulhuBarrier(flag, value, entityId));
     }
-
     @SideOnly(Side.CLIENT)
     protected static boolean isHittingBarrier(EntityPlayer player) {
         EntityCthulhu cthulhu = (EntityCthulhu) player.field_70170_p.field_72996_f.stream().filter(entity -> {

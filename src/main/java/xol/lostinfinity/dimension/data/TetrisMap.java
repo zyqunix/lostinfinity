@@ -1,11 +1,8 @@
 package xol.lostinfinity.dimension.data;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/dimension/data/TetrisMap.class */
 public class TetrisMap {
     private TetrisNode[][] map;
     private int numColumns;
@@ -24,7 +21,6 @@ public class TetrisMap {
     private Random rand = new Random();
     private List<int[][][]> pieceCollection = new ArrayList();
     private List<TetrisNode> activeNodes = new ArrayList();
-
     public TetrisMap(int n, int m) {
         this.pieceList = null;
         this.pieceCollection.add(linePiece);
@@ -45,15 +41,12 @@ public class TetrisMap {
             this.pieceList = generate4FactorPieceList(n, m);
         }
     }
-
     public int[] getPieceList() {
         return this.pieceList;
     }
-
     public static void main(String[] args) {
         new TetrisMap(4, 8);
     }
-
     private int[] generate4FactorPieceList(int n, int m) {
         int[] pieceList = new int[5];
         ArrayList<int[]> combinationList = new ArrayList<>();
@@ -76,19 +69,15 @@ public class TetrisMap {
         }
         return pieceList;
     }
-
     public TetrisNode[][] getGrid() {
         return this.map;
     }
-
     public int getCol() {
         return this.numColumns;
     }
-
     public int getRow() {
         return this.numRows;
     }
-
     public List<TetrisNode> getNodesAtOrientation(int i, int j, int[][] orientation) {
         List<TetrisNode> nodes = new ArrayList<>();
         for (int k = 0; k < 4; k++) {
@@ -99,7 +88,6 @@ public class TetrisMap {
         }
         return nodes;
     }
-
     public TetrisNode getNodeAtLocation(int col, int row) {
         if (col < 0 || row < 0 || col >= this.numColumns || row >= this.numRows) {
             return null;

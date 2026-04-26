@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.render.cthulhu;
-
 import javax.annotation.Nullable;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -14,26 +13,18 @@ import xol.lostinfinity.mob.entity.cthulhu.EntityCthulhu;
 import xol.lostinfinity.mob.model.cthulhu.ModelCthulhu;
 import xol.lostinfinity.util.Reference;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/render/cthulhu/RenderCthulhu.class */
 public class RenderCthulhu extends RenderLiving<EntityCthulhu> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MODID, "textures/entity/cthulhu/cthulhu.png");
     private static final ResourceLocation PORTAL = new ResourceLocation(Reference.MODID, "textures/entity/cthulhu/cthulhu_portal.png");
     private static final ResourceLocation BARRIER_1 = new ResourceLocation(Reference.MODID, "textures/particles/cthulhu/barrier_1.png");
     private static final ResourceLocation BARRIER_2 = new ResourceLocation(Reference.MODID, "textures/particles/cthulhu/barrier_2.png");
-
     public RenderCthulhu(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelCthulhu(), 0.0f);
     }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Nullable
-    /* JADX INFO: renamed from: getEntityTexture, reason: merged with bridge method [inline-methods] */
     public ResourceLocation func_110775_a(EntityCthulhu entity) {
         return TEXTURE;
     }
-
-    /* JADX INFO: renamed from: doRender, reason: merged with bridge method [inline-methods] */
     public void func_76986_a(EntityCthulhu entity, double x, double y, double z, float entityYaw, float partialTicks) {
         super.func_76986_a(entity, x, y, z, entityYaw, partialTicks);
         GlStateManager.func_179129_p();
@@ -91,13 +82,9 @@ public class RenderCthulhu extends RenderLiving<EntityCthulhu> {
         GlStateManager.func_179084_k();
         GlStateManager.func_179145_e();
     }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX INFO: renamed from: preRenderCallback, reason: merged with bridge method [inline-methods] */
     public void func_77041_b(EntityCthulhu entitylivingbaseIn, float partialTickTime) {
         GlStateManager.func_179152_a(4.0f, 4.0f, 4.0f);
     }
-
     private void enableMaxLighting() {
         GlStateManager.func_179140_f();
         OpenGlHelper.func_77475_a(OpenGlHelper.field_77476_b, 240.0f, 240.0f);

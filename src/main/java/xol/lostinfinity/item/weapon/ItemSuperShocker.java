@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -29,15 +28,12 @@ import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.CustomRayTraceResult;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemSuperShocker.class */
 public class ItemSuperShocker extends ItemCooldown implements IMaxAttack, ICustomRaytrace, ICustomHoldPose, ISwitchModels, IModeSelect {
     public ItemSuperShocker(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_INFINITYWEP);
         setModelSwitch("zaptype", this, 2);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (!showDurabilityBar(stack)) {
@@ -64,7 +60,6 @@ public class ItemSuperShocker extends ItemCooldown implements IMaxAttack, ICusto
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     private int shockCreature(EntityPlayer attacker, EntityLivingBase entity, int denominator) {
         int level = 1;
         if (entity.func_70644_a(PotionInit.SHOCKED)) {
@@ -78,12 +73,10 @@ public class ItemSuperShocker extends ItemCooldown implements IMaxAttack, ICusto
         IParticleSpawner.spawnParticle(attacker.field_70170_p, config1, entity.field_70165_t, entity.field_70163_u + ((double) (entity.field_70131_O / 2.0f)), entity.field_70161_v);
         return level;
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 100;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Light_Purple + "Shocks a target that you are looking at.");
@@ -92,7 +85,6 @@ public class ItemSuperShocker extends ItemCooldown implements IMaxAttack, ICusto
         tooltip.add(TextFmt.Italic + "Radius of shock spread depends on target's number of shock stacks.");
         tooltip.add(TextFmt.Gold + "Deals (Single: 20%, AOE: 10%) Max Health Damage per stack of shock.");
     }
-
     @Override // xol.lostinfinity.item.classify.IModeSelect
     public void modeUpdate(ItemStack stack, EntityPlayer player) {
         if (!stack.func_77942_o()) {

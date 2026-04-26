@@ -1,5 +1,4 @@
 package xol.lostinfinity.common.events;
-
 import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
@@ -18,11 +17,8 @@ import xol.lostinfinity.block.basic.BlockBasicCrop;
 import xol.lostinfinity.block.basic.ISpecialMurkMeta;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.DimensionInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/common/events/EventsMurk.class */
 public class EventsMurk {
     private Random rand = new Random();
-
     @SubscribeEvent
     public void ChunkLoad(ChunkEvent.Load event) {
         World world = event.getWorld();
@@ -41,7 +37,6 @@ public class EventsMurk {
             chunk.func_177427_f(true);
         }
     }
-
     public static IBlockState getBlockToPlace(IBlockState state, int height) {
         Block block = state.func_177230_c();
         String regName = block.getRegistryName().toString();

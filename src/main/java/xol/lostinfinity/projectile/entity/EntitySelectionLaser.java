@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import java.util.regex.Pattern;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -9,37 +8,30 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.init.ParticleInit;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntitySelectionLaser.class */
 public class EntitySelectionLaser extends EntityBaseThrowable {
     private int selectionType;
     static Pattern pattern_ah = Pattern.compile("[a-h]");
     static Pattern pattern_io = Pattern.compile("[i-o]");
     static Pattern pattern_pz = Pattern.compile("[p-z]");
     static Pattern pattern_09 = Pattern.compile("[0-9]");
-
     public EntitySelectionLaser(World par1World) {
         super(par1World);
         this.selectionType = 0;
         func_70105_a(0.75f, 0.75f);
     }
-
     public EntitySelectionLaser(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
         this.selectionType = 0;
         func_70105_a(0.75f, 0.75f);
     }
-
     public EntitySelectionLaser(World par1World, double par2, double par4, double par6) {
         super(par1World, par2, par4, par6);
         this.selectionType = 0;
         func_70105_a(0.75f, 0.75f);
     }
-
     public void setSelectionType(int type) {
         this.selectionType = type;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -53,7 +45,6 @@ public class EntitySelectionLaser extends EntityBaseThrowable {
             func_70106_y();
         }
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     @SideOnly(Side.CLIENT)
     public void func_70071_h_() {
@@ -64,11 +55,9 @@ public class EntitySelectionLaser extends EntityBaseThrowable {
             }
         }
     }
-
     protected float func_70185_h() {
         return 0.0f;
     }
-
     private boolean regexMatch(int selection, String ch) {
         switch (selection) {
             case 0:

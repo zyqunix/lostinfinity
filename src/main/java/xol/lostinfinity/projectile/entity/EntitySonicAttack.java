@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -16,24 +15,19 @@ import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.PotionInit;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntitySonicAttack.class */
 public class EntitySonicAttack extends EntityBaseThrowable {
     public EntitySonicAttack(World worldIn) {
         super(worldIn);
         func_70105_a(1.0f, 1.0f);
     }
-
     public EntitySonicAttack(World worldIn, EntityLivingBase entityIn) {
         super(worldIn, entityIn);
         func_70105_a(1.0f, 1.0f);
     }
-
     public EntitySonicAttack(World worldIn, double x, double y, double z) {
         super(worldIn, x, y, z);
         func_70105_a(1.0f, 1.0f);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -64,7 +58,6 @@ public class EntitySonicAttack extends EntityBaseThrowable {
             func_70106_y();
         }
     }
-
     private void harvestFungus(BlockPos pos) {
         this.field_70170_p.func_175656_a(pos, BlockInit.forgebloom.func_176223_P());
         AxisAlignedBB checkBox = new AxisAlignedBB(pos.func_177982_a(-3, -3, -3), pos.func_177982_a(3, 3, 3));
@@ -74,7 +67,6 @@ public class EntitySonicAttack extends EntityBaseThrowable {
         }
         func_145779_a(ItemInit.mutantFungus, 1);
     }
-
     protected float func_70185_h() {
         return 0.0f;
     }

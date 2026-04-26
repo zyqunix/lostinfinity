@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.tool;
-
 import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -13,8 +12,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/tool/ItemForgefirePickaxe.class */
 public class ItemForgefirePickaxe extends ItemPickaxe {
     public ItemForgefirePickaxe(Item.ToolMaterial material, String regName) {
         super(material);
@@ -24,7 +21,6 @@ public class ItemForgefirePickaxe extends ItemPickaxe {
         setNoRepair();
         ItemInit.ITEMS.add(this);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Can travel to the ancient lost mines of Nonexistence.");

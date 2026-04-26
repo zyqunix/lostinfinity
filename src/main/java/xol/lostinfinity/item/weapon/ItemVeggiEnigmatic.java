@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.block.state.IBlockState;
@@ -28,14 +27,11 @@ import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.CustomRayTraceResult;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemVeggiEnigmatic.class */
 public class ItemVeggiEnigmatic extends ItemCooldown implements IMaxAttack, ICustomRaytrace, ICustomHoldPose {
     public ItemVeggiEnigmatic(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (!showDurabilityBar(stack)) {
@@ -64,12 +60,10 @@ public class ItemVeggiEnigmatic extends ItemCooldown implements IMaxAttack, ICus
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 100;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Light_Purple + "Shocks a target that you are looking at.");

@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -9,43 +8,34 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import xol.lostinfinity.init.ParticleInit;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityComet.class */
 public class EntityComet extends EntityBaseThrowable {
     private int count;
     private BlockPos starting;
-
     public EntityComet(World par1World) {
         super(par1World);
         this.count = 0;
         func_70105_a(1.0f, 1.0f);
     }
-
     public EntityComet(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
         this.count = 0;
         func_70105_a(1.0f, 1.0f);
     }
-
     public EntityComet(World par1World, double par2, double par4, double par6) {
         super(par1World, par2, par4, par6);
         this.count = 0;
         func_70105_a(1.0f, 1.0f);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void setThrower(EntityLivingBase throwset) {
         this.field_70192_c = throwset;
     }
-
     public void setCount(int newc) {
         this.count = newc;
     }
-
     public void setStartLoc(double sx, double sy, double sz) {
         this.starting = new BlockPos(sx, sy, sz);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -60,14 +50,12 @@ public class EntityComet extends EntityBaseThrowable {
             func_70106_y();
         }
     }
-
     protected float func_70185_h() {
         if (func_189652_ae()) {
             return 0.0f;
         }
         return 0.0366f;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void func_70071_h_() {
         super.func_70071_h_();

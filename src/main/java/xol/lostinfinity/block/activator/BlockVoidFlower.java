@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,13 +11,10 @@ import net.minecraft.world.World;
 import xol.lostinfinity.block.basic.BlockBasicPlant;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockVoidFlower.class */
 public class BlockVoidFlower extends BlockBasicPlant {
     public BlockVoidFlower(String name) {
         super(name, Material.field_151585_k);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!playerIn.func_70093_af() && playerIn.func_184586_b(hand).func_77973_b().equals(ItemInit.vacuumContainer)) {
             if (!worldIn.field_72995_K) {

@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.generator;
-
 import java.util.List;
 import java.util.UUID;
 import javax.annotation.Nullable;
@@ -17,13 +16,10 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/generator/BlockItemRipper.class */
 public class BlockItemRipper extends BlockGenerator implements IMaxAttack {
     public BlockItemRipper(String name) {
         super(name, 3.0f, Material.field_151576_e, TabsInit.TAB_BLOCKS);
     }
-
     @Override // xol.lostinfinity.block.generator.BlockGenerator
     public void activateGenerator(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, int power_upgrade, int efficiency_upgrade, int range_upgrade, int depth_upgrade, UUID placer_uuid) {
         for (EntityPlayer detected_player : worldIn.func_72872_a(EntityPlayer.class, new AxisAlignedBB(pos).func_72314_b(20.0d + ((double) (range_upgrade * 8)), 10.0d + ((double) (depth_upgrade * 4)), 20.0d + ((double) (range_upgrade * 8))))) {
@@ -39,7 +35,6 @@ public class BlockItemRipper extends BlockGenerator implements IMaxAttack {
             }
         }
     }
-
     @SideOnly(Side.CLIENT)
     public void func_190948_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Italic + "Steals all items in a radius when given a Celestial Redstone.");

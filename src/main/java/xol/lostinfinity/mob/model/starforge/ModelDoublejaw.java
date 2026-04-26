@@ -1,12 +1,9 @@
 package xol.lostinfinity.mob.model.starforge;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/starforge/ModelDoublejaw.class */
 public class ModelDoublejaw extends ModelBase {
     private final ModelRenderer bottom;
     private final ModelRenderer MouthR;
@@ -20,7 +17,6 @@ public class ModelDoublejaw extends ModelBase {
     private final ModelRenderer LeafR2;
     private final ModelRenderer LeafL2;
     private final ModelRenderer Body2;
-
     public ModelDoublejaw() {
         this.field_78090_t = 128;
         this.field_78089_u = 128;
@@ -108,18 +104,15 @@ public class ModelDoublejaw extends ModelBase {
         this.Body2.field_78804_l.add(new ModelBox(this.Body2, 0, 72, -8.0f, -8.0f, -8.0f, 16, 8, 16, 0.0f, false));
         this.Body2.field_78804_l.add(new ModelBox(this.Body2, 100, 29, -3.0f, -19.0f, -3.0f, 6, 11, 6, 0.0f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.bottom.func_78785_a(f5);
         this.top.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.MouthL.field_78808_h = (-0.35f) + (0.35f * MathHelper.func_76126_a(ageInTicks * 0.1f));
         this.MouthR.field_78808_h = -this.MouthL.field_78808_h;

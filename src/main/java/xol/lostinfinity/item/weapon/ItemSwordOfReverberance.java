@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -20,8 +19,6 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.classify.IMaxReducible;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemSwordOfReverberance.class */
 public class ItemSwordOfReverberance extends ItemSword implements IMaxAttack, IMaxReducible {
     public ItemSwordOfReverberance(String regName) {
         super(Item.ToolMaterial.DIAMOND);
@@ -30,7 +27,6 @@ public class ItemSwordOfReverberance extends ItemSword implements IMaxAttack, IM
         func_77655_b(regName);
         ItemInit.ITEMS.add(this);
     }
-
     public boolean func_77644_a(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         if (!(attacker instanceof EntityPlayer)) {
             return false;
@@ -54,7 +50,6 @@ public class ItemSwordOfReverberance extends ItemSword implements IMaxAttack, IM
         }
         return false;
     }
-
     @Override // xol.lostinfinity.item.classify.IMaxReducible
     public float reduceMaxDamage(EntityPlayer player, boolean isMainHand, float damage, float reductionMultiplier, ItemStack stack) {
         if (!stack.func_77942_o()) {
@@ -70,7 +65,6 @@ public class ItemSwordOfReverberance extends ItemSword implements IMaxAttack, IM
         stack.func_77978_p().func_74768_a("sword_charge", newChargeTotal);
         return newMulti;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Light_Purple + "When held, reduces max health damage taken by 10%.");

@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -22,11 +21,8 @@ import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.misc.ItemGeolocationOrb;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockGeolocator.class */
 public class BlockGeolocator extends Block {
     private int blockType;
-
     public BlockGeolocator(String name, int locatorType) {
         super(Material.field_151573_f);
         this.blockType = 0;
@@ -40,7 +36,6 @@ public class BlockGeolocator extends Block {
         BlockInit.BLOCKS.add(this);
         ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(getRegistryName()));
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!playerIn.func_70093_af()) {
             if (this.blockType != 4) {

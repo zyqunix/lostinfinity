@@ -1,11 +1,8 @@
 package xol.lostinfinity.item.armor.model;
-
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/armor/model/ModelArmorVampyreon.class */
 public class ModelArmorVampyreon extends ModelLostArmor {
     private final ModelRenderer wingR;
     private final ModelRenderer WingR3_r1;
@@ -17,7 +14,6 @@ public class ModelArmorVampyreon extends ModelLostArmor {
     private final ModelRenderer LeftArmLayer_r2;
     private final ModelRenderer RightBoot;
     private final ModelRenderer LeftBoot;
-
     public ModelArmorVampyreon() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -104,17 +100,14 @@ public class ModelArmorVampyreon extends ModelLostArmor {
         this.LeftBoot.field_78804_l.add(new ModelBox(this.LeftBoot, 68, 32, 0.9f, -6.0f, 3.0f, 2, 6, 2, 0.25f, true));
         this.LeftBoot.field_78804_l.add(new ModelBox(this.LeftBoot, 0, 54, 0.9f, -7.5f, 2.0f, 2, 1, 3, 0.25f, true));
     }
-
     public void func_78088_a(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
         super.func_78088_a(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
     }
-
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     @Override // xol.lostinfinity.item.armor.model.ModelLostArmor
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         super.func_78087_a(limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scaleFactor, entityIn);

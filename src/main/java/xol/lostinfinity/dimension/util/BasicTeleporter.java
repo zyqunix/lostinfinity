@@ -1,5 +1,4 @@
 package xol.lostinfinity.dimension.util;
-
 import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
 import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.objects.ObjectIterator;
@@ -11,15 +10,12 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.WorldServer;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/dimension/util/BasicTeleporter.class */
 public class BasicTeleporter extends Teleporter {
     private final Long2ObjectMap<Teleporter.PortalPosition> destinationCoordinateCache;
     private double goToX;
     private double goToY;
     private double goToZ;
     private boolean strict;
-
     public BasicTeleporter(WorldServer par1WorldServer, double xpos, double ypos, double zpos) {
         super(par1WorldServer);
         this.destinationCoordinateCache = new Long2ObjectOpenHashMap(4096);
@@ -29,7 +25,6 @@ public class BasicTeleporter extends Teleporter {
         this.goToY = ypos;
         this.goToZ = zpos;
     }
-
     public BasicTeleporter(WorldServer par1WorldServer, double xpos, double ypos, double zpos, boolean strictSet) {
         super(par1WorldServer);
         this.destinationCoordinateCache = new Long2ObjectOpenHashMap(4096);
@@ -40,15 +35,12 @@ public class BasicTeleporter extends Teleporter {
         this.goToZ = zpos;
         this.strict = strictSet;
     }
-
     public boolean func_85188_a(Entity p_85188_1_) {
         return false;
     }
-
     public boolean func_180620_b(Entity entityIn, float p_180620_2_) {
         return false;
     }
-
     public void func_180266_a(Entity entityIn, float rotationYaw) {
         if (entityIn.field_70170_p.field_73011_w.func_186058_p() == DimensionType.OVERWORLD || this.strict) {
             entityIn.func_70012_b(this.goToX, this.goToY, this.goToZ, entityIn.field_70177_z, 0.0f);
@@ -72,7 +64,6 @@ public class BasicTeleporter extends Teleporter {
         entityIn.field_70181_x = 0.0d;
         entityIn.field_70159_w = 0.0d;
     }
-
     public void func_85189_a(long worldTime) {
         if (worldTime % 100 == 0) {
             long i = worldTime - 300;

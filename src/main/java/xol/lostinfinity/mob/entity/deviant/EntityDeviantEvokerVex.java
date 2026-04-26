@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.deviant;
-
 import java.util.UUID;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -15,17 +14,13 @@ import net.minecraft.world.World;
 import xol.lostinfinity.mob.ai.EntityAIFloatAttack;
 import xol.lostinfinity.mob.entity.base.EntityFloatingDeviant;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/deviant/EntityDeviantEvokerVex.class */
 public class EntityDeviantEvokerVex extends EntityFloatingDeviant implements IMaxAttack, IEntityOwnable {
     protected static final DataParameter<Boolean> TAMED = EntityDataManager.func_187226_a(EntityDeviantEvokerVex.class, DataSerializers.field_187198_h);
     protected static final DataParameter<Integer> OWNER_ID = EntityDataManager.func_187226_a(EntityDeviantEvokerVex.class, DataSerializers.field_187192_b);
-
     public EntityDeviantEvokerVex(World worldIn) {
         super(worldIn);
         func_70105_a(1.0f, 1.3f);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingDeviant
     public void func_110147_ax() {
         super.func_110147_ax();
@@ -33,7 +28,6 @@ public class EntityDeviantEvokerVex extends EntityFloatingDeviant implements IMa
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.5d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(800.0d);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -42,19 +36,15 @@ public class EntityDeviantEvokerVex extends EntityFloatingDeviant implements IMa
         }
         return false;
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundEvents.field_191266_he;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundEvents.field_191267_hf;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundEvents.field_191264_hc;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingDeviant
     public void func_70636_d() {
         super.func_70636_d();
@@ -67,31 +57,25 @@ public class EntityDeviantEvokerVex extends EntityFloatingDeviant implements IMa
             }
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingDeviant, xol.lostinfinity.mob.entity.base.EntityDeviantMob, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(TAMED, false);
         this.field_70180_af.func_187214_a(OWNER_ID, 0);
     }
-
     public boolean isTamed() {
         return ((Boolean) this.field_70180_af.func_187225_a(TAMED)).booleanValue();
     }
-
     public void setTamed(boolean tamed) {
         this.field_70180_af.func_187227_b(TAMED, Boolean.valueOf(tamed));
     }
-
     public void setTamedBy(EntityLivingBase tamer) {
         setTamed(true);
         setOwnerId(tamer.func_145782_y());
     }
-
     public void setOwnerId(int id) {
         this.field_70180_af.func_187227_b(OWNER_ID, Integer.valueOf(id));
     }
-
     public UUID func_184753_b() {
         Entity owner = this.field_70170_p.func_73045_a(((Integer) this.field_70180_af.func_187225_a(OWNER_ID)).intValue());
         if (owner != null) {
@@ -99,11 +83,9 @@ public class EntityDeviantEvokerVex extends EntityFloatingDeviant implements IMa
         }
         return null;
     }
-
     public Entity func_70902_q() {
         return this.field_70170_p.func_73045_a(((Integer) this.field_70180_af.func_187225_a(OWNER_ID)).intValue());
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingDeviant
     protected EntityAIFloatAttack createShootAI() {
         return null;

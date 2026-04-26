@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityShulkerBullet;
@@ -12,17 +11,13 @@ import xol.lostinfinity.mob.entity.deviant.prime.EntityLivorax;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityLivoraxBullet.class */
 public class EntityLivoraxBullet extends EntityShulkerBullet implements IMaxAttack {
     public EntityLivoraxBullet(World worldIn) {
         super(worldIn);
     }
-
     public EntityLivoraxBullet(World worldIn, EntityLivingBase ownerIn, Entity targetIn) {
         super(worldIn, ownerIn, targetIn, EnumFacing.Axis.X);
     }
-
     protected void func_184567_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
             if (result.field_72308_g != null && (result.field_72308_g instanceof EntityLivingBase)) {
@@ -31,7 +26,6 @@ public class EntityLivoraxBullet extends EntityShulkerBullet implements IMaxAtta
             func_70106_y();
         }
     }
-
     public void func_70071_h_() {
         super.func_70071_h_();
         this.field_70159_w *= 1.2000000476837158d;

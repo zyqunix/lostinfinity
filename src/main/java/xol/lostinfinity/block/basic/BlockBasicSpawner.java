@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.basic;
-
 import javax.annotation.Nonnull;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockMobSpawner;
@@ -16,12 +15,9 @@ import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.util.Reference;
 import xol.lostinfinity.util.load.CustomLazyLoad;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/basic/BlockBasicSpawner.class */
 public class BlockBasicSpawner extends BlockMobSpawner {
     protected String mobName;
     private final LazyLoadBase<ITileEntityProvider> spawnerReference;
-
     public BlockBasicSpawner(String name, String mobName) {
         this.mobName = mobName;
         func_149663_c(name);
@@ -39,7 +35,6 @@ public class BlockBasicSpawner extends BlockMobSpawner {
             return null;
         });
     }
-
     public TileEntity func_149915_a(World world, int par1) {
         TileEntity spawner = null;
         ITileEntityProvider entityProvider = (ITileEntityProvider) this.spawnerReference.func_179281_c();
@@ -51,7 +46,6 @@ public class BlockBasicSpawner extends BlockMobSpawner {
         }
         return spawner;
     }
-
     private void insertModData(@Nonnull TileEntity spawner) {
         NBTTagCompound spawnerNBT = spawner.func_189515_b(new NBTTagCompound());
         spawnerNBT.func_74778_a("SpawnPotentials", this.mobName);

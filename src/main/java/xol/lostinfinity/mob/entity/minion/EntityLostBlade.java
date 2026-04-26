@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.minion;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
@@ -28,40 +27,32 @@ import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/minion/EntityLostBlade.class */
 public class EntityLostBlade extends EntityMinion {
     private static final DataParameter<Integer> POSE = EntityDataManager.func_187226_a(EntityLostBlade.class, DataSerializers.field_187192_b);
     private static final double VELOCITY = 2.0d;
     private static final double ATTACK_COOLDOWN = 400.0d;
     private final Map<Entity, Long> attackCooldown;
     private EntityLivingBase target;
-
     public EntityLostBlade(World worldIn) {
         super(worldIn);
         this.attackCooldown = new ConcurrentHashMap();
         func_70105_a(0.5f, 0.5f);
     }
-
     @Override // xol.lostinfinity.mob.entity.minion.EntityMinion
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(POSE, -1);
     }
-
     public void setTarget(EntityLivingBase livingBase) {
         this.target = livingBase;
     }
-
     public void setPose(int pose) {
         this.field_70180_af.func_187227_b(POSE, Integer.valueOf(pose));
         setLocation();
     }
-
     public int getPose() {
         return ((Integer) this.field_70180_af.func_187225_a(POSE)).intValue();
     }
-
     @Override // xol.lostinfinity.mob.entity.minion.EntityMinion
     public void livingUpdate() {
         EntityPlayer owner = func_70902_q();
@@ -131,7 +122,6 @@ public class EntityLostBlade extends EntityMinion {
         this.field_70759_as = 0.0f;
         this.field_70761_aq = 0.0f;
     }
-
     protected void func_82167_n(Entity entityIn) {
         if (!this.field_70170_p.field_72995_K && isActive() && (entityIn instanceof EntityLivingBase) && !(entityIn instanceof EntityImmaterial) && entityIn != func_70902_q()) {
             Long time = this.attackCooldown.get(entityIn);
@@ -155,11 +145,9 @@ public class EntityLostBlade extends EntityMinion {
             }
         }
     }
-
     protected void func_70665_d(DamageSource damageSrc, float damageAmount) {
         super.func_70665_d(damageSrc, damageAmount);
     }
-
     protected void setLocation() {
         Vec3d pos;
         float yaw;
@@ -180,7 +168,7 @@ public class EntityLostBlade extends EntityMinion {
                 pos = new Vec3d(-0.25d, 1.0d, -0.5d);
                 yaw = this.owner.field_70761_aq - 10.0f;
                 break;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 pos = new Vec3d(-0.5d, 1.1d, -0.55d);
                 yaw = this.owner.field_70761_aq - 20.0f;
                 break;
@@ -196,7 +184,6 @@ public class EntityLostBlade extends EntityMinion {
         this.field_70759_as = yaw;
         this.field_70761_aq = yaw;
     }
-
     private ItemLostBladesOfInfinity.BladeMode getMode(ItemStack stack) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
@@ -204,7 +191,6 @@ public class EntityLostBlade extends EntityMinion {
         }
         return ItemLostBladesOfInfinity.BladeMode.values()[stack.func_77978_p().func_74762_e("blade_mode")];
     }
-
     private void findClosestTarget() {
         List<EntityLivingBase> targets = this.field_70170_p.func_175647_a(EntityLivingBase.class, this.owner.func_174813_aQ().func_186662_g(24.0d), (v1) -> {
             return validateTarget(v1);

@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.misc;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -22,8 +21,6 @@ import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.classify.IHotbarDeath;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/misc/ItemFlaskOfForbidden.class */
 public class ItemFlaskOfForbidden extends Item implements IHotbarDeath {
     public ItemFlaskOfForbidden(String regName) {
         func_77637_a(TabsInit.TAB_AUXWEP);
@@ -31,7 +28,6 @@ public class ItemFlaskOfForbidden extends Item implements IHotbarDeath {
         func_77655_b(regName);
         ItemInit.ITEMS.add(this);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Aqua + "When taking max health damage that would kill you, activate this flask instead.");
@@ -41,7 +37,6 @@ public class ItemFlaskOfForbidden extends Item implements IHotbarDeath {
         tooltip.add(TextFmt.Gold + "If you already have Last Breath, increase the strength of both effects by 1.");
         tooltip.add(TextFmt.Red + "You die if you go beyond Last Breath V.");
     }
-
     @Override // xol.lostinfinity.item.classify.IHotbarDeath
     public boolean playedKilled(ItemStack stack, EntityPlayer player, Entity attacker, float damageDealt) {
         World world = player.field_70170_p;
@@ -59,7 +54,6 @@ public class ItemFlaskOfForbidden extends Item implements IHotbarDeath {
         player.func_70691_i(player.func_110138_aP() * 0.2f);
         return false;
     }
-
     private void potionApplication(World world, EntityPlayer player, int amp) {
         player.func_70690_d(new PotionEffect(PotionInit.LAST_BREATH, 200, amp));
         for (EntityLivingBase near_creature : player.field_70170_p.func_72872_a(EntityLivingBase.class, player.func_174813_aQ().func_72314_b(20.0d, 10.0d, 20.0d))) {

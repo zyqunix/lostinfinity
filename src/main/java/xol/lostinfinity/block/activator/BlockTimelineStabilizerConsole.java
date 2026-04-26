@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import java.util.ArrayList;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
@@ -22,15 +21,11 @@ import xol.lostinfinity.dimension.data.MazeNode;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockTimelineStabilizerConsole.class */
 public class BlockTimelineStabilizerConsole extends BlockBasic {
     public static final PropertyInteger AMOUNT = PropertyInteger.func_177719_a("amount", 0, 1);
-
     public BlockTimelineStabilizerConsole(String name) {
         super(name);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (worldIn.field_72995_K || playerIn.func_70093_af()) {
             if (!worldIn.field_72995_K) {
@@ -74,11 +69,9 @@ public class BlockTimelineStabilizerConsole extends BlockBasic {
         }
         return true;
     }
-
     public static Vec3i getRotatedVec(Vec3i vec, double rad) {
         return new Vec3i(Math.round(((double) vec.func_177958_n()) * Math.cos(rad)) + Math.round(((double) vec.func_177952_p()) * Math.sin(rad)), vec.func_177956_o(), Math.round(((double) (-vec.func_177958_n())) * Math.sin(rad)) + Math.round(((double) vec.func_177952_p()) * Math.cos(rad)));
     }
-
     private void generateMaze(ItemStack stack, World worldIn) {
         double rad;
         MazeNode mazeNode;
@@ -155,19 +148,15 @@ public class BlockTimelineStabilizerConsole extends BlockBasic {
             }
         }
     }
-
     public IBlockState func_180642_a(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
         return func_176223_P().func_177226_a(AMOUNT, 0);
     }
-
     public IBlockState func_176203_a(int meta) {
         return func_176223_P().func_177226_a(AMOUNT, Integer.valueOf(meta));
     }
-
     public int func_176201_c(IBlockState state) {
         return ((Integer) state.func_177229_b(AMOUNT)).intValue();
     }
-
     protected BlockStateContainer func_180661_e() {
         return new BlockStateContainer(this, new IProperty[]{AMOUNT});
     }

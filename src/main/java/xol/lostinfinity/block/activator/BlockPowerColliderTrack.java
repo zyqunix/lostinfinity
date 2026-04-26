@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import java.util.ArrayList;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
@@ -16,32 +15,24 @@ import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.World;
 import xol.lostinfinity.block.basic.BlockBasic;
 import xol.lostinfinity.block.tileentity.TileEntityPowerCollider;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockPowerColliderTrack.class */
 public class BlockPowerColliderTrack extends BlockBasic {
     public static final PropertyInteger AMOUNT = PropertyInteger.func_177719_a("amount", 0, 2);
     private static final Vec3i offset = new Vec3i(0, 0, 0);
-
     public BlockPowerColliderTrack(String name) {
         super(name);
     }
-
     public IBlockState func_180642_a(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
         return func_176223_P().func_177226_a(AMOUNT, 0);
     }
-
     public IBlockState func_176203_a(int meta) {
         return func_176223_P().func_177226_a(AMOUNT, Integer.valueOf(meta));
     }
-
     public int func_176201_c(IBlockState state) {
         return ((Integer) state.func_177229_b(AMOUNT)).intValue();
     }
-
     protected BlockStateContainer func_180661_e() {
         return new BlockStateContainer(this, new IProperty[]{AMOUNT});
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         BlockPos collider;
         TileEntity tileEntity;
@@ -52,7 +43,6 @@ public class BlockPowerColliderTrack extends BlockBasic {
         }
         return true;
     }
-
     private BlockPos findCollider(World worldIn, BlockPos pos) {
         BlockPos ref = pos.func_177971_a(offset);
         for (int i = -30; i < 30; i++) {
@@ -66,7 +56,6 @@ public class BlockPowerColliderTrack extends BlockBasic {
         }
         return null;
     }
-
     ArrayList<BlockPos> getNeighbours(BlockPos pos) {
         ArrayList<BlockPos> neighbours = new ArrayList<>();
         neighbours.add(pos.func_177982_a(1, 0, 0));

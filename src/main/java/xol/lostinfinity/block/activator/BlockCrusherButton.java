@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -18,13 +17,10 @@ import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.util.coordinates.GalaxyCoordinates;
 import xol.lostinfinity.util.damagesource.DeathMessage;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockCrusherButton.class */
 public class BlockCrusherButton extends BlockBasic {
     public BlockCrusherButton(String name) {
         super(name);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!worldIn.field_72995_K) {
             AxisAlignedBB crushBox = GalaxyCoordinates.crusherAABB();

@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.contest.operator;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -22,8 +21,6 @@ import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.mob.entity.contest.controller.EntityControllerParkour;
 import xol.lostinfinity.util.coordinates.ContestCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/contest/operator/EntityOperatorParkour.class */
 public class EntityOperatorParkour extends EntityOperatorBase {
     private List<BlockPos> spawnPositions;
     private static final int normalHeight = 6;
@@ -31,12 +28,10 @@ public class EntityOperatorParkour extends EntityOperatorBase {
     private static final int maxHeight = 9;
     private static final int pillarStartHeight = 22;
     private static final int pillarHeight = 37;
-
     public EntityOperatorParkour(World worldIn) {
         super(worldIn);
         this.spawnPositions = new ArrayList();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     public boolean func_184645_a(EntityPlayer player, EnumHand hand) {
         if (!this.field_70170_p.field_72995_K) {
@@ -59,7 +54,6 @@ public class EntityOperatorParkour extends EntityOperatorBase {
         }
         return true;
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected boolean canStartGame() {
         int pl_count = 0;
@@ -81,7 +75,6 @@ public class EntityOperatorParkour extends EntityOperatorBase {
         }
         return pl_count == 1;
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected void startGame() {
         this.spawnPositions.add(ContestCoordinates.parkourSpawnPos());
@@ -105,24 +98,20 @@ public class EntityOperatorParkour extends EntityOperatorBase {
         this.spawnPositions.clear();
         this.contenders.clear();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected AxisAlignedBB getArenaAABB() {
         return ContestCoordinates.parkourArenaAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected AxisAlignedBB getLobbyAABB() {
         return ContestCoordinates.parkourLobbyAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected void generateArena() {
         if (!this.field_70170_p.field_72995_K) {
             genParkour(this.field_70170_p, 1);
         }
     }
-
     public static void genParkour(World world, int round) {
         int columns;
         int rows;
@@ -261,7 +250,7 @@ public class EntityOperatorParkour extends EntityOperatorBase {
                         world.func_175656_a(new BlockPos(realX2, realY, realZ2), BlockInit.championGlowingTile.func_176203_a(randMeta2));
                     }
                     break;
-                case minHeight /* 3 */:
+                case minHeight :
                     if (rand.nextInt(minHeight) == 0) {
                         world.func_175656_a(new BlockPos(realX2, realY, realZ2), BlockInit.parkourPlatform.func_176203_a(0));
                     } else {
@@ -269,7 +258,7 @@ public class EntityOperatorParkour extends EntityOperatorBase {
                         world.func_175656_a(new BlockPos(realX2, realY, realZ2), BlockInit.championGlowingTile.func_176203_a(randMeta3));
                     }
                     break;
-                case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+                case TileEntityFusionTable.BOARD_ROWS :
                     if (rand.nextInt(minHeight) == 0) {
                         if (last) {
                             world.func_175656_a(new BlockPos(realX2, realY, realZ2), BlockInit.parkourPlatform.func_176203_a(1));
@@ -306,7 +295,6 @@ public class EntityOperatorParkour extends EntityOperatorBase {
             }
         }
     }
-
     public static ArrayList<ParkourNode> findPath(ParkourNode[][] grid, ParkourNode cur, ParkourNode end, ArrayList<ParkourNode> path) {
         int height;
         ArrayList<ParkourNode> nodePath;
@@ -346,7 +334,6 @@ public class EntityOperatorParkour extends EntityOperatorBase {
         }
         return null;
     }
-
     public static boolean hasAdjacents(ParkourNode[][] grid, ParkourNode node, ArrayList<ParkourNode> path) {
         ParkourNode adjacent;
         for (int i = -1; i <= 1; i++) {
@@ -360,7 +347,6 @@ public class EntityOperatorParkour extends EntityOperatorBase {
         }
         return false;
     }
-
     public static ArrayList<ParkourNode> getAdjacents(ParkourNode[][] grid, ArrayList<ParkourNode> nodes, ArrayList<ParkourNode> path, ArrayList<ParkourNode> exclude) {
         ArrayList<ParkourNode> adjacents = new ArrayList<>();
         for (ParkourNode node : nodes) {
@@ -383,7 +369,6 @@ public class EntityOperatorParkour extends EntityOperatorBase {
         }
         return adjacents;
     }
-
     public static ArrayList<Vec3i> getDirs(int dist) {
         ArrayList<Vec3i> dirs = new ArrayList<>();
         for (int i = 0; i <= dist; i++) {
@@ -398,7 +383,6 @@ public class EntityOperatorParkour extends EntityOperatorBase {
         }
         return dirs;
     }
-
     public static ParkourNode getNodeAtLocation(ParkourNode[][] grid, int x, int z) {
         if (grid != null && x >= 0 && x < grid.length && z >= 0 && z < grid[x].length) {
             return grid[x][z];

@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.boss;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import net.minecraft.block.state.IBlockState;
@@ -20,8 +19,6 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.mob.entity.base.EntityMultipleLives;
 import xol.lostinfinity.projectile.entity.EntityPuzzleMasterArrow;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/boss/EntityPuzzleMaster.class */
 public class EntityPuzzleMaster extends EntityMultipleLives {
     private boolean shockwave;
     private ArrayList<BlockPos> waveBlocks;
@@ -45,7 +42,6 @@ public class EntityPuzzleMaster extends EntityMultipleLives {
     private static final IBlockState platformState = BlockInit.labyrinthMetalBlack.func_176223_P();
     private static final IBlockState turretActive = BlockInit.puzzleMasterTurret.func_176203_a(1);
     private static final IBlockState turretInactive = BlockInit.puzzleMasterTurret.func_176203_a(0);
-
     public EntityPuzzleMaster(World worldIn) {
         super(worldIn);
         this.shockwave = false;
@@ -65,7 +61,6 @@ public class EntityPuzzleMaster extends EntityMultipleLives {
         this.lavaPositions = new ArrayList<>();
         func_70105_a(2.0f, 6.0f);
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         if (!this.field_70170_p.field_72995_K) {
@@ -135,7 +130,6 @@ public class EntityPuzzleMaster extends EntityMultipleLives {
             }
         }
     }
-
     private void initPlatforms() {
         messagePlayers("YOU BETTER HIDE SOMEWHERE HIGHER UP!");
         soundPlayers(SoundInit.CINEMATIC_WARNING, 1.25f);
@@ -163,7 +157,6 @@ public class EntityPuzzleMaster extends EntityMultipleLives {
             this.field_70170_p.func_175656_a(platformPos, platformState);
         }
     }
-
     private void initLava() {
         soundPlayers(SoundInit.WATER_REVEAL, 1.25f);
         AxisAlignedBB arena = getArenaAABB();
@@ -182,7 +175,6 @@ public class EntityPuzzleMaster extends EntityMultipleLives {
             }
         }
     }
-
     private void endLava() {
         for (BlockPos platformPos : this.platforms) {
             this.field_70170_p.func_175698_g(platformPos);
@@ -193,7 +185,6 @@ public class EntityPuzzleMaster extends EntityMultipleLives {
         this.lavaPositions.clear();
         this.platforms.clear();
     }
-
     private void updateTurrets() {
         for (BlockPos turretPos : this.wallTurrets) {
             int index = this.wallTurrets.indexOf(turretPos);
@@ -216,7 +207,6 @@ public class EntityPuzzleMaster extends EntityMultipleLives {
             }
         }
     }
-
     private void fireTurrets() {
         soundPlayers(SoundInit.GENERIC_WEAPON_14, 1.25f);
         AxisAlignedBB arena = getArenaAABB();
@@ -234,7 +224,6 @@ public class EntityPuzzleMaster extends EntityMultipleLives {
             }
         }
     }
-
     private void initTurrets() {
         messagePlayers("DODGE THIS!");
         AxisAlignedBB arena = getArenaAABB();
@@ -253,7 +242,6 @@ public class EntityPuzzleMaster extends EntityMultipleLives {
             }
         }
     }
-
     private void initQuadrants() {
         AxisAlignedBB arena = getArenaAABB();
         int xMin = ((int) arena.field_72340_a) + 1;
@@ -297,7 +285,6 @@ public class EntityPuzzleMaster extends EntityMultipleLives {
         this.quadrants.add(quadrant4);
         this.curQuadrant = this.field_70146_Z.nextInt(4);
     }
-
     private void startShockwave() {
         messagePlayers("SHOCKWAVE!");
         soundPlayers(SoundInit.ENERGY_PULSE, 1.25f);
@@ -313,7 +300,6 @@ public class EntityPuzzleMaster extends EntityMultipleLives {
             this.shockwave = true;
         }
     }
-
     private void endShockwave() {
         if (!this.waveBlocks.isEmpty()) {
             for (BlockPos wavePos : this.waveBlocks) {
@@ -325,7 +311,6 @@ public class EntityPuzzleMaster extends EntityMultipleLives {
         this.shockwave = false;
         this.wavePos = null;
     }
-
     private void progressWave() {
         BlockPos tempPos;
         if (this.wavePos == null) {
@@ -371,7 +356,6 @@ public class EntityPuzzleMaster extends EntityMultipleLives {
             this.curWaveDist++;
         }
     }
-
     private void updateQuadrants() {
         soundPlayers(SoundInit.LIGHT_MAGIC, 1.25f);
         for (int i = 0; i < this.quadrants.size(); i++) {
@@ -387,7 +371,6 @@ public class EntityPuzzleMaster extends EntityMultipleLives {
             }
         }
     }
-
     private void phaseUp() {
         this.phaseTimer = 0;
         if (this.phase == 0) {
@@ -403,11 +386,9 @@ public class EntityPuzzleMaster extends EntityMultipleLives {
             this.phase = 0;
         }
     }
-
     private void endTurrets() {
         this.inActiveTurrets.clear();
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -416,38 +397,31 @@ public class EntityPuzzleMaster extends EntityMultipleLives {
         }
         return false;
     }
-
     protected boolean func_70692_ba() {
         return false;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 300;
     }
-
     private AxisAlignedBB getArenaAABB() {
         return new AxisAlignedBB(new BlockPos(-9.0d, 29.0d, -9.0d), new BlockPos(24.0d, 40.0d, 24.0d));
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void updateLifeAction() {
         int lifePercent = Math.round((100 * (numberOfLives() - getLivesCount())) / numberOfLives());
         messagePlayers(TextFmt.Gold + "The Puzzle Master is at " + lifePercent + "% health.");
     }
-
     protected void messagePlayers(String message) {
         for (EntityPlayer contender : this.field_70170_p.func_72872_a(EntityPlayer.class, getArenaAABB())) {
             contender.func_145747_a(new TextComponentString(message));
         }
     }
-
     protected void soundPlayers(SoundEvent sound, float vol) {
         for (EntityPlayer contender : this.field_70170_p.func_72872_a(EntityPlayer.class, getArenaAABB())) {
             this.field_70170_p.func_184133_a((EntityPlayer) null, contender.func_180425_c(), sound, SoundCategory.MASTER, vol, 0.9f + (this.field_70146_Z.nextFloat() * 0.2f));
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void trueDeathAction() {
         if (!this.field_70170_p.field_72995_K) {
@@ -455,7 +429,6 @@ public class EntityPuzzleMaster extends EntityMultipleLives {
             func_145779_a(ItemInit.interspaceTransmitter, 1);
         }
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(1.0d);

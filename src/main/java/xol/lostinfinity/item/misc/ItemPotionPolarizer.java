@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.misc;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -22,13 +21,10 @@ import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.basics.ItemBasic;
 import xol.lostinfinity.item.classify.IHotbarTick;
 import xol.lostinfinity.util.PotionBasic;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/misc/ItemPotionPolarizer.class */
 public class ItemPotionPolarizer extends ItemBasic implements IHotbarTick {
     public ItemPotionPolarizer(String regName) {
         super(regName, TabsInit.TAB_AUXWEP);
     }
-
     @Override // xol.lostinfinity.item.classify.IHotbarTick
     public void hotbarTick(EntityPlayer player, int itemSlot, ItemStack stack) {
         if (!stack.func_77942_o()) {
@@ -106,7 +102,6 @@ public class ItemPotionPolarizer extends ItemBasic implements IHotbarTick {
             player.func_70690_d(it5.next());
         }
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "While in the hotbar, adjusts potion effects added to you.");

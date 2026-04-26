@@ -1,5 +1,4 @@
 package xol.lostinfinity.gui.containers;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -9,8 +8,6 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.block.tileentity.TileEntityNebulousBeacon;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/containers/ContainerNebulousBeacon.class */
 public class ContainerNebulousBeacon extends Container {
     private static final int PLAYER_INVENTORY_ROW_COUNT = 3;
     private static final int PLAYER_INVENTORY_COLUMN_COUNT = 9;
@@ -18,7 +15,6 @@ public class ContainerNebulousBeacon extends Container {
     private final TileEntityNebulousBeacon tileEntity;
     private int lastHealth;
     private int lastDuration;
-
     public ContainerNebulousBeacon(InventoryPlayer invPlayer, TileEntityNebulousBeacon tileEntity) {
         this.invPlayer = invPlayer;
         this.tileEntity = tileEntity;
@@ -32,21 +28,17 @@ public class ContainerNebulousBeacon extends Container {
             func_75146_a(new Slot(this.invPlayer, hotbarColumn, 8 + (hotbarColumn * 18), 142));
         }
     }
-
     public boolean func_75145_c(EntityPlayer playerIn) {
         return true;
     }
-
     public void func_75132_a(IContainerListener listener) {
         super.func_75132_a(listener);
         listener.func_175173_a(this, this.tileEntity);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_75137_b(int id, int data) {
         this.tileEntity.func_174885_b(id, data);
     }
-
     public void func_75142_b() {
         super.func_75142_b();
         for (int i = 0; i < this.field_75149_d.size(); i++) {

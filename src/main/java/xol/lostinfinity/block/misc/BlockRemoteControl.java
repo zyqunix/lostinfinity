@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.misc;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -14,22 +13,17 @@ import xol.lostinfinity.block.basic.BlockBasic;
 import xol.lostinfinity.block.tileentity.TileEntityRemoteControl;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.item.basics.ItemRemoteControl;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/misc/BlockRemoteControl.class */
 public class BlockRemoteControl extends BlockBasic {
     public BlockRemoteControl(String name) {
         super(name);
     }
-
     public TileEntity createTileEntity(World world, IBlockState state) {
         TileEntityRemoteControl TE = new TileEntityRemoteControl();
         return TE;
     }
-
     public boolean hasTileEntity(IBlockState state) {
         return true;
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!worldIn.field_72995_K) {
             ItemStack held = playerIn.func_184586_b(hand);

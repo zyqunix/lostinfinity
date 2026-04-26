@@ -1,5 +1,4 @@
 package xol.lostinfinity.dimension.shadowsea;
-
 import java.util.Random;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
@@ -11,12 +10,9 @@ import xol.lostinfinity.dimension.util.CustomBiome;
 import xol.lostinfinity.dimension.util.IDamageRestricted;
 import xol.lostinfinity.dimension.util.WorldGenStructure;
 import xol.lostinfinity.init.BlockInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/dimension/shadowsea/BiomeMoltenSea.class */
 public class BiomeMoltenSea extends CustomBiome implements IDamageRestricted {
     private static Biome.BiomeProperties properties = new Biome.BiomeProperties("moltensea").func_185396_a();
     private CoralGenerator coralGen;
-
     public BiomeMoltenSea() {
         super(properties, "moltensea");
         this.coralGen = new CoralGenerator();
@@ -24,12 +20,10 @@ public class BiomeMoltenSea extends CustomBiome implements IDamageRestricted {
         this.field_76753_B = BlockInit.moltenSeastone.func_176223_P();
         this.terrainBlock = BlockInit.igneousSeastone.func_176223_P();
     }
-
     @SideOnly(Side.CLIENT)
     public int func_76731_a(float par1) {
         return 9902613;
     }
-
     public void func_180624_a(World worldIn, Random rand, BlockPos pos) {
         generatePlants(worldIn, rand, pos);
         this.coralGen.setWorld(worldIn, this.field_76752_A);
@@ -60,16 +54,13 @@ public class BiomeMoltenSea extends CustomBiome implements IDamageRestricted {
             }
         }
     }
-
     public int getWaterColorMultiplier() {
         return 9902613;
     }
-
     @Override // xol.lostinfinity.dimension.util.IDamageRestricted
     public String allowedTypes() {
         return "Aquatic";
     }
-
     private void generatePlants(World world, Random rand, BlockPos pos) {
         int runs = 10 + rand.nextInt(15);
         int currentX = pos.func_177958_n();
@@ -93,14 +84,12 @@ public class BiomeMoltenSea extends CustomBiome implements IDamageRestricted {
             }
         }
     }
-
     private void generateEmberkelp(World world, Random rand, BlockPos pos) {
         int height = 15 + rand.nextInt(20);
         for (int i = 0; i <= height; i++) {
             world.func_175656_a(pos.func_177982_a(0, i, 0), ((float) i) < ((float) height) * 0.75f ? BlockInit.emberkelp.func_176223_P() : BlockInit.emberkelp.func_176203_a(1));
         }
     }
-
     private void generateSmokeweed(World world, Random rand, BlockPos pos) {
         int height = 7 + rand.nextInt(12);
         int i = 0;
@@ -109,7 +98,6 @@ public class BiomeMoltenSea extends CustomBiome implements IDamageRestricted {
             i++;
         }
     }
-
     private void generateHeatweed(World world, Random rand, BlockPos pos) {
         int height = 3 + rand.nextInt(5);
         int i = 0;
@@ -118,7 +106,6 @@ public class BiomeMoltenSea extends CustomBiome implements IDamageRestricted {
             i++;
         }
     }
-
     private void generatePearlHouse(World world, Random rand, BlockPos pos) {
         IBlockState belowState = world.func_180495_p(pos.func_177977_b());
         if (belowState == this.field_76752_A || belowState == this.terrainBlock) {

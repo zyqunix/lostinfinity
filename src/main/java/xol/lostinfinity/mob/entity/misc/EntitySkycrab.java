@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,8 +18,6 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.mob.entity.base.EntityMultiLivesTameable;
 import xol.lostinfinity.projectile.entity.EntitySkycrabAttack;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntitySkycrab.class */
 public class EntitySkycrab extends EntityMultiLivesTameable implements IMaxAttack {
     private EntityLivingBase target;
     private Double moveSpeed;
@@ -35,7 +32,6 @@ public class EntitySkycrab extends EntityMultiLivesTameable implements IMaxAttac
     private static final double closeChaseSpeed = 0.20000000298023224d;
     private static final double mediumChaseSpeed = 0.07699999958276749d;
     private static final double swoopSpeed = 2.0d;
-
     public EntitySkycrab(World worldIn) {
         super(worldIn);
         this.target = null;
@@ -48,20 +44,16 @@ public class EntitySkycrab extends EntityMultiLivesTameable implements IMaxAttac
         func_70105_a(12.0f, 12.0f);
         func_189654_d(true);
     }
-
     protected void func_184651_r() {
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.0d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(35000.0d);
     }
-
     public boolean func_70652_k(Entity entity) {
         return false;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         this.field_70143_R = -1.0f;
@@ -139,32 +131,25 @@ public class EntitySkycrab extends EntityMultiLivesTameable implements IMaxAttac
             this.time++;
         }
     }
-
     private boolean isTargeting() {
         return this.targeting;
     }
-
     public void setTargeting(boolean targeting) {
         this.targeting = targeting;
     }
-
     private void updateGoalPosition(EntityLivingBase target) {
         BlockPos targetPos = target.func_180425_c().func_177963_a(0.0d, target.field_70131_O + 10.0f, 0.0d);
         this.goalPosition = targetPos;
     }
-
     private EntityLivingBase getTarget() {
         return this.target;
     }
-
     public void setTarget(EntityLivingBase target) {
         this.target = target;
     }
-
     public BlockPos getGoalPosition() {
         return this.goalPosition;
     }
-
     public void circle() {
         if (getHomePos() != null) {
             double centreX = getHomePos().func_177958_n();
@@ -198,13 +183,11 @@ public class EntitySkycrab extends EntityMultiLivesTameable implements IMaxAttac
             this.field_70133_I = true;
         }
     }
-
     public void calculateVelocity(double x, double y, double z) {
         this.field_70159_w = x;
         this.field_70181_x = y;
         this.field_70179_y = z;
     }
-
     public void moveToOrbit(double X, double Z, double centreX, double centreZ) {
         double startX = centreX + radius;
         Vec3d toCentre = new Vec3d(startX - X, 0.0d, centreZ - Z).func_72432_b();
@@ -212,7 +195,6 @@ public class EntitySkycrab extends EntityMultiLivesTameable implements IMaxAttac
         this.field_70133_I = true;
         radians = 1.5707964f;
     }
-
     public void swoopToPosition() {
         int remainder = this.field_70173_aa % 20;
         if (remainder == 0) {
@@ -230,22 +212,18 @@ public class EntitySkycrab extends EntityMultiLivesTameable implements IMaxAttac
             this.field_70133_I = true;
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultiLivesTameable
     protected int numberOfLives() {
         return 10;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultiLivesTameable
     protected void updateLifeAction() {
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultiLivesTameable
     public void trueDeathAction() {
         if (!this.field_70170_p.field_72995_K) {
         }
     }
-
     public void fire() {
         if (func_70902_q() != null) {
             EntitySkycrabAttack attack = new EntitySkycrabAttack(this.field_70170_p);
@@ -258,45 +236,35 @@ public class EntitySkycrab extends EntityMultiLivesTameable implements IMaxAttac
             func_184185_a(SoundInit.LASER_WEAPON_1, 1.5f, 0.7f + (this.field_70146_Z.nextFloat() * 0.6f));
         }
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.SKYCRAB_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.SKYCRAB_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundInit.SKYCRAB_AMBIENT;
     }
-
     public void playTargetSound() {
         func_184185_a(SoundInit.SKYCRAB_TARGET, 2.0f, 1.0f);
     }
-
     protected boolean func_70692_ba() {
         return func_70902_q() == null;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultiLivesTameable
     public boolean func_70601_bi() {
         return this.field_70170_p.func_175659_aa() != EnumDifficulty.PEACEFUL;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultiLivesTameable
     public EntityAgeable func_90011_a(EntityAgeable ageable) {
         return null;
     }
-
     public void setHomePos(BlockPos hpos) {
         homePos = hpos;
     }
-
     public BlockPos getHomePos() {
         return homePos;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultiLivesTameable
     public void func_70014_b(NBTTagCompound tag) {
         super.func_70014_b(tag);
@@ -305,15 +273,12 @@ public class EntitySkycrab extends EntityMultiLivesTameable implements IMaxAttac
         tag.func_74768_a("HomePositionY", getHomePos().func_177956_o());
         tag.func_74757_a("Aggressive", isAggressive());
     }
-
     public boolean isAggressive() {
         return this.aggressive;
     }
-
     public void setAggressive(boolean aggressive) {
         this.aggressive = aggressive;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultiLivesTameable
     public void func_70037_a(NBTTagCompound tag) {
         super.func_70037_a(tag);
@@ -321,7 +286,6 @@ public class EntitySkycrab extends EntityMultiLivesTameable implements IMaxAttac
         setHomePos(homePosition);
         setAggressive(tag.func_74767_n("Aggressive"));
     }
-
     public void setGoalPosition(BlockPos targetPos) {
         this.goalPosition = targetPos;
     }

@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLiving;
@@ -19,13 +18,10 @@ import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.item.activate.ItemTrial;
 import xol.lostinfinity.mob.entity.deviant.titan.EntityTrialObserver;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockTrialGate.class */
 public class BlockTrialGate extends BlockBasic {
     public BlockTrialGate(String name) {
         super(name, Material.field_151576_e);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!playerIn.func_70093_af()) {
             ItemStack heldstack = playerIn.func_184586_b(hand);
@@ -58,7 +54,6 @@ public class BlockTrialGate extends BlockBasic {
         }
         return true;
     }
-
     private byte trialType(Item item) {
         if (item.equals(ItemInit.trialBlaze)) {
             return (byte) 0;
@@ -98,7 +93,6 @@ public class BlockTrialGate extends BlockBasic {
         }
         return (byte) 1;
     }
-
     private String getCreatureName(Item item) {
         if (item.equals(ItemInit.trialBlaze)) {
             return "Blaze";
@@ -138,7 +132,6 @@ public class BlockTrialGate extends BlockBasic {
         }
         return "Nothing";
     }
-
     private AxisAlignedBB getArenaAABB() {
         return new AxisAlignedBB(new BlockPos(-493.0d, 60.0d, 407.0d), new BlockPos(548.0d, 85.0d, 460.0d));
     }

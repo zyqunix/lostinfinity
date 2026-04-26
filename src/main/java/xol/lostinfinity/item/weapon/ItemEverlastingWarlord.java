@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,14 +26,11 @@ import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.CustomRayTraceResult;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemEverlastingWarlord.class */
 public class ItemEverlastingWarlord extends ItemCooldownSword implements IMaxAttack, ICustomRaytrace {
     public ItemEverlastingWarlord(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_INFINITYWEP);
     }
-
     public boolean func_77644_a(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         CustomDamageResult dr = IMaxAttack.dealTrueDamage(attacker, target, target.func_110138_aP() * 0.5f);
         float damageDealt = dr.getDamageDealt();
@@ -46,7 +42,6 @@ public class ItemEverlastingWarlord extends ItemCooldownSword implements IMaxAtt
         attacker.field_70170_p.func_184133_a((EntityPlayer) null, attacker.func_180425_c(), SoundInit.SWING_HIT, SoundCategory.PLAYERS, 1.5f, 0.6f + (attacker.field_70170_p.field_73012_v.nextFloat() * 0.4f));
         return true;
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         CustomRayTraceResult trace_result;
         if (handIn == EnumHand.MAIN_HAND) {
@@ -69,12 +64,10 @@ public class ItemEverlastingWarlord extends ItemCooldownSword implements IMaxAtt
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @Override // xol.lostinfinity.item.weapon.ItemCooldownSword
     protected int getCooldown() {
         return 2000;
     }
-
     private void killReward(EntityLivingBase player) {
         List<PotionEffect> potionsToAdd = new ArrayList<>();
         List<Potion> potionList = (List) player.func_70651_bq().stream().map((v0) -> {
@@ -100,7 +93,6 @@ public class ItemEverlastingWarlord extends ItemCooldownSword implements IMaxAtt
         }
         player.func_70691_i(player.func_110138_aP());
     }
-
     private PotionEffect scalePotionEffect(PotionEffect effect, boolean bad) {
         if (!bad) {
             return effect;
@@ -112,7 +104,6 @@ public class ItemEverlastingWarlord extends ItemCooldownSword implements IMaxAtt
         }
         return null;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Light_Purple + "Deals 50% Health True Damage");

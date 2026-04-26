@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.tileentity.render;
-
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -11,12 +10,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import xol.lostinfinity.block.tileentity.TileEntityKillerVine;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/tileentity/render/RenderKillerVine.class */
 public class RenderKillerVine extends TileEntitySpecialRenderer<TileEntityKillerVine> {
     public static final ResourceLocation TEXTURE_VINE = new ResourceLocation("lostinfinity:textures/particles/killer_vine.png");
-
-    /* JADX INFO: renamed from: render, reason: merged with bridge method [inline-methods] */
     public void func_192841_a(TileEntityKillerVine te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
         if (!te.isKiller()) {
             return;
@@ -50,12 +45,9 @@ public class RenderKillerVine extends TileEntitySpecialRenderer<TileEntityKiller
         GlStateManager.func_179118_c();
         GlStateManager.func_179089_o();
     }
-
-    /* JADX INFO: renamed from: isGlobalRenderer, reason: merged with bridge method [inline-methods] */
     public boolean func_188185_a(TileEntityKillerVine te) {
         return true;
     }
-
     private void enableMaxLighting() {
         GlStateManager.func_179140_f();
         OpenGlHelper.func_77475_a(OpenGlHelper.field_77476_b, 240.0f, 240.0f);

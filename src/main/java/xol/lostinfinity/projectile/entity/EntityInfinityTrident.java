@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import java.util.ArrayList;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,8 +18,6 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityInfinityTrident.class */
 public class EntityInfinityTrident extends EntityBaseThrowable {
     private static final DataParameter<Boolean> UPGRADED = EntityDataManager.func_187226_a(EntityInfinityTrident.class, DataSerializers.field_187198_h);
     private boolean rebound;
@@ -28,20 +25,16 @@ public class EntityInfinityTrident extends EntityBaseThrowable {
     private ArrayList<Entity> entitiesHit;
     private boolean returned;
     private int essence;
-
     public boolean getUpgraded() {
         return ((Boolean) this.field_70180_af.func_187225_a(UPGRADED)).booleanValue();
     }
-
     public void setUpgraded() {
         this.field_70180_af.func_187227_b(UPGRADED, true);
     }
-
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(UPGRADED, false);
     }
-
     public EntityInfinityTrident(World par1World) {
         super(par1World);
         this.rebound = false;
@@ -51,7 +44,6 @@ public class EntityInfinityTrident extends EntityBaseThrowable {
         this.essence = 0;
         func_70105_a(0.75f, 0.75f);
     }
-
     public EntityInfinityTrident(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
         this.rebound = false;
@@ -61,7 +53,6 @@ public class EntityInfinityTrident extends EntityBaseThrowable {
         this.essence = 0;
         func_70105_a(0.75f, 0.75f);
     }
-
     public EntityInfinityTrident(World par1World, double par2, double par4, double par6) {
         super(par1World, par2, par4, par6);
         this.rebound = false;
@@ -71,7 +62,6 @@ public class EntityInfinityTrident extends EntityBaseThrowable {
         this.essence = 0;
         func_70105_a(0.75f, 0.75f);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -134,7 +124,6 @@ public class EntityInfinityTrident extends EntityBaseThrowable {
             }
         }
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void func_70071_h_() {
         super.func_70071_h_();
@@ -202,11 +191,9 @@ public class EntityInfinityTrident extends EntityBaseThrowable {
         }
         this.field_70170_p.func_175688_a(ParticleInit.SPECTRAL, this.field_70165_t, this.field_70163_u, this.field_70161_v, 0.25d * ((-0.5d) + this.field_70146_Z.nextDouble()), 0.0d, 0.25d * ((-0.5d) + this.field_70146_Z.nextDouble()), new int[0]);
     }
-
     protected float func_70185_h() {
         return 0.0f;
     }
-
     public void setEssence(int essence) {
         this.essence = essence;
     }

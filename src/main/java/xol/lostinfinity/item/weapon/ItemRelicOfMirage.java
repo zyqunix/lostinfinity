@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -23,19 +22,15 @@ import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.CustomRayTraceResult;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemRelicOfMirage.class */
 public class ItemRelicOfMirage extends ItemCooldown implements IMaxAttack, ICustomRaytrace {
     public ItemRelicOfMirage(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_INFINITYWEP);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 3000;
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         CustomRayTraceResult trace_result;
         ItemStack stack = playerIn.func_184586_b(handIn);
@@ -68,7 +63,6 @@ public class ItemRelicOfMirage extends ItemCooldown implements IMaxAttack, ICust
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Creates a miraged copy of target player's held item.");

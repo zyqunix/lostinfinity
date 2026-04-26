@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.boss;
-
 import java.util.Iterator;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -13,19 +12,15 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import xol.lostinfinity.mob.entity.base.EntityMultipleLives;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/boss/EntityWitherSkullling.class */
 public class EntityWitherSkullling extends EntityMultipleLives implements IMaxAttack {
     public EntityWitherSkullling(World worldIn) {
         super(worldIn);
         func_70105_a(1.3f, 3.25f);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_184651_r() {
         initBasicTasks(this);
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(1500.0d);
@@ -33,7 +28,6 @@ public class EntityWitherSkullling extends EntityMultipleLives implements IMaxAt
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.3d);
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -43,7 +37,6 @@ public class EntityWitherSkullling extends EntityMultipleLives implements IMaxAt
         }
         return false;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         this.field_70143_R = -1.0f;
@@ -64,19 +57,15 @@ public class EntityWitherSkullling extends EntityMultipleLives implements IMaxAt
             }
         }
     }
-
     private AxisAlignedBB getArenaAABB() {
         return new AxisAlignedBB(new BlockPos(958.0d, 60.0d, 877.0d), new BlockPos(1012.0d, 82.0d, 924.0d));
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundEvents.field_190037_hb;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundEvents.field_190038_hc;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundEvents.field_190036_ha;
     }

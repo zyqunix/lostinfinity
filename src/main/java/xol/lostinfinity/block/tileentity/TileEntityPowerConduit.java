@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.tileentity;
-
 import java.util.ArrayList;
 import java.util.Random;
 import net.minecraft.block.Block;
@@ -13,8 +12,6 @@ import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.World;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.SoundInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/tileentity/TileEntityPowerConduit.class */
 public class TileEntityPowerConduit extends TileEntity implements ITickable {
     private static final Vec3i offset = new Vec3i(0, -2, 0);
     private Vec3i upDir = null;
@@ -27,8 +24,6 @@ public class TileEntityPowerConduit extends TileEntity implements ITickable {
     private boolean game = false;
     private boolean lost = false;
     private int loseTimer = 0;
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/tileentity/TileEntityPowerConduit$LogData.class */
     private class LogData {
         ArrayList<BlockPos> positions;
         int timer;
@@ -36,7 +31,6 @@ public class TileEntityPowerConduit extends TileEntity implements ITickable {
         boolean moveLeft;
         BlockPos ref;
         private int row;
-
         private LogData(ArrayList<BlockPos> positions, int timer, boolean moveLeft, BlockPos ref, int row) {
             this.positions = null;
             this.timer = 100;
@@ -51,7 +45,6 @@ public class TileEntityPowerConduit extends TileEntity implements ITickable {
             this.ref = ref;
             this.row = row;
         }
-
         public void move(World world, Vec3i leftDir, Vec3i upDir, int leftCount, TileEntityPowerConduit TE) {
             BlockPos rowPos;
             BlockPos next;
@@ -110,12 +103,10 @@ public class TileEntityPowerConduit extends TileEntity implements ITickable {
             }
         }
     }
-
     public void lose() {
         this.lost = true;
         this.loseTimer = 0;
     }
-
     public void reset(int upCount, int leftCount) {
         BlockPos temp;
         BlockPos blockPosFunc_177982_a;
@@ -175,15 +166,12 @@ public class TileEntityPowerConduit extends TileEntity implements ITickable {
         this.game = true;
         this.field_145850_b.func_184133_a((EntityPlayer) null, this.field_174879_c, SoundInit.GEAR_MACHINE_2, SoundCategory.BLOCKS, 1.0f, 1.0f);
     }
-
     public void setTiles(ArrayList<BlockPos> tiles) {
         this.tiles = tiles;
     }
-
     public void endGame() {
         this.game = false;
     }
-
     public void func_73660_a() {
         if (!this.field_145850_b.field_72995_K) {
             if (this.lost) {
@@ -209,16 +197,13 @@ public class TileEntityPowerConduit extends TileEntity implements ITickable {
             }
         }
     }
-
     public void setDirs(Vec3i upDir, Vec3i leftDir) {
         this.upDir = upDir;
         this.leftDir = leftDir;
     }
-
     public ArrayList<BlockPos> getTiles() {
         return this.tiles;
     }
-
     public Vec3i getUpDir() {
         return this.upDir;
     }

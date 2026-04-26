@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.render.cthulhu;
-
 import javax.annotation.Nullable;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -14,8 +13,6 @@ import xol.lostinfinity.mob.entity.cthulhu.EntityCelestialStatue;
 import xol.lostinfinity.mob.model.cthulhu.ModelCelestialStatue;
 import xol.lostinfinity.util.Reference;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/render/cthulhu/RenderCelestialStatue.class */
 public class RenderCelestialStatue extends RenderLiving<EntityCelestialStatue> {
     private static final ResourceLocation TEXTURE_BEAM = new ResourceLocation(Reference.MODID, "textures/projectiles/cthulhu/celestial_beam.png");
     private static final ResourceLocation TEXTURE_PORTAL = new ResourceLocation(Reference.MODID, "textures/projectiles/cthulhu/celestial_beam_portal.png");
@@ -23,14 +20,10 @@ public class RenderCelestialStatue extends RenderLiving<EntityCelestialStatue> {
     private static final ResourceLocation CEL_PINK = new ResourceLocation(Reference.MODID, "textures/entity/cthulhu/celestial_pink.png");
     private static final ResourceLocation CEL_PURPLE = new ResourceLocation(Reference.MODID, "textures/entity/cthulhu/celestial_purple.png");
     private static final ResourceLocation CEL_RED = new ResourceLocation(Reference.MODID, "textures/entity/cthulhu/celestial_red.png");
-
     public RenderCelestialStatue(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelCelestialStatue(), 0.0f);
     }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Nullable
-    /* JADX INFO: renamed from: getEntityTexture, reason: merged with bridge method [inline-methods] */
     public ResourceLocation func_110775_a(EntityCelestialStatue entity) {
         switch (entity.getType()) {
             case 0:
@@ -45,8 +38,6 @@ public class RenderCelestialStatue extends RenderLiving<EntityCelestialStatue> {
                 return CEL_RED;
         }
     }
-
-    /* JADX INFO: renamed from: doRender, reason: merged with bridge method [inline-methods] */
     public void func_76986_a(EntityCelestialStatue entity, double x, double y, double z, float entityYaw, float partialTicks) {
         super.func_76986_a(entity, x, y, z, entityYaw, partialTicks);
         if (entity.getOwner() == null) {
@@ -85,9 +76,6 @@ public class RenderCelestialStatue extends RenderLiving<EntityCelestialStatue> {
         GlStateManager.func_179121_F();
         GlStateManager.func_179089_o();
     }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX INFO: renamed from: preRenderCallback, reason: merged with bridge method [inline-methods] */
     public void func_77041_b(EntityCelestialStatue entitylivingbaseIn, float partialTickTime) {
         GlStateManager.func_179139_a(2.75d, 2.75d, 2.75d);
     }

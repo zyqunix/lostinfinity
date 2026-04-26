@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.boss;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -26,8 +25,6 @@ import xol.lostinfinity.mob.entity.base.EntityMultipleLives;
 import xol.lostinfinity.projectile.entity.EntityLaserBlast;
 import xol.lostinfinity.stone.EntityInfinityStone;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/boss/EntityOzor.class */
 public class EntityOzor extends EntityMultipleLives implements IMaxAttack {
     private static final DataParameter<Integer> ILLUSION_PHASE = EntityDataManager.func_187226_a(EntityOzor.class, DataSerializers.field_187192_b);
     private BlockPos hoverTo;
@@ -35,7 +32,6 @@ public class EntityOzor extends EntityMultipleLives implements IMaxAttack {
     private int nextFormTimer;
     private int illusionCooldown;
     private float ozorAlpha;
-
     public EntityOzor(World worldIn) {
         super(worldIn);
         this.hoverTo = null;
@@ -45,21 +41,17 @@ public class EntityOzor extends EntityMultipleLives implements IMaxAttack {
         this.ozorAlpha = 1.0f;
         func_70105_a(7.5f, 7.5f);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(ILLUSION_PHASE, 0);
     }
-
     public int getIllusionPhase() {
         return ((Integer) this.field_70180_af.func_187225_a(ILLUSION_PHASE)).intValue();
     }
-
     public void setIllusionPhase(int f) {
         this.field_70180_af.func_187227_b(ILLUSION_PHASE, Integer.valueOf(f));
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(1.0d);
@@ -67,7 +59,6 @@ public class EntityOzor extends EntityMultipleLives implements IMaxAttack {
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(15000.0d);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -76,15 +67,12 @@ public class EntityOzor extends EntityMultipleLives implements IMaxAttack {
         }
         return false;
     }
-
     public float getAlpha() {
         return this.ozorAlpha;
     }
-
     private AxisAlignedBB getArenaAABB() {
         return new AxisAlignedBB(new BlockPos(-3.0d, 60.0d, -149.0d), new BlockPos(52.0d, 85.0d, -36.0d));
     }
-
     private void fireLaser(int attackType) {
         if (!this.field_70170_p.field_72995_K) {
             boolean fired = false;
@@ -125,7 +113,6 @@ public class EntityOzor extends EntityMultipleLives implements IMaxAttack {
             }
         }
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         this.field_70143_R = -1.0f;
@@ -214,24 +201,20 @@ public class EntityOzor extends EntityMultipleLives implements IMaxAttack {
             this.ozorAlpha -= 0.025f;
         }
     }
-
     private void findNewMove() {
         AxisAlignedBB aabb = getArenaAABB();
         int length = ((int) Math.round(aabb.field_72336_d - aabb.field_72340_a)) - 6;
         int width = ((int) Math.round(aabb.field_72334_f - aabb.field_72339_c)) - 6;
         this.hoverTo = new BlockPos(aabb.field_72340_a + 3.0d + ((double) this.field_70146_Z.nextInt(length)), aabb.field_72338_b + ((double) this.field_70146_Z.nextInt(getMaxFly())), aabb.field_72339_c + 3.0d + ((double) this.field_70146_Z.nextInt(width)));
     }
-
     private static int getMaxFly() {
         return 10;
     }
-
     private void clearDecoys() {
         for (EntityOzorDecoy decoy : this.field_70170_p.func_72872_a(EntityOzorDecoy.class, getArenaAABB())) {
             decoy.setFading(true);
         }
     }
-
     private void performIllusion() {
         func_184589_d(PotionInit.PROTECTED);
         List<BlockPos> locations = new ArrayList<>();
@@ -251,24 +234,19 @@ public class EntityOzor extends EntityMultipleLives implements IMaxAttack {
         }
         soundPlayers(SoundInit.OZOR_REAPPEAR, 1.0f);
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.GENERIC_STYLE3_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.GENERIC_STYLE3_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return null;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 150;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void updateLifeAction() {
         int lifePercent = Math.round((100 * (numberOfLives() - getLivesCount())) / numberOfLives());
@@ -280,19 +258,16 @@ public class EntityOzor extends EntityMultipleLives implements IMaxAttack {
             this.illusionCooldown = 500;
         }
     }
-
     protected void messagePlayers(String message) {
         for (EntityPlayer contender : this.field_70170_p.func_72872_a(EntityPlayer.class, getArenaAABB())) {
             contender.func_145747_a(new TextComponentString(message));
         }
     }
-
     protected void soundPlayers(SoundEvent sound, float vol) {
         for (EntityPlayer contender : this.field_70170_p.func_72872_a(EntityPlayer.class, getArenaAABB())) {
             this.field_70170_p.func_184133_a((EntityPlayer) null, contender.func_180425_c(), sound, SoundCategory.MASTER, vol, 0.9f + (this.field_70146_Z.nextFloat() * 0.2f));
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void trueDeathAction() {
         if (!this.field_70170_p.field_72995_K) {
@@ -303,16 +278,13 @@ public class EntityOzor extends EntityMultipleLives implements IMaxAttack {
             func_145779_a(ItemInit.arenaCard, 1);
         }
     }
-
     protected boolean func_70692_ba() {
         return false;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public boolean func_70814_o() {
         return true;
     }
-
     public int func_70641_bl() {
         return 1;
     }

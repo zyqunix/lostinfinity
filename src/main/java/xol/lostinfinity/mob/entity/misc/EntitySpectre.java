@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -17,17 +16,13 @@ import net.minecraft.world.World;
 import xol.lostinfinity.init.PotionInit;
 import xol.lostinfinity.mob.entity.base.EntityFloatingTameable;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntitySpectre.class */
 public class EntitySpectre extends EntityFloatingTameable implements IMaxAttack {
     private static final DataParameter<Boolean> PRIME = EntityDataManager.func_187226_a(EntitySpectre.class, DataSerializers.field_187198_h);
-
     public EntitySpectre(World worldIn) {
         super(worldIn);
         func_70105_a(1.2f, 1.75f);
         this.rawFlySpeed = 0.85f;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     public void func_110147_ax() {
         super.func_110147_ax();
@@ -36,17 +31,14 @@ public class EntitySpectre extends EntityFloatingTameable implements IMaxAttack 
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
         func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(1.0d);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingTameable, xol.lostinfinity.mob.entity.base.EntityFloatingBase, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(PRIME, false);
     }
-
     public boolean isPrime() {
         return ((Boolean) this.field_70180_af.func_187225_a(PRIME)).booleanValue();
     }
-
     public void setPrime(boolean p) {
         if (p) {
             this.rawFlySpeed = 0.95f;
@@ -55,19 +47,16 @@ public class EntitySpectre extends EntityFloatingTameable implements IMaxAttack 
         }
         this.field_70180_af.func_187227_b(PRIME, Boolean.valueOf(p));
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingTameable, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void func_70014_b(NBTTagCompound tag) {
         super.func_70014_b(tag);
         tag.func_74757_a("SpectreQual", isPrime());
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingTameable, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void func_70037_a(NBTTagCompound tag) {
         super.func_70037_a(tag);
         setPrime(tag.func_74767_n("SpectreQual"));
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -85,7 +74,6 @@ public class EntitySpectre extends EntityFloatingTameable implements IMaxAttack 
         }
         return false;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     public void func_70636_d() {
         super.func_70636_d();
@@ -101,19 +89,15 @@ public class EntitySpectre extends EntityFloatingTameable implements IMaxAttack 
             }
         }
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundEvents.field_187943_hq;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundEvents.field_187944_hr;
     }
-
     protected SoundEvent func_184639_G() {
         return null;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return isPrime() ? 4 : 1;

@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -24,14 +23,11 @@ import xol.lostinfinity.item.classify.IHotbarDeath;
 import xol.lostinfinity.mob.entity.misc.EntityPickleMan;
 import xol.lostinfinity.util.data.CustomRayTraceResult;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemPickleSabre.class */
 public class ItemPickleSabre extends ItemCooldownSword implements IMaxAttack, IHotbarDeath, ICustomRaytrace {
     public ItemPickleSabre(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         int pstacks;
         ItemStack stack = playerIn.func_184586_b(handIn);
@@ -51,17 +47,14 @@ public class ItemPickleSabre extends ItemCooldownSword implements IMaxAttack, IH
         playerIn.func_184586_b(handIn).func_77978_p().func_74772_a("lastUse", System.currentTimeMillis());
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     public boolean func_77644_a(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         IMaxAttack.dealMaxHealth((Entity) attacker, target, 1, 2.0f);
         return true;
     }
-
     @Override // xol.lostinfinity.item.weapon.ItemCooldownSword
     protected int getCooldown() {
         return 20000;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Deals 200% max health damage per hit.");
@@ -74,7 +67,6 @@ public class ItemPickleSabre extends ItemCooldownSword implements IMaxAttack, IH
         tooltip.add(TextFmt.Bold + "Per Stack:" + TextFmt.Reset + TextFmt.Aqua + " Gain an extra life.");
         tooltip.add(TextFmt.Bold + "Per Stack:" + TextFmt.Reset + TextFmt.Aqua + " Increase in size.");
     }
-
     @Override // xol.lostinfinity.item.classify.IHotbarDeath
     public boolean playedKilled(ItemStack stack, EntityPlayer player, Entity attacker, float damageDealt) {
         World world = player.field_70170_p;

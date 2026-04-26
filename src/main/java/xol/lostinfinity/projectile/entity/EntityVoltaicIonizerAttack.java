@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import com.google.common.base.Optional;
 import java.util.ArrayList;
 import java.util.UUID;
@@ -14,20 +13,16 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 import xol.lostinfinity.item.weapon.data.IonizerNode;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityVoltaicIonizerAttack.class */
 public class EntityVoltaicIonizerAttack extends Entity implements IMaxAttack {
     protected static final DataParameter<Optional<UUID>> CASTER_ID = EntityDataManager.func_187226_a(EntityVoltaicIonizerAttack.class, DataSerializers.field_187203_m);
     private IonizerNode targets;
     private ArrayList<EntityLivingBase> visited;
     private static final double radius = 10.0d;
-
     public EntityVoltaicIonizerAttack(World worldIn) {
         super(worldIn);
         this.targets = null;
         this.visited = null;
     }
-
     public void func_70071_h_() {
         super.func_70071_h_();
         EntityPlayer caster = getCaster();
@@ -49,7 +44,6 @@ public class EntityVoltaicIonizerAttack extends Entity implements IMaxAttack {
             func_70106_y();
         }
     }
-
     private void activateNodes(EntityPlayer caster, IonizerNode node) {
         if (node == null) {
             return;
@@ -68,7 +62,6 @@ public class EntityVoltaicIonizerAttack extends Entity implements IMaxAttack {
             }
         }
     }
-
     private IonizerNode getTargetsNode(EntityPlayer caster, EntityLivingBase origin, int count) {
         if (origin.func_70032_d(caster) > 70.0f) {
             return null;
@@ -93,28 +86,22 @@ public class EntityVoltaicIonizerAttack extends Entity implements IMaxAttack {
         node.setTimer(count * 5);
         return node;
     }
-
     public IonizerNode getTargets() {
         return this.targets;
     }
-
     protected void func_70037_a(NBTTagCompound compound) {
     }
-
     protected void func_70014_b(NBTTagCompound compound) {
     }
-
     protected void func_70088_a() {
         this.field_70180_af.func_187214_a(CASTER_ID, Optional.absent());
     }
-
     public EntityPlayer getCaster() {
         if (((Optional) this.field_70180_af.func_187225_a(CASTER_ID)).orNull() != null) {
             return this.field_70170_p.func_152378_a((UUID) ((Optional) this.field_70180_af.func_187225_a(CASTER_ID)).get());
         }
         return null;
     }
-
     public void setCaster(EntityPlayer player) {
         this.field_70180_af.func_187227_b(CASTER_ID, Optional.fromNullable(player.func_110124_au()));
     }

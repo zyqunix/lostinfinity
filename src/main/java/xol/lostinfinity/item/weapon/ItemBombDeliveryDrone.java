@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import java.util.UUID;
 import javax.annotation.Nullable;
@@ -17,14 +16,11 @@ import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.basics.ItemCooldown;
 import xol.lostinfinity.mob.entity.minion.EntityBombDrone;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemBombDeliveryDrone.class */
 public class ItemBombDeliveryDrone extends ItemCooldown {
     public ItemBombDeliveryDrone(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         UUID uuid;
         ItemStack stack = playerIn.func_184586_b(handIn);
@@ -44,7 +40,6 @@ public class ItemBombDeliveryDrone extends ItemCooldown {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     private boolean canSummon(World world, ItemStack stack) {
         UUID uuid = getSpawnedUUID(stack);
         if (uuid == null) {
@@ -53,14 +48,12 @@ public class ItemBombDeliveryDrone extends ItemCooldown {
         Entity bound = world.func_73046_m().func_175576_a(uuid);
         return !(bound instanceof EntityBombDrone);
     }
-
     private void setSpawnedUUID(ItemStack stack, UUID uuid) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
         }
         stack.func_77978_p().func_186854_a("summon", uuid);
     }
-
     private UUID getSpawnedUUID(ItemStack stack) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
@@ -68,7 +61,6 @@ public class ItemBombDeliveryDrone extends ItemCooldown {
         }
         return stack.func_77978_p().func_186857_a("summon");
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Aqua + "Take control of a bomb drone.");

@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -21,14 +20,11 @@ import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.basics.ItemChanneling;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemSongOfInvigoration.class */
 public class ItemSongOfInvigoration extends ItemChanneling {
     public ItemSongOfInvigoration(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemChanneling
     public void chargeTick(World worldIn, EntityPlayer player, EnumHand hand, ItemStack stack, int chargeTime) {
         if (worldIn.field_72995_K) {
@@ -92,7 +88,7 @@ public class ItemSongOfInvigoration extends ItemChanneling {
                         chosenEntity.func_70690_d(new PotionEffect(PotionInit.IRONHEART, 100, 0));
                     }
                     break;
-                case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+                case TileEntityFusionTable.BOARD_ROWS :
                     if (chosenEntity.func_70644_a(PotionInit.TRANSFUSION)) {
                         int newDuration4 = chosenEntity.func_70660_b(PotionInit.TRANSFUSION).func_76459_b() + 100;
                         int newAmplifier3 = Math.min(chosenEntity.func_70660_b(PotionInit.TRANSFUSION).func_76458_c() + 1, 9);
@@ -104,7 +100,6 @@ public class ItemSongOfInvigoration extends ItemChanneling {
             }
         }
     }
-
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Empower your nearby tames through with a battle song.");
         tooltip.add(TextFmt.Green + "Your tames will periodically gain buffs as you play.");

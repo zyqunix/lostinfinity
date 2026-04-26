@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.contest.operator;
-
 import java.util.UUID;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.Rotation;
@@ -13,13 +12,10 @@ import xol.lostinfinity.dimension.util.WorldGenStructure;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.mob.entity.contest.controller.EntityControllerRedlight;
 import xol.lostinfinity.util.coordinates.ContestCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/contest/operator/EntityOperatorRedlight.class */
 public class EntityOperatorRedlight extends EntityOperatorBase {
     public EntityOperatorRedlight(World worldIn) {
         super(worldIn);
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected void startGame() {
         EntityControllerRedlight gamehologram = new EntityControllerRedlight(this.field_70170_p);
@@ -45,17 +41,14 @@ public class EntityOperatorRedlight extends EntityOperatorBase {
         this.field_70170_p.func_72838_d(gamehologram);
         this.contenders.clear();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected AxisAlignedBB getArenaAABB() {
         return ContestCoordinates.redlightArenaAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected AxisAlignedBB getLobbyAABB() {
         return ContestCoordinates.redlightLobbyAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected void generateArena() {
         ChunkPairing chunk = ContestCoordinates.redlightGenLoc();
@@ -68,11 +61,9 @@ public class EntityOperatorRedlight extends EntityOperatorBase {
         new WorldGenStructure(randomRedlightGame()).generateWithRotation(this.field_70170_p, this.field_70146_Z, new BlockPos(posX + 32, 24, posZ + 32), Rotation.CLOCKWISE_180);
         new WorldGenStructure(randomRedlightGame()).generateWithRotation(this.field_70170_p, this.field_70146_Z, new BlockPos(posX, 24, posZ + 32), Rotation.COUNTERCLOCKWISE_90);
     }
-
     private double startingOffset() {
         return this.field_70146_Z.nextBoolean() ? -1 : 2;
     }
-
     private String randomRedlightGame() {
         int game_pick = this.field_70146_Z.nextInt(12);
         return "contest/contest_redlight_arena_" + (game_pick + 1);

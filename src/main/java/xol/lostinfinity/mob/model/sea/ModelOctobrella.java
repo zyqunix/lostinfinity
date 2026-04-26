@@ -1,13 +1,10 @@
 package xol.lostinfinity.mob.model.sea;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/sea/ModelOctobrella.class */
 public class ModelOctobrella extends ModelBase {
     private final ModelRenderer GlowCube;
     private final ModelRenderer Head;
@@ -36,7 +33,6 @@ public class ModelOctobrella extends ModelBase {
     private final ModelRenderer Leg7;
     private final ModelRenderer Leg7P2;
     private final ModelRenderer Leg7P3;
-
     public ModelOctobrella() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -173,7 +169,6 @@ public class ModelOctobrella extends ModelBase {
         setRotationAngle(this.Leg7P3, 0.0f, 0.0f, 0.3491f);
         this.Leg7P3.field_78804_l.add(new ModelBox(this.Leg7P3, 97, 12, -1.0f, -2.0f, -2.0f, 10, 4, 4, -0.2f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.Head.func_78785_a(f5);
         this.Body.func_78785_a(f5);
@@ -183,13 +178,11 @@ public class ModelOctobrella extends ModelBase {
         this.GlowCube.func_78785_a(f5);
         GlStateManager.func_179084_k();
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         float tentacleSpeed = 0.1f;
         float tentacleSpeedMiddle = 0.05f;

@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.contest.operator;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -17,16 +16,12 @@ import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.mob.entity.contest.controller.EntityControllerDuelArena;
 import xol.lostinfinity.util.coordinates.ContestCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/contest/operator/EntityOperatorDuelArena.class */
 public class EntityOperatorDuelArena extends EntityOperatorBase {
     private List<BlockPos> spawnPositions;
-
     public EntityOperatorDuelArena(World worldIn) {
         super(worldIn);
         this.spawnPositions = new ArrayList();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     public boolean func_184645_a(EntityPlayer player, EnumHand hand) {
         if (!this.field_70170_p.field_72995_K) {
@@ -76,7 +71,6 @@ public class EntityOperatorDuelArena extends EntityOperatorBase {
         player.func_184586_b(hand).func_190918_g(1);
         return true;
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected boolean canStartGame() {
         int pl_count = 0;
@@ -98,7 +92,6 @@ public class EntityOperatorDuelArena extends EntityOperatorBase {
         }
         return pl_count == 2;
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected void startGame() {
         if (this.contenders.size() != 2) {
@@ -128,12 +121,10 @@ public class EntityOperatorDuelArena extends EntityOperatorBase {
         this.spawnPositions.clear();
         this.contenders.clear();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected AxisAlignedBB getArenaAABB() {
         return ContestCoordinates.duelArenaAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected AxisAlignedBB getLobbyAABB() {
         return ContestCoordinates.duelLobbyAABB();

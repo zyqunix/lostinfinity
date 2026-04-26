@@ -1,15 +1,11 @@
 package xol.lostinfinity.mob.model.starforge;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/starforge/ModelCrusher.class */
 public class ModelCrusher extends ModelBase {
     private final ModelRenderer body;
     private final ModelRenderer spiral;
-
     public ModelCrusher() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -41,18 +37,15 @@ public class ModelCrusher extends ModelBase {
         this.spiral.field_78804_l.add(new ModelBox(this.spiral, 45, 46, -7.0f, -3.0f, -7.0f, 2, 2, 14, 0.0f, false));
         this.spiral.field_78804_l.add(new ModelBox(this.spiral, 36, 36, -7.0f, -25.0f, -7.0f, 2, 6, 2, 0.0f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.body.func_78785_a(f5);
         this.spiral.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.spiral.field_78796_g = ageInTicks * 0.1f;
     }

@@ -1,5 +1,4 @@
 package xol.lostinfinity.common.events;
-
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -34,15 +33,12 @@ import xol.lostinfinity.mob.entity.cthulhu.EntityCthulhu;
 import xol.lostinfinity.mob.entity.galaxy.EntityGalaxyDragon;
 import xol.lostinfinity.mob.entity.minion.EntityBombDrone;
 import xol.lostinfinity.mob.entity.minion.andromeda.EntityAndromedaSegment;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/common/events/EventsClientRender.class */
 @Mod.EventBusSubscriber({Side.CLIENT})
 public class EventsClientRender {
     private static final Map<Integer, Entity> renderLast = new HashMap();
     private static final Map<Integer, Entity> rendered = new HashMap();
     public static final Map<Integer, Entity> renderForce = new HashMap();
     private static boolean lock = false;
-
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public void onFogEvent(EntityViewRenderEvent.FogColors event) {
@@ -70,7 +66,6 @@ public class EventsClientRender {
             event.setGreen(0.0f);
         }
     }
-
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public void onFogDensity(EntityViewRenderEvent.FogDensity event) {
@@ -79,7 +74,6 @@ public class EventsClientRender {
             event.setCanceled(true);
         }
     }
-
     @SideOnly(Side.CLIENT)
     @SubscribeEvent(receiveCanceled = true)
     public void itemToolTip(ItemTooltipEvent event) {
@@ -87,7 +81,6 @@ public class EventsClientRender {
             event.getToolTip().add(TextFmt.getFormatting(TextFmt.Italic, TextFmt.Aqua) + "MIRAGED");
         }
     }
-
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void onRenderHand(RenderHandEvent event) {
@@ -95,7 +88,6 @@ public class EventsClientRender {
             event.setCanceled(true);
         }
     }
-
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void onRenderPlayer(RenderLivingEvent.Pre<EntityPlayer> event) {
@@ -124,7 +116,6 @@ public class EventsClientRender {
             }
         }
     }
-
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void onPostRenderPlayer(RenderLivingEvent.Post<EntityPlayer> event) {
@@ -139,7 +130,6 @@ public class EventsClientRender {
             GlStateManager.func_179121_F();
         }
     }
-
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void onFOVChange(FOVUpdateEvent event) {
@@ -151,11 +141,9 @@ public class EventsClientRender {
             event.setNewfov(channeling.updateFOV(player, stack, oldFOV));
         }
     }
-
     private static boolean isHoldingCustomPose(EntityPlayer player, EnumHand hand) {
         return player.func_184586_b(hand).func_77973_b() instanceof ICustomHoldPose;
     }
-
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void onRenderGalaxyDragon(RenderLivingEvent.Pre<EntityGalaxyDragon> event) {
@@ -168,7 +156,6 @@ public class EventsClientRender {
             renderLast.put(Integer.valueOf(entity.func_145782_y()), entity);
         }
     }
-
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void onRenderAndromeda(RenderLivingEvent.Pre<EntityAndromedaSegment> event) {
@@ -184,7 +171,6 @@ public class EventsClientRender {
             rendered.put(Integer.valueOf(entity.func_145782_y()), entity);
         }
     }
-
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void onRenderCthulhu(RenderLivingEvent.Pre<EntityCthulhu> event) {
@@ -194,7 +180,6 @@ public class EventsClientRender {
         Entity entity = (EntityCthulhu) event.getEntity();
         rendered.put(Integer.valueOf(entity.func_145782_y()), entity);
     }
-
     @SideOnly(Side.CLIENT)
     @SubscribeEvent
     public static void onRenderLast(RenderWorldLastEvent event) {
@@ -228,14 +213,12 @@ public class EventsClientRender {
         renderLast.clear();
         rendered.clear();
     }
-
     @SubscribeEvent
     public void onClientDisconnect(FMLNetworkEvent.ClientDisconnectionFromServerEvent event) {
         renderLast.clear();
         renderForce.clear();
         rendered.clear();
     }
-
     @SubscribeEvent
     public void onPlayerChangeWorld(WorldEvent.Unload event) {
         renderLast.clear();

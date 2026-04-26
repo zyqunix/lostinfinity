@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.basics;
-
 import javax.annotation.Nullable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -16,20 +15,14 @@ import xol.lostinfinity.block.tileentity.TileEntityRemoteControl;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.item.classify.ICustomRaytrace;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/basics/ItemRemoteControl.class */
 public abstract class ItemRemoteControl extends ItemCooldown implements ICustomRaytrace {
     @Nullable
     public abstract BlockRemoteControl getControlBlock();
-
     public abstract void tickEffect(TileEntityRemoteControl tileEntityRemoteControl, World world, BlockPos blockPos, EntityPlayer entityPlayer);
-
     public abstract void toggleEffect(TileEntityRemoteControl tileEntityRemoteControl, World world, BlockPos blockPos, EntityPlayer entityPlayer, boolean z);
-
     public ItemRemoteControl(String regName) {
         super(regName);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack held = playerIn.func_184586_b(handIn);
         if (!showDurabilityBar(held)) {
@@ -64,7 +57,6 @@ public abstract class ItemRemoteControl extends ItemCooldown implements ICustomR
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 500;

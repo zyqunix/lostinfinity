@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHand;
@@ -8,17 +7,13 @@ import net.minecraft.world.World;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.item.weapon.droid.ItemDroidRelocatorStorage;
 import xol.lostinfinity.mob.entity.misc.EntityDroid;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityDroidSucker.class */
 public class EntityDroidSucker extends EntityBaseThrowable {
     public EntityDroidSucker(World par1World) {
         super(par1World);
     }
-
     public EntityDroidSucker(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -38,7 +33,6 @@ public class EntityDroidSucker extends EntityBaseThrowable {
         }
         func_184185_a(SoundInit.LARGE_TELEPORT, 1.0f, 1.0f);
     }
-
     protected float func_70185_h() {
         return 0.05f;
     }

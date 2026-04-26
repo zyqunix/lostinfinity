@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import java.util.UUID;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityOwnable;
@@ -10,22 +9,17 @@ import xol.lostinfinity.mob.entity.base.EntityImmaterial;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityStormBomb.class */
 public class EntityStormBomb extends EntityImmaterial implements IMaxAttack {
     private UUID creator_UUID;
-
     public EntityStormBomb(World worldIn) {
         super(worldIn);
         this.creator_UUID = null;
         func_70105_a(0.25f, 0.25f);
         func_189654_d(false);
     }
-
     public void setCreator(UUID uuid) {
         this.creator_UUID = uuid;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityImmaterial
     public void func_70636_d() {
         super.func_70636_d();
@@ -33,7 +27,6 @@ public class EntityStormBomb extends EntityImmaterial implements IMaxAttack {
             explosionEffect();
         }
     }
-
     public void explosionEffect() {
         if (this.creator_UUID != null) {
             CustomParticleConfig config1 = new CustomParticleConfig();

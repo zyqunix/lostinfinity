@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -27,20 +26,16 @@ import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.CustomRayTraceResult;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemBladeOfConqueror.class */
 public class ItemBladeOfConqueror extends ItemCooldownSword implements IMaxAttack, ISwitchModels, IModeSelect, ICustomRaytrace {
     public ItemBladeOfConqueror(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_GALAXY);
         setModelSwitch("attack", this, 3);
     }
-
     @Override // xol.lostinfinity.item.weapon.ItemCooldownSword
     protected int getCooldown() {
         return 1500;
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (!showDurabilityBar(playerIn.func_184586_b(handIn))) {
             if (!worldIn.field_72995_K) {
@@ -73,7 +68,6 @@ public class ItemBladeOfConqueror extends ItemCooldownSword implements IMaxAttac
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     public boolean func_77644_a(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
@@ -135,7 +129,6 @@ public class ItemBladeOfConqueror extends ItemCooldownSword implements IMaxAttac
             return true;
         }
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Green + "Deals 60% of target's health as True Damage.");
@@ -146,7 +139,6 @@ public class ItemBladeOfConqueror extends ItemCooldownSword implements IMaxAttac
         tooltip.add(TextFmt.Gold + "Shift-Right Click: Warp nearby enemies in front of you.");
         tooltip.add(TextFmt.Italic + "True damage cannot be blocked or reflected.");
     }
-
     @Override // xol.lostinfinity.item.classify.IModeSelect
     public void modeUpdate(ItemStack stack, EntityPlayer player) {
         if (!stack.func_77942_o()) {

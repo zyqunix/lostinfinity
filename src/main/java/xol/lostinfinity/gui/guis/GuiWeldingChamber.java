@@ -1,5 +1,4 @@
 package xol.lostinfinity.gui.guis;
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,19 +12,15 @@ import xol.lostinfinity.common.packets.serverbound.PacketWeldingChamber;
 import xol.lostinfinity.gui.containers.ContainerWeldingChamber;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.Reference;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/guis/GuiWeldingChamber.class */
 public class GuiWeldingChamber extends GuiContainer {
     private static final ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/gui/welding_chamber.png");
     private final TileEntityWeldingChamber tileEntity;
     private final InventoryPlayer invPlayer;
-
     public GuiWeldingChamber(InventoryPlayer invPlayer, TileEntityWeldingChamber tileEntity) {
         super(new ContainerWeldingChamber(invPlayer, tileEntity));
         this.invPlayer = invPlayer;
         this.tileEntity = tileEntity;
     }
-
     protected void func_146979_b(int mouseX, int mouseY) {
         this.field_146289_q.func_78276_b("Welding Chamber", 51, 6, 4210752);
         if (isInRect(this.field_147003_i + 38, this.field_147009_r + 27, 98, 14, mouseX, mouseY)) {
@@ -50,7 +45,6 @@ public class GuiWeldingChamber extends GuiContainer {
             drawHoveringText(hoverText3, mouseX - this.field_147003_i, mouseY - this.field_147009_r, this.field_146289_q);
         }
     }
-
     protected void func_146976_a(float partialTicks, int mouseX, int mouseY) {
         this.field_146297_k.func_110434_K().func_110577_a(texture);
         func_73729_b(this.field_147003_i, this.field_147009_r, 0, 0, this.field_146999_f, this.field_147000_g);
@@ -78,7 +72,6 @@ public class GuiWeldingChamber extends GuiContainer {
         func_73729_b(progressX, progressY, 0, 182, currentProgressWidth, 14);
         func_73729_b(heatX, heatY, 0, 208, heatProgressWidth, 8);
     }
-
     public void func_73863_a(int mouseX, int mouseY, float partialTicks) {
         GlStateManager.func_179131_c(1.0f, 1.0f, 1.0f, 1.0f);
         func_146276_q_();
@@ -87,7 +80,6 @@ public class GuiWeldingChamber extends GuiContainer {
         GlStateManager.func_179140_f();
         GlStateManager.func_179084_k();
     }
-
     protected void func_73864_a(int mouseX, int mouseY, int mouseButton) throws IOException {
         super.func_73864_a(mouseX, mouseY, mouseButton);
         int greenButtonX = this.field_147003_i + 119;
@@ -103,18 +95,15 @@ public class GuiWeldingChamber extends GuiContainer {
             this.invPlayer.field_70458_d.func_184185_a(SoundInit.GENERIC_UI_5, 1.0f, 1.0f);
         }
     }
-
     private boolean isInRect(int x, int y, int xSize, int ySize, int mouseX, int mouseY) {
         return mouseX >= x && mouseX <= x + xSize && mouseY >= y && mouseY <= y + ySize;
     }
-
     public int smeltProgressToPercent() {
         if (this.tileEntity.func_174887_a_(0) == 0) {
             return 0;
         }
         return (this.tileEntity.func_174887_a_(0) * 100) / this.tileEntity.getSmeltTime();
     }
-
     public int heatProgressPercent() {
         if (this.tileEntity.func_174887_a_(1) == 0) {
             return 0;

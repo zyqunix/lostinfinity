@@ -1,17 +1,13 @@
 package xol.lostinfinity.mob.entity.sea.seaserpent;
-
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/sea/seaserpent/EntitySeaSerpentHead.class */
 public class EntitySeaSerpentHead extends EntitySeaSerpentSegment {
     public EntitySeaSerpentHead(EntitySeaSerpentController parent) {
         super(parent, null, 1.0f, 1.0f);
         this.dSocketOffset = 0.4375f;
         this.dOriginDistance = 0.4375f;
     }
-
     @Override // xol.lostinfinity.mob.entity.sea.seaserpent.EntitySeaSerpentSegment
     protected void updatePosition() {
         if (this.awaitSync) {

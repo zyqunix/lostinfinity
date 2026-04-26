@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.starforge;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.nbt.NBTTagCompound;
@@ -17,48 +16,38 @@ import xol.lostinfinity.mob.entity.base.EntityMultipleLives;
 import xol.lostinfinity.projectile.entity.EntityCrystalShard;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/starforge/EntitySpyker.class */
 public class EntitySpyker extends EntityMultipleLives implements IMaxAttack, IBasicAI {
     private static final DataParameter<Boolean> ENLARGED = EntityDataManager.func_187226_a(EntitySpyker.class, DataSerializers.field_187198_h);
     private float ultrascale;
-
     public EntitySpyker(World worldIn) {
         super(worldIn);
         this.ultrascale = 1.0f;
         func_70105_a(1.0f, 1.5f);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(ENLARGED, false);
     }
-
     public void setEnlarged(boolean f) {
         this.field_70180_af.func_187227_b(ENLARGED, Boolean.valueOf(f));
     }
-
     public boolean isEnlarged() {
         return ((Boolean) this.field_70180_af.func_187225_a(ENLARGED)).booleanValue();
     }
-
     public float getUltraScl() {
         return this.ultrascale;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void func_70014_b(NBTTagCompound tag) {
         super.func_70014_b(tag);
         tag.func_74757_a("EnlargedState", isEnlarged());
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void func_70037_a(NBTTagCompound tag) {
         super.func_70037_a(tag);
         setEnlarged(tag.func_74767_n("EnlargedState"));
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -67,7 +56,6 @@ public class EntitySpyker extends EntityMultipleLives implements IMaxAttack, IBa
         }
         return false;
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(1500.0d);
@@ -75,7 +63,6 @@ public class EntitySpyker extends EntityMultipleLives implements IMaxAttack, IBa
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.3d);
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         if (isEnlarged() && this.ultrascale < 3.0f) {
@@ -83,7 +70,6 @@ public class EntitySpyker extends EntityMultipleLives implements IMaxAttack, IBa
             func_70105_a(1.0f * this.ultrascale, 1.5f * this.ultrascale);
         }
     }
-
     public void func_70645_a(DamageSource cause) {
         super.func_70645_a(cause);
         if (!this.field_70170_p.field_72995_K) {
@@ -110,41 +96,32 @@ public class EntitySpyker extends EntityMultipleLives implements IMaxAttack, IBa
             }
         }
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.STARFORGE_SPYKER_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.STARFORGE_SPYKER_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundInit.STARFORGE_SPYKER_AMBIENT;
     }
-
     protected ResourceLocation func_184647_J() {
         return isEnlarged() ? LootTableRegistry.ENTITIES_STARFORGE_BLUE_SPYKER : LootTableRegistry.ENTITIES_STARFORGE_SPYKER;
     }
-
     protected boolean func_70692_ba() {
         return false;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public boolean func_70814_o() {
         return true;
     }
-
     public int func_70641_bl() {
         return 1;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return isEnlarged() ? 5 : 1;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public boolean func_70601_bi() {
         return this.field_70170_p.func_175659_aa() != EnumDifficulty.PEACEFUL;

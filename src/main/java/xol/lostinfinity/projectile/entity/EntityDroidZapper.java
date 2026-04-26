@@ -1,29 +1,22 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.mob.entity.misc.EntityDroid;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityDroidZapper.class */
 public class EntityDroidZapper extends EntityBaseThrowable {
     private boolean make_aggro;
-
     public EntityDroidZapper(World par1World) {
         super(par1World);
         this.make_aggro = true;
     }
-
     public EntityDroidZapper(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
         this.make_aggro = true;
     }
-
     public void setAttacking(boolean aggro) {
         this.make_aggro = aggro;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -35,7 +28,6 @@ public class EntityDroidZapper extends EntityBaseThrowable {
         }
         func_184185_a(SoundInit.LARGE_TELEPORT, 1.0f, 1.0f);
     }
-
     protected float func_70185_h() {
         return 0.05f;
     }

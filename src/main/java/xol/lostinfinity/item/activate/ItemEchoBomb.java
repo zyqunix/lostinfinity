@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.activate;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -20,8 +19,6 @@ import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.mob.entity.starforge.EntityRockworm;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/activate/ItemEchoBomb.class */
 public class ItemEchoBomb extends Item {
     public ItemEchoBomb(String regName) {
         setRegistryName(regName);
@@ -29,7 +26,6 @@ public class ItemEchoBomb extends Item {
         func_77637_a(TabsInit.TAB_AUXMATS);
         ItemInit.ITEMS.add(this);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (!worldIn.field_72995_K) {
             for (EntityRockworm creature : worldIn.func_72872_a(EntityRockworm.class, playerIn.func_174813_aQ().func_186662_g(10.0d))) {
@@ -43,7 +39,6 @@ public class ItemEchoBomb extends Item {
         playerIn.func_184586_b(handIn).func_190918_g(1);
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Unleashes an audible shockwave.");

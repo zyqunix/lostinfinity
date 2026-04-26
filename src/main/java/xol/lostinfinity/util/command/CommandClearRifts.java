@@ -1,5 +1,4 @@
 package xol.lostinfinity.util.command;
-
 import net.minecraft.command.CommandBase;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommandSender;
@@ -8,21 +7,16 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.text.TextComponentString;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.mob.entity.misc.EntityBaseRift;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/command/CommandClearRifts.class */
 public class CommandClearRifts extends CommandBase {
     public String func_71517_b() {
         return "clearrifts";
     }
-
     public String func_71518_a(ICommandSender sender) {
         return "clearrifts <Range>";
     }
-
     public boolean func_184882_a(MinecraftServer server, ICommandSender sender) {
         return true;
     }
-
     public void func_184881_a(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
         if (args.length > 0 && (sender instanceof EntityPlayer)) {
             EntityPlayer player = (EntityPlayer) sender;

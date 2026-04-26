@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
@@ -14,49 +13,38 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityLaserBlast.class */
 public class EntityLaserBlast extends EntityBaseThrowable {
     private static final DataParameter<Integer> TYPE = EntityDataManager.func_187226_a(EntityLaserBlast.class, DataSerializers.field_187192_b);
-
     public EntityLaserBlast(World par1World) {
         super(par1World);
         func_70105_a(0.75f, 0.75f);
     }
-
     public EntityLaserBlast(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
         func_70105_a(0.75f, 0.75f);
     }
-
     public EntityLaserBlast(World par1World, double par2, double par4, double par6) {
         super(par1World, par2, par4, par6);
         func_70105_a(0.75f, 0.75f);
     }
-
     public int getForm() {
         return ((Integer) this.field_70180_af.func_187225_a(TYPE)).intValue();
     }
-
     public void setForm(int f) {
         this.field_70180_af.func_187227_b(TYPE, Integer.valueOf(f));
     }
-
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(TYPE, 0);
     }
-
     public void func_70014_b(NBTTagCompound tag) {
         super.func_70014_b(tag);
         tag.func_74768_a("WepType", getForm());
     }
-
     public void func_70037_a(NBTTagCompound tag) {
         super.func_70037_a(tag);
         setForm(tag.func_74762_e("WepType"));
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K && func_85052_h() != null) {
@@ -86,7 +74,6 @@ public class EntityLaserBlast extends EntityBaseThrowable {
             }
         }
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     @SideOnly(Side.CLIENT)
     public void func_70071_h_() {
@@ -109,7 +96,6 @@ public class EntityLaserBlast extends EntityBaseThrowable {
             }
         }
     }
-
     protected float func_70185_h() {
         return 0.0f;
     }

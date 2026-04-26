@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.monster.EntityMob;
@@ -33,13 +32,10 @@ import xol.lostinfinity.mob.entity.boss.EntityThundyron;
 import xol.lostinfinity.mob.entity.boss.EntityUrogo;
 import xol.lostinfinity.mob.entity.boss.EntityVelo;
 import xol.lostinfinity.mob.entity.boss.EntityVycellia;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockArenaBoss.class */
 public class BlockArenaBoss extends BlockBasic {
     public BlockArenaBoss(String name) {
         super(name, Material.field_151576_e);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!playerIn.func_70093_af()) {
             if (pos.func_177958_n() < 350) {
@@ -85,11 +81,9 @@ public class BlockArenaBoss extends BlockBasic {
         }
         return true;
     }
-
     private AxisAlignedBB getArenaAABB() {
         return new AxisAlignedBB(new BlockPos(-3.0d, 60.0d, -145.0d), new BlockPos(52.0d, 85.0d, -40.0d));
     }
-
     private void spawnMyBoss(Item held, World world, EntityPlayer play) {
         AxisAlignedBB aabb = getArenaAABB();
         for (EntityMob mob_die : world.func_72872_a(EntityMob.class, aabb)) {

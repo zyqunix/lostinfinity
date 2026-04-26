@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.harvest;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.math.BlockPos;
@@ -8,35 +7,28 @@ import xol.lostinfinity.block.basic.BlockBasic;
 import xol.lostinfinity.block.basic.ISpecialHarvest;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/harvest/BlockMultiversiteMurk.class */
 public class BlockMultiversiteMurk extends BlockBasic implements ISpecialHarvest {
     public BlockMultiversiteMurk(String name) {
         super(name);
         func_149711_c(2.0f);
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public void failedHarvest(World world, BlockPos pos, EntityPlayer harvester) {
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public Item getHarvestResult(World world, BlockPos pos) {
         return null;
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public Item getToolNeeded() {
         return ItemInit.nightmarePickaxe;
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public void worldHarvestEffect(World world, BlockPos pos, EntityPlayer harvester) {
         if (!world.field_72995_K) {
             world.func_73046_m().func_71218_a(0).func_175656_a(pos, BlockInit.multiversiteOverworld.func_176223_P());
         }
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public boolean isHarvestable(World world, BlockPos pos, EntityPlayer harvester) {
         return true;

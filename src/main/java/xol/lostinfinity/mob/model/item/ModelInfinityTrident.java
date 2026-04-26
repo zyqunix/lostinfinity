@@ -1,14 +1,10 @@
 package xol.lostinfinity.mob.model.item;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/item/ModelInfinityTrident.class */
 public class ModelInfinityTrident extends ModelBase {
     private final ModelRenderer Trident;
-
     public ModelInfinityTrident() {
         this.field_78090_t = 64;
         this.field_78089_u = 64;
@@ -27,11 +23,9 @@ public class ModelInfinityTrident extends ModelBase {
         this.Trident.field_78804_l.add(new ModelBox(this.Trident, 0, 13, 4.0f, -1.0f, 20.0f, 2, 2, 4, -0.5f, false));
         this.Trident.field_78804_l.add(new ModelBox(this.Trident, 0, 33, -8.0f, -2.5f, 12.0f, 16, 5, 4, -1.0f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.Trident.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;

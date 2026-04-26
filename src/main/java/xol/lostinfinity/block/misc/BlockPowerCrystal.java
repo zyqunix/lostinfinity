@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.misc;
-
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.block.Block;
@@ -13,13 +12,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import xol.lostinfinity.block.basic.BlockBasic;
 import xol.lostinfinity.init.BlockInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/misc/BlockPowerCrystal.class */
 public class BlockPowerCrystal extends BlockBasic {
     public BlockPowerCrystal(String name) {
         super(name, Material.field_151576_e);
     }
-
     public void func_180633_a(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
         if (!worldIn.field_72995_K && (placer instanceof EntityPlayer)) {
             int place_case = powerCoordsCorrect(worldIn, state.func_177230_c(), pos);
@@ -38,7 +34,6 @@ public class BlockPowerCrystal extends BlockBasic {
             }
         }
     }
-
     private BlockPos telePos(Block block) {
         if (block.equals(BlockInit.powerBlockBlue)) {
             return new BlockPos(767, 32, 357);
@@ -54,7 +49,6 @@ public class BlockPowerCrystal extends BlockBasic {
         }
         return new BlockPos(784, 24, 355);
     }
-
     private int powerCoordsCorrect(World world, Block block, BlockPos pos) {
         BlockPos below = pos.func_177977_b();
         if (world.func_180495_p(below).func_177230_c() == BlockInit.powerKeyBlock) {
@@ -65,7 +59,6 @@ public class BlockPowerCrystal extends BlockBasic {
         }
         return 0;
     }
-
     private boolean powerGateComplete(World wl, Block blockcheck, BlockPos pos) {
         List<BlockPos> memory = new ArrayList<>();
         int otherRow = -2;

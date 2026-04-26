@@ -1,5 +1,4 @@
 package xol.lostinfinity.gui.containers;
-
 import java.util.List;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -12,8 +11,6 @@ import net.minecraft.item.ItemStack;
 import xol.lostinfinity.block.tileentity.TileEntityFusionTable;
 import xol.lostinfinity.item.misc.ItemShipmentBox;
 import xol.lostinfinity.mob.entity.misc.EntitySupplyTrader;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/containers/ContainerSupplyDeposit.class */
 public class ContainerSupplyDeposit extends Container {
     private static final int PLAYER_INVENTORY_ROW_COUNT = 3;
     private static final int PLAYER_INVENTORY_COLUMN_COUNT = 9;
@@ -26,7 +23,6 @@ public class ContainerSupplyDeposit extends Container {
         }
     };
     private final Slot inputSlot = new Slot(this.inventory, 0, 80, 35);
-
     public ContainerSupplyDeposit(InventoryPlayer invPlayer) {
         this.invPlayer = invPlayer;
         this.trader = (EntitySupplyTrader) invPlayer.field_70458_d.field_70170_p.func_72872_a(EntitySupplyTrader.class, invPlayer.field_70458_d.func_174813_aQ().func_186662_g(10.0d)).get(0);
@@ -40,7 +36,6 @@ public class ContainerSupplyDeposit extends Container {
             func_75146_a(new Slot(this.invPlayer, hotbarSlotIndex, 8 + (hotbarSlotIndex * 18), 142));
         }
     }
-
     public ItemStack func_184996_a(int slotId, int dragType, ClickType clickTypeIn, EntityPlayer player) {
         ItemStack heldStack = player.field_71071_by.func_70445_o();
         if (slotId == 0) {
@@ -54,7 +49,6 @@ public class ContainerSupplyDeposit extends Container {
         }
         return super.func_184996_a(slotId, dragType, clickTypeIn, player);
     }
-
     public void func_75130_a(IInventory inventoryIn) {
         super.func_75130_a(inventoryIn);
         if (inventoryIn == this.inventory) {
@@ -73,10 +67,10 @@ public class ContainerSupplyDeposit extends Container {
                         case 2:
                             item2Count++;
                             break;
-                        case PLAYER_INVENTORY_ROW_COUNT /* 3 */:
+                        case PLAYER_INVENTORY_ROW_COUNT :
                             item3Count++;
                             break;
-                        case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+                        case TileEntityFusionTable.BOARD_ROWS :
                             item4Count++;
                             break;
                     }
@@ -94,15 +88,12 @@ public class ContainerSupplyDeposit extends Container {
             }
         }
     }
-
     public ItemStack func_82846_b(EntityPlayer playerIn, int index) {
         return ItemStack.field_190927_a;
     }
-
     public boolean func_75145_c(EntityPlayer playerIn) {
         return true;
     }
-
     public EntitySupplyTrader getTrader() {
         return this.trader;
     }

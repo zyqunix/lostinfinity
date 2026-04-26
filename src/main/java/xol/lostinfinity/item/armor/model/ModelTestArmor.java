@@ -1,14 +1,10 @@
 package xol.lostinfinity.item.armor.model;
-
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/armor/model/ModelTestArmor.class */
 public class ModelTestArmor extends ModelLostArmor {
     private final ModelRenderer HatLayer_r1;
     private final ModelRenderer LeftArmLayer_r1;
-
     public ModelTestArmor() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -41,11 +37,9 @@ public class ModelTestArmor extends ModelLostArmor {
         this.field_178722_k.func_78793_a(1.9f, 12.0f, 0.0f);
         this.field_178722_k.field_78804_l.add(new ModelBox(this.field_178722_k, 0, 48, -2.0f, 0.0f, -2.0f, 4, 12, 4, 0.25f, false));
     }
-
     public void func_78088_a(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
         super.func_78088_a(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
     }
-
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;

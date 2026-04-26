@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.harvest;
-
 import java.util.Random;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
@@ -18,32 +17,24 @@ import net.minecraft.world.World;
 import xol.lostinfinity.block.basic.BlockBasic;
 import xol.lostinfinity.block.basic.ISpecialHarvest;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/harvest/BlockAuradineOre.class */
 public class BlockAuradineOre extends BlockBasic implements ISpecialHarvest {
     public static final PropertyInteger AMOUNT = PropertyInteger.func_177719_a("amount", 0, 4);
-
     public BlockAuradineOre(String name) {
         super(name);
         func_149675_a(true);
     }
-
     public IBlockState func_180642_a(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
         return func_176223_P().func_177226_a(AMOUNT, 0);
     }
-
     public IBlockState func_176203_a(int meta) {
         return func_176223_P().func_177226_a(AMOUNT, Integer.valueOf(meta));
     }
-
     public int func_176201_c(IBlockState state) {
         return ((Integer) state.func_177229_b(AMOUNT)).intValue();
     }
-
     protected BlockStateContainer func_180661_e() {
         return new BlockStateContainer(this, new IProperty[]{AMOUNT});
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         ItemStack held = playerIn.func_184586_b(hand);
         if (held.func_77973_b() == ItemInit.chlorodivergentSolution) {
@@ -71,33 +62,27 @@ public class BlockAuradineOre extends BlockBasic implements ISpecialHarvest {
         }
         return true;
     }
-
     public void func_180650_b(World world, BlockPos pos, IBlockState state, Random rand) {
         int oreValue;
         if (!world.field_72995_K && (oreValue = func_176201_c(state)) > 0 && world.field_73012_v.nextInt(8) == 0) {
             world.func_175656_a(pos, func_176203_a(oreValue - 1));
         }
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public Item getHarvestResult(World world, BlockPos pos) {
         return ItemInit.auradine;
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public Item getToolNeeded() {
         return ItemInit.crystalPickaxe;
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public void worldHarvestEffect(World world, BlockPos pos, EntityPlayer harvester) {
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public boolean isHarvestable(World world, BlockPos pos, EntityPlayer harvester) {
         return func_176201_c(world.func_180495_p(pos)) == 4;
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public void failedHarvest(World world, BlockPos pos, EntityPlayer harvester) {
     }

@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import net.minecraft.entity.Entity;
@@ -16,15 +15,12 @@ import xol.lostinfinity.init.ParticleInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.mob.entity.base.EntityMultipleLives;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityMiniChakram.class */
 public class EntityMiniChakram extends EntityBaseThrowable {
     private boolean rebound;
     private double speed;
     private ArrayList<Entity> entitiesHit;
     private boolean returned;
     private boolean master;
-
     public EntityMiniChakram(World par1World) {
         super(par1World);
         this.rebound = false;
@@ -34,7 +30,6 @@ public class EntityMiniChakram extends EntityBaseThrowable {
         this.master = false;
         func_70105_a(0.75f, 0.75f);
     }
-
     public EntityMiniChakram(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
         this.rebound = false;
@@ -44,7 +39,6 @@ public class EntityMiniChakram extends EntityBaseThrowable {
         this.master = false;
         func_70105_a(0.75f, 0.75f);
     }
-
     public EntityMiniChakram(World par1World, double par2, double par4, double par6) {
         super(par1World, par2, par4, par6);
         this.rebound = false;
@@ -54,11 +48,9 @@ public class EntityMiniChakram extends EntityBaseThrowable {
         this.master = false;
         func_70105_a(0.75f, 0.75f);
     }
-
     public void setMaster() {
         this.master = true;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -111,7 +103,6 @@ public class EntityMiniChakram extends EntityBaseThrowable {
             }
         }
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void func_70071_h_() {
         super.func_70071_h_();
@@ -170,7 +161,6 @@ public class EntityMiniChakram extends EntityBaseThrowable {
         }
         this.field_70170_p.func_175688_a(ParticleInit.GENERIC_DOT_YELLOW, this.field_70165_t, this.field_70163_u, this.field_70161_v, 0.25d * ((-0.5d) + this.field_70146_Z.nextDouble()), 0.0d, 0.25d * ((-0.5d) + this.field_70146_Z.nextDouble()), new int[0]);
     }
-
     protected float func_70185_h() {
         return 0.0f;
     }

@@ -1,26 +1,20 @@
 package xol.lostinfinity.mob.entity.labyrinth;
-
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 import xol.lostinfinity.mob.entity.base.EntityMultipleLives;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/labyrinth/EntityGloopMother.class */
 public class EntityGloopMother extends EntityMultipleLives {
     private int spawnTimer;
-
     public EntityGloopMother(World worldIn) {
         super(worldIn);
         this.spawnTimer = 0;
         func_70105_a(1.0f, 1.0f);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_184651_r() {
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(2500.0d);
@@ -28,7 +22,6 @@ public class EntityGloopMother extends EntityMultipleLives {
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.0d);
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         if (this.spawnTimer == 0) {
@@ -58,12 +51,10 @@ public class EntityGloopMother extends EntityMultipleLives {
         }
         this.spawnTimer--;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 7;
     }
-
     protected ResourceLocation func_184647_J() {
         return LootTableRegistry.ENTITIES_GLOOPMOTHER;
     }

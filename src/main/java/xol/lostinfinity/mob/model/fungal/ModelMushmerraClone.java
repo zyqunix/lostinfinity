@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.model.fungal;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -7,8 +6,6 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import xol.lostinfinity.mob.entity.fungal.EntityMushmerraClone;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/fungal/ModelMushmerraClone.class */
 public class ModelMushmerraClone extends ModelBase {
     private final ModelRenderer Body_1;
     private final ModelRenderer body2_r1;
@@ -22,7 +19,6 @@ public class ModelMushmerraClone extends ModelBase {
     private final ModelRenderer Arm_Left_1;
     private final ModelRenderer Arm_Right_1;
     private final ModelRenderer armright3_r1;
-
     public ModelMushmerraClone() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -86,7 +82,6 @@ public class ModelMushmerraClone extends ModelBase {
         setRotationAngle(this.armright3_r1, 0.0f, -1.5708f, 0.0f);
         this.armright3_r1.field_78804_l.add(new ModelBox(this.armright3_r1, 0, 0, -1.0f, -27.0f, 6.0f, 0, 5, 4, 0.0f, true));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         EntityMushmerraClone entityMushmerraClone = (EntityMushmerraClone) entity;
         float alpha = entityMushmerraClone.getAlpha();
@@ -96,13 +91,11 @@ public class ModelMushmerraClone extends ModelBase {
         this.Body_1.func_78785_a(f5);
         GlStateManager.func_179084_k();
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.Body_1.field_78796_g = netHeadYaw * 0.017453292f;
         this.Neck_1.field_78795_f = headPitch * 0.017453292f;

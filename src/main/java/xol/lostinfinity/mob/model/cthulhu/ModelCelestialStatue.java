@@ -1,13 +1,10 @@
 package xol.lostinfinity.mob.model.cthulhu;
-
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import xol.lostinfinity.util.Reference;
 import xol.lostinfinity.util.animation.model.IXolModel;
 import xol.lostinfinity.util.animation.model.ModelRenderer;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/cthulhu/ModelCelestialStatue.class */
 public class ModelCelestialStatue extends AnimatedModelBase {
     private static final ResourceLocation ANIMATION = new ResourceLocation(Reference.MODID, "animation/cthulhu/celestial_statue.json");
     private final ModelRenderer Body_1;
@@ -37,7 +34,6 @@ public class ModelCelestialStatue extends AnimatedModelBase {
     private final ModelRenderer Leg_Right_1;
     private final ModelRenderer Leg_Right_2;
     private final ModelRenderer Leg_Right_3;
-
     public ModelCelestialStatue() {
         this.field_78090_t = 512;
         this.field_78089_u = 512;
@@ -163,18 +159,15 @@ public class ModelCelestialStatue extends AnimatedModelBase {
         this.Leg_Right_3.field_78804_l.add(new ModelBox(this.Leg_Right_3, 270, 82, -12.0f, -1.0f, -16.0f, 24, 22, 30, 0.0f, false));
         IXolModel.initializeModel(this);
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         animate(entity);
         this.Body_1.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     @Override // xol.lostinfinity.util.animation.model.IXolModel
     public ResourceLocation getAnimationJson() {
         return ANIMATION;

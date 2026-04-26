@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.armor;
-
 import javax.annotation.Nullable;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.Entity;
@@ -12,8 +11,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.armor.model.ModelArmorFiltrationMask;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/armor/ItemFiltrationMask.class */
 public class ItemFiltrationMask extends ItemArmor {
     public ItemFiltrationMask(ItemArmor.ArmorMaterial mat, int renderIndexIn, EntityEquipmentSlot equipmentSlotIn, String regName) {
         super(mat, renderIndexIn, equipmentSlotIn);
@@ -22,11 +19,9 @@ public class ItemFiltrationMask extends ItemArmor {
         func_77655_b(regName);
         ItemInit.ITEMS.add(this);
     }
-
     public String getArmorTexture(ItemStack itemstack, Entity entity, EntityEquipmentSlot slot, String layer) {
         return "lostinfinity:textures/armor/filtration_mask.png";
     }
-
     @SideOnly(Side.CLIENT)
     @Nullable
     public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {

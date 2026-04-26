@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -24,8 +23,6 @@ import xol.lostinfinity.mob.entity.misc.EntityPlayerLimb;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemSwordOfInsanity.class */
 public class ItemSwordOfInsanity extends ItemSword implements IModeSelect, IMaxAttack {
     public ItemSwordOfInsanity(String regName) {
         super(Item.ToolMaterial.DIAMOND);
@@ -35,7 +32,6 @@ public class ItemSwordOfInsanity extends ItemSword implements IModeSelect, IMaxA
         func_77625_d(1);
         ItemInit.ITEMS.add(this);
     }
-
     public boolean func_77644_a(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         boolean mode = getMode(stack);
         if (mode) {
@@ -47,7 +43,6 @@ public class ItemSwordOfInsanity extends ItemSword implements IModeSelect, IMaxA
         target.field_70170_p.func_184133_a((EntityPlayer) null, target.func_180425_c(), SoundInit.MISSILE_EXPLOSION, SoundCategory.PLAYERS, 1.0f, 0.6f + (target.field_70170_p.field_73012_v.nextFloat() * 0.4f));
         return true;
     }
-
     private void amputationAttack(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         if (!IMaxAttack.dealTrueDamage(attacker, target, target.func_110138_aP(), null).wasTargetKilled() && !IMaxAttack.dealTrueDamage(attacker, target, target.func_110138_aP(), null).wasTargetKilled()) {
             IMaxAttack.dealTrueDamage(attacker, target, target.func_110138_aP(), null);
@@ -69,7 +64,6 @@ public class ItemSwordOfInsanity extends ItemSword implements IModeSelect, IMaxA
             attacker.field_70170_p.func_72838_d(entityLimb);
         }
     }
-
     private void destructionAttack(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         IMaxAttack.dealTrueDamage(attacker, target, target.func_110138_aP(), null);
         if (!(target instanceof EntityPlayer)) {
@@ -85,7 +79,6 @@ public class ItemSwordOfInsanity extends ItemSword implements IModeSelect, IMaxA
         config.createInstance().setCount(50).setParticle(EnumParticleTypes.DRAGON_BREATH).setSpread(3.0d, 2.0d, 3.0d).setSpeed(new Vec3d(0.0d, 0.10000000149011612d, 0.0d));
         IParticleSpawner.spawnParticle(target.field_70170_p, config, target.field_70165_t, target.field_70163_u, target.field_70161_v);
     }
-
     @Override // xol.lostinfinity.item.classify.IModeSelect
     public void modeUpdate(ItemStack stack, EntityPlayer player) {
         if (stack.func_77978_p() == null) {
@@ -95,7 +88,6 @@ public class ItemSwordOfInsanity extends ItemSword implements IModeSelect, IMaxA
         setMode(stack, mode);
         announceUpdate(player, mode);
     }
-
     private void announceUpdate(EntityPlayer player, boolean mode) {
         if (mode) {
             player.func_146105_b(new TextComponentString("Amputation Mode"), true);
@@ -103,19 +95,16 @@ public class ItemSwordOfInsanity extends ItemSword implements IModeSelect, IMaxA
             player.func_146105_b(new TextComponentString("Destruction Mode"), true);
         }
     }
-
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Light_Purple + "Amputation Mode: Slices the limbs off of enemies (100% Health True Damage 3 Times)");
         tooltip.add(TextFmt.Light_Purple + "Destruction Mode: Destroys blocks around enemy players (100% Health True Damage)");
     }
-
     private void setMode(ItemStack stack, boolean mode) {
         if (stack.func_77978_p() == null) {
             stack.func_77982_d(new NBTTagCompound());
         }
         stack.func_77978_p().func_74757_a("mode", mode);
     }
-
     private boolean getMode(ItemStack stack) {
         if (stack.func_77978_p() == null) {
             stack.func_77982_d(new NBTTagCompound());

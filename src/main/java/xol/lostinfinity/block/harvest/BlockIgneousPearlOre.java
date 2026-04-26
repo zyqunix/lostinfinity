@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.harvest;
-
 import java.util.Random;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,19 +10,15 @@ import net.minecraft.world.World;
 import xol.lostinfinity.block.basic.BlockBasic;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/harvest/BlockIgneousPearlOre.class */
 public class BlockIgneousPearlOre extends BlockBasic {
     public BlockIgneousPearlOre(String name) {
         super(name);
         func_149711_c(3.0f);
         func_149752_b(5.0f);
     }
-
     public Item func_180660_a(IBlockState state, Random rand, int fortune) {
         return ItemStack.field_190927_a.func_77973_b();
     }
-
     public void func_176206_d(World worldIn, BlockPos pos, IBlockState state) {
         EntityPlayer player;
         if (!worldIn.field_72995_K && (player = worldIn.func_184137_a(pos.func_177958_n(), pos.func_177956_o(), pos.func_177952_p(), 3.0d, false)) != null) {

@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.boss;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,13 +14,10 @@ import xol.lostinfinity.mob.entity.starforge.EntityDusker;
 import xol.lostinfinity.projectile.entity.EntityDuskerQueenWeb;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/boss/EntityDuskerQueen.class */
 public class EntityDuskerQueen extends EntityMultipleLives implements IMaxAttack, IBasicAI {
     private EntityDuskerQueenWeb web;
     private boolean hasPulled;
     private int moveDownTime;
-
     public EntityDuskerQueen(World worldIn) {
         super(worldIn);
         this.web = null;
@@ -29,7 +25,6 @@ public class EntityDuskerQueen extends EntityMultipleLives implements IMaxAttack
         this.moveDownTime = 20;
         func_70105_a(4.0f, 5.5f);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -38,7 +33,6 @@ public class EntityDuskerQueen extends EntityMultipleLives implements IMaxAttack
         }
         return false;
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(700.0d);
@@ -46,7 +40,6 @@ public class EntityDuskerQueen extends EntityMultipleLives implements IMaxAttack
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.3d);
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
     }
-
     public void func_70636_d() {
         EntityPlayer target;
         super.func_70636_d();
@@ -102,7 +95,6 @@ public class EntityDuskerQueen extends EntityMultipleLives implements IMaxAttack
             }
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void trueDeathAction() {
         if (this.web != null) {
@@ -110,28 +102,22 @@ public class EntityDuskerQueen extends EntityMultipleLives implements IMaxAttack
             this.web = null;
         }
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundEvents.field_187819_fL;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundEvents.field_187821_fM;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundEvents.field_187817_fK;
     }
-
     protected ResourceLocation func_184647_J() {
         return LootTableRegistry.ENTITIES_DUSKERQUEEN;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 150;
     }
-
     protected boolean func_70692_ba() {
         return false;
     }

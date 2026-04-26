@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -21,11 +20,8 @@ import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.util.Reference;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemBladesOfDuality.class */
 public class ItemBladesOfDuality extends ItemSword implements IMaxAttack {
     private static final String MODE = "mode";
-
     public ItemBladesOfDuality(String regName) {
         super(Item.ToolMaterial.WOOD);
         func_77637_a(TabsInit.TAB_INFINITYWEP);
@@ -36,7 +32,6 @@ public class ItemBladesOfDuality extends ItemSword implements IMaxAttack {
             return isMode(stack) ? 1.0f : 0.0f;
         });
     }
-
     public boolean func_77644_a(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         if (isMode(stack)) {
             if (target.field_70163_u > 100.0d) {
@@ -64,25 +59,21 @@ public class ItemBladesOfDuality extends ItemSword implements IMaxAttack {
         toggleMode(stack);
         return true;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "A weapon that switches sides when you attack.");
         tooltip.add(TextFmt.Aqua + "Blade of Wind: Sends you and the target flying into the sky.");
         tooltip.add(TextFmt.Red + "Blade of Treachery: Kills targets over 100 height.");
     }
-
     private void toggleMode(ItemStack stack) {
         setMode(stack, !isMode(stack));
     }
-
     private void setMode(ItemStack stack, boolean flag) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
         }
         stack.func_77978_p().func_74757_a(MODE, flag);
     }
-
     private boolean isMode(ItemStack stack) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());

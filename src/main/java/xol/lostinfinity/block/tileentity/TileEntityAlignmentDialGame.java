@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.tileentity;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import net.minecraft.tileentity.TileEntity;
@@ -7,8 +6,6 @@ import net.minecraft.util.ITickable;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3i;
 import xol.lostinfinity.init.BlockInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/tileentity/TileEntityAlignmentDialGame.class */
 public class TileEntityAlignmentDialGame extends TileEntity implements ITickable {
     private static final int spinTime = 1;
     private boolean active = false;
@@ -17,7 +14,6 @@ public class TileEntityAlignmentDialGame extends TileEntity implements ITickable
     private int dir = 0;
     private int timer = 0;
     private int ringCount = 0;
-
     public void func_73660_a() {
         if (this.active && !this.field_145850_b.field_72995_K) {
             if (this.timer <= 0 && this.ringStates != null) {
@@ -32,14 +28,12 @@ public class TileEntityAlignmentDialGame extends TileEntity implements ITickable
             this.timer -= spinTime;
         }
     }
-
     public void toggleRing(BlockPos pos) {
         int i = Math.max(Math.abs(pos.func_177958_n() - func_174877_v().func_177958_n()), Math.abs(pos.func_177952_p() - func_174877_v().func_177952_p())) - spinTime;
         if (this.ringStates != null && this.ringStates.length >= i - spinTime) {
             this.ringStates[i] = !this.ringStates[i];
         }
     }
-
     private void rotateRing(int i) {
         if (this.rings != null) {
             ArrayList<BlockPos> ring = this.rings.get(i);
@@ -79,16 +73,14 @@ public class TileEntityAlignmentDialGame extends TileEntity implements ITickable
             }
         }
     }
-
     public int getRingCount() {
         return this.ringCount;
     }
-
     public String getDir() {
         switch (this.dir) {
             case 0:
                 return "North";
-            case spinTime /* 1 */:
+            case spinTime :
                 return "East";
             case 2:
                 return "West";
@@ -98,7 +90,6 @@ public class TileEntityAlignmentDialGame extends TileEntity implements ITickable
                 return "North";
         }
     }
-
     public void reset() {
         int ringCount = 0;
         this.rings = new ArrayList<>();

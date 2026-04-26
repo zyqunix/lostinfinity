@@ -1,5 +1,4 @@
 package xol.lostinfinity.init;
-
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.block.state.IBlockState;
@@ -17,12 +16,9 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.block.basic.BlockBasicFluid;
 import xol.lostinfinity.fluid.FluidLiquid;
 import xol.lostinfinity.util.Reference;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/init/FluidInit.class */
 public class FluidInit {
     public static final List<Fluid> FLUIDS = new ArrayList();
     public static Fluid concentratedAcid = registerLiquid("concentrated_acid");
-
     public static void registerFluids(Side side) {
         FLUIDS.forEach(it -> {
             FluidRegistry.registerFluid(it);
@@ -36,11 +32,9 @@ public class FluidInit {
             });
         }
     }
-
     private static Fluid registerLiquid(String regName) {
         return new FluidLiquid(regName, new ResourceLocation(Reference.MODID, "blocks/" + regName + "_still"), new ResourceLocation(Reference.MODID, "blocks/" + regName + "_flow"));
     }
-
     @SideOnly(Side.CLIENT)
     public static <T extends BlockBasicFluid> void registerCustomFluid(final T t) {
         ModelLoader.setCustomMeshDefinition(Item.func_150898_a(t), new ItemMeshDefinition() { // from class: xol.lostinfinity.init.FluidInit.1

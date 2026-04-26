@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -19,8 +18,6 @@ import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.init.TabsInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockItemGameCollector.class */
 public class BlockItemGameCollector extends Block {
     public BlockItemGameCollector(String name) {
         super(Material.field_151573_f);
@@ -33,7 +30,6 @@ public class BlockItemGameCollector extends Block {
         BlockInit.BLOCKS.add(this);
         ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(getRegistryName()));
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!worldIn.field_72995_K) {
             int crates = 0;
@@ -63,7 +59,6 @@ public class BlockItemGameCollector extends Block {
         }
         return true;
     }
-
     private Item resultMap(Item held) {
         if (held == ItemInit.webbedIdol) {
             return ItemInit.ambitionMap;

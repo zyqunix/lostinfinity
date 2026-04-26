@@ -1,13 +1,10 @@
 package xol.lostinfinity.mob.model.starforge;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/starforge/ModelAugmenticon.class */
 public class ModelAugmenticon extends ModelBase {
     private final ModelRenderer Body;
     private final ModelRenderer head;
@@ -20,7 +17,6 @@ public class ModelAugmenticon extends ModelBase {
     private final ModelRenderer LeftLeg;
     private final ModelRenderer LeftLeg_r1;
     private final ModelRenderer bb_main;
-
     public ModelAugmenticon() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -62,7 +58,6 @@ public class ModelAugmenticon extends ModelBase {
         this.bb_main.func_78793_a(0.0f, 24.0f, 0.0f);
         this.bb_main.field_78804_l.add(new ModelBox(this.bb_main, 32, 16, -12.0f, -28.0f, -12.0f, 24, 24, 24, 4.0f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.Body.func_78785_a(f5);
         this.head.func_78785_a(f5);
@@ -76,13 +71,11 @@ public class ModelAugmenticon extends ModelBase {
         this.bb_main.func_78785_a(f5);
         GlStateManager.func_179084_k();
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.RightArm.field_78808_h = (MathHelper.func_76134_b(ageInTicks * 0.1f) * 0.1f) + 0.15799388f;
         this.LeftArm.field_78808_h = -this.RightArm.field_78808_h;

@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.tileentity;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,8 +9,6 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3i;
 import xol.lostinfinity.init.BlockInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/tileentity/TileEntityAncientSymbolInterpreter.class */
 public class TileEntityAncientSymbolInterpreter extends TileEntity implements ITickable {
     private Vec3i dir = null;
     private int[][] symbols = (int[][]) null;
@@ -21,7 +18,6 @@ public class TileEntityAncientSymbolInterpreter extends TileEntity implements IT
     private BlockPos ref = null;
     private boolean flipBack = false;
     private static final int numSymbols = 15;
-
     public void flip(BlockPos pos) {
         if (!this.flipBack) {
             int symbol = getSymbol(pos);
@@ -45,7 +41,6 @@ public class TileEntityAncientSymbolInterpreter extends TileEntity implements IT
             this.field_145850_b.func_184133_a((EntityPlayer) null, pos.func_177984_a(), SoundEvents.field_187750_dc, SoundCategory.BLOCKS, 2.0f, 1.0f);
         }
     }
-
     public int getSymbol(BlockPos pos) {
         if (this.ref != null && this.symbols != null) {
             int i = Math.abs(pos.func_177958_n() - this.ref.func_177958_n());
@@ -57,7 +52,6 @@ public class TileEntityAncientSymbolInterpreter extends TileEntity implements IT
         }
         return 0;
     }
-
     public void setSymbol(BlockPos pos, int symbol) {
         if (this.ref != null && this.symbols != null) {
             int i = Math.abs(pos.func_177958_n() - this.ref.func_177958_n());
@@ -67,11 +61,9 @@ public class TileEntityAncientSymbolInterpreter extends TileEntity implements IT
             }
         }
     }
-
     public void setDir(Vec3i dir) {
         this.dir = dir;
     }
-
     public void reset(int dimension) {
         this.first = null;
         this.second = null;
@@ -95,11 +87,9 @@ public class TileEntityAncientSymbolInterpreter extends TileEntity implements IT
             }
         }
     }
-
     public void setTiles(ArrayList<BlockPos> tiles) {
         this.tiles = tiles;
     }
-
     public void func_73660_a() {
         if (!this.field_145850_b.field_72995_K && this.field_145850_b.func_82737_E() % 20 == 0 && this.flipBack && this.first != null && this.second != null) {
             this.flipBack = false;

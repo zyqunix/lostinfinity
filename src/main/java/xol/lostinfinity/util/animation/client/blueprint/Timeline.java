@@ -1,5 +1,4 @@
 package xol.lostinfinity.util.animation.client.blueprint;
-
 import net.minecraft.util.math.Vec3d;
 import xol.lostinfinity.util.animation.client.keyframe.AbstractKeyframe;
 import xol.lostinfinity.util.animation.client.keyframe.KeyframeType;
@@ -8,8 +7,6 @@ import xol.lostinfinity.util.animation.client.keyframe.RotationKeyframe;
 import xol.lostinfinity.util.animation.client.keyframe.ScaleKeyframe;
 import xol.lostinfinity.util.math.ComplexInterpolator;
 import xol.lostinfinity.util.math.EulerAngle;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/animation/client/blueprint/Timeline.class */
 public class Timeline {
     public final ComplexInterpolator<PositionKeyframe, Vec3d> position = new ComplexInterpolator().setParseFunc((v0) -> {
         return v0.getValue();
@@ -20,7 +17,6 @@ public class Timeline {
     public final ComplexInterpolator<ScaleKeyframe, Vec3d> scale = new ComplexInterpolator().setParseFunc((v0) -> {
         return v0.getValue();
     });
-
     public Timeline() {
         this.position.setInterpolateFunc((ctx, prev, next, ratio) -> {
             switch (getType(prev, next)) {
@@ -65,7 +61,6 @@ public class Timeline {
             }
         });
     }
-
     public static KeyframeType getType(AbstractKeyframe<?> last, AbstractKeyframe<?> next) {
         if (last.getType() == KeyframeType.STEP) {
             return KeyframeType.STEP;

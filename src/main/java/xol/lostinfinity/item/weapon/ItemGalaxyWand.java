@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 import javax.annotation.Nullable;
@@ -26,11 +25,8 @@ import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.projectile.entity.EntityWandAttack;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemGalaxyWand.class */
 public class ItemGalaxyWand extends ItemSword implements IMaxAttack {
     private String wep;
-
     public ItemGalaxyWand(String regName) {
         super(Item.ToolMaterial.WOOD);
         this.wep = "";
@@ -40,7 +36,6 @@ public class ItemGalaxyWand extends ItemSword implements IMaxAttack {
         this.wep = regName;
         ItemInit.ITEMS.add(this);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (!showDurabilityBar(playerIn.func_184586_b(handIn))) {
             RayTraceResult mop = func_77621_a(worldIn, playerIn, true);
@@ -63,7 +58,6 @@ public class ItemGalaxyWand extends ItemSword implements IMaxAttack {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     protected RayTraceResult func_77621_a(World worldIn, EntityPlayer playerIn, boolean useLiquids) {
         float f = playerIn.field_70125_A;
         float f1 = playerIn.field_70177_z;
@@ -80,7 +74,6 @@ public class ItemGalaxyWand extends ItemSword implements IMaxAttack {
         Vec3d vec3d1 = vec3d.func_72441_c(((double) f6) * 40.0d, ((double) f5) * 40.0d, ((double) f7) * 40.0d);
         return worldIn.func_147447_a(vec3d, vec3d1, useLiquids, !useLiquids, false);
     }
-
     public boolean showDurabilityBar(ItemStack stack) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
@@ -90,7 +83,6 @@ public class ItemGalaxyWand extends ItemSword implements IMaxAttack {
         long maxDelay = TimeUnit.SECONDS.toMillis(3L);
         return System.currentTimeMillis() - lastUse <= maxDelay;
     }
-
     public double getDurabilityForDisplay(ItemStack stack) {
         if (showDurabilityBar(stack)) {
             double result = System.currentTimeMillis() - stack.func_77978_p().func_74763_f("lastUse");
@@ -99,7 +91,6 @@ public class ItemGalaxyWand extends ItemSword implements IMaxAttack {
         }
         return 1.0d;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Red + "In several directions fire projectiles.");

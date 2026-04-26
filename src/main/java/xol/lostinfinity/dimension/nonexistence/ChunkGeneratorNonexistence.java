@@ -1,5 +1,4 @@
 package xol.lostinfinity.dimension.nonexistence;
-
 import java.util.List;
 import java.util.Random;
 import net.minecraft.entity.EnumCreatureType;
@@ -15,19 +14,15 @@ import xol.lostinfinity.dimension.data.GridNode;
 import xol.lostinfinity.dimension.data.GridParse;
 import xol.lostinfinity.dimension.util.WorldGenStructure;
 import xol.lostinfinity.item.weapon.ItemHeadCollector;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/dimension/nonexistence/ChunkGeneratorNonexistence.class */
 public class ChunkGeneratorNonexistence implements IChunkGenerator {
     private final Random rand;
     private final World world;
     private Biome[] biomesForGeneration;
     private GridParse dungeon_grid = new GridParse("starforge_dungeon.csv");
-
     public ChunkGeneratorNonexistence(World world, long seed) {
         this.world = world;
         this.rand = new Random(seed);
     }
-
     public void func_185931_b(int chunkX, int chunkZ) {
         GridNode node = this.dungeon_grid.getNodeAtLocation(chunkX, chunkZ, -14, 52);
         if (node != null) {
@@ -49,7 +44,6 @@ public class ChunkGeneratorNonexistence implements IChunkGenerator {
             new WorldGenStructure(second_structure[0]).generateWithRotation(this.world, this.rand, new BlockPos(posX + this.rand.nextInt(xOffsetCap), 80 + base_yOffset + extra_yOffset, posZ + this.rand.nextInt(zOffsetCap)), rotValue);
         }
     }
-
     private static int getAreaNumIdx(String name) {
         int i = 0;
         while (i < name.length() && Character.isDigit(name.charAt(i))) {
@@ -57,7 +51,6 @@ public class ChunkGeneratorNonexistence implements IChunkGenerator {
         }
         return i;
     }
-
     private String typeToStructureName(String name) {
         int areaNum;
         int areaNumIdx = getAreaNumIdx(name);
@@ -76,11 +69,11 @@ public class ChunkGeneratorNonexistence implements IChunkGenerator {
                 return starforgeMinesToStructName(pieceType);
             case 3:
                 return galaxyDungeonToStructName(pieceType);
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 return twistedTunnelsToStructName(pieceType);
             case 5:
                 return overgrownPassagesToStructName(pieceType);
-            case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+            case TileEntityFusionTable.BOARD_COLUMNS :
                 return crystalCreviceToStructName(pieceType);
             case 7:
                 return luminescentCavernToStructName(pieceType);
@@ -88,7 +81,7 @@ public class ChunkGeneratorNonexistence implements IChunkGenerator {
                 return archluminescentCavernToStructName(pieceType);
             case 9:
                 return blightedLuminescenceToStructName(pieceType);
-            case ItemHeadCollector.CHARGE_LIMIT /* 10 */:
+            case ItemHeadCollector.CHARGE_LIMIT :
                 return moltenTwistsToStructName(pieceType);
             case 11:
                 return cavityOfTheDeadToStructName(pieceType);
@@ -100,7 +93,6 @@ public class ChunkGeneratorNonexistence implements IChunkGenerator {
                 return "";
         }
     }
-
     private String fungalCavernToStructName(String pieceType) {
         switch (pieceType) {
             case "fungtun":
@@ -133,7 +125,6 @@ public class ChunkGeneratorNonexistence implements IChunkGenerator {
                 return "";
         }
     }
-
     private String manufacturingOutpostToStructName(String pieceType) {
         switch (pieceType) {
             case "manent1":
@@ -174,23 +165,18 @@ public class ChunkGeneratorNonexistence implements IChunkGenerator {
                 return "";
         }
     }
-
-    /* JADX WARN: Failed to find 'out' block for switch in B:3:0x000a. Please report as an issue. */
     private String cavityOfTheDeadToStructName(String pieceType) {
         pieceType.hashCode();
         switch (-1) {
         }
         return "";
     }
-
-    /* JADX WARN: Failed to find 'out' block for switch in B:3:0x000a. Please report as an issue. */
     private String moltenTwistsToStructName(String pieceType) {
         pieceType.hashCode();
         switch (-1) {
         }
         return "";
     }
-
     private String luminescentCavernToStructName(String pieceType) {
         switch (pieceType) {
             case "lumentry":
@@ -235,7 +221,6 @@ public class ChunkGeneratorNonexistence implements IChunkGenerator {
                 return "";
         }
     }
-
     private String crystalCreviceToStructName(String pieceType) {
         switch (pieceType) {
             case "crysent":
@@ -254,7 +239,6 @@ public class ChunkGeneratorNonexistence implements IChunkGenerator {
                 return "";
         }
     }
-
     private String overgrownPassagesToStructName(String pieceType) {
         switch (pieceType) {
             case "ogentry":
@@ -285,7 +269,6 @@ public class ChunkGeneratorNonexistence implements IChunkGenerator {
                 return "";
         }
     }
-
     private String twistedTunnelsToStructName(String pieceType) {
         switch (pieceType) {
             case "twistx":
@@ -332,7 +315,6 @@ public class ChunkGeneratorNonexistence implements IChunkGenerator {
                 return "";
         }
     }
-
     private String galaxyDungeonToStructName(String pieceType) {
         switch (pieceType) {
             case "galaxy1":
@@ -377,7 +359,6 @@ public class ChunkGeneratorNonexistence implements IChunkGenerator {
                 return "";
         }
     }
-
     private String starforgeMinesToStructName(String pieceType) {
         switch (pieceType) {
             case "minescr":
@@ -410,7 +391,6 @@ public class ChunkGeneratorNonexistence implements IChunkGenerator {
                 return "";
         }
     }
-
     private String mineShaftPoisToStructName(String pieceType) {
         switch (pieceType) {
             case "starforge":
@@ -455,7 +435,6 @@ public class ChunkGeneratorNonexistence implements IChunkGenerator {
                 return "";
         }
     }
-
     private String mineShaftsToStructName(String pieceType) {
         switch (pieceType) {
             case "tsect":
@@ -482,7 +461,6 @@ public class ChunkGeneratorNonexistence implements IChunkGenerator {
                 return "";
         }
     }
-
     private String archluminescentCavernToStructName(String pieceType) {
         switch (pieceType) {
             case "archgate":
@@ -575,7 +553,6 @@ public class ChunkGeneratorNonexistence implements IChunkGenerator {
                 return "";
         }
     }
-
     private String blightedLuminescenceToStructName(String pieceType) {
         switch (pieceType) {
             case "bligentry":
@@ -662,7 +639,6 @@ public class ChunkGeneratorNonexistence implements IChunkGenerator {
                 return "";
         }
     }
-
     private String extraStructureDetail(String name) {
         switch (name) {
             case "orepillar":
@@ -793,132 +769,106 @@ public class ChunkGeneratorNonexistence implements IChunkGenerator {
                 return "";
         }
     }
-
     private String randomPiece(String folder, String name, int num) {
         int pick = this.rand.nextInt(num);
         return folder + "/" + name + (pick + 1);
     }
-
     private String randomSlug() {
         int game_pick = this.rand.nextInt(4);
         return "twistedtunnels/twisted_tunnel_rockslug" + (game_pick + 1);
     }
-
     private String randomLuminTunnel() {
         int game_pick = this.rand.nextInt(36);
         return "lumcavern/lumcavern_tunnel" + (game_pick + 1);
     }
-
     private String randomLuminTurn() {
         int game_pick = this.rand.nextInt(12);
         return "lumcavern/lumcavern_turn" + (game_pick + 1);
     }
-
     private String randomLuminTSect() {
         int game_pick = this.rand.nextInt(16);
         return "lumcavern/lumcavern_tsect" + (game_pick + 1);
     }
-
     private String randomLuminEss() {
         int game_pick = this.rand.nextInt(12);
         return "lumcavern/lumcavern_ess_seg" + (game_pick + 1);
     }
-
     private String randomLuminUpS() {
         int game_pick = this.rand.nextInt(10);
         return "lumcavern/lumcavern_up_small" + (game_pick + 1);
     }
-
     private String randomLuminUpL() {
         int game_pick = this.rand.nextInt(10);
         return "lumcavern/lumcavern_up_big" + (game_pick + 1);
     }
-
     private String randomOvergrownTurn() {
         int game_pick = this.rand.nextInt(2);
         return "overgrown/overgrown_turn_" + (game_pick + 1);
     }
-
     private String randomTwistTurnStyle1() {
         int game_pick = this.rand.nextInt(2);
         return "twistedtunnels/twistedtunnel_turn_1_" + (game_pick + 1);
     }
-
     private String randomTwistTurnStyle2() {
         int game_pick = this.rand.nextInt(2);
         return "twistedtunnels/twistedtunnel_turn_2_" + (game_pick + 1);
     }
-
     private String randomTwistedZTunnel() {
         int game_pick = this.rand.nextInt(4);
         return "twistedtunnels/twistedtunnel_zshaft" + (game_pick + 1);
     }
-
     private String randomTwistedXTunnel() {
         int game_pick = this.rand.nextInt(4);
         return "twistedtunnels/twistedtunnel_xshaft" + (game_pick + 1);
     }
-
     private String randomOvergrownTSect() {
         int game_pick = this.rand.nextInt(3);
         return "overgrown/overgrown_tsect_" + (game_pick + 1);
     }
-
     private String randomCrystalCrevice() {
         int game_pick = this.rand.nextInt(9);
         return "crystal/crystal_crevice_" + (game_pick + 1);
     }
-
     private String randomCorrosiveCavern() {
         int game_pick = this.rand.nextInt(4);
         return "overgrown/corrosive_cavern_" + (game_pick + 1);
     }
-
     private String randomOvergrownStairs() {
         int game_pick = this.rand.nextInt(9);
         return "overgrown/overgrown_stairs" + (game_pick + 1);
     }
-
     private String randomMinesStairs() {
         int game_pick = this.rand.nextInt(6);
         return "forgemines/forge_mines_stairs" + (game_pick + 1);
     }
-
     private String randomMinesEdgewall() {
         int game_pick = this.rand.nextInt(10);
         return "forgemines/forge_mines_wall" + (game_pick + 1);
     }
-
     private String randomOrePillar() {
         int game_pick = this.rand.nextInt(10);
         return "forgemines/forgemines_orepillar" + (game_pick + 1);
     }
-
     private String randomMines() {
         int game_pick = this.rand.nextInt(16);
         return "forgemines/forge_mines" + (game_pick + 1);
     }
-
     private String randomMinesTSect() {
         int game_pick = this.rand.nextInt(2);
         return "forgemines/forgeminestsect" + (game_pick + 1);
     }
-
     private String randomMinesEnd() {
         int game_pick = this.rand.nextInt(3);
         return "forgemines/forgeminesend" + (game_pick + 1);
     }
-
     private String randomMinesTurn() {
         int game_pick = this.rand.nextInt(3);
         return "forgemines/forgeminesturn" + (game_pick + 1);
     }
-
     private String randomMinesShaft() {
         int game_pick = this.rand.nextInt(8);
         return "forgemines/forgeminesshaft" + (game_pick + 1);
     }
-
     private Rotation rotationFromInt(int rotation) {
         switch (rotation) {
             case -1:
@@ -930,9 +880,9 @@ public class ChunkGeneratorNonexistence implements IChunkGenerator {
             case 2:
                 return Rotation.CLOCKWISE_180;
             case 3:
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
             case 5:
-            case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+            case TileEntityFusionTable.BOARD_COLUMNS :
             default:
                 return Rotation.NONE;
             case 7:
@@ -943,7 +893,6 @@ public class ChunkGeneratorNonexistence implements IChunkGenerator {
                 return rotationFromInt(this.rand.nextInt(4) - 1);
         }
     }
-
     public Chunk func_185932_a(int x, int z) {
         this.rand.setSeed((((long) x) * 341873128712L) + (((long) z) * 132897987541L));
         this.biomesForGeneration = this.world.func_72959_q().func_76933_b(this.biomesForGeneration, x * 16, z * 16, 16, 16);
@@ -956,7 +905,6 @@ public class ChunkGeneratorNonexistence implements IChunkGenerator {
         chunk.func_76603_b();
         return chunk;
     }
-
     public List<Biome.SpawnListEntry> func_177458_a(EnumCreatureType creatureType, BlockPos pos) {
         Biome biome = this.world.func_72959_q().func_180631_a(pos);
         if (biome != null) {
@@ -964,18 +912,14 @@ public class ChunkGeneratorNonexistence implements IChunkGenerator {
         }
         return null;
     }
-
     public boolean func_185933_a(Chunk chunkIn, int chunkX, int chunkZ) {
         return false;
     }
-
     public void func_180514_a(Chunk p_180514_1_, int x, int z) {
     }
-
     public boolean func_193414_a(World worldIn, String structureName, BlockPos pos) {
         return false;
     }
-
     public BlockPos func_180513_a(World worldIn, String structureName, BlockPos position, boolean findUnexplored) {
         return null;
     }

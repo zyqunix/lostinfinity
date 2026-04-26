@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.harvest;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.SoundCategory;
@@ -15,28 +14,22 @@ import xol.lostinfinity.mob.entity.starforge.EntityGlomite;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/harvest/BlockPrismosisOre.class */
 public class BlockPrismosisOre extends BlockBasicLight implements ISpecialHarvest, IMaxAttack {
     public BlockPrismosisOre(String name) {
         super(name);
         func_149711_c(2.0f);
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public void failedHarvest(World world, BlockPos pos, EntityPlayer harvester) {
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public Item getHarvestResult(World world, BlockPos pos) {
         return ItemInit.prismosisShards;
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public Item getToolNeeded() {
         return ItemInit.crystalPickaxe;
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public void worldHarvestEffect(World world, BlockPos pos, EntityPlayer harvester) {
         if (!world.field_72995_K) {
@@ -54,7 +47,6 @@ public class BlockPrismosisOre extends BlockBasicLight implements ISpecialHarves
             }
         }
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public boolean isHarvestable(World world, BlockPos pos, EntityPlayer harvester) {
         return true;

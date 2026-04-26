@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.boss;
-
 import java.util.Iterator;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -21,15 +20,12 @@ import xol.lostinfinity.projectile.entity.EntityCryoBeamEffect;
 import xol.lostinfinity.projectile.entity.EntityCryoBolt;
 import xol.lostinfinity.stone.EntityInfinityStone;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/boss/EntityCryonus.class */
 public class EntityCryonus extends EntityFloatingBase implements IMaxAttack {
     private int phase;
     private int nextFormTimer;
     EntityCryoBeamEffect beam;
     EntityCryoBeamEffect blast;
     private boolean givenFrozenMessage;
-
     public EntityCryonus(World worldIn) {
         super(worldIn);
         this.nextFormTimer = 200;
@@ -39,7 +35,6 @@ public class EntityCryonus extends EntityFloatingBase implements IMaxAttack {
         func_70105_a(2.0f, 7.0f);
         this.rawFlySpeed = 0.95f;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     public void func_110147_ax() {
         super.func_110147_ax();
@@ -48,7 +43,6 @@ public class EntityCryonus extends EntityFloatingBase implements IMaxAttack {
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(15000.0d);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -57,11 +51,9 @@ public class EntityCryonus extends EntityFloatingBase implements IMaxAttack {
         }
         return false;
     }
-
     private AxisAlignedBB getArenaAABB() {
         return new AxisAlignedBB(new BlockPos(-3.0d, 60.0d, -149.0d), new BlockPos(52.0d, 85.0d, -36.0d));
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     public void func_70636_d() {
         super.func_70636_d();
@@ -85,7 +77,6 @@ public class EntityCryonus extends EntityFloatingBase implements IMaxAttack {
             updatePhase(this.phase);
         }
     }
-
     private void freeze() {
         AxisAlignedBB arena = getArenaAABB();
         if (this.field_70170_p.field_72995_K) {
@@ -113,7 +104,6 @@ public class EntityCryonus extends EntityFloatingBase implements IMaxAttack {
             }
         }
     }
-
     private void cryoBeam() {
         EntityPlayer target = null;
         Iterator it = this.field_70170_p.func_72872_a(EntityPlayer.class, getArenaAABB()).iterator();
@@ -129,7 +119,6 @@ public class EntityCryonus extends EntityFloatingBase implements IMaxAttack {
             this.field_70170_p.func_72838_d(this.beam);
         }
     }
-
     private void iceSmash() {
         if (this.blast == null || this.blast.getGrowth() > 20.2f) {
             EntityPlayer target = null;
@@ -147,7 +136,6 @@ public class EntityCryonus extends EntityFloatingBase implements IMaxAttack {
             soundPlayers(SoundInit.CRYONUS_RINGS, 0.7f);
         }
     }
-
     private void updatePhase(int phase) {
         this.nextFormTimer--;
         if (this.nextFormTimer == 0) {
@@ -167,7 +155,6 @@ public class EntityCryonus extends EntityFloatingBase implements IMaxAttack {
             }
         }
     }
-
     private void shoot() {
         boolean fired = false;
         Iterator it = this.field_70170_p.func_72872_a(EntityPlayer.class, getArenaAABB()).iterator();
@@ -192,42 +179,34 @@ public class EntityCryonus extends EntityFloatingBase implements IMaxAttack {
             soundPlayers(wepSound, 0.25f);
         }
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.CRYONUS_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.CRYONUS_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundInit.CRYONUS_AMBIENT;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 200;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void updateLifeAction() {
         int lifePercent = Math.round((100 * (numberOfLives() - getLivesCount())) / numberOfLives());
         messagePlayers(TextFmt.Gold + "Cryonus is at " + lifePercent + "% health.");
     }
-
     protected void messagePlayers(String message) {
         for (EntityPlayer contender : this.field_70170_p.func_72872_a(EntityPlayer.class, getArenaAABB())) {
             contender.func_145747_a(new TextComponentString(message));
         }
     }
-
     protected void soundPlayers(SoundEvent sound, float vol) {
         for (EntityPlayer contender : this.field_70170_p.func_72872_a(EntityPlayer.class, getArenaAABB())) {
             this.field_70170_p.func_184133_a((EntityPlayer) null, contender.func_180425_c(), sound, SoundCategory.MASTER, vol, 0.9f + (this.field_70146_Z.nextFloat() * 0.2f));
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void trueDeathAction() {
         if (!this.field_70170_p.field_72995_K) {
@@ -244,11 +223,9 @@ public class EntityCryonus extends EntityFloatingBase implements IMaxAttack {
             func_145779_a(ItemInit.arenaCard, 1);
         }
     }
-
     protected boolean func_70692_ba() {
         return false;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     protected EntityAIFloatAttack createShootAI() {
         return null;

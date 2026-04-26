@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.deviant;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -20,18 +19,14 @@ import xol.lostinfinity.mob.entity.base.EntityFloatingDeviant;
 import xol.lostinfinity.mob.entity.base.IConditionalDamage;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/deviant/EntityDeviantSquid.class */
 public class EntityDeviantSquid extends EntityFloatingDeviant implements IMaxAttack, IConditionalDamage {
     private int eatTimer;
-
     public EntityDeviantSquid(World worldIn) {
         super(worldIn);
         this.eatTimer = 0;
         func_70105_a(4.0f, 4.0f);
         this.rawFlySpeed = 0.95f;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingDeviant
     public void func_110147_ax() {
         super.func_110147_ax();
@@ -39,7 +34,6 @@ public class EntityDeviantSquid extends EntityFloatingDeviant implements IMaxAtt
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.4d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(2000.0d);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -48,7 +42,6 @@ public class EntityDeviantSquid extends EntityFloatingDeviant implements IMaxAtt
         }
         return false;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingDeviant
     public void func_70636_d() {
         super.func_70636_d();
@@ -62,7 +55,6 @@ public class EntityDeviantSquid extends EntityFloatingDeviant implements IMaxAtt
             }
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityDeviantMob
     public boolean func_184645_a(EntityPlayer player, EnumHand hand) {
         ItemStack held = player.func_184586_b(hand);
@@ -77,38 +69,30 @@ public class EntityDeviantSquid extends EntityFloatingDeviant implements IMaxAtt
         super.func_184645_a(player, hand);
         return true;
     }
-
     public boolean func_70648_aU() {
         return true;
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundEvents.field_187831_fR;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundEvents.field_187833_fS;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundEvents.field_187829_fQ;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityDeviantMob
     protected ResourceLocation deviantDrop() {
         return LootTableRegistry.ENTITIES_DEVIANTSQUID;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityDeviantMob
     protected ResourceLocation superMutatedDrop() {
         return LootTableRegistry.ENTITIES_SUPERMUTANT_SQUID;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingDeviant
     protected EntityAIFloatAttack createShootAI() {
         return null;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.IConditionalDamage
     public boolean canBeDamaged(Entity attacker) {
         return this.eatTimer > 0;

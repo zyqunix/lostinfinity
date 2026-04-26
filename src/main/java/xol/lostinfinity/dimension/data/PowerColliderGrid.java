@@ -1,11 +1,8 @@
 package xol.lostinfinity.dimension.data;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.Random;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/dimension/data/PowerColliderGrid.class */
 public class PowerColliderGrid {
     private ArrayList<ArrayList<PowerColliderNode>> paths = null;
     private PowerColliderNode[][] map;
@@ -13,7 +10,6 @@ public class PowerColliderGrid {
     private int row;
     private int minLength;
     private int numPaths;
-
     public PowerColliderGrid(int col, int row, int minLength, int numPaths) {
         this.map = (PowerColliderNode[][]) null;
         this.col = 0;
@@ -33,19 +29,15 @@ public class PowerColliderGrid {
         for (int iterations = 0; !findPaths() && iterations < 10000; iterations++) {
         }
     }
-
     public static void main(String[] args) {
         new PowerColliderGrid(10, 10, 10, 3);
     }
-
     public ArrayList<ArrayList<PowerColliderNode>> getPaths() {
         return this.paths;
     }
-
     private ArrayList<PowerColliderNode> getPath(int i) {
         return this.paths.get(i);
     }
-
     private boolean findPaths() {
         this.paths = new ArrayList<>();
         ArrayList<PowerColliderNode> visited = new ArrayList<>();
@@ -111,7 +103,6 @@ public class PowerColliderGrid {
         }
         return true;
     }
-
     private ArrayList<PowerColliderNode> getNeighbours(PowerColliderNode node) {
         ArrayList<PowerColliderNode> neighbours = new ArrayList<>();
         neighbours.add(getNodeAtLocation(node.getX() + 1, node.getZ()));
@@ -120,7 +111,6 @@ public class PowerColliderGrid {
         neighbours.add(getNodeAtLocation(node.getX(), node.getZ() - 1));
         return neighbours;
     }
-
     public PowerColliderNode getNodeAtLocation(int x, int z) {
         if (this.map != null && x >= 0 && x < this.map.length && z >= 0 && z < this.map[x].length) {
             return this.map[x][z];

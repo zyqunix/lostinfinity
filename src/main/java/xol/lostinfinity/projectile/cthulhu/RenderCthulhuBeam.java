@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.cthulhu;
-
 import javax.annotation.Nullable;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -10,17 +9,12 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
 import xol.lostinfinity.util.Reference;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/cthulhu/RenderCthulhuBeam.class */
 public class RenderCthulhuBeam extends Render<EntityCthulhuBeam> {
     private static final ResourceLocation TEXTURE_BEAM = new ResourceLocation(Reference.MODID, "textures/projectiles/cthulhu/beam.png");
     private static final ResourceLocation TEXTURE_PORTAL = new ResourceLocation(Reference.MODID, "textures/projectiles/cthulhu/portal.png");
-
     public RenderCthulhuBeam(RenderManager renderManager) {
         super(renderManager);
     }
-
-    /* JADX INFO: renamed from: doRender, reason: merged with bridge method [inline-methods] */
     public void func_76986_a(EntityCthulhuBeam entity, double x, double y, double z, float yaw, float partialTicks) {
         float size;
         GlStateManager.func_179129_p();
@@ -68,14 +62,10 @@ public class RenderCthulhuBeam extends Render<EntityCthulhuBeam> {
         GlStateManager.func_179084_k();
         GlStateManager.func_179145_e();
     }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Nullable
-    /* JADX INFO: renamed from: getEntityTexture, reason: merged with bridge method [inline-methods] */
     public ResourceLocation func_110775_a(EntityCthulhuBeam entity) {
         return TEXTURE_BEAM;
     }
-
     private void enableMaxLighting() {
         GlStateManager.func_179140_f();
         OpenGlHelper.func_77475_a(OpenGlHelper.field_77476_b, 240.0f, 240.0f);

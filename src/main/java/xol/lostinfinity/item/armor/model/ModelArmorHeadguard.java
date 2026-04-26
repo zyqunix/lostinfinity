@@ -1,9 +1,6 @@
 package xol.lostinfinity.item.armor.model;
-
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/armor/model/ModelArmorHeadguard.class */
 public class ModelArmorHeadguard extends ModelLostArmor {
     public ModelRenderer helmet;
     public ModelRenderer helmetback;
@@ -14,7 +11,6 @@ public class ModelArmorHeadguard extends ModelLostArmor {
     public ModelRenderer helmetfin5;
     public ModelRenderer helmetfin6;
     public ModelRenderer helmetridge;
-
     public ModelArmorHeadguard() {
         this.field_78090_t = 64;
         this.field_78089_u = 64;
@@ -57,11 +53,9 @@ public class ModelArmorHeadguard extends ModelLostArmor {
         this.field_78116_c.func_78792_a(this.helmetfin6);
         this.field_78116_c.func_78792_a(this.helmetridge);
     }
-
     public void func_78088_a(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
         super.func_78088_a(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
     }
-
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;

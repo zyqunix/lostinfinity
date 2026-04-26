@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.PotionEffect;
@@ -7,22 +6,17 @@ import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import xol.lostinfinity.init.PotionInit;
 import xol.lostinfinity.init.SoundInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityTotemSplitter.class */
 public class EntityTotemSplitter extends EntityLiving {
     private EntityPlayer owner;
-
     public EntityTotemSplitter(World worldIn) {
         super(worldIn);
         this.owner = null;
         func_70105_a(1.0f, 1.0f);
         func_184224_h(true);
     }
-
     public void setOwner(EntityPlayer play) {
         this.owner = play;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         this.field_70143_R = -1.0f;

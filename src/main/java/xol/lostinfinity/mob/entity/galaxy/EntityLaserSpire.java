@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.galaxy;
-
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
@@ -13,13 +12,10 @@ import xol.lostinfinity.mob.entity.base.EntityMultipleLives;
 import xol.lostinfinity.projectile.entity.EntityGalaxyLaser;
 import xol.lostinfinity.util.coordinates.GalaxyCoordinates;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/galaxy/EntityLaserSpire.class */
 public class EntityLaserSpire extends EntityMultipleLives implements IMaxAttack {
     private int gameStyle;
     private boolean fastFire;
     private int fireOffset;
-
     public EntityLaserSpire(World worldIn) {
         super(worldIn);
         this.gameStyle = 0;
@@ -28,59 +24,47 @@ public class EntityLaserSpire extends EntityMultipleLives implements IMaxAttack 
         func_70105_a(2.0f, 3.5f);
         func_184224_h(true);
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(10000.0d);
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_184651_r() {
     }
-
     public void setGameStyle(int style) {
         this.gameStyle = style;
     }
-
     public int getGameStyle() {
         return this.gameStyle;
     }
-
     public void setFastFire() {
         this.fastFire = true;
     }
-
     protected SoundEvent func_184639_G() {
         return null;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return null;
     }
-
     protected SoundEvent func_184615_bR() {
         return null;
     }
-
     public boolean func_70104_M() {
         return false;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void func_70014_b(NBTTagCompound tag) {
         super.func_70014_b(tag);
         tag.func_74768_a("GameStyle", this.gameStyle);
         tag.func_74757_a("FastFire", this.fastFire);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void func_70037_a(NBTTagCompound tag) {
         super.func_70037_a(tag);
         this.gameStyle = tag.func_74762_e("GameStyle");
         this.fastFire = tag.func_74767_n("FastFire");
     }
-
     private AxisAlignedBB getMyAABB() {
         switch (this.gameStyle) {
             case 1:
@@ -89,11 +73,11 @@ public class EntityLaserSpire extends EntityMultipleLives implements IMaxAttack 
                 return GalaxyCoordinates.getGreenAABB();
             case 3:
                 return GalaxyCoordinates.getPinkAABB();
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 return GalaxyCoordinates.getYellowAABB();
             case 5:
                 return GalaxyCoordinates.getSwordAABB();
-            case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+            case TileEntityFusionTable.BOARD_COLUMNS :
                 return GalaxyCoordinates.getBombAABB();
             case 7:
                 return GalaxyCoordinates.getKnifeAABB();
@@ -101,7 +85,6 @@ public class EntityLaserSpire extends EntityMultipleLives implements IMaxAttack 
                 return GalaxyCoordinates.getBlueAABB();
         }
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         if (func_110143_aJ() > 0.0f) {
@@ -132,12 +115,10 @@ public class EntityLaserSpire extends EntityMultipleLives implements IMaxAttack 
             }
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 200;
     }
-
     protected boolean func_70692_ba() {
         return false;
     }

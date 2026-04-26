@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.activate;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -17,8 +16,6 @@ import xol.lostinfinity.dimension.util.DimensionActivator;
 import xol.lostinfinity.init.DimensionInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/activate/ItemStarlitGlobe.class */
 public class ItemStarlitGlobe extends Item {
     public ItemStarlitGlobe(String regName) {
         setRegistryName(regName);
@@ -26,7 +23,6 @@ public class ItemStarlitGlobe extends Item {
         func_77637_a(TabsInit.TAB_AUXMATS);
         ItemInit.ITEMS.add(this);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         double yPlace;
         if (!worldIn.field_72995_K) {
@@ -46,7 +42,6 @@ public class ItemStarlitGlobe extends Item {
         playerIn.func_184586_b(handIn).func_190918_g(1);
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Teleports you in and out of the Cartographers Labyrinth.");

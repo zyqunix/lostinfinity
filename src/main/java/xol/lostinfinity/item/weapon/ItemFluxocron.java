@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -23,11 +22,8 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.classify.ICustomRaytrace;
 import xol.lostinfinity.util.data.CustomRayTraceResult;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemFluxocron.class */
 public class ItemFluxocron extends Item implements ICustomRaytrace {
     List<EntityLivingBase> storage_list = new ArrayList();
-
     public ItemFluxocron(String regName) {
         func_77637_a(TabsInit.TAB_INFINITYWEP);
         setRegistryName(regName);
@@ -35,7 +31,6 @@ public class ItemFluxocron extends Item implements ICustomRaytrace {
         func_77625_d(1);
         ItemInit.ITEMS.add(this);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (!stack.func_77942_o()) {
@@ -92,14 +87,12 @@ public class ItemFluxocron extends Item implements ICustomRaytrace {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     private void performTeleport(World worldIn, EntityPlayer playerIn, double goX, double goY, double goZ) {
         worldIn.func_184133_a((EntityPlayer) null, playerIn.func_180425_c(), SoundEvents.field_187534_aX, SoundCategory.MASTER, 1.0f, 1.0f);
         for (EntityLivingBase entity : this.storage_list) {
             entity.func_70634_a(goX, goY, goZ);
         }
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Dark_Purple + "Mass Teleports Entities To Your/Marked Position");
@@ -121,7 +114,6 @@ public class ItemFluxocron extends Item implements ICustomRaytrace {
             }
         }
     }
-
     private String modeFromInt(int mode) {
         switch (mode) {
             case 0:

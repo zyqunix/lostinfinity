@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import javax.annotation.Nullable;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -16,14 +15,11 @@ import net.minecraft.world.World;
 import xol.lostinfinity.block.basic.BlockBasicGlass;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.SoundInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockBossGate.class */
 public class BlockBossGate extends BlockBasicGlass {
     public BlockBossGate(String name) {
         super(name);
         func_149715_a(1.0f);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!worldIn.field_72995_K) {
             playerIn.func_70606_j(0.5f);
@@ -33,12 +29,10 @@ public class BlockBossGate extends BlockBasicGlass {
         }
         return true;
     }
-
     @Nullable
     public AxisAlignedBB func_180646_a(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
         return field_185506_k;
     }
-
     public void func_180634_a(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
         if (!worldIn.field_72995_K && !entityIn.field_70128_L && (entityIn instanceof EntityLivingBase)) {
             worldIn.func_184133_a((EntityPlayer) null, pos, SoundInit.SCANNER, SoundCategory.MASTER, 1.0f, 1.0f);

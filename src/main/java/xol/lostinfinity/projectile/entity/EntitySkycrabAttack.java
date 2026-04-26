@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,42 +9,33 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntitySkycrabAttack.class */
 public class EntitySkycrabAttack extends EntityBaseThrowable {
     private EntityPlayer crabOwner;
-
     public EntitySkycrabAttack(World par1World) {
         super(par1World);
         this.crabOwner = null;
         func_70105_a(1.0f, 1.0f);
     }
-
     public EntitySkycrabAttack(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
         this.crabOwner = null;
         func_70105_a(1.0f, 1.0f);
     }
-
     public EntitySkycrabAttack(World par1World, double par2, double par4, double par6) {
         super(par1World, par2, par4, par6);
         this.crabOwner = null;
         func_70105_a(1.0f, 1.0f);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void setThrower(EntityLivingBase throwset) {
         this.field_70192_c = throwset;
     }
-
     public void setCrabOwner(EntityPlayer player) {
         this.crabOwner = player;
     }
-
     private EntityPlayer getCrabOwner() {
         return this.crabOwner;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -63,14 +53,12 @@ public class EntitySkycrabAttack extends EntityBaseThrowable {
             func_70106_y();
         }
     }
-
     protected float func_70185_h() {
         if (func_189652_ae()) {
             return 0.0f;
         }
         return 0.0366f;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void func_70071_h_() {
         super.func_70071_h_();

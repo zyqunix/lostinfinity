@@ -1,5 +1,4 @@
 package xol.lostinfinity.gui.guis;
-
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.block.Block;
@@ -13,8 +12,6 @@ import net.minecraft.world.World;
 import xol.lostinfinity.block.tileentity.TileEntityCompressionTable;
 import xol.lostinfinity.gui.containers.ContainerCompressionTable;
 import xol.lostinfinity.util.Reference;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/guis/GuiCompressionTable.class */
 public class GuiCompressionTable extends GuiContainer {
     private static final ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/gui/compression_table.png");
     private final ContainerCompressionTable table;
@@ -22,7 +19,6 @@ public class GuiCompressionTable extends GuiContainer {
     private final BlockPos pos;
     private final InventoryPlayer playerInventory;
     private final IInventory inv;
-
     public GuiCompressionTable(InventoryPlayer invPlayer, World worldIn, BlockPos pos, Block block, IInventory inv) {
         super(new ContainerCompressionTable(invPlayer, worldIn, pos, block, inv));
         this.pos = pos;
@@ -31,15 +27,12 @@ public class GuiCompressionTable extends GuiContainer {
         this.playerInventory = invPlayer;
         this.inv = inv;
     }
-
     public void func_73866_w_() {
         super.func_73866_w_();
     }
-
     public void func_146281_b() {
         super.func_146281_b();
     }
-
     protected void func_146979_b(int mouseX, int mouseY) {
         GlStateManager.func_179140_f();
         GlStateManager.func_179084_k();
@@ -55,11 +48,9 @@ public class GuiCompressionTable extends GuiContainer {
         }
         GlStateManager.func_179145_e();
     }
-
     public static boolean isInRect(int x, int y, int xSize, int ySize, int mouseX, int mouseY) {
         return mouseX >= x && mouseX <= x + xSize && mouseY >= y && mouseY <= y + ySize;
     }
-
     public void func_73863_a(int mouseX, int mouseY, float partialTicks) {
         func_146276_q_();
         super.func_73863_a(mouseX, mouseY, partialTicks);
@@ -67,7 +58,6 @@ public class GuiCompressionTable extends GuiContainer {
         GlStateManager.func_179140_f();
         GlStateManager.func_179084_k();
     }
-
     protected void func_146976_a(float partialTicks, int mouseX, int mouseY) {
         GlStateManager.func_179131_c(1.0f, 1.0f, 1.0f, 1.0f);
         this.field_146297_k.func_110434_K().func_110577_a(texture);
@@ -82,7 +72,6 @@ public class GuiCompressionTable extends GuiContainer {
             func_73729_b(this.field_147003_i + 76, this.field_147009_r + 20, this.field_146999_f, 0, pix + 1, 30);
         }
     }
-
     private int getCPRogressScaled(int pixels) {
         int i = this.inv.func_174887_a_(0);
         if (i != -1) {

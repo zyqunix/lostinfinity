@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -22,14 +21,11 @@ import xol.lostinfinity.item.classify.ISwitchModels;
 import xol.lostinfinity.mob.entity.misc.EntityTNTZombie;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemEndlessArmy.class */
 public class ItemEndlessArmy extends ItemBasic implements IHotbarTick, ISwitchModels, IModeSelect {
     public ItemEndlessArmy(String regName) {
         super(regName, TabsInit.TAB_AUXWEP);
         setModelSwitch("activated", this, 2);
     }
-
     @Override // xol.lostinfinity.item.classify.IHotbarTick
     public void hotbarTick(EntityPlayer player, int slot, ItemStack stack) {
         World world = player.field_70170_p;
@@ -54,7 +50,6 @@ public class ItemEndlessArmy extends ItemBasic implements IHotbarTick, ISwitchMo
             }
         }
     }
-
     @Override // xol.lostinfinity.item.classify.IModeSelect
     public void modeUpdate(ItemStack stack, EntityPlayer player) {
         if (!stack.func_77942_o()) {
@@ -67,7 +62,6 @@ public class ItemEndlessArmy extends ItemBasic implements IHotbarTick, ISwitchMo
             stack.func_77978_p().func_74768_a("activated_data", 0);
         }
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Red + "While in the hotbar, passively summon TnT-Strapped Zombies on targets.");

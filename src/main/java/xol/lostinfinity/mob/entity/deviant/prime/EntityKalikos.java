@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.deviant.prime;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -19,21 +18,17 @@ import xol.lostinfinity.mob.entity.base.IConditionalDamage;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/deviant/prime/EntityKalikos.class */
 public class EntityKalikos extends EntityDeviantPrime implements IMaxAttack, IConditionalDamage {
     public EntityKalikos(World worldIn) {
         super(worldIn);
         func_70105_a(2.0f, 4.5f);
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(1.0d);
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.4d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(4000.0d);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -42,7 +37,6 @@ public class EntityKalikos extends EntityDeviantPrime implements IMaxAttack, ICo
         }
         return false;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         this.field_70143_R = -1.0f;
@@ -88,38 +82,30 @@ public class EntityKalikos extends EntityDeviantPrime implements IMaxAttack, ICo
             }
         }
     }
-
     protected float func_189749_co() {
         return 1.25f;
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.KALIKOS_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.KALIKOS_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundInit.KALIKOS_AMBIENT;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityDeviantPrime
     protected String primeName() {
         return "Kalikos";
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityDeviantPrime
     protected Item primeDrop() {
         return ItemInit.deviantFragmentTL;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.IConditionalDamage
     public boolean canBeDamaged(Entity attacker) {
         return !func_70090_H();
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityDeviantPrime, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 40;

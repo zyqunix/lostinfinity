@@ -1,12 +1,9 @@
 package xol.lostinfinity.mob.model;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/ModelTotem.class */
 public class ModelTotem extends ModelBase {
     private final ModelRenderer OrbInner;
     private final ModelRenderer Orb;
@@ -16,7 +13,6 @@ public class ModelTotem extends ModelBase {
     private final ModelRenderer bone_r3;
     private final ModelRenderer bone_r4;
     private final ModelRenderer OrbRing;
-
     public ModelTotem() {
         this.field_78090_t = 64;
         this.field_78089_u = 64;
@@ -61,7 +57,6 @@ public class ModelTotem extends ModelBase {
         this.OrbRing.field_78804_l.add(new ModelBox(this.OrbRing, 56, 10, -12.0f, 0.0f, -3.0f, 2, 4, 2, 0.0f, false));
         this.OrbRing.field_78804_l.add(new ModelBox(this.OrbRing, 56, 0, -12.0f, -2.0f, 1.0f, 2, 6, 2, 0.0f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.OrbInner.func_78785_a(f5);
         GlStateManager.func_179147_l();
@@ -72,13 +67,11 @@ public class ModelTotem extends ModelBase {
         this.Body.func_78785_a(f5);
         this.OrbRing.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.Orb.field_78796_g = ageInTicks * 0.05f;
         this.OrbInner.field_78796_g = this.Orb.field_78796_g;

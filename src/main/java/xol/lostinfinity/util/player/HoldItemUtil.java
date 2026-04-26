@@ -1,5 +1,4 @@
 package xol.lostinfinity.util.player;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityArrow;
@@ -15,8 +14,6 @@ import net.minecraft.world.World;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.projectile.entity.EntityCelestialFire;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/player/HoldItemUtil.class */
 public class HoldItemUtil {
     public static void axiomProtection(EntityPlayer playerIn) {
         World world = playerIn.field_70170_p;
@@ -36,7 +33,6 @@ public class HoldItemUtil {
             }
         }
     }
-
     private static void vaporizeProjectile(World world, Entity projectile) {
         world.func_184133_a((EntityPlayer) null, new BlockPos(projectile.field_70165_t, projectile.field_70163_u, projectile.field_70161_v), SoundInit.ITEM_AXIOMAVORUM, SoundCategory.MASTER, 2.0f, 1.0f);
         if (!world.field_72995_K) {

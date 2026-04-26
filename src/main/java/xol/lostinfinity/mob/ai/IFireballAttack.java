@@ -1,17 +1,13 @@
 package xol.lostinfinity.mob.ai;
-
 import javax.annotation.Nonnull;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/ai/IFireballAttack.class */
 @FunctionalInterface
 public interface IFireballAttack {
     @Nonnull
     Entity createFireball(World world, EntityLivingBase entityLivingBase, double d, double d2, double d3, int i);
-
     default Entity createFireball(EntityLivingBase parent, Entity target) {
         Vec3d vec3d = parent.func_70676_i(1.0f);
         double d2 = target.field_70165_t - (parent.field_70165_t + (vec3d.field_72450_a * 4.0d));

@@ -1,5 +1,4 @@
 package xol.lostinfinity.common.packets.clientbound;
-
 import io.netty.buffer.ByteBuf;
 import net.minecraft.network.PacketBuffer;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
@@ -7,8 +6,6 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import xol.lostinfinity.client.fx.ClientParticleRenderer;
 import xol.lostinfinity.util.data.CustomParticleConfig;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/common/packets/clientbound/PacketModParticle.class */
 public class PacketModParticle implements IMessage {
     private boolean isSimple;
     private int id;
@@ -17,10 +14,8 @@ public class PacketModParticle implements IMessage {
     private float y;
     private float z;
     private CustomParticleConfig config;
-
     public PacketModParticle() {
     }
-
     public PacketModParticle(int id, int extra, double x, double y, double z) {
         this.isSimple = true;
         this.id = id;
@@ -29,12 +24,10 @@ public class PacketModParticle implements IMessage {
         this.y = (float) y;
         this.z = (float) z;
     }
-
     public PacketModParticle(CustomParticleConfig config) {
         this.isSimple = false;
         this.config = config;
     }
-
     public void fromBytes(ByteBuf b) {
         PacketBuffer buf = new PacketBuffer(b);
         this.isSimple = buf.readBoolean();
@@ -48,7 +41,6 @@ public class PacketModParticle implements IMessage {
         }
         this.config = CustomParticleConfig.read(buf);
     }
-
     public void toBytes(ByteBuf b) {
         PacketBuffer buf = new PacketBuffer(b);
         buf.writeBoolean(this.isSimple);
@@ -62,8 +54,6 @@ public class PacketModParticle implements IMessage {
         }
         CustomParticleConfig.write(this.config, buf);
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/common/packets/clientbound/PacketModParticle$ModParticlePacketHandler.class */
     public static class ModParticlePacketHandler implements IMessageHandler<PacketModParticle, IMessage> {
         public IMessage onMessage(PacketModParticle message, MessageContext ctx) {
             if (message.isSimple) {

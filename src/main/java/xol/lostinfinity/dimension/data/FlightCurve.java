@@ -1,9 +1,6 @@
 package xol.lostinfinity.dimension.data;
-
 import java.util.function.Function;
 import net.minecraft.util.math.BlockPos;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/dimension/data/FlightCurve.class */
 public class FlightCurve {
     public static double a = 1.0d;
     public static double b = 1.0d;
@@ -18,7 +15,6 @@ public class FlightCurve {
     private Function<Double, Double> xslopeFunction;
     private Function<Double, Double> yslopeFunction;
     private Function<Double, Double> zslopeFunction;
-
     public static void main(String[] args) {
         FlightCurve f = new FlightCurve(new BlockPos(3, 4, 10), new BlockPos(0, 0, 4), 5.0d);
         double d = 0.0d;
@@ -32,7 +28,6 @@ public class FlightCurve {
             }
         }
     }
-
     public FlightCurve(BlockPos start, BlockPos finish, double moveSpeed) {
         this.moveSpeed = moveSpeed;
         final double x0 = start.func_177958_n();
@@ -94,23 +89,18 @@ public class FlightCurve {
             }
         };
     }
-
     public double getMoveSpeed() {
         return this.moveSpeed;
     }
-
     public void setMoveSpeed(double speed) {
         this.moveSpeed = speed;
     }
-
     public double getXVelocity(double t) {
         return (-(this.xFunction.apply(Double.valueOf(t)).doubleValue() - this.xFunction.apply(Double.valueOf(t + 0.01d)).doubleValue())) / 0.01d;
     }
-
     public double getYVelocity(double t) {
         return (-(this.yFunction.apply(Double.valueOf(t)).doubleValue() - this.yFunction.apply(Double.valueOf(t + 0.01d)).doubleValue())) / 0.01d;
     }
-
     public double getZVelocity(double t) {
         return (-(this.zFunction.apply(Double.valueOf(t)).doubleValue() - this.zFunction.apply(Double.valueOf(t + 0.01d)).doubleValue())) / 0.01d;
     }

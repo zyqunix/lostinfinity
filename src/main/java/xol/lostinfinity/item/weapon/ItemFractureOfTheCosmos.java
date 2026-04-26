@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -22,14 +21,11 @@ import xol.lostinfinity.item.classify.ICustomRaytrace;
 import xol.lostinfinity.mob.entity.misc.EntityCosmicBomb;
 import xol.lostinfinity.util.data.CustomRayTraceResult;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemFractureOfTheCosmos.class */
 public class ItemFractureOfTheCosmos extends ItemCooldown implements IMaxAttack, ICustomRaytrace {
     public ItemFractureOfTheCosmos(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (!showDurabilityBar(stack)) {
@@ -54,12 +50,10 @@ public class ItemFractureOfTheCosmos extends ItemCooldown implements IMaxAttack,
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 8000;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Light_Purple + "Creates several Cosmic Quakes along the ground.");

@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.render;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -12,17 +11,13 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import xol.lostinfinity.item.weapon.data.IonizerNode;
 import xol.lostinfinity.projectile.entity.EntitySelectorAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/render/RenderSelectorAttack.class */
 public class RenderSelectorAttack<T extends Entity> extends Render<T> {
     public static final ResourceLocation TEXTURE_LIGHTNING_BOLT_YELLOW = new ResourceLocation("lostinfinity:textures/particles/lightning_bolt.png");
     public static final ResourceLocation TEXTURE_LIGHTNING_BOLT_BRIGHT = new ResourceLocation("lostinfinity:textures/particles/lightning_bolt_bright.png");
     public static final ResourceLocation TEXTURE_LIGHTNING_BOLT_BLUE = new ResourceLocation("lostinfinity:textures/particles/lightning_bolt_blue.png");
-
     public RenderSelectorAttack(RenderManager renderManager) {
         super(renderManager);
     }
-
     public void func_76986_a(T entity, double x, double y, double z, float entityYaw, float partialTicks) {
         EntitySelectorAttack attackEntity = (EntitySelectorAttack) entity;
         Vec3d playerPos = null;
@@ -34,7 +29,6 @@ public class RenderSelectorAttack<T extends Entity> extends Render<T> {
             traverseRenderNodes(targetsNode, attackEntity, playerPos, 0);
         }
     }
-
     private void traverseRenderNodes(IonizerNode targetsNode, EntitySelectorAttack entity, Vec3d playerPos, int count) {
         if (targetsNode.getTargets() == null || targetsNode == null) {
             return;
@@ -56,7 +50,6 @@ public class RenderSelectorAttack<T extends Entity> extends Render<T> {
             }
         }
     }
-
     private void renderBolt(EntitySelectorAttack entity, Vec3d target, Vec3d target2, Vec3d playerPos, int count) {
         float alpha;
         if (target != null && target2 != null && playerPos != null) {
@@ -101,7 +94,6 @@ public class RenderSelectorAttack<T extends Entity> extends Render<T> {
             GlStateManager.func_179084_k();
         }
     }
-
     protected ResourceLocation func_110775_a(T entity) {
         return null;
     }

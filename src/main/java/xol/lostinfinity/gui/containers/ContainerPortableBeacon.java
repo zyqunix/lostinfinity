@@ -1,5 +1,4 @@
 package xol.lostinfinity.gui.containers;
-
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Iterator;
@@ -20,8 +19,6 @@ import net.minecraft.potion.PotionUtils;
 import net.minecraft.world.World;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.item.misc.ItemPortableBeacon;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/containers/ContainerPortableBeacon.class */
 public class ContainerPortableBeacon extends Container {
     public final ItemStack beacon;
     private final World world;
@@ -31,7 +28,6 @@ public class ContainerPortableBeacon extends Container {
             ContainerPortableBeacon.this.func_75130_a(this);
         }
     };
-
     @Nullable
     private ItemPortableBeacon getBeacon() {
         if (this.beacon == null || !this.beacon.func_77973_b().equals(ItemInit.portableBeacon)) {
@@ -39,7 +35,6 @@ public class ContainerPortableBeacon extends Container {
         }
         return (ItemPortableBeacon) this.beacon.func_77973_b();
     }
-
     public boolean isValidInput(ItemStack input) {
         boolean result = false;
         if (getBeacon() != null && input.func_77973_b().equals(Items.field_151068_bn)) {
@@ -64,7 +59,6 @@ public class ContainerPortableBeacon extends Container {
         }
         return result;
     }
-
     public ContainerPortableBeacon(InventoryPlayer player, World worldIn, ItemStack beacon) {
         this.beacon = beacon;
         this.world = worldIn;
@@ -72,11 +66,9 @@ public class ContainerPortableBeacon extends Container {
             public int func_178170_b(ItemStack stack) {
                 return 1;
             }
-
             public boolean func_75214_a(ItemStack stack) {
                 return ContainerPortableBeacon.this.isValidInput(stack);
             }
-
             public boolean func_82869_a(EntityPlayer playerIn) {
                 return func_75216_d();
             }
@@ -85,11 +77,9 @@ public class ContainerPortableBeacon extends Container {
             public boolean func_75214_a(ItemStack stack) {
                 return stack.func_77973_b().equals(Items.field_151117_aB) || stack.func_77973_b().equals(ItemInit.ultrapoweredCapacitor);
             }
-
             public int func_178170_b(ItemStack stack) {
                 return 1;
             }
-
             public boolean func_82869_a(EntityPlayer playerIn) {
                 return func_75216_d() && (func_75211_c().func_77973_b().equals(Items.field_151133_ar) || func_75211_c().func_77973_b().equals(ItemInit.ultrapoweredCapacitor));
             }
@@ -103,14 +93,12 @@ public class ContainerPortableBeacon extends Container {
             func_75146_a(new Slot(player, k, 8 + (k * 18), 142));
         }
     }
-
     public void func_75130_a(IInventory inventoryIn) {
         super.func_75130_a(inventoryIn);
         if (inventoryIn == this.inputSlots) {
             updateBeaconGui();
         }
     }
-
     public void updateBeaconGui() {
         ItemPortableBeacon bc;
         ItemStack iteminput1 = this.inputSlots.func_70301_a(0).func_77946_l();
@@ -142,18 +130,15 @@ public class ContainerPortableBeacon extends Container {
             this.inputSlots.func_70299_a(1, ItemStack.field_190927_a);
         }
     }
-
     public void func_75134_a(EntityPlayer playerIn) {
         super.func_75134_a(playerIn);
         if (!this.world.field_72995_K) {
             func_193327_a(playerIn, this.world, this.inputSlots);
         }
     }
-
     public boolean func_75145_c(EntityPlayer playerIn) {
         return true;
     }
-
     public ItemStack func_82846_b(EntityPlayer playerIn, int index) {
         ItemStack itemstack = ItemStack.field_190927_a;
         Slot slot = (Slot) this.field_75151_b.get(index);

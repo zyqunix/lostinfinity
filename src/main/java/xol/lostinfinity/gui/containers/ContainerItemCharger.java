@@ -1,5 +1,4 @@
 package xol.lostinfinity.gui.containers;
-
 import java.util.Arrays;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -13,8 +12,6 @@ import net.minecraft.world.World;
 import xol.lostinfinity.block.tileentity.TileEntityFusionTable;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.util.Reference;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/containers/ContainerItemCharger.class */
 public class ContainerItemCharger extends Container {
     public final ItemStack charger;
     private final World world;
@@ -25,7 +22,6 @@ public class ContainerItemCharger extends Container {
             ContainerItemCharger.this.func_75130_a(this);
         }
     };
-
     public boolean isValidInput(ItemStack input) {
         boolean result = false;
         if (this.charger.func_77973_b().equals(ItemInit.headCollector)) {
@@ -33,7 +29,6 @@ public class ContainerItemCharger extends Container {
         }
         return result;
     }
-
     public int getMaxChargeForItem() {
         int maxCharge = 0;
         if (this.charger.func_77973_b().equals(ItemInit.headCollector)) {
@@ -41,7 +36,6 @@ public class ContainerItemCharger extends Container {
         }
         return maxCharge;
     }
-
     public int getChargeLimitForItem() {
         if (!this.charger.func_77942_o()) {
             this.charger.func_77982_d(new NBTTagCompound());
@@ -53,7 +47,6 @@ public class ContainerItemCharger extends Container {
         }
         return Math.max(limit, 0);
     }
-
     public ContainerItemCharger(InventoryPlayer player, World worldIn, ItemStack charger) {
         this.charger = charger;
         this.world = worldIn;
@@ -61,7 +54,6 @@ public class ContainerItemCharger extends Container {
             public int func_178170_b(ItemStack stack) {
                 return ContainerItemCharger.this.getChargeLimitForItem();
             }
-
             public boolean func_75214_a(ItemStack stack) {
                 return ContainerItemCharger.this.isValidInput(stack);
             }
@@ -70,7 +62,6 @@ public class ContainerItemCharger extends Container {
             public boolean func_75214_a(ItemStack stack) {
                 return ContainerItemCharger.this.isValidInput(stack);
             }
-
             public int func_178170_b(ItemStack stack) {
                 return ContainerItemCharger.this.getChargeLimitForItem();
             }
@@ -79,7 +70,6 @@ public class ContainerItemCharger extends Container {
             public boolean func_75214_a(ItemStack stack) {
                 return ContainerItemCharger.this.isValidInput(stack);
             }
-
             public int func_178170_b(ItemStack stack) {
                 return ContainerItemCharger.this.getChargeLimitForItem();
             }
@@ -88,7 +78,6 @@ public class ContainerItemCharger extends Container {
             public boolean func_75214_a(ItemStack stack) {
                 return ContainerItemCharger.this.isValidInput(stack);
             }
-
             public int func_178170_b(ItemStack stack) {
                 return ContainerItemCharger.this.getChargeLimitForItem();
             }
@@ -102,14 +91,12 @@ public class ContainerItemCharger extends Container {
             func_75146_a(new Slot(player, k, 8 + (k * 18), 142));
         }
     }
-
     public void func_75130_a(IInventory inventoryIn) {
         super.func_75130_a(inventoryIn);
         if (inventoryIn == this.inputSlots) {
             updateChargingGui();
         }
     }
-
     public void updateChargingGui() {
         ItemStack iteminput1 = this.inputSlots.func_70301_a(0).func_77946_l();
         ItemStack iteminput2 = this.inputSlots.func_70301_a(1).func_77946_l();
@@ -133,18 +120,15 @@ public class ContainerItemCharger extends Container {
         this.charger.func_77978_p().func_74768_a("Charge", Math.min(getMaxChargeForItem(), this.charger.func_77978_p().func_74762_e("Charge") + counts[0]));
         func_75142_b();
     }
-
     public void func_75134_a(EntityPlayer playerIn) {
         super.func_75134_a(playerIn);
         if (!this.world.field_72995_K) {
             func_193327_a(playerIn, this.world, this.inputSlots);
         }
     }
-
     public boolean func_75145_c(EntityPlayer playerIn) {
         return true;
     }
-
     public ItemStack func_82846_b(EntityPlayer playerIn, int index) {
         ItemStack itemstack = ItemStack.field_190927_a;
         Slot slot = (Slot) this.field_75151_b.get(index);
@@ -175,20 +159,15 @@ public class ContainerItemCharger extends Container {
         }
         return itemstack;
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/containers/ContainerItemCharger$ItemChargerStatus.class */
     public enum ItemChargerStatus {
         AWAITING_INPUT("Awaiting valid charger input..."),
         FULLY_CHARGED("Item has already been fully charged."),
         PARTIAL_INPUT("Partial charger input detected."),
         VALID("Valid and complete charger input detected, processing.");
-
         final String descriptor;
-
         ItemChargerStatus(String descriptor) {
             this.descriptor = descriptor;
         }
-
         public int getColor() {
             switch (AnonymousClass6.$SwitchMap$xol$lostinfinity$gui$containers$ContainerItemCharger$ItemChargerStatus[ordinal()]) {
                 case 1:
@@ -197,19 +176,15 @@ public class ContainerItemCharger extends Container {
                     return Reference.getDecimalColorFromRGB(250, 250, 100);
                 case 3:
                     return Reference.getDecimalColorFromRGB(255, 191, 0);
-                case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+                case TileEntityFusionTable.BOARD_ROWS :
                     return Reference.getDecimalColorFromRGB(100, 220, 100);
                 default:
                     return Reference.getDecimalColorFromRGB(255, 0, 0);
             }
         }
     }
-
-    /* JADX INFO: renamed from: xol.lostinfinity.gui.containers.ContainerItemCharger$6, reason: invalid class name */
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/containers/ContainerItemCharger$6.class */
-    static /* synthetic */ class AnonymousClass6 {
-        static final /* synthetic */ int[] $SwitchMap$xol$lostinfinity$gui$containers$ContainerItemCharger$ItemChargerStatus = new int[ItemChargerStatus.values().length];
-
+    static  class AnonymousClass6 {
+        static final  int[] $SwitchMap$xol$lostinfinity$gui$containers$ContainerItemCharger$ItemChargerStatus = new int[ItemChargerStatus.values().length];
         static {
             try {
                 $SwitchMap$xol$lostinfinity$gui$containers$ContainerItemCharger$ItemChargerStatus[ItemChargerStatus.FULLY_CHARGED.ordinal()] = 1;

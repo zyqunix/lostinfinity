@@ -1,16 +1,12 @@
 package xol.lostinfinity.gui.containers;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import xol.lostinfinity.block.tileentity.TileEntityGearbox;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/containers/ContainerGearbox.class */
 public class ContainerGearbox extends Container {
     private final TileEntityGearbox tileentity;
-
     public ContainerGearbox(InventoryPlayer player, TileEntityGearbox tileentity) {
         this.tileentity = tileentity;
         for (int y = 0; y < 3; y++) {
@@ -22,11 +18,9 @@ public class ContainerGearbox extends Container {
             func_75146_a(new Slot(player, x2, 8 + (x2 * 18), 142));
         }
     }
-
     public boolean func_75145_c(EntityPlayer playerIn) {
         return true;
     }
-
     public ItemStack func_82846_b(EntityPlayer playerIn, int index) {
         return ItemStack.field_190927_a;
     }

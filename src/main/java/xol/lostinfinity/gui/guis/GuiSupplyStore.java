@@ -1,5 +1,4 @@
 package xol.lostinfinity.gui.guis;
-
 import java.io.IOException;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -14,15 +13,12 @@ import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.mob.entity.misc.EntitySupplyTrader;
 import xol.lostinfinity.util.Reference;
 import xol.lostinfinity.util.client.GuiUtil;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/guis/GuiSupplyStore.class */
 public class GuiSupplyStore extends GuiContainer {
     private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MODID, "textures/gui/supply_trader.png");
     private final ContainerSupplyStore container;
     private final EntitySupplyTrader trader;
     private final int pageCount;
     private int page;
-
     public GuiSupplyStore(InventoryPlayer invPlayer) {
         super(new ContainerSupplyStore(invPlayer));
         this.container = (ContainerSupplyStore) this.field_147002_h;
@@ -30,7 +26,6 @@ public class GuiSupplyStore extends GuiContainer {
         this.pageCount = EntitySupplyTrader.SupplyTraderRecipe.getTotAmountRecipes();
         this.page = 0;
     }
-
     public void func_73863_a(int mouseX, int mouseY, float partialTicks) {
         GlStateManager.func_179131_c(1.0f, 1.0f, 1.0f, 1.0f);
         func_146276_q_();
@@ -39,7 +34,6 @@ public class GuiSupplyStore extends GuiContainer {
         GlStateManager.func_179140_f();
         GlStateManager.func_179084_k();
     }
-
     public void func_73876_c() {
         ItemStack stack;
         super.func_73876_c();
@@ -99,7 +93,6 @@ public class GuiSupplyStore extends GuiContainer {
             outputSlot.func_75215_d(ItemStack.field_190927_a);
         }
     }
-
     protected void func_73864_a(int mouseX, int mouseY, int mouseButton) throws IOException {
         super.func_73864_a(mouseX, mouseY, mouseButton);
         EntitySupplyTrader.SupplyTraderRecipe recipe = EntitySupplyTrader.SupplyTraderRecipe.getRecipeById(this.page);
@@ -199,7 +192,6 @@ public class GuiSupplyStore extends GuiContainer {
             this.container.func_75139_a(0).func_75215_d(ItemStack.field_190927_a);
         }
     }
-
     protected void func_146976_a(float partialTicks, int mouseX, int mouseY) {
         this.field_146297_k.func_110434_K().func_110577_a(TEXTURE);
         func_73729_b(this.field_147003_i, this.field_147009_r, 0, 0, this.field_146999_f, this.field_147000_g);
@@ -229,7 +221,6 @@ public class GuiSupplyStore extends GuiContainer {
             func_73729_b(this.field_147003_i + 36, this.field_147009_r + 33, recipe.getPixelX(), recipe.getPixelY(), 16, 16);
         }
     }
-
     protected void func_146979_b(int mouseX, int mouseY) {
         this.field_146289_q.func_78276_b("Supply Store", 52, 6, 0);
         EntitySupplyTrader.SupplyTraderRecipe recipe = EntitySupplyTrader.SupplyTraderRecipe.getRecipeById(this.page);

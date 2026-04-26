@@ -1,5 +1,4 @@
 package xol.lostinfinity.init;
-
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
@@ -27,14 +26,11 @@ import xol.lostinfinity.mob.entity.sea.EntityRayfish;
 import xol.lostinfinity.mob.entity.sea.EntityRibshark;
 import xol.lostinfinity.mob.entity.sea.EntityUnderfin;
 import xol.lostinfinity.mob.entity.sea.seaserpent.EntitySeaSerpentController;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/init/SpawnInit.class */
 public class SpawnInit {
     public static void init() {
         addSpawns(doVanillaSpawns());
         addSpawns(doModdedSpawns());
     }
-
     public static HashSet<SpawnEntry> doVanillaSpawns() {
         HashSet<SpawnEntry> spawns = new HashSet<>();
         Biome[] ocean = setToArray(BiomeDictionary.getBiomes(BiomeDictionary.Type.OCEAN));
@@ -46,7 +42,6 @@ public class SpawnInit {
         spawns.add(new SpawnEntry(EntityDeviantShulker.class, 3, 1, 1, EnumCreatureType.MONSTER, end));
         return spawns;
     }
-
     public static HashSet<SpawnEntry> doModdedSpawns() {
         HashSet<SpawnEntry> spawns = new HashSet<>();
         spawns.add(new SpawnEntry(EntityTorpedon.class, 10, 1, 1, EnumCreatureType.MONSTER, new Biome[]{DimensionInit.biomeInfiniteMurk}));
@@ -67,7 +62,6 @@ public class SpawnInit {
         spawns.add(new SpawnEntry(EntitySeaSerpentController.class, 1, 1, 1, EnumCreatureType.MONSTER, new Biome[]{DimensionInit.biomeMoltenSea}));
         return spawns;
     }
-
     private static Biome[] setToArray(Set<Biome> biomes) {
         Biome[] biomeArray = new Biome[biomes.size()];
         int i = 0;
@@ -78,20 +72,16 @@ public class SpawnInit {
         }
         return biomeArray;
     }
-
     public static void addSpawns(Collection<SpawnEntry> spawns) {
         spawns.forEach(entry -> {
             EntityRegistry.addSpawn(entry.entityClass, entry.weight, entry.minGroupSize, entry.maxGroupSize, entry.creatureType, entry.biomes);
         });
     }
-
     public static void removeSpawns(Collection<SpawnEntry> spawns) {
         spawns.forEach(entry -> {
             EntityRegistry.removeSpawn(entry.entityClass, entry.creatureType, entry.biomes);
         });
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/init/SpawnInit$SpawnEntry.class */
     public static class SpawnEntry {
         public final Class<? extends EntityLiving> entityClass;
         public final int weight;
@@ -99,7 +89,6 @@ public class SpawnInit {
         public final int maxGroupSize;
         public final EnumCreatureType creatureType;
         public final Biome[] biomes;
-
         private SpawnEntry(Class<? extends EntityLiving> entityClass, int weight, int minGroupSize, int maxGroupSize, EnumCreatureType creatureType, Biome... biomes) {
             this.entityClass = entityClass;
             this.weight = weight;

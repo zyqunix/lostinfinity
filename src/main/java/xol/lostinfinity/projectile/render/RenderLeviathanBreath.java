@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.render;
-
 import javax.annotation.Nullable;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -13,16 +12,11 @@ import net.minecraft.util.math.Vec3d;
 import xol.lostinfinity.mob.entity.sea.leviathan.EntityLeviathanSegment;
 import xol.lostinfinity.projectile.entity.EntityLeviathanBreath;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/render/RenderLeviathanBreath.class */
 public class RenderLeviathanBreath extends Render<EntityLeviathanBreath> {
     public static final ResourceLocation TEXTURE_LASER_BEAM = new ResourceLocation("lostinfinity:textures/particles/laser_beam_bright.png");
-
     public RenderLeviathanBreath(RenderManager renderManager) {
         super(renderManager);
     }
-
-    /* JADX INFO: renamed from: doRender, reason: merged with bridge method [inline-methods] */
     public void func_76986_a(EntityLeviathanBreath entity, double x, double y, double z, float entityYaw, float partialTicks) {
         Vec3d dir = entity.getDirection(partialTicks);
         if (dir == null) {
@@ -55,15 +49,10 @@ public class RenderLeviathanBreath extends Render<EntityLeviathanBreath> {
         GlStateManager.func_179089_o();
         GlStateManager.func_179084_k();
     }
-
-    /* JADX INFO: renamed from: shouldRender, reason: merged with bridge method [inline-methods] */
     public boolean func_177071_a(EntityLeviathanBreath livingEntity, ICamera camera, double camX, double camY, double camZ) {
         return true;
     }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Nullable
-    /* JADX INFO: renamed from: getEntityTexture, reason: merged with bridge method [inline-methods] */
     public ResourceLocation func_110775_a(EntityLeviathanBreath entity) {
         return TEXTURE_LASER_BEAM;
     }

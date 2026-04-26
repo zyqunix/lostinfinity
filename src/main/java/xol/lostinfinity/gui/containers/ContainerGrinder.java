@@ -1,5 +1,4 @@
 package xol.lostinfinity.gui.containers;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ClickType;
@@ -10,8 +9,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.block.tileentity.TileEntityGrinder;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/containers/ContainerGrinder.class */
 public class ContainerGrinder extends Container {
     private static final int PLAYER_INVENTORY_ROW_COUNT = 3;
     private static final int PLAYER_INVENTORY_COLUMN_COUNT = 9;
@@ -21,7 +18,6 @@ public class ContainerGrinder extends Container {
     private final TileEntityGrinder tileEntity;
     private final Slot inputSlot;
     private final Slot outputSlot;
-
     public ContainerGrinder(InventoryPlayer invPlayer, TileEntityGrinder tileEntity) {
         this.invPlayer = invPlayer;
         this.tileEntity = tileEntity;
@@ -38,13 +34,12 @@ public class ContainerGrinder extends Container {
             func_75146_a(new Slot(this.invPlayer, hotbarSlotIndex, 8 + (hotbarSlotIndex * 18), 142));
         }
     }
-
     public ItemStack func_184996_a(int slotId, int dragType, ClickType clickTypeIn, EntityPlayer player) {
         ItemStack heldStack = player.field_71071_by.func_70445_o();
         this.inputSlot.func_75211_c();
         this.outputSlot.func_75211_c();
         switch (slotId) {
-            case INPUT_SLOT_INDEX /* 0 */:
+            case INPUT_SLOT_INDEX :
                 if (heldStack.func_190926_b()) {
                     return super.func_184996_a(slotId, dragType, clickTypeIn, player);
                 }
@@ -52,7 +47,7 @@ public class ContainerGrinder extends Container {
                     return ItemStack.field_190927_a;
                 }
                 break;
-            case OUTPUT_SLOT_INDEX /* 1 */:
+            case OUTPUT_SLOT_INDEX :
                 if (!heldStack.func_190926_b()) {
                     return ItemStack.field_190927_a;
                 }
@@ -62,7 +57,6 @@ public class ContainerGrinder extends Container {
         }
         return super.func_184996_a(slotId, dragType, clickTypeIn, player);
     }
-
     public ItemStack func_82846_b(EntityPlayer playerIn, int index) {
         Slot clickedSlot = (Slot) this.field_75151_b.get(index);
         Slot inputSlot = (Slot) this.field_75151_b.get(INPUT_SLOT_INDEX);
@@ -94,17 +88,14 @@ public class ContainerGrinder extends Container {
         }
         return ItemStack.field_190927_a;
     }
-
     public void func_75132_a(IContainerListener listener) {
         super.func_75132_a(listener);
         listener.func_175173_a(this, this.tileEntity);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_75137_b(int id, int data) {
         this.tileEntity.func_174885_b(id, data);
     }
-
     public boolean func_75145_c(EntityPlayer playerIn) {
         return this.tileEntity.func_70300_a(playerIn);
     }

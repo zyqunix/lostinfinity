@@ -1,5 +1,4 @@
 package xol.lostinfinity.dimension.shadowsea;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -11,24 +10,18 @@ import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.World;
 import xol.lostinfinity.block.tileentity.TileEntityFusionTable;
 import xol.lostinfinity.init.BlockInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/dimension/shadowsea/CoralGenerator.class */
 public class CoralGenerator {
     private World world;
     private IBlockState topBlock = BlockInit.seastone.func_176223_P();
-
     public CoralGenerator() {
     }
-
     public void setWorld(World world, IBlockState state) {
         this.world = world;
         this.topBlock = state;
     }
-
     public CoralGenerator(World world) {
         this.world = world;
     }
-
     public void genRandomCoral(BlockPos pos) {
         if (!this.world.field_72995_K) {
             int randCoral = this.world.field_73012_v.nextInt(8);
@@ -45,19 +38,18 @@ public class CoralGenerator {
                 case 3:
                     genBranchCoral(pos);
                     break;
-                case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+                case TileEntityFusionTable.BOARD_ROWS :
                     genPlateCoral(pos, new Integer[0]);
                     break;
                 case 5:
                     genPoleCoral(pos, new Integer[0]);
                     break;
-                case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+                case TileEntityFusionTable.BOARD_COLUMNS :
                     genBrainCoral(pos);
                     break;
             }
         }
     }
-
     public void genVolcanicCoral(BlockPos pos) {
         if (!this.world.field_72995_K) {
             if (this.world.field_73012_v.nextInt(4) == 0) {
@@ -88,11 +80,9 @@ public class CoralGenerator {
             }
         }
     }
-
     public void genRandomExtras(BlockPos pos) {
         genRadionTower(pos);
     }
-
     private void genRadionTower(BlockPos pos) {
         for (int j = 0; j < 30; j++) {
             for (int i = -2; i <= 2; i++) {
@@ -136,7 +126,6 @@ public class CoralGenerator {
             }
         }
     }
-
     public void genPoleCoral(BlockPos pos, Integer... ints) {
         int pick;
         int secondPick;
@@ -197,11 +186,9 @@ public class CoralGenerator {
             }
         }
     }
-
     private boolean isTopBlock(BlockPos pos) {
         return this.world.func_180495_p(pos).equals(this.topBlock);
     }
-
     public void genFunnelCoral(BlockPos pos) {
         if (!isTopBlock(pos.func_177977_b())) {
             return;
@@ -235,14 +222,12 @@ public class CoralGenerator {
             }
         }
     }
-
     public void genPlateCoral(BlockPos pos, Integer... ints) {
         if (!isTopBlock(pos.func_177977_b())) {
             return;
         }
         genPlateCoral(pos, null, null, ints);
     }
-
     public void genPlateCoral(BlockPos pos, IBlockState prevPlate, IBlockState prevInner, Integer... ints) {
         int pick;
         IBlockState plateState = prevPlate;
@@ -276,7 +261,6 @@ public class CoralGenerator {
             genPlateCoral(pos.func_177971_a(new Vec3i(this.world.field_73012_v.nextInt(5) - 2, 2, this.world.field_73012_v.nextInt(5) - 2)), plateState, innerState, new Integer[0]);
         }
     }
-
     public void genBranchCoral(BlockPos pos) {
         if (!isTopBlock(pos.func_177977_b())) {
             return;
@@ -285,7 +269,6 @@ public class CoralGenerator {
         IBlockState branchState = BlockInit.roughCoral.func_176203_a(pick);
         genBranchCoral(branchState, (CoralNode[][][]) null, null, null, null, 0, pos);
     }
-
     public int genBranchCoral(IBlockState branchState, CoralNode[][][] map, CoralNode node, Vec3i dir, ArrayList<CoralNode> visited, int count, BlockPos pos) {
         CoralNode newNode;
         CoralNode check;
@@ -412,7 +395,6 @@ public class CoralGenerator {
         }
         return count2;
     }
-
     private static ArrayList<Vec3i> upDirs() {
         ArrayList<Vec3i> neighbours = new ArrayList<>();
         neighbours.add(new Vec3i(0, 1, 0));
@@ -422,7 +404,6 @@ public class CoralGenerator {
         neighbours.add(new Vec3i(0, 0, -1));
         return neighbours;
     }
-
     private static ArrayList<Vec3i> getDirs() {
         ArrayList<Vec3i> neighbours = new ArrayList<>();
         neighbours.add(new Vec3i(0, 1, 0));
@@ -433,7 +414,6 @@ public class CoralGenerator {
         neighbours.add(new Vec3i(0, -1, 0));
         return neighbours;
     }
-
     private static Vec3d randomlyRotate(Vec3d dir, double xRot, double yRot, double zRot) {
         Random rand = new Random();
         double angleX = ((rand.nextDouble() * xRot) * 2.0d) - xRot;
@@ -447,23 +427,18 @@ public class CoralGenerator {
         double newX3 = (newX2 * Math.cos(angleZ)) - (newY * Math.sin(angleZ));
         return new Vec3d(newX3, (newX3 * Math.sin(angleZ)) + (newY * Math.cos(angleZ)), newZ2);
     }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public static CoralNode getNodeAtLocation(CoralNode[][][] map, int x, int y, int z) {
         if (map != null && x >= 0 && x < map.length && y >= 0 && y < map[0].length && z >= 0 && z < map[0][0].length) {
             return map[x][y][z];
         }
         return null;
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/dimension/shadowsea/CoralGenerator$CoralNode.class */
     private class CoralNode {
         private int x;
         private int y;
         private int z;
         private ArrayList<CoralNode> prev;
         private boolean visited;
-
         private CoralNode(int x, int y, int z) {
             this.x = 0;
             this.y = 0;
@@ -476,11 +451,9 @@ public class CoralGenerator {
             this.prev.clear();
         }
     }
-
     public boolean isZigZag(Vec3i first, Vec3i second) {
         return (Math.abs(first.func_177958_n() - second.func_177958_n()) + Math.abs(first.func_177952_p() - second.func_177952_p()) == 1 && (first.func_177958_n() == second.func_177958_n() || second.func_177952_p() == first.func_177952_p())) ? false : true;
     }
-
     public void genTubeCoral(BlockPos pos, Integer... ints) {
         int pick;
         if (!isTopBlock(pos.func_177977_b())) {
@@ -612,7 +585,6 @@ public class CoralGenerator {
             }
         }
     }
-
     private static ArrayList<BlockPos> getNeighbours(BlockPos pos, boolean hasDiag) {
         ArrayList<BlockPos> neighbours = new ArrayList<>();
         neighbours.add(pos.func_177974_f());
@@ -627,7 +599,6 @@ public class CoralGenerator {
         }
         return neighbours;
     }
-
     public void genTreeCoral(BlockPos pos) {
         if (!isTopBlock(pos.func_177977_b())) {
             return;
@@ -636,7 +607,6 @@ public class CoralGenerator {
         IBlockState branchState = BlockInit.roughCoral.func_176203_a(pick);
         genTreeCoral(branchState, (CoralNode[][][]) null, null, null, null, pos);
     }
-
     public void genTreeCoral(IBlockState branchState, CoralNode[][][] map, CoralTrunk trunk, Vec3i dir, ArrayList<CoralNode> visited, BlockPos pos) {
         int radius;
         int radius2 = 3;
@@ -775,7 +745,6 @@ public class CoralGenerator {
             }
         }
     }
-
     private static ArrayList<CoralNode> getCoralNeighbours(CoralNode[][][] map, CoralNode node) {
         ArrayList<CoralNode> neighbours = new ArrayList<>();
         ArrayList<Vec3i> dirs = new ArrayList<>();
@@ -811,14 +780,11 @@ public class CoralGenerator {
         }
         return neighbours;
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/dimension/shadowsea/CoralGenerator$CoralTrunk.class */
     private class CoralTrunk {
         private ArrayList<CoralNode> nodes;
         private int radius;
         private CoralNode centre;
         private Vec3i dir;
-
         private CoralTrunk(CoralNode[][][] map, CoralNode centre, int radius, Vec3i dir) {
             CoralNode node;
             this.nodes = new ArrayList<>();
@@ -858,15 +824,12 @@ public class CoralGenerator {
                 }
             }
         }
-
-        /* JADX INFO: Access modifiers changed from: private */
         public void visit() {
             for (CoralNode node : this.nodes) {
                 node.visited = true;
             }
         }
     }
-
     public void genBrainCoral(BlockPos pos) {
         if (!isTopBlock(pos.func_177977_b())) {
             return;
@@ -897,7 +860,6 @@ public class CoralGenerator {
             }
         }
     }
-
     public void GenFlatTopCoral(BlockPos pos) {
         int yOff;
         if (!isTopBlock(pos.func_177977_b())) {
@@ -938,7 +900,6 @@ public class CoralGenerator {
             }
         }
     }
-
     public void GenBulbCoral(BlockPos pos) {
         if (!isTopBlock(pos.func_177977_b())) {
             return;
@@ -955,7 +916,6 @@ public class CoralGenerator {
             }
         }
     }
-
     private void GenBulb(BlockPos pos, World world, ArrayList<BlockPos> visited, IBlockState stemState, IBlockState bulbState) {
         if (!isTopBlock(pos.func_177977_b())) {
             return;
@@ -1002,7 +962,6 @@ public class CoralGenerator {
             }
         }
     }
-
     public void genSproutCoral(BlockPos pos) {
         if (!isTopBlock(pos.func_177977_b())) {
             return;
@@ -1012,7 +971,6 @@ public class CoralGenerator {
         IBlockState plateState = BlockInit.superRoughCoral.func_176203_a(pick);
         genSproutCoral(branchState, plateState, (CoralNode[][][]) null, null, null, null, pos, this.world);
     }
-
     public void genSproutCoral(IBlockState branchState, IBlockState plateState, CoralNode[][][] map, CoralTrunk trunk, Vec3i dir, ArrayList<CoralNode> visited, BlockPos pos, World world) {
         int radius;
         int radius2 = 3;

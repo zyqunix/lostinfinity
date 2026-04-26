@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.tileentity;
-
 import java.util.Random;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,8 +13,6 @@ import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/tileentity/TileEntityCircuitCalibrator.class */
 public class TileEntityCircuitCalibrator extends TileEntity implements ITickable {
     private boolean game = false;
     private int cur = 0;
@@ -28,7 +25,6 @@ public class TileEntityCircuitCalibrator extends TileEntity implements ITickable
     BlockPos monPos = null;
     private static int timeRange = 10;
     private static Random rand = new Random();
-
     public void func_73660_a() {
         int meta;
         if (!this.field_145850_b.field_72995_K && this.game) {
@@ -108,7 +104,6 @@ public class TileEntityCircuitCalibrator extends TileEntity implements ITickable
             this.time++;
         }
     }
-
     public void startGame() {
         this.pressed = false;
         this.game = true;
@@ -130,7 +125,6 @@ public class TileEntityCircuitCalibrator extends TileEntity implements ITickable
             }
         }
     }
-
     public void press(int meta, BlockPos pos, EntityPlayer playerIn) {
         this.monPos = pos;
         this.player = playerIn;

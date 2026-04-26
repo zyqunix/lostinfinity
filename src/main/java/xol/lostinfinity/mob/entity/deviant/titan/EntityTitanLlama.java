@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.deviant.titan;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -13,21 +12,17 @@ import xol.lostinfinity.mob.entity.base.EntityDeviantTitan;
 import xol.lostinfinity.projectile.entity.EntityDeviantSpit;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/deviant/titan/EntityTitanLlama.class */
 public class EntityTitanLlama extends EntityDeviantTitan {
     public EntityTitanLlama(World worldIn) {
         super(worldIn);
         func_70105_a(3.5f, 8.0f);
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(1.0d);
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.35d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(1500.0d);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -36,19 +31,15 @@ public class EntityTitanLlama extends EntityDeviantTitan {
         }
         return false;
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundEvents.field_191252_dC;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundEvents.field_191254_dE;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundEvents.field_191260_dz;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         EntityLivingBase target = func_70638_az();
@@ -65,7 +56,6 @@ public class EntityTitanLlama extends EntityDeviantTitan {
             func_184185_a(SoundEvents.field_191255_dF, 1.0f, 1.0f);
         }
     }
-
     protected ResourceLocation func_184647_J() {
         if (onFinalLife()) {
             return LootTableRegistry.ENTITIES_TITAN_LLAMA;

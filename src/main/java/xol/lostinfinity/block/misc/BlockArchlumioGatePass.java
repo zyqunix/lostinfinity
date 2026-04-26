@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.misc;
-
 import java.util.ArrayList;
 import java.util.Random;
 import javax.annotation.Nullable;
@@ -11,25 +10,20 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import xol.lostinfinity.block.basic.BlockBasicGlass;
 import xol.lostinfinity.init.BlockInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/misc/BlockArchlumioGatePass.class */
 public class BlockArchlumioGatePass extends BlockBasicGlass {
     public BlockArchlumioGatePass(String name) {
         super(name);
         func_149715_a(1.0f);
         func_149675_a(true);
     }
-
     @Nullable
     public AxisAlignedBB func_180646_a(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
         return field_185506_k;
     }
-
     public void func_180650_b(World worldIn, BlockPos pos, IBlockState state, Random rand) {
         closeGate(worldIn, pos, null);
         super.func_180650_b(worldIn, pos, state, rand);
     }
-
     public void closeGate(World worldIn, BlockPos pos, ArrayList<BlockPos> visited) {
         if (visited == null) {
             visited = new ArrayList<>();

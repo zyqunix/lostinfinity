@@ -1,5 +1,4 @@
 package xol.lostinfinity.common.packets.serverbound;
-
 import io.netty.buffer.ByteBuf;
 import java.io.IOException;
 import net.minecraft.entity.player.EntityPlayer;
@@ -9,20 +8,15 @@ import net.minecraft.network.PacketBuffer;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/common/packets/serverbound/PacketUpdatePlayerPickedItem.class */
 public class PacketUpdatePlayerPickedItem implements IMessage {
     private int targetId;
     private ItemStack stack;
-
     public PacketUpdatePlayerPickedItem() {
     }
-
     public PacketUpdatePlayerPickedItem(int targetId, ItemStack stack) {
         this.targetId = targetId;
         this.stack = stack;
     }
-
     public void fromBytes(ByteBuf buf) {
         PacketBuffer buffer = new PacketBuffer(buf);
         this.targetId = buffer.func_150792_a();
@@ -32,14 +26,11 @@ public class PacketUpdatePlayerPickedItem implements IMessage {
             throw new RuntimeException(e);
         }
     }
-
     public void toBytes(ByteBuf buf) {
         PacketBuffer buffer = new PacketBuffer(buf);
         buffer.func_150787_b(this.targetId);
         buffer.func_150788_a(this.stack);
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/common/packets/serverbound/PacketUpdatePlayerPickedItem$UpdatePlayerPickedItemPacketHandler.class */
     public static class UpdatePlayerPickedItemPacketHandler implements IMessageHandler<PacketUpdatePlayerPickedItem, IMessage> {
         public IMessage onMessage(PacketUpdatePlayerPickedItem message, MessageContext ctx) {
             EntityPlayerMP serverPlayer = ctx.getServerHandler().field_147369_b;

@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import java.util.HashSet;
 import java.util.Set;
 import net.minecraft.entity.EntityLivingBase;
@@ -11,32 +10,26 @@ import xol.lostinfinity.init.ParticleInit;
 import xol.lostinfinity.mob.entity.base.EntityMultipleLives;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityCreepingVinePod.class */
 public class EntityCreepingVinePod extends EntityBaseThrowable {
     private final Set<EntityLivingBase> pierced;
     private Vec3d initDirection;
     private Rotations currentDir;
     private Rotations randomDir;
     private int turnTick;
-
     public EntityCreepingVinePod(World worldIn) {
         super(worldIn);
         this.pierced = new HashSet();
         func_70105_a(0.75f, 0.75f);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void setThrower(EntityLivingBase throwset) {
         super.setThrower(throwset);
         this.field_184539_c = throwset;
     }
-
     public void setInitDirection(Vec3d initDirection) {
         this.initDirection = initDirection;
         this.currentDir = LMath.toPitchYaw(initDirection);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         EntityMultipleLives entityMultipleLives;
@@ -48,7 +41,6 @@ public class EntityCreepingVinePod extends EntityBaseThrowable {
         }
         this.pierced.add(entityMultipleLives);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void func_70071_h_() {
         super.func_70071_h_();
@@ -72,7 +64,6 @@ public class EntityCreepingVinePod extends EntityBaseThrowable {
         this.field_70179_y = motion.field_72449_c * 0.25d;
         this.field_70133_I = true;
     }
-
     protected float func_70185_h() {
         return 0.0f;
     }

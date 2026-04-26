@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import com.google.common.base.Optional;
 import java.util.ArrayList;
 import java.util.UUID;
@@ -20,8 +19,6 @@ import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.mob.entity.base.EntityImmaterial;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityPlasmaSlicer.class */
 public class EntityPlasmaSlicer extends Entity {
     private static final float collapseDist = 2.5f;
     private int collapseTimer;
@@ -29,17 +26,14 @@ public class EntityPlasmaSlicer extends Entity {
     protected static final DataParameter<Optional<UUID>> EMITTER_ID = EntityDataManager.func_187226_a(EntityPlasmaSlicer.class, DataSerializers.field_187203_m);
     protected static final DataParameter<Optional<UUID>> RECEIVER_ID = EntityDataManager.func_187226_a(EntityPlasmaSlicer.class, DataSerializers.field_187203_m);
     protected static final DataParameter<Float> STABLE_DIST = EntityDataManager.func_187226_a(EntityPlasmaSlicer.class, DataSerializers.field_187193_c);
-
     public EntityPlasmaSlicer(World worldIn) {
         super(worldIn);
         this.collapseTimer = 60;
         func_184224_h(true);
     }
-
     public float getCollapseDist() {
         return collapseDist;
     }
-
     public void func_70071_h_() {
         float newDist;
         super.func_70071_h_();
@@ -122,46 +116,37 @@ public class EntityPlasmaSlicer extends Entity {
             this.collapseTimer = 60;
         }
     }
-
     public EntityPlayer getEmitter() {
         if (((Optional) this.field_70180_af.func_187225_a(EMITTER_ID)).orNull() != null) {
             return this.field_70170_p.func_152378_a((UUID) ((Optional) this.field_70180_af.func_187225_a(EMITTER_ID)).get());
         }
         return null;
     }
-
     public void setEmitter(EntityPlayer player) {
         this.field_70180_af.func_187227_b(EMITTER_ID, Optional.fromNullable(player.func_110124_au()));
     }
-
     public EntityPlayer getReceiver() {
         if (((Optional) this.field_70180_af.func_187225_a(RECEIVER_ID)).orNull() != null) {
             return this.field_70170_p.func_152378_a((UUID) ((Optional) this.field_70180_af.func_187225_a(RECEIVER_ID)).get());
         }
         return null;
     }
-
     public void setReceiver(EntityPlayer player) {
         this.field_70180_af.func_187227_b(RECEIVER_ID, Optional.fromNullable(player.func_110124_au()));
     }
-
     public void setStableDist(float dist) {
         this.field_70180_af.func_187227_b(STABLE_DIST, Float.valueOf(dist));
     }
-
     public float getStableDist() {
         return ((Float) this.field_70180_af.func_187225_a(STABLE_DIST)).floatValue();
     }
-
     protected void func_70088_a() {
         this.field_70180_af.func_187214_a(EMITTER_ID, Optional.absent());
         this.field_70180_af.func_187214_a(RECEIVER_ID, Optional.absent());
         this.field_70180_af.func_187214_a(STABLE_DIST, Float.valueOf(0.0f));
     }
-
     protected void func_70037_a(NBTTagCompound compound) {
     }
-
     protected void func_70014_b(NBTTagCompound compound) {
     }
 }

@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.activate;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -22,8 +21,6 @@ import xol.lostinfinity.item.classify.ICustomRaytrace;
 import xol.lostinfinity.mob.entity.misc.EntityDimensionalMerchant;
 import xol.lostinfinity.mob.entity.misc.EntityMarkOfInfiniteDespair;
 import xol.lostinfinity.util.data.CustomRayTraceResult;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/activate/ItemRapidTunnelingDevice.class */
 public class ItemRapidTunnelingDevice extends Item implements ICustomRaytrace {
     public ItemRapidTunnelingDevice(String regName) {
         setRegistryName(regName);
@@ -32,7 +29,6 @@ public class ItemRapidTunnelingDevice extends Item implements ICustomRaytrace {
         func_77625_d(1);
         ItemInit.ITEMS.add(this);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (!worldIn.field_72995_K && worldIn.field_73011_w.func_186058_p() == DimensionInit.infiniteMurk) {
@@ -63,7 +59,6 @@ public class ItemRapidTunnelingDevice extends Item implements ICustomRaytrace {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Attach this to an entity inside the Infinite Murk to make it tunnel downwards.");

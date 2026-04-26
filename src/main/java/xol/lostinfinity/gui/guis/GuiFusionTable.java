@@ -1,5 +1,4 @@
 package xol.lostinfinity.gui.guis;
-
 import java.io.IOException;
 import java.util.concurrent.ThreadLocalRandom;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -11,21 +10,17 @@ import xol.lostinfinity.common.packets.serverbound.PacketFusionTable;
 import xol.lostinfinity.gui.containers.ContainerFusionTable;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.Reference;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/guis/GuiFusionTable.class */
 public class GuiFusionTable extends GuiContainer {
     private static final ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/gui/fusion_table.png");
     private static final int SHAPE_WIDTH = 12;
     private static final int SHAPE_HEIGHT = 12;
     private final TileEntityFusionTable tileEntity;
     private final InventoryPlayer invPlayer;
-
     public GuiFusionTable(InventoryPlayer invPlayer, TileEntityFusionTable tileEntity) {
         super(new ContainerFusionTable(invPlayer, tileEntity));
         this.tileEntity = tileEntity;
         this.invPlayer = invPlayer;
     }
-
     protected void func_146976_a(float partialTicks, int mouseX, int mouseY) {
         this.field_146297_k.func_110434_K().func_110577_a(texture);
         func_73729_b(this.field_147003_i, this.field_147009_r, 0, 0, this.field_146999_f, this.field_147000_g);
@@ -62,7 +57,6 @@ public class GuiFusionTable extends GuiContainer {
             func_73729_b(progressX + (14 * i2) + (3 * i2), progressY, 0, 178, 14, 8);
         }
     }
-
     protected void func_73864_a(int mouseX, int mouseY, int mouseButton) throws IOException {
         super.func_73864_a(mouseX, mouseY, mouseButton);
         int boardX = this.field_147003_i + 40;
@@ -83,7 +77,6 @@ public class GuiFusionTable extends GuiContainer {
             }
         }
     }
-
     private boolean isInRect(int x, int y, int xSize, int ySize, int mouseX, int mouseY) {
         return mouseX >= x && mouseX <= x + xSize && mouseY >= y && mouseY <= y + ySize;
     }

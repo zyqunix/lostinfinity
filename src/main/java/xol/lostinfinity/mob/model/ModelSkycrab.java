@@ -1,12 +1,9 @@
 package xol.lostinfinity.mob.model;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/ModelSkycrab.class */
 public class ModelSkycrab extends ModelBase {
     private final ModelRenderer RotGroup1;
     private final ModelRenderer smallteeth;
@@ -27,7 +24,6 @@ public class ModelSkycrab extends ModelBase {
     private final ModelRenderer Leg2;
     private final ModelRenderer cube_r8;
     private final ModelRenderer RotGroup2;
-
     public ModelSkycrab() {
         this.field_78090_t = 256;
         this.field_78089_u = 128;
@@ -148,18 +144,15 @@ public class ModelSkycrab extends ModelBase {
         this.RotGroup2.field_78804_l.add(new ModelBox(this.RotGroup2, 129, 82, -1.0f, -43.0f, -12.0f, 1, 14, 24, 0.0f, false));
         this.RotGroup2.field_78804_l.add(new ModelBox(this.RotGroup2, 182, 105, -12.0f, -43.0f, -1.0f, 24, 14, 1, 0.0f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.RotGroup1.func_78785_a(f5);
         this.RotGroup2.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.RotGroup2.field_78796_g = ageInTicks * 0.05f;
         this.RotGroup1.field_78796_g = ageInTicks * (-0.025f);

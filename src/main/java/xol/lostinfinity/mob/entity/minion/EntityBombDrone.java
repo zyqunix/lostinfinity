@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.minion;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -20,21 +19,17 @@ import xol.lostinfinity.mob.entity.base.IConditionalDamage;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/minion/EntityBombDrone.class */
 public class EntityBombDrone extends EntityMultipleLivesMount implements IConditionalDamage {
     private static final DataParameter<Float> OWNER_POS_X = EntityDataManager.func_187226_a(EntityBombDrone.class, DataSerializers.field_187193_c);
     private static final DataParameter<Float> OWNER_POS_Y = EntityDataManager.func_187226_a(EntityBombDrone.class, DataSerializers.field_187193_c);
     private static final DataParameter<Float> OWNER_POS_Z = EntityDataManager.func_187226_a(EntityBombDrone.class, DataSerializers.field_187193_c);
     private static final DataParameter<Float> OWNER_PITCH = EntityDataManager.func_187226_a(EntityBombDrone.class, DataSerializers.field_187193_c);
     private static final DataParameter<Float> OWNER_YAW = EntityDataManager.func_187226_a(EntityBombDrone.class, DataSerializers.field_187193_c);
-
     public EntityBombDrone(World worldIn) {
         super(worldIn);
         func_70105_a(0.6f, 0.6f);
         this.field_70138_W = 5.0f;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLivesMount, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_70088_a() {
         super.func_70088_a();
@@ -44,14 +39,12 @@ public class EntityBombDrone extends EntityMultipleLivesMount implements ICondit
         this.field_70180_af.func_187214_a(OWNER_PITCH, Float.valueOf(this.field_70125_A));
         this.field_70180_af.func_187214_a(OWNER_YAW, Float.valueOf(this.field_70177_z));
     }
-
     public void func_70106_y() {
         super.func_70106_y();
         if (!this.field_70170_p.field_72995_K || this.owner == Minecraft.func_71410_x().field_71439_g) {
             resetOwnerPosition();
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLivesMount
     public void setOwner(EntityPlayer player) {
         super.setOwner(player);
@@ -61,7 +54,6 @@ public class EntityBombDrone extends EntityMultipleLivesMount implements ICondit
         this.field_70180_af.func_187227_b(OWNER_PITCH, Float.valueOf(player.field_70125_A));
         this.field_70180_af.func_187227_b(OWNER_YAW, Float.valueOf(player.field_70759_as));
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         if (!this.field_70170_p.field_72995_K) {
@@ -91,34 +83,27 @@ public class EntityBombDrone extends EntityMultipleLivesMount implements ICondit
             }
         }
     }
-
     public boolean func_70097_a(DamageSource source, float amount) {
         return source.func_76346_g() != this.owner && super.func_70097_a(source, amount);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLivesMount
     public double func_70042_X() {
         return -0.85d;
     }
-
     public boolean func_184215_y(Entity entityIn) {
         return entityIn != this.owner && super.func_184215_y(entityIn);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_184651_r() {
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 5;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.IConditionalDamage
     public boolean canBeDamaged(Entity attacker) {
         return attacker != this.owner;
     }
-
     protected void resetOwnerPosition() {
         float posX = ((Float) this.field_70180_af.func_187225_a(OWNER_POS_X)).floatValue();
         float posY = ((Float) this.field_70180_af.func_187225_a(OWNER_POS_Y)).floatValue();
@@ -130,7 +115,6 @@ public class EntityBombDrone extends EntityMultipleLivesMount implements ICondit
         this.owner.field_70125_A = pitch;
         this.owner.func_70634_a(posX, posY, posZ);
     }
-
     protected boolean validateTarget(Entity input) {
         if (!(input instanceof EntityLivingBase) || (input instanceof EntityImmaterial) || input == func_70902_q() || input.field_70128_L || ((EntityLivingBase) input).func_110143_aJ() <= 0.0f) {
             return false;

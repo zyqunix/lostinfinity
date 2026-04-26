@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.murk;
-
 import java.util.Arrays;
 import java.util.List;
 import net.minecraft.entity.Entity;
@@ -21,15 +20,12 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.mob.ai.IBasicAI;
 import xol.lostinfinity.mob.entity.base.EntityMultipleLives;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/murk/EntityWhisper.class */
 public class EntityWhisper extends EntityMultipleLives implements IMaxAttack, IBasicAI {
     private EntityLivingBase followingTarget;
     private static final DataParameter<Boolean> SACRIFICED = EntityDataManager.func_187226_a(EntityWhisper.class, DataSerializers.field_187198_h);
     private static final DataParameter<Boolean> RITUAL_LEADER = EntityDataManager.func_187226_a(EntityWhisper.class, DataSerializers.field_187198_h);
     private int timer;
     private float pitch;
-
     public EntityWhisper(World worldIn) {
         super(worldIn);
         this.followingTarget = null;
@@ -37,14 +33,12 @@ public class EntityWhisper extends EntityMultipleLives implements IMaxAttack, IB
         this.pitch = 0.0f;
         func_70105_a(4.0f, 5.0f);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_70088_a() {
         super.func_70088_a();
         func_184212_Q().func_187214_a(SACRIFICED, false);
         func_184212_Q().func_187214_a(RITUAL_LEADER, false);
     }
-
     public boolean func_70652_k(Entity entity) {
         if (func_70638_az() != null) {
             if (this.followingTarget != null) {
@@ -59,7 +53,6 @@ public class EntityWhisper extends EntityMultipleLives implements IMaxAttack, IB
         }
         return false;
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(3000.0d);
@@ -67,50 +60,39 @@ public class EntityWhisper extends EntityMultipleLives implements IMaxAttack, IB
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.35d);
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.WHISPER_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.WHISPER_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundInit.WHISPER_AMBIENT;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public boolean func_70601_bi() {
         return super.func_70601_bi() && nothingInRadius(45);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 15;
     }
-
     public boolean isSacrificed() {
         return ((Boolean) this.field_70180_af.func_187225_a(SACRIFICED)).booleanValue();
     }
-
     public void setSacrificed(boolean sacrificed) {
         this.field_70180_af.func_187227_b(SACRIFICED, Boolean.valueOf(sacrificed));
         this.followingTarget = null;
     }
-
     public boolean isLeader() {
         return ((Boolean) this.field_70180_af.func_187225_a(RITUAL_LEADER)).booleanValue();
     }
-
     public void setLeader(boolean leader) {
         this.field_70180_af.func_187227_b(RITUAL_LEADER, Boolean.valueOf(leader));
     }
-
     public void setFollowingTarget(EntityLivingBase t) {
         this.followingTarget = t;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         if (!this.field_70170_p.field_72995_K) {
@@ -181,7 +163,6 @@ public class EntityWhisper extends EntityMultipleLives implements IMaxAttack, IB
             }
         }
     }
-
     private SoundEvent randomWhisper(int i) {
         switch (i) {
             case 0:
@@ -192,7 +173,7 @@ public class EntityWhisper extends EntityMultipleLives implements IMaxAttack, IB
                 return SoundInit.WHISPER_3;
             case 3:
                 return SoundInit.WHISPER_4;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 return SoundInit.WHISPER_5;
             default:
                 return SoundInit.WHISPER_5;

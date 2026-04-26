@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -15,14 +14,11 @@ import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.basics.ItemCooldown;
 import xol.lostinfinity.item.classify.ISummon;
 import xol.lostinfinity.mob.entity.minion.andromeda.EntityAndromedaController;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemAndromeda.class */
 public class ItemAndromeda extends ItemCooldown implements ISummon {
     public ItemAndromeda(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
     }
-
     public ActionResult<ItemStack> func_77659_a(World world, EntityPlayer player, EnumHand hand) {
         ItemStack stack = player.func_184586_b(hand);
         if (!showDurabilityBar(stack)) {
@@ -43,7 +39,6 @@ public class ItemAndromeda extends ItemCooldown implements ISummon {
         }
         return super.func_77659_a(world, player, hand);
     }
-
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Dark_Red + "What have you done...");
         tooltip.add(TextFmt.Gold + "Creates a giant metal serpent known as the Andromeda");

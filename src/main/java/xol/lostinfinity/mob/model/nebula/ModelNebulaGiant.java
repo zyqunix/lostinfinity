@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.model.nebula;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -7,8 +6,6 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import xol.lostinfinity.mob.entity.nebula.EntityNebulaGiant;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/nebula/ModelNebulaGiant.class */
 public class ModelNebulaGiant extends ModelBase {
     private final ModelRenderer BodyFront;
     private final ModelRenderer cube_r1;
@@ -23,7 +20,6 @@ public class ModelNebulaGiant extends ModelBase {
     private final ModelRenderer TailP1;
     private final ModelRenderer TailP2;
     private final ModelRenderer TailP3;
-
     public ModelNebulaGiant() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -91,7 +87,6 @@ public class ModelNebulaGiant extends ModelBase {
         setRotationAngle(this.TailP3, 0.0f, 0.0f, -2.3562f);
         this.TailP3.field_78804_l.add(new ModelBox(this.TailP3, 44, 0, -3.0f, -1.0f, 0.0f, 6, 2, 16, 0.0f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         EntityNebulaGiant nebula = (EntityNebulaGiant) entity;
         GlStateManager.func_179147_l();
@@ -100,13 +95,11 @@ public class ModelNebulaGiant extends ModelBase {
         this.BodyFront.func_78785_a(f5);
         GlStateManager.func_179084_k();
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.FinLeft.field_78808_h = MathHelper.func_76134_b(ageInTicks * 0.1f) * 0.6f;
         this.FinRight.field_78808_h = (-MathHelper.func_76134_b(ageInTicks * 0.1f)) * 0.6f;

@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.activate;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -16,15 +15,12 @@ import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.basics.ItemCooldown;
 import xol.lostinfinity.projectile.entity.EntityStrappedFirework;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/activate/ItemExplosiveStrappedFirework.class */
 public class ItemExplosiveStrappedFirework extends ItemCooldown {
     public ItemExplosiveStrappedFirework(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXMATS);
         func_77625_d(16);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (!showDurabilityBar(stack)) {
@@ -43,12 +39,10 @@ public class ItemExplosiveStrappedFirework extends ItemCooldown {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 400;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Aqua + "Explosive vials attached to a firework.");

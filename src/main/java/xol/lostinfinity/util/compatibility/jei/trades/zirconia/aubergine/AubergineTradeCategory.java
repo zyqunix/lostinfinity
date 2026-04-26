@@ -1,5 +1,4 @@
 package xol.lostinfinity.util.compatibility.jei.trades.zirconia.aubergine;
-
 import javax.annotation.Nullable;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IDrawable;
@@ -12,41 +11,32 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.util.Reference;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/compatibility/jei/trades/zirconia/aubergine/AubergineTradeCategory.class */
 public class AubergineTradeCategory implements IRecipeCategory {
     private final IDrawable background;
     private final IDrawable icon;
     private final String uid = "lostinfinity.zirconia_aubergine";
     private final String title = "Dodgeball Trades";
     private static final ResourceLocation BACKGROUND_TEXTURE = new ResourceLocation(Reference.MODID, "textures/gui/jei_traders.png");
-
     public AubergineTradeCategory(IGuiHelper guiHelper) {
         this.background = guiHelper.drawableBuilder(BACKGROUND_TEXTURE, 32, 30, 114, 34).build();
         this.icon = guiHelper.createDrawableIngredient(new ItemStack(BlockInit.screenDodgeball));
     }
-
     public String getUid() {
         return "lostinfinity.zirconia_aubergine";
     }
-
     public String getTitle() {
         return "Dodgeball Trades";
     }
-
     public String getModName() {
         return Reference.NAME;
     }
-
     public IDrawable getBackground() {
         return this.background;
     }
-
     @Nullable
     public IDrawable getIcon() {
         return this.icon;
     }
-
     public void setRecipe(IRecipeLayout recipeLayout, IRecipeWrapper recipeWrapper, IIngredients ingredients) {
         IGuiItemStackGroup guiItemStackGroup = recipeLayout.getItemStacks();
         guiItemStackGroup.init(1, true, 4, 8);

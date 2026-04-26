@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.block.state.IBlockState;
@@ -17,15 +16,12 @@ import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.dimension.data.LightSwitchGameGenerator;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityLightGame.class */
 public class EntityLightGame extends EntityLiving {
     private boolean lit;
     private List<BlockPos> lights;
     private List<BlockPos> switches;
     private List<Boolean> switchStates;
     private LightSwitchGameGenerator game;
-
     public EntityLightGame(World worldIn) {
         super(worldIn);
         this.lit = false;
@@ -33,7 +29,6 @@ public class EntityLightGame extends EntityLiving {
         this.switches = new ArrayList();
         this.switchStates = new ArrayList();
     }
-
     public EntityLightGame(World worldIn, List<BlockPos> lights, List<BlockPos> switches) {
         super(worldIn);
         this.lit = false;
@@ -43,7 +38,6 @@ public class EntityLightGame extends EntityLiving {
         this.lights = lights;
         this.switches = switches;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         if (!this.field_70170_p.field_72995_K) {
@@ -100,7 +94,6 @@ public class EntityLightGame extends EntityLiving {
             }
         }
     }
-
     public boolean func_184645_a(EntityPlayer player, EnumHand hand) {
         ItemStack held = player.func_184586_b(hand);
         if (held.func_77973_b() == ItemInit.digitalPanel) {
@@ -121,7 +114,6 @@ public class EntityLightGame extends EntityLiving {
         }
         return true;
     }
-
     private boolean win() {
         boolean won = true;
         for (int i = 0; i < this.lights.size(); i++) {
@@ -132,7 +124,6 @@ public class EntityLightGame extends EntityLiving {
         }
         return won;
     }
-
     private void toggle(boolean[] lightsToToggle) {
         for (int i = 0; i < lightsToToggle.length; i++) {
             BlockPos lightPos = this.lights.get(i);
@@ -146,15 +137,12 @@ public class EntityLightGame extends EntityLiving {
             }
         }
     }
-
     protected SoundEvent func_184639_G() {
         return SoundEvents.field_187910_gj;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundEvents.field_187912_gl;
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundEvents.field_187911_gk;
     }

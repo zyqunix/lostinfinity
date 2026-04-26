@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.generator;
-
 import java.util.ArrayList;
 import java.util.UUID;
 import net.minecraft.block.Block;
@@ -23,8 +22,6 @@ import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.item.tool.ItemCloakingDevice;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/generator/BlockGenerator.class */
 public class BlockGenerator extends Block {
     public BlockGenerator(String name, float hardness, Material material, CreativeTabs tab) {
         super(material);
@@ -37,19 +34,15 @@ public class BlockGenerator extends Block {
         BlockInit.BLOCKS.add(this);
         ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(getRegistryName()));
     }
-
     public TileEntity createTileEntity(World world, IBlockState state) {
         return new TileEntityGenerator();
     }
-
     public boolean hasTileEntity(IBlockState state) {
         return true;
     }
-
     private TileEntityGenerator getTE(World world, BlockPos pos) {
         return (TileEntityGenerator) world.func_175625_s(pos);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!playerIn.func_70093_af() && !playerIn.func_184586_b(hand).func_190926_b() && playerIn.func_184586_b(hand).func_77973_b().equals(ItemInit.celestialRedstone)) {
             if (!worldIn.field_72995_K) {
@@ -103,10 +96,8 @@ public class BlockGenerator extends Block {
         }
         return true;
     }
-
     public void activateGenerator(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, int power_upgrade, int efficiency_upgrade, int range_upgrade, int depth_upgrade, UUID placer_uuid) {
     }
-
     protected boolean is_detectable(EntityLivingBase entity) {
         if (entity instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) entity;

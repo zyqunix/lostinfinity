@@ -1,5 +1,4 @@
 package xol.lostinfinity.gui.containers;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -12,15 +11,12 @@ import xol.lostinfinity.block.tileentity.TileEntityNicroniumInfuser;
 import xol.lostinfinity.gui.slots.SlotNicroniumInfuserFuel;
 import xol.lostinfinity.gui.slots.SlotNicroniumInfuserOutput;
 import xol.lostinfinity.recipes.NicroniumInfuserRecipes;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/containers/ContainerNicroniumInfuser.class */
 public class ContainerNicroniumInfuser extends Container {
     private final TileEntityNicroniumInfuser tileentity;
     private int cookTime;
     private int totalCookTime;
     private int burnTime;
     private int currentBurnTime;
-
     public ContainerNicroniumInfuser(InventoryPlayer player, TileEntityNicroniumInfuser tileEntityNicroniumInfuser) {
         this.tileentity = tileEntityNicroniumInfuser;
         this.tileentity.setPlacer(player.field_70458_d);
@@ -36,12 +32,10 @@ public class ContainerNicroniumInfuser extends Container {
             func_75146_a(new Slot(player, x2, 8 + (x2 * 18), 142));
         }
     }
-
     public void func_75132_a(IContainerListener listener) {
         super.func_75132_a(listener);
         listener.func_175173_a(this, this.tileentity);
     }
-
     public void func_75142_b() {
         super.func_75142_b();
         for (int i = 0; i < this.field_75149_d.size(); i++) {
@@ -64,16 +58,13 @@ public class ContainerNicroniumInfuser extends Container {
         this.currentBurnTime = this.tileentity.func_174887_a_(1);
         this.totalCookTime = this.tileentity.func_174887_a_(3);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_75137_b(int id, int data) {
         this.tileentity.func_174885_b(id, data);
     }
-
     public boolean func_75145_c(EntityPlayer playerIn) {
         return this.tileentity.func_70300_a(playerIn);
     }
-
     public ItemStack func_82846_b(EntityPlayer playerIn, int index) {
         ItemStack itemstack = ItemStack.field_190927_a;
         Slot slot = (Slot) this.field_75151_b.get(index);

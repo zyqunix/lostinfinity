@@ -1,5 +1,4 @@
 package xol.lostinfinity.gui.guis;
-
 import java.io.IOException;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -11,8 +10,6 @@ import xol.lostinfinity.common.lostinfinity;
 import xol.lostinfinity.common.packets.serverbound.PacketGearbox;
 import xol.lostinfinity.gui.containers.ContainerGearbox;
 import xol.lostinfinity.util.Reference;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/guis/GuiGearbox.class */
 public class GuiGearbox extends GuiContainer {
     private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MODID, "textures/gui/gearbox.png");
     private final InventoryPlayer player;
@@ -23,14 +20,12 @@ public class GuiGearbox extends GuiContainer {
     private static final int pegStartX = 57;
     private static final int pegStartY = 55;
     private int selectedGear;
-
     public GuiGearbox(InventoryPlayer player, TileEntityGearbox tileentity) {
         super(new ContainerGearbox(player, tileentity));
         this.selectedGear = pegLeft;
         this.player = player;
         this.tileentity = tileentity;
     }
-
     public void func_73863_a(int mouseX, int mouseY, float partialTicks) {
         GlStateManager.func_179131_c(1.0f, 1.0f, 1.0f, 1.0f);
         func_146276_q_();
@@ -39,7 +34,6 @@ public class GuiGearbox extends GuiContainer {
         GlStateManager.func_179140_f();
         GlStateManager.func_179084_k();
     }
-
     protected void func_146976_a(float partialTicks, int mouseX, int mouseY) {
         this.field_146297_k.func_110434_K().func_110577_a(TEXTURE);
         func_73729_b(this.field_147003_i, this.field_147009_r, pegLeft, pegLeft, this.field_146999_f, this.field_147000_g);
@@ -79,7 +73,7 @@ public class GuiGearbox extends GuiContainer {
                     yOffset = -3;
                     xOffset = -3;
                     break;
-                case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+                case TileEntityFusionTable.BOARD_COLUMNS :
                     gearLeft = 37;
                     gearWidth = 13;
                     yOffset = -4;
@@ -89,11 +83,9 @@ public class GuiGearbox extends GuiContainer {
             func_73729_b(pegStartX + pegs[i2] + this.field_147003_i + xOffset, pegStartY + this.field_147009_r + yOffset, gearLeft, pegTop, gearWidth, gearWidth);
         }
     }
-
     protected void func_146979_b(int mouseX, int mouseY) {
         this.field_146289_q.func_78276_b("Gearbox", 66, 6, pegLeft);
     }
-
     protected void func_73864_a(int mouseX, int mouseY, int mouseButton) throws IOException {
         super.func_73864_a(mouseX, mouseY, mouseButton);
         if (isInRect(53 + this.field_147003_i, 19 + this.field_147009_r, 12, 12, mouseX, mouseY)) {
@@ -142,7 +134,6 @@ public class GuiGearbox extends GuiContainer {
             this.tileentity.setPlacedGears(gears);
         }
     }
-
     public static boolean isInRect(int x, int y, int xSize, int ySize, int mouseX, int mouseY) {
         return mouseX >= x && mouseX <= x + xSize && mouseY >= y && mouseY <= y + ySize;
     }

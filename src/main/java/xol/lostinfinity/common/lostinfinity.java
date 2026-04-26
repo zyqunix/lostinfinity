@@ -1,5 +1,4 @@
 package xol.lostinfinity.common;
-
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fluids.FluidRegistry;
 import net.minecraftforge.fml.common.Mod;
@@ -32,23 +31,17 @@ import xol.lostinfinity.util.command.CommandChargeEP;
 import xol.lostinfinity.util.command.CommandClearFractures;
 import xol.lostinfinity.util.command.CommandClearRifts;
 import xol.lostinfinity.util.command.CommandSetDeviant;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/common/lostinfinity.class */
 @Mod(modid = Reference.MODID, name = Reference.NAME, version = Reference.VERSION, acceptedMinecraftVersions = "[1.12.2]")
 public class lostinfinity {
-
     @Mod.Instance
     public static lostinfinity instance;
     public LostInfinityPacketHandler packetHandler;
-
     @SidedProxy(clientSide = Reference.CLIENT, serverSide = Reference.COMMON)
     public static CommonProxy proxy;
     public static final Logger LOGGER = LogManager.getLogger(Reference.MODID);
-
     static {
         FluidRegistry.enableUniversalBucket();
     }
-
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         ConfigurationHandler.init(event.getModConfigurationDirectory());
@@ -66,7 +59,6 @@ public class lostinfinity {
         MinecraftForge.EVENT_BUS.register(new EventsNetworkInjection());
         proxy.preInit(event);
     }
-
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         this.packetHandler = new LostInfinityPacketHandler();
@@ -75,12 +67,10 @@ public class lostinfinity {
         ItemInit.objectPassing();
         proxy.init();
     }
-
     @Mod.EventHandler
     public void postInit(FMLPostInitializationEvent event) {
         proxy.postInit(event);
     }
-
     @Mod.EventHandler
     public void serverInit(FMLServerStartingEvent event) {
         event.registerServerCommand(new CommandSetDeviant());

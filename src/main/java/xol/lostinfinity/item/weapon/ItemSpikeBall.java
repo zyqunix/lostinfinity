@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -16,11 +15,8 @@ import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.projectile.entity.EntitySpikeBall;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemSpikeBall.class */
 public class ItemSpikeBall extends Item {
     private String wep;
-
     public ItemSpikeBall(String regName) {
         this.wep = "";
         func_77637_a(TabsInit.TAB_AUXWEP);
@@ -29,7 +25,6 @@ public class ItemSpikeBall extends Item {
         this.wep = regName;
         ItemInit.ITEMS.add(this);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (!worldIn.field_72995_K) {
@@ -42,7 +37,6 @@ public class ItemSpikeBall extends Item {
         playerIn.func_184185_a(SoundEvents.field_187578_au, 1.0f, 1.0f);
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "A ball with spikes that look like they could poke an eye out.");

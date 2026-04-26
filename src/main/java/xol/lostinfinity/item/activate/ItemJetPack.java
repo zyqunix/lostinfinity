@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.activate;
-
 import java.util.UUID;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,15 +11,11 @@ import xol.lostinfinity.init.DimensionInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.basics.ItemBasic;
 import xol.lostinfinity.mob.entity.mount.EntityJetMount;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/activate/ItemJetPack.class */
 public class ItemJetPack extends ItemBasic {
     private static final String MOUNT_ID = "mount_id";
-
     public ItemJetPack(String regName) {
         super(regName, TabsInit.TAB_AUXMATS);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         Entity prevMount;
         ItemStack stack = playerIn.func_184586_b(handIn);
@@ -50,14 +45,12 @@ public class ItemJetPack extends ItemBasic {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     private void setSpawnedUUID(ItemStack stack, UUID uuid) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
         }
         stack.func_77978_p().func_186854_a(MOUNT_ID, uuid);
     }
-
     private UUID getSpawnedUUID(ItemStack stack) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());

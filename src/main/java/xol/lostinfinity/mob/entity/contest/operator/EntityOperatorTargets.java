@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.contest.operator;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -15,16 +14,12 @@ import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.mob.entity.contest.controller.EntityControllerTargets;
 import xol.lostinfinity.util.coordinates.ContestCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/contest/operator/EntityOperatorTargets.class */
 public class EntityOperatorTargets extends EntityOperatorBase {
     private List<BlockPos> spawnPositions;
-
     public EntityOperatorTargets(World worldIn) {
         super(worldIn);
         this.spawnPositions = new ArrayList();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     public boolean func_184645_a(EntityPlayer player, EnumHand hand) {
         if (!this.field_70170_p.field_72995_K) {
@@ -47,7 +42,6 @@ public class EntityOperatorTargets extends EntityOperatorBase {
         }
         return true;
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected boolean canStartGame() {
         int pl_count = 0;
@@ -69,7 +63,6 @@ public class EntityOperatorTargets extends EntityOperatorBase {
         }
         return pl_count == 1;
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected void startGame() {
         this.spawnPositions.add(ContestCoordinates.targetsSpawnPos());
@@ -94,12 +87,10 @@ public class EntityOperatorTargets extends EntityOperatorBase {
         this.spawnPositions.clear();
         this.contenders.clear();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected AxisAlignedBB getArenaAABB() {
         return ContestCoordinates.targetsArenaAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected AxisAlignedBB getLobbyAABB() {
         return ContestCoordinates.targetsLobbyAABB();

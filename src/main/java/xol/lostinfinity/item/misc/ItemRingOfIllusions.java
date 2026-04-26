@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.misc;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -27,14 +26,11 @@ import xol.lostinfinity.item.classify.IHotbarDeath;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/misc/ItemRingOfIllusions.class */
 public class ItemRingOfIllusions extends ItemCooldown implements IHotbarDeath, IMaxAttack {
     public ItemRingOfIllusions(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_INFINITYWEP);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (!showDurabilityBar(stack) && stack.func_77978_p().func_74762_e("PreventedDim") == worldIn.field_73011_w.getDimension() && stack.func_77978_p().func_74767_n("PreventedLast")) {
@@ -72,12 +68,10 @@ public class ItemRingOfIllusions extends ItemCooldown implements IHotbarDeath, I
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected boolean hasSimpleCooldown() {
         return false;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Italic + "While this is in your hotbar:");
@@ -85,7 +79,6 @@ public class ItemRingOfIllusions extends ItemCooldown implements IHotbarDeath, I
         tooltip.add(TextFmt.Aqua + "The damage you would have taken is reflected to the attacker as true damage.");
         tooltip.add(TextFmt.getFormatting(TextFmt.Italic, TextFmt.Dark_Red) + "Activate this item to teleport back, cursing everything nearby with vulnerability.");
     }
-
     @Override // xol.lostinfinity.item.classify.IHotbarDeath
     public boolean playedKilled(ItemStack stack, EntityPlayer player, Entity attacker, float damageDealt) {
         World world = player.field_70170_p;

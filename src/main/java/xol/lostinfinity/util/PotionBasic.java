@@ -1,5 +1,4 @@
 package xol.lostinfinity.util;
-
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.client.Minecraft;
@@ -8,12 +7,9 @@ import net.minecraft.potion.Potion;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/PotionBasic.class */
 public class PotionBasic extends Potion {
     private boolean negativeLostEffect;
     private int potionPage;
-
     public PotionBasic(String name, boolean isLostBadEffect, int liquidColorIn, int x, int y) {
         super(false, liquidColorIn);
         this.negativeLostEffect = false;
@@ -24,11 +20,9 @@ public class PotionBasic extends Potion {
         func_76399_b(x - (this.potionPage * 24), y);
         setRegistryName(new ResourceLocation("lostinfinity:" + name));
     }
-
     public boolean negativeLostEffect() {
         return this.negativeLostEffect;
     }
-
     @SideOnly(Side.CLIENT)
     public boolean func_76400_d() {
         switch (this.potionPage) {
@@ -41,7 +35,6 @@ public class PotionBasic extends Potion {
         }
         return true;
     }
-
     public List<ItemStack> getCurativeItems() {
         ArrayList<ItemStack> ret = new ArrayList<>();
         return ret;

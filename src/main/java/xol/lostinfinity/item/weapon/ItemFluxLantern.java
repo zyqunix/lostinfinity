@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -23,8 +22,6 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.classify.ICustomHoldPose;
 import xol.lostinfinity.projectile.entity.EntityFluxBall;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemFluxLantern.class */
 public class ItemFluxLantern extends Item implements ICustomHoldPose {
     public ItemFluxLantern(String regName) {
         func_77637_a(TabsInit.TAB_INFINITYWEP);
@@ -33,7 +30,6 @@ public class ItemFluxLantern extends Item implements ICustomHoldPose {
         func_77625_d(1);
         ItemInit.ITEMS.add(this);
     }
-
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
         if ((entity instanceof EntityPlayer) && stack.func_77942_o() && stack.func_77978_p().func_74764_b("flux_dimension_id")) {
             int dim_id = stack.func_77978_p().func_74762_e("flux_dimension_id");
@@ -52,7 +48,6 @@ public class ItemFluxLantern extends Item implements ICustomHoldPose {
         }
         return false;
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (playerIn.func_70093_af()) {
@@ -83,7 +78,6 @@ public class ItemFluxLantern extends Item implements ICustomHoldPose {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Shift+Right Click: Mark a location and dimension for fluxation.");

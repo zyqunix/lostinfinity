@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
@@ -7,26 +6,20 @@ import xol.lostinfinity.init.ParticleInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.mob.entity.boss.EntityTempTentacle;
 import xol.lostinfinity.mob.entity.starforge.EntityTentaclon;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityBossPortalEffect.class */
 public class EntityBossPortalEffect extends Entity {
     private float growth;
     private float rotation;
     float angle;
     private EntityTempTentacle creator;
-
     public float getGrowth() {
         return this.growth;
     }
-
     public float getRotation() {
         return this.rotation;
     }
-
     public void setCreator(EntityTempTentacle tentacle) {
         this.creator = tentacle;
     }
-
     public EntityBossPortalEffect(World worldIn) {
         super(worldIn);
         this.growth = 0.0f;
@@ -35,7 +28,6 @@ public class EntityBossPortalEffect extends Entity {
         this.creator = null;
         func_70105_a(0.5f, 0.5f);
     }
-
     public void func_70071_h_() {
         super.func_70071_h_();
         if (this.field_70173_aa < 70) {
@@ -65,13 +57,10 @@ public class EntityBossPortalEffect extends Entity {
             this.field_70170_p.func_175688_a(ParticleInit.DARK_FIZZLE, this.field_70165_t + (velocity_x / 2.0d), this.field_70163_u, this.field_70161_v + (velocity_z / 2.0d), 0.0d, 0.0d, 0.0d, new int[0]);
         }
     }
-
     protected void func_70088_a() {
     }
-
     protected void func_70037_a(NBTTagCompound compound) {
     }
-
     protected void func_70014_b(NBTTagCompound compound) {
     }
 }

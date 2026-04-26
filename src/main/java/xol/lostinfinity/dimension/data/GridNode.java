@@ -1,30 +1,24 @@
 package xol.lostinfinity.dimension.data;
-
 import java.util.Random;
 import net.minecraft.util.Rotation;
 import xol.lostinfinity.block.tileentity.TileEntityFusionTable;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/dimension/data/GridNode.class */
 public class GridNode {
     private String pieceType;
     private Rotation rotation;
     private int heightOffset;
     private Random rand;
-
     public GridNode() {
         this.rand = new Random();
         this.pieceType = "None";
         this.rotation = Rotation.NONE;
         this.heightOffset = 0;
     }
-
     public GridNode(String pieceType, int rotation, int yOff) {
         this.rand = new Random();
         this.pieceType = pieceType;
         this.rotation = rotationFromInt(rotation);
         this.heightOffset = yOff;
     }
-
     private Rotation rotationFromInt(int rotation) {
         switch (rotation) {
             case -1:
@@ -36,9 +30,9 @@ public class GridNode {
             case 2:
                 return Rotation.CLOCKWISE_180;
             case 3:
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
             case 5:
-            case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+            case TileEntityFusionTable.BOARD_COLUMNS :
             default:
                 return Rotation.NONE;
             case 7:
@@ -49,15 +43,12 @@ public class GridNode {
                 return rotationFromInt(this.rand.nextInt(4) - 1);
         }
     }
-
     public String getPieceType() {
         return this.pieceType;
     }
-
     public Rotation getRotation() {
         return this.rotation;
     }
-
     public int getHeightDiff() {
         return this.heightOffset;
     }

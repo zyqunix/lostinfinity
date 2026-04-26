@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,13 +16,10 @@ import xol.lostinfinity.dimension.data.LightTileMap;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockLightTileGame.class */
 public class BlockLightTileGame extends BlockBasic {
     public BlockLightTileGame(String name) {
         super(name);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         boolean isCrafter = false;
         if (worldIn.func_180495_p(pos).func_177230_c() == BlockInit.highPoweredCharger) {

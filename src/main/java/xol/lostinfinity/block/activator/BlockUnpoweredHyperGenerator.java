@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -15,8 +14,6 @@ import net.minecraft.world.World;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockUnpoweredHyperGenerator.class */
 public class BlockUnpoweredHyperGenerator extends Block {
     public BlockUnpoweredHyperGenerator(String name) {
         super(Material.field_151573_f);
@@ -29,7 +26,6 @@ public class BlockUnpoweredHyperGenerator extends Block {
         BlockInit.BLOCKS.add(this);
         ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(getRegistryName()));
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!playerIn.func_70093_af() && playerIn.func_184586_b(hand).func_77973_b().equals(ItemInit.externalCloviniteBattery)) {
             if (!worldIn.field_72995_K) {

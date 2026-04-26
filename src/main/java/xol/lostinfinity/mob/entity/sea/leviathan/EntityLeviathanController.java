@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.sea.leviathan;
-
 import com.google.common.base.Predicate;
 import java.util.Collections;
 import java.util.HashSet;
@@ -47,8 +46,6 @@ import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/sea/leviathan/EntityLeviathanController.class */
 public class EntityLeviathanController extends EntityFloatingBase implements ILostMultiPart, IKnockbackImmunity, IMaxAttack {
     private static final DataParameter<Integer> LEVIATHAN_SIZE = EntityDataManager.func_187226_a(EntityLeviathanController.class, DataSerializers.field_187192_b);
     private static final DataParameter<Integer> LEVIATHAN_PHASE = EntityDataManager.func_187226_a(EntityLeviathanController.class, DataSerializers.field_187192_b);
@@ -60,7 +57,6 @@ public class EntityLeviathanController extends EntityFloatingBase implements ILo
     protected EntityLeviathanBreath breath;
     protected int attackCooldown;
     protected int attackGracePeriod;
-
     public EntityLeviathanController(World worldIn) {
         super(worldIn);
         this.segments = new EntityLeviathanSegment[20];
@@ -88,14 +84,12 @@ public class EntityLeviathanController extends EntityFloatingBase implements ILo
         tail.setId(this.segments.length - 1);
         this.segments[this.segments.length - 1] = tail;
     }
-
     @Nullable
     public IEntityLivingData func_180482_a(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata) {
         setLeviathanSize(5);
         setLeviathanPhase(Phase.CHARGE);
         return super.func_180482_a(difficulty, livingdata);
     }
-
     public void func_184206_a(DataParameter<?> key) {
         if (LEVIATHAN_SIZE.equals(key)) {
             int size = getLeviathanSize();
@@ -105,7 +99,6 @@ public class EntityLeviathanController extends EntityFloatingBase implements ILo
         }
         super.func_184206_a(key);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_70088_a() {
         super.func_70088_a();
@@ -113,7 +106,6 @@ public class EntityLeviathanController extends EntityFloatingBase implements ILo
         this.field_70180_af.func_187214_a(LEVIATHAN_PHASE, 0);
         this.field_70180_af.func_187214_a(LEVIATHAN_PHASE_DATA, 0);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void func_70014_b(NBTTagCompound tag) {
         super.func_70014_b(tag);
@@ -121,7 +113,6 @@ public class EntityLeviathanController extends EntityFloatingBase implements ILo
         tag.func_74768_a("LeviathanPhase", getLeviathanPhase().ordinal());
         tag.func_74768_a("LeviathanPhaseData", getLeviathanPhaseData());
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void func_70037_a(NBTTagCompound tag) {
         super.func_70037_a(tag);
@@ -129,18 +120,15 @@ public class EntityLeviathanController extends EntityFloatingBase implements ILo
         setLeviathanPhase(Phase.values()[tag.func_74762_e("LeviathanPhase")]);
         setLeviathanPhaseData(tag.func_74762_e("LeviathanPhaseData"));
     }
-
     public void setLeviathanSize(int size) {
         this.field_70180_af.func_187227_b(LEVIATHAN_SIZE, Integer.valueOf(size));
         for (EntityLeviathanSegment segment : this.segments) {
             segment.setSize(size);
         }
     }
-
     public int getLeviathanSize() {
         return ((Integer) this.field_70180_af.func_187225_a(LEVIATHAN_SIZE)).intValue();
     }
-
     public void setLeviathanPhase(Phase phase) {
         this.phase = phase;
         this.breath = null;
@@ -154,18 +142,14 @@ public class EntityLeviathanController extends EntityFloatingBase implements ILo
             case 3:
                 this.nextPhaseChange = this.field_70173_aa + 100;
                 break;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 this.nextPhaseChange = this.field_70173_aa + 600;
                 break;
         }
         this.field_70180_af.func_187227_b(LEVIATHAN_PHASE, Integer.valueOf(phase.ordinal()));
     }
-
-    /* JADX INFO: renamed from: xol.lostinfinity.mob.entity.sea.leviathan.EntityLeviathanController$1, reason: invalid class name */
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/sea/leviathan/EntityLeviathanController$1.class */
-    static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] $SwitchMap$xol$lostinfinity$mob$entity$sea$leviathan$EntityLeviathanController$Phase = new int[Phase.values().length];
-
+    static  class AnonymousClass1 {
+        static final  int[] $SwitchMap$xol$lostinfinity$mob$entity$sea$leviathan$EntityLeviathanController$Phase = new int[Phase.values().length];
         static {
             try {
                 $SwitchMap$xol$lostinfinity$mob$entity$sea$leviathan$EntityLeviathanController$Phase[Phase.CHARGE.ordinal()] = 1;
@@ -185,19 +169,15 @@ public class EntityLeviathanController extends EntityFloatingBase implements ILo
             }
         }
     }
-
     public Phase getLeviathanPhase() {
         return Phase.values()[((Integer) this.field_70180_af.func_187225_a(LEVIATHAN_PHASE)).intValue()];
     }
-
     public void setLeviathanPhaseData(int data) {
         this.field_70180_af.func_187227_b(LEVIATHAN_PHASE_DATA, Integer.valueOf(data));
     }
-
     public int getLeviathanPhaseData() {
         return ((Integer) this.field_70180_af.func_187225_a(LEVIATHAN_PHASE_DATA)).intValue();
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     public void func_110147_ax() {
         super.func_110147_ax();
@@ -207,14 +187,12 @@ public class EntityLeviathanController extends EntityFloatingBase implements ILo
         func_110148_a(SharedMonsterAttributes.field_111265_b).func_111128_a(256.0d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(5000.0d);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_184651_r() {
         super.func_184651_r();
         this.field_70715_bh.func_75776_a(2, new EntityAINearestAttackableTarget(this, EntityEelShark.class, 5, false, false, (Predicate) null));
         this.field_70715_bh.func_75776_a(3, new EntityAINearestAttackableTarget(this, EntitySeaCreature.class, 5, false, false, (Predicate) null));
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     public void func_70636_d() {
         CustomParticleConfig customParticleConfigCreateYellowShock;
@@ -297,7 +275,7 @@ public class EntityLeviathanController extends EntityFloatingBase implements ILo
                     this.rawFlySpeed = 0.5f;
                     shouldLookAtTarget = true;
                     break;
-                case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+                case TileEntityFusionTable.BOARD_ROWS :
                     int tick = 600 - (this.nextPhaseChange - this.field_70173_aa);
                     if (tick >= 0 && tick < 200) {
                         if (tick % 2 == 0) {
@@ -369,12 +347,10 @@ public class EntityLeviathanController extends EntityFloatingBase implements ILo
         this.leviathanMoveHelper.setCourseChangeChance(5);
         this.rawFlySpeed = 0.9f;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 200;
     }
-
     protected void func_85033_bc() {
         if (this.attackCooldown > 0) {
             return;
@@ -394,35 +370,29 @@ public class EntityLeviathanController extends EntityFloatingBase implements ILo
             func_82167_n(entity2);
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     @Nullable
     protected EntityAIFloatAttack createShootAI() {
         return null;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     protected void func_82167_n(Entity entityIn) {
         func_70652_k(entityIn);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     protected EntityMoveHelper createMoveHelper() {
         return new LeviathanMoveHelper(this);
     }
-
     public void func_70106_y() {
         super.func_70106_y();
         for (Entity entity : this.segments) {
             this.field_70170_p.func_72973_f(entity);
         }
     }
-
     @Nullable
     public Entity[] func_70021_al() {
         return this.segments;
     }
-
     public void func_70071_h_() {
         super.func_70071_h_();
         for (Entity entity : this.segments) {
@@ -430,32 +400,25 @@ public class EntityLeviathanController extends EntityFloatingBase implements ILo
             entity.updatePosition();
         }
     }
-
     public boolean func_70072_I() {
         return false;
     }
-
     public boolean func_180799_ab() {
         return false;
     }
-
     @Nullable
     protected SoundEvent func_184639_G() {
         return SoundInit.LEVIATHAN_AMBIENT;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.LEVIATHAN_HURT;
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.LEVIATHAN_DEATH;
     }
-
     protected float func_70599_aP() {
         return 8.0f;
     }
-
     public boolean func_70652_k(Entity entityIn) {
         super.func_70652_k(entityIn);
         if (!(entityIn instanceof EntityLivingBase)) {
@@ -473,44 +436,35 @@ public class EntityLeviathanController extends EntityFloatingBase implements ILo
         IMaxAttack.dealTrueDamage(this, entitySeaCreature, entitySeaCreature.func_110138_aP() * 0.5f, Collections.singletonList("Aquatic"));
         return true;
     }
-
     protected boolean func_70692_ba() {
         return false;
     }
-
     public World func_82194_d() {
         return this.field_70170_p;
     }
-
     @Override // xol.lostinfinity.mob.entity.classify.ILostMultiPart
     public boolean attackEntityFromPart(EntityLivingBase part, DamageSource source, float damage) {
         return func_70097_a(source, damage);
     }
-
     @Override // xol.lostinfinity.mob.entity.classify.IKnockbackImmunity
     public float getKnockbackResistance(CustomDamageResult damageResult) {
         return 1.0f;
     }
-
     private static CustomParticleConfig createYellowShock(double spreadX, double spreadY, double spreadZ) {
         CustomParticleConfig config = new CustomParticleConfig();
         config.createInstance().setParticle(ParticleInit.TESLA_RING_YELLOW).setSpread(spreadX, spreadY, spreadZ).setIgnoreRange(true);
         return config;
     }
-
     private static CustomParticleConfig createBlueShock(double spreadX, double spreadY, double spreadZ) {
         CustomParticleConfig config = new CustomParticleConfig();
         config.createInstance().setParticle(ParticleInit.TESLA_RING_BLUE).setSpread(spreadX, spreadY, spreadZ).setIgnoreRange(true);
         return config;
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/sea/leviathan/EntityLeviathanController$Phase.class */
     public enum Phase {
         CHARGE,
         VOLLEY,
         TESLA,
         BEAM;
-
         public static Phase randomPhase(World world, Phase exclude) {
             int nextPhase = world.field_73012_v.nextInt(3);
             if (nextPhase == exclude.ordinal()) {
@@ -519,25 +473,20 @@ public class EntityLeviathanController extends EntityFloatingBase implements ILo
             return values()[nextPhase];
         }
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/sea/leviathan/EntityLeviathanController$LeviathanMoveHelper.class */
     private static class LeviathanMoveHelper extends EntityMoveHelper {
         private final EntityLeviathanController parentEntity;
         private int courseChangeCooldown;
         private int courseChangeChance;
         private double correctionRate;
-
         public LeviathanMoveHelper(EntityLeviathanController leviathan) {
             super(leviathan);
             this.courseChangeChance = 5;
             this.correctionRate = 0.1d;
             this.parentEntity = leviathan;
         }
-
         public void func_75642_a(double x, double y, double z, double speedIn) {
             super.func_75642_a(x, this.parentEntity.func_70638_az() == null ? MathHelper.func_151237_a(y, 30.0d, 220.0d) : y, z, speedIn);
         }
-
         public void func_75641_c() {
             if (this.field_188491_h == EntityMoveHelper.Action.MOVE_TO) {
                 double dX = this.field_75646_b - this.parentEntity.field_70165_t;
@@ -557,23 +506,19 @@ public class EntityLeviathanController extends EntityFloatingBase implements ILo
                 }
             }
         }
-
         public void setCourseChangeChance(int chance) {
             this.courseChangeChance = chance;
         }
-
         public void setCorrectionRate(double rate) {
             this.correctionRate = rate;
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void trueDeathAction() {
         if (!this.field_70170_p.field_72995_K) {
             func_145779_a(ItemInit.giantHeart, 1);
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void updateLifeAction() {
         int lifePercent = Math.round((100 * (numberOfLives() - getLivesCount())) / numberOfLives());

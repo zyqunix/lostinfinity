@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -27,18 +26,14 @@ import xol.lostinfinity.projectile.entity.EntityElementiumFire;
 import xol.lostinfinity.projectile.entity.EntityElementiumPlague;
 import xol.lostinfinity.projectile.entity.EntityElementiumShadow;
 import xol.lostinfinity.projectile.entity.EntityElementiumWater;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemElementiumBow.class */
 public class ItemElementiumBow extends ItemCooldown implements ICustomHoldPose, ISwitchModels, IModeSelect {
     private int elements_stored;
-
     public ItemElementiumBow(String regName, int numElements) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
         setModelSwitch("elements", this, numElements);
         this.elements_stored = numElements;
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (!stack.func_77942_o()) {
@@ -74,7 +69,7 @@ public class ItemElementiumBow extends ItemCooldown implements ICustomHoldPose, 
                     fire.func_184538_a(playerIn, playerIn.field_70125_A, playerIn.field_70177_z, 0.0f, 2.5f, 0.0f);
                     worldIn.func_72838_d(fire);
                     break;
-                case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+                case TileEntityFusionTable.BOARD_ROWS :
                     EntityElementiumShadow shadow = new EntityElementiumShadow(worldIn, playerIn);
                     shadow.setThrower(playerIn);
                     shadow.func_184538_a(playerIn, playerIn.field_70125_A, playerIn.field_70177_z, 0.0f, 2.5f, 0.0f);
@@ -86,7 +81,7 @@ public class ItemElementiumBow extends ItemCooldown implements ICustomHoldPose, 
                     blight.func_184538_a(playerIn, playerIn.field_70125_A, playerIn.field_70177_z, 0.0f, 2.5f, 0.0f);
                     worldIn.func_72838_d(blight);
                     break;
-                case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+                case TileEntityFusionTable.BOARD_COLUMNS :
                     EntityElementiumPlague plague = new EntityElementiumPlague(worldIn, playerIn);
                     plague.setThrower(playerIn);
                     plague.func_184538_a(playerIn, playerIn.field_70125_A, playerIn.field_70177_z, 0.0f, 2.5f, 0.0f);
@@ -98,12 +93,10 @@ public class ItemElementiumBow extends ItemCooldown implements ICustomHoldPose, 
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 500;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Light_Purple + "A bow that can switch between elements.");
@@ -112,7 +105,6 @@ public class ItemElementiumBow extends ItemCooldown implements ICustomHoldPose, 
             tooltip.add(TextFmt.Gold + "Currently has " + stack.func_77978_p().func_74762_e("elements_stored") + " elements stored.");
         }
     }
-
     private String getElementName(int element) {
         switch (element) {
             case 0:
@@ -123,11 +115,11 @@ public class ItemElementiumBow extends ItemCooldown implements ICustomHoldPose, 
                 return "Nature";
             case 3:
                 return "Flames";
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 return "Shadows";
             case 5:
                 return "Blight";
-            case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+            case TileEntityFusionTable.BOARD_COLUMNS :
                 return "Plague";
             case 7:
                 return "Magnetism";
@@ -137,7 +129,6 @@ public class ItemElementiumBow extends ItemCooldown implements ICustomHoldPose, 
                 return "";
         }
     }
-
     @Override // xol.lostinfinity.item.classify.IModeSelect
     public void modeUpdate(ItemStack stack, EntityPlayer player) {
         if (!stack.func_77942_o()) {

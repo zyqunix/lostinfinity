@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import java.util.ArrayList;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -21,8 +20,6 @@ import xol.lostinfinity.dimension.data.MazeMap;
 import xol.lostinfinity.dimension.data.MazeNode;
 import xol.lostinfinity.dimension.data.PipeNode;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityPipeGameMerchant.class */
 public class EntityPipeGameMerchant extends EntityLiving {
     private boolean game;
     private boolean win;
@@ -34,12 +31,10 @@ public class EntityPipeGameMerchant extends EntityLiving {
     private Vec3i dir;
     private PipeNode[][] pipeMap;
     private boolean sentWinMessage;
-
     public void setGridSize(int c, int r) {
         this.columns = c;
         this.rows = r;
     }
-
     public EntityPipeGameMerchant(World worldIn) {
         super(worldIn);
         this.game = false;
@@ -48,11 +43,9 @@ public class EntityPipeGameMerchant extends EntityLiving {
         this.dir = new Vec3i(0, 0, 0);
         this.sentWinMessage = false;
     }
-
     protected void func_70088_a() {
         super.func_70088_a();
     }
-
     public void startGame() {
         for (EntityPlayer near_pl : this.field_70170_p.func_72872_a(EntityPlayer.class, func_174813_aQ().func_72314_b(15.0d, 15.0d, 15.0d))) {
             near_pl.func_145747_a(new TextComponentString(TextFmt.getFormatting(TextFmt.Bold, TextFmt.Green) + "Not often I get called to Nonexistence... Quickly connect the pipe to the top right to fill the vial."));
@@ -60,7 +53,6 @@ public class EntityPipeGameMerchant extends EntityLiving {
         }
         this.game = true;
     }
-
     public void genPipeGame(World worldIn, BlockPos ref) {
         if (!worldIn.field_72995_K) {
             int col = this.columns;
@@ -92,7 +84,6 @@ public class EntityPipeGameMerchant extends EntityLiving {
             updateLit();
         }
     }
-
     private PipeNode getPipeNodeFromMazeNode(MazeNode mazeNode, MazeMap maze, int c, int r) {
         boolean[] cross = {true, true, true, true};
         boolean[] elbow = {true, true, false, false};
@@ -128,7 +119,6 @@ public class EntityPipeGameMerchant extends EntityLiving {
         }
         return new PipeNode("l", 0, c, r);
     }
-
     public static boolean matchNeighbours(boolean[] neighbours1, boolean[] neighbours2) {
         for (int i = 0; i < neighbours1.length; i++) {
             if (neighbours1[i] != neighbours2[i]) {
@@ -137,7 +127,6 @@ public class EntityPipeGameMerchant extends EntityLiving {
         }
         return true;
     }
-
     private boolean[] getConnectedMazeNeighbours(MazeNode mazeNode, MazeMap maze) {
         boolean[] connected = {false, false, false, false};
         int x = mazeNode.getX();
@@ -168,7 +157,6 @@ public class EntityPipeGameMerchant extends EntityLiving {
         }
         return connected;
     }
-
     private boolean[] getRotatedMazeNeighbours(boolean[] neighbours) {
         boolean[] newNeighbours = {false, false, false, false};
         if (neighbours[0]) {
@@ -185,7 +173,6 @@ public class EntityPipeGameMerchant extends EntityLiving {
         }
         return newNeighbours;
     }
-
     private void setBlock(PipeNode node) {
         BlockPos pos = node.getBlockPos();
         if (pos != null) {
@@ -194,7 +181,6 @@ public class EntityPipeGameMerchant extends EntityLiving {
             this.field_70170_p.func_175656_a(pos, state);
         }
     }
-
     public BlockPos nearestPipe(BlockPos pos) {
         ArrayList<BlockPos> positions = new ArrayList<>();
         positions.add(pos.func_177982_a(1, 0, 1));
@@ -213,7 +199,6 @@ public class EntityPipeGameMerchant extends EntityLiving {
         }
         return null;
     }
-
     public void setPipePositions(BlockPos reference) {
         BlockPos pipe2;
         this.ref = reference;
@@ -242,7 +227,6 @@ public class EntityPipeGameMerchant extends EntityLiving {
             }
         }
     }
-
     public void rotate(BlockPos pos) {
         if (this.startPos != null) {
             int gridX = Math.abs(pos.func_177958_n() - this.startPos.func_177958_n()) + Math.abs(pos.func_177952_p() - this.startPos.func_177952_p());
@@ -253,7 +237,6 @@ public class EntityPipeGameMerchant extends EntityLiving {
             updateLit();
         }
     }
-
     private void updateLit() {
         for (int i = 0; i < this.columns; i++) {
             for (int j = 0; j < this.rows; j++) {
@@ -274,14 +257,12 @@ public class EntityPipeGameMerchant extends EntityLiving {
             }
         }
     }
-
     private PipeNode getNodeAtLocation(int c, int r) {
         if (this.pipeMap[c] != null && this.pipeMap[c][r] != null) {
             return this.pipeMap[c][r];
         }
         return null;
     }
-
     public boolean func_184645_a(EntityPlayer player, EnumHand hand) {
         if (!this.field_70170_p.field_72995_K && this.win) {
             func_145779_a(ItemInit.nanofluoricAcid, 1);
@@ -291,7 +272,6 @@ public class EntityPipeGameMerchant extends EntityLiving {
         }
         return true;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         if (!this.field_70170_p.field_72995_K) {
@@ -313,24 +293,19 @@ public class EntityPipeGameMerchant extends EntityLiving {
             }
         }
     }
-
     private void deathEffect() {
         this.field_70170_p.func_175739_a(EnumParticleTypes.PORTAL, this.field_70165_t, this.field_70163_u, this.field_70161_v, 12, ((-0.5d) + this.field_70146_Z.nextDouble()) * 3.0d, 0.3d, ((-0.5d) + this.field_70146_Z.nextDouble()) * 3.0d, 0.15000000596046448d, new int[0]);
         func_70106_y();
     }
-
     protected SoundEvent func_184639_G() {
         return SoundEvents.field_187910_gj;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundEvents.field_187912_gl;
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundEvents.field_187911_gk;
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.2d);

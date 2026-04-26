@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,25 +13,19 @@ import xol.lostinfinity.block.basic.BlockBasic;
 import xol.lostinfinity.block.tileentity.TileEntityCircuitCalibrator;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockCircuitCalibrator.class */
 public class BlockCircuitCalibrator extends BlockBasic implements ITileEntityProvider {
     public BlockCircuitCalibrator(String name) {
         super(name);
     }
-
     public TileEntity func_149915_a(World worldIn, int meta) {
         return null;
     }
-
     public TileEntity createTileEntity(World world, IBlockState state) {
         return new TileEntityCircuitCalibrator();
     }
-
     public boolean func_149716_u() {
         return true;
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         TileEntity tileEntity = worldIn.func_175625_s(pos);
         ItemStack stack = playerIn.func_184586_b(hand);

@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.basics;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.advancements.CriteriaTriggers;
@@ -21,29 +20,23 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.TabsInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/basics/ItemBasicSeeds.class */
 public class ItemBasicSeeds extends ItemBasic implements IPlantable {
     Block cropBlock;
     Block soilBlock;
     private String customDescription;
-
     public ItemBasicSeeds(String name) {
         super(name, TabsInit.TAB_AUXMATS);
         this.cropBlock = null;
         this.soilBlock = null;
         this.customDescription = "";
     }
-
     public void setDescription(String string) {
         this.customDescription = string;
     }
-
     public void setCropAndSoil(Block b1, Block b2) {
         this.cropBlock = b1;
         this.soilBlock = b2;
     }
-
     public EnumActionResult func_180614_a(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         ItemStack itemstack = player.func_184586_b(hand);
         IBlockState state = worldIn.func_180495_p(pos);
@@ -57,19 +50,15 @@ public class ItemBasicSeeds extends ItemBasic implements IPlantable {
         }
         return EnumActionResult.FAIL;
     }
-
     public EnumPlantType getPlantType(IBlockAccess world, BlockPos pos) {
         return EnumPlantType.Crop;
     }
-
     public IBlockState getPlant(IBlockAccess world, BlockPos pos) {
         return this.cropBlock.func_176223_P();
     }
-
     public Block getSoilBlock() {
         return this.soilBlock;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         if (this.customDescription.isEmpty()) {

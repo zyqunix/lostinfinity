@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.misc;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.block.ITileEntityProvider;
@@ -26,32 +25,24 @@ import xol.lostinfinity.common.lostinfinity;
 import xol.lostinfinity.gui.GuiHandler;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.init.TabsInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/misc/BlockNebulousBeacon.class */
 public class BlockNebulousBeacon extends BlockBasicGui implements ITileEntityProvider {
     private TileEntityNebulousBeacon tileEntity;
-
     public BlockNebulousBeacon(String name) {
         super(name, Material.field_151576_e, TabsInit.TAB_BLOCKS);
     }
-
     public BlockNebulousBeacon(String name, Material material, CreativeTabs tab) {
         super(name, material, tab);
     }
-
     public TileEntity createTileEntity(World worldIn, IBlockState state) {
         this.tileEntity = new TileEntityNebulousBeacon();
         return this.tileEntity;
     }
-
     public boolean hasTileEntity(IBlockState state) {
         return true;
     }
-
     public TileEntity func_149915_a(World worldIn, int meta) {
         return null;
     }
-
     @Override // xol.lostinfinity.block.basic.BlockBasicGui
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!playerIn.func_70093_af()) {
@@ -60,14 +51,12 @@ public class BlockNebulousBeacon extends BlockBasicGui implements ITileEntityPro
         }
         return true;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_190948_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Light_Purple + "When placed, this beacon will charge up an astral generator.");
         tooltip.add(TextFmt.Dark_Purple + "Nebulous Enemies will detect the beacon and attack it.");
         tooltip.add(TextFmt.Gray + "Protect the beacon until it is fully charged to receive the generator.");
     }
-
     public void func_180663_b(World worldIn, BlockPos pos, IBlockState state) {
         if (hasTileEntity(state)) {
             TileEntity brokenTileEntity = worldIn.func_175625_s(pos);
@@ -76,7 +65,6 @@ public class BlockNebulousBeacon extends BlockBasicGui implements ITileEntityPro
             }
         }
     }
-
     public void func_180633_a(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
         if (worldIn.field_72995_K) {
             placer.func_145747_a(new TextComponentString(TextFmt.Light_Purple + "The beacon has been placed. Prepare your defenses."));

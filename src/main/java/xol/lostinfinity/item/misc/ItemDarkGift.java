@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.misc;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,13 +11,10 @@ import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.basics.ItemBasic;
 import xol.lostinfinity.item.classify.IHotbarDeath;
 import xol.lostinfinity.item.classify.IHotbarTick;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/misc/ItemDarkGift.class */
 public class ItemDarkGift extends ItemBasic implements IHotbarTick, IHotbarDeath {
     public ItemDarkGift(String regName) {
         super(regName, TabsInit.TAB_AUXMATS);
     }
-
     @Override // xol.lostinfinity.item.classify.IHotbarTick
     public void hotbarTick(EntityPlayer player, int itemSlot, ItemStack stack) {
         if (!stack.func_77942_o()) {
@@ -40,7 +36,6 @@ public class ItemDarkGift extends ItemBasic implements IHotbarTick, IHotbarDeath
         }
         stack.func_77978_p().func_74768_a("progress", progress + 1);
     }
-
     @Override // xol.lostinfinity.item.classify.IHotbarDeath
     public boolean playedKilled(ItemStack stack, EntityPlayer player, Entity attacker, float damageDealt) {
         ItemStack lifeBox = new ItemStack(ItemInit.boxOfLife);

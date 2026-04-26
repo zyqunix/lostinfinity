@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.layer;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.block.model.ItemCameraTransforms;
@@ -8,13 +7,10 @@ import net.minecraft.client.renderer.entity.layers.LayerHeldItem;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumHandSide;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/layer/LayerHeldItemOffset.class */
 public class LayerHeldItemOffset extends LayerHeldItem {
     public LayerHeldItemOffset(RenderLivingBase<?> livingEntityRendererIn) {
         super(livingEntityRendererIn);
     }
-
     public void func_177141_a(EntityLivingBase entitylivingbaseIn, float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
         boolean flag = entitylivingbaseIn.func_184591_cq() == EnumHandSide.RIGHT;
         ItemStack left = flag ? entitylivingbaseIn.func_184592_cb() : entitylivingbaseIn.func_184614_ca();
@@ -31,7 +27,6 @@ public class LayerHeldItemOffset extends LayerHeldItem {
         renderHeldItem(entitylivingbaseIn, left, ItemCameraTransforms.TransformType.THIRD_PERSON_LEFT_HAND, EnumHandSide.LEFT);
         GlStateManager.func_179121_F();
     }
-
     private void renderHeldItem(EntityLivingBase p_188358_1_, ItemStack p_188358_2_, ItemCameraTransforms.TransformType p_188358_3_, EnumHandSide handSide) {
         if (!p_188358_2_.func_190926_b()) {
             GlStateManager.func_179094_E();
@@ -48,7 +43,6 @@ public class LayerHeldItemOffset extends LayerHeldItem {
             GlStateManager.func_179121_F();
         }
     }
-
     protected void offsetItem(EntityLivingBase entityLivingBase, ItemStack itemStack, ItemCameraTransforms.TransformType transformType, EnumHandSide handSide) {
     }
 }

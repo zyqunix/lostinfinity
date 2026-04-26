@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.starforge;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -17,31 +16,24 @@ import xol.lostinfinity.block.tileentity.TileEntityFusionTable;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/starforge/EntityGrappler.class */
 public class EntityGrappler extends EntityMob implements IMaxAttack {
     private static final DataParameter<Integer> MOVE_STYLE = EntityDataManager.func_187226_a(EntityGrappler.class, DataSerializers.field_187192_b);
-
     public EntityGrappler(World worldIn) {
         super(worldIn);
         func_70105_a(1.7f, 2.2f);
         func_189654_d(true);
         this.field_70178_ae = true;
     }
-
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(MOVE_STYLE, 0);
     }
-
     public int getMoveStyle() {
         return ((Integer) this.field_70180_af.func_187225_a(MOVE_STYLE)).intValue();
     }
-
     public void setMoveStyle(int f) {
         this.field_70180_af.func_187227_b(MOVE_STYLE, Integer.valueOf(f));
     }
-
     private void randomizeMovement() {
         int style = getMoveStyle();
         boolean run = true;
@@ -54,10 +46,8 @@ public class EntityGrappler extends EntityMob implements IMaxAttack {
         }
         setMoveStyle(new_style);
     }
-
     protected void func_184651_r() {
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(1200.0d);
@@ -65,7 +55,6 @@ public class EntityGrappler extends EntityMob implements IMaxAttack {
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.0d);
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
     }
-
     protected void func_82167_n(Entity entityIn) {
         if (entityIn instanceof EntityPlayer) {
             EntityPlayer play = (EntityPlayer) entityIn;
@@ -75,7 +64,6 @@ public class EntityGrappler extends EntityMob implements IMaxAttack {
         }
         entityIn.func_70108_f(this);
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         this.field_70143_R = -1.0f;
@@ -104,7 +92,7 @@ public class EntityGrappler extends EntityMob implements IMaxAttack {
                 this.field_70181_x *= 0.95d;
                 this.field_70179_y *= 0.95d;
                 break;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 this.field_70179_y = 0.25d;
                 this.field_70181_x *= 0.95d;
                 this.field_70159_w *= 0.95d;
@@ -116,35 +104,27 @@ public class EntityGrappler extends EntityMob implements IMaxAttack {
                 break;
         }
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.STARFORGE_GRAPPLER_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.STARFORGE_GRAPPLER_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return null;
     }
-
     protected ResourceLocation func_184647_J() {
         return LootTableRegistry.ENTITIES_STARFORGE_GRAPPLER;
     }
-
     protected boolean func_70692_ba() {
         return false;
     }
-
     public boolean func_70814_o() {
         return true;
     }
-
     public int func_70641_bl() {
         return 1;
     }
-
     public boolean func_70601_bi() {
         return this.field_70170_p.func_175659_aa() != EnumDifficulty.PEACEFUL;
     }

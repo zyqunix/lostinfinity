@@ -1,5 +1,4 @@
 package xol.lostinfinity.recipes;
-
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Optional;
@@ -7,11 +6,8 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import xol.lostinfinity.init.ArmorInit;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/recipes/RecipeHandler.class */
 public class RecipeHandler {
     private static HashMap<Item, Recipe> recipes = new HashMap<>();
-
     private static void init() {
         ItemStack emb = new ItemStack(ItemInit.emberiumCondensed);
         ItemStack inc = new ItemStack(ItemInit.incadiumCondensed);
@@ -30,7 +26,6 @@ public class RecipeHandler {
             recipes.put(recipe.result, recipe);
         });
     }
-
     public static Optional<Recipe> getRecipeFor(ItemStack... items) {
         if (recipes.isEmpty()) {
             init();

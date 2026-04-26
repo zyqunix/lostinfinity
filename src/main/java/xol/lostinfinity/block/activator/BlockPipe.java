@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import java.util.Iterator;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -14,26 +13,18 @@ import xol.lostinfinity.block.basic.BlockBasicRotational;
 import xol.lostinfinity.block.tileentity.TileEntityFusionTable;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.mob.entity.misc.EntityPipeGameMerchant;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockPipe.class */
 public class BlockPipe extends BlockBasicRotational {
     public BlockPipe(String name) {
         this(name, 60.0f, Material.field_151576_e);
     }
-
     public BlockPipe(String name, float hardness, Material material) {
         this(name, hardness, material, TabsInit.TAB_BLOCKS);
     }
-
     public BlockPipe(String name, float hardness, Material material, CreativeTabs tab) {
         super(name, hardness, material, tab);
     }
-
-    /* JADX INFO: renamed from: xol.lostinfinity.block.activator.BlockPipe$1, reason: invalid class name */
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockPipe$1.class */
-    static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] $SwitchMap$net$minecraft$util$EnumFacing = new int[EnumFacing.values().length];
-
+    static  class AnonymousClass1 {
+        static final  int[] $SwitchMap$net$minecraft$util$EnumFacing = new int[EnumFacing.values().length];
         static {
             try {
                 $SwitchMap$net$minecraft$util$EnumFacing[EnumFacing.NORTH.ordinal()] = 1;
@@ -53,7 +44,6 @@ public class BlockPipe extends BlockBasicRotational {
             }
         }
     }
-
     public IBlockState getStateNextRotation(IBlockState state) {
         EnumFacing facing = state.func_177229_b(field_185512_D);
         switch (AnonymousClass1.$SwitchMap$net$minecraft$util$EnumFacing[facing.ordinal()]) {
@@ -63,13 +53,12 @@ public class BlockPipe extends BlockBasicRotational {
                 return func_176223_P().func_177226_a(field_185512_D, EnumFacing.SOUTH);
             case 3:
                 return func_176223_P().func_177226_a(field_185512_D, EnumFacing.WEST);
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 return func_176223_P().func_177226_a(field_185512_D, EnumFacing.NORTH);
             default:
                 return state;
         }
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!worldIn.field_72995_K && hand == playerIn.func_184600_cs()) {
             AxisAlignedBB checkBox = new AxisAlignedBB(pos.func_177982_a(-40, -40, -40), pos.func_177982_a(40, 40, 40));
@@ -81,7 +70,6 @@ public class BlockPipe extends BlockBasicRotational {
         }
         return super.func_180639_a(worldIn, pos, state, playerIn, hand, facing, hitX, hitY, hitZ);
     }
-
     public IBlockState getStateWithFacing(EnumFacing facing) {
         return func_176223_P().func_177226_a(field_185512_D, facing);
     }

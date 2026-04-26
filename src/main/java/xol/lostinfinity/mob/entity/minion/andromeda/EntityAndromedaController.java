@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.minion.andromeda;
-
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -20,8 +19,6 @@ import xol.lostinfinity.mob.entity.minion.andromeda.EntityAndromedaSegment;
 import xol.lostinfinity.util.data.CustomDamageResult;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/minion/andromeda/EntityAndromedaController.class */
 public class EntityAndromedaController extends EntityMinion implements ILostMultiPart, IKnockbackImmunity {
     private static final List<String> DAMAGE_TYPE = Collections.singletonList("Aquatic");
     private static final int CHARGE_COOLDOWN = 30;
@@ -35,7 +32,6 @@ public class EntityAndromedaController extends EntityMinion implements ILostMult
     private int chargeCooldown;
     private int turnTick;
     private Vec3d chargeDir;
-
     public EntityAndromedaController(World worldIn) {
         super(worldIn);
         this.segments = new EntityAndromedaSegment[60];
@@ -47,12 +43,10 @@ public class EntityAndromedaController extends EntityMinion implements ILostMult
         func_110163_bv();
         populateSegments();
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityImmaterial
     protected boolean func_70692_ba() {
         return false;
     }
-
     @Override // xol.lostinfinity.mob.entity.minion.EntityMinion
     protected void onDeath() {
         for (int i = 0; i < this.segments.length; i++) {
@@ -63,7 +57,6 @@ public class EntityAndromedaController extends EntityMinion implements ILostMult
             this.segments[i] = null;
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.minion.EntityMinion
     protected void livingUpdate() {
         if (this.field_70170_p.field_72995_K || this.field_70128_L) {
@@ -162,12 +155,10 @@ public class EntityAndromedaController extends EntityMinion implements ILostMult
             });
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.minion.EntityMinion
     public boolean shouldRender() {
         return true;
     }
-
     @Override // xol.lostinfinity.mob.entity.minion.EntityMinion
     protected boolean validateTarget(Entity input) {
         if ((input instanceof EntityAndromedaController) || (input instanceof EntityAndromedaSegment)) {
@@ -175,7 +166,6 @@ public class EntityAndromedaController extends EntityMinion implements ILostMult
         }
         return super.validateTarget(input);
     }
-
     public void func_70071_h_() {
         super.func_70071_h_();
         if (this.field_70128_L) {
@@ -186,15 +176,12 @@ public class EntityAndromedaController extends EntityMinion implements ILostMult
             entity.updatePosition();
         }
     }
-
     public boolean func_70072_I() {
         return false;
     }
-
     public boolean func_180799_ab() {
         return false;
     }
-
     @Nullable
     public Entity[] func_70021_al() {
         if (this.field_70128_L) {
@@ -202,29 +189,23 @@ public class EntityAndromedaController extends EntityMinion implements ILostMult
         }
         return this.segments;
     }
-
     @Override // xol.lostinfinity.mob.entity.classify.IKnockbackImmunity
     public float getKnockbackResistance(CustomDamageResult damageResult) {
         return 1.0f;
     }
-
     @Override // xol.lostinfinity.mob.entity.classify.ILostMultiPart
     public boolean attackEntityFromPart(EntityLivingBase part, DamageSource source, float damage) {
         return false;
     }
-
     public World func_82194_d() {
         return this.field_70170_p;
     }
-
     protected boolean isInRangeOfOwner() {
         return isInRangeOfOwner(96.0d);
     }
-
     protected boolean isInRangeOfOwner(double dist) {
         return func_70092_e(this.owner.field_70165_t, this.field_70163_u, this.owner.field_70161_v) <= dist * dist;
     }
-
     private void populateSegments() {
         EntityAndromedaSegment lastSegment = new EntityAndromedaSegment.Head(this.field_70170_p, this);
         lastSegment.updatePosition();
@@ -245,7 +226,6 @@ public class EntityAndromedaController extends EntityMinion implements ILostMult
             entityAndromedaSegment.setSize(15);
         }
     }
-
     private void findClosestTarget() {
         this.target = null;
         List<EntityLivingBase> targets = this.field_70170_p.func_175647_a(EntityLivingBase.class, this.owner.func_174813_aQ().func_186662_g(96.0d), (v1) -> {
@@ -261,18 +241,14 @@ public class EntityAndromedaController extends EntityMinion implements ILostMult
             }
         }
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/minion/andromeda/EntityAndromedaController$AndromedaMoveHelper.class */
     private static class AndromedaMoveHelper extends EntityMoveHelper {
         private final EntityAndromedaController parentEntity;
         private int turnTick;
-
         public AndromedaMoveHelper(EntityAndromedaController andromeda) {
             super(andromeda);
             this.turnTick = 20;
             this.parentEntity = andromeda;
         }
-
         protected boolean hasArrived() {
             double d0 = func_179917_d() - this.parentEntity.field_70165_t;
             double d1 = func_179919_e() - this.parentEntity.field_70163_u;
@@ -280,7 +256,6 @@ public class EntityAndromedaController extends EntityMinion implements ILostMult
             double d3 = (d0 * d0) + (d1 * d1) + (d2 * d2);
             return d3 < 36.0d || d3 > 9216.0d;
         }
-
         public void func_75641_c() {
             if ((this.parentEntity.target == null || this.parentEntity.attack != Attack.CHARGE) && this.field_188491_h == EntityMoveHelper.Action.MOVE_TO) {
                 Vec3d delta = getMoveDir(new Vec3d(func_179917_d(), func_179919_e(), func_179918_f()));
@@ -289,7 +264,6 @@ public class EntityAndromedaController extends EntityMinion implements ILostMult
                 this.parentEntity.field_70179_y = delta.field_72449_c * this.field_75645_e;
             }
         }
-
         private Vec3d getMoveDir(Vec3d targetPos) {
             Vec3d delta = LMath.fastNormalize(targetPos.func_178788_d(this.parentEntity.func_174791_d()));
             Vec3d motion = LMath.fastNormalize(new Vec3d(this.parentEntity.field_70159_w, this.parentEntity.field_70181_x, this.parentEntity.field_70179_y));
@@ -302,13 +276,9 @@ public class EntityAndromedaController extends EntityMinion implements ILostMult
             return LMath.toLookVec(rotations.func_179415_b(), rotations.func_179416_c());
         }
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/minion/andromeda/EntityAndromedaController$Attack.class */
     private enum Attack {
         CHARGE,
         TRACER;
-
-        /* JADX INFO: Access modifiers changed from: private */
         public static Attack cycle(Attack attack) {
             return values()[(attack.ordinal() + 1) % values().length];
         }

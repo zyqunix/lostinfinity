@@ -1,12 +1,9 @@
 package xol.lostinfinity.mob.model.starforge;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/starforge/ModelWeaver.class */
 public class ModelWeaver extends ModelBase {
     private final ModelRenderer Body;
     private final ModelRenderer Body_r1;
@@ -33,7 +30,6 @@ public class ModelWeaver extends ModelBase {
     private final ModelRenderer Body_r14;
     private final ModelRenderer Head;
     private final ModelRenderer Body_r15;
-
     public ModelWeaver() {
         this.field_78090_t = 64;
         this.field_78089_u = 64;
@@ -179,7 +175,6 @@ public class ModelWeaver extends ModelBase {
         setRotationAngle(this.Body_r15, 0.2618f, 0.0f, 0.0f);
         this.Body_r15.field_78804_l.add(new ModelBox(this.Body_r15, 0, 51, -8.0f, 0.5f, 0.0f, 16, 1, 12, 0.0f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.Body.func_78785_a(f5);
         this.Leg1.func_78785_a(f5);
@@ -192,13 +187,11 @@ public class ModelWeaver extends ModelBase {
         this.ArmR2.func_78785_a(f5);
         this.Head.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.Head.field_78796_g = netHeadYaw * 0.017453292f;
         this.Head.field_78795_f = headPitch * 0.017453292f;

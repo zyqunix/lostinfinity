@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -30,16 +29,12 @@ import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.CustomRayTraceResult;
 import xol.lostinfinity.util.data.RayTraceBuilder;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemTeslaTowers.class */
 public class ItemTeslaTowers extends ItemCooldown implements IModeSelect {
     private static final int MAX_TOWER = 6;
-
     public ItemTeslaTowers(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "A scythe imbued with electric magic.");
@@ -47,7 +42,6 @@ public class ItemTeslaTowers extends ItemCooldown implements IModeSelect {
         tooltip.add(TextFmt.Italic + "Towers can be turned on to damage entities between them.");
         tooltip.add(TextFmt.Red + "Towers last 60 seconds.");
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         CustomRayTraceResult result;
         ItemStack stack = playerIn.func_184586_b(handIn);
@@ -78,7 +72,6 @@ public class ItemTeslaTowers extends ItemCooldown implements IModeSelect {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @Override // xol.lostinfinity.item.classify.IModeSelect
     public void modeUpdate(ItemStack stack, EntityPlayer player) {
         boolean mode = !getMode(stack);
@@ -93,12 +86,10 @@ public class ItemTeslaTowers extends ItemCooldown implements IModeSelect {
             tile.doBlockUpdate();
         });
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 150;
     }
-
     private TileEntityTeslaTower placeTower(ItemStack stack, World world, BlockPos pos) {
         int id = getPlaceAt(stack);
         BlockPos spot = getTowerPos(stack, id);
@@ -116,7 +107,6 @@ public class ItemTeslaTowers extends ItemCooldown implements IModeSelect {
         tower.setTowerId(id);
         return tower;
     }
-
     private int getPlaceAt(ItemStack stack) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
@@ -125,21 +115,18 @@ public class ItemTeslaTowers extends ItemCooldown implements IModeSelect {
         stack.func_77978_p().func_74768_a("next", (next + 1) % 6);
         return next;
     }
-
     private void setMode(ItemStack stack, boolean flag) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
         }
         stack.func_77978_p().func_74757_a("mode", flag);
     }
-
     private boolean getMode(ItemStack stack) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
         }
         return stack.func_77978_p().func_74767_n("mode");
     }
-
     private BlockPos getTowerPos(ItemStack stack, int id) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
@@ -149,7 +136,6 @@ public class ItemTeslaTowers extends ItemCooldown implements IModeSelect {
         }
         return new BlockPos(stack.func_77978_p().func_74762_e("tower_x_" + id), stack.func_77978_p().func_74762_e("tower_y_" + id), stack.func_77978_p().func_74762_e("tower_z_" + id));
     }
-
     private void iterateTowers(World world, ItemStack stack, BiConsumer<TileEntityTeslaTower, Set<BlockPos>> towerConsumer) {
         Set<BlockPos> poses = new HashSet<>();
         for (int i = 0; i < 6; i++) {

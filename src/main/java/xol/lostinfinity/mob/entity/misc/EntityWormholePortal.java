@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import com.google.common.base.Optional;
 import java.util.UUID;
 import net.minecraft.entity.Entity;
@@ -16,20 +15,16 @@ import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.item.basics.ItemChanneling;
 import xol.lostinfinity.projectile.entity.EntityWormholeShot;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityWormholePortal.class */
 public class EntityWormholePortal extends Entity {
     protected static final DataParameter<Optional<UUID>> CASTER_ID = EntityDataManager.func_187226_a(EntityWormholePortal.class, DataSerializers.field_187203_m);
     protected static final DataParameter<Float> LOOK_X = EntityDataManager.func_187226_a(EntityWormholePortal.class, DataSerializers.field_187193_c);
     protected static final DataParameter<Float> LOOK_Y = EntityDataManager.func_187226_a(EntityWormholePortal.class, DataSerializers.field_187193_c);
     protected static final DataParameter<Float> LOOK_Z = EntityDataManager.func_187226_a(EntityWormholePortal.class, DataSerializers.field_187193_c);
     protected static final DataParameter<Boolean> SHOOT = EntityDataManager.func_187226_a(EntityWormholePortal.class, DataSerializers.field_187198_h);
-
     public EntityWormholePortal(World worldIn) {
         super(worldIn);
         func_184224_h(true);
     }
-
     public void func_70071_h_() {
         super.func_70071_h_();
         if (getCaster() == null) {
@@ -70,18 +65,15 @@ public class EntityWormholePortal extends Entity {
             func_70106_y();
         }
     }
-
     public EntityPlayer getCaster() {
         if (((Optional) this.field_70180_af.func_187225_a(CASTER_ID)).orNull() != null) {
             return this.field_70170_p.func_152378_a((UUID) ((Optional) this.field_70180_af.func_187225_a(CASTER_ID)).get());
         }
         return null;
     }
-
     public void setCaster(EntityPlayer player) {
         this.field_70180_af.func_187227_b(CASTER_ID, Optional.fromNullable(player.func_110124_au()));
     }
-
     protected void func_70088_a() {
         this.field_70180_af.func_187214_a(CASTER_ID, Optional.absent());
         this.field_70180_af.func_187214_a(LOOK_X, Float.valueOf(0.0f));
@@ -89,27 +81,21 @@ public class EntityWormholePortal extends Entity {
         this.field_70180_af.func_187214_a(LOOK_Z, Float.valueOf(0.0f));
         this.field_70180_af.func_187214_a(SHOOT, false);
     }
-
     public void setPlayerLook(Vec3d lookVec) {
         this.field_70180_af.func_187227_b(LOOK_X, Float.valueOf((float) lookVec.field_72450_a));
         this.field_70180_af.func_187227_b(LOOK_Y, Float.valueOf((float) lookVec.field_72448_b));
         this.field_70180_af.func_187227_b(LOOK_Z, Float.valueOf((float) lookVec.field_72449_c));
     }
-
     protected void func_70037_a(NBTTagCompound compound) {
     }
-
     protected void func_70014_b(NBTTagCompound compound) {
     }
-
     public Vec3d getPlayerLook() {
         return new Vec3d(((Float) this.field_70180_af.func_187225_a(LOOK_X)).floatValue(), ((Float) this.field_70180_af.func_187225_a(LOOK_Y)).floatValue(), ((Float) this.field_70180_af.func_187225_a(LOOK_Z)).floatValue());
     }
-
     public void setShoot() {
         this.field_70180_af.func_187227_b(SHOOT, true);
     }
-
     private boolean getShoot() {
         return ((Boolean) this.field_70180_af.func_187225_a(SHOOT)).booleanValue();
     }

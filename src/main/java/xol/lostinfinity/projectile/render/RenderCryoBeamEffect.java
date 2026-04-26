@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.render;
-
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -10,16 +9,12 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import xol.lostinfinity.projectile.entity.EntityCryoBeamEffect;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/render/RenderCryoBeamEffect.class */
 public class RenderCryoBeamEffect<T extends Entity> extends Render<T> {
     public static final ResourceLocation TEXTURE_CRYO_BEAM = new ResourceLocation("lostinfinity:textures/particles/cryo_beam.png");
     public static final ResourceLocation TEXTURE_ICE_BLAST = new ResourceLocation("lostinfinity:textures/particles/ice_blast.png");
-
     public RenderCryoBeamEffect(RenderManager renderManager) {
         super(renderManager);
     }
-
     public void func_76986_a(T entity, double x, double y, double z, float entityYaw, float partialTicks) {
         EntityCryoBeamEffect attackEntity = (EntityCryoBeamEffect) entity;
         if (attackEntity.isIceBlast()) {
@@ -101,7 +96,6 @@ public class RenderCryoBeamEffect<T extends Entity> extends Render<T> {
             GlStateManager.func_179084_k();
         }
     }
-
     protected ResourceLocation func_110775_a(T entity) {
         return null;
     }

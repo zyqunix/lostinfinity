@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.tileentity;
-
 import java.util.ArrayList;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -16,8 +15,6 @@ import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/tileentity/TileEntityNavigationDevice.class */
 public class TileEntityNavigationDevice extends TileEntity implements ITickable {
     private static final int numArrows = 8;
     private static final Vec3i offset = new Vec3i(0, 0, 0);
@@ -33,14 +30,12 @@ public class TileEntityNavigationDevice extends TileEntity implements ITickable 
     private int timer = 0;
     private BlockPos[][] grid = (BlockPos[][]) null;
     ArrayList<Integer> sequence = null;
-
     public void activate() {
         this.active = true;
         if (!this.field_145850_b.field_72995_K) {
             startGame();
         }
     }
-
     private void findDirs() {
         BlockPos ref = func_174877_v().func_177971_a(offset);
         if (this.field_145850_b.func_180495_p(ref.func_177982_a(-1, 0, 0)).func_177230_c() == BlockInit.navigationNodule) {
@@ -59,7 +54,6 @@ public class TileEntityNavigationDevice extends TileEntity implements ITickable 
             this.rightDir = new Vec3i(-1, 0, 0);
         }
     }
-
     private void startGame() {
         BlockPos cur;
         int newNum;
@@ -147,7 +141,6 @@ public class TileEntityNavigationDevice extends TileEntity implements ITickable 
         this.index = 0;
         this.timer = 0;
     }
-
     private Vec3i getDir(int dirNum) {
         Vec3i toAdd;
         switch (dirNum) {
@@ -166,18 +159,15 @@ public class TileEntityNavigationDevice extends TileEntity implements ITickable 
         }
         return toAdd;
     }
-
     private BlockPos getGridPos(int col, int row) {
         if (this.grid != null && col >= 0 && col < this.grid.length && row >= 0 && row < this.grid[col].length) {
             return this.grid[col][row];
         }
         return null;
     }
-
     public boolean isActive() {
         return this.active;
     }
-
     public void func_73660_a() {
         if (!this.field_145850_b.field_72995_K) {
             if (this.sequence != null && this.index < this.sequence.size()) {
@@ -197,7 +187,6 @@ public class TileEntityNavigationDevice extends TileEntity implements ITickable 
             this.active = true;
         }
     }
-
     public void checkCompletion(EntityPlayer playerIn) {
         this.active = false;
         if (!this.field_145850_b.field_72995_K) {
@@ -241,11 +230,9 @@ public class TileEntityNavigationDevice extends TileEntity implements ITickable 
             }
         }
     }
-
     public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newSate) {
         return false;
     }
-
     private void reset() {
         this.field_145850_b.func_175656_a(func_174877_v(), BlockInit.navigationDevice.func_176203_a(0));
         this.field_145846_f = false;

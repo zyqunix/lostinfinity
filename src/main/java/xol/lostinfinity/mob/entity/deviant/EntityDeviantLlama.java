@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.deviant;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -16,21 +15,17 @@ import xol.lostinfinity.mob.entity.base.EntityDeviantMob;
 import xol.lostinfinity.projectile.entity.EntityDeviantSpit;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/deviant/EntityDeviantLlama.class */
 public class EntityDeviantLlama extends EntityDeviantMob {
     public EntityDeviantLlama(World worldIn) {
         super(worldIn);
         func_70105_a(2.0f, 4.0f);
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(1.0d);
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.35d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(1500.0d);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -39,19 +34,15 @@ public class EntityDeviantLlama extends EntityDeviantMob {
         }
         return false;
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundEvents.field_191252_dC;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundEvents.field_191254_dE;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundEvents.field_191260_dz;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         EntityLivingBase target = func_70638_az();
@@ -68,22 +59,18 @@ public class EntityDeviantLlama extends EntityDeviantMob {
             func_184185_a(SoundEvents.field_191255_dF, 1.0f, 1.0f);
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityDeviantMob
     protected Item playerInput() {
         return Items.field_179563_cD;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityDeviantMob
     protected Item mutantOutput() {
         return ItemInit.salivatedCrystals;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityDeviantMob
     protected ResourceLocation deviantDrop() {
         return LootTableRegistry.ENTITIES_DEVIANTLLAMA;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityDeviantMob
     protected ResourceLocation superMutatedDrop() {
         return LootTableRegistry.ENTITIES_SUPERMUTANT_LLAMA;

@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.model.nebula;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -7,8 +6,6 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import xol.lostinfinity.mob.entity.nebula.EntityNebulaWizard;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/nebula/ModelNebulaWizard.class */
 public class ModelNebulaWizard extends ModelBase {
     private final ModelRenderer Body;
     private final ModelRenderer Bottom;
@@ -26,7 +23,6 @@ public class ModelNebulaWizard extends ModelBase {
     private final ModelRenderer ArmRight3;
     private final ModelRenderer ArmLeft4;
     private final ModelRenderer ArmRight4;
-
     public ModelNebulaWizard() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -177,7 +173,6 @@ public class ModelNebulaWizard extends ModelBase {
         this.ArmRight4.field_78804_l.add(new ModelBox(this.ArmRight4, 64, 24, -22.0f, -1.5f, -1.5f, 12, 2, 2, 0.2f, true));
         this.ArmRight4.field_78804_l.add(new ModelBox(this.ArmRight4, 64, 29, -28.0f, -4.5f, -0.5f, 12, 8, 1, 0.2f, true));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         EntityNebulaWizard nebula = (EntityNebulaWizard) entity;
         float baseAlpha = nebula.getModelAlpha();
@@ -189,13 +184,11 @@ public class ModelNebulaWizard extends ModelBase {
         this.BodyDuplicate.func_78785_a(f5);
         GlStateManager.func_179084_k();
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.ArmLeft1.field_78796_g = MathHelper.func_76134_b(ageInTicks * 0.2f) * 0.4f;
         this.ArmLeft3.field_78796_g = MathHelper.func_76134_b(ageInTicks * 0.2f) * 0.4f;

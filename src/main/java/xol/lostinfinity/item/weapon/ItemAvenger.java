@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -30,8 +29,6 @@ import xol.lostinfinity.projectile.entity.EntityAvenger;
 import xol.lostinfinity.util.PotionBasic;
 import xol.lostinfinity.util.data.CustomDamageResult;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemAvenger.class */
 public class ItemAvenger extends ItemSword implements ISwitchModels, IMaxAttack {
     public ItemAvenger(String regName) {
         super(Item.ToolMaterial.DIAMOND);
@@ -42,7 +39,6 @@ public class ItemAvenger extends ItemSword implements ISwitchModels, IMaxAttack 
         setModelSwitch("empty", this, 2);
         ItemInit.ITEMS.add(this);
     }
-
     public boolean func_77644_a(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         CustomDamageResult dr = IMaxAttack.dealTrueDamage(attacker, target, target.func_110138_aP() * 0.5f, Arrays.asList("Aquatic"));
         float damageDealt = dr.getDamageDealt();
@@ -54,7 +50,6 @@ public class ItemAvenger extends ItemSword implements ISwitchModels, IMaxAttack 
         attacker.field_70170_p.func_184133_a((EntityPlayer) null, attacker.func_180425_c(), SoundInit.SWING_HIT, SoundCategory.PLAYERS, 1.5f, 0.6f + (attacker.field_70170_p.field_73012_v.nextFloat() * 0.4f));
         return true;
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (!stack.func_77942_o()) {
@@ -73,7 +68,6 @@ public class ItemAvenger extends ItemSword implements ISwitchModels, IMaxAttack 
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     private void killReward(EntityLivingBase player) {
         List<PotionEffect> potionsToAdd = new ArrayList<>();
         List<Potion> potionList = (List) player.func_70651_bq().stream().map((v0) -> {
@@ -99,7 +93,6 @@ public class ItemAvenger extends ItemSword implements ISwitchModels, IMaxAttack 
         }
         player.func_70691_i(player.func_110138_aP());
     }
-
     private PotionEffect scalePotionEffect(PotionEffect effect, boolean bad) {
         if (!bad) {
             return effect;
@@ -111,7 +104,6 @@ public class ItemAvenger extends ItemSword implements ISwitchModels, IMaxAttack 
         }
         return null;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Light_Purple + "Deals 50% Health True Damage");

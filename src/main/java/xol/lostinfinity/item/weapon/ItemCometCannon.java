@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -21,18 +20,14 @@ import xol.lostinfinity.item.classify.IModeSelect;
 import xol.lostinfinity.item.classify.ISwitchModels;
 import xol.lostinfinity.projectile.entity.EntityCarrierProjectile;
 import xol.lostinfinity.projectile.entity.EntityComet;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemCometCannon.class */
 public class ItemCometCannon extends ItemCooldown implements ISwitchModels, IModeSelect, ICustomHoldPose {
     private int cooldown;
-
     public ItemCometCannon(String regName) {
         super(regName);
         this.cooldown = 5000;
         func_77637_a(TabsInit.TAB_INFINITYWEP);
         setModelSwitch("firemode", this, 2);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (!stack.func_77942_o()) {
@@ -73,16 +68,13 @@ public class ItemCometCannon extends ItemCooldown implements ISwitchModels, IMod
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return this.cooldown;
     }
-
     private void setCooldown(int newC) {
         this.cooldown = newC;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Aqua + "Can switch between firing comet showers and comets forwards.");
@@ -91,7 +83,6 @@ public class ItemCometCannon extends ItemCooldown implements ISwitchModels, IMod
         tooltip.add(TextFmt.Red + "50% Max Health to creatures");
         tooltip.add(TextFmt.Red + "75% Max Health to players");
     }
-
     @Override // xol.lostinfinity.item.classify.IModeSelect
     public void modeUpdate(ItemStack stack, EntityPlayer player) {
         if (!stack.func_77942_o()) {
@@ -104,7 +95,6 @@ public class ItemCometCannon extends ItemCooldown implements ISwitchModels, IMod
             stack.func_77978_p().func_74768_a("firemode_data", 0);
         }
     }
-
     private int getFireMode(ItemStack stack) {
         if (stack.func_77942_o()) {
             return stack.func_77978_p().func_74762_e("firemode_data");

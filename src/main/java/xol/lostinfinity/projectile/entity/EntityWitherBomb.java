@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -9,19 +8,15 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.init.ParticleInit;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityWitherBomb.class */
 public class EntityWitherBomb extends EntityBaseThrowable {
     public EntityWitherBomb(World par1World) {
         super(par1World);
         func_70105_a(0.75f, 0.75f);
     }
-
     public EntityWitherBomb(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
         func_70105_a(0.75f, 0.75f);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -34,7 +29,6 @@ public class EntityWitherBomb extends EntityBaseThrowable {
             }
         }
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     @SideOnly(Side.CLIENT)
     public void func_70071_h_() {
@@ -43,7 +37,6 @@ public class EntityWitherBomb extends EntityBaseThrowable {
             this.field_70170_p.func_175682_a(ParticleInit.WITHER_RINGS, true, this.field_70165_t + getROD(1), this.field_70163_u + getROD(1), this.field_70161_v + getROD(1), 0.0d, 0.0d, 0.0d, new int[0]);
         }
     }
-
     protected float func_70185_h() {
         return 0.0f;
     }

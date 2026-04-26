@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.boss;
-
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -36,19 +35,15 @@ import net.minecraftforge.common.BiomeDictionary;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.projectile.entity.EntityElaraShot;
 import xol.lostinfinity.stone.EntityInfinityStone;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/boss/EntityElara.class */
 public class EntityElara extends EntityMob {
     private static final DataParameter<Byte> TYPE = EntityDataManager.func_187226_a(EntityElara.class, DataSerializers.field_187191_a);
     private static final DataParameter<Float> spawnX = EntityDataManager.func_187226_a(EntityElara.class, DataSerializers.field_187193_c);
     private static final DataParameter<Float> spawnY = EntityDataManager.func_187226_a(EntityElara.class, DataSerializers.field_187193_c);
     private static final DataParameter<Float> spawnZ = EntityDataManager.func_187226_a(EntityElara.class, DataSerializers.field_187193_c);
-
     public EntityElara(World worldIn) {
         super(worldIn);
         func_70105_a(2.5f, 7.0f);
     }
-
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(TYPE, (byte) 0);
@@ -56,21 +51,17 @@ public class EntityElara extends EntityMob {
         this.field_70180_af.func_187214_a(spawnY, Float.valueOf(-10.0f));
         this.field_70180_af.func_187214_a(spawnZ, Float.valueOf(0.0f));
     }
-
     public byte getForm() {
         return ((Byte) this.field_70180_af.func_187225_a(TYPE)).byteValue();
     }
-
     public void setForm(byte f) {
         this.field_70180_af.func_187227_b(TYPE, Byte.valueOf(f));
     }
-
     public void resetSpawnCoords(float xp, float yp, float zp) {
         this.field_70180_af.func_187227_b(spawnX, Float.valueOf(xp));
         this.field_70180_af.func_187227_b(spawnY, Float.valueOf(yp));
         this.field_70180_af.func_187227_b(spawnZ, Float.valueOf(zp));
     }
-
     public void func_70014_b(NBTTagCompound tag) {
         super.func_70014_b(tag);
         tag.func_74774_a("BossType", getForm());
@@ -78,13 +69,11 @@ public class EntityElara extends EntityMob {
         tag.func_74776_a("SpawnY", ((Float) this.field_70180_af.func_187225_a(spawnY)).floatValue());
         tag.func_74776_a("SpawnZ", ((Float) this.field_70180_af.func_187225_a(spawnZ)).floatValue());
     }
-
     public void func_70037_a(NBTTagCompound tag) {
         super.func_70037_a(tag);
         setForm(tag.func_74771_c("BossType"));
         resetSpawnCoords(tag.func_74760_g("SpawnX"), tag.func_74760_g("SpawnY"), tag.func_74760_g("SpawnZ"));
     }
-
     public void func_70645_a(DamageSource cause) {
         super.func_70645_a(cause);
         if (!this.field_70170_p.field_72995_K) {
@@ -103,7 +92,6 @@ public class EntityElara extends EntityMob {
             }
         }
     }
-
     protected void func_184651_r() {
         this.field_70714_bg.func_75776_a(0, new EntityAISwimming(this));
         this.field_70714_bg.func_75776_a(2, new EntityAIAttackMelee(this, 1.0d, true));
@@ -113,7 +101,6 @@ public class EntityElara extends EntityMob {
         this.field_70714_bg.func_75776_a(8, new EntityAILookIdle(this));
         func_175456_n();
     }
-
     protected void func_175456_n() {
         this.field_70714_bg.func_75776_a(6, new EntityAIMoveThroughVillage(this, 1.0d, false));
         this.field_70715_bh.func_75776_a(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
@@ -121,7 +108,6 @@ public class EntityElara extends EntityMob {
         this.field_70715_bh.func_75776_a(3, new EntityAINearestAttackableTarget(this, EntityVillager.class, false));
         this.field_70715_bh.func_75776_a(3, new EntityAINearestAttackableTarget(this, EntityIronGolem.class, true));
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(5.0d);
@@ -129,7 +115,6 @@ public class EntityElara extends EntityMob {
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(5000.0d);
         func_110148_a(SharedMonsterAttributes.field_111265_b).func_111128_a(30.0d);
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         this.field_70143_R = -1.0f;
@@ -214,7 +199,6 @@ public class EntityElara extends EntityMob {
             entityPlayerMPFunc_70638_az.func_145747_a(new TextComponentString(TextFmt.Light_Purple + "Elara: Look up!"));
         }
     }
-
     private void pushPlayersAway(World worldIn, EntityLiving creature) {
         for (EntityPlayerMP entityPlayerMP : worldIn.func_72872_a(EntityPlayer.class, creature.func_174813_aQ().func_72314_b(7.0d, 7.0d, 7.0d))) {
             entityPlayerMP.func_70024_g(Math.signum(creature.field_70165_t - ((EntityPlayer) entityPlayerMP).field_70165_t) * (-1.39d), 0.65d, Math.signum(creature.field_70161_v - ((EntityPlayer) entityPlayerMP).field_70161_v) * (-1.39d));
@@ -222,15 +206,12 @@ public class EntityElara extends EntityMob {
             entityPlayerMP.func_145747_a(new TextComponentString(TextFmt.Dark_Aqua + "Elara: Stand back!"));
         }
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundEvents.field_187798_ea;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundEvents.field_187800_eb;
     }
-
     protected SoundEvent func_184639_G() {
         return null;
     }

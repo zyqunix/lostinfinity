@@ -1,10 +1,7 @@
 package xol.lostinfinity.item.basics;
-
 import net.minecraft.item.Item;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/basics/ItemArenaToken.class */
 public class ItemArenaToken extends Item {
     public ItemArenaToken(String regName) {
         setRegistryName(regName);

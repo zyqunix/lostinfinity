@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.contest.controller;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -13,15 +12,12 @@ import net.minecraft.world.World;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.DimensionInit;
 import xol.lostinfinity.mob.entity.base.EntityImmaterial;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/contest/controller/EntityControllerBase.class */
 public class EntityControllerBase extends EntityImmaterial {
     protected int stage;
     private List<UUID> player_list;
     protected int contenderCount;
     protected List<UUID> touched_list;
     protected boolean touchInProgress;
-
     public EntityControllerBase(World worldIn) {
         super(worldIn);
         this.stage = 0;
@@ -30,19 +26,15 @@ public class EntityControllerBase extends EntityImmaterial {
         this.touched_list = new ArrayList();
         this.touchInProgress = false;
     }
-
     public void setPlayerCount(int count) {
         this.contenderCount = count;
     }
-
     public void addPlayerToList(EntityPlayer player) {
         this.player_list.add(player.func_110124_au());
     }
-
     public List<UUID> getPlayerList() {
         return this.player_list;
     }
-
     public void removePlayer(EntityPlayer player) {
         if (this.player_list.contains(player.func_110124_au())) {
             eliminatePlayer(player.func_110124_au());
@@ -50,7 +42,6 @@ public class EntityControllerBase extends EntityImmaterial {
             playerStatusCheck();
         }
     }
-
     public void removePlayerByUUID(UUID uuid) {
         if (this.player_list.contains(uuid)) {
             eliminatePlayer(uuid);
@@ -58,7 +49,6 @@ public class EntityControllerBase extends EntityImmaterial {
             playerStatusCheck();
         }
     }
-
     public void removeMultiplePlayers(List<UUID> getting_removed) {
         for (UUID rem_id : getting_removed) {
             if (this.player_list.contains(rem_id)) {
@@ -68,7 +58,6 @@ public class EntityControllerBase extends EntityImmaterial {
         this.player_list.removeAll(getting_removed);
         playerStatusCheck();
     }
-
     protected void eliminatePlayer(UUID playerID) {
         EntityPlayer player = this.field_70170_p.func_152378_a(playerID);
         if (player != null) {
@@ -76,7 +65,6 @@ public class EntityControllerBase extends EntityImmaterial {
             rewardPlayer(player, this.contenderCount - getPlayerList().size());
         }
     }
-
     protected void removeFailedCheckIn() {
         List<UUID> eliminated_players = new ArrayList<>();
         for (UUID pl_id : getPlayerList()) {
@@ -88,7 +76,6 @@ public class EntityControllerBase extends EntityImmaterial {
         this.touchInProgress = false;
         this.touched_list.clear();
     }
-
     protected void playerStatusCheck() {
         boolean end_flag = false;
         List<UUID> accounted_for = new ArrayList<>();
@@ -117,7 +104,6 @@ public class EntityControllerBase extends EntityImmaterial {
             endGame();
         }
     }
-
     public void registerTouch(EntityPlayer player) {
         if (this.touchInProgress) {
             UUID player_uuid = player.func_110124_au();
@@ -127,12 +113,10 @@ public class EntityControllerBase extends EntityImmaterial {
             }
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityImmaterial
     public boolean func_70104_M() {
         return false;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityImmaterial
     public void func_70636_d() {
         super.func_70636_d();
@@ -150,37 +134,30 @@ public class EntityControllerBase extends EntityImmaterial {
             }
         }
     }
-
     protected AxisAlignedBB getArenaAABB() {
         return null;
     }
-
     protected BlockPos getSnapPos() {
         return null;
     }
-
     protected void messageContenders(TextFmt fmt, String message) {
         for (EntityPlayer contender : this.field_70170_p.func_72872_a(EntityPlayer.class, getArenaAABB())) {
             contender.func_145747_a(new TextComponentString(fmt + "Grandmaster: " + message));
         }
     }
-
     protected void messageContendersWithSound(TextFmt fmt, String message, SoundEvent sound) {
         for (EntityPlayer contender : this.field_70170_p.func_72872_a(EntityPlayer.class, getArenaAABB())) {
             contender.func_145747_a(new TextComponentString(fmt + "Grandmaster: " + message));
             contender.field_70170_p.func_184133_a((EntityPlayer) null, contender.func_180425_c(), sound, SoundCategory.MASTER, 1.0f, 1.0f);
         }
     }
-
     protected void soundContenders(SoundEvent sound, float vol, float pitch) {
         for (EntityPlayer contender : this.field_70170_p.func_72872_a(EntityPlayer.class, getArenaAABB())) {
             contender.field_70170_p.func_184133_a((EntityPlayer) null, contender.func_180425_c(), sound, SoundCategory.MASTER, vol, pitch);
         }
     }
-
     protected void rewardPlayer(EntityPlayer player, int placement) {
     }
-
     protected void endGame() {
     }
 }

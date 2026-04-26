@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.crafting;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.state.IBlockState;
@@ -16,20 +15,16 @@ import xol.lostinfinity.common.lostinfinity;
 import xol.lostinfinity.gui.GuiHandler;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.TabsInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/crafting/BlockFabricationTable.class */
 public class BlockFabricationTable extends BlockBasicGui {
     public BlockFabricationTable(String name) {
         this(name, TabsInit.TAB_BLOCKS);
     }
-
     public BlockFabricationTable(String name, CreativeTabs tab) {
         super(name, GuiHandler.RegisteredGuis.FABRICATION_STATION.getId());
         func_149647_a(tab);
         func_149672_a(SoundType.field_185852_e);
         func_149715_a(1.0f);
     }
-
     @Override // xol.lostinfinity.block.basic.BlockBasicGui
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!playerIn.func_70093_af()) {

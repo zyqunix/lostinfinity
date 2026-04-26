@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.activate;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -23,13 +22,10 @@ import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.basics.ItemBasic;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/activate/ItemFossilFinder.class */
 public class ItemFossilFinder extends ItemBasic {
     public ItemFossilFinder(String regName) {
         super(regName, TabsInit.TAB_AUXMATS);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         BlockPos pos;
         BlockPos trackPos;
@@ -202,7 +198,6 @@ public class ItemFossilFinder extends ItemBasic {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     private Item randomFossil(Random rand) {
         switch (rand.nextInt(6)) {
             case 0:
@@ -213,7 +208,7 @@ public class ItemFossilFinder extends ItemBasic {
                 return ItemInit.fossilEelTopjaw;
             case 3:
                 return ItemInit.fossilSmallRibs;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 return ItemInit.fossilSmallRibs;
             case 5:
                 return ItemInit.fossilRibbedTail;

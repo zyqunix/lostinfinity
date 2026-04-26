@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.tileentity;
-
 import java.util.ArrayList;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,8 +11,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/tileentity/TileEntityMelodicSequencer.class */
 public class TileEntityMelodicSequencer extends TileEntity implements ITickable {
     private static int finalRound = 2;
     ArrayList<SoundEvent> notes = null;
@@ -29,7 +26,6 @@ public class TileEntityMelodicSequencer extends TileEntity implements ITickable 
     private boolean finishedRound = true;
     private int playerSequenceIndex = 0;
     private boolean game = false;
-
     public void func_73660_a() {
         if (this.game && this.notes != null && this.notes.size() == 5 && this.roundStart && this.finishedRound) {
             if (this.roundDelay > 0) {
@@ -50,7 +46,6 @@ public class TileEntityMelodicSequencer extends TileEntity implements ITickable 
             }
         }
     }
-
     public boolean playNote(int meta, BlockPos pos, EntityPlayer player) {
         this.player = player;
         if (!this.roundStart && this.notes != null && this.notes.size() > meta) {
@@ -75,7 +70,6 @@ public class TileEntityMelodicSequencer extends TileEntity implements ITickable 
         }
         return false;
     }
-
     private void roundUp() {
         this.finishedRound = true;
         if (this.round < finalRound) {
@@ -101,7 +95,6 @@ public class TileEntityMelodicSequencer extends TileEntity implements ITickable 
         reward.field_70179_y = 0.0d;
         this.field_145850_b.func_72838_d(reward);
     }
-
     public static ArrayList<SoundEvent> getNotes() {
         ArrayList<SoundEvent> noteList = new ArrayList<>();
         noteList.add(SoundInit.NOTE_TYPE_1);
@@ -111,11 +104,9 @@ public class TileEntityMelodicSequencer extends TileEntity implements ITickable 
         noteList.add(SoundInit.NOTE_TYPE_5);
         return noteList;
     }
-
     private void initSounds() {
         this.notes = getNotes();
     }
-
     public void startGame() {
         this.remainingFails = 5;
         this.game = true;
@@ -127,7 +118,6 @@ public class TileEntityMelodicSequencer extends TileEntity implements ITickable 
         initSounds();
         generateSequence();
     }
-
     private void generateSequence() {
         if (this.notes != null) {
             this.sequence.clear();

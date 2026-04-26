@@ -1,16 +1,12 @@
 package xol.lostinfinity.mob.model.cthulhu;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/cthulhu/ModelCthulhuHealingOrb.class */
 public class ModelCthulhuHealingOrb extends ModelBase {
     public ModelRenderer inside;
     public ModelRenderer spin;
     public ModelRenderer outside;
-
     public ModelCthulhuHealingOrb() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -24,25 +20,21 @@ public class ModelCthulhuHealingOrb extends ModelBase {
         this.outside.func_78793_a(0.0f, 14.0f, 0.0f);
         this.outside.func_78790_a(-8.0f, -8.0f, -8.0f, 16, 16, 16, 0.0f);
     }
-
     public void func_78088_a(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
         this.inside.func_78785_a(scale);
         this.spin.func_78785_a(scale);
         this.outside.func_78785_a(scale);
     }
-
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.spin.field_78796_g = ageInTicks * 0.05f;
         this.inside.field_78796_g = ageInTicks * (-0.02f);
         this.outside.field_78796_g = ageInTicks * (-0.02f);
     }
-
     private void render(float scale) {
         this.inside.func_78785_a(scale);
         GlStateManager.func_179147_l();

@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import java.util.ArrayList;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
@@ -21,19 +20,14 @@ import xol.lostinfinity.block.basic.BlockBasic;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockTimelineStabilizerArrow.class */
 public class BlockTimelineStabilizerArrow extends BlockBasic {
     public static final PropertyInteger AMOUNT = PropertyInteger.func_177719_a("amount", 0, 3);
-
     public BlockTimelineStabilizerArrow(String name) {
         super(name);
     }
-
     public static Vec3i getRotatedVec(Vec3i vec, double rad) {
         return new Vec3i(Math.round(((double) vec.func_177958_n()) * Math.cos(rad)) + Math.round(((double) vec.func_177952_p()) * Math.sin(rad)), vec.func_177956_o(), Math.round(((double) (-vec.func_177958_n())) * Math.sin(rad)) + Math.round(((double) vec.func_177952_p()) * Math.cos(rad)));
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         double rad;
         ItemStack stack = playerIn.func_184586_b(hand);
@@ -222,7 +216,6 @@ public class BlockTimelineStabilizerArrow extends BlockBasic {
         }
         return true;
     }
-
     private void win(BlockPos pos, World worldIn, EntityPlayer playerIn) {
         EntityItem reward = new EntityItem(worldIn, playerIn.field_70165_t, playerIn.field_70163_u, playerIn.field_70161_v, new ItemStack(ItemInit.multiTimelineDataChip));
         reward.field_70159_w = 0.0d;
@@ -231,7 +224,6 @@ public class BlockTimelineStabilizerArrow extends BlockBasic {
         worldIn.func_72838_d(reward);
         worldIn.func_184133_a((EntityPlayer) null, playerIn.func_180425_c(), SoundInit.MYSTERY_VOICE_TRANSMISSION, SoundCategory.BLOCKS, 1.5f, 1.0f);
     }
-
     private boolean onTrack(BlockPos check, Chunk chunk) {
         ArrayList<Vec3i> positions = new ArrayList<>();
         positions.add(new Vec3i(1, 0, 0));
@@ -245,10 +237,8 @@ public class BlockTimelineStabilizerArrow extends BlockBasic {
         }
         return false;
     }
-
     private void transfer(World worldIn, BlockPos pos) {
     }
-
     private boolean onTrack(BlockPos check, World worldIn) {
         ArrayList<Vec3i> positions = new ArrayList<>();
         positions.add(new Vec3i(1, 0, 0));
@@ -262,19 +252,15 @@ public class BlockTimelineStabilizerArrow extends BlockBasic {
         }
         return false;
     }
-
     public IBlockState func_180642_a(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
         return func_176223_P().func_177226_a(AMOUNT, 0);
     }
-
     public IBlockState func_176203_a(int meta) {
         return func_176223_P().func_177226_a(AMOUNT, Integer.valueOf(meta));
     }
-
     public int func_176201_c(IBlockState state) {
         return ((Integer) state.func_177229_b(AMOUNT)).intValue();
     }
-
     protected BlockStateContainer func_180661_e() {
         return new BlockStateContainer(this, new IProperty[]{AMOUNT});
     }

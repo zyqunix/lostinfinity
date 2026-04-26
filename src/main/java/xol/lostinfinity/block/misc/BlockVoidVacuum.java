@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.misc;
-
 import java.util.UUID;
 import net.minecraft.block.Block;
 import net.minecraft.block.ITileEntityProvider;
@@ -20,25 +19,19 @@ import xol.lostinfinity.block.tileentity.TileEntityVoidVacuum;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.item.activate.ItemElasticThread;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/misc/BlockVoidVacuum.class */
 public class BlockVoidVacuum extends BlockBasic implements ITileEntityProvider {
     public BlockVoidVacuum(String name) {
         super(name);
     }
-
     public TileEntity func_149915_a(World worldIn, int meta) {
         return null;
     }
-
     public TileEntity createTileEntity(World world, IBlockState state) {
         return new TileEntityVoidVacuum();
     }
-
     public boolean hasTileEntity(IBlockState state) {
         return true;
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         EntityLivingBase target;
         if (!worldIn.field_72995_K) {

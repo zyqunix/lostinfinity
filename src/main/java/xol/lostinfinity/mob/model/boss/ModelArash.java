@@ -1,12 +1,9 @@
 package xol.lostinfinity.mob.model.boss;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/boss/ModelArash.class */
 public class ModelArash extends ModelBase {
     public ModelRenderer rightarm;
     public ModelRenderer rightleg;
@@ -38,7 +35,6 @@ public class ModelArash extends ModelBase {
     public ModelRenderer sword1;
     public ModelRenderer sword2;
     public ModelRenderer sword3;
-
     public ModelArash() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -142,7 +138,6 @@ public class ModelArash extends ModelBase {
         this.rightarmt.func_78793_a(-9.0f, 0.0f, 0.0f);
         this.rightarmt.func_78790_a(-4.0f, -4.0f, -3.0f, 7, 6, 6, 0.0f);
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.bodyupperplate.func_78785_a(f5);
         this.leftleg.func_78785_a(f5);
@@ -187,13 +182,11 @@ public class ModelArash extends ModelBase {
         this.headglass.func_78785_a(f5);
         this.rightarmt.func_78785_a(f5);
     }
-
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.rightleg.field_78795_f = MathHelper.func_76134_b(limbSwing * 0.6662f) * 1.4f * limbSwingAmount * 0.5f;
         this.leftleg.field_78795_f = MathHelper.func_76134_b((limbSwing * 0.6662f) + 3.1415927f) * 1.4f * limbSwingAmount * 0.5f;

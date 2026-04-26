@@ -1,5 +1,4 @@
 package xol.lostinfinity.common.events;
-
 import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
@@ -69,21 +68,17 @@ import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
 import xol.lostinfinity.util.player.PlayerManager;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/common/events/EventsPlayerAction.class */
 public class EventsPlayerAction implements IMaxAttack {
     private final Map<EntityPlayer, ItemStack> clientMainhandItem = new ConcurrentHashMap();
     private final Map<EntityPlayer, ItemStack> serverMainhandItem = new ConcurrentHashMap();
     private final Map<EntityPlayer, ItemStack> clientOffhandItem = new ConcurrentHashMap();
     private final Map<EntityPlayer, ItemStack> serverOffhandItem = new ConcurrentHashMap();
-
     private EntityPlayer getPlayerByUUID(World world, UUID uuid) {
         if (uuid == null) {
             return null;
         }
         return world.field_72995_K ? FMLServerHandler.instance().getServer().func_184103_al().func_177451_a(uuid) : world.func_73046_m().func_184103_al().func_177451_a(uuid);
     }
-
     @SubscribeEvent
     public void onDimensionTransfer(PlayerEvent.PlayerChangedDimensionEvent event) {
         ItemSoulbound.removeSoulBound(event.player);
@@ -96,7 +91,6 @@ public class EventsPlayerAction implements IMaxAttack {
             iDimensionSwitchFunc_77973_b.onDimensionSwitch(event.player, stack);
         }
     }
-
     @SubscribeEvent
     public void onPlayerCraft(PlayerEvent.ItemCraftedEvent event) {
         EntityPlayer crafter = event.player;
@@ -104,7 +98,6 @@ public class EventsPlayerAction implements IMaxAttack {
             crafter.func_145747_a(new TextComponentString(TextFmt.Dark_Aqua + "The Echo: I see everywhere " + crafter.func_70005_c_() + ". Are you looking to play" + TextFmt.Reset + TextFmt.Gold + " one last game?"));
         }
     }
-
     @SubscribeEvent
     public void onPlayerHurt(LivingHurtEvent event) {
         if (!event.getEntity().func_130014_f_().field_72995_K && (event.getEntity() instanceof EntityPlayer)) {
@@ -163,7 +156,6 @@ public class EventsPlayerAction implements IMaxAttack {
             }
         }
     }
-
     @SubscribeEvent
     public void onPlayerDeath(LivingDeathEvent event) {
         EntityPlayer owner;
@@ -194,7 +186,6 @@ public class EventsPlayerAction implements IMaxAttack {
             }
         }
     }
-
     @SubscribeEvent
     public void onBucketFill(FillBucketEvent event) {
         if (event.getTarget() != null && event.getTarget().field_72313_a == RayTraceResult.Type.BLOCK) {
@@ -204,7 +195,6 @@ public class EventsPlayerAction implements IMaxAttack {
             }
         }
     }
-
     @SubscribeEvent
     public void rightClickBlock(PlayerInteractEvent event) {
         ItemStack stack = event.getItemStack();
@@ -218,14 +208,12 @@ public class EventsPlayerAction implements IMaxAttack {
             event.setCanceled(true);
         }
     }
-
     @SubscribeEvent(priority = EventPriority.LOWEST)
     public void soulboundClear(LivingDeathEvent event) {
         if (!event.isCanceled() && (event.getEntity() instanceof EntityPlayer)) {
             ItemSoulbound.removeSoulBound(event.getEntity());
         }
     }
-
     @SubscribeEvent
     public void onPlayerJump(LivingEvent.LivingJumpEvent event) {
         if (event.getEntity() instanceof EntityPlayer) {
@@ -255,7 +243,6 @@ public class EventsPlayerAction implements IMaxAttack {
             }
         }
     }
-
     @SubscribeEvent
     public void onPotionExpire(PotionEvent.PotionExpiryEvent event) {
         if (event.getEntity() != null && (event.getEntity() instanceof EntityPlayer)) {
@@ -278,7 +265,6 @@ public class EventsPlayerAction implements IMaxAttack {
             event.getEntityLiving().field_70170_p.func_184133_a((EntityPlayer) null, event.getEntityLiving().func_180425_c(), SoundInit.GENERIC_EXPLOSION, SoundCategory.PLAYERS, 1.0f, 1.0f);
         }
     }
-
     @SubscribeEvent
     public void onCommandEvent(CommandEvent event) {
         EntityPlayerMP entityPlayerMPFunc_177451_a;
@@ -316,7 +302,6 @@ public class EventsPlayerAction implements IMaxAttack {
             }
         }
     }
-
     @SubscribeEvent
     public void onHarvestBlock(BlockEvent.HarvestDropsEvent event) {
         Item held;
@@ -356,7 +341,6 @@ public class EventsPlayerAction implements IMaxAttack {
             event.getDrops().add(new ItemStack(ItemInit.celestialIron));
         }
     }
-
     @SubscribeEvent
     public void onPlayerPotionAdd(PotionEvent.PotionAddedEvent event) {
         if (!(event.getEntityLiving() instanceof EntityPlayer)) {
@@ -375,7 +359,6 @@ public class EventsPlayerAction implements IMaxAttack {
             offItem.func_77973_b().potionAddReaction(player, offItem, EnumHand.OFF_HAND, event.getPotionEffect(), event.getOldPotionEffect());
         }
     }
-
     @SubscribeEvent
     public void onPlayerPotionRemove(PotionEvent.PotionRemoveEvent event) {
         if (!(event.getEntityLiving() instanceof EntityPlayer)) {
@@ -394,7 +377,6 @@ public class EventsPlayerAction implements IMaxAttack {
             offItem.func_77973_b().potionRemoveReaction(player, offItem, EnumHand.OFF_HAND, event.getPotion(), event.getPotionEffect());
         }
     }
-
     @SubscribeEvent
     public void onTickEvent(TickEvent.PlayerTickEvent event) {
         if (event.phase == TickEvent.Phase.START) {
@@ -512,7 +494,6 @@ public class EventsPlayerAction implements IMaxAttack {
             }
         }
     }
-
     private void tether(TickEvent.PlayerTickEvent event) {
         BlockPos logPos = getNearestLog(event, 7);
         if (logPos != null) {
@@ -533,7 +514,6 @@ public class EventsPlayerAction implements IMaxAttack {
             }
         }
     }
-
     private BlockPos getNearestLog(TickEvent.PlayerTickEvent event, int radius) {
         double minDist = 99.0d;
         BlockPos nearest = null;
@@ -555,7 +535,6 @@ public class EventsPlayerAction implements IMaxAttack {
         }
         return nearest;
     }
-
     private void processIHeldTick(EntityPlayer player, EnumHand hand, ItemStack curr) {
         Map<EntityPlayer, ItemStack> map = hand == EnumHand.MAIN_HAND ? player.field_70170_p.field_72995_K ? this.clientMainhandItem : this.serverMainhandItem : player.field_70170_p.field_72995_K ? this.clientOffhandItem : this.serverOffhandItem;
         ItemStack prev = map.get(player);
@@ -579,7 +558,6 @@ public class EventsPlayerAction implements IMaxAttack {
         }
         tickable.heldTick(player, hand, curr);
     }
-
     private float getRandomFloat(EntityPlayer player, float mutli) {
         return ((-0.5f) + player.field_70170_p.field_73012_v.nextFloat()) * mutli;
     }

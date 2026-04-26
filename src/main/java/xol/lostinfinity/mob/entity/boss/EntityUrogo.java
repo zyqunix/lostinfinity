@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.boss;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
@@ -33,39 +32,30 @@ import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.stone.EntityInfinityStone;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/boss/EntityUrogo.class */
 public class EntityUrogo extends EntityMob implements IMaxAttack {
     private static final DataParameter<Byte> FORM = EntityDataManager.func_187226_a(EntityUrogo.class, DataSerializers.field_187191_a);
-
     public EntityUrogo(World worldIn) {
         super(worldIn);
         func_70105_a(2.0f, 3.2f);
     }
-
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(FORM, (byte) 0);
     }
-
     public byte getForm() {
         return ((Byte) this.field_70180_af.func_187225_a(FORM)).byteValue();
     }
-
     public void setForm(byte f) {
         this.field_70180_af.func_187227_b(FORM, Byte.valueOf(f));
     }
-
     public void func_70014_b(NBTTagCompound tag) {
         super.func_70014_b(tag);
         tag.func_74774_a("BossForm", getForm());
     }
-
     public void func_70037_a(NBTTagCompound tag) {
         super.func_70037_a(tag);
         setForm(tag.func_74771_c("BossForm"));
     }
-
     protected void func_184651_r() {
         this.field_70714_bg.func_75776_a(0, new EntityAISwimming(this));
         this.field_70714_bg.func_75776_a(2, new EntityAIAttackMelee(this, 1.0d, true));
@@ -75,7 +65,6 @@ public class EntityUrogo extends EntityMob implements IMaxAttack {
         this.field_70714_bg.func_75776_a(8, new EntityAILookIdle(this));
         func_175456_n();
     }
-
     protected void func_175456_n() {
         this.field_70714_bg.func_75776_a(6, new EntityAIMoveThroughVillage(this, 1.0d, false));
         this.field_70715_bh.func_75776_a(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
@@ -83,7 +72,6 @@ public class EntityUrogo extends EntityMob implements IMaxAttack {
         this.field_70715_bh.func_75776_a(3, new EntityAINearestAttackableTarget(this, EntityVillager.class, false));
         this.field_70715_bh.func_75776_a(3, new EntityAINearestAttackableTarget(this, EntityIronGolem.class, true));
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(1.0d);
@@ -91,7 +79,6 @@ public class EntityUrogo extends EntityMob implements IMaxAttack {
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(5000.0d);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -101,7 +88,6 @@ public class EntityUrogo extends EntityMob implements IMaxAttack {
         }
         return false;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         this.field_70143_R = -1.0f;
@@ -126,7 +112,6 @@ public class EntityUrogo extends EntityMob implements IMaxAttack {
             }
         }
     }
-
     public void func_70645_a(DamageSource cause) {
         if (this.field_70170_p.field_73011_w.func_186058_p() == DimensionInit.celestialVoid && !this.field_70170_p.field_72995_K) {
             switch (getForm()) {
@@ -151,31 +136,24 @@ public class EntityUrogo extends EntityMob implements IMaxAttack {
         }
         super.func_70645_a(cause);
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.UROGO_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.UROGO_HIT;
     }
-
     protected SoundEvent func_184639_G() {
         return null;
     }
-
     protected boolean func_70692_ba() {
         return false;
     }
-
     public boolean func_70814_o() {
         return true;
     }
-
     public int func_70641_bl() {
         return 1;
     }
-
     public boolean func_70601_bi() {
         return this.field_70170_p.func_175659_aa() != EnumDifficulty.PEACEFUL;
     }

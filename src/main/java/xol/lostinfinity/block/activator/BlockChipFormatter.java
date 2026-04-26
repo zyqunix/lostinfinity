@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,14 +12,11 @@ import xol.lostinfinity.block.basic.BlockBasic;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.coordinates.GalaxyCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockChipFormatter.class */
 public class BlockChipFormatter extends BlockBasic {
     public BlockChipFormatter(String name) {
         super(name);
         func_149715_a(1.0f);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         ItemStack held = playerIn.func_184586_b(hand);
         if (held.func_77973_b() == ItemInit.freshDataChip) {

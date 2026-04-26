@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.SoundCategory;
@@ -12,31 +11,25 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityCrabulonProjectile.class */
 public class EntityCrabulonProjectile extends EntityBaseThrowable {
     private static final double SPEED = 0.5d;
     private static final int HOMING_RADIUS = 20;
     private EntityLivingBase target;
-
     public EntityCrabulonProjectile(World par1World) {
         super(par1World);
         this.target = null;
         func_70105_a(0.75f, 0.75f);
     }
-
     public EntityCrabulonProjectile(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
         this.target = null;
         func_70105_a(0.75f, 0.75f);
     }
-
     public EntityCrabulonProjectile(World worldIn, double par2, double par4, double par6) {
         super(worldIn, par2, par4, par6);
         this.target = null;
         func_70105_a(0.75f, 0.75f);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (this.field_70170_p.field_72995_K) {
@@ -55,7 +48,6 @@ public class EntityCrabulonProjectile extends EntityBaseThrowable {
         this.field_70170_p.func_184133_a((EntityPlayer) null, func_180425_c(), SoundInit.COSMIC_EXPLOSION, SoundCategory.PLAYERS, 1.5f, 0.6f + (0.4f * this.field_70146_Z.nextFloat()));
         func_70106_y();
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void func_70071_h_() {
         super.func_70071_h_();
@@ -99,7 +91,6 @@ public class EntityCrabulonProjectile extends EntityBaseThrowable {
             this.field_70170_p.func_175682_a(ParticleInit.LARGE_BUBBLE, true, this.field_70165_t, this.field_70163_u, this.field_70161_v, 0.0d, 0.0d, 0.0d, new int[0]);
         }
     }
-
     protected float func_70185_h() {
         return 0.0f;
     }

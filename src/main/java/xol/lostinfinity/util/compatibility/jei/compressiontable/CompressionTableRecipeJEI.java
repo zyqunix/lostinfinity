@@ -1,16 +1,12 @@
 package xol.lostinfinity.util.compatibility.jei.compressiontable;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import net.minecraft.item.ItemStack;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/compatibility/jei/compressiontable/CompressionTableRecipeJEI.class */
 public class CompressionTableRecipeJEI {
     private static final CompressionTableRecipeJEI INSTANCE = new CompressionTableRecipeJEI();
     private final Map<ItemStack, ItemStack> compressionList = new HashMap();
-
     public CompressionTableRecipeJEI() {
         ItemStack astrallium = new ItemStack(ItemInit.astralliumIngot);
         astrallium.func_190920_e(25);
@@ -64,18 +60,15 @@ public class CompressionTableRecipeJEI {
         polarium.func_190920_e(25);
         addCompressionTableRecipe(polarium, new ItemStack(ItemInit.polariumCondensed));
     }
-
     public static CompressionTableRecipeJEI getInstance() {
         return INSTANCE;
     }
-
     public void addCompressionTableRecipe(ItemStack input, ItemStack result) {
         if (getCompressionTableResult(input) != ItemStack.field_190927_a) {
             return;
         }
         this.compressionList.put(input, result);
     }
-
     public ItemStack getCompressionTableResult(ItemStack input) {
         for (Map.Entry<ItemStack, ItemStack> entry : this.compressionList.entrySet()) {
             if (Objects.equals(input, entry.getKey())) {
@@ -84,7 +77,6 @@ public class CompressionTableRecipeJEI {
         }
         return ItemStack.field_190927_a;
     }
-
     public Map<ItemStack, ItemStack> getCompressionTableList() {
         return this.compressionList;
     }

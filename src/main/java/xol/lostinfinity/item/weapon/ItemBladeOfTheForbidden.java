@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -26,8 +25,6 @@ import xol.lostinfinity.item.classify.ISwitchModels;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemBladeOfTheForbidden.class */
 public class ItemBladeOfTheForbidden extends ItemSword implements IMaxAttack, ISwitchModels, IModeSelect {
     public ItemBladeOfTheForbidden(String regName) {
         super(Item.ToolMaterial.WOOD);
@@ -37,7 +34,6 @@ public class ItemBladeOfTheForbidden extends ItemSword implements IMaxAttack, IS
         ItemInit.ITEMS.add(this);
         setModelSwitch("swordtype", this, 2);
     }
-
     public boolean func_77644_a(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
@@ -77,14 +73,12 @@ public class ItemBladeOfTheForbidden extends ItemSword implements IMaxAttack, IS
         }
         return true;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Light_Purple + "Purple Side: Sets All Nearby Creatures to the Health of the LOWEST Nearby Creatures");
         tooltip.add(TextFmt.Red + "Red Side: Deals Max Health Damage Based on Missing Health To ALL Nearby Creatures");
         tooltip.add(TextFmt.Red + "Red Side: Max 200% Health Damage");
     }
-
     @Override // xol.lostinfinity.item.classify.IModeSelect
     public void modeUpdate(ItemStack stack, EntityPlayer player) {
         if (!stack.func_77942_o()) {

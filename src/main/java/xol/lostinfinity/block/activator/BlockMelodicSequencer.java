@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import javax.annotation.Nullable;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.state.IBlockState;
@@ -14,22 +13,17 @@ import net.minecraft.world.World;
 import xol.lostinfinity.block.basic.BlockBasic;
 import xol.lostinfinity.block.tileentity.TileEntityMelodicSequencer;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockMelodicSequencer.class */
 public class BlockMelodicSequencer extends BlockBasic implements ITileEntityProvider {
     public BlockMelodicSequencer(String name) {
         super(name);
     }
-
     public boolean hasTileEntity(IBlockState state) {
         return true;
     }
-
     @Nullable
     public TileEntity createTileEntity(World world, IBlockState state) {
         return new TileEntityMelodicSequencer();
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         TileEntity tileEntity = worldIn.func_175625_s(pos);
         ItemStack stack = playerIn.func_184586_b(hand);
@@ -44,7 +38,6 @@ public class BlockMelodicSequencer extends BlockBasic implements ITileEntityProv
         }
         return true;
     }
-
     @Nullable
     public TileEntity func_149915_a(World worldIn, int meta) {
         return null;

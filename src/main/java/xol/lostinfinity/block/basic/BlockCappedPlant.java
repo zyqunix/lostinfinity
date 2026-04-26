@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.basic;
-
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -12,17 +11,13 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/basic/BlockCappedPlant.class */
 public class BlockCappedPlant extends BlockBasicPlant {
     public static final PropertyBool ACTIVE = PropertyBool.func_177716_a("active");
-
     public BlockCappedPlant(String name) {
         super(name, Material.field_151585_k);
         func_149672_a(SoundType.field_185850_c);
         func_180632_j(this.field_176227_L.func_177621_b().func_177226_a(ACTIVE, false));
     }
-
     public IBlockState func_176203_a(int meta) {
         switch (meta) {
             case 0:
@@ -33,18 +28,15 @@ public class BlockCappedPlant extends BlockBasicPlant {
                 return func_176223_P();
         }
     }
-
     public int func_176201_c(IBlockState state) {
         if (!state.equals(func_176223_P().func_177226_a(ACTIVE, false)) && state.equals(func_176223_P().func_177226_a(ACTIVE, true))) {
             return 1;
         }
         return 0;
     }
-
     protected BlockStateContainer func_180661_e() {
         return new BlockStateContainer(this, new IProperty[]{ACTIVE});
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!worldIn.field_72995_K && (playerIn.func_184586_b(hand).func_77973_b() instanceof ItemHoe)) {
             if (func_176201_c(state) == 0) {

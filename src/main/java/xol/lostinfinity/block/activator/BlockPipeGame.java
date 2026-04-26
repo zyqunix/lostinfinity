@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import java.util.ArrayList;
 import java.util.Random;
 import net.minecraft.block.Block;
@@ -20,22 +19,17 @@ import net.minecraft.world.WorldServer;
 import xol.lostinfinity.block.basic.BlockBasicPillar;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.mob.entity.misc.EntityPipeGameMerchant;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockPipeGame.class */
 public class BlockPipeGame extends BlockBasicPillar {
     private boolean hard_mode;
     private Vec3i dir;
-
     public BlockPipeGame(String name, boolean hard) {
         super(name, Material.field_151573_f);
         this.hard_mode = false;
         func_149715_a(1.0f);
     }
-
     private boolean validInput(ItemStack stack) {
         return stack.func_77973_b().equals(ItemInit.florocite) && stack.func_190916_E() >= 10;
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!playerIn.func_70093_af() && validInput(playerIn.func_184586_b(hand))) {
             if (!worldIn.field_72995_K) {
@@ -60,7 +54,6 @@ public class BlockPipeGame extends BlockBasicPillar {
         }
         return true;
     }
-
     private BlockPos findSpawnPos(World world, BlockPos pos) {
         BlockPos pos2;
         BlockPos pos1 = findNearestPipe(world, pos);
@@ -78,7 +71,6 @@ public class BlockPipeGame extends BlockBasicPillar {
         }
         return pos;
     }
-
     private BlockPos findNearestPipe(World world, BlockPos pos) {
         ArrayList<BlockPos> positions = new ArrayList<>();
         positions.add(pos.func_177982_a(1, 0, 0));

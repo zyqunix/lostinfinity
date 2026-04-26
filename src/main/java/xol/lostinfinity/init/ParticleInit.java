@@ -1,5 +1,4 @@
 package xol.lostinfinity.init;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.TextureAtlasSprite;
 import net.minecraft.util.EnumParticleTypes;
@@ -136,8 +135,6 @@ import xol.lostinfinity.client.fx.ParticleWebMagic;
 import xol.lostinfinity.client.fx.ParticleWitherRings;
 import xol.lostinfinity.client.fx.ParticleZap;
 import xol.lostinfinity.util.Reference;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/init/ParticleInit.class */
 public class ParticleInit {
     public static TextureAtlasSprite GALAXY_YELLOW_SPRITE;
     public static TextureAtlasSprite GALAXY_BLUE_SPRITE;
@@ -392,7 +389,6 @@ public class ParticleInit {
     public static final EnumParticleTypes POWER_FIELD = particleRegistry("power_field");
     public static final EnumParticleTypes SPACE_MAGIC = particleRegistry("space_magic");
     public static final EnumParticleTypes LASER_FIZZLE_LARGE = particleRegistry("laze_fizzle_large");
-
     @SubscribeEvent
     @SideOnly(Side.CLIENT)
     public void stitchEvent(TextureStitchEvent.Pre ev) {
@@ -523,7 +519,6 @@ public class ParticleInit {
         SPACE_MAGIC_SPRITE = ev.getMap().func_174942_a(new ResourceLocation(Reference.MODID, "particles/space_magic"));
         POWER_FIELD_SPRITE = ev.getMap().func_174942_a(new ResourceLocation(Reference.MODID, "particles/power_field"));
     }
-
     @SideOnly(Side.CLIENT)
     public static void init() {
         Minecraft.func_71410_x().field_71452_i.func_178929_a(GALAXY_YELLOW.func_179348_c(), new ParticleGalaxyYellow.Factory());
@@ -653,15 +648,12 @@ public class ParticleInit {
         Minecraft.func_71410_x().field_71452_i.func_178929_a(LASER_FIZZLE_LARGE.func_179348_c(), new ParticleLaserFizzleLarge.Factory());
         Minecraft.func_71410_x().field_71452_i.func_178929_a(SPACE_MAGIC.func_179348_c(), new ParticleSpaceMagic.Factory());
     }
-
     private static EnumParticleTypes particleRegistry(String name) {
         return particleRegistry(name, true, 0);
     }
-
     private static EnumParticleTypes particleRegistry(String name, boolean displayAnyRange) {
         return particleRegistry(name, displayAnyRange, 0);
     }
-
     private static EnumParticleTypes particleRegistry(String name, boolean displayAnyRange, int args) {
         return EnumHelper.addEnum(EnumParticleTypes.class, "LI_" + name.toUpperCase(), new Class[]{String.class, Integer.TYPE, Boolean.TYPE, Integer.TYPE}, new Object[]{"li_" + name, Integer.valueOf(EnumParticleTypes.values().length), Boolean.valueOf(displayAnyRange), Integer.valueOf(args)});
     }

@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.armor;
-
 import java.util.List;
 import java.util.Random;
 import javax.annotation.Nullable;
@@ -21,15 +20,11 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ArmorInit;
 import xol.lostinfinity.item.armor.model.ModelArmorVitraliton;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/armor/ItemVitralitonArmor.class */
 public class ItemVitralitonArmor extends ItemLostArmor {
     private static final ItemArmor.ArmorMaterial VitralitonMaterial = EnumHelper.addArmorMaterial("vitralitonArmor", "lostinfinity:vitraliton_armor", -1, new int[]{12, 24, 32, 12}, 20, SoundEvents.field_187716_o, 3.0f);
-
     public ItemVitralitonArmor(String regName, EntityEquipmentSlot slot) {
         super(VitralitonMaterial, regName, slot);
     }
-
     @Override // xol.lostinfinity.item.armor.ItemLostArmor
     protected void handleSpecialArmorBonus(EntityPlayer player) {
         WorldServer worldServer = player.field_70170_p;
@@ -45,25 +40,20 @@ public class ItemVitralitonArmor extends ItemLostArmor {
             }
         }
     }
-
     private double randPosDouble(Random rand) {
         return (-0.5d) + rand.nextDouble();
     }
-
     @Override // xol.lostinfinity.item.armor.ItemLostArmor
     public boolean isPrimeSet() {
         return false;
     }
-
     @Override // xol.lostinfinity.item.armor.ItemLostArmor
     public ArmorInit.ArmorSet getArmorSet() {
         return ArmorInit.vitralitonSet;
     }
-
     public String getArmorTexture(ItemStack itemstack, Entity entity, EntityEquipmentSlot slot, String layer) {
         return "lostinfinity:textures/armor/vitraliton_armor.png";
     }
-
     @SideOnly(Side.CLIENT)
     @Nullable
     public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
@@ -85,7 +75,6 @@ public class ItemVitralitonArmor extends ItemLostArmor {
         }
         return null;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Immune to Normal Hits.");

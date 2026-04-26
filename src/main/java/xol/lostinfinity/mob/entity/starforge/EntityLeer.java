@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.starforge;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,38 +17,30 @@ import xol.lostinfinity.mob.entity.base.EntityMultipleLives;
 import xol.lostinfinity.mob.entity.base.IConditionalDamage;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/starforge/EntityLeer.class */
 public class EntityLeer extends EntityMultipleLives implements IMaxAttack, IBasicAI, IConditionalDamage {
     private static final DataParameter<Boolean> REVEALED = EntityDataManager.func_187226_a(EntityLeer.class, DataSerializers.field_187198_h);
     private int revealedTimer;
     private float revealedAlph;
-
     public EntityLeer(World worldIn) {
         super(worldIn);
         this.revealedTimer = 200;
         this.revealedAlph = 0.0f;
         func_70105_a(1.2f, 2.2f);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(REVEALED, false);
     }
-
     public boolean isRevealed() {
         return ((Boolean) this.field_70180_af.func_187225_a(REVEALED)).booleanValue();
     }
-
     public void setRevealed(boolean rev) {
         this.field_70180_af.func_187227_b(REVEALED, Boolean.valueOf(rev));
     }
-
     public float getAlpha() {
         return this.revealedAlph;
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -62,7 +53,6 @@ public class EntityLeer extends EntityMultipleLives implements IMaxAttack, IBasi
         }
         return false;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         if (!this.field_70170_p.field_72995_K) {
@@ -85,7 +75,6 @@ public class EntityLeer extends EntityMultipleLives implements IMaxAttack, IBasi
             this.revealedAlph -= 0.02f;
         }
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(1000.0d);
@@ -93,28 +82,22 @@ public class EntityLeer extends EntityMultipleLives implements IMaxAttack, IBasi
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.25d);
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.LEER_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.LEER_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundInit.LEER_AMBIENT;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 3;
     }
-
     protected ResourceLocation func_184647_J() {
         return LootTableRegistry.ENTITIES_LEER;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.IConditionalDamage
     public boolean canBeDamaged(Entity attacker) {
         return isRevealed();

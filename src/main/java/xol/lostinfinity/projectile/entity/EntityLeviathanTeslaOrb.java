@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -16,34 +15,27 @@ import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityLeviathanTeslaOrb.class */
 public class EntityLeviathanTeslaOrb extends EntityBaseThrowable {
     private static final List<String> DAMAGE_TYPE = Collections.singletonList("Aquatic");
     private final Map<Entity, Long> hitCooldown;
     private EntityLeviathanController leviathanController;
-
     public EntityLeviathanTeslaOrb(World worldIn) {
         super(worldIn);
         this.hitCooldown = new ConcurrentHashMap();
         func_70105_a(0.5f, 0.5f);
     }
-
     public EntityLeviathanTeslaOrb(World worldIn, double x, double y, double z) {
         super(worldIn, x, y, z);
         this.hitCooldown = new ConcurrentHashMap();
         func_70105_a(0.5f, 0.5f);
     }
-
     public void setLeviathanThrower(EntityLeviathanController throwset) {
         super.setThrower(throwset);
         this.leviathanController = throwset;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void func_70071_h_() {
         double mX = this.field_70159_w;
@@ -79,7 +71,6 @@ public class EntityLeviathanTeslaOrb extends EntityBaseThrowable {
             }
         }
     }
-
     protected float func_70185_h() {
         return 0.0f;
     }

@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import com.google.common.base.Optional;
 import java.util.UUID;
 import net.minecraft.client.entity.AbstractClientPlayer;
@@ -14,29 +13,23 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.mob.entity.base.EntityImmaterial;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityPlayerLimb.class */
 public class EntityPlayerLimb extends EntityImmaterial {
     private static final DataParameter<Integer> LIMB = EntityDataManager.func_187226_a(EntityPlayerLimb.class, DataSerializers.field_187192_b);
     private static final DataParameter<Optional<UUID>> OWNER = EntityDataManager.func_187226_a(EntityPlayerLimb.class, DataSerializers.field_187203_m);
-
     public EntityPlayerLimb(World worldIn) {
         super(worldIn);
         this.field_70145_X = true;
     }
-
     public EntityPlayerLimb(World worldIn, UUID targetUUID) {
         super(worldIn);
         this.field_70145_X = true;
         setSkinOwner(targetUUID);
     }
-
     protected void func_70088_a() {
         super.func_70088_a();
         func_184212_Q().func_187214_a(LIMB, Integer.valueOf(this.field_70170_p.field_73012_v.nextInt(4)));
         func_184212_Q().func_187214_a(OWNER, Optional.absent());
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityImmaterial
     public void func_70636_d() {
         super.func_70636_d();
@@ -54,15 +47,12 @@ public class EntityPlayerLimb extends EntityImmaterial {
             func_70106_y();
         }
     }
-
     public int getLimb() {
         return ((Integer) func_184212_Q().func_187225_a(LIMB)).intValue();
     }
-
     public void setSkinOwner(UUID uuid) {
         func_184212_Q().func_187227_b(OWNER, Optional.of(uuid));
     }
-
     @SideOnly(Side.CLIENT)
     public ResourceLocation getSkin() {
         if (((Optional) func_184212_Q().func_187225_a(OWNER)).isPresent()) {

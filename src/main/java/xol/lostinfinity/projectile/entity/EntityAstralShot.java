@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import java.util.Arrays;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,34 +16,28 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityAstralShot.class */
 public class EntityAstralShot extends EntityBaseThrowable {
     private double speed;
     private EntityLivingBase target;
     private static final int homingRadius = 20;
-
     public EntityAstralShot(World par1World) {
         super(par1World);
         this.speed = 0.1d;
         this.target = null;
         func_70105_a(0.75f, 0.75f);
     }
-
     public EntityAstralShot(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
         this.speed = 0.1d;
         this.target = null;
         func_70105_a(0.75f, 0.75f);
     }
-
     public EntityAstralShot(World par1World, double par2, double par4, double par6) {
         super(par1World, par2, par4, par6);
         this.speed = 0.1d;
         this.target = null;
         func_70105_a(0.75f, 0.75f);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -65,7 +58,6 @@ public class EntityAstralShot extends EntityBaseThrowable {
             func_70106_y();
         }
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void func_70071_h_() {
         super.func_70071_h_();
@@ -117,13 +109,13 @@ public class EntityAstralShot extends EntityBaseThrowable {
                 case 3:
                     this.field_70170_p.func_175682_a(ParticleInit.GENERIC_DOT_BLUE, true, this.field_70165_t, this.field_70163_u, this.field_70161_v, 0.0d, 0.0d, 0.0d, new int[0]);
                     break;
-                case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+                case TileEntityFusionTable.BOARD_ROWS :
                     this.field_70170_p.func_175682_a(ParticleInit.GENERIC_DOT_PURPLE, true, this.field_70165_t, this.field_70163_u, this.field_70161_v, 0.0d, 0.0d, 0.0d, new int[0]);
                     break;
                 case 5:
                     this.field_70170_p.func_175682_a(ParticleInit.GENERIC_DOT_PINK, true, this.field_70165_t, this.field_70163_u, this.field_70161_v, 0.0d, 0.0d, 0.0d, new int[0]);
                     break;
-                case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+                case TileEntityFusionTable.BOARD_COLUMNS :
                     this.field_70170_p.func_175682_a(ParticleInit.GENERIC_DOT_RED, true, this.field_70165_t, this.field_70163_u, this.field_70161_v, 0.0d, 0.0d, 0.0d, new int[0]);
                     break;
                 case 7:
@@ -138,7 +130,6 @@ public class EntityAstralShot extends EntityBaseThrowable {
             }
         }
     }
-
     protected float func_70185_h() {
         return 0.0f;
     }

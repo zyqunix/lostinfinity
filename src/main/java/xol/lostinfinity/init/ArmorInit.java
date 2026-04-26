@@ -1,5 +1,4 @@
 package xol.lostinfinity.init;
-
 import java.lang.reflect.Constructor;
 import java.util.Arrays;
 import java.util.List;
@@ -28,8 +27,6 @@ import xol.lostinfinity.item.armor.ItemVampyreonArmor;
 import xol.lostinfinity.item.armor.ItemVampyreonPrimeArmor;
 import xol.lostinfinity.item.armor.ItemVitralitonArmor;
 import xol.lostinfinity.item.armor.ItemVitralitonPrimeArmor;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/init/ArmorInit.class */
 @Mod.EventBusSubscriber
 public class ArmorInit {
     public static final ItemArmor.ArmorMaterial ARMOUR_CELESTIAL = EnumHelper.addArmorMaterial("armor_celestial", "lostinfinity:celestial", -1, new int[]{3, 6, 8, 3}, 10, SoundEvents.field_187716_o, 2.0f);
@@ -46,12 +43,10 @@ public class ArmorInit {
     public static final ArmorSet blightcystPrimeSet = new ArmorSet("Blightcyst_prime", ItemBlightcystPrimeArmor.class);
     public static final Item celestialHeadguard = new ItemCelestialHeadguard(ARMOUR_CELESTIAL, 1, EntityEquipmentSlot.HEAD, "celestialheadguard");
     public static final Item filtrationMask = new ItemFiltrationMask(ARMOUR_CELESTIAL, 1, EntityEquipmentSlot.HEAD, "filtrationmask");
-
     @SubscribeEvent
     public static void onBlockRegister(RegistryEvent.Register<Block> event) {
         event.getRegistry().registerAll((IForgeRegistryEntry[]) BlockInit.BLOCKS.toArray(new Block[0]));
     }
-
     @SubscribeEvent
     public static void onItemRegister(RegistryEvent.Register<Item> event) {
         event.getRegistry().registerAll((IForgeRegistryEntry[]) ItemInit.ITEMS.toArray(new Item[0]));
@@ -67,25 +62,19 @@ public class ArmorInit {
         registerArmorSets(event.getRegistry(), vitralitonPrimeSet);
         registerArmorSets(event.getRegistry(), blightcystPrimeSet);
     }
-
     public static void registerArmorSets(IForgeRegistry<Item> registry, ArmorSet... sets) {
         Arrays.stream(sets).forEach(set -> {
             registry.registerAll((IForgeRegistryEntry[]) set.getArmor().toArray(new Item[0]));
         });
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/init/ArmorInit$ArmorSet.class */
     public static class ArmorSet {
         public ItemLostArmor helmet;
         public ItemLostArmor chestplate;
         public ItemLostArmor leggings;
         public ItemLostArmor boots;
-
-        /* JADX INFO: Access modifiers changed from: private */
         public List<? extends Item> getArmor() {
             return Arrays.asList(this.helmet, this.chestplate, this.leggings, this.boots);
         }
-
         private ArmorSet(String name, Class<? extends ItemLostArmor> armor) {
             this.helmet = null;
             this.chestplate = null;

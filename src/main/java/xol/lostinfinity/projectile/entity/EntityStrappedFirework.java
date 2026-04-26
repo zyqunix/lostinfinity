@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.RayTraceResult;
@@ -9,8 +8,6 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.mob.entity.base.EntityMultipleLives;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityStrappedFirework.class */
 public class EntityStrappedFirework extends EntityBaseThrowable {
     public EntityStrappedFirework(World par1World) {
         super(par1World);
@@ -19,11 +16,9 @@ public class EntityStrappedFirework extends EntityBaseThrowable {
         this.field_70181_x = 0.0d;
         this.field_70179_y = 0.0d;
     }
-
     public EntityStrappedFirework(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -31,7 +26,6 @@ public class EntityStrappedFirework extends EntityBaseThrowable {
             func_70106_y();
         }
     }
-
     private void explode() {
         if (!this.field_70128_L) {
             for (EntityMultipleLives target : this.field_70170_p.func_72872_a(EntityMultipleLives.class, func_174813_aQ().func_72314_b(8.0d, 8.0d, 8.0d))) {
@@ -47,11 +41,9 @@ public class EntityStrappedFirework extends EntityBaseThrowable {
             func_70106_y();
         }
     }
-
     protected float func_70185_h() {
         return 0.0f;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void func_70071_h_() {
         super.func_70071_h_();

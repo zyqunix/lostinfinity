@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.classify;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.boss.EntityWither;
@@ -82,8 +81,6 @@ import xol.lostinfinity.mob.entity.deviant.EntityDeviantWolf;
 import xol.lostinfinity.mob.entity.deviant.EntityDeviantZombie;
 import xol.lostinfinity.mob.entity.misc.EntityDimensionalMerchant;
 import xol.lostinfinity.mob.entity.misc.EntitySlimeStrider;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/classify/IDeviator.class */
 public interface IDeviator {
     default boolean deviateCreature(ItemStack stack, EntityPlayer attacker, Entity target) {
         boolean flag = false;
@@ -103,7 +100,6 @@ public interface IDeviator {
         }
         return flag;
     }
-
     default boolean superMutateCreature(ItemStack stack, EntityPlayer attacker, Entity target) {
         boolean flag = false;
         if (target instanceof EntityDeviantMob) {
@@ -130,7 +126,6 @@ public interface IDeviator {
         }
         return flag;
     }
-
     default boolean ultimatumMutation(ItemStack stack, EntityPlayer attacker, Entity target) {
         boolean flag = false;
         if (attacker.field_70170_p.field_73011_w.func_186058_p() == DimensionInit.celestialVoid) {
@@ -158,7 +153,6 @@ public interface IDeviator {
         }
         return flag;
     }
-
     static void pushPlayersAway(World worldIn, Entity creature, EntityPlayer playerIn) {
         creature.func_184185_a(SoundInit.DEVIATION, 2.0f, 1.0f);
         for (EntityPlayer e : worldIn.func_72872_a(EntityPlayer.class, creature.func_174813_aQ().func_72314_b(4.0d, 4.0d, 4.0d))) {
@@ -166,7 +160,6 @@ public interface IDeviator {
             e.field_70133_I = true;
         }
     }
-
     static EntityDeviantMob getDeviant(World world, Entity entity) {
         if (entity instanceof EntityPolarBear) {
             return new EntityDeviantBear(world);

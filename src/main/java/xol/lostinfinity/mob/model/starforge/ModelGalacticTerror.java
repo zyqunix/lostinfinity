@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.model.starforge;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -7,8 +6,6 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import xol.lostinfinity.mob.entity.starforge.EntityGalacticTerror;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/starforge/ModelGalacticTerror.class */
 public class ModelGalacticTerror extends ModelBase {
     private final ModelRenderer Body;
     private final ModelRenderer MouthL;
@@ -19,7 +16,6 @@ public class ModelGalacticTerror extends ModelBase {
     private final ModelRenderer Tail2;
     private final ModelRenderer Tail3;
     private final ModelRenderer Tail4;
-
     public ModelGalacticTerror() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -78,7 +74,6 @@ public class ModelGalacticTerror extends ModelBase {
         this.Tail4.field_78804_l.add(new ModelBox(this.Tail4, 97, 0, 1.0f, -6.5f, 2.0f, 1, 12, 10, 0.0f, false));
         this.Tail4.field_78804_l.add(new ModelBox(this.Tail4, 97, 0, -2.0f, -6.5f, 2.0f, 1, 12, 10, 0.0f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         float alpha = 1.0f;
         if (entity instanceof EntityGalacticTerror) {
@@ -94,13 +89,11 @@ public class ModelGalacticTerror extends ModelBase {
         this.Tail1.func_78785_a(f5);
         GlStateManager.func_179084_k();
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.MouthL.field_78796_g = (-0.7f) + (0.7f * MathHelper.func_76126_a(ageInTicks * 0.1f));
         this.MouthR.field_78796_g = -this.MouthL.field_78796_g;

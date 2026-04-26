@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.boss;
-
 import java.util.Iterator;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -29,15 +28,12 @@ import xol.lostinfinity.projectile.entity.EntityBarulChain;
 import xol.lostinfinity.stone.EntityInfinityStone;
 import xol.lostinfinity.util.data.CustomDamageResult;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/boss/EntityBarul.class */
 public class EntityBarul extends EntityMultipleLives implements IMaxAttack {
     private boolean amAttackingNext;
     private BlockPos goalPos;
     private EntityBarulChain chain;
     private boolean hasPulled;
     private boolean hasMessaged;
-
     public EntityBarul(World worldIn) {
         super(worldIn);
         this.amAttackingNext = false;
@@ -47,7 +43,6 @@ public class EntityBarul extends EntityMultipleLives implements IMaxAttack {
         this.hasMessaged = false;
         func_70105_a(3.5f, 8.0f);
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(5.0d);
@@ -55,7 +50,6 @@ public class EntityBarul extends EntityMultipleLives implements IMaxAttack {
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(5000.0d);
         func_110148_a(SharedMonsterAttributes.field_111265_b).func_111128_a(30.0d);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -83,7 +77,7 @@ public class EntityBarul extends EntityMultipleLives implements IMaxAttack {
                     case 3:
                         func_70638_az().func_70690_d(new PotionEffect(PotionInit.NULLIFIED, 100));
                         return true;
-                    case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+                    case TileEntityFusionTable.BOARD_ROWS :
                         func_70638_az().func_70690_d(new PotionEffect(PotionInit.ULTRAHEAVY, 100));
                         return true;
                     default:
@@ -94,11 +88,9 @@ public class EntityBarul extends EntityMultipleLives implements IMaxAttack {
         }
         return false;
     }
-
     private AxisAlignedBB getArenaAABB() {
         return new AxisAlignedBB(new BlockPos(-3.0d, 60.0d, -149.0d), new BlockPos(52.0d, 85.0d, -36.0d));
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         this.field_70143_R = -1.0f;
@@ -157,30 +149,24 @@ public class EntityBarul extends EntityMultipleLives implements IMaxAttack {
             }
         }
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.GENERIC_STYLE3_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.GENERIC_STYLE3_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return null;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 200;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void updateLifeAction() {
         int lifePercent = Math.round((100 * (numberOfLives() - getLivesCount())) / numberOfLives());
         messagePlayers(TextFmt.Gold + "Barul is at " + lifePercent + "% health.");
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void trueDeathAction() {
         if (!this.field_70170_p.field_72995_K) {
@@ -195,19 +181,16 @@ public class EntityBarul extends EntityMultipleLives implements IMaxAttack {
             func_145779_a(ItemInit.arenaCard, 1);
         }
     }
-
     protected void messagePlayers(String message) {
         for (EntityPlayer contender : this.field_70170_p.func_72872_a(EntityPlayer.class, getArenaAABB())) {
             contender.func_145747_a(new TextComponentString(message));
         }
     }
-
     protected void soundPlayers(SoundEvent sound, float vol) {
         for (EntityPlayer contender : this.field_70170_p.func_72872_a(EntityPlayer.class, getArenaAABB())) {
             this.field_70170_p.func_184133_a((EntityPlayer) null, contender.func_180425_c(), sound, SoundCategory.MASTER, vol, 0.9f + (this.field_70146_Z.nextFloat() * 0.2f));
         }
     }
-
     protected boolean func_70692_ba() {
         return false;
     }

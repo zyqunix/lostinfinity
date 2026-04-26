@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -22,14 +21,11 @@ import xol.lostinfinity.item.basics.ItemCooldown;
 import xol.lostinfinity.item.classify.ICustomHoldPose;
 import xol.lostinfinity.item.classify.IHeldTick;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemHeadHunter.class */
 public class ItemHeadHunter extends ItemCooldown implements ICustomHoldPose, IHeldTick {
     public ItemHeadHunter(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (!showDurabilityBar(stack)) {
@@ -61,7 +57,6 @@ public class ItemHeadHunter extends ItemCooldown implements ICustomHoldPose, IHe
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @Override // xol.lostinfinity.item.classify.IHeldTick
     public void heldTick(EntityPlayer player, EnumHand hand, ItemStack stack) {
         if (player.field_70170_p.field_72995_K) {
@@ -73,12 +68,10 @@ public class ItemHeadHunter extends ItemCooldown implements ICustomHoldPose, IHe
             }
         }
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 1000;
     }
-
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Red + "Shoot a bullet that travels in the 4th dimension.");
         tooltip.add(TextFmt.Gold + "While holding this gun, you can sense the location of other players.");

@@ -1,12 +1,9 @@
 package xol.lostinfinity.mob.model.starforge;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/starforge/ModelTerrorFly.class */
 public class ModelTerrorFly extends ModelBase {
     private final ModelRenderer Body;
     private final ModelRenderer AntennaL;
@@ -17,7 +14,6 @@ public class ModelTerrorFly extends ModelBase {
     private final ModelRenderer WingL;
     private final ModelRenderer WingL2;
     private final ModelRenderer WingR2;
-
     public ModelTerrorFly() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -80,7 +76,6 @@ public class ModelTerrorFly extends ModelBase {
         setRotationAngle(this.WingR2, 0.0f, 0.4363f, 0.0f);
         this.WingR2.field_78804_l.add(new ModelBox(this.WingR2, 56, 37, -20.0f, -3.5f, -4.0f, 20, 8, 8, 0.0f, true));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.Body.func_78785_a(f5);
         this.WingR.func_78785_a(f5);
@@ -88,13 +83,11 @@ public class ModelTerrorFly extends ModelBase {
         this.WingL2.func_78785_a(f5);
         this.WingR2.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.WingL.field_78808_h = MathHelper.func_76134_b(ageInTicks * 0.7f) * 0.5f;
         this.WingL2.field_78808_h = MathHelper.func_76126_a(ageInTicks * 0.7f) * 0.5f;

@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.activate;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -17,8 +16,6 @@ import xol.lostinfinity.init.DimensionInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.mob.entity.murk.EntityDoomsday;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/activate/ItemDarkIncantation.class */
 public class ItemDarkIncantation extends Item {
     public ItemDarkIncantation(String regName) {
         setRegistryName(regName);
@@ -27,7 +24,6 @@ public class ItemDarkIncantation extends Item {
         func_77625_d(1);
         ItemInit.ITEMS.add(this);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (!worldIn.field_72995_K && worldIn.field_73011_w.func_186058_p() == DimensionInit.infiniteMurk) {
             EntityDoomsday doomsday = new EntityDoomsday(worldIn);
@@ -37,7 +33,6 @@ public class ItemDarkIncantation extends Item {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "When used in the Infinite Murk, calls upon Doomsday.");

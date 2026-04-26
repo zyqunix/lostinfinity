@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.block.Block;
@@ -24,8 +23,6 @@ import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.init.TabsInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockLaunchCore.class */
 public class BlockLaunchCore extends Block {
     public BlockLaunchCore(String name) {
         super(Material.field_151573_f);
@@ -38,7 +35,6 @@ public class BlockLaunchCore extends Block {
         BlockInit.BLOCKS.add(this);
         ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(getRegistryName()));
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         BlockPos check_pos;
         if (!playerIn.func_70093_af() && !worldIn.field_72995_K) {
@@ -81,7 +77,6 @@ public class BlockLaunchCore extends Block {
         }
         return true;
     }
-
     public int iteratePads(BlockPos pos, World worldIn, boolean light) {
         int light_total = 0;
         for (int i = -2; i < 3; i++) {
@@ -101,7 +96,6 @@ public class BlockLaunchCore extends Block {
         }
         return light_total;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_190948_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Needs launch coordinators with the following values:");

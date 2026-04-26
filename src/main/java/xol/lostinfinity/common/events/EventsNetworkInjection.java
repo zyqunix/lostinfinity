@@ -1,5 +1,4 @@
 package xol.lostinfinity.common.events;
-
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelPipeline;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -8,11 +7,8 @@ import net.minecraft.network.NetworkManager;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.common.gameevent.PlayerEvent;
 import xol.lostinfinity.common.packets.LostInfinityPacketListener;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/common/events/EventsNetworkInjection.class */
 public class EventsNetworkInjection {
     public static final String LISTENER = "lost_infinity_packet_listener";
-
     @SubscribeEvent
     public void onClientDisconnect(PlayerEvent.PlayerLoggedOutEvent event) {
         NetHandlerPlayServer connection;
@@ -25,7 +21,6 @@ public class EventsNetworkInjection {
             return null;
         });
     }
-
     @SubscribeEvent
     public void onClientConnect(PlayerEvent.PlayerLoggedInEvent event) {
         if (event.player instanceof EntityPlayerMP) {

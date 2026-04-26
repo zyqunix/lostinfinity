@@ -1,11 +1,8 @@
 package xol.lostinfinity.mob.model.deviant;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/deviant/ModelDeviantSlime.class */
 public class ModelDeviantSlime extends ModelBase {
     public ModelRenderer outer;
     public ModelRenderer middle;
@@ -14,7 +11,6 @@ public class ModelDeviantSlime extends ModelBase {
     public ModelRenderer eye2;
     public ModelRenderer eye3;
     public ModelRenderer mouth;
-
     public ModelDeviantSlime() {
         this.field_78090_t = 64;
         this.field_78089_u = 64;
@@ -40,7 +36,6 @@ public class ModelDeviantSlime extends ModelBase {
         this.eye3.func_78793_a(0.0f, 24.0f, 0.0f);
         this.eye3.func_78790_a(-1.0f, -9.5f, -4.5f, 2, 2, 2, 0.0f);
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.eye1.func_78785_a(f5);
         this.eye2.func_78785_a(f5);
@@ -62,7 +57,6 @@ public class ModelDeviantSlime extends ModelBase {
         this.outer.func_78785_a(f5);
         GlStateManager.func_179084_k();
     }
-
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;

@@ -1,5 +1,4 @@
 package xol.lostinfinity.common.events;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
@@ -45,8 +44,6 @@ import xol.lostinfinity.util.damagesource.DeathMessage;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/common/events/EventsCreatureAction.class */
 public class EventsCreatureAction implements IMaxAttack {
     @SubscribeEvent
     public void deviantDropEvent(LivingDropsEvent event) {
@@ -54,7 +51,6 @@ public class EventsCreatureAction implements IMaxAttack {
             event.setCanceled(true);
         }
     }
-
     @SubscribeEvent
     public void onEntityHeal(LivingHealEvent event) {
         EntityPlayer entityLiving = event.getEntityLiving();
@@ -95,7 +91,6 @@ public class EventsCreatureAction implements IMaxAttack {
             }
         }
     }
-
     @SubscribeEvent
     public void onTickEvent(LivingEvent.LivingUpdateEvent event) {
         EntityLivingBase target;
@@ -316,7 +311,6 @@ public class EventsCreatureAction implements IMaxAttack {
             }
         }
     }
-
     private void tether(LivingEvent.LivingUpdateEvent event) {
         BlockPos logPos = getNearestLog(event, 7);
         if (logPos != null) {
@@ -334,7 +328,6 @@ public class EventsCreatureAction implements IMaxAttack {
             event.getEntity().field_70133_I = true;
         }
     }
-
     private BlockPos getNearestLog(LivingEvent.LivingUpdateEvent event, int radius) {
         double minDist = 99.0d;
         BlockPos nearest = null;
@@ -356,7 +349,6 @@ public class EventsCreatureAction implements IMaxAttack {
         }
         return nearest;
     }
-
     private void doContagion(EntityLivingBase entity, int level) {
         if (entity.func_70644_a(PotionInit.CONTAGIOUS)) {
             for (EntityLivingBase near_pl : entity.field_70170_p.func_72872_a(EntityLivingBase.class, entity.func_174813_aQ().func_72314_b(10.0d, 4.0d, 10.0d))) {
@@ -370,7 +362,6 @@ public class EventsCreatureAction implements IMaxAttack {
             entity.func_70674_bp();
         }
     }
-
     @SubscribeEvent
     public void onEntityDeath(LivingDeathEvent event) {
         if (!(event.getEntity() instanceof EntityPlayer)) {

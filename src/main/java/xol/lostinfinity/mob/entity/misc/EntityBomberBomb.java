@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -18,15 +17,12 @@ import xol.lostinfinity.util.coordinates.ContestCoordinates;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityBomberBomb.class */
 public class EntityBomberBomb extends EntityImmaterial implements IMaxAttack {
     private UUID creator_UUID;
     private int deploymentTime;
     private int currentSize;
     private int maxSize;
     private boolean[] continueExploding;
-
     public EntityBomberBomb(World worldIn) {
         super(worldIn);
         this.deploymentTime = 60;
@@ -35,19 +31,15 @@ public class EntityBomberBomb extends EntityImmaterial implements IMaxAttack {
         this.continueExploding = new boolean[]{true, true, true, true};
         func_70105_a(0.3f, 0.3f);
     }
-
     public void setCreator(UUID uuid) {
         this.creator_UUID = uuid;
     }
-
     public void setDeploymentTime(int newDeploy) {
         this.deploymentTime = newDeploy;
     }
-
     public void setBombSize(int newSize) {
         this.maxSize = newSize;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityImmaterial
     public void func_70636_d() {
         super.func_70636_d();
@@ -65,7 +57,6 @@ public class EntityBomberBomb extends EntityImmaterial implements IMaxAttack {
             this.deploymentTime--;
         }
     }
-
     public void explosionEffect() {
         BlockPos pos = func_180425_c();
         if (this.currentSize == 0) {
@@ -102,7 +93,6 @@ public class EntityBomberBomb extends EntityImmaterial implements IMaxAttack {
             this.currentSize++;
         }
     }
-
     private boolean tileExplosion(BlockPos pos) {
         if (this.field_70170_p.func_175623_d(pos)) {
             explosionFX(pos);
@@ -116,7 +106,6 @@ public class EntityBomberBomb extends EntityImmaterial implements IMaxAttack {
         }
         return false;
     }
-
     private void explosionFX(BlockPos pos) {
         playerCheck(pos);
         CustomParticleConfig config1 = new CustomParticleConfig();
@@ -124,7 +113,6 @@ public class EntityBomberBomb extends EntityImmaterial implements IMaxAttack {
         IParticleSpawner.spawnParticle(this.field_70170_p, config1, ((double) pos.func_177958_n()) + 0.5d, ((double) pos.func_177956_o()) + 0.3d, ((double) pos.func_177952_p()) + 0.5d);
         func_184185_a(SoundInit.GENERIC_WEAPON_5, 2.0f, 1.0f);
     }
-
     private void playerCheck(BlockPos pos) {
         if (this.field_70170_p.field_73011_w.func_186058_p() == DimensionInit.grandmasterOutpost) {
             AxisAlignedBB arena_aabb = ContestCoordinates.bombersArenaAABB();

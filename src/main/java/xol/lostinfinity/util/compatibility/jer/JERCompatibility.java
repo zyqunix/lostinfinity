@@ -1,5 +1,4 @@
 package xol.lostinfinity.util.compatibility.jer;
-
 import jeresources.api.IJERAPI;
 import jeresources.api.IMobRegistry;
 import jeresources.api.IPlantRegistry;
@@ -163,13 +162,9 @@ import xol.lostinfinity.mob.entity.starforge.EntityTitanopod;
 import xol.lostinfinity.mob.entity.starforge.EntityVilebulb;
 import xol.lostinfinity.mob.entity.starforge.EntityWeaver;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/compatibility/jer/JERCompatibility.class */
 public class JERCompatibility {
-
     @JERPlugin
     public static IJERAPI jerAPI;
-
     public static void init() {
         if (!Loader.isModLoaded("jeresources")) {
             return;

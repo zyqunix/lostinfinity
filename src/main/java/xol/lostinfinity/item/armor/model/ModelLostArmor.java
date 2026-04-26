@@ -1,15 +1,11 @@
 package xol.lostinfinity.item.armor.model;
-
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityArmorStand;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/armor/model/ModelLostArmor.class */
 public class ModelLostArmor extends ModelBiped {
     public ModelLostArmor() {
         super(0.0f, 0.0f, 128, 64);
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         if (entityIn instanceof EntityArmorStand) {
             EntityArmorStand entityarmorstand = (EntityArmorStand) entityIn;

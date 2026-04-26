@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.misc;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,13 +11,10 @@ import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.basics.ItemBasic;
 import xol.lostinfinity.mob.entity.misc.EntityDimensionalMerchant;
 import xol.lostinfinity.mob.entity.misc.EntityRocketStrappedExplosive;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/misc/ItemRocketStrappedExplosive.class */
 public class ItemRocketStrappedExplosive extends ItemBasic {
     public ItemRocketStrappedExplosive(String regName) {
         super(regName, TabsInit.TAB_AUXMATS);
     }
-
     public boolean func_111207_a(ItemStack stack, EntityPlayer playerIn, EntityLivingBase target, EnumHand hand) {
         if (target instanceof EntityPlayer) {
             if (!playerIn.field_70170_p.field_72995_K) {

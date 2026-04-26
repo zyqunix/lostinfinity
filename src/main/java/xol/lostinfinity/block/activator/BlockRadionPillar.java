@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -13,46 +12,36 @@ import xol.lostinfinity.block.basic.BlockBasicBoolState;
 import xol.lostinfinity.block.basic.ISpecialHarvest;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockRadionPillar.class */
 public class BlockRadionPillar extends BlockBasicBoolState implements ISpecialHarvest {
     private static final boolean DEBUG = false;
     private static final int PILLAR_MAX_HEIGHT = 10;
-
     public BlockRadionPillar(String name) {
         super(name);
         func_149675_a(true);
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public Item getHarvestResult(World world, BlockPos pos) {
         return null;
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public Item getToolNeeded() {
         return null;
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public void worldHarvestEffect(World world, BlockPos pos, EntityPlayer harvester) {
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public void failedHarvest(World world, BlockPos pos, EntityPlayer harvester) {
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public boolean isHarvestable(World world, BlockPos pos, EntityPlayer harvester) {
         return false;
     }
-
     public void func_180650_b(World worldIn, BlockPos pos, IBlockState state, Random rand) {
         if (!worldIn.field_72995_K) {
             unlightPillarSegment(worldIn, pos);
         }
     }
-
     public void func_180649_a(World worldIn, BlockPos pos, EntityPlayer playerIn) {
         Iterable<BlockPos> nearBlocks = BlockPos.func_177980_a(pos.func_177982_a(-10, -10, -10), pos.func_177982_a(10, 10, 10));
         List<BlockRadionPillar> pillarBlocks = new ArrayList<>();
@@ -77,7 +66,6 @@ public class BlockRadionPillar extends BlockBasicBoolState implements ISpecialHa
             playerIn.func_184185_a(SoundInit.ENERGY_PULSE, 1.0f, 1.0f);
         }
     }
-
     public void lightUpPillarSegment(World worldIn, BlockPos pos) {
         if (!worldIn.field_72995_K) {
             Iterable<BlockPos> nearBlocks = BlockPos.func_177980_a(pos.func_177982_a(-10, -10, -10), pos.func_177982_a(10, 10, 10));
@@ -103,7 +91,6 @@ public class BlockRadionPillar extends BlockBasicBoolState implements ISpecialHa
             }
         }
     }
-
     private void unlightPillarSegment(World worldIn, BlockPos pos) {
         if (!worldIn.field_72995_K) {
             Iterable<BlockPos> nearBlocks = BlockPos.func_177980_a(pos.func_177982_a(-10, -10, -10), pos.func_177982_a(10, 10, 10));

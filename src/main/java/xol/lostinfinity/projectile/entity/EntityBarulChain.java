@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
@@ -11,8 +10,6 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import xol.lostinfinity.mob.entity.boss.EntityBarul;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityBarulChain.class */
 public class EntityBarulChain extends Entity implements IMaxAttack {
     private static final DataParameter<Float> PLAYER_X = EntityDataManager.func_187226_a(EntityBarulChain.class, DataSerializers.field_187193_c);
     private static final DataParameter<Float> PLAYER_Y = EntityDataManager.func_187226_a(EntityBarulChain.class, DataSerializers.field_187193_c);
@@ -21,14 +18,12 @@ public class EntityBarulChain extends Entity implements IMaxAttack {
     private EntityBarul owner;
     private Vec3d stopPos;
     private float growth;
-
     public Vec3d getPlayerPos() {
         double x = ((Float) this.field_70180_af.func_187225_a(PLAYER_X)).floatValue();
         double y = ((Float) this.field_70180_af.func_187225_a(PLAYER_Y)).floatValue();
         double z = ((Float) this.field_70180_af.func_187225_a(PLAYER_Z)).floatValue();
         return new Vec3d(x, y, z);
     }
-
     public void setPlayerXYZ(Vec3d pos) {
         float xpos = (float) pos.field_72450_a;
         float ypos = (float) pos.field_72448_b;
@@ -37,11 +32,9 @@ public class EntityBarulChain extends Entity implements IMaxAttack {
         this.field_70180_af.func_187227_b(PLAYER_Y, Float.valueOf(ypos));
         this.field_70180_af.func_187227_b(PLAYER_Z, Float.valueOf(zpos));
     }
-
     public EntityPlayer getTarget() {
         return this.target;
     }
-
     public EntityBarulChain(World worldIn) {
         super(worldIn);
         this.target = null;
@@ -49,7 +42,6 @@ public class EntityBarulChain extends Entity implements IMaxAttack {
         this.stopPos = null;
         this.growth = 0.0f;
     }
-
     public void func_70071_h_() {
         super.func_70071_h_();
         if (this.growth < 1.0f) {
@@ -83,31 +75,24 @@ public class EntityBarulChain extends Entity implements IMaxAttack {
             }
         }
     }
-
     public Vec3d getStopPos() {
         return this.stopPos;
     }
-
     protected void func_70037_a(NBTTagCompound compound) {
     }
-
     protected void func_70014_b(NBTTagCompound compound) {
     }
-
     protected void func_70088_a() {
         this.field_70180_af.func_187214_a(PLAYER_X, Float.valueOf(0.0f));
         this.field_70180_af.func_187214_a(PLAYER_Y, Float.valueOf(0.0f));
         this.field_70180_af.func_187214_a(PLAYER_Z, Float.valueOf(0.0f));
     }
-
     public void setOwner(EntityBarul owner) {
         this.owner = owner;
     }
-
     public void setTarget(EntityPlayer target) {
         this.target = target;
     }
-
     public float getGrowth() {
         return this.growth;
     }

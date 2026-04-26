@@ -1,5 +1,4 @@
 package xol.lostinfinity.client.fx;
-
 import java.util.Random;
 import javax.annotation.Nullable;
 import net.minecraft.client.particle.IParticleFactory;
@@ -8,12 +7,9 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.init.ParticleInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/client/fx/ParticleLargeBubble.class */
 public class ParticleLargeBubble extends LostParticle {
     private static final Random RANDOM = new Random();
     private float maxScale;
-
     protected ParticleLargeBubble(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeed, double zSpeedIn) {
         super(worldIn, xCoordIn, yCoordIn, zCoordIn, 0.5d - RANDOM.nextDouble(), ySpeed, 0.5d - RANDOM.nextDouble());
         this.maxScale = 1.0f;
@@ -27,16 +23,13 @@ public class ParticleLargeBubble extends LostParticle {
         this.maxScale = 0.1f + (this.field_187136_p.nextFloat() * 4.0f);
         func_187117_a(ParticleInit.LARGE_BUBBLE_SPRITE);
     }
-
     public ParticleLargeBubble setParticleGravity(double motionY) {
         this.field_187130_j = motionY;
         return this;
     }
-
     public boolean func_187111_c() {
         return true;
     }
-
     @Override // xol.lostinfinity.client.fx.LostParticle
     public void func_189213_a() {
         updatePos();
@@ -71,12 +64,9 @@ public class ParticleLargeBubble extends LostParticle {
             this.field_187131_k *= 0.699999988079071d;
         }
     }
-
     public int func_70537_b() {
         return 1;
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/client/fx/ParticleLargeBubble$Factory.class */
     @SideOnly(Side.CLIENT)
     public static class Factory implements IParticleFactory {
         @Nullable

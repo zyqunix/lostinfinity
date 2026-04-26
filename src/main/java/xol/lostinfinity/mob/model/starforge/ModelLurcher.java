@@ -1,12 +1,9 @@
 package xol.lostinfinity.mob.model.starforge;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/starforge/ModelLurcher.class */
 public class ModelLurcher extends ModelBase {
     private final ModelRenderer Eye;
     private final ModelRenderer Body;
@@ -22,7 +19,6 @@ public class ModelLurcher extends ModelBase {
     private final ModelRenderer Tail4;
     private final ModelRenderer T4P2;
     private final ModelRenderer T4P3;
-
     public ModelLurcher() {
         this.field_78090_t = 64;
         this.field_78089_u = 64;
@@ -77,7 +73,6 @@ public class ModelLurcher extends ModelBase {
         this.T4P2.func_78792_a(this.T4P3);
         this.T4P3.field_78804_l.add(new ModelBox(this.T4P3, 0, 40, -2.0f, -2.0f, -1.0f, 4, 4, 10, -0.4f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.Eye.func_78785_a(f5);
         this.Body.func_78785_a(f5);
@@ -86,13 +81,11 @@ public class ModelLurcher extends ModelBase {
         this.Tail3.func_78785_a(f5);
         this.Tail4.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.Tail1.field_78796_g = 0.5f + (0.5f * MathHelper.func_76126_a(ageInTicks * 0.1f));
         this.T1P2.field_78796_g = 0.5f + (0.4f * MathHelper.func_76126_a(ageInTicks * 0.1f));

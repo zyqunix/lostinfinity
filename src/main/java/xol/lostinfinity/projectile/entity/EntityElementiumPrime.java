@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.PotionEffect;
@@ -15,17 +14,13 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityElementiumPrime.class */
 public class EntityElementiumPrime extends EntityBaseThrowable {
     public EntityElementiumPrime(World par1World) {
         super(par1World);
     }
-
     public EntityElementiumPrime(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -46,11 +41,9 @@ public class EntityElementiumPrime extends EntityBaseThrowable {
             func_70106_y();
         }
     }
-
     protected float func_70185_h() {
         return 0.02f;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     @SideOnly(Side.CLIENT)
     public void func_70071_h_() {

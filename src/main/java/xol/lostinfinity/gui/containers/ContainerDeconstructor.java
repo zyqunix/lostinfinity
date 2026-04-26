@@ -1,5 +1,4 @@
 package xol.lostinfinity.gui.containers;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,8 +11,6 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/containers/ContainerDeconstructor.class */
 public class ContainerDeconstructor extends Container {
     private static final int PLAYER_INVENTORY_ROW_COUNT = 3;
     private static final int PLAYER_INVENTORY_COLUMN_COUNT = 9;
@@ -25,7 +22,6 @@ public class ContainerDeconstructor extends Container {
     private final Slot outputSlot1 = new Slot(this.inventory, 2, 152, 26);
     private final Slot outputSlot2 = new Slot(this.inventory, PLAYER_INVENTORY_ROW_COUNT, 152, 45);
     private final Slot outputSlot3 = new Slot(this.inventory, 4, 152, 64);
-
     public ContainerDeconstructor(InventoryPlayer invPlayer) {
         this.invPlayer = invPlayer;
         func_75146_a(this.inputSlot);
@@ -43,7 +39,6 @@ public class ContainerDeconstructor extends Container {
             func_75146_a(new Slot(this.invPlayer, hotbarSlotIndex, 8 + (hotbarSlotIndex * 18), 142));
         }
     }
-
     public ItemStack func_184996_a(int slotId, int dragType, ClickType clickTypeIn, EntityPlayer player) {
         ItemStack heldStack = player.field_71071_by.func_70445_o();
         ItemStack inputStack = this.inputSlot.func_75211_c();
@@ -88,11 +83,9 @@ public class ContainerDeconstructor extends Container {
         }
         return super.func_184996_a(slotId, dragType, clickTypeIn, player);
     }
-
     public ItemStack func_82846_b(EntityPlayer playerIn, int index) {
         return ItemStack.field_190927_a;
     }
-
     private void initRecipes() {
         this.deconstructorResults.put(ItemInit.drinkOfDuality, new DeconstructorResult(ItemInit.dualityStone));
         this.deconstructorResults.put(ItemInit.bladesOfDuality, new DeconstructorResult(ItemInit.dualityStone));
@@ -140,11 +133,9 @@ public class ContainerDeconstructor extends Container {
         this.deconstructorResults.put(ItemInit.ingenuityStone, new DeconstructorResult(ItemInit.ingenuityCube));
         this.deconstructorResults.put(ItemInit.corruptionStone, new DeconstructorResult(ItemInit.corruptionCube));
     }
-
     public boolean func_75145_c(EntityPlayer playerIn) {
         return true;
     }
-
     public void func_75134_a(EntityPlayer playerIn) {
         if (this.inputSlot.func_75216_d()) {
             this.outputSlot0.func_75215_d(ItemStack.field_190927_a);
@@ -154,17 +145,13 @@ public class ContainerDeconstructor extends Container {
         }
         func_193327_a(playerIn, playerIn.field_70170_p, this.inventory);
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/containers/ContainerDeconstructor$DeconstructorResult.class */
     private class DeconstructorResult {
         private final List<Item> results = new ArrayList();
-
         public DeconstructorResult(Item... results) {
             for (Item result : results) {
                 this.results.add(result);
             }
         }
-
         public List<Item> getResults() {
             return this.results;
         }

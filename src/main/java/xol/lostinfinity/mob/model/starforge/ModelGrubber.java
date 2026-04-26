@@ -1,13 +1,10 @@
 package xol.lostinfinity.mob.model.starforge;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import xol.lostinfinity.mob.entity.starforge.EntityGrubber;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/starforge/ModelGrubber.class */
 public class ModelGrubber extends ModelBase {
     private final ModelRenderer head;
     private final ModelRenderer HeadCageRight;
@@ -22,7 +19,6 @@ public class ModelGrubber extends ModelBase {
     private final ModelRenderer leg5;
     private final ModelRenderer leg6;
     private final ModelRenderer leg7;
-
     public ModelGrubber() {
         this.field_78090_t = 64;
         this.field_78089_u = 64;
@@ -81,7 +77,6 @@ public class ModelGrubber extends ModelBase {
         setRotationAngle(this.leg7, 0.0f, 0.7854f, 0.4363f);
         this.leg7.field_78804_l.add(new ModelBox(this.leg7, 18, 0, -1.0f, -1.0f, -1.0f, 16, 2, 2, 0.0f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.head.func_78785_a(f5);
         this.body0.func_78785_a(f5);
@@ -95,13 +90,11 @@ public class ModelGrubber extends ModelBase {
         this.leg6.func_78785_a(f5);
         this.leg7.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         EntityGrubber grubber = (EntityGrubber) entityIn;
         if (grubber.isAwake()) {

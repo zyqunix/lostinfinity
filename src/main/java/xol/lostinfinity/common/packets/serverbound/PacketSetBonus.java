@@ -1,5 +1,4 @@
 package xol.lostinfinity.common.packets.serverbound;
-
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -12,16 +11,11 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.SoundInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/common/packets/serverbound/PacketSetBonus.class */
 public class PacketSetBonus implements IMessage {
     public void toBytes(ByteBuf buf) {
     }
-
     public void fromBytes(ByteBuf buf) {
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/common/packets/serverbound/PacketSetBonus$SetBonusPacketHandler.class */
     public static class SetBonusPacketHandler implements IMessageHandler<PacketSetBonus, IMessage> {
         public IMessage onMessage(PacketSetBonus message, MessageContext ctx) {
             EntityPlayerMP player = ctx.getServerHandler().field_147369_b;

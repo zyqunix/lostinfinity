@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.misc;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -20,15 +19,12 @@ import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.basics.ItemCooldown;
 import xol.lostinfinity.item.classify.IModeSelect;
 import xol.lostinfinity.item.classify.ISwitchModels;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/misc/ItemDrinkOfDuality.class */
 public class ItemDrinkOfDuality extends ItemCooldown implements ISwitchModels, IModeSelect {
     public ItemDrinkOfDuality(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_INFINITYWEP);
         setModelSwitch("drink", this, 2);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (!showDurabilityBar(playerIn.func_184586_b(handIn))) {
             if (!worldIn.field_72995_K) {
@@ -46,12 +42,10 @@ public class ItemDrinkOfDuality extends ItemCooldown implements ISwitchModels, I
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 50000;
     }
-
     @Override // xol.lostinfinity.item.classify.IModeSelect
     public void modeUpdate(ItemStack stack, EntityPlayer player) {
         if (!stack.func_77942_o()) {
@@ -64,7 +58,6 @@ public class ItemDrinkOfDuality extends ItemCooldown implements ISwitchModels, I
             stack.func_77978_p().func_74768_a("drink_data", 0);
         }
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "When drunk, grants one the following buffs depending on the potion drunk:");

@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import net.minecraft.entity.Entity;
@@ -14,28 +13,23 @@ import xol.lostinfinity.block.tileentity.TileEntityFusionTable;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntitySoundwaveBullet.class */
 public class EntitySoundwaveBullet extends EntityBaseThrowable implements IMaxAttack {
     private static final long HIT_COOLDOWN = 10;
     private static final int MAX_BOUNCE_CHECK = 4;
     private boolean hasBouncedBefore;
     private final Map<Entity, Long> damageLog;
-
     public EntitySoundwaveBullet(World worldIn) {
         super(worldIn);
         this.hasBouncedBefore = false;
         this.damageLog = new ConcurrentHashMap();
         func_70105_a(0.5f, 0.5f);
     }
-
     public EntitySoundwaveBullet(World worldIn, EntityLivingBase entityIn) {
         super(worldIn, entityIn);
         this.hasBouncedBefore = false;
         this.damageLog = new ConcurrentHashMap();
         func_70105_a(0.5f, 0.5f);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (this.field_70170_p.field_72995_K) {
@@ -75,7 +69,6 @@ public class EntitySoundwaveBullet extends EntityBaseThrowable implements IMaxAt
                 break;
         }
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void func_70071_h_() {
         this.field_70122_E = false;
@@ -85,11 +78,9 @@ public class EntitySoundwaveBullet extends EntityBaseThrowable implements IMaxAt
             func_70106_y();
         }
     }
-
     protected float func_70185_h() {
         return 0.0f;
     }
-
     private void checkBounce() {
         EnumFacing facing;
         boolean hasBounced = false;
@@ -103,13 +94,9 @@ public class EntitySoundwaveBullet extends EntityBaseThrowable implements IMaxAt
             this.field_70170_p.func_184133_a((EntityPlayer) null, func_180425_c(), SoundInit.SOUND_BOUNCE, SoundCategory.NEUTRAL, 0.5f, 0.8f + (this.field_70170_p.field_73012_v.nextFloat() * 0.4f));
         }
     }
-
-    /* JADX INFO: renamed from: xol.lostinfinity.projectile.entity.EntitySoundwaveBullet$1, reason: invalid class name */
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntitySoundwaveBullet$1.class */
-    static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] $SwitchMap$net$minecraft$util$math$RayTraceResult$Type;
-        static final /* synthetic */ int[] $SwitchMap$net$minecraft$util$EnumFacing = new int[EnumFacing.values().length];
-
+    static  class AnonymousClass1 {
+        static final  int[] $SwitchMap$net$minecraft$util$math$RayTraceResult$Type;
+        static final  int[] $SwitchMap$net$minecraft$util$EnumFacing = new int[EnumFacing.values().length];
         static {
             try {
                 $SwitchMap$net$minecraft$util$EnumFacing[EnumFacing.DOWN.ordinal()] = 1;
@@ -146,7 +133,6 @@ public class EntitySoundwaveBullet extends EntityBaseThrowable implements IMaxAt
             }
         }
     }
-
     private void bounce(EnumFacing facing) {
         switch (AnonymousClass1.$SwitchMap$net$minecraft$util$EnumFacing[facing.ordinal()]) {
             case 1:
@@ -164,13 +150,12 @@ public class EntitySoundwaveBullet extends EntityBaseThrowable implements IMaxAt
             case 5:
                 this.field_70159_w = -Math.abs(this.field_70159_w);
                 break;
-            case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+            case TileEntityFusionTable.BOARD_COLUMNS :
                 this.field_70159_w = Math.abs(this.field_70159_w);
                 break;
         }
         this.field_70133_I = true;
     }
-
     private EnumFacing raytraceFace() {
         Vec3d currPos = new Vec3d(this.field_70165_t, this.field_70163_u, this.field_70161_v);
         Vec3d nextPos = new Vec3d(this.field_70165_t + this.field_70159_w, this.field_70163_u + this.field_70181_x, this.field_70161_v + this.field_70179_y);

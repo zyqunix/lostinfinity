@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.model.murk;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -8,8 +7,6 @@ import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/murk/ModelScorpwing.class */
 public class ModelScorpwing extends ModelBase {
     private final ModelRenderer head;
     private final ModelRenderer FaceTendril1;
@@ -49,7 +46,6 @@ public class ModelScorpwing extends ModelBase {
     private final ModelRenderer rightWingTip;
     private List<ModelRenderer> leftBones = new ArrayList();
     private List<ModelRenderer> rightBones = new ArrayList();
-
     public ModelScorpwing() {
         this.field_78090_t = 64;
         this.field_78089_u = 64;
@@ -212,18 +208,15 @@ public class ModelScorpwing extends ModelBase {
         Collections.shuffle(this.leftBones);
         Collections.shuffle(this.rightBones);
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.head.func_78785_a(f5);
         this.body.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.body.field_78795_f = 0.7f + (MathHelper.func_76134_b(ageInTicks * 0.05f) * 0.5f);
         this.leftWing.field_78796_g = MathHelper.func_76134_b(ageInTicks * 0.1f) * 0.5f;

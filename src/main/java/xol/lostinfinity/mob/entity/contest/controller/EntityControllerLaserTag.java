@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.contest.controller;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,14 +11,11 @@ import net.minecraft.world.World;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.util.coordinates.ContestCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/contest/controller/EntityControllerLaserTag.class */
 public class EntityControllerLaserTag extends EntityControllerBase {
     private HashMap<UUID, Integer> playerScores;
     private int time;
     private static final int duration = 5000;
     private List<BlockPos> spawnPositions;
-
     public void initLaserTag(List<BlockPos> spawnPositions) {
         this.spawnPositions.clear();
         this.spawnPositions.addAll(spawnPositions);
@@ -29,7 +25,6 @@ public class EntityControllerLaserTag extends EntityControllerBase {
             this.playerScores.put(pl_id, 0);
         }
     }
-
     public void hitPlayer(EntityPlayer attacker, EntityPlayer target, int numHits) {
         UUID attacker_id = null;
         if (attacker != null) {
@@ -52,7 +47,6 @@ public class EntityControllerLaserTag extends EntityControllerBase {
             messageContenders(TextFmt.Red, String.format("%s SCORE: %d ", attacker.func_70005_c_(), Integer.valueOf(score)));
         }
     }
-
     public EntityControllerLaserTag(World worldIn) {
         super(worldIn);
         this.playerScores = null;
@@ -60,12 +54,10 @@ public class EntityControllerLaserTag extends EntityControllerBase {
         this.spawnPositions = new ArrayList();
         func_70105_a(5.0f, 12.0f);
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     public AxisAlignedBB getArenaAABB() {
         return ContestCoordinates.laserTagArenaAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase, xol.lostinfinity.mob.entity.base.EntityImmaterial
     public void func_70636_d() {
         super.func_70636_d();
@@ -98,12 +90,10 @@ public class EntityControllerLaserTag extends EntityControllerBase {
             }
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected BlockPos getSnapPos() {
         return ContestCoordinates.laserTagControllerPos();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected void rewardPlayer(EntityPlayer player, int placement) {
         BlockPos teleTo = ContestCoordinates.laserTagLobbyPos();

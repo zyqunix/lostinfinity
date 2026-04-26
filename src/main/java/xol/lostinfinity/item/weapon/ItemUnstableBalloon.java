@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -8,13 +7,10 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.world.World;
 import xol.lostinfinity.item.basics.ItemBasic;
 import xol.lostinfinity.projectile.entity.EntityUnstableBalloon;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemUnstableBalloon.class */
 public class ItemUnstableBalloon extends ItemBasic {
     public ItemUnstableBalloon(String regName, CreativeTabs tab) {
         super(regName, tab);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (!worldIn.field_72995_K) {

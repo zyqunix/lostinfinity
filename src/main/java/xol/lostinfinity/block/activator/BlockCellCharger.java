@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import net.minecraft.block.state.IBlockState;
@@ -17,13 +16,10 @@ import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.coordinates.GalaxyCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockCellCharger.class */
 public class BlockCellCharger extends BlockBasic {
     public BlockCellCharger(String name) {
         super(name);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         ItemStack stack = playerIn.func_184586_b(hand);
         if (stack.func_77973_b() == ItemInit.unpoweredCell) {

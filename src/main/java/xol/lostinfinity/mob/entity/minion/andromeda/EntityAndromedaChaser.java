@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.minion.andromeda;
-
 import java.util.Collections;
 import java.util.List;
 import net.minecraft.entity.Entity;
@@ -10,27 +9,21 @@ import net.minecraft.world.World;
 import xol.lostinfinity.projectile.entity.EntityBaseThrowable;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/minion/andromeda/EntityAndromedaChaser.class */
 public class EntityAndromedaChaser extends EntityBaseThrowable {
     private static final List<String> DAMAGE_TYPE = Collections.singletonList("Aquatic");
     private EntityLivingBase target;
-
     public EntityAndromedaChaser(World worldIn) {
         super(worldIn);
         func_70105_a(2.5f, 2.5f);
     }
-
     public void setTarget(EntityLivingBase target) {
         this.target = target;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void setThrower(EntityLivingBase throwset) {
         super.setThrower(throwset);
         this.field_184539_c = throwset;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         Entity entity;
@@ -49,7 +42,6 @@ public class EntityAndromedaChaser extends EntityBaseThrowable {
         ((EntityLivingBase) entity).field_70179_y = dZ;
         func_70106_y();
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void func_70071_h_() {
         super.func_70071_h_();
@@ -73,7 +65,6 @@ public class EntityAndromedaChaser extends EntityBaseThrowable {
         Vec3d dir = LMath.fastNormalize(LMath.getEntityMiddle(this.target).func_178788_d(func_174791_d())).func_186678_a(0.2d);
         func_70024_g(dir.field_72450_a, dir.field_72448_b, dir.field_72449_c);
     }
-
     protected float func_70185_h() {
         return 0.0f;
     }

@@ -1,36 +1,29 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntitySkyStrike.class */
 public class EntitySkyStrike extends EntityBaseThrowable {
     private int multiplier;
     private EntityLivingBase followTarget;
-
     public EntitySkyStrike(World par1World) {
         super(par1World);
         this.multiplier = 1;
         this.followTarget = null;
         func_70105_a(1.0f, 1.0f);
     }
-
     public EntitySkyStrike(World par1World, double par2, double par4, double par6) {
         super(par1World, par2, par4, par6);
         this.multiplier = 1;
         this.followTarget = null;
         func_70105_a(1.0f, 1.0f);
     }
-
     public void setDamageMultiplierAndTarget(int mult, EntityLivingBase target) {
         this.multiplier = mult;
         this.followTarget = target;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -41,11 +34,9 @@ public class EntitySkyStrike extends EntityBaseThrowable {
             func_70106_y();
         }
     }
-
     protected float func_70185_h() {
         return 0.05f;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void func_70071_h_() {
         super.func_70071_h_();

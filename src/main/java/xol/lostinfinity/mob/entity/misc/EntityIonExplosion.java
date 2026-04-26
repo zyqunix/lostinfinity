@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import java.util.UUID;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -11,12 +10,9 @@ import xol.lostinfinity.init.ParticleInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.mob.entity.base.EntityImmaterial;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityIonExplosion.class */
 public class EntityIonExplosion extends EntityImmaterial implements IMaxAttack {
     private UUID creator_UUID;
     private boolean hasExploded;
-
     public EntityIonExplosion(World worldIn) {
         super(worldIn);
         this.hasExploded = false;
@@ -25,21 +21,17 @@ public class EntityIonExplosion extends EntityImmaterial implements IMaxAttack {
         func_82142_c(true);
         func_189654_d(true);
     }
-
     public void func_70014_b(NBTTagCompound tag) {
         super.func_70014_b(tag);
         tag.func_186854_a("CreatorUUID", this.creator_UUID);
     }
-
     public void func_70037_a(NBTTagCompound tag) {
         super.func_70037_a(tag);
         this.creator_UUID = tag.func_186857_a("CreatorUUID");
     }
-
     public void setCreator(UUID uuid) {
         this.creator_UUID = uuid;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityImmaterial
     public void func_70636_d() {
         super.func_70636_d();
@@ -67,7 +59,6 @@ public class EntityIonExplosion extends EntityImmaterial implements IMaxAttack {
             }
         }
     }
-
     private void explosion() {
         this.hasExploded = true;
         EntityIonExplosion entityIonExplosion = this;

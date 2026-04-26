@@ -1,12 +1,9 @@
 package xol.lostinfinity.mob.model.starforge;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/starforge/ModelBlisterweed.class */
 public class ModelBlisterweed extends ModelBase {
     private final ModelRenderer Plant;
     private final ModelRenderer Bulb4;
@@ -21,7 +18,6 @@ public class ModelBlisterweed extends ModelBase {
     private final ModelRenderer OrbInner;
     private final ModelRenderer OrbInner2;
     private final ModelRenderer Body;
-
     public ModelBlisterweed() {
         this.field_78090_t = 64;
         this.field_78089_u = 64;
@@ -88,17 +84,14 @@ public class ModelBlisterweed extends ModelBase {
         this.Body.field_78804_l.add(new ModelBox(this.Body, 0, 0, -0.25f, -12.0f, -6.25f, 1, 24, 12, 0.0f, false));
         this.Body.field_78804_l.add(new ModelBox(this.Body, 28, 0, -6.25f, -12.0f, -0.25f, 12, 24, 1, 0.0f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.Plant.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.Plant.field_78795_f = MathHelper.func_76134_b(ageInTicks * 0.05f) * 3.1415927f * 0.1f;
         this.Plant.field_78808_h = MathHelper.func_76134_b(ageInTicks * 0.03f) * 3.1415927f * 0.1f;

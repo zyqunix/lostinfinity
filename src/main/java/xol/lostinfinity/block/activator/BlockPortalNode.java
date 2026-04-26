@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,17 +13,13 @@ import xol.lostinfinity.block.tileentity.TileEntityPortalNexus;
 import xol.lostinfinity.block.tileentity.TileEntityPortalNode;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockPortalNode.class */
 public class BlockPortalNode extends BlockBasicBoolState implements ITileEntityProvider {
     public BlockPortalNode(String name) {
         super(name);
     }
-
     private boolean validInput(Item item) {
         return item.equals(ItemInit.blightedCapacitor);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!playerIn.func_70093_af()) {
             if (validInput(playerIn.func_184586_b(hand).func_77973_b())) {
@@ -83,15 +78,12 @@ public class BlockPortalNode extends BlockBasicBoolState implements ITileEntityP
         }
         return true;
     }
-
     public TileEntity createTileEntity(World world, IBlockState state) {
         return new TileEntityPortalNode();
     }
-
     public boolean hasTileEntity(IBlockState state) {
         return true;
     }
-
     public TileEntity func_149915_a(World worldIn, int meta) {
         return null;
     }

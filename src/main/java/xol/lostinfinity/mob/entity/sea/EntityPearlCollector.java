@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.sea;
-
 import java.util.ArrayList;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,8 +10,6 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/sea/EntityPearlCollector.class */
 public class EntityPearlCollector extends EntityLiving {
     private boolean game;
     private boolean win;
@@ -23,7 +20,6 @@ public class EntityPearlCollector extends EntityLiving {
     private boolean lose;
     Item curPearl;
     private static final int finalStage = 5;
-
     public EntityPearlCollector(World worldIn) {
         super(worldIn);
         this.game = false;
@@ -35,11 +31,9 @@ public class EntityPearlCollector extends EntityLiving {
         this.lose = false;
         this.curPearl = null;
     }
-
     public void startGame() {
         this.game = true;
     }
-
     public boolean func_184645_a(EntityPlayer player, EnumHand hand) {
         ItemStack stack = player.func_184586_b(hand);
         if (stack.func_77973_b() == ItemInit.silverToken) {
@@ -84,7 +78,6 @@ public class EntityPearlCollector extends EntityLiving {
         }
         return true;
     }
-
     private void stageUp(EntityPlayer player) {
         if (this.stage <= finalStage) {
             this.stage++;
@@ -95,7 +88,6 @@ public class EntityPearlCollector extends EntityLiving {
             player.func_145747_a(new TextComponentString(TextFmt.getFormatting(TextFmt.Bold, TextFmt.Green) + "You have collected all the pearls, come get your reward!"));
         }
     }
-
     private void nextPearl(EntityPlayer player) {
         int nextPearl = 0;
         if (this.pearlList != null && !this.pearlList.isEmpty()) {
@@ -118,7 +110,6 @@ public class EntityPearlCollector extends EntityLiving {
             player.func_145747_a(new TextComponentString(TextFmt.Green + pearlName + " is needed next!"));
         }
     }
-
     private void initPearls(EntityPlayer player) {
         this.pearlList = new ArrayList<>();
         this.pearlList.add(ItemInit.pearlIgneous);
@@ -126,7 +117,6 @@ public class EntityPearlCollector extends EntityLiving {
         this.pearlList.add(ItemInit.pearlBioluminescent);
         nextPearl(player);
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         if (!this.field_70170_p.field_72995_K) {

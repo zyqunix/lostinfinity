@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -14,11 +13,8 @@ import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemGalaxyBlade.class */
 public class ItemGalaxyBlade extends ItemSword implements IMaxAttack {
     private String wep;
-
     public ItemGalaxyBlade(String regName) {
         super(Item.ToolMaterial.WOOD);
         this.wep = "";
@@ -28,7 +24,6 @@ public class ItemGalaxyBlade extends ItemSword implements IMaxAttack {
         this.wep = regName;
         ItemInit.ITEMS.add(this);
     }
-
     public boolean func_77644_a(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         switch (this.wep) {
             case "moonglow_blade":
@@ -58,7 +53,6 @@ public class ItemGalaxyBlade extends ItemSword implements IMaxAttack {
         }
         return true;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         switch (this.wep) {

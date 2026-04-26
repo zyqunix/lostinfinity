@@ -1,5 +1,4 @@
 package xol.lostinfinity.dimension.data;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -7,8 +6,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.BlockPos;
 import xol.lostinfinity.init.BlockInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/dimension/data/PipeNode.class */
 public class PipeNode {
     private BlockPos blockPos;
     private int xpos;
@@ -18,7 +15,6 @@ public class PipeNode {
     private int rotation;
     private IBlockState state;
     private boolean lit;
-
     public PipeNode(String type, int rotation, int gridx, int gridy) {
         this.type = type;
         this.rotation = rotation;
@@ -28,15 +24,12 @@ public class PipeNode {
         this.lit = false;
         initNeighbours();
     }
-
     public boolean isLit() {
         return this.lit;
     }
-
     public void setLit(boolean lit) {
         this.lit = lit;
     }
-
     public void rotate() {
         switch (this.rotation) {
             case 0:
@@ -57,15 +50,12 @@ public class PipeNode {
         }
         rotateNeighbours();
     }
-
     public IBlockState getState() {
         return this.state;
     }
-
     public void updateState() {
         this.state = getStateFromTypeRot(this.type, this.rotation);
     }
-
     private IBlockState getStateFromTypeRot(String name, int rot) {
         EnumFacing facing;
         switch (rot) {
@@ -110,7 +100,6 @@ public class PipeNode {
                 return BlockInit.pipeNone.getStateWithFacing(facing);
         }
     }
-
     public PipeNode(int gridx, int gridy) {
         new Random();
         this.type = "none";
@@ -120,7 +109,6 @@ public class PipeNode {
         this.lit = false;
         initNeighbours();
     }
-
     public void initNeighbours() {
         int rot = this.rotation;
         String type = this.type;
@@ -145,7 +133,6 @@ public class PipeNode {
             rotateNeighbours();
         }
     }
-
     private void rotateNeighbours() {
         boolean[] neighbours = this.neighbours;
         boolean[] newNeighbours = {false, false, false, false};
@@ -163,11 +150,9 @@ public class PipeNode {
         }
         setNeighbours(newNeighbours);
     }
-
     public void setNeighbours(boolean[] neighbours) {
         this.neighbours = neighbours;
     }
-
     public boolean compare(PipeNode node) {
         int x1 = getX();
         int x2 = node.getX();
@@ -175,39 +160,30 @@ public class PipeNode {
         int y2 = node.getY();
         return x1 == x2 && y1 == y2;
     }
-
     public int getX() {
         return this.xpos;
     }
-
     public int getY() {
         return this.ypos;
     }
-
     public void setX(int x) {
         this.xpos = x;
     }
-
     public void setY(int y) {
         this.ypos = y;
     }
-
     public void setBlockPos(BlockPos pos) {
         this.blockPos = new BlockPos(pos);
     }
-
     public BlockPos getBlockPos() {
         return this.blockPos;
     }
-
     public String getType() {
         return this.type;
     }
-
     public void setType(String type) {
         this.type = type;
     }
-
     public List<PipeNode> getConnectedNeighbours(PipeNode[][] pipeMap) {
         List<PipeNode> connected = new ArrayList<>();
         for (PipeNode neighbour : getNeighbours(pipeMap)) {
@@ -217,7 +193,6 @@ public class PipeNode {
         }
         return connected;
     }
-
     public void propogateLit(PipeNode[][] pipeMap, ArrayList<PipeNode> visited) {
         visited.add(this);
         setLit(true);
@@ -227,14 +202,12 @@ public class PipeNode {
             }
         }
     }
-
     public PipeNode getNodeAtLocation(PipeNode[][] pipeMap, int x, int y) {
         if (x >= 0 && x < pipeMap.length && y >= 0 && y < pipeMap[x].length) {
             return pipeMap[x][y];
         }
         return null;
     }
-
     public List<PipeNode> getNeighbours(PipeNode[][] pipeMap) {
         List<PipeNode> neighbourList = new ArrayList<>();
         int x = getX();

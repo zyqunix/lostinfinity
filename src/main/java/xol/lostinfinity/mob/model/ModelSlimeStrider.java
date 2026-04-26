@@ -1,12 +1,9 @@
 package xol.lostinfinity.mob.model;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/ModelSlimeStrider.class */
 public class ModelSlimeStrider extends ModelBase {
     public ModelRenderer head2;
     public ModelRenderer head1;
@@ -30,7 +27,6 @@ public class ModelSlimeStrider extends ModelBase {
     public ModelRenderer tail1;
     public ModelRenderer tail2;
     public ModelRenderer tail3;
-
     public ModelSlimeStrider() {
         this.field_78090_t = 64;
         this.field_78089_u = 64;
@@ -102,7 +98,6 @@ public class ModelSlimeStrider extends ModelBase {
         this.armr8.func_78793_a(-3.0f, 20.5f, 17.5f);
         this.armr8.func_78790_a(-8.0f, -1.5f, -2.5f, 5, 3, 5, 0.0f);
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         GlStateManager.func_179147_l();
         GlStateManager.func_179112_b(770, 771);
@@ -131,13 +126,11 @@ public class ModelSlimeStrider extends ModelBase {
         this.armr8.func_78785_a(f5);
         GlStateManager.func_179084_k();
     }
-
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         float f8 = Math.abs(MathHelper.func_76126_a((limbSwing * 0.6662f) + 3.1415927f) * 0.4f) * limbSwingAmount;
         this.arml1.field_78808_h = 0.58119464f + f8;

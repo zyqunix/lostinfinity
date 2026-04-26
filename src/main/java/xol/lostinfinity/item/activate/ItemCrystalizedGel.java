@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.activate;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -16,8 +15,6 @@ import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.projectile.entity.EntityCrystalGellball;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/activate/ItemCrystalizedGel.class */
 public class ItemCrystalizedGel extends Item {
     public ItemCrystalizedGel(String regName) {
         func_77637_a(TabsInit.TAB_AUXMATS);
@@ -26,7 +23,6 @@ public class ItemCrystalizedGel extends Item {
         func_77625_d(1);
         ItemInit.ITEMS.add(this);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (!worldIn.field_72995_K) {
             EntityCrystalGellball shot = new EntityCrystalGellball(worldIn, playerIn);
@@ -38,7 +34,6 @@ public class ItemCrystalizedGel extends Item {
         playerIn.func_184185_a(SoundEvents.field_187578_au, 1.0f, 1.0f);
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Can be thrown at zombies to cause growth mutations.");

@@ -1,11 +1,8 @@
 package xol.lostinfinity.mob.model.starforge;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/starforge/ModelDusker.class */
 public class ModelDusker extends ModelBase {
     public ModelRenderer legr;
     public ModelRenderer head;
@@ -15,7 +12,6 @@ public class ModelDusker extends ModelBase {
     public ModelRenderer legl2;
     public ModelRenderer body2;
     public ModelRenderer body3;
-
     public ModelDusker() {
         this.field_78090_t = 64;
         this.field_78089_u = 32;
@@ -50,7 +46,6 @@ public class ModelDusker extends ModelBase {
         this.body2.func_78793_a(0.0f, 16.0f, -1.0f);
         this.body2.func_78790_a(-3.5f, -5.5f, -1.5f, 7, 6, 5, 0.0f);
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.legr.func_78785_a(f5);
         this.legr2.func_78785_a(f5);
@@ -61,13 +56,11 @@ public class ModelDusker extends ModelBase {
         this.body3.func_78785_a(f5);
         this.body2.func_78785_a(f5);
     }
-
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.legr2.field_78795_f = MathHelper.func_76134_b(limbSwing * 0.6662f) * 1.4f * limbSwingAmount;
         this.legl2.field_78795_f = MathHelper.func_76134_b((limbSwing * 0.6662f) + 3.1415927f) * 1.4f * limbSwingAmount;

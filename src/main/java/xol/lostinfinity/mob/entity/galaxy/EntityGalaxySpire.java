@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.galaxy;
-
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.monster.EntityMob;
@@ -25,15 +24,12 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.projectile.entity.EntityGalaxyBlast;
 import xol.lostinfinity.util.coordinates.GalaxyCoordinates;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/galaxy/EntityGalaxySpire.class */
 public class EntityGalaxySpire extends EntityMob implements IMaxAttack {
     private int crystalsGiven;
     private int challengeState;
     private int itemType;
     private int gameStyle;
     private boolean elite_mode;
-
     public EntityGalaxySpire(World worldIn) {
         super(worldIn);
         this.crystalsGiven = 0;
@@ -44,37 +40,29 @@ public class EntityGalaxySpire extends EntityMob implements IMaxAttack {
         func_70105_a(3.5f, 6.0f);
         func_184224_h(true);
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(10000.0d);
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
     }
-
     public void setItemDrop(int d) {
         this.itemType = d;
     }
-
     public void setElite() {
         this.elite_mode = true;
     }
-
     public boolean getElite() {
         return this.elite_mode;
     }
-
     public void setGameStyle(int style) {
         this.gameStyle = style;
     }
-
     public int getGameStyle() {
         return this.gameStyle;
     }
-
     public boolean func_70104_M() {
         return false;
     }
-
     private AxisAlignedBB getMyAABB() {
         switch (this.gameStyle) {
             case 1:
@@ -83,11 +71,11 @@ public class EntityGalaxySpire extends EntityMob implements IMaxAttack {
                 return GalaxyCoordinates.getGreenAABB();
             case 3:
                 return GalaxyCoordinates.getPinkAABB();
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 return GalaxyCoordinates.getYellowAABB();
             case 5:
                 return GalaxyCoordinates.getSwordAABB();
-            case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+            case TileEntityFusionTable.BOARD_COLUMNS :
                 return GalaxyCoordinates.getBombAABB();
             case 7:
                 return GalaxyCoordinates.getKnifeAABB();
@@ -95,13 +83,11 @@ public class EntityGalaxySpire extends EntityMob implements IMaxAttack {
                 return GalaxyCoordinates.getBlueAABB();
         }
     }
-
     private void messagePlayers(String str) {
         for (EntityPlayer near_pl : this.field_70170_p.func_72872_a(EntityPlayer.class, getMyAABB())) {
             near_pl.func_145747_a(new TextComponentString(str));
         }
     }
-
     private void randomizeTarget() {
         AxisAlignedBB box = getMyAABB();
         double height = box.field_72338_b + 6.0d;
@@ -133,7 +119,6 @@ public class EntityGalaxySpire extends EntityMob implements IMaxAttack {
             }
         }
     }
-
     public void func_70636_d() {
         int targetInterval;
         super.func_70636_d();
@@ -178,13 +163,11 @@ public class EntityGalaxySpire extends EntityMob implements IMaxAttack {
             }
         }
     }
-
     private void playSoundToPlayers(SoundEvent sound) {
         for (EntityPlayer near_pl : this.field_70170_p.func_72872_a(EntityPlayer.class, getMyAABB())) {
             this.field_70170_p.func_184133_a((EntityPlayer) null, near_pl.func_180425_c(), sound, SoundCategory.MASTER, 1.0f, 1.0f);
         }
     }
-
     public boolean func_184645_a(EntityPlayer player, EnumHand hand) {
         ItemStack itemstack = player.func_184586_b(hand);
         if (itemstack.func_77973_b().equals(ItemInit.chargedGalaxyCrystal)) {
@@ -212,7 +195,6 @@ public class EntityGalaxySpire extends EntityMob implements IMaxAttack {
         }
         return false;
     }
-
     public void winChallenge() {
         if (!this.field_70170_p.field_72995_K) {
             for (EntityPlayer near_pl : this.field_70170_p.func_72872_a(EntityPlayer.class, getMyAABB())) {
@@ -230,7 +212,6 @@ public class EntityGalaxySpire extends EntityMob implements IMaxAttack {
             func_70106_y();
         }
     }
-
     private void handleDifficulty() {
         switch (this.challengeState) {
             case 1:
@@ -253,12 +234,11 @@ public class EntityGalaxySpire extends EntityMob implements IMaxAttack {
                     messagePlayers(TextFmt.Italic + "EVERYTHING now fires faster.");
                 }
                 break;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 winChallenge();
                 break;
         }
     }
-
     private void summonLaserSpires() {
         AxisAlignedBB aabb = getMyAABB();
         for (int i = 0; i < 4; i++) {
@@ -268,13 +248,11 @@ public class EntityGalaxySpire extends EntityMob implements IMaxAttack {
             this.field_70170_p.func_72838_d(spire);
         }
     }
-
     private void upgradeLaserSpires() {
         for (EntityLaserSpire spire : this.field_70170_p.func_72872_a(EntityLaserSpire.class, getMyAABB())) {
             spire.setFastFire();
         }
     }
-
     private void removeFloor() {
         AxisAlignedBB box = getMyAABB();
         int size = 32;
@@ -290,7 +268,6 @@ public class EntityGalaxySpire extends EntityMob implements IMaxAttack {
             }
         }
     }
-
     private void hurtFlying() {
         for (EntityPlayer near_pl : this.field_70170_p.func_72872_a(EntityPlayer.class, getMyAABB())) {
             if (!near_pl.func_184812_l_() && near_pl.field_71075_bZ.field_75100_b) {
@@ -299,7 +276,6 @@ public class EntityGalaxySpire extends EntityMob implements IMaxAttack {
             }
         }
     }
-
     private void clearGroundCrystals() {
         for (EntityItem item : this.field_70170_p.func_72872_a(EntityItem.class, getMyAABB())) {
             if (item.func_92059_d().func_77973_b().equals(ItemInit.chargedGalaxyCrystal)) {
@@ -307,7 +283,6 @@ public class EntityGalaxySpire extends EntityMob implements IMaxAttack {
             }
         }
     }
-
     private Item getMyItem() {
         switch (this.gameStyle) {
             case 1:
@@ -343,7 +318,7 @@ public class EntityGalaxySpire extends EntityMob implements IMaxAttack {
                     case 3:
                         return ItemInit.novacronBomb;
                 }
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 switch (this.itemType) {
                     case 0:
                         return ItemInit.starfireBlade;
@@ -356,14 +331,13 @@ public class EntityGalaxySpire extends EntityMob implements IMaxAttack {
                 }
             case 5:
                 return ItemInit.incarnationOfTheSword;
-            case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+            case TileEntityFusionTable.BOARD_COLUMNS :
                 return ItemInit.incarnationOfTheBomb;
             case 7:
                 return ItemInit.incarnationOfTheKnife;
         }
         return ItemInit.starfireBlade;
     }
-
     public void func_70014_b(NBTTagCompound tag) {
         super.func_70014_b(tag);
         tag.func_74768_a("Crystals", this.crystalsGiven);
@@ -372,7 +346,6 @@ public class EntityGalaxySpire extends EntityMob implements IMaxAttack {
         tag.func_74768_a("GameStyle", this.gameStyle);
         tag.func_74757_a("EliteMode", this.elite_mode);
     }
-
     public void func_70037_a(NBTTagCompound tag) {
         super.func_70037_a(tag);
         this.crystalsGiven = tag.func_74762_e("Crystals");
@@ -381,19 +354,15 @@ public class EntityGalaxySpire extends EntityMob implements IMaxAttack {
         this.gameStyle = tag.func_74762_e("GameStyle");
         this.elite_mode = tag.func_74767_n("EliteMode");
     }
-
     protected boolean func_70692_ba() {
         return false;
     }
-
     protected SoundEvent func_184639_G() {
         return null;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return null;
     }
-
     protected SoundEvent func_184615_bR() {
         return null;
     }

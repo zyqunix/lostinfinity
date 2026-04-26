@@ -1,13 +1,10 @@
 package xol.lostinfinity.item.weapon;
-
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.nbt.NBTTagCompound;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.item.classify.ICooldown;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemCooldownSword.class */
 public class ItemCooldownSword extends ItemSword implements ICooldown {
     public ItemCooldownSword(String regName) {
         super(Item.ToolMaterial.DIAMOND);
@@ -15,7 +12,6 @@ public class ItemCooldownSword extends ItemSword implements ICooldown {
         func_77655_b(regName);
         ItemInit.ITEMS.add(this);
     }
-
     public boolean showDurabilityBar(ItemStack stack) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
@@ -25,15 +21,12 @@ public class ItemCooldownSword extends ItemSword implements ICooldown {
         long maxDelay = hasSimpleCooldown() ? getCooldown() : stack.func_77978_p().func_74762_e("ComplexCooldown");
         return System.currentTimeMillis() - lastUse <= maxDelay;
     }
-
     protected int getCooldown() {
         return 5000;
     }
-
     protected boolean hasSimpleCooldown() {
         return true;
     }
-
     public double getDurabilityForDisplay(ItemStack stack) {
         if (showDurabilityBar(stack)) {
             double result = System.currentTimeMillis() - stack.func_77978_p().func_74763_f("lastUse");

@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,13 +10,10 @@ import net.minecraft.world.World;
 import xol.lostinfinity.block.basic.BlockBasic;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.item.activate.ItemEncryptedPowerBlueprints;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockMainPowerTerminal.class */
 public class BlockMainPowerTerminal extends BlockBasic {
     public BlockMainPowerTerminal(String name) {
         super(name);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         ItemStack held = playerIn.func_184586_b(hand);
         if (held.func_77973_b() == ItemInit.wiredRing) {

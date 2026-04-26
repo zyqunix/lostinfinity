@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import java.util.Map;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -18,18 +17,14 @@ import xol.lostinfinity.init.PotionInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.item.tool.ItemSecurityPass;
 import xol.lostinfinity.util.coordinates.GalaxyCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockSecurityGate.class */
 public class BlockSecurityGate extends BlockBasic {
     private int securityLevel;
-
     public BlockSecurityGate(String name, int security) {
         super(name);
         this.securityLevel = 0;
         this.securityLevel = security;
         func_149715_a(1.0f);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!worldIn.field_72995_K) {
             Item heldItem = playerIn.func_184614_ca().func_77973_b();
@@ -53,7 +48,6 @@ public class BlockSecurityGate extends BlockBasic {
         }
         return true;
     }
-
     private boolean posNearAABB(BlockPos posGate, BlockPos check) {
         AxisAlignedBB aabb = new AxisAlignedBB(check).func_186662_g(2.0d);
         Vec3d vec = new Vec3d(posGate);

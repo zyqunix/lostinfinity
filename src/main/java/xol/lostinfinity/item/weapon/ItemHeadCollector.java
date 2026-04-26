@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import com.mojang.authlib.GameProfile;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -25,11 +24,8 @@ import xol.lostinfinity.gui.GuiHandler;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemHeadCollector.class */
 public class ItemHeadCollector extends ItemSword implements IMaxAttack {
     public static final int CHARGE_LIMIT = 10;
-
     public ItemHeadCollector(String regName) {
         super(Item.ToolMaterial.WOOD);
         func_77637_a(TabsInit.TAB_INFINITYWEP);
@@ -37,7 +33,6 @@ public class ItemHeadCollector extends ItemSword implements IMaxAttack {
         func_77655_b(regName);
         ItemInit.ITEMS.add(this);
     }
-
     public boolean func_77644_a(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         boolean player = target instanceof EntityPlayer;
         boolean shouldDropHead = stack.func_77942_o() && stack.func_77978_p().func_74762_e("Charge") > 0;
@@ -63,12 +58,10 @@ public class ItemHeadCollector extends ItemSword implements IMaxAttack {
         IMaxAttack.dealMaxHealth(attacker, target, 10);
         return true;
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         playerIn.openGui(lostinfinity.instance, GuiHandler.RegisteredGuis.ITEM_CHARGER.getId(), worldIn, 0, 0, 0);
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         if (!stack.func_77942_o()) {

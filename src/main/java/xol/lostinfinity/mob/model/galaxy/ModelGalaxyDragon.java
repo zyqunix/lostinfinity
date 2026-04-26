@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.model.galaxy;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
@@ -10,8 +9,6 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Rotations;
 import xol.lostinfinity.mob.entity.galaxy.EntityGalaxyDragon;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/galaxy/ModelGalaxyDragon.class */
 public class ModelGalaxyDragon extends ModelBase {
     private static final Rotations rotA = new Rotations(0.0f, 20.0f, 30.0f);
     private static final Rotations rotB = new Rotations(-55.0f, 0.0f, 90.0f);
@@ -79,7 +76,6 @@ public class ModelGalaxyDragon extends ModelBase {
     private final ModelRenderer Tail_1;
     private final ModelRenderer Tail_2;
     private final ModelRenderer Tail_3;
-
     public ModelGalaxyDragon() {
         this.field_78090_t = 128;
         this.field_78089_u = 128;
@@ -415,7 +411,6 @@ public class ModelGalaxyDragon extends ModelBase {
         setRotationAngle(this.Tail_3, 0.1745f, 0.0f, 0.0f);
         this.Tail_3.field_78804_l.add(new ModelBox(this.Tail_3, 15, 59, -3.0f, -3.0f, -0.6f, 6, 6, 10, -0.6f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         if (Minecraft.func_71410_x().field_71474_y.field_74320_O == 0 && Minecraft.func_71410_x().field_71439_g.func_184208_bv() == entity) {
             GlStateManager.func_179147_l();
@@ -427,7 +422,6 @@ public class ModelGalaxyDragon extends ModelBase {
         }
         this.Body.func_78785_a(f5);
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         EntityGalaxyDragon dragon = (EntityGalaxyDragon) entityIn;
         if (dragon.isActuallyOnGround()) {
@@ -465,7 +459,6 @@ public class ModelGalaxyDragon extends ModelBase {
         this.Tail_3.field_78796_g = ((float) MathHelper.func_151238_b(-15.0d, 15.0d, LMath.trig01(MathHelper.func_76126_a((ageInTicks - 10.0f) / 5.0f)))) * 0.017453292f;
         this.JawBottom.field_78795_f = ((float) MathHelper.func_151238_b(32.5d, 25.5d, LMath.trig01(MathHelper.func_76126_a((ageInTicks + 10.0f) / 7.0f)))) * 0.017453292f;
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;

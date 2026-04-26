@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.boss;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIWatchClosest;
@@ -23,23 +22,18 @@ import xol.lostinfinity.mob.entity.base.EntityMultipleLives;
 import xol.lostinfinity.projectile.entity.EntityWitherBomb;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/boss/EntityDeviantWither.class */
 public class EntityDeviantWither extends EntityMultipleLives implements IMaxAttack {
     private BlockPos move_towards;
-
     public EntityDeviantWither(World worldIn) {
         super(worldIn);
         this.move_towards = null;
         func_70105_a(5.0f, 7.5f);
         func_189654_d(true);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_184651_r() {
         this.field_70714_bg.func_75776_a(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0f));
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(15000.0d);
@@ -47,7 +41,6 @@ public class EntityDeviantWither extends EntityMultipleLives implements IMaxAtta
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.3d);
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         this.field_70143_R = -1.0f;
@@ -79,7 +72,6 @@ public class EntityDeviantWither extends EntityMultipleLives implements IMaxAtta
             }
         }
     }
-
     private void scanArenaProjectiles() {
         for (Entity proj : this.field_70170_p.func_72872_a(Entity.class, getArenaAABB())) {
             if ((proj instanceof EntityThrowable) || (proj instanceof EntityArrow) || (proj instanceof EntityFireball)) {
@@ -94,14 +86,12 @@ public class EntityDeviantWither extends EntityMultipleLives implements IMaxAtta
             }
         }
     }
-
     private void findNewMove() {
         AxisAlignedBB aabb = getArenaAABB();
         int length = ((int) Math.round(aabb.field_72336_d - aabb.field_72340_a)) - 6;
         int width = ((int) Math.round(aabb.field_72334_f - aabb.field_72339_c)) - 6;
         this.move_towards = new BlockPos(aabb.field_72340_a + 3.0d + ((double) this.field_70146_Z.nextInt(length)), aabb.field_72338_b + ((double) this.field_70146_Z.nextInt(getMaxFly())), aabb.field_72339_c + 3.0d + ((double) this.field_70146_Z.nextInt(width)));
     }
-
     private void releaseWitherlings() {
         int skullnum = 0;
         for (EntityWitherSkullling entityWitherSkullling : this.field_70170_p.func_72872_a(EntityWitherSkullling.class, getArenaAABB())) {
@@ -116,7 +106,6 @@ public class EntityDeviantWither extends EntityMultipleLives implements IMaxAtta
             }
         }
     }
-
     private void fireAttack(float velo) {
         boolean did_shot = false;
         for (EntityPlayer near_pl : this.field_70170_p.func_72872_a(EntityPlayer.class, getArenaAABB())) {
@@ -142,26 +131,21 @@ public class EntityDeviantWither extends EntityMultipleLives implements IMaxAtta
             func_184185_a(SoundEvents.field_187606_E, 2.0f, 0.5f + this.field_70146_Z.nextFloat());
         }
     }
-
     private AxisAlignedBB getArenaAABB() {
         return new AxisAlignedBB(new BlockPos(958.0d, 60.0d, 877.0d), new BlockPos(1012.0d, 82.0d, 924.0d));
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void updateLifeAction() {
         int lifePercent = Math.round((100 * (numberOfLives() - getLivesCount())) / numberOfLives());
         messagePlayers(TextFmt.Gold + "The Deviant Wither is at " + lifePercent + "% health.", null);
     }
-
     private static int getMaxFly() {
         return 15;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 40;
     }
-
     private int getTickOffset() {
         if (getLivesCount() < 15) {
             return 300;
@@ -171,7 +155,6 @@ public class EntityDeviantWither extends EntityMultipleLives implements IMaxAtta
         }
         return 100;
     }
-
     protected void messagePlayers(String message, SoundEvent sound) {
         for (EntityPlayer contender : this.field_70170_p.func_72872_a(EntityPlayer.class, getArenaAABB())) {
             contender.func_145747_a(new TextComponentString(message));
@@ -180,19 +163,15 @@ public class EntityDeviantWither extends EntityMultipleLives implements IMaxAtta
             }
         }
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundEvents.field_187849_gA;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundEvents.field_187851_gB;
     }
-
     protected SoundEvent func_184639_G() {
         return null;
     }
-
     protected ResourceLocation func_184647_J() {
         if (onFinalLife()) {
             return LootTableRegistry.ENTITIES_DEVIANT_WITHER;

@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.render;
-
 import java.util.ArrayList;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
@@ -15,12 +14,8 @@ import net.minecraft.util.math.Vec3d;
 import org.lwjgl.opengl.GL11;
 import xol.lostinfinity.block.tileentity.TileEntityLightEmitter;
 import xol.lostinfinity.init.BlockInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/render/RenderLightBeamEffect.class */
 public class RenderLightBeamEffect extends TileEntitySpecialRenderer<TileEntityLightEmitter> {
     public static final ResourceLocation TEXTURE_LIGHT_BEAM = new ResourceLocation("lostinfinity:textures/particles/light_beam.png");
-
-    /* JADX INFO: renamed from: render, reason: merged with bridge method [inline-methods] */
     public void func_192841_a(TileEntityLightEmitter te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
         Minecraft.func_71410_x().func_110434_K().func_110577_a(TEXTURE_LIGHT_BEAM);
         Vec3d playerPos = null;
@@ -153,8 +148,6 @@ public class RenderLightBeamEffect extends TileEntitySpecialRenderer<TileEntityL
             }
         }
     }
-
-    /* JADX INFO: renamed from: isGlobalRenderer, reason: merged with bridge method [inline-methods] */
     public boolean func_188185_a(TileEntityLightEmitter emitter) {
         return true;
     }

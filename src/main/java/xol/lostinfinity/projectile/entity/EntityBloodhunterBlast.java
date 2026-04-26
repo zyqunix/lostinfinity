@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumParticleTypes;
@@ -11,18 +10,14 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.init.DimensionInit;
 import xol.lostinfinity.mob.entity.contest.controller.EntityControllerHunters;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityBloodhunterBlast.class */
 public class EntityBloodhunterBlast extends EntityBaseThrowable {
     public EntityBloodhunterBlast(World par1World) {
         super(par1World);
     }
-
     public EntityBloodhunterBlast(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
         func_70105_a(1.0f, 1.0f);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -35,15 +30,12 @@ public class EntityBloodhunterBlast extends EntityBaseThrowable {
             func_70106_y();
         }
     }
-
     protected AxisAlignedBB getArenaAABB() {
         return new AxisAlignedBB(new BlockPos(0, 20, 160), new BlockPos(62, 42, 222));
     }
-
     protected float func_70185_h() {
         return 0.05f;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     @SideOnly(Side.CLIENT)
     public void func_70071_h_() {

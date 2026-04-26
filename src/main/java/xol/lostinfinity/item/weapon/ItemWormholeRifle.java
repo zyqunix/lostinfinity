@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -18,14 +17,11 @@ import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.basics.ItemChanneling;
 import xol.lostinfinity.item.classify.IModeSelect;
 import xol.lostinfinity.mob.entity.misc.EntityWormholePortal;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemWormholeRifle.class */
 public class ItemWormholeRifle extends ItemChanneling implements IModeSelect {
     public ItemWormholeRifle(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
     }
-
     @Override // xol.lostinfinity.item.classify.IModeSelect
     public void modeUpdate(ItemStack stack, EntityPlayer player) {
         int newType;
@@ -45,7 +41,6 @@ public class ItemWormholeRifle extends ItemChanneling implements IModeSelect {
             }
         }
     }
-
     @Override // xol.lostinfinity.item.basics.ItemChanneling
     public ActionResult<ItemStack> chargeStart(World worldIn, EntityPlayer player, EnumHand handIn, ItemStack stack) {
         if (!worldIn.field_72995_K) {
@@ -68,12 +63,10 @@ public class ItemWormholeRifle extends ItemChanneling implements IModeSelect {
         }
         return super.chargeStart(worldIn, player, handIn, stack);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemChanneling, xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 500;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Shoots rapid fire wormhole travelling bullets.");

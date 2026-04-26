@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -11,19 +10,15 @@ import net.minecraft.world.World;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityRainDrop.class */
 public class EntityRainDrop extends EntityBaseThrowable {
     public EntityRainDrop(World par1World) {
         super(par1World);
         func_70105_a(0.95f, 0.95f);
     }
-
     public EntityRainDrop(World par1World, double par2, double par4, double par6) {
         super(par1World, par2, par4, par6);
         func_70105_a(0.95f, 0.95f);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -44,7 +39,6 @@ public class EntityRainDrop extends EntityBaseThrowable {
             func_70106_y();
         }
     }
-
     protected float func_70185_h() {
         return 0.02f;
     }

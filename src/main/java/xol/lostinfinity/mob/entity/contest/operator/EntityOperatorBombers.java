@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.contest.operator;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -17,18 +16,14 @@ import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.mob.entity.contest.controller.EntityControllerBombers;
 import xol.lostinfinity.util.coordinates.ContestCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/contest/operator/EntityOperatorBombers.class */
 public class EntityOperatorBombers extends EntityOperatorBase {
     private List<BlockPos> spawnPositions;
     private List<BlockPos> powerupPositions;
-
     public EntityOperatorBombers(World worldIn) {
         super(worldIn);
         this.spawnPositions = new ArrayList();
         this.powerupPositions = new ArrayList();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected void startGame() {
         EntityControllerBombers gamehologram = new EntityControllerBombers(this.field_70170_p);
@@ -56,17 +51,14 @@ public class EntityOperatorBombers extends EntityOperatorBase {
         this.powerupPositions.clear();
         this.contenders.clear();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected AxisAlignedBB getArenaAABB() {
         return ContestCoordinates.bombersArenaAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected AxisAlignedBB getLobbyAABB() {
         return ContestCoordinates.bombersLobbyAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected void generateArena() {
         BlockPos arenaPos = ContestCoordinates.bombersArenaPos();

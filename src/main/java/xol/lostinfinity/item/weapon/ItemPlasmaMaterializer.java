@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -23,14 +22,11 @@ import xol.lostinfinity.util.data.CustomRayTraceResult;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.data.RayTraceBuilder;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemPlasmaMaterializer.class */
 public class ItemPlasmaMaterializer extends ItemChanneling implements IMaxAttack {
     public ItemPlasmaMaterializer(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_INFINITYWEP);
     }
-
     private ActionResult<ItemStack> onItemRightClick0(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         CustomRayTraceResult trace_result;
         ItemStack stack = playerIn.func_184586_b(handIn);
@@ -58,7 +54,6 @@ public class ItemPlasmaMaterializer extends ItemChanneling implements IMaxAttack
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemChanneling
     public ActionResult<ItemStack> chargeStart(World worldIn, EntityPlayer player, EnumHand handIn, ItemStack stack) {
         if (showDurabilityBar(stack) || worldIn.field_72995_K) {
@@ -77,7 +72,6 @@ public class ItemPlasmaMaterializer extends ItemChanneling implements IMaxAttack
         worldIn.func_184133_a((EntityPlayer) null, player.func_180425_c(), SoundInit.GENERIC_WEAPON_1, SoundCategory.MASTER, 2.0f, 1.0f);
         return new ActionResult<>(EnumActionResult.SUCCESS, stack);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemChanneling
     public void chargeTick(World worldIn, EntityPlayer player, EnumHand hand, ItemStack stack, int chargeTime) {
         CustomRayTraceResult trace;
@@ -90,7 +84,6 @@ public class ItemPlasmaMaterializer extends ItemChanneling implements IMaxAttack
         }
         explodeEntity.upExplScale();
     }
-
     @Override // xol.lostinfinity.item.basics.ItemChanneling
     public void chargeStop(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int chargeTime) {
         CustomRayTraceResult trace;
@@ -101,12 +94,10 @@ public class ItemPlasmaMaterializer extends ItemChanneling implements IMaxAttack
         explodeEntity.setBoom();
         startCooldown(stack);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemChanneling, xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 100;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Light_Purple + "Places a plasma charge.");

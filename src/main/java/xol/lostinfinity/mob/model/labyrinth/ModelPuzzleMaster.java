@@ -1,13 +1,10 @@
 package xol.lostinfinity.mob.model.labyrinth;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/labyrinth/ModelPuzzleMaster.class */
 public class ModelPuzzleMaster extends ModelBase {
     private final ModelRenderer Glass;
     private final ModelRenderer DefaultBody;
@@ -46,7 +43,6 @@ public class ModelPuzzleMaster extends ModelBase {
     private final ModelRenderer Shield6;
     private final ModelRenderer RightLeg3;
     private final ModelRenderer LeftLeg3;
-
     public ModelPuzzleMaster() {
         this.field_78090_t = 128;
         this.field_78089_u = 128;
@@ -243,7 +239,6 @@ public class ModelPuzzleMaster extends ModelBase {
         this.BodyCopy2.func_78792_a(this.LeftLeg3);
         this.LeftLeg3.field_78804_l.add(new ModelBox(this.LeftLeg3, 112, 85, -2.0f, 0.0f, -2.0f, 4, 21, 4, 0.0f, true));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.DefaultBody.func_78785_a(f5);
         GlStateManager.func_179147_l();
@@ -256,13 +251,11 @@ public class ModelPuzzleMaster extends ModelBase {
         this.Glass.func_78785_a(f5);
         GlStateManager.func_179084_k();
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.Head.field_78796_g = netHeadYaw * 0.017453292f;
         this.Head.field_78795_f = headPitch * 0.017453292f;

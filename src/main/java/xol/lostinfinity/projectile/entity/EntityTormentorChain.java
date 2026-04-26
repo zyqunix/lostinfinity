@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -17,8 +16,6 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityTormentorChain.class */
 public class EntityTormentorChain extends Entity implements IMaxAttack {
     private static final DataParameter<Float> TARGET_X = EntityDataManager.func_187226_a(EntityTormentorChain.class, DataSerializers.field_187193_c);
     private static final DataParameter<Float> TARGET_Y = EntityDataManager.func_187226_a(EntityTormentorChain.class, DataSerializers.field_187193_c);
@@ -29,14 +26,12 @@ public class EntityTormentorChain extends Entity implements IMaxAttack {
     private BlockPos spawnLocation;
     private float growth;
     private boolean playedPull;
-
     public Vec3d getTargetPos() {
         double x = ((Float) this.field_70180_af.func_187225_a(TARGET_X)).floatValue();
         double y = ((Float) this.field_70180_af.func_187225_a(TARGET_Y)).floatValue();
         double z = ((Float) this.field_70180_af.func_187225_a(TARGET_Z)).floatValue();
         return new Vec3d(x, y, z);
     }
-
     public void setTargetXYZ(Vec3d pos) {
         float xpos = (float) pos.field_72450_a;
         float ypos = (float) pos.field_72448_b;
@@ -45,11 +40,9 @@ public class EntityTormentorChain extends Entity implements IMaxAttack {
         this.field_70180_af.func_187227_b(TARGET_Y, Float.valueOf(ypos));
         this.field_70180_af.func_187227_b(TARGET_Z, Float.valueOf(zpos));
     }
-
     public EntityLivingBase getTarget() {
         return this.target;
     }
-
     public EntityTormentorChain(World worldIn) {
         super(worldIn);
         this.target = null;
@@ -59,11 +52,9 @@ public class EntityTormentorChain extends Entity implements IMaxAttack {
         this.growth = 0.0f;
         this.playedPull = false;
     }
-
     public void setRespawnPosition(BlockPos newSpawn) {
         this.spawnLocation = newSpawn;
     }
-
     public void func_70071_h_() {
         super.func_70071_h_();
         if (this.growth < 1.0f) {
@@ -139,31 +130,24 @@ public class EntityTormentorChain extends Entity implements IMaxAttack {
             this.field_70170_p.func_175688_a(ParticleInit.SNOW_BUBBLE, randX, randY, randZ, 0.0d, 0.0d, 0.0d, new int[0]);
         }
     }
-
     public Vec3d getStopPos() {
         return this.stopPos;
     }
-
     protected void func_70037_a(NBTTagCompound compound) {
     }
-
     protected void func_70014_b(NBTTagCompound compound) {
     }
-
     protected void func_70088_a() {
         this.field_70180_af.func_187214_a(TARGET_X, Float.valueOf(0.0f));
         this.field_70180_af.func_187214_a(TARGET_Y, Float.valueOf(0.0f));
         this.field_70180_af.func_187214_a(TARGET_Z, Float.valueOf(0.0f));
     }
-
     public void setOwner(EntityPlayer owner) {
         this.owner = owner;
     }
-
     public void setTarget(EntityLivingBase hit_entity) {
         this.target = hit_entity;
     }
-
     public float getGrowth() {
         return this.growth;
     }

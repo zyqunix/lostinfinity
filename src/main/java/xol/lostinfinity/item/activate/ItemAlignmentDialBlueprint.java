@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.activate;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -16,8 +15,6 @@ import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.dimension.util.WorldGenStructure;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/activate/ItemAlignmentDialBlueprint.class */
 public class ItemAlignmentDialBlueprint extends Item {
     public ItemAlignmentDialBlueprint(String regName) {
         setRegistryName(regName);
@@ -25,14 +22,12 @@ public class ItemAlignmentDialBlueprint extends Item {
         func_77637_a(TabsInit.TAB_AUXMATS);
         ItemInit.ITEMS.add(this);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (worldIn.field_73011_w.func_186058_p() == DimensionType.OVERWORLD && !worldIn.field_72995_K) {
             new WorldGenStructure("celestialmaze/alignment_dial").func_180709_b(worldIn, worldIn.field_73012_v, playerIn.func_180425_c().func_177963_a(-7.5d, -2.0d, -7.5d));
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Places an 15x15 alignment dial beneath you.");

@@ -1,11 +1,8 @@
 package xol.lostinfinity.dimension.data;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import java.util.Stack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/dimension/data/MazeMap.class */
 public class MazeMap {
     private MazeNode[][] map;
     private List<MazeNode> remaining_nodes = new ArrayList();
@@ -16,7 +13,6 @@ public class MazeMap {
     private static int triggerPercent = 4;
     private int numColumns;
     private int numRows;
-
     public MazeMap(int col, int row) {
         MazeNode mazeNode;
         this.map = new MazeNode[col][row];
@@ -41,7 +37,6 @@ public class MazeMap {
         }
         drawMap();
     }
-
     private void drawMap() {
         MazeNode startNode = getNodeAtLocation(startx, startz);
         int width = this.numColumns;
@@ -78,7 +73,6 @@ public class MazeMap {
             }
         }
     }
-
     public MazeNode getNodeAtLocation(int col, int row) {
         if (col < 0 || row < 0 || col >= this.numColumns || row >= this.numRows) {
             return null;

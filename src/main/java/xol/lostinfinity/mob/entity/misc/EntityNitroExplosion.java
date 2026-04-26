@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
@@ -10,18 +9,14 @@ import xol.lostinfinity.mob.entity.base.EntityParticleTrojan;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityNitroExplosion.class */
 public class EntityNitroExplosion extends EntityImmaterial implements IMaxAttack {
     private boolean hasExploded;
     private static final int range = 5;
     private int numBlocks;
     private EntityPlayer thrower;
-
     public void setThrower(EntityPlayer thrower) {
         this.thrower = thrower;
     }
-
     public EntityNitroExplosion(World worldIn) {
         super(worldIn);
         this.hasExploded = false;
@@ -32,11 +27,9 @@ public class EntityNitroExplosion extends EntityImmaterial implements IMaxAttack
         func_82142_c(true);
         func_189654_d(true);
     }
-
     public void setNumBlocks(int numBlocks) {
         this.numBlocks = numBlocks;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityImmaterial
     public void func_70636_d() {
         super.func_70636_d();
@@ -55,7 +48,6 @@ public class EntityNitroExplosion extends EntityImmaterial implements IMaxAttack
             }
         }
     }
-
     private void explosion() {
         this.hasExploded = true;
         for (EntityPlayer entityPlayer : this.field_70170_p.func_72872_a(EntityLivingBase.class, func_174813_aQ().func_72314_b(5.0d, 5.0d, 5.0d))) {

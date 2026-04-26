@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -29,15 +28,12 @@ import xol.lostinfinity.item.classify.ISwitchModels;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemBlackHole.class */
 public class ItemBlackHole extends ItemCooldown implements ISwitchModels, IModeSelect, IChargeItem, IMaxAttack, IMaxNullable {
     public ItemBlackHole(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_INFINITYWEP);
         setModelSwitch("usetype", this, 2);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (!showDurabilityBar(playerIn.func_184586_b(handIn))) {
             ItemStack stack = playerIn.func_184586_b(handIn);
@@ -56,12 +52,10 @@ public class ItemBlackHole extends ItemCooldown implements ISwitchModels, IModeS
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected boolean hasSimpleCooldown() {
         return false;
     }
-
     @Override // xol.lostinfinity.item.classify.IMaxNullable
     public float nullableReaction(EntityPlayer player, boolean isMainHand, float originalDamage, float newDamage, ItemStack stack) {
         float returnDamage = newDamage;
@@ -76,7 +70,6 @@ public class ItemBlackHole extends ItemCooldown implements ISwitchModels, IModeS
         }
         return returnDamage;
     }
-
     @Override // xol.lostinfinity.item.classify.IModeSelect
     public void modeUpdate(ItemStack stack, EntityPlayer player) {
         if (!stack.func_77942_o()) {
@@ -91,7 +84,6 @@ public class ItemBlackHole extends ItemCooldown implements ISwitchModels, IModeS
             }
         }
     }
-
     @Override // xol.lostinfinity.item.classify.IChargeItem
     public void endChargeEffect(ItemStack stack, EntityPlayer player) {
         if (!stack.func_77942_o()) {
@@ -124,7 +116,6 @@ public class ItemBlackHole extends ItemCooldown implements ISwitchModels, IModeS
         }
         stack.func_77978_p().func_74768_a("StoredDamage", 0);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Aqua + "When held and activated, grants a charging buff.");

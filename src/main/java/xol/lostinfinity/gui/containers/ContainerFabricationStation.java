@@ -1,5 +1,4 @@
 package xol.lostinfinity.gui.containers;
-
 import java.util.Arrays;
 import java.util.Optional;
 import net.minecraft.block.Block;
@@ -19,8 +18,6 @@ import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.recipes.Recipe;
 import xol.lostinfinity.recipes.RecipeHandler;
 import xol.lostinfinity.util.Reference;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/containers/ContainerFabricationStation.class */
 public class ContainerFabricationStation extends Container {
     private final Block fabStation;
     private final BlockPos blockPos;
@@ -33,14 +30,12 @@ public class ContainerFabricationStation extends Container {
             ContainerFabricationStation.this.func_75130_a(this);
         }
     };
-
     public boolean isValidInput(ItemStack itemStack) {
         Item[] validItems = {ItemInit.astralliumCondensed, ItemInit.crystoniumCondensed, ItemInit.detheriumCondensed, ItemInit.emberiumCondensed, ItemInit.incadiumCondensed, ItemInit.hextoriumCondensed, ItemInit.kylaxiumCondensed, ItemInit.noxeriumCondensed, ItemInit.olysiumCondensed, ItemInit.velloriumCondensed, ItemInit.xeroviumCondensed, ItemInit.phytrosiumCondensed, ItemInit.kyvoriumCondensed, ItemInit.biosynthiumCondensed};
         return Arrays.stream(validItems).anyMatch(it -> {
             return itemStack.func_77973_b().equals(it);
         });
     }
-
     public ContainerFabricationStation(InventoryPlayer player, final World worldIn, final BlockPos blockPosIn, Block fabStation) {
         this.fabStation = fabStation;
         this.blockPos = blockPosIn;
@@ -84,11 +79,9 @@ public class ContainerFabricationStation extends Container {
             public boolean func_75214_a(ItemStack stack) {
                 return false;
             }
-
             public boolean func_82869_a(EntityPlayer playerIn) {
                 return func_75216_d();
             }
-
             public ItemStack func_190901_a(EntityPlayer thePlayer, ItemStack stack) {
                 for (int i = 0; i <= 6; i++) {
                     ContainerFabricationStation.this.inputSlots.func_70301_a(i).func_190918_g(1);
@@ -113,14 +106,12 @@ public class ContainerFabricationStation extends Container {
             func_75146_a(new Slot(player, k, 8 + (k * 18), 142));
         }
     }
-
     public void func_75130_a(IInventory inventoryIn) {
         super.func_75130_a(inventoryIn);
         if (inventoryIn == this.inputSlots) {
             updateFabricatorOutput();
         }
     }
-
     public void updateFabricatorOutput() {
         ItemStack iteminput1 = this.inputSlots.func_70301_a(0).func_77946_l();
         ItemStack iteminput2 = this.inputSlots.func_70301_a(1).func_77946_l();
@@ -140,14 +131,12 @@ public class ContainerFabricationStation extends Container {
             func_75142_b();
         }
     }
-
     public void func_75134_a(EntityPlayer playerIn) {
         super.func_75134_a(playerIn);
         if (!this.world.field_72995_K) {
             func_193327_a(playerIn, this.world, this.inputSlots);
         }
     }
-
     public boolean func_75145_c(EntityPlayer playerIn) {
         if (!this.world.func_180495_p(this.blockPos).func_177230_c().equals(this.fabStation)) {
             return false;
@@ -163,7 +152,6 @@ public class ContainerFabricationStation extends Container {
         }
         return poweredCount == 4 && playerIn.func_70092_e(((double) this.blockPos.func_177958_n()) + 0.5d, ((double) this.blockPos.func_177956_o()) + 0.5d, ((double) this.blockPos.func_177952_p()) + 0.5d) <= 64.0d;
     }
-
     public ItemStack func_82846_b(EntityPlayer playerIn, int index) {
         ItemStack itemstack = ItemStack.field_190927_a;
         Slot slot = (Slot) this.field_75151_b.get(index);
@@ -194,18 +182,13 @@ public class ContainerFabricationStation extends Container {
         }
         return itemstack;
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/containers/ContainerFabricationStation$FabricationStatus.class */
     public enum FabricationStatus {
         AWAITING_INPUT("Awaiting valid fabrication configuration..."),
         VALID("Valid modularisation configuration detected, proceed.");
-
         final String descriptor;
-
         FabricationStatus(String descriptor) {
             this.descriptor = descriptor;
         }
-
         public int getColor() {
             switch (this) {
                 case AWAITING_INPUT:

@@ -1,13 +1,10 @@
 package xol.lostinfinity.mob.entity.minion.old_andromeda;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import xol.lostinfinity.mob.entity.minion.EntityMinion;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/minion/old_andromeda/OldAndromedaSegment.class */
 public class OldAndromedaSegment extends EntityMinion {
     protected final OldAndromedaController controller;
     protected final OldAndromedaSegment parentSegment;
@@ -20,7 +17,6 @@ public class OldAndromedaSegment extends EntityMinion {
     protected float originDistance;
     protected float segmentMaxPitch;
     protected float segmentMaxYaw;
-
     public OldAndromedaSegment(World worldIn, OldAndromedaController controller, OldAndromedaSegment parentSegment) {
         super(worldIn);
         this.size = 1;
@@ -36,7 +32,6 @@ public class OldAndromedaSegment extends EntityMinion {
         this.segmentMaxPitch = 60.0f;
         this.segmentMaxYaw = 60.0f;
     }
-
     protected void updatePosition() {
         if (this.parentSegment == null || this.parentSegment.field_70128_L) {
             return;
@@ -56,11 +51,9 @@ public class OldAndromedaSegment extends EntityMinion {
         Vec3d dir2 = Vec3d.func_189986_a(pitch2, yaw2).func_186678_a(-this.originDistance);
         func_70080_a(parentPos.field_72450_a + dir2.field_72450_a, parentPos.field_72448_b + dir2.field_72448_b, parentPos.field_72449_c + dir2.field_72449_c, yaw2, pitch2);
     }
-
     protected Vec3d getSocketPosition() {
         return func_174791_d().func_178787_e(func_70040_Z().func_186678_a(-this.socketOffset));
     }
-
     public void func_70080_a(double x, double y, double z, float yaw, float pitch) {
         this.field_70169_q = this.field_70165_t;
         this.field_70167_r = this.field_70163_u;
@@ -82,39 +75,31 @@ public class OldAndromedaSegment extends EntityMinion {
         func_70107_b(this.field_70165_t, this.field_70163_u, this.field_70161_v);
         func_70101_b(yaw, pitch);
     }
-
     public float func_70047_e() {
         return this.field_70131_O / 2.0f;
     }
-
     public void setSize(int size) {
         this.size = size;
         func_70105_a(this.dWidth * size, this.dHeight * size);
         this.socketOffset = this.dSocketOffset * size;
         this.originDistance = this.dOriginDistance * size;
     }
-
     public float func_70603_bj() {
         return this.size;
     }
-
     @Override // xol.lostinfinity.mob.entity.minion.EntityMinion, xol.lostinfinity.mob.entity.base.EntityImmaterial
     public void func_70636_d() {
     }
-
     @Override // xol.lostinfinity.mob.entity.minion.EntityMinion
     public boolean shouldRender() {
         return this.controller == null || this.controller.isActive() || this.controller.func_70902_q() != Minecraft.func_71410_x().field_71439_g || Minecraft.func_71410_x().field_71474_y.field_74320_O != 0;
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/minion/old_andromeda/OldAndromedaSegment$Head.class */
     public static class Head extends OldAndromedaSegment {
         public Head(World worldIn, OldAndromedaController controller) {
             super(worldIn, controller, null);
             this.dSocketOffset = 0.4375f;
             this.dOriginDistance = 0.4375f;
         }
-
         @Override // xol.lostinfinity.mob.entity.minion.old_andromeda.OldAndromedaSegment
         protected void updatePosition() {
             Vec3d parentPos = this.controller.func_174791_d();
@@ -126,8 +111,6 @@ public class OldAndromedaSegment extends EntityMinion {
             func_70080_a(parentPos.field_72450_a + dir2.field_72450_a, parentPos.field_72448_b + dir2.field_72448_b, parentPos.field_72449_c + dir2.field_72449_c, yaw, pitch);
         }
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/minion/old_andromeda/OldAndromedaSegment$Tail.class */
     public static class Tail extends OldAndromedaSegment {
         public Tail(World worldIn, OldAndromedaController controller, OldAndromedaSegment parentSegment) {
             super(worldIn, controller, parentSegment);

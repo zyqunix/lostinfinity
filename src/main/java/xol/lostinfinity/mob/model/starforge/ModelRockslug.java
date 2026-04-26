@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.model.starforge;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -11,8 +10,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import xol.lostinfinity.mob.entity.starforge.EntityGiantRockslug;
 import xol.lostinfinity.mob.entity.starforge.EntityRockslug;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/starforge/ModelRockslug.class */
 public class ModelRockslug extends ModelBase {
     private final ModelRenderer Body;
     private final ModelRenderer faceTendril1;
@@ -26,7 +23,6 @@ public class ModelRockslug extends ModelBase {
     private final ModelRenderer chargers;
     private final ModelRenderer Crystal;
     private List<ModelRenderer> tendrils = new ArrayList();
-
     public ModelRockslug() {
         this.field_78090_t = 64;
         this.field_78089_u = 64;
@@ -93,7 +89,6 @@ public class ModelRockslug extends ModelBase {
         this.tendrils.add(this.faceTendril8);
         Collections.shuffle(this.tendrils);
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.Body.func_78785_a(f5);
         GlStateManager.func_179147_l();
@@ -102,13 +97,11 @@ public class ModelRockslug extends ModelBase {
         this.Crystal.func_78785_a(f5);
         GlStateManager.func_179084_k();
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         float dist;
         for (int i = 0; i < this.tendrils.size(); i++) {

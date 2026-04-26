@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.misc;
-
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
@@ -26,8 +25,6 @@ import xol.lostinfinity.gui.GuiHandler;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.classify.IHeldTick;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/misc/ItemPortableBeacon.class */
 public class ItemPortableBeacon extends Item implements IHeldTick {
     public Collection<PotionEffect> getPotionEffects(ItemStack stack) {
         Collection<PotionEffect> potionEffects = new ArrayList<>();
@@ -43,7 +40,6 @@ public class ItemPortableBeacon extends Item implements IHeldTick {
         }
         return potionEffects;
     }
-
     @Override // xol.lostinfinity.item.classify.IHeldTick
     public void heldTick(EntityPlayer player, EnumHand hand, ItemStack stack) {
         if (!player.field_70170_p.field_72995_K && hand == EnumHand.OFF_HAND && player.field_70173_aa % 40 == 0) {
@@ -60,7 +56,6 @@ public class ItemPortableBeacon extends Item implements IHeldTick {
             }
         }
     }
-
     public void updatePotionEffects(ItemStack input, ItemStack beacon, PotionEffect effect, boolean remove) {
         if (!beacon.func_77942_o()) {
             beacon.func_77982_d(new NBTTagCompound());
@@ -79,7 +74,6 @@ public class ItemPortableBeacon extends Item implements IHeldTick {
         }
         beacon.func_77978_p().func_74782_a("PotionEffects", tagList);
     }
-
     public void clearEffects(ItemStack stack) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
@@ -87,7 +81,6 @@ public class ItemPortableBeacon extends Item implements IHeldTick {
         }
         stack.func_77978_p().func_82580_o("PotionEffects");
     }
-
     public int getLimit(ItemStack stack) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
@@ -97,28 +90,24 @@ public class ItemPortableBeacon extends Item implements IHeldTick {
         }
         return stack.func_77978_p().func_74762_e("Capacity");
     }
-
     public void setNewLimit(ItemStack stack, int newLimit) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
         }
         stack.func_77978_p().func_74768_a("Capacity", newLimit);
     }
-
     public ItemPortableBeacon(String regName) {
         func_77637_a(TabsInit.TAB_INFINITYWEP);
         setRegistryName(regName);
         func_77655_b(regName);
         ItemInit.ITEMS.add(this);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (playerIn.func_184614_ca().func_77973_b().equals(ItemInit.portableBeacon)) {
             playerIn.openGui(lostinfinity.instance, GuiHandler.RegisteredGuis.PORTABLE_BEACON.getId(), worldIn, 0, 0, 0);
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "A portable beacon.");

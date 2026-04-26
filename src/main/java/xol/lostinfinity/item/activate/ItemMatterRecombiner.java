@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.activate;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import net.minecraft.entity.player.EntityPlayer;
@@ -20,15 +19,12 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.basics.ItemBasic;
 import xol.lostinfinity.item.classify.ISwitchModels;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/activate/ItemMatterRecombiner.class */
 public class ItemMatterRecombiner extends ItemBasic implements ISwitchModels {
     public ItemMatterRecombiner(String regName) {
         super(regName, TabsInit.TAB_AUXMATS);
         func_77625_d(1);
         setModelSwitch("separation", this, 2);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (worldIn.field_73011_w.func_186058_p() == DimensionInit.infiniteMurk) {
             ItemStack stack = playerIn.func_184586_b(handIn);

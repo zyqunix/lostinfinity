@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.starforge;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -12,14 +11,11 @@ import xol.lostinfinity.mob.ai.EntityAIFloatAttack;
 import xol.lostinfinity.mob.entity.base.EntityFloatingTameable;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/starforge/EntityTentaclon.class */
 public class EntityTentaclon extends EntityFloatingTameable implements IMaxAttack {
     public EntityTentaclon(World worldIn) {
         super(worldIn);
         func_70105_a(3.0f, 3.0f);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -28,7 +24,6 @@ public class EntityTentaclon extends EntityFloatingTameable implements IMaxAttac
         }
         return false;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     public void func_70636_d() {
         super.func_70636_d();
@@ -46,7 +41,6 @@ public class EntityTentaclon extends EntityFloatingTameable implements IMaxAttac
             }
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     public void func_110147_ax() {
         super.func_110147_ax();
@@ -55,31 +49,25 @@ public class EntityTentaclon extends EntityFloatingTameable implements IMaxAttac
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.25d);
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.TENTACLON_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.TENTACLON_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundInit.TENTACLON_AMBIENT;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return isTamed() ? 8 : 20;
     }
-
     protected ResourceLocation func_184647_J() {
         if (isTamed()) {
             return null;
         }
         return LootTableRegistry.ENTITIES_TENTACLON;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingTameable, xol.lostinfinity.mob.entity.base.EntityFloatingBase
     protected EntityAIFloatAttack createShootAI() {
         return null;

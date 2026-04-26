@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.cthulhu;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -9,13 +8,10 @@ import net.minecraft.world.World;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.mob.entity.cthulhu.EntityCthulhu;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/cthulhu/ItemCthulhuSwordOfPeace.class */
 public class ItemCthulhuSwordOfPeace extends AbstractCthulhuSword {
     public ItemCthulhuSwordOfPeace(String regName) {
         super(regName);
     }
-
     public boolean onEntitySwing(EntityLivingBase entityLiving, ItemStack stack) {
         if (entityLiving instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) entityLiving;
@@ -23,7 +19,6 @@ public class ItemCthulhuSwordOfPeace extends AbstractCthulhuSword {
         }
         return super.onEntitySwing(entityLiving, stack);
     }
-
     private static void checkHittingBarrier(EntityPlayer entityPlayer) {
         World world = entityPlayer.field_70170_p;
         if (entityPlayer.func_184586_b(EnumHand.MAIN_HAND).func_77973_b().equals(ItemInit.cthulhuSwordPeace) && world.field_72995_K && isHittingBarrier(entityPlayer)) {

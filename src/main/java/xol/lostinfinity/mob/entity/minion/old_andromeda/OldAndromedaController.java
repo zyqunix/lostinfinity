@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.minion.old_andromeda;
-
 import java.util.Collections;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -21,8 +20,6 @@ import xol.lostinfinity.util.data.CustomDamageResult;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.math.BezierCurve;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/minion/old_andromeda/OldAndromedaController.class */
 public class OldAndromedaController extends EntityMinion implements ILostMultiPart, IKnockbackImmunity {
     private static final List<String> DAMAGE_TYPE = Collections.singletonList("Aquatic");
     private static final int CYCLE_TICK = 100;
@@ -38,7 +35,6 @@ public class OldAndromedaController extends EntityMinion implements ILostMultiPa
     private BezierCurve.Node chargeStartNode;
     private BezierCurve.Node chargeEndNode;
     private BezierCurve.Node chargeRandomNode;
-
     public OldAndromedaController(World worldIn) {
         super(worldIn);
         this.segments = new OldAndromedaSegment[10];
@@ -63,7 +59,6 @@ public class OldAndromedaController extends EntityMinion implements ILostMultiPa
             oldAndromedaSegment.setSize(15);
         }
     }
-
     public void func_70071_h_() {
         super.func_70071_h_();
         for (Entity entity : this.segments) {
@@ -71,7 +66,6 @@ public class OldAndromedaController extends EntityMinion implements ILostMultiPa
             entity.updatePosition();
         }
     }
-
     protected void func_82167_n(Entity entityIn) {
         if (!this.field_70170_p.field_72995_K && isActive() && validateTarget(entityIn)) {
             double dX = entityIn.field_70159_w;
@@ -87,7 +81,6 @@ public class OldAndromedaController extends EntityMinion implements ILostMultiPa
             }
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.minion.EntityMinion
     public void func_70106_y() {
         super.func_70106_y();
@@ -95,12 +88,10 @@ public class OldAndromedaController extends EntityMinion implements ILostMultiPa
             this.field_70170_p.func_72973_f(entity);
         }
     }
-
     @Nullable
     public Entity[] func_70021_al() {
         return this.segments;
     }
-
     @Override // xol.lostinfinity.mob.entity.minion.EntityMinion
     protected void livingUpdate() {
         EntityPlayer owner = func_70902_q();
@@ -145,12 +136,8 @@ public class OldAndromedaController extends EntityMinion implements ILostMultiPa
             updatePosition();
         }
     }
-
-    /* JADX INFO: renamed from: xol.lostinfinity.mob.entity.minion.old_andromeda.OldAndromedaController$1, reason: invalid class name */
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/minion/old_andromeda/OldAndromedaController$1.class */
-    static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] $SwitchMap$xol$lostinfinity$mob$entity$minion$old_andromeda$OldAndromedaController$Attack = new int[Attack.values().length];
-
+    static  class AnonymousClass1 {
+        static final  int[] $SwitchMap$xol$lostinfinity$mob$entity$minion$old_andromeda$OldAndromedaController$Attack = new int[Attack.values().length];
         static {
             try {
                 $SwitchMap$xol$lostinfinity$mob$entity$minion$old_andromeda$OldAndromedaController$Attack[Attack.IDLE.ordinal()] = 1;
@@ -170,7 +157,6 @@ public class OldAndromedaController extends EntityMinion implements ILostMultiPa
             }
         }
     }
-
     protected void transitionTick() {
         switch (AnonymousClass1.$SwitchMap$xol$lostinfinity$mob$entity$minion$old_andromeda$OldAndromedaController$Attack[this.nextAttack.ordinal()]) {
             case 1:
@@ -194,7 +180,7 @@ public class OldAndromedaController extends EntityMinion implements ILostMultiPa
                 Vec3d location2 = LMath.lerp(func_174791_d(), targetPosition2, 1.0f / (PHASE_CHANGE_TICK - this.attackTransitionTick));
                 func_70107_b(location2.field_72450_a, location2.field_72448_b, location2.field_72449_c);
                 break;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 float x3 = MathHelper.func_76126_a(this.field_70173_aa * 0.15f) * (this.target.field_70130_N + 5.0f);
                 float y3 = MathHelper.func_76126_a(this.field_70173_aa * 0.5f);
                 float z3 = MathHelper.func_76134_b(this.field_70173_aa * 0.15f) * (this.target.field_70130_N + 5.0f);
@@ -204,7 +190,6 @@ public class OldAndromedaController extends EntityMinion implements ILostMultiPa
                 break;
         }
     }
-
     protected void attackTick() {
         switch (AnonymousClass1.$SwitchMap$xol$lostinfinity$mob$entity$minion$old_andromeda$OldAndromedaController$Attack[this.attack.ordinal()]) {
             case 2:
@@ -262,7 +247,7 @@ public class OldAndromedaController extends EntityMinion implements ILostMultiPa
                 chaser.field_70179_y = dir.field_72449_c;
                 this.field_70170_p.func_72838_d(chaser);
                 break;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 float x2 = MathHelper.func_76126_a(this.field_70173_aa * 0.15f) * (this.target.field_70130_N + 5.0f);
                 float y2 = MathHelper.func_76126_a(this.field_70173_aa * 0.5f);
                 float z2 = MathHelper.func_76134_b(this.field_70173_aa * 0.15f) * (this.target.field_70130_N + 5.0f);
@@ -271,28 +256,23 @@ public class OldAndromedaController extends EntityMinion implements ILostMultiPa
                 break;
         }
     }
-
     protected void resetCharge() {
         this.chargeStartNode = null;
         this.chargeEndNode = null;
         this.chargeRandomNode = null;
         this.chargeCooldown = 0;
     }
-
     @Override // xol.lostinfinity.mob.entity.classify.IKnockbackImmunity
     public float getKnockbackResistance(CustomDamageResult damageResult) {
         return 1.0f;
     }
-
     @Override // xol.lostinfinity.mob.entity.classify.ILostMultiPart
     public boolean attackEntityFromPart(EntityLivingBase part, DamageSource source, float damage) {
         return false;
     }
-
     public World func_82194_d() {
         return this.field_70170_p;
     }
-
     private void updatePosition() {
         float x = MathHelper.func_76126_a(this.field_70173_aa * 0.05f) * 5.0f;
         float y = MathHelper.func_76126_a(this.field_70173_aa * 0.05f) * 0.5f;
@@ -301,7 +281,6 @@ public class OldAndromedaController extends EntityMinion implements ILostMultiPa
         this.field_70759_as = 0.0f;
         this.field_70761_aq = 0.0f;
     }
-
     private void findClosestTarget() {
         List<EntityLivingBase> targets = this.field_70170_p.func_175647_a(EntityLivingBase.class, this.owner.func_174813_aQ().func_186662_g(24.0d), (v1) -> {
             return validateTarget(v1);
@@ -316,14 +295,11 @@ public class OldAndromedaController extends EntityMinion implements ILostMultiPa
             }
         }
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/minion/old_andromeda/OldAndromedaController$Attack.class */
     public enum Attack {
         IDLE,
         CHARGE,
         TRACER,
         BEAM;
-
         public static Attack nextAttack(Attack attack) {
             int i = attack.ordinal();
             Attack a = values()[(i + 1) % values().length];

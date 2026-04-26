@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.contest.operator;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -13,16 +12,12 @@ import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.mob.entity.contest.controller.EntityControllerInkBattle;
 import xol.lostinfinity.util.coordinates.ContestCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/contest/operator/EntityOperatorInkBattle.class */
 public class EntityOperatorInkBattle extends EntityOperatorBase {
     private List<BlockPos> spawnPositions;
-
     public EntityOperatorInkBattle(World worldIn) {
         super(worldIn);
         this.spawnPositions = new ArrayList();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected void startGame() {
         this.spawnPositions = ContestCoordinates.inkBattleSpawnPositions();
@@ -62,12 +57,10 @@ public class EntityOperatorInkBattle extends EntityOperatorBase {
         this.spawnPositions.clear();
         this.contenders.clear();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected AxisAlignedBB getArenaAABB() {
         return ContestCoordinates.inkBattleArenaAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected AxisAlignedBB getLobbyAABB() {
         return ContestCoordinates.inkBattleLobbyAABB();

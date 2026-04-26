@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import com.google.common.base.Optional;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,8 +15,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.mob.entity.base.EntityImmaterial;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityGhostCopy.class */
 public class EntityGhostCopy extends EntityImmaterial {
     protected static final DataParameter<Optional<UUID>> COPIED_ID = EntityDataManager.func_187226_a(EntityGhostCopy.class, DataSerializers.field_187203_m);
     private float ghostScale;
@@ -25,7 +22,6 @@ public class EntityGhostCopy extends EntityImmaterial {
     private float ghostColor;
     private List<Float> ghostAngles;
     private List<Integer> movementAdjustments;
-
     public EntityGhostCopy(World worldIn) {
         super(worldIn);
         this.ghostScale = 1.0f;
@@ -41,27 +37,21 @@ public class EntityGhostCopy extends EntityImmaterial {
         }
         this.ghostColor = 0.25f + (0.5f * this.field_70146_Z.nextFloat());
     }
-
     public float getGhostScale() {
         return this.ghostScale;
     }
-
     public float getGhostAngle(int index) {
         return this.ghostAngles.get(index).floatValue();
     }
-
     public int getMoveAdjustment(int index) {
         return this.movementAdjustments.get(index).intValue();
     }
-
     public float getGhostAlpha() {
         return this.ghostAlpha;
     }
-
     public float getGhostColor() {
         return this.ghostColor;
     }
-
     @SideOnly(Side.CLIENT)
     public ResourceLocation getSkinForMyCopy() {
         AbstractClientPlayer copiedPlayer = getCopiedPlayer();
@@ -71,23 +61,19 @@ public class EntityGhostCopy extends EntityImmaterial {
         }
         return null;
     }
-
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(COPIED_ID, Optional.absent());
     }
-
     public void setCopiedPlay(EntityPlayer player) {
         this.field_70180_af.func_187227_b(COPIED_ID, Optional.fromNullable(player.func_110124_au()));
     }
-
     private EntityPlayer getCopiedPlayer() {
         if (((Optional) this.field_70180_af.func_187225_a(COPIED_ID)).orNull() != null) {
             return this.field_70170_p.func_152378_a((UUID) ((Optional) this.field_70180_af.func_187225_a(COPIED_ID)).get());
         }
         return null;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityImmaterial
     public void func_70636_d() {
         super.func_70636_d();
@@ -103,7 +89,6 @@ public class EntityGhostCopy extends EntityImmaterial {
             }
         }
     }
-
     protected void func_82167_n(Entity entityIn) {
     }
 }

@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.tileentity.render;
-
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -10,12 +9,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import xol.lostinfinity.block.tileentity.TileEntityEternalBeacon;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/tileentity/render/RenderEternalBeacon.class */
 public class RenderEternalBeacon extends TileEntitySpecialRenderer<TileEntityEternalBeacon> {
     private static final ResourceLocation TEXTURE = new ResourceLocation("lostinfinity:textures/particles/eternal_beacon_beam.png");
-
-    /* JADX INFO: renamed from: render, reason: merged with bridge method [inline-methods] */
     public void func_192841_a(TileEntityEternalBeacon te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
         if (te.getTickRemaining() <= 0) {
             return;
@@ -61,12 +56,9 @@ public class RenderEternalBeacon extends TileEntitySpecialRenderer<TileEntityEte
         GlStateManager.func_179089_o();
         GlStateManager.func_179084_k();
     }
-
-    /* JADX INFO: renamed from: isGlobalRenderer, reason: merged with bridge method [inline-methods] */
     public boolean func_188185_a(TileEntityEternalBeacon te) {
         return true;
     }
-
     private void enableMaxLighting() {
         GlStateManager.func_179140_f();
         OpenGlHelper.func_77475_a(OpenGlHelper.field_77476_b, 240.0f, 240.0f);

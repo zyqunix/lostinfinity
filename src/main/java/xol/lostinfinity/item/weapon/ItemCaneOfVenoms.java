@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -27,11 +26,8 @@ import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.CustomRayTraceResult;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemCaneOfVenoms.class */
 public class ItemCaneOfVenoms extends ItemCooldownSword implements IMaxAttack, ICustomRaytrace, IModeSelect {
     private static final String MODE = "bane_mode";
-
     public ItemCaneOfVenoms(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
@@ -39,7 +35,6 @@ public class ItemCaneOfVenoms extends ItemCooldownSword implements IMaxAttack, I
             return isBaneMode(stack) ? 1.0f : 0.0f;
         });
     }
-
     public boolean func_77644_a(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         int potion_count;
         if (isBaneMode(stack) && (potion_count = target.func_70651_bq().size()) > 0) {
@@ -48,11 +43,9 @@ public class ItemCaneOfVenoms extends ItemCooldownSword implements IMaxAttack, I
         }
         return true;
     }
-
     public String func_77667_c(ItemStack stack) {
         return isBaneMode(stack) ? "item.bane_of_venoms" : "item.cane_of_venoms";
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         CustomRayTraceResult trace_result;
         ItemStack stack = playerIn.func_184586_b(handIn);
@@ -75,12 +68,10 @@ public class ItemCaneOfVenoms extends ItemCooldownSword implements IMaxAttack, I
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @Override // xol.lostinfinity.item.weapon.ItemCooldownSword
     protected int getCooldown() {
         return 100;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         if (isBaneMode(stack)) {
@@ -93,18 +84,15 @@ public class ItemCaneOfVenoms extends ItemCooldownSword implements IMaxAttack, I
         }
         tooltip.add(TextFmt.Green + "Shift Right-Click: Swap between Cane & Bane");
     }
-
     private void toggleBaneMode(ItemStack stack) {
         setBaneMode(stack, !isBaneMode(stack));
     }
-
     private void setBaneMode(ItemStack stack, boolean flag) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
         }
         stack.func_77978_p().func_74757_a(MODE, flag);
     }
-
     private boolean isBaneMode(ItemStack stack) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
@@ -113,7 +101,6 @@ public class ItemCaneOfVenoms extends ItemCooldownSword implements IMaxAttack, I
         }
         return stack.func_77978_p().func_74767_n(MODE);
     }
-
     @Override // xol.lostinfinity.item.classify.IModeSelect
     public void modeUpdate(ItemStack stack, EntityPlayer player) {
         toggleBaneMode(stack);

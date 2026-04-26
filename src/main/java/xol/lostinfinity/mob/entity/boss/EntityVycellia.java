@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.boss;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -32,60 +31,48 @@ import xol.lostinfinity.stone.EntityInfinityStone;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/boss/EntityVycellia.class */
 public class EntityVycellia extends EntityMultipleLives implements IMaxAttack {
     private static final DataParameter<Boolean> EASY_FORM = EntityDataManager.func_187226_a(EntityVycellia.class, DataSerializers.field_187198_h);
     private static final DataParameter<Integer> SUBSTAGE = EntityDataManager.func_187226_a(EntityVycellia.class, DataSerializers.field_187192_b);
     private float secondFormScale;
-
     public EntityVycellia(World worldIn) {
         super(worldIn);
         this.secondFormScale = 0.0f;
         func_70105_a(3.5f, 4.5f);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(EASY_FORM, true);
         this.field_70180_af.func_187214_a(SUBSTAGE, 0);
     }
-
     public boolean isEasy() {
         return ((Boolean) this.field_70180_af.func_187225_a(EASY_FORM)).booleanValue();
     }
-
     public void setEasy(boolean f) {
         this.field_70180_af.func_187227_b(EASY_FORM, Boolean.valueOf(f));
     }
-
     public int getSubstage() {
         return ((Integer) this.field_70180_af.func_187225_a(SUBSTAGE)).intValue();
     }
-
     public void setSubstage(int f) {
         this.field_70180_af.func_187227_b(SUBSTAGE, Integer.valueOf(f));
     }
-
     public float getFormScale() {
         return this.secondFormScale;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void func_70014_b(NBTTagCompound tag) {
         super.func_70014_b(tag);
         tag.func_74757_a("EasyForm", isEasy());
         tag.func_74768_a("Substage", getSubstage());
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void func_70037_a(NBTTagCompound tag) {
         super.func_70037_a(tag);
         setEasy(tag.func_74767_n("EasyForm"));
         setSubstage(tag.func_74762_e("Substage"));
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(1.0d);
@@ -93,7 +80,6 @@ public class EntityVycellia extends EntityMultipleLives implements IMaxAttack {
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(5000.0d);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -102,11 +88,9 @@ public class EntityVycellia extends EntityMultipleLives implements IMaxAttack {
         }
         return false;
     }
-
     private AxisAlignedBB getArenaAABB() {
         return new AxisAlignedBB(new BlockPos(-3.0d, 60.0d, -149.0d), new BlockPos(52.0d, 85.0d, -36.0d));
     }
-
     private void fireBlast(float speed) {
         boolean fired = false;
         for (EntityPlayer near_pl : this.field_70170_p.func_72872_a(EntityPlayer.class, getArenaAABB())) {
@@ -130,18 +114,15 @@ public class EntityVycellia extends EntityMultipleLives implements IMaxAttack {
             soundPlayers(SoundInit.MAGIC_WEAPON_6);
         }
     }
-
     private void fireGloom(float speed, float ydir) {
         EntityGloomSpell shot = new EntityGloomSpell(this.field_70170_p, this);
         shot.func_70186_c(randomVeloDouble(), ydir, randomVeloDouble(), speed, 0.0f);
         this.field_70170_p.func_72838_d(shot);
         soundPlayers(SoundInit.MAGIC_WEAPON_8);
     }
-
     private double randomVeloDouble() {
         return this.field_70146_Z.nextDouble() - 0.5d;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         this.field_70143_R = -1.0f;
@@ -238,7 +219,6 @@ public class EntityVycellia extends EntityMultipleLives implements IMaxAttack {
             }
         }
     }
-
     private void spawnSpiders(boolean cave, boolean sound) {
         if (spiderCount() < 15) {
             int repeats = 2 + this.field_70146_Z.nextInt(3);
@@ -259,7 +239,6 @@ public class EntityVycellia extends EntityMultipleLives implements IMaxAttack {
             messagePlayers(TextFmt.Dark_Aqua + "Vycellia: While my spiders live, I cannot die!");
         }
     }
-
     private int spiderCount() {
         int count = 0;
         for (EntityLivingBase entity : this.field_70170_p.func_72872_a(EntityLivingBase.class, getArenaAABB())) {
@@ -269,13 +248,11 @@ public class EntityVycellia extends EntityMultipleLives implements IMaxAttack {
         }
         return count;
     }
-
     private void immunityCheck() {
         if (spiderCount() > 0) {
             func_70690_d(new PotionEffect(PotionInit.PROTECTED, 11));
         }
     }
-
     private void popSpider() {
         for (EntityLivingBase entity : this.field_70170_p.func_72872_a(EntityLivingBase.class, getArenaAABB())) {
             if (entity instanceof EntitySpider) {
@@ -288,42 +265,34 @@ public class EntityVycellia extends EntityMultipleLives implements IMaxAttack {
             }
         }
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundEvents.field_187819_fL;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundEvents.field_187821_fM;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundEvents.field_187817_fK;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 100;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void updateLifeAction() {
         int lifePercent = Math.round((100 * (numberOfLives() - getLivesCount())) / numberOfLives());
         messagePlayers(TextFmt.Gold + "Vycellia is at " + lifePercent + "% health.");
     }
-
     protected void messagePlayers(String message) {
         for (EntityPlayer contender : this.field_70170_p.func_72872_a(EntityPlayer.class, getArenaAABB())) {
             contender.func_145747_a(new TextComponentString(message));
         }
     }
-
     protected void soundPlayers(SoundEvent sound) {
         for (EntityPlayer contender : this.field_70170_p.func_72872_a(EntityPlayer.class, getArenaAABB())) {
             this.field_70170_p.func_184133_a((EntityPlayer) null, contender.func_180425_c(), sound, SoundCategory.MASTER, 0.75f, 0.9f + (this.field_70146_Z.nextFloat() * 0.2f));
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void trueDeathAction() {
         if (!this.field_70170_p.field_72995_K) {
@@ -343,16 +312,13 @@ public class EntityVycellia extends EntityMultipleLives implements IMaxAttack {
             func_145779_a(ItemInit.arenaCard, 1);
         }
     }
-
     protected boolean func_70692_ba() {
         return false;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public boolean func_70814_o() {
         return true;
     }
-
     public int func_70641_bl() {
         return 1;
     }

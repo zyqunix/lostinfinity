@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -13,25 +12,19 @@ import net.minecraft.world.World;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.mob.entity.base.EntityDeviantMob;
 import xol.lostinfinity.mob.entity.base.EntityFloatingDeviant;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityDeviantDeployer.class */
 public class EntityDeviantDeployer extends EntityBaseThrowable {
     private List<Class<? extends EntityLiving>> summonList;
-
     public EntityDeviantDeployer(World par1World) {
         super(par1World);
         this.summonList = new ArrayList();
     }
-
     public EntityDeviantDeployer(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
         this.summonList = new ArrayList();
     }
-
     public void giveList(List<Class<? extends EntityLiving>> newList) {
         this.summonList.addAll(newList);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -63,7 +56,6 @@ public class EntityDeviantDeployer extends EntityBaseThrowable {
             func_70106_y();
         }
     }
-
     protected float func_70185_h() {
         return 0.05f;
     }

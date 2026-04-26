@@ -1,5 +1,4 @@
 package xol.lostinfinity.util.compatibility.jei.modulecreator;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -8,12 +7,9 @@ import java.util.Map;
 import java.util.Objects;
 import net.minecraft.item.ItemStack;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/compatibility/jei/modulecreator/ModuleCreatorRecipeJEI.class */
 public class ModuleCreatorRecipeJEI {
     private static final ModuleCreatorRecipeJEI INSTANCE = new ModuleCreatorRecipeJEI();
     private final Map<List<ItemStack>, ItemStack> moduleCreatorList = new HashMap();
-
     public ModuleCreatorRecipeJEI() {
         ItemStack moduleEmpty = new ItemStack(ItemInit.moduleContainer);
         List<ItemStack> acceleration = new ArrayList<>(Arrays.asList(new ItemStack(ItemInit.supermutatedBatwing), new ItemStack(ItemInit.supermutatedWing), new ItemStack(ItemInit.superStimulant), moduleEmpty));
@@ -37,18 +33,15 @@ public class ModuleCreatorRecipeJEI {
         List<ItemStack> biocalibration = new ArrayList<>(Arrays.asList(new ItemStack(ItemInit.astralOrgan), new ItemStack(ItemInit.organicShadowMatter), new ItemStack(ItemInit.biosyncedClock), moduleEmpty));
         addModuleCreatorRecipe(biocalibration, new ItemStack(ItemInit.moduleBiocalibration));
     }
-
     public static ModuleCreatorRecipeJEI getInstance() {
         return INSTANCE;
     }
-
     public void addModuleCreatorRecipe(List<ItemStack> inputs, ItemStack result) {
         if (getModuleCreatorResult(inputs) != ItemStack.field_190927_a) {
             return;
         }
         this.moduleCreatorList.put(inputs, result);
     }
-
     public ItemStack getModuleCreatorResult(List<ItemStack> inputs) {
         for (Map.Entry<List<ItemStack>, ItemStack> entry : this.moduleCreatorList.entrySet()) {
             if (Objects.equals(inputs, entry.getKey())) {
@@ -57,7 +50,6 @@ public class ModuleCreatorRecipeJEI {
         }
         return ItemStack.field_190927_a;
     }
-
     public Map<List<ItemStack>, ItemStack> getModuleCreatorList() {
         return this.moduleCreatorList;
     }

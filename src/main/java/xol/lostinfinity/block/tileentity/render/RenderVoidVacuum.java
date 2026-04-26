@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.tileentity.render;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -13,12 +12,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import xol.lostinfinity.block.tileentity.TileEntityVoidVacuum;
 import xol.lostinfinity.init.BlockInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/tileentity/render/RenderVoidVacuum.class */
 public class RenderVoidVacuum extends TileEntitySpecialRenderer<TileEntityVoidVacuum> {
     public static final ResourceLocation TEXTURE_ELASTIC_STRING = new ResourceLocation("lostinfinity:textures/particles/elastic_thread.png");
-
-    /* JADX INFO: renamed from: render, reason: merged with bridge method [inline-methods] */
     public void func_192841_a(TileEntityVoidVacuum te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
         EntityLivingBase target;
         if (te.getActive()) {

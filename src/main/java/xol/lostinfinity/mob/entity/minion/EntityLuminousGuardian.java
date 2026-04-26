@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.minion;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import net.minecraft.entity.EntityLivingBase;
@@ -9,14 +8,11 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import xol.lostinfinity.mob.entity.base.EntityImmaterial;
 import xol.lostinfinity.projectile.entity.EntityLuminousGuardianLaser;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/minion/EntityLuminousGuardian.class */
 public class EntityLuminousGuardian extends EntityMinion {
     public EntityLuminousGuardian(World worldIn) {
         super(worldIn);
         func_70105_a(0.5f, 0.5f);
     }
-
     @Override // xol.lostinfinity.mob.entity.minion.EntityMinion
     protected void livingUpdate() {
         EntityPlayer owner = func_70902_q();
@@ -46,7 +42,6 @@ public class EntityLuminousGuardian extends EntityMinion {
             }
         }
     }
-
     private void updatePosition() {
         float x = MathHelper.func_76126_a(this.field_70173_aa * 0.01f);
         float y = MathHelper.func_76126_a(this.field_70173_aa * 0.05f) * 0.5f;

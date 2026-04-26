@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.misc;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -18,14 +17,11 @@ import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.DimensionInit;
 import xol.lostinfinity.util.damagesource.LostDamageSources;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/misc/BlockConcentratedAcid.class */
 public class BlockConcentratedAcid extends BlockBasicFluid implements IMaxAttack {
     public BlockConcentratedAcid(String name, Fluid fluid, Material material) {
         super(name, fluid, material);
         BlockInit.BLOCKS.add(this);
     }
-
     public void func_180634_a(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
         if (0 == 0 && (entityIn instanceof EntityLivingBase)) {
             EntityLivingBase e = (EntityLivingBase) entityIn;
@@ -35,7 +31,6 @@ public class BlockConcentratedAcid extends BlockBasicFluid implements IMaxAttack
             e.func_70097_a(LostDamageSources.CONCENTRATED_ACID.source, e.func_110138_aP() / 3.0f);
         }
     }
-
     @Override // xol.lostinfinity.block.basic.BlockBasicFluid
     public void handleFill(FillBucketEvent event, IBlockState bs) {
         boolean result = false;

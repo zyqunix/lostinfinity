@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,12 +11,9 @@ import xol.lostinfinity.init.ParticleInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityTotemPylon.class */
 public class EntityTotemPylon extends EntityLiving {
     private EntityPlayer owner;
     private int timer;
-
     public EntityTotemPylon(World worldIn) {
         super(worldIn);
         this.owner = null;
@@ -25,11 +21,9 @@ public class EntityTotemPylon extends EntityLiving {
         func_70105_a(1.0f, 1.0f);
         func_184224_h(true);
     }
-
     public void setOwner(EntityPlayer play) {
         this.owner = play;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         this.field_70143_R = -1.0f;

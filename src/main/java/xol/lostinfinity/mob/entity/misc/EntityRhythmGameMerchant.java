@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import java.util.ArrayList;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -21,8 +20,6 @@ import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityRhythmGameMerchant.class */
 public class EntityRhythmGameMerchant extends EntityLiving {
     private boolean game;
     private boolean win;
@@ -40,7 +37,6 @@ public class EntityRhythmGameMerchant extends EntityLiving {
     private boolean[][] tileMap;
     private boolean[] buttons;
     private boolean sentWinMessage;
-
     public EntityRhythmGameMerchant(World worldIn) {
         super(worldIn);
         this.game = false;
@@ -57,11 +53,9 @@ public class EntityRhythmGameMerchant extends EntityLiving {
         this.dirLeft = new Vec3i(0, 0, 0);
         this.sentWinMessage = false;
     }
-
     protected void func_70088_a() {
         super.func_70088_a();
     }
-
     public void startGame() {
         for (EntityPlayer near_pl : this.field_70170_p.func_72872_a(EntityPlayer.class, func_174813_aQ().func_72314_b(15.0d, 15.0d, 15.0d))) {
             near_pl.func_145747_a(new TextComponentString(TextFmt.getFormatting(TextFmt.Bold, TextFmt.Green) + "Match the rhythm with the buttons to stay in the game!"));
@@ -69,7 +63,6 @@ public class EntityRhythmGameMerchant extends EntityLiving {
         }
         this.game = true;
     }
-
     public void genRhythmGame(BlockPos ref) {
         setRhythmPositions(ref);
         this.roundTimer = 21;
@@ -83,7 +76,6 @@ public class EntityRhythmGameMerchant extends EntityLiving {
         }
         func_70106_y();
     }
-
     private void updateStates() {
         for (int i = 0; i < this.numButtons; i++) {
             boolean buttonActive = false;
@@ -122,7 +114,6 @@ public class EntityRhythmGameMerchant extends EntityLiving {
             }
         }
     }
-
     public void setRhythmPositions(BlockPos ref) {
         this.buttonStartPos = nearestButton(ref);
         this.startPos = nearestTile(this.buttonStartPos);
@@ -166,15 +157,12 @@ public class EntityRhythmGameMerchant extends EntityLiving {
         this.rows = r;
         this.columns = c;
     }
-
     private Block getBlockAtPos(BlockPos pos) {
         return this.field_70170_p.func_180495_p(pos).func_177230_c();
     }
-
     private BlockPos getButtonPosFromIndex(int i) {
         return this.buttonStartPos.func_177982_a(this.dirLeft.func_177958_n() * i, 0, this.dirLeft.func_177952_p() * i);
     }
-
     private int getButtonIndexFromPos(BlockPos pos) {
         int i = Math.abs(pos.func_177958_n() - this.buttonStartPos.func_177958_n()) + Math.abs(pos.func_177952_p() - this.buttonStartPos.func_177952_p());
         if (i < this.numButtons) {
@@ -182,11 +170,9 @@ public class EntityRhythmGameMerchant extends EntityLiving {
         }
         return 0;
     }
-
     private BlockPos getPosFromGrid(int c, int r) {
         return this.startPos.func_177982_a((this.dirUp.func_177958_n() * r) + (this.dirLeft.func_177958_n() * c), 0, (this.dirUp.func_177952_p() * r) + (this.dirLeft.func_177952_p() * c));
     }
-
     public BlockPos nearestTile(BlockPos pos) {
         ArrayList<BlockPos> positions = new ArrayList<>();
         positions.add(pos.func_177982_a(1, 0, 0));
@@ -201,7 +187,6 @@ public class EntityRhythmGameMerchant extends EntityLiving {
         }
         return null;
     }
-
     public BlockPos nearestButton(BlockPos pos) {
         ArrayList<BlockPos> positions = new ArrayList<>();
         positions.add(pos.func_177982_a(1, 0, 1));
@@ -216,21 +201,18 @@ public class EntityRhythmGameMerchant extends EntityLiving {
         }
         return null;
     }
-
     private boolean getButtonAtLocation(int i) {
         if (i >= 0 && i < this.buttons.length) {
             return this.buttons[i];
         }
         return false;
     }
-
     private boolean getTileAtLocation(int c, int r) {
         if (c >= 0 && c < this.tileMap.length && r >= 0 && r < this.tileMap[c].length) {
             return this.tileMap[c][r];
         }
         return false;
     }
-
     public boolean func_184645_a(EntityPlayer player, EnumHand hand) {
         if (!this.field_70170_p.field_72995_K && this.win) {
             func_145779_a(ItemInit.spacetimeTrigger, 1);
@@ -240,7 +222,6 @@ public class EntityRhythmGameMerchant extends EntityLiving {
         }
         return true;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         if (!this.field_70170_p.field_72995_K) {
@@ -277,7 +258,6 @@ public class EntityRhythmGameMerchant extends EntityLiving {
             }
         }
     }
-
     private void progress() {
         boolean goalRowHasTile = false;
         for (int c = 0; c < this.tileMap.length; c++) {
@@ -313,30 +293,24 @@ public class EntityRhythmGameMerchant extends EntityLiving {
         this.time = 0;
         updateStates();
     }
-
     private void deathEffect() {
         this.field_70170_p.func_175739_a(EnumParticleTypes.PORTAL, this.field_70165_t, this.field_70163_u, this.field_70161_v, 12, ((-0.5d) + this.field_70146_Z.nextDouble()) * 3.0d, 0.3d, ((-0.5d) + this.field_70146_Z.nextDouble()) * 3.0d, 0.15000000596046448d, new int[0]);
         func_70106_y();
     }
-
     protected SoundEvent func_184639_G() {
         return SoundEvents.field_187910_gj;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundEvents.field_187912_gl;
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundEvents.field_187911_gk;
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.2d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(20.0d);
     }
-
     public void pressButton(BlockPos pos) {
         int i = getButtonIndexFromPos(pos);
         for (int j = 0; j < this.buttons.length; j++) {

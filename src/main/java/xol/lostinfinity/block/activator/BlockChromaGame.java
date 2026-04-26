@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.block.ITileEntityProvider;
@@ -21,17 +20,13 @@ import xol.lostinfinity.block.tileentity.TileEntityChromaGame;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockChromaGame.class */
 public class BlockChromaGame extends BlockBasic implements ITileEntityProvider {
     public BlockChromaGame(String name) {
         super(name);
     }
-
     private boolean validInput(ItemStack stack) {
         return stack.func_77973_b().equals(ItemInit.frostedLog);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!playerIn.func_70093_af()) {
             if (validInput(playerIn.func_184586_b(hand))) {
@@ -108,14 +103,12 @@ public class BlockChromaGame extends BlockBasic implements ITileEntityProvider {
         }
         return true;
     }
-
     private void setPlayers(World worldIn, BlockPos pos, EntityPlayer first, EntityPlayer second) {
         if (worldIn.func_175625_s(pos) != null && (worldIn.func_175625_s(pos) instanceof TileEntityChromaGame)) {
             TileEntityChromaGame tileentity = (TileEntityChromaGame) worldIn.func_175625_s(pos);
             tileentity.setPlayers(first, second);
         }
     }
-
     private EntityPlayer getRandomPlayer(World worldIn, BlockPos pos) {
         if (worldIn.func_175625_s(pos) != null && (worldIn.func_175625_s(pos) instanceof TileEntityChromaGame)) {
             TileEntityChromaGame tileentity = (TileEntityChromaGame) worldIn.func_175625_s(pos);
@@ -127,8 +120,6 @@ public class BlockChromaGame extends BlockBasic implements ITileEntityProvider {
         }
         return null;
     }
-
-    /* JADX WARN: Incorrect condition in loop: B:4:0x0044 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
@@ -140,7 +131,6 @@ public class BlockChromaGame extends BlockBasic implements ITileEntityProvider {
         */
         throw new UnsupportedOperationException("Method not decompiled: xol.lostinfinity.block.activator.BlockChromaGame.reset(net.minecraft.util.math.BlockPos, net.minecraft.world.World, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float):void");
     }
-
     private static Vec3i findTileDir(World worldIn, BlockPos pos) {
         ArrayList<Vec3i> dirs = new ArrayList<>();
         dirs.add(new Vec3i(1, 0, 1));
@@ -154,15 +144,12 @@ public class BlockChromaGame extends BlockBasic implements ITileEntityProvider {
         }
         return null;
     }
-
     public TileEntity func_149915_a(World worldIn, int meta) {
         return null;
     }
-
     public boolean func_149716_u() {
         return true;
     }
-
     public TileEntity createTileEntity(World world, IBlockState state) {
         return new TileEntityChromaGame();
     }

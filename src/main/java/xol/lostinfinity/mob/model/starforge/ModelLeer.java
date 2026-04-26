@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.model.starforge;
-
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.client.model.ModelBase;
@@ -9,8 +8,6 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import xol.lostinfinity.mob.entity.starforge.EntityLeer;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/starforge/ModelLeer.class */
 public class ModelLeer extends ModelBase {
     private final ModelRenderer Body;
     private final ModelRenderer cube_r1;
@@ -27,7 +24,6 @@ public class ModelLeer extends ModelBase {
     private final ModelRenderer Tendril3;
     private final ModelRenderer Tendril4;
     private List<ModelRenderer> tendrils = new ArrayList();
-
     public ModelLeer() {
         this.field_78090_t = 64;
         this.field_78089_u = 32;
@@ -109,7 +105,6 @@ public class ModelLeer extends ModelBase {
         this.tendrils.add(this.Tendril3);
         this.tendrils.add(this.Tendril4);
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         EntityLeer leer = (EntityLeer) entity;
         float renderAlph = leer.getAlpha();
@@ -127,13 +122,11 @@ public class ModelLeer extends ModelBase {
         this.Tendril4.func_78785_a(f5);
         GlStateManager.func_179084_k();
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         for (ModelRenderer tend : this.tendrils) {
             tend.field_78795_f = 0.3f * MathHelper.func_76126_a((ageInTicks + (this.tendrils.indexOf(tend) * 10)) * 0.1f);

@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import net.minecraft.entity.Entity;
@@ -17,8 +16,6 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityTitanRing.class */
 public class EntityTitanRing extends EntityBaseThrowable {
     private boolean rebound;
     private double speed;
@@ -26,7 +23,6 @@ public class EntityTitanRing extends EntityBaseThrowable {
     private boolean returned;
     private boolean highVelo;
     private float alpha;
-
     public EntityTitanRing(World par1World) {
         super(par1World);
         this.rebound = false;
@@ -37,7 +33,6 @@ public class EntityTitanRing extends EntityBaseThrowable {
         this.alpha = 0.0f;
         func_70105_a(1.25f, 0.75f);
     }
-
     public EntityTitanRing(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
         this.rebound = false;
@@ -48,7 +43,6 @@ public class EntityTitanRing extends EntityBaseThrowable {
         this.alpha = 0.0f;
         func_70105_a(1.25f, 0.75f);
     }
-
     public EntityTitanRing(World par1World, double par2, double par4, double par6) {
         super(par1World, par2, par4, par6);
         this.rebound = false;
@@ -59,11 +53,9 @@ public class EntityTitanRing extends EntityBaseThrowable {
         this.alpha = 0.0f;
         func_70105_a(1.25f, 0.75f);
     }
-
     public void setHighVelo() {
         this.highVelo = true;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -104,7 +96,6 @@ public class EntityTitanRing extends EntityBaseThrowable {
             }
         }
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void func_70071_h_() {
         super.func_70071_h_();
@@ -145,11 +136,9 @@ public class EntityTitanRing extends EntityBaseThrowable {
         }
         this.field_70170_p.func_175688_a(this.field_70146_Z.nextBoolean() ? ParticleInit.SPECTRAL : ParticleInit.SMALL_SPARK, this.field_70165_t, this.field_70163_u, this.field_70161_v, 0.25d * ((-0.5d) + this.field_70146_Z.nextDouble()), 0.0d, 0.25d * ((-0.5d) + this.field_70146_Z.nextDouble()), new int[0]);
     }
-
     public float getAlpha() {
         return this.alpha;
     }
-
     protected float func_70185_h() {
         return 0.0f;
     }

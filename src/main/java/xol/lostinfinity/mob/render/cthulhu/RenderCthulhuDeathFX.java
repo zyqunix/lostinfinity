@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.render.cthulhu;
-
 import javax.annotation.Nullable;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -10,23 +9,15 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
 import xol.lostinfinity.mob.entity.cthulhu.EntityCthulhuDeathFX;
 import xol.lostinfinity.util.Reference;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/render/cthulhu/RenderCthulhuDeathFX.class */
 public class RenderCthulhuDeathFX extends Render<EntityCthulhuDeathFX> {
     private static final ResourceLocation TEXTURE_CORE = new ResourceLocation(Reference.MODID, "textures/particles/cthulhu/death_explosion.png");
-
     public RenderCthulhuDeathFX(RenderManager renderManager) {
         super(renderManager);
     }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Nullable
-    /* JADX INFO: renamed from: getEntityTexture, reason: merged with bridge method [inline-methods] */
     public ResourceLocation func_110775_a(EntityCthulhuDeathFX entity) {
         return null;
     }
-
-    /* JADX INFO: renamed from: doRender, reason: merged with bridge method [inline-methods] */
     public void func_76986_a(EntityCthulhuDeathFX entity, double x, double y, double z, float entityYaw, float partialTicks) {
         Tessellator tessellator = Tessellator.func_178181_a();
         BufferBuilder bufferbuilder = tessellator.func_178180_c();

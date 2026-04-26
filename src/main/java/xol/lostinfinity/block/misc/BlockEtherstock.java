@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.misc;
-
 import java.util.Iterator;
 import java.util.Random;
 import net.minecraft.block.state.IBlockState;
@@ -14,14 +13,11 @@ import net.minecraft.world.World;
 import xol.lostinfinity.block.basic.BlockCappedPlant;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/misc/BlockEtherstock.class */
 public class BlockEtherstock extends BlockCappedPlant {
     public BlockEtherstock(String name) {
         super(name);
         func_149675_a(true);
     }
-
     @Override // xol.lostinfinity.block.basic.BlockCappedPlant
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         ItemStack stack = playerIn.func_184586_b(hand);
@@ -53,7 +49,6 @@ public class BlockEtherstock extends BlockCappedPlant {
             return true;
         }
     }
-
     private void grow(World worldIn, BlockPos pos) {
         if (!worldIn.field_72995_K && func_176201_c(worldIn.func_180495_p(pos)) != 1 && worldIn.func_175623_d(pos.func_177984_a())) {
             boolean tallest = true;
@@ -75,7 +70,6 @@ public class BlockEtherstock extends BlockCappedPlant {
             }
         }
     }
-
     public void func_180650_b(World worldIn, BlockPos pos, IBlockState state, Random rand) {
         grow(worldIn, pos);
     }

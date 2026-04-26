@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.misc;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -16,15 +15,12 @@ import xol.lostinfinity.block.basic.BlockBasic;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/misc/BlockPoweredHyperMelder.class */
 public class BlockPoweredHyperMelder extends BlockBasic {
     public BlockPoweredHyperMelder(String name) {
         super(name);
         func_149715_a(1.0f);
         func_149675_a(true);
     }
-
     public void func_180650_b(World worldIn, BlockPos pos, IBlockState state, Random rand) {
         List<BlockPos> rememberPos = new ArrayList<>();
         if (!worldIn.field_72995_K) {

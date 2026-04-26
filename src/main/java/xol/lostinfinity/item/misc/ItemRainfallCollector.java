@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.misc;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -8,8 +7,6 @@ import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.classify.IHotbarTick;
 import xol.lostinfinity.item.classify.ISwitchModels;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/misc/ItemRainfallCollector.class */
 public class ItemRainfallCollector extends Item implements IHotbarTick, ISwitchModels {
     public ItemRainfallCollector(String regName) {
         func_77637_a(TabsInit.TAB_AUXMATS);
@@ -19,7 +16,6 @@ public class ItemRainfallCollector extends Item implements IHotbarTick, ISwitchM
         ItemInit.ITEMS.add(this);
         setModelSwitch("collection", this, 2);
     }
-
     @Override // xol.lostinfinity.item.classify.IHotbarTick
     public void hotbarTick(EntityPlayer player, int itemSlot, ItemStack stack) {
         if (showDurabilityBar(stack)) {
@@ -32,7 +28,6 @@ public class ItemRainfallCollector extends Item implements IHotbarTick, ISwitchM
             }
         }
     }
-
     public boolean showDurabilityBar(ItemStack stack) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
@@ -42,11 +37,9 @@ public class ItemRainfallCollector extends Item implements IHotbarTick, ISwitchM
         long progress = stack.func_77978_p().func_74763_f("Progress");
         return progress <= ((long) getMaxProgress());
     }
-
     protected static int getMaxProgress() {
         return 20;
     }
-
     public double getDurabilityForDisplay(ItemStack stack) {
         if (showDurabilityBar(stack)) {
             double progress = Math.min(stack.func_77978_p().func_74763_f("Progress"), getMaxProgress() - 1);

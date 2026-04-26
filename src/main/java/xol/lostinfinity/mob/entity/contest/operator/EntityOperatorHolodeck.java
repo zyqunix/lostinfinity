@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.contest.operator;
-
 import java.util.UUID;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -13,13 +12,10 @@ import xol.lostinfinity.dimension.data.TileMap;
 import xol.lostinfinity.dimension.util.WorldGenStructure;
 import xol.lostinfinity.mob.entity.contest.controller.EntityControllerHolodeck;
 import xol.lostinfinity.util.coordinates.ContestCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/contest/operator/EntityOperatorHolodeck.class */
 public class EntityOperatorHolodeck extends EntityOperatorBase {
     public EntityOperatorHolodeck(World worldIn) {
         super(worldIn);
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected void incrementStyle() {
         this.style++;
@@ -27,7 +23,6 @@ public class EntityOperatorHolodeck extends EntityOperatorBase {
             this.style = 0;
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected void startGame() {
         EntityControllerHolodeck gamehologram = new EntityControllerHolodeck(this.field_70170_p);
@@ -53,17 +48,14 @@ public class EntityOperatorHolodeck extends EntityOperatorBase {
         this.field_70170_p.func_72838_d(gamehologram);
         this.contenders.clear();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected AxisAlignedBB getArenaAABB() {
         return ContestCoordinates.holodeckControllerAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected AxisAlignedBB getLobbyAABB() {
         return ContestCoordinates.holodeckLobbyAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected void generateArena() {
         ChunkPairing chunk = ContestCoordinates.holodeckGenLoc();
@@ -85,7 +77,6 @@ public class EntityOperatorHolodeck extends EntityOperatorBase {
             }
         }
     }
-
     private int getYfromXZStyle(int xline, int zline, int style) {
         int yheight = 28;
         switch (style) {
@@ -104,7 +95,7 @@ public class EntityOperatorHolodeck extends EntityOperatorBase {
                 int zdiff2 = Math.abs(3 - zline);
                 yheight = xdiff2 > zdiff2 ? 31 - xdiff2 : 31 - zdiff2;
                 break;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 yheight = 28 + xline;
                 break;
         }

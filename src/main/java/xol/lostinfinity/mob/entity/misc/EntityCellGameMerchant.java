@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import java.util.ArrayList;
 import java.util.Random;
 import net.minecraft.block.Block;
@@ -19,8 +18,6 @@ import xol.lostinfinity.block.activator.BlockCellContainer;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityCellGameMerchant.class */
 public class EntityCellGameMerchant extends EntityLiving {
     private boolean game;
     private boolean win;
@@ -33,7 +30,6 @@ public class EntityCellGameMerchant extends EntityLiving {
     private ArrayList<Integer> amounts;
     private ArrayList<Integer> winningAmounts;
     private ArrayList<Integer> capacities;
-
     public void setCellPositions(BlockPos ref, int radius, World world, EntityPlayer playerIn) {
         this.cells = new ArrayList<>();
         this.amounts = new ArrayList<>();
@@ -57,7 +53,6 @@ public class EntityCellGameMerchant extends EntityLiving {
         setGoalAmounts(world, playerIn);
         startGame();
     }
-
     public IBlockState getRandomCell() {
         Random rand = new Random();
         int randCell = rand.nextInt(4);
@@ -74,7 +69,6 @@ public class EntityCellGameMerchant extends EntityLiving {
                 return BlockInit.cellContainer3.func_176223_P();
         }
     }
-
     private int getBlockCapacity(Block block) {
         if (block.equals(BlockInit.cellContainer3)) {
             return 3;
@@ -90,7 +84,6 @@ public class EntityCellGameMerchant extends EntityLiving {
         }
         return 0;
     }
-
     private void setGoalAmounts(World world, EntityPlayer playerIn) {
         int second;
         ArrayList<Integer> tempAmounts = new ArrayList<>();
@@ -122,7 +115,6 @@ public class EntityCellGameMerchant extends EntityLiving {
         }
         this.winningAmounts.addAll(tempAmounts);
     }
-
     public EntityCellGameMerchant(World worldIn) {
         super(worldIn);
         this.game = false;
@@ -136,7 +128,6 @@ public class EntityCellGameMerchant extends EntityLiving {
         this.winningAmounts = null;
         this.capacities = null;
     }
-
     public void selectCell1(BlockPos pos, World world, EntityPlayer playerIn) {
         for (int i = 0; i < this.cells.size(); i++) {
             BlockPos cellPos = this.cells.get(i);
@@ -153,7 +144,6 @@ public class EntityCellGameMerchant extends EntityLiving {
             }
         }
     }
-
     public void selectCell2(BlockPos pos, World world, EntityPlayer playerIn) {
         for (int i = 0; i < this.cells.size(); i++) {
             BlockPos cellPos = this.cells.get(i);
@@ -170,7 +160,6 @@ public class EntityCellGameMerchant extends EntityLiving {
             }
         }
     }
-
     private void pour(World world, EntityPlayer playerIn) {
         if (this.cell1 != -1 && this.cell2 != -1 && this.cell1 != this.cell2) {
             int amount1 = this.amounts.get(this.cell1).intValue();
@@ -196,7 +185,6 @@ public class EntityCellGameMerchant extends EntityLiving {
             }
         }
     }
-
     private void checkWin(EntityPlayer playerIn) {
         for (int i = 0; i < this.amounts.size(); i++) {
             if (this.amounts.get(i) != this.winningAmounts.get(i)) {
@@ -206,25 +194,21 @@ public class EntityCellGameMerchant extends EntityLiving {
         }
         this.win = true;
     }
-
     private void setCellState(int cell, int amount, World world) {
         Block block = world.func_180495_p(this.cells.get(cell)).func_177230_c();
         if (block instanceof BlockCellContainer) {
             this.field_70170_p.func_175656_a(this.cells.get(cell), ((BlockCellContainer) block).getStateWithAmount(amount));
         }
     }
-
     protected void func_70088_a() {
         super.func_70088_a();
     }
-
     public void startGame() {
         for (EntityPlayer near_pl : this.field_70170_p.func_72872_a(EntityPlayer.class, func_174813_aQ().func_72314_b(15.0d, 15.0d, 15.0d))) {
             near_pl.func_145747_a(new TextComponentString(TextFmt.getFormatting(TextFmt.Bold, TextFmt.Green) + "Transfer cells between the containers to balance them to the correct levels, click with power analyzer to select which container to transfer from, click with hand to set the container receiving power."));
         }
         this.game = true;
     }
-
     public boolean func_184645_a(EntityPlayer player, EnumHand hand) {
         if (!this.field_70170_p.field_72995_K && this.win) {
             if (func_110143_aJ() == 69.0f) {
@@ -238,7 +222,6 @@ public class EntityCellGameMerchant extends EntityLiving {
         }
         return true;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         if (!this.field_70170_p.field_72995_K) {
@@ -260,30 +243,24 @@ public class EntityCellGameMerchant extends EntityLiving {
             }
         }
     }
-
     private void deathEffect() {
         this.field_70170_p.func_175739_a(EnumParticleTypes.PORTAL, this.field_70165_t, this.field_70163_u, this.field_70161_v, 12, ((-0.5d) + this.field_70146_Z.nextDouble()) * 3.0d, 0.3d, ((-0.5d) + this.field_70146_Z.nextDouble()) * 3.0d, 0.15000000596046448d, new int[0]);
         func_70106_y();
     }
-
     protected SoundEvent func_184639_G() {
         return SoundEvents.field_187910_gj;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundEvents.field_187912_gl;
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundEvents.field_187911_gk;
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.2d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(20.0d);
     }
-
     public void readPowerLevel(BlockPos pos, World worldIn, EntityPlayer playerIn) {
         for (int i = 0; i < this.cells.size(); i++) {
             BlockPos cellPos = this.cells.get(i);

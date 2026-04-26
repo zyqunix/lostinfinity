@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -12,14 +11,11 @@ import xol.lostinfinity.block.basic.BlockBasic;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.item.activate.ItemEncryptedPowerBlueprints;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockPowerGenerator.class */
 public class BlockPowerGenerator extends BlockBasic {
     public BlockPowerGenerator(String name) {
         super(name);
         func_149715_a(1.0f);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!worldIn.field_72995_K) {
             ItemStack held = playerIn.func_184586_b(hand);

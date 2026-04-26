@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.contest.controller;
-
 import java.util.HashMap;
 import java.util.UUID;
 import net.minecraft.block.Block;
@@ -15,13 +14,10 @@ import xol.lostinfinity.init.DimensionInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.coordinates.ContestCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/contest/controller/EntityControllerRedlight.class */
 public class EntityControllerRedlight extends EntityControllerBase {
     private int stageTimer;
     private int gracePeriod;
     private HashMap<UUID, BlockPos> playerPositions;
-
     public EntityControllerRedlight(World worldIn) {
         super(worldIn);
         this.stageTimer = 200;
@@ -29,7 +25,6 @@ public class EntityControllerRedlight extends EntityControllerBase {
         this.playerPositions = new HashMap<>();
         func_70105_a(3.0f, 6.0f);
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase, xol.lostinfinity.mob.entity.base.EntityImmaterial
     public void func_70636_d() {
         super.func_70636_d();
@@ -46,7 +41,6 @@ public class EntityControllerRedlight extends EntityControllerBase {
             this.stageTimer--;
         }
     }
-
     private void upStage() {
         this.stage++;
         if (this.stage % 2 == 0) {
@@ -69,7 +63,6 @@ public class EntityControllerRedlight extends EntityControllerBase {
             handleCheckIn();
         }
     }
-
     private void scanArenaForMoving() {
         for (EntityPlayer contender : this.field_70170_p.func_72872_a(EntityPlayer.class, getArenaAABB())) {
             UUID contender_id = contender.func_110124_au();
@@ -80,7 +73,6 @@ public class EntityControllerRedlight extends EntityControllerBase {
             this.playerPositions.put(contender_id, contender_pos);
         }
     }
-
     private void newLights() {
         this.touchInProgress = true;
         messageContenders(TextFmt.Gold, "You have 4 rounds to check in to a lit pillar.");
@@ -96,12 +88,10 @@ public class EntityControllerRedlight extends EntityControllerBase {
             }
         }
     }
-
     private void handleCheckIn() {
         removeFailedCheckIn();
         darkenPillars();
     }
-
     public void setLights(Block block) {
         ChunkPairing chunk = ContestCoordinates.redlightGenLoc();
         int chunkX = chunk.chunkX();
@@ -127,7 +117,6 @@ public class EntityControllerRedlight extends EntityControllerBase {
             }
         }
     }
-
     private void cycleBlocks() {
         ChunkPairing chunk = ContestCoordinates.redlightGenLoc();
         int chunkX = chunk.chunkX();
@@ -148,7 +137,6 @@ public class EntityControllerRedlight extends EntityControllerBase {
             }
         }
     }
-
     private void setPillar(int pilnum, Block blockset) {
         int blockX;
         int blockZ;
@@ -170,28 +158,23 @@ public class EntityControllerRedlight extends EntityControllerBase {
             }
         }
     }
-
     private void lightPillars(int pilnum1, int pilnum2) {
         setPillar(pilnum1, BlockInit.championDungeonSelector);
         setPillar(pilnum2, BlockInit.championDungeonSelector);
     }
-
     public void darkenPillars() {
         for (int i = 0; i < 5; i++) {
             setPillar(i, BlockInit.championDungeonBox);
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected AxisAlignedBB getArenaAABB() {
         return ContestCoordinates.redlightArenaAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected BlockPos getSnapPos() {
         return ContestCoordinates.redlightControllerPos();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected void rewardPlayer(EntityPlayer player, int placement) {
         BlockPos teleTo = ContestCoordinates.redlightLobbyPos();
@@ -199,7 +182,6 @@ public class EntityControllerRedlight extends EntityControllerBase {
         int reward_count = Math.min(1 + (placement * Math.floorDiv(this.stage, 3)) + (placement == this.contenderCount - 1 ? this.contenderCount * 2 : 0), 50);
         player.func_191521_c(new ItemStack(ItemInit.zirconiaMalachite, reward_count));
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected void endGame() {
         setLights(BlockInit.championSignalGreen);

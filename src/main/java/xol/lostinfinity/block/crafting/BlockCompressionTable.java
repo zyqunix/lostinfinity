@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.crafting;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.block.SoundType;
@@ -22,36 +21,28 @@ import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.common.lostinfinity;
 import xol.lostinfinity.gui.GuiHandler;
 import xol.lostinfinity.init.TabsInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/crafting/BlockCompressionTable.class */
 public class BlockCompressionTable extends BlockBasicGui {
     public BlockCompressionTable(String name) {
         this(name, Material.field_151576_e);
     }
-
     public BlockCompressionTable(String name, Material material) {
         this(name, material, TabsInit.TAB_BLOCKS);
     }
-
     public BlockCompressionTable(String name, Material material, CreativeTabs tab) {
         super(name, material, tab);
         func_149647_a(tab);
         func_149672_a(SoundType.field_185851_d);
         func_149715_a(1.0f);
     }
-
     public TileEntity createTileEntity(World world, IBlockState state) {
         return new TileEntityCompressionTable();
     }
-
     public boolean hasTileEntity(IBlockState state) {
         return true;
     }
-
     private TileEntityCompressionTable getTE(World world, BlockPos pos) {
         return (TileEntityCompressionTable) world.func_175625_s(pos);
     }
-
     @Override // xol.lostinfinity.block.basic.BlockBasicGui
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!playerIn.func_70093_af()) {
@@ -60,7 +51,6 @@ public class BlockCompressionTable extends BlockBasicGui {
         }
         return true;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_190948_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Italic + "Unleashes an extremely powerful shockwave when given a Celestial Emerald.");

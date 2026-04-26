@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.minion;
-
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import net.minecraft.entity.EntityLivingBase;
@@ -9,18 +8,14 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.mob.entity.misc.EntityTentacleTrap;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/minion/EntityAbyssalCrabulon.class */
 public class EntityAbyssalCrabulon extends EntityMinion {
     private static final double MAX_DISTANCE = 20.0d;
     private final Map<EntityLivingBase, EntityTentacleTrap> targetTrapMap;
-
     public EntityAbyssalCrabulon(World worldIn) {
         super(worldIn);
         this.targetTrapMap = new ConcurrentHashMap();
         func_70105_a(0.25f, 0.25f);
     }
-
     @Override // xol.lostinfinity.mob.entity.minion.EntityMinion
     protected void livingUpdate() {
         EntityLivingBase entity;
@@ -49,7 +44,6 @@ public class EntityAbyssalCrabulon extends EntityMinion {
             }
         });
     }
-
     private void updatePosition() {
         float x = MathHelper.func_76126_a(this.field_70173_aa * 0.01f);
         float y = MathHelper.func_76126_a(this.field_70173_aa * 0.05f) * 0.5f;

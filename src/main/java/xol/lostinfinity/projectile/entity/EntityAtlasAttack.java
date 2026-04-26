@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -9,21 +8,16 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityAtlasAttack.class */
 public class EntityAtlasAttack extends EntityBaseThrowable {
     public EntityAtlasAttack(World worldIn) {
         super(worldIn);
     }
-
     public EntityAtlasAttack(World worldIn, EntityLivingBase entityIn) {
         super(worldIn, entityIn);
     }
-
     public EntityAtlasAttack(World worldIn, double x, double y, double z) {
         super(worldIn, x, y, z);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -34,11 +28,9 @@ public class EntityAtlasAttack extends EntityBaseThrowable {
             func_70106_y();
         }
     }
-
     protected float func_70185_h() {
         return 0.0f;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     @SideOnly(Side.CLIENT)
     public void func_70071_h_() {

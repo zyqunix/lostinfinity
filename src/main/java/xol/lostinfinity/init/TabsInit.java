@@ -1,12 +1,9 @@
 package xol.lostinfinity.init;
-
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/init/TabsInit.class */
 public class TabsInit {
     public static final CreativeTabs TAB_STONES = new CreativeTabs("tab_stones") { // from class: xol.lostinfinity.init.TabsInit.1
         @SideOnly(Side.CLIENT)

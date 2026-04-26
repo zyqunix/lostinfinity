@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.activate;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -19,8 +18,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/activate/ItemMysteryBox.class */
 public class ItemMysteryBox extends Item {
     public ItemMysteryBox(String regName) {
         setRegistryName(regName);
@@ -28,7 +25,6 @@ public class ItemMysteryBox extends Item {
         func_77637_a(TabsInit.TAB_AUXMATS);
         ItemInit.ITEMS.add(this);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (!worldIn.field_72995_K) {
             LootTable mysteryBox = worldIn.func_184146_ak().func_186521_a(new ResourceLocation("lostinfinity:mysterybox"));
@@ -44,7 +40,6 @@ public class ItemMysteryBox extends Item {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Green + "Open to get a random amount of a random Zirconia type.");

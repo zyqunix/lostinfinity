@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.starforge;
-
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
@@ -15,14 +14,11 @@ import xol.lostinfinity.mob.entity.base.EntityFloatingBase;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/starforge/EntityFlashfly.class */
 public class EntityFlashfly extends EntityFloatingBase implements IMaxAttack {
     public EntityFlashfly(World worldIn) {
         super(worldIn);
         func_70105_a(1.25f, 1.0f);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     public void func_110147_ax() {
         super.func_110147_ax();
@@ -30,19 +26,15 @@ public class EntityFlashfly extends EntityFloatingBase implements IMaxAttack {
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.0d);
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.NIGHTSHYRE_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.NIGHTSHYRE_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundInit.NIGHTSHYRE_AMBIENT;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     public void func_70636_d() {
         super.func_70636_d();
@@ -53,7 +45,6 @@ public class EntityFlashfly extends EntityFloatingBase implements IMaxAttack {
             }
         }
     }
-
     public void func_70645_a(DamageSource cause) {
         if (!this.field_70170_p.field_72995_K) {
             Iterable<BlockPos> nearblocks = BlockPos.func_177980_a(func_180425_c().func_177982_a(-3, -3, -3), func_180425_c().func_177982_a(3, 3, 3));
@@ -68,7 +59,6 @@ public class EntityFlashfly extends EntityFloatingBase implements IMaxAttack {
             IParticleSpawner.spawnParticle(this.field_70170_p, config1, this.field_70165_t, this.field_70163_u + ((double) (this.field_70131_O / 2.0f)), this.field_70161_v);
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     protected EntityAIFloatAttack createShootAI() {
         return null;

@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import net.minecraft.block.state.IBlockState;
@@ -21,15 +20,12 @@ import net.minecraft.world.World;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityMemPuzzleMerchant.class */
 public class EntityMemPuzzleMerchant extends EntityLiving {
     private static final DataParameter<Boolean> HARD_MODE = EntityDataManager.func_187226_a(EntityMemPuzzleMerchant.class, DataSerializers.field_187198_h);
     private int puzzleStage;
     private int puzzleTimer;
     private int currentLight;
     private ArrayList<BlockPos> lightPositions;
-
     public EntityMemPuzzleMerchant(World worldIn) {
         super(worldIn);
         this.puzzleStage = 0;
@@ -37,20 +33,16 @@ public class EntityMemPuzzleMerchant extends EntityLiving {
         this.currentLight = 0;
         this.lightPositions = new ArrayList<>();
     }
-
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(HARD_MODE, false);
     }
-
     public boolean isHardmode() {
         return ((Boolean) this.field_70180_af.func_187225_a(HARD_MODE)).booleanValue();
     }
-
     public void setHardMode(boolean b) {
         this.field_70180_af.func_187227_b(HARD_MODE, Boolean.valueOf(b));
     }
-
     public void setLightPositions(BlockPos reference, int stretch, int yRange) {
         double xref = reference.func_177958_n();
         double yref = reference.func_177956_o() + 1;
@@ -70,25 +62,21 @@ public class EntityMemPuzzleMerchant extends EntityLiving {
             }
         }
     }
-
     private void randomizeLightOrder() {
         Collections.shuffle(this.lightPositions);
     }
-
     private void lightBlock(int list_index) {
         if (list_index > 0 && list_index <= this.lightPositions.size()) {
             BlockPos selected_pos = this.lightPositions.get(list_index - 1);
             this.field_70170_p.func_175656_a(selected_pos, BlockInit.labyrinthChargerLit.func_176223_P());
         }
     }
-
     private void darkenBlock(int list_index) {
         if (list_index > 0 && list_index <= this.lightPositions.size()) {
             BlockPos selected_pos = this.lightPositions.get(list_index - 1);
             this.field_70170_p.func_175656_a(selected_pos, BlockInit.labyrinthChargerUnpowered.func_176223_P());
         }
     }
-
     private boolean litCorrectly() {
         BlockPos selected_pos = this.lightPositions.get(this.currentLight);
         if (this.field_70170_p.func_180495_p(selected_pos).equals(BlockInit.labyrinthChargerUnpowered.func_176223_P())) {
@@ -105,20 +93,17 @@ public class EntityMemPuzzleMerchant extends EntityLiving {
         }
         return true;
     }
-
     private void darkenAllLights() {
         for (BlockPos pos : this.lightPositions) {
             this.field_70170_p.func_175656_a(pos, BlockInit.labyrinthChargerUnpowered.func_176223_P());
         }
     }
-
     private boolean validInput(Item item) {
         if (isHardmode()) {
             return item.equals(ItemInit.unpoweredEmberstar);
         }
         return item.equals(ItemInit.unpoweredStarcrystal);
     }
-
     public boolean func_184645_a(EntityPlayer player, EnumHand hand) {
         if (this.puzzleStage == 0) {
             if (validInput(player.func_184586_b(hand).func_77973_b())) {
@@ -183,7 +168,6 @@ public class EntityMemPuzzleMerchant extends EntityLiving {
         }
         return true;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         if (!this.field_70170_p.field_72995_K) {
@@ -219,7 +203,6 @@ public class EntityMemPuzzleMerchant extends EntityLiving {
             }
         }
     }
-
     private void deathEffect() {
         if (!this.lightPositions.isEmpty()) {
             darkenAllLights();
@@ -227,19 +210,15 @@ public class EntityMemPuzzleMerchant extends EntityLiving {
         this.field_70170_p.func_175739_a(EnumParticleTypes.PORTAL, this.field_70165_t, this.field_70163_u, this.field_70161_v, 12, ((-0.5d) + this.field_70146_Z.nextDouble()) * 3.0d, 0.3d, ((-0.5d) + this.field_70146_Z.nextDouble()) * 3.0d, 0.15000000596046448d, new int[0]);
         func_70106_y();
     }
-
     protected SoundEvent func_184639_G() {
         return SoundEvents.field_187910_gj;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundEvents.field_187912_gl;
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundEvents.field_187911_gk;
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.2d);

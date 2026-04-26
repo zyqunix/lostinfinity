@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -18,20 +17,16 @@ import xol.lostinfinity.item.basics.ItemBasic;
 import xol.lostinfinity.item.classify.IHealReactive;
 import xol.lostinfinity.item.classify.IMaxNullable;
 import xol.lostinfinity.item.classify.IModeSelect;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemAstralBastion.class */
 public class ItemAstralBastion extends ItemBasic implements IMaxNullable, IModeSelect, IHealReactive {
     public ItemAstralBastion(String regName) {
         super(regName, TabsInit.TAB_AUXWEP);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Green + "Heals you receive are doubled.");
         tooltip.add(TextFmt.Gold + "Whenever you heal, store that amount (adding to any amount stored).");
         tooltip.add(TextFmt.Underline + "When you take max health damage, you block damage equal to your stored damage.");
     }
-
     @Override // xol.lostinfinity.item.classify.IHealReactive
     public float itemHealReaction(EntityPlayer player, float healAmount, ItemStack stack) {
         if (!stack.func_77942_o()) {
@@ -54,7 +49,6 @@ public class ItemAstralBastion extends ItemBasic implements IMaxNullable, IModeS
         }
         return newHeal;
     }
-
     @Override // xol.lostinfinity.item.classify.IModeSelect
     public void modeUpdate(ItemStack stack, EntityPlayer player) {
         if (!stack.func_77942_o()) {
@@ -71,7 +65,6 @@ public class ItemAstralBastion extends ItemBasic implements IMaxNullable, IModeS
             stack.func_77978_p().func_74768_a("shield_mode", 0);
         }
     }
-
     @Override // xol.lostinfinity.item.classify.IMaxNullable
     public float nullableReaction(EntityPlayer player, boolean isMainHand, float originalDamage, float newDamage, ItemStack stack) {
         float finalDamage;

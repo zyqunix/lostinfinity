@@ -1,5 +1,4 @@
 package xol.lostinfinity.util.compatibility.jei.sapevaporator;
-
 import javax.annotation.Nullable;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IDrawable;
@@ -15,8 +14,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.util.Reference;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/compatibility/jei/sapevaporator/SapEvaporatorRecipeCategory.class */
 public class SapEvaporatorRecipeCategory implements IRecipeCategory {
     private final IDrawable background;
     private final IDrawable icon;
@@ -26,7 +23,6 @@ public class SapEvaporatorRecipeCategory implements IRecipeCategory {
     protected final IDrawableStatic staticFlame;
     protected final IDrawableAnimated animatedFlame;
     private static final ResourceLocation BACKGROUND_TEXTURE = new ResourceLocation(Reference.MODID, "textures/gui/sap_evaporator.png");
-
     public SapEvaporatorRecipeCategory(IGuiHelper guiHelper) {
         this.background = guiHelper.drawableBuilder(BACKGROUND_TEXTURE, 5, 14, 120, 65).build();
         this.icon = guiHelper.createDrawableIngredient(new ItemStack(BlockInit.sapEvaporator));
@@ -34,28 +30,22 @@ public class SapEvaporatorRecipeCategory implements IRecipeCategory {
         this.animatedFlame = guiHelper.createAnimatedDrawable(this.staticFlame, 300, IDrawableAnimated.StartDirection.TOP, true);
         this.arrow = guiHelper.drawableBuilder(new ResourceLocation("jei", "textures/gui/gui_vanilla.png"), 82, 128, 25, 17).buildAnimated(200, IDrawableAnimated.StartDirection.LEFT, false);
     }
-
     public String getUid() {
         return "lostinfinity.sapevaporator";
     }
-
     public String getTitle() {
         return "Sap Evaporator";
     }
-
     public String getModName() {
         return Reference.NAME;
     }
-
     public IDrawable getBackground() {
         return this.background;
     }
-
     @Nullable
     public IDrawable getIcon() {
         return this.icon;
     }
-
     public void setRecipe(IRecipeLayout recipeLayout, IRecipeWrapper recipeWrapper, IIngredients ingredients) {
         IGuiItemStackGroup guiItemStackGroup = recipeLayout.getItemStacks();
         guiItemStackGroup.init(0, true, 11, 6);
@@ -63,7 +53,6 @@ public class SapEvaporatorRecipeCategory implements IRecipeCategory {
         guiItemStackGroup.init(2, false, 92, 24);
         guiItemStackGroup.set(ingredients);
     }
-
     public void drawExtras(Minecraft minecraft) {
         this.arrow.draw(minecraft, 62, 25);
         this.animatedFlame.draw(minecraft, 12, 25);

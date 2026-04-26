@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.armor;
-
 import java.lang.reflect.Field;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -20,21 +19,14 @@ import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.util.ConfigurationHandler;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.player.PlayerManager;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/armor/ItemLostArmor.class */
 public abstract class ItemLostArmor extends ItemArmor implements IMaxAttack {
     private static final Field FLY_SPEED = ObfuscationReflectionHelper.findField(PlayerCapabilities.class, "field_75096_f");
-
     public abstract boolean isPrimeSet();
-
     public abstract ArmorInit.ArmorSet getArmorSet();
-
     protected abstract void handleSpecialArmorBonus(EntityPlayer entityPlayer);
-
     static {
         FLY_SPEED.setAccessible(true);
     }
-
     public ItemLostArmor(ItemArmor.ArmorMaterial material, String regName, EntityEquipmentSlot slot) {
         super(material, 0, slot);
         func_77637_a(TabsInit.TAB_ARMORS);
@@ -42,7 +34,6 @@ public abstract class ItemLostArmor extends ItemArmor implements IMaxAttack {
         func_77655_b(regName);
         ItemInit.ARMORS.add(this);
     }
-
     public boolean isArmorActive(EntityPlayer player, ItemStack itemStack) {
         if (player.func_70644_a(PotionInit.NULLIFIED)) {
             return false;
@@ -60,7 +51,6 @@ public abstract class ItemLostArmor extends ItemArmor implements IMaxAttack {
         }
         return false;
     }
-
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
         boolean armorActive = isArmorActive(player, itemStack);
         if (armorActive) {
@@ -70,7 +60,6 @@ public abstract class ItemLostArmor extends ItemArmor implements IMaxAttack {
             player.func_70690_d(new PotionEffect(PotionInit.ARMORED, 10, 0, true, false));
         }
     }
-
     private static void setPlayerFlySpeed(EntityPlayer player, float newSpeed) {
         try {
             FLY_SPEED.setFloat(player.field_71075_bZ, newSpeed);
@@ -78,7 +67,6 @@ public abstract class ItemLostArmor extends ItemArmor implements IMaxAttack {
             throw new RuntimeException("Failed to modify player fly speed!");
         }
     }
-
     public static void handleStandardArmorBonus(EntityPlayer player, boolean enable) {
         if (enable) {
             if (player.func_70644_a(PotionInit.ARMORED)) {

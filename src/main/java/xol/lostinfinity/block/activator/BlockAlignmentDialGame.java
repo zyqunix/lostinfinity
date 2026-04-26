@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,20 +18,16 @@ import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.DimensionInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.item.activate.ItemComplexLostMap;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockAlignmentDialGame.class */
 public class BlockAlignmentDialGame extends BlockBasic implements ITileEntityProvider {
     public BlockAlignmentDialGame(String name) {
         super(name);
     }
-
     private boolean validMap(ItemStack stack) {
         if ((stack.func_77973_b() instanceof ItemComplexLostMap) && stack.func_77942_o() && stack.func_77978_p().func_74762_e("MapProgress") == 2) {
             return true;
         }
         return false;
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         ItemStack held = playerIn.func_184586_b(hand);
         if (validMap(held)) {
@@ -56,7 +51,6 @@ public class BlockAlignmentDialGame extends BlockBasic implements ITileEntityPro
         }
         return true;
     }
-
     private boolean checkWin(BlockPos pos, World worldIn, EntityPlayer playerIn) {
         Vec3i dir;
         int count;
@@ -91,15 +85,12 @@ public class BlockAlignmentDialGame extends BlockBasic implements ITileEntityPro
         }
         return false;
     }
-
     public TileEntity func_149915_a(World worldIn, int meta) {
         return null;
     }
-
     public boolean func_149716_u() {
         return true;
     }
-
     public TileEntity createTileEntity(World world, IBlockState state) {
         return new TileEntityAlignmentDialGame();
     }

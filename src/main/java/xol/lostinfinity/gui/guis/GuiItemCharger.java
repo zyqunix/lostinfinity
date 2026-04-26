@@ -1,5 +1,4 @@
 package xol.lostinfinity.gui.guis;
-
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -11,20 +10,16 @@ import org.lwjgl.input.Keyboard;
 import xol.lostinfinity.block.tileentity.TileEntityFusionTable;
 import xol.lostinfinity.gui.containers.ContainerItemCharger;
 import xol.lostinfinity.util.Reference;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/guis/GuiItemCharger.class */
 public class GuiItemCharger extends GuiContainer {
     private static final ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/gui/item_charger.png");
     private final ContainerItemCharger charger;
     private final ItemStack chargeable;
     private GuiTextField nameField;
-
     public GuiItemCharger(InventoryPlayer invPlayer, World worldIn) {
         super(new ContainerItemCharger(invPlayer, worldIn, invPlayer.func_70448_g()));
         this.chargeable = invPlayer.func_70448_g();
         this.charger = (ContainerItemCharger) this.field_147002_h;
     }
-
     public void func_73866_w_() {
         super.func_73866_w_();
         Keyboard.enableRepeatEvents(true);
@@ -36,11 +31,9 @@ public class GuiItemCharger extends GuiContainer {
         this.nameField.func_146185_a(false);
         this.nameField.func_146203_f(35);
     }
-
     public void func_146281_b() {
         super.func_146281_b();
     }
-
     protected void func_146979_b(int mouseX, int mouseY) {
         GlStateManager.func_179140_f();
         GlStateManager.func_179084_k();
@@ -55,19 +48,15 @@ public class GuiItemCharger extends GuiContainer {
                     this.nameField.func_146180_a("Cur Charge: 0%");
                 }
                 break;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 this.nameField.func_146180_a("Fully charged.");
                 break;
         }
         this.nameField.func_146193_g(this.charger.status.getColor());
         GlStateManager.func_179145_e();
     }
-
-    /* JADX INFO: renamed from: xol.lostinfinity.gui.guis.GuiItemCharger$1, reason: invalid class name */
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/guis/GuiItemCharger$1.class */
-    static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] $SwitchMap$xol$lostinfinity$gui$containers$ContainerItemCharger$ItemChargerStatus = new int[ContainerItemCharger.ItemChargerStatus.values().length];
-
+    static  class AnonymousClass1 {
+        static final  int[] $SwitchMap$xol$lostinfinity$gui$containers$ContainerItemCharger$ItemChargerStatus = new int[ContainerItemCharger.ItemChargerStatus.values().length];
         static {
             try {
                 $SwitchMap$xol$lostinfinity$gui$containers$ContainerItemCharger$ItemChargerStatus[ContainerItemCharger.ItemChargerStatus.AWAITING_INPUT.ordinal()] = 1;
@@ -87,7 +76,6 @@ public class GuiItemCharger extends GuiContainer {
             }
         }
     }
-
     public void func_73863_a(int mouseX, int mouseY, float partialTicks) {
         func_146276_q_();
         super.func_73863_a(mouseX, mouseY, partialTicks);
@@ -96,7 +84,6 @@ public class GuiItemCharger extends GuiContainer {
         GlStateManager.func_179084_k();
         this.nameField.func_146194_f();
     }
-
     protected void func_146976_a(float partialTicks, int mouseX, int mouseY) {
         GlStateManager.func_179131_c(1.0f, 1.0f, 1.0f, 1.0f);
         this.field_146297_k.func_110434_K().func_110577_a(texture);

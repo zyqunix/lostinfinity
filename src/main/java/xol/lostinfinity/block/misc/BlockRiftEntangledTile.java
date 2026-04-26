@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.misc;
-
 import java.util.ArrayList;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
@@ -25,15 +24,11 @@ import xol.lostinfinity.init.DimensionInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.item.weapon.ItemHeadCollector;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/misc/BlockRiftEntangledTile.class */
 public class BlockRiftEntangledTile extends BlockBasic implements ISpecialMurkMeta {
     public static final PropertyInteger AMOUNT = PropertyInteger.func_177719_a("amount", 0, 15);
-
     public BlockRiftEntangledTile(String name) {
         super(name);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         int meta;
         if (!worldIn.field_72995_K && playerIn.func_184586_b(hand).func_77973_b().equals(ItemInit.powerAnalyzer)) {
@@ -131,27 +126,21 @@ public class BlockRiftEntangledTile extends BlockBasic implements ISpecialMurkMe
         }
         return true;
     }
-
     public IBlockState func_180642_a(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
         return func_176223_P().func_177226_a(AMOUNT, 0);
     }
-
     public IBlockState func_176203_a(int meta) {
         return func_176223_P().func_177226_a(AMOUNT, Integer.valueOf(meta));
     }
-
     public int func_176201_c(IBlockState state) {
         return ((Integer) state.func_177229_b(AMOUNT)).intValue();
     }
-
     protected BlockStateContainer func_180661_e() {
         return new BlockStateContainer(this, new IProperty[]{AMOUNT});
     }
-
     public IBlockState getStateWithAmount(int amount) {
         return func_176223_P().func_177226_a(AMOUNT, Integer.valueOf(amount));
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialMurkMeta
     public int getMurkMeta(IBlockState state) {
         int meta = func_176201_c(state);
@@ -164,11 +153,11 @@ public class BlockRiftEntangledTile extends BlockBasic implements ISpecialMurkMe
                 return 11;
             case 3:
                 return 15;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 return 5;
             case 5:
                 return 0;
-            case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+            case TileEntityFusionTable.BOARD_COLUMNS :
                 return 3;
             case 7:
                 return 12;
@@ -176,7 +165,7 @@ public class BlockRiftEntangledTile extends BlockBasic implements ISpecialMurkMe
                 return 1;
             case 9:
                 return 7;
-            case ItemHeadCollector.CHARGE_LIMIT /* 10 */:
+            case ItemHeadCollector.CHARGE_LIMIT :
                 return 14;
             case 11:
                 return 2;

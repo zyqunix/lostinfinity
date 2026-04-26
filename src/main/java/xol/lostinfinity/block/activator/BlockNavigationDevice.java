@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import javax.annotation.Nullable;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.properties.IProperty;
@@ -18,15 +17,11 @@ import net.minecraft.world.World;
 import xol.lostinfinity.block.basic.BlockBasic;
 import xol.lostinfinity.block.tileentity.TileEntityNavigationDevice;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockNavigationDevice.class */
 public class BlockNavigationDevice extends BlockBasic implements ITileEntityProvider {
     public static final PropertyInteger AMOUNT = PropertyInteger.func_177719_a("amount", 0, 12);
-
     public BlockNavigationDevice(String name) {
         super(name);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         ItemStack stack = playerIn.func_184586_b(hand);
         TileEntity te = worldIn.func_175625_s(pos);
@@ -45,33 +40,26 @@ public class BlockNavigationDevice extends BlockBasic implements ITileEntityProv
         }
         return true;
     }
-
     public IBlockState func_180642_a(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
         return func_176223_P().func_177226_a(AMOUNT, 0);
     }
-
     public IBlockState func_176203_a(int meta) {
         return func_176223_P().func_177226_a(AMOUNT, Integer.valueOf(meta));
     }
-
     public int func_176201_c(IBlockState state) {
         return ((Integer) state.func_177229_b(AMOUNT)).intValue();
     }
-
     protected BlockStateContainer func_180661_e() {
         return new BlockStateContainer(this, new IProperty[]{AMOUNT});
     }
-
     @Nullable
     public TileEntity func_149915_a(World worldIn, int meta) {
         return null;
     }
-
     @Nullable
     public TileEntity createTileEntity(World world, IBlockState state) {
         return new TileEntityNavigationDevice();
     }
-
     public boolean hasTileEntity(IBlockState state) {
         return true;
     }

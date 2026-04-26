@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.misc;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -11,14 +10,11 @@ import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.basics.ItemBasic;
 import xol.lostinfinity.item.classify.ItemSoulbound;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/misc/ItemGeolocationOrb.class */
 public class ItemGeolocationOrb extends ItemBasic implements ItemSoulbound {
     public ItemGeolocationOrb(String regName) {
         super(regName, TabsInit.TAB_AUXMATS);
         func_77625_d(1);
     }
-
     private String typeToName(int type) {
         switch (type) {
             case 0:
@@ -33,7 +29,6 @@ public class ItemGeolocationOrb extends ItemBasic implements ItemSoulbound {
                 return "Data Error";
         }
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(soulBoundMessage());

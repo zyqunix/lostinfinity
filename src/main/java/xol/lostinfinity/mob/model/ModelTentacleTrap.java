@@ -1,12 +1,9 @@
 package xol.lostinfinity.mob.model;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import xol.lostinfinity.mob.entity.misc.EntityTentacleTrap;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/ModelTentacleTrap.class */
 public class ModelTentacleTrap extends ModelBase {
     private final ModelRenderer Tentacles;
     private final ModelRenderer Tentacle2;
@@ -15,7 +12,6 @@ public class ModelTentacleTrap extends ModelBase {
     private final ModelRenderer body_r2;
     private final ModelRenderer Tentacle3;
     private final ModelRenderer body_r3;
-
     public ModelTentacleTrap() {
         this.field_78090_t = 64;
         this.field_78089_u = 32;
@@ -52,17 +48,14 @@ public class ModelTentacleTrap extends ModelBase {
         setRotationAngle(this.body_r3, -0.1745f, 0.0f, 0.0f);
         this.body_r3.field_78804_l.add(new ModelBox(this.body_r3, 1, 0, -3.0f, -2.0f, -7.5f, 6, 6, 25, -1.5f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.Tentacles.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         EntityTentacleTrap trap = (EntityTentacleTrap) entityIn;
         float angle = trap.getTentacleAngle();

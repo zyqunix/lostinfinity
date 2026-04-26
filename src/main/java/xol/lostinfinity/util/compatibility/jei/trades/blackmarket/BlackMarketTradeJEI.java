@@ -1,16 +1,12 @@
 package xol.lostinfinity.util.compatibility.jei.trades.blackmarket;
-
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 import java.util.Map;
 import net.minecraft.item.ItemStack;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/compatibility/jei/trades/blackmarket/BlackMarketTradeJEI.class */
 public class BlackMarketTradeJEI {
     private static final BlackMarketTradeJEI INSTANCE = new BlackMarketTradeJEI();
     private final Table<ItemStack, ItemStack, ItemStack> blackMarketTradeList = HashBasedTable.create();
-
     public BlackMarketTradeJEI() {
         ItemStack masterAlloy = new ItemStack(ItemInit.masterCraftedAlloy);
         masterAlloy.func_190920_e(15);
@@ -45,18 +41,15 @@ public class BlackMarketTradeJEI {
         ItemStack goldToken = new ItemStack(ItemInit.goldToken);
         addBlackMarketTradeRecipe(new ItemStack(ItemInit.boxOfLife), ItemStack.field_190927_a, goldToken);
     }
-
     public static BlackMarketTradeJEI getInstance() {
         return INSTANCE;
     }
-
     public void addBlackMarketTradeRecipe(ItemStack input1, ItemStack input2, ItemStack result) {
         if (getBlackMarketTradeResult(input1, input2) != ItemStack.field_190927_a) {
             return;
         }
         this.blackMarketTradeList.put(input1, input2, result);
     }
-
     public ItemStack getBlackMarketTradeResult(ItemStack input1, ItemStack input2) {
         for (Map.Entry<ItemStack, Map<ItemStack, ItemStack>> entry : this.blackMarketTradeList.columnMap().entrySet()) {
             if (compareItemStacks(input1, entry.getKey())) {
@@ -69,11 +62,9 @@ public class BlackMarketTradeJEI {
         }
         return ItemStack.field_190927_a;
     }
-
     private boolean compareItemStacks(ItemStack stack1, ItemStack stack2) {
         return stack1.func_77973_b() == stack2.func_77973_b() && stack1.func_77960_j() == stack2.func_77960_j();
     }
-
     public Table<ItemStack, ItemStack, ItemStack> getBlackMarketTradeList() {
         return this.blackMarketTradeList;
     }

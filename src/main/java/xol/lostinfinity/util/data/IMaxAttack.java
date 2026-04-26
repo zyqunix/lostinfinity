@@ -1,5 +1,4 @@
 package xol.lostinfinity.util.data;
-
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
@@ -51,33 +50,25 @@ import xol.lostinfinity.mob.entity.minion.EntityMinion;
 import xol.lostinfinity.mob.entity.misc.EntityPickleMan;
 import xol.lostinfinity.util.fx.IParticleSpawner;
 import xol.lostinfinity.util.player.PlayerManager;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/data/IMaxAttack.class */
 public interface IMaxAttack {
     static CustomDamageResult dealMaxHealth(Entity attacker, EntityLivingBase entity, int de) {
         return dealMaxHealth(attacker, entity, de, 1.0f, null);
     }
-
     static CustomDamageResult dealMaxHealth(Entity attacker, EntityLivingBase entity, int de, float multiplier) {
         return dealMaxHealth(attacker, entity, de, multiplier, null);
     }
-
     static CustomDamageResult dealMaxHealth(Entity attacker, EntityLivingBase entity, int de, List<String> damageClass) {
         return dealMaxHealth(attacker, entity, de, 1.0f, damageClass);
     }
-
     static CustomDamageResult dealPotionDamage(EntityLivingBase target, float effective_damage) {
         return dealPotionDamage(target, effective_damage, null);
     }
-
     static CustomDamageResult dealTrueDamage(Entity attacker, EntityLivingBase target, float effective_damage) {
         return dealTrueDamage(attacker, target, effective_damage, null);
     }
-
     static CustomDamageResult dealTrueDamage(Entity attacker, EntityLivingBase target, float effective_damage, List<String> damageClass) {
         return dealTrueDamage(null, attacker, target, effective_damage, damageClass);
     }
-
     static CustomDamageResult dealMaxHealth(Entity attacker, EntityLivingBase targetedEntity, int de, float multiplier, List<String> damageClass) {
         float effectiveDamage = multiplier * (targetedEntity.func_110138_aP() / de);
         CustomDamageResult damageResult = new CustomDamageResult(attacker, targetedEntity);
@@ -186,7 +177,6 @@ public interface IMaxAttack {
         }
         return damageResult;
     }
-
     static CustomDamageResult dealPotionDamage(EntityLivingBase target, float effective_damage, List<String> damageClass) {
         CustomDamageResult damageResult = new CustomDamageResult(null, target);
         damageResult.setIntendedDamage(effective_damage);
@@ -199,7 +189,6 @@ public interface IMaxAttack {
         }
         return dealTrueDamage(damageResult, null, target, newDamage, damageClass);
     }
-
     static CustomDamageResult dealTrueDamage(CustomDamageResult incomingResult, Entity attacker, EntityLivingBase target, float effective_damage, List<String> damageClass) {
         CustomDamageResult damageResult = incomingResult;
         if (damageResult == null) {
@@ -346,7 +335,6 @@ public interface IMaxAttack {
         }
         return damageResult;
     }
-
     static boolean hookPlayerAttackEffect(CustomDamageResult result, EntityPlayer attacker, EntityLivingBase targeted, int de, float multiplier, float effective_damage) {
         World world = attacker.field_70170_p;
         if (PlayerManager.isPlayerWearingFullSet(attacker, ArmorInit.spectrosSet)) {
@@ -393,7 +381,6 @@ public interface IMaxAttack {
         }
         return false;
     }
-
     static float performTargetPotionChecks(CustomDamageResult result, Entity attacker, EntityLivingBase target, float damage) {
         float newDmg = damage;
         if (target.func_70644_a(PotionInit.VULNERABILITY)) {
@@ -417,7 +404,6 @@ public interface IMaxAttack {
         }
         return newDmg;
     }
-
     static float performAttackerPotionChecks(CustomDamageResult result, EntityLivingBase attacker, float damage) {
         float newDmg = damage;
         if (attacker.func_70644_a(PotionInit.ADRENALINE)) {
@@ -436,7 +422,6 @@ public interface IMaxAttack {
         }
         return newDmg;
     }
-
     static float performTrueReduction(CustomDamageResult result, EntityPlayer playerIn, Entity attacker, float damage) {
         float newDamage = damage;
         if (PlayerManager.isPlayerWearingFullSet(playerIn, ArmorInit.bionicveggitronSet)) {
@@ -507,7 +492,6 @@ public interface IMaxAttack {
         }
         return return_damage;
     }
-
     static float performDamageReduction(CustomDamageResult result, EntityPlayer playerIn, float damage) {
         float multiplier = 1.0f;
         boolean hasPrime = false;
@@ -547,7 +531,6 @@ public interface IMaxAttack {
         }
         return return_damage;
     }
-
     static boolean hookPlayerHitEffect(CustomDamageResult result, Entity attacker, EntityPlayer targeted, float effective_damage) {
         if (PlayerManager.isPlayerWearingFullSet(targeted, ArmorInit.plasmythicSet) && (attacker instanceof EntityLivingBase) && !((EntityLivingBase) attacker).func_70644_a(PotionInit.NULLIFIED)) {
             dealTrueDamage(targeted, (EntityLivingBase) attacker, effective_damage * 0.35f);
@@ -653,7 +636,6 @@ public interface IMaxAttack {
         }
         return false;
     }
-
     static void hookPlayerKillEffect(EntityPlayer attacker, EntityLivingBase killed) {
         SoundEvent sound;
         for (int i = 0; i <= 8; i++) {
@@ -713,7 +695,6 @@ public interface IMaxAttack {
             IParticleSpawner.spawnParticle(world, config1, killed.field_70165_t, killed.field_70163_u + 0.5d, killed.field_70161_v);
         }
     }
-
     static String getRandomDeathMessage(World w) {
         switch (w.field_73012_v.nextInt(17)) {
             case 0:
@@ -724,11 +705,11 @@ public interface IMaxAttack {
                 return " got completely dominated by ";
             case 3:
                 return " was ripped apart by ";
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 return " was humiliated by ";
             case 5:
                 return " attempted to fight ";
-            case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+            case TileEntityFusionTable.BOARD_COLUMNS :
                 return " was far weaker than ";
             case 7:
                 return " was no match for ";
@@ -736,7 +717,7 @@ public interface IMaxAttack {
                 return " got wrecked by ";
             case 9:
                 return " was shown who is the boss by ";
-            case ItemHeadCollector.CHARGE_LIMIT /* 10 */:
+            case ItemHeadCollector.CHARGE_LIMIT :
                 return " is a joke compared to ";
             case 11:
                 return " wishes they had a chance against ";

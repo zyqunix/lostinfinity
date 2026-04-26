@@ -1,5 +1,4 @@
 package xol.lostinfinity.dimension.shadowsea;
-
 import java.util.List;
 import java.util.Random;
 import javax.annotation.Nullable;
@@ -23,8 +22,6 @@ import net.minecraftforge.event.terraingen.TerrainGen;
 import xol.lostinfinity.dimension.util.CustomBiome;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.DimensionInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/dimension/shadowsea/ChunkGeneratorShadowSea.class */
 public class ChunkGeneratorShadowSea implements IChunkGenerator {
     private final World world;
     private final Random rand;
@@ -63,7 +60,6 @@ public class ChunkGeneratorShadowSea implements IChunkGenerator {
     private float[] biomeWeights = new float[25];
     private double[] depthBuffer = new double[256];
     private CaveGeneratorShadowSea caveGen = new CaveGeneratorShadowSea();
-
     protected ChunkGeneratorShadowSea(World world) {
         this.world = world;
         this.rand = new Random(world.func_72905_C());
@@ -87,7 +83,6 @@ public class ChunkGeneratorShadowSea implements IChunkGenerator {
         this.scaleNoise = context.getScale();
         this.depthNoise = context.getDepth();
     }
-
     public Chunk func_185932_a(int chunkX, int chunkZ) {
         this.curChunkX = chunkX;
         this.curChunkZ = chunkZ;
@@ -105,14 +100,12 @@ public class ChunkGeneratorShadowSea implements IChunkGenerator {
         chunk.func_76603_b();
         return chunk;
     }
-
     private Biome getBiomeByCoords(int chunkX, int chunkZ) {
         if (chunkX < 100) {
             return this.biome;
         }
         return this.biome2;
     }
-
     private void generateHeightMap() {
         double depthBy8k;
         int offsetX = this.curChunkX * 4;
@@ -179,7 +172,6 @@ public class ChunkGeneratorShadowSea implements IChunkGenerator {
             }
         }
     }
-
     private IBlockState getBiomeTerrainBlock(Biome biome) {
         if (biome instanceof CustomBiome) {
             CustomBiome cb = (CustomBiome) biome;
@@ -187,7 +179,6 @@ public class ChunkGeneratorShadowSea implements IChunkGenerator {
         }
         return BlockInit.astroRock.func_176223_P();
     }
-
     private void setBlocksInChunk(int x, int z) {
         IBlockState terrainBlock = getBiomeTerrainBlock(getBiomeByCoords(x, z));
         for (int i = 0; i < 4; i++) {
@@ -236,7 +227,6 @@ public class ChunkGeneratorShadowSea implements IChunkGenerator {
             }
         }
     }
-
     private void replaceBiomeBlocks() {
         if (!ForgeEventFactory.onReplaceBiomeBlocks(this, this.curChunkX, this.curChunkZ, this.primer, this.world)) {
             return;
@@ -248,7 +238,6 @@ public class ChunkGeneratorShadowSea implements IChunkGenerator {
             }
         }
     }
-
     private void generateBiomeTerrain(World worldIn, Random rand, ChunkPrimer chunkPrimerIn, int x, int z, double noiseVal, int chunkX, int chunkZ) {
         int seaLevel = worldIn.func_181545_F();
         Biome biomeUse = getBiomeByCoords(chunkX, chunkZ);
@@ -301,7 +290,6 @@ public class ChunkGeneratorShadowSea implements IChunkGenerator {
             }
         }
     }
-
     public void func_185931_b(int chunkX, int chunkZ) {
         this.rand.setSeed(this.world.func_72905_C());
         long a = ((this.rand.nextLong() / 2) * 2) + 1;
@@ -316,24 +304,19 @@ public class ChunkGeneratorShadowSea implements IChunkGenerator {
         biome.func_180624_a(this.world, this.rand, basePos);
         WorldEntitySpawner.func_77191_a(this.world, biome, baseX + 8, baseZ + 8, 16, 16, this.rand);
     }
-
     public boolean func_185933_a(Chunk chunkIn, int x, int z) {
         return false;
     }
-
     public List<Biome.SpawnListEntry> func_177458_a(EnumCreatureType creatureType, BlockPos pos) {
         Chunk chunk = this.world.func_175726_f(pos);
         return getBiomeByCoords(chunk.field_76635_g, chunk.field_76647_h).func_76747_a(creatureType);
     }
-
     @Nullable
     public BlockPos func_180513_a(World worldIn, String structureName, BlockPos position, boolean findUnexplored) {
         return null;
     }
-
     public void func_180514_a(Chunk chunkIn, int x, int z) {
     }
-
     public boolean func_193414_a(World worldIn, String structureName, BlockPos pos) {
         return false;
     }

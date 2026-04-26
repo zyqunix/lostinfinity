@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,11 +10,8 @@ import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.mob.entity.contest.controller.EntityControllerDuelArena;
 import xol.lostinfinity.util.coordinates.ContestCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemDuelingSwordSharp.class */
 public class ItemDuelingSwordSharp extends ItemSword {
     private static final int numHits = 3;
-
     public ItemDuelingSwordSharp(String regName) {
         super(Item.ToolMaterial.IRON);
         func_77637_a(TabsInit.TAB_AUXWEP);
@@ -23,7 +19,6 @@ public class ItemDuelingSwordSharp extends ItemSword {
         func_77655_b(regName);
         ItemInit.ITEMS.add(this);
     }
-
     public boolean func_77644_a(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         stack.func_77964_b(0);
         if ((target instanceof EntityPlayer) && (attacker instanceof EntityPlayer)) {

@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.tileentity;
-
 import java.util.List;
 import java.util.Random;
 import net.minecraft.entity.item.EntityItem;
@@ -19,8 +18,6 @@ import xol.lostinfinity.mob.entity.nebula.EntityNebulaGiant;
 import xol.lostinfinity.mob.entity.nebula.EntityNebulaGrunt;
 import xol.lostinfinity.mob.entity.nebula.EntityNebulaWizard;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/tileentity/TileEntityNebulousBeacon.class */
 public class TileEntityNebulousBeacon extends TileEntity implements IInventory, ITickable {
     private static final int RANGE = 3;
     public static final int HEALTH_MAX = 100;
@@ -28,7 +25,6 @@ public class TileEntityNebulousBeacon extends TileEntity implements IInventory, 
     private Random rand = new Random();
     private int health = 100;
     private int duration = 0;
-
     public void func_73660_a() {
         if (!this.field_145850_b.field_72995_K) {
             if (this.health <= 0) {
@@ -55,7 +51,6 @@ public class TileEntityNebulousBeacon extends TileEntity implements IInventory, 
             }
         }
     }
-
     private void checkIfDamaged() {
         if (this.duration % 40 == 0) {
             List<EntityNebulaGrunt> nearGrunts = this.field_145850_b.func_72872_a(EntityNebulaGrunt.class, new AxisAlignedBB(this.field_174879_c).func_186662_g(3.0d));
@@ -68,7 +63,6 @@ public class TileEntityNebulousBeacon extends TileEntity implements IInventory, 
             }
         }
     }
-
     private void trySpawnMob() {
         BlockPos spawnPos;
         if (this.duration % 40 == 0 && this.field_145850_b.field_73012_v.nextBoolean()) {
@@ -122,48 +116,36 @@ public class TileEntityNebulousBeacon extends TileEntity implements IInventory, 
             }
         }
     }
-
     public int func_70302_i_() {
         return 0;
     }
-
     public boolean func_191420_l() {
         return false;
     }
-
     public ItemStack func_70301_a(int index) {
         return null;
     }
-
     public ItemStack func_70298_a(int index, int count) {
         return null;
     }
-
     public ItemStack func_70304_b(int index) {
         return null;
     }
-
     public void func_70299_a(int index, ItemStack stack) {
     }
-
     public int func_70297_j_() {
         return 0;
     }
-
     public boolean func_70300_a(EntityPlayer player) {
         return true;
     }
-
     public void func_174889_b(EntityPlayer player) {
     }
-
     public void func_174886_c(EntityPlayer player) {
     }
-
     public boolean func_94041_b(int index, ItemStack stack) {
         return false;
     }
-
     public int func_174887_a_(int id) {
         switch (id) {
             case 0:
@@ -174,7 +156,6 @@ public class TileEntityNebulousBeacon extends TileEntity implements IInventory, 
                 return 0;
         }
     }
-
     public void func_174885_b(int id, int value) {
         switch (id) {
             case 0:
@@ -185,37 +166,29 @@ public class TileEntityNebulousBeacon extends TileEntity implements IInventory, 
                 break;
         }
     }
-
     public int func_174890_g() {
         return 2;
     }
-
     public void func_174888_l() {
     }
-
     public String func_70005_c_() {
         return "tile.nebulous_beacon";
     }
-
     public boolean func_145818_k_() {
         return false;
     }
-
     public int getCurrentHealth() {
         return func_174887_a_(0);
     }
-
     public int getCurrentDuration() {
         return func_174887_a_(1);
     }
-
     public NBTTagCompound func_189515_b(NBTTagCompound compound) {
         super.func_189515_b(compound);
         compound.func_74768_a("health", this.health);
         compound.func_74768_a("duration", this.duration);
         return compound;
     }
-
     public void func_145839_a(NBTTagCompound compound) {
         super.func_145839_a(compound);
         this.health = compound.func_74762_e("health");

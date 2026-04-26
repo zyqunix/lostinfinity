@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.render.misc;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -12,16 +11,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import xol.lostinfinity.mob.entity.misc.EntityPlasmaSlicer;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/render/misc/RenderPlasmaSlicer.class */
 public class RenderPlasmaSlicer<T extends Entity> extends Render<T> {
     public static final ResourceLocation TEXTURE_STABLE_PLASMA = new ResourceLocation("lostinfinity:textures/particles/stable_plasma.png");
     public static final ResourceLocation TEXTURE_UNSTABLE_PLASMA = new ResourceLocation("lostinfinity:textures/particles/unstable_plasma.png");
-
     public RenderPlasmaSlicer(RenderManager renderManager) {
         super(renderManager);
     }
-
     public void func_76986_a(T entity, double x, double y, double z, float entityYaw, float partialTicks) {
         EntityPlasmaSlicer attackEntity = (EntityPlasmaSlicer) entity;
         Vec3d playerPos = null;
@@ -73,7 +68,6 @@ public class RenderPlasmaSlicer<T extends Entity> extends Render<T> {
             GlStateManager.func_179084_k();
         }
     }
-
     protected ResourceLocation func_110775_a(T entity) {
         return null;
     }

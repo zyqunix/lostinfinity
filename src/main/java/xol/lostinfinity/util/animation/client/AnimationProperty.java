@@ -1,13 +1,10 @@
 package xol.lostinfinity.util.animation.client;
-
 import java.util.function.Supplier;
 import net.minecraft.util.math.Vec3d;
 import xol.lostinfinity.util.animation.client.blueprint.Animation;
 import xol.lostinfinity.util.animation.client.blueprint.LoopMode;
 import xol.lostinfinity.util.animation.client.blueprint.Timeline;
 import xol.lostinfinity.util.math.EulerAngle;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/animation/client/AnimationProperty.class */
 public class AnimationProperty {
     public final Supplier<Animation> animationSupplier;
     public Animation animation;
@@ -16,17 +13,14 @@ public class AnimationProperty {
     public float time;
     public float speedModifier;
     public boolean stopped;
-
     public AnimationProperty(Supplier<Animation> animation) {
         this.animationSupplier = animation;
     }
-
     public void refresh() {
         this.animation = this.animationSupplier.get();
         this.loopMode = this.animation.loopMode;
         this.isOverride = this.animation.isOverride;
     }
-
     public void update(float partialTick) {
         if (this.stopped) {
         }
@@ -45,7 +39,6 @@ public class AnimationProperty {
             }
         }
     }
-
     public Vec3d getPosition(String bone) {
         Timeline timeline = this.animation.timelines.get(bone);
         if (timeline == null) {
@@ -53,7 +46,6 @@ public class AnimationProperty {
         }
         return timeline.position.interpolate(this.time);
     }
-
     public EulerAngle getRotation(String bone) {
         Timeline timeline = this.animation.timelines.get(bone);
         if (timeline == null) {
@@ -61,7 +53,6 @@ public class AnimationProperty {
         }
         return timeline.rotation.interpolate(this.time);
     }
-
     public Vec3d getScale(String bone) {
         Timeline timeline = this.animation.timelines.get(bone);
         if (timeline == null) {
@@ -69,7 +60,6 @@ public class AnimationProperty {
         }
         return timeline.scale.interpolate(this.time);
     }
-
     public void stop() {
         this.stopped = true;
     }

@@ -1,12 +1,9 @@
 package xol.lostinfinity.mob.entity.sea.leviathan;
-
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import xol.lostinfinity.mob.entity.base.EntityMultipleLivesRelay;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/sea/leviathan/EntityLeviathanSegment.class */
 public class EntityLeviathanSegment extends EntityMultipleLivesRelay<EntityLeviathanController> implements IMaxAttack {
     protected final EntityLeviathanSegment parentSegment;
     protected float dWidth;
@@ -18,11 +15,9 @@ public class EntityLeviathanSegment extends EntityMultipleLivesRelay<EntityLevia
     protected float originDistance;
     protected float segmentMaxPitch;
     protected float segmentMaxYaw;
-
     public EntityLeviathanSegment(EntityLeviathanController parent, EntityLeviathanSegment parentSegment) {
         this(parent, parentSegment, 1.0f, 1.0f);
     }
-
     public EntityLeviathanSegment(EntityLeviathanController parent, EntityLeviathanSegment parentSegment, float width, float height) {
         super(parent, width, height);
         this.size = 1;
@@ -36,7 +31,6 @@ public class EntityLeviathanSegment extends EntityMultipleLivesRelay<EntityLevia
         this.segmentMaxPitch = 60.0f;
         this.segmentMaxYaw = 60.0f;
     }
-
     protected void updatePosition() {
         if (this.parentSegment == null || this.parentSegment.field_70128_L) {
             return;
@@ -61,19 +55,15 @@ public class EntityLeviathanSegment extends EntityMultipleLivesRelay<EntityLevia
         Vec3d dir2 = Vec3d.func_189986_a(pitch2, yaw2).func_186678_a(-this.originDistance);
         func_70080_a(parentPos.field_72450_a + dir2.field_72450_a, parentPos.field_72448_b + dir2.field_72448_b, parentPos.field_72449_c + dir2.field_72449_c, yaw2, pitch2);
     }
-
     protected Vec3d getSocketPosition() {
         return func_174791_d().func_178787_e(func_70040_Z().func_186678_a(-this.socketOffset));
     }
-
     public boolean func_70072_I() {
         return false;
     }
-
     public boolean func_180799_ab() {
         return false;
     }
-
     public void func_70080_a(double x, double y, double z, float yaw, float pitch) {
         this.field_70169_q = this.field_70165_t;
         this.field_70167_r = this.field_70163_u;
@@ -95,18 +85,15 @@ public class EntityLeviathanSegment extends EntityMultipleLivesRelay<EntityLevia
         func_70107_b(this.field_70165_t, this.field_70163_u, this.field_70161_v);
         func_70101_b(yaw, pitch);
     }
-
     public float func_70047_e() {
         return this.field_70131_O / 2.0f;
     }
-
     public void setSize(int size) {
         this.size = size;
         func_70105_a(this.dWidth * size, this.dHeight * size);
         this.socketOffset = this.dSocketOffset * size;
         this.originDistance = this.dOriginDistance * size;
     }
-
     public float func_70603_bj() {
         return this.size;
     }

@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.sea.seaserpent;
-
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
@@ -35,8 +34,6 @@ import xol.lostinfinity.util.data.CustomDamageResult;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.load.LootTableRegistry;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/sea/seaserpent/EntitySeaSerpentController.class */
 public class EntitySeaSerpentController extends EntityFloatingBase implements ILostMultiPart, IKnockbackImmunity, IMaxAttack {
     private static final DataParameter<Integer> SIZE = EntityDataManager.func_187226_a(EntitySeaSerpentController.class, DataSerializers.field_187192_b);
     private static final DataParameter<Integer> ANIMATION_DATA = EntityDataManager.func_187226_a(EntitySeaSerpentController.class, DataSerializers.field_187192_b);
@@ -44,7 +41,6 @@ public class EntitySeaSerpentController extends EntityFloatingBase implements IL
     private final SeaSerpentMoveHelper serpentMoveHelper;
     protected int attackCooldown;
     protected int attackGracePeriod;
-
     public EntitySeaSerpentController(World worldIn) {
         super(worldIn);
         this.segments = new EntitySeaSerpentSegment[7];
@@ -70,13 +66,11 @@ public class EntitySeaSerpentController extends EntityFloatingBase implements IL
         tail.setId(this.segments.length - 1);
         this.segments[this.segments.length - 1] = tail;
     }
-
     @Nullable
     public IEntityLivingData func_180482_a(DifficultyInstance difficulty, @Nullable IEntityLivingData livingdata) {
         setSize(2);
         return super.func_180482_a(difficulty, livingdata);
     }
-
     public void func_184206_a(DataParameter<?> key) {
         if (SIZE.equals(key)) {
             int size = getSize();
@@ -86,47 +80,39 @@ public class EntitySeaSerpentController extends EntityFloatingBase implements IL
         }
         super.func_184206_a(key);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(SIZE, 1);
         this.field_70180_af.func_187214_a(ANIMATION_DATA, 0);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void func_70014_b(NBTTagCompound tag) {
         super.func_70014_b(tag);
         tag.func_74768_a("Size", getSize());
         tag.func_74768_a("AnimationData", getAnimation());
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void func_70037_a(NBTTagCompound tag) {
         super.func_70037_a(tag);
         setSize(tag.func_74762_e("Size"));
         setAnimation(tag.func_74762_e("AnimationData"));
     }
-
     public void setSize(int size) {
         this.field_70180_af.func_187227_b(SIZE, Integer.valueOf(size));
         for (EntitySeaSerpentSegment segment : this.segments) {
             segment.setSize(size);
         }
     }
-
     public int getSize() {
         return ((Integer) this.field_70180_af.func_187225_a(SIZE)).intValue();
     }
-
     public void setAnimation(int data) {
         this.field_70180_af.func_187227_b(ANIMATION_DATA, Integer.valueOf(data));
     }
-
     public int getAnimation() {
         return ((Integer) this.field_70180_af.func_187225_a(ANIMATION_DATA)).intValue();
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     public void func_110147_ax() {
         super.func_110147_ax();
@@ -136,13 +122,11 @@ public class EntitySeaSerpentController extends EntityFloatingBase implements IL
         func_110148_a(SharedMonsterAttributes.field_111265_b).func_111128_a(128.0d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(5000.0d);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_184651_r() {
         super.func_184651_r();
         this.field_70715_bh.func_75776_a(2, new EntityAINearestAttackableTarget(this, EntityFish.class, false));
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     public void func_70636_d() {
         super.func_70636_d();
@@ -179,16 +163,13 @@ public class EntitySeaSerpentController extends EntityFloatingBase implements IL
         this.serpentMoveHelper.setCorrectionRate(0.1d);
         this.serpentMoveHelper.setCourseChangeChance(5);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 20;
     }
-
     protected ResourceLocation func_184647_J() {
         return LootTableRegistry.ENTITIES_SEASERPENT;
     }
-
     protected void func_85033_bc() {
         if (this.attackCooldown > 0) {
             return;
@@ -208,35 +189,29 @@ public class EntitySeaSerpentController extends EntityFloatingBase implements IL
             func_82167_n(entity2);
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     @Nullable
     protected EntityAIFloatAttack createShootAI() {
         return null;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     protected void func_82167_n(Entity entityIn) {
         func_70652_k(entityIn);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     protected EntityMoveHelper createMoveHelper() {
         return new SeaSerpentMoveHelper(this);
     }
-
     public void func_70106_y() {
         super.func_70106_y();
         for (Entity entity : this.segments) {
             this.field_70170_p.func_72973_f(entity);
         }
     }
-
     @Nullable
     public Entity[] func_70021_al() {
         return this.segments;
     }
-
     public void func_70071_h_() {
         super.func_70071_h_();
         for (Entity entity : this.segments) {
@@ -244,32 +219,25 @@ public class EntitySeaSerpentController extends EntityFloatingBase implements IL
             entity.updatePosition();
         }
     }
-
     public boolean func_70072_I() {
         return false;
     }
-
     public boolean func_180799_ab() {
         return false;
     }
-
     @Nullable
     protected SoundEvent func_184639_G() {
         return SoundInit.LEVIATHAN_AMBIENT;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.LEVIATHAN_HURT;
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.LEVIATHAN_DEATH;
     }
-
     protected float func_70599_aP() {
         return 2.0f;
     }
-
     public boolean func_70652_k(Entity entityIn) {
         super.func_70652_k(entityIn);
         if (!(entityIn instanceof EntityLivingBase)) {
@@ -287,43 +255,34 @@ public class EntitySeaSerpentController extends EntityFloatingBase implements IL
         IMaxAttack.dealMaxHealth((Entity) this, (EntityLivingBase) entitySeaCreature, 1, (List<String>) Collections.singletonList("Aquatic"));
         return true;
     }
-
     protected boolean func_70692_ba() {
         return false;
     }
-
     public World func_82194_d() {
         return this.field_70170_p;
     }
-
     @Override // xol.lostinfinity.mob.entity.classify.ILostMultiPart
     public boolean attackEntityFromPart(EntityLivingBase part, DamageSource source, float damage) {
         return func_70097_a(source, damage);
     }
-
     @Override // xol.lostinfinity.mob.entity.classify.IKnockbackImmunity
     public float getKnockbackResistance(CustomDamageResult damageResult) {
         return 1.0f;
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/sea/seaserpent/EntitySeaSerpentController$SeaSerpentMoveHelper.class */
     private static class SeaSerpentMoveHelper extends EntityMoveHelper {
         private final EntitySeaSerpentController parentEntity;
         private int courseChangeCooldown;
         private int courseChangeChance;
         private double correctionRate;
-
         public SeaSerpentMoveHelper(EntitySeaSerpentController leviathan) {
             super(leviathan);
             this.courseChangeChance = 5;
             this.correctionRate = 0.1d;
             this.parentEntity = leviathan;
         }
-
         public void func_75642_a(double x, double y, double z, double speedIn) {
             super.func_75642_a(x, this.parentEntity.func_70638_az() == null ? MathHelper.func_151237_a(y, 30.0d, 220.0d) : y, z, speedIn);
         }
-
         public void func_75641_c() {
             if (this.field_188491_h == EntityMoveHelper.Action.MOVE_TO) {
                 double dX = this.field_75646_b - this.parentEntity.field_70165_t;
@@ -343,16 +302,13 @@ public class EntitySeaSerpentController extends EntityFloatingBase implements IL
                 }
             }
         }
-
         public void setCourseChangeChance(int chance) {
             this.courseChangeChance = chance;
         }
-
         public void setCorrectionRate(double rate) {
             this.correctionRate = rate;
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public boolean func_70601_bi() {
         return super.func_70601_bi() && nothingInRadius(35);

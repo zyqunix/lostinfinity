@@ -1,12 +1,9 @@
 package xol.lostinfinity.mob.model.starforge;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/starforge/ModelPhaser.class */
 public class ModelPhaser extends ModelBase {
     public ModelRenderer legr;
     public ModelRenderer bodyR;
@@ -22,7 +19,6 @@ public class ModelPhaser extends ModelBase {
     public ModelRenderer headR;
     public ModelRenderer headL3;
     public ModelRenderer headR3;
-
     public ModelPhaser() {
         this.field_78090_t = 64;
         this.field_78089_u = 64;
@@ -76,7 +72,6 @@ public class ModelPhaser extends ModelBase {
         this.headL.func_78792_a(this.headL3);
         this.headR.func_78792_a(this.headR3);
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         GlStateManager.func_179147_l();
         GlStateManager.func_179112_b(770, 771);
@@ -99,13 +94,11 @@ public class ModelPhaser extends ModelBase {
         this.headL.func_78785_a(f5);
         GlStateManager.func_179084_k();
     }
-
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.headR.field_78795_f = headPitch * 0.017453292f;
         this.headR.field_78796_g = netHeadYaw * 0.017453292f;

@@ -1,5 +1,4 @@
 package xol.lostinfinity.common.packets.clientbound;
-
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
@@ -12,8 +11,6 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import xol.lostinfinity.client.audio.MovingSoundHandler;
 import xol.lostinfinity.client.audio.UniversalMovingSound;
 import xol.lostinfinity.item.classify.IMovingSoundSource;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/common/packets/clientbound/PacketUniversalMovingSound.class */
 public class PacketUniversalMovingSound implements IMessage {
     private boolean isPlay;
     private int soundId;
@@ -24,15 +21,12 @@ public class PacketUniversalMovingSound implements IMessage {
     private float soundPitch;
     private boolean repeat;
     private int repeatDelay;
-
     public PacketUniversalMovingSound() {
     }
-
     public PacketUniversalMovingSound(int soundId) {
         this.soundId = soundId;
         this.isPlay = false;
     }
-
     public PacketUniversalMovingSound(int soundId, SoundEvent sound, SoundCategory category, int sourceId, float soundVolume, float soundPitch, boolean repeat, int repeatDelay) {
         this.soundId = soundId;
         this.isPlay = true;
@@ -44,7 +38,6 @@ public class PacketUniversalMovingSound implements IMessage {
         this.repeat = repeat;
         this.repeatDelay = repeatDelay;
     }
-
     public void fromBytes(ByteBuf b) {
         PacketBuffer buf = new PacketBuffer(b);
         this.soundId = buf.func_150792_a();
@@ -59,7 +52,6 @@ public class PacketUniversalMovingSound implements IMessage {
             this.repeatDelay = buf.readInt();
         }
     }
-
     public void toBytes(ByteBuf b) {
         PacketBuffer buf = new PacketBuffer(b);
         buf.func_150787_b(this.soundId);
@@ -74,8 +66,6 @@ public class PacketUniversalMovingSound implements IMessage {
             buf.writeInt(this.repeatDelay);
         }
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/common/packets/clientbound/PacketUniversalMovingSound$UniversalMovingSoundPacketHandler.class */
     public static class UniversalMovingSoundPacketHandler implements IMessageHandler<PacketUniversalMovingSound, IMessage> {
         public IMessage onMessage(PacketUniversalMovingSound message, MessageContext ctx) {
             if (!message.isPlay) {

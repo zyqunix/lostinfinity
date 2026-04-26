@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.murk;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -27,12 +26,9 @@ import xol.lostinfinity.projectile.entity.EntityDoomBlast;
 import xol.lostinfinity.projectile.entity.EntityDoomShot;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/murk/EntityDoomsday.class */
 public class EntityDoomsday extends EntityFloatingBase implements IMaxAttack {
     private ArrayList<EntityPlayer> targetList;
     private Map<EntityPlayer, Vec3d> rootPositions;
-
     public EntityDoomsday(World worldIn) {
         super(worldIn);
         this.targetList = new ArrayList<>();
@@ -40,7 +36,6 @@ public class EntityDoomsday extends EntityFloatingBase implements IMaxAttack {
         func_70105_a(3.0f, 7.0f);
         this.rawFlySpeed = 0.95f;
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -49,7 +44,6 @@ public class EntityDoomsday extends EntityFloatingBase implements IMaxAttack {
         }
         return false;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     public void func_70636_d() {
         super.func_70636_d();
@@ -145,7 +139,6 @@ public class EntityDoomsday extends EntityFloatingBase implements IMaxAttack {
             }
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     public void func_110147_ax() {
         super.func_110147_ax();
@@ -154,24 +147,19 @@ public class EntityDoomsday extends EntityFloatingBase implements IMaxAttack {
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.25d);
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.DOOMSDAY_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.DOOMSDAY_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundInit.DOOMSDAY_AMBIENT;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 100;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void updateLifeAction() {
         int lifePercent = Math.round((100 * (numberOfLives() - getLivesCount())) / numberOfLives());
@@ -180,20 +168,16 @@ public class EntityDoomsday extends EntityFloatingBase implements IMaxAttack {
             entity.func_145747_a(new TextComponentString(TextFmt.Gold + "Doomsday is at " + lifePercent + "% health."));
         }
     }
-
     protected boolean func_70692_ba() {
         return false;
     }
-
     protected ResourceLocation func_184647_J() {
         return LootTableRegistry.ENTITIES_DOOMSDAY;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     protected EntityAIFloatAttack createShootAI() {
         return null;
     }
-
     private double getROD(int multi) {
         return ((-0.5d) + this.field_70146_Z.nextDouble()) * ((double) multi);
     }

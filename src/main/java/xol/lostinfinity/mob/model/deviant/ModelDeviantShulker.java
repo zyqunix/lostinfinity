@@ -1,10 +1,7 @@
 package xol.lostinfinity.mob.model.deviant;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/deviant/ModelDeviantShulker.class */
 public class ModelDeviantShulker extends ModelBase {
     public ModelRenderer head;
     public ModelRenderer bot;
@@ -12,7 +9,6 @@ public class ModelDeviantShulker extends ModelBase {
     public ModelRenderer headbar;
     public ModelRenderer finr;
     public ModelRenderer finl;
-
     public ModelDeviantShulker() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -36,7 +32,6 @@ public class ModelDeviantShulker extends ModelBase {
         this.bot.func_78793_a(0.0f, 10.0f, 0.0f);
         this.bot.func_78790_a(-8.0f, 3.0f, -8.0f, 16, 8, 16, 0.0f);
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.top.func_78785_a(f5);
         this.finr.func_78785_a(f5);
@@ -45,13 +40,11 @@ public class ModelDeviantShulker extends ModelBase {
         this.finl.func_78785_a(f5);
         this.bot.func_78785_a(f5);
     }
-
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.finl.field_78795_f = ageInTicks * 0.3f;
         this.finr.field_78795_f = ageInTicks * 0.3f;

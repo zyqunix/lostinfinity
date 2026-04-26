@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.activate;
-
 import java.util.Iterator;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -25,8 +24,6 @@ import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.mob.entity.starforge.EntityWisp;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/activate/ItemLightbinder.class */
 public class ItemLightbinder extends Item {
     public ItemLightbinder(String regName) {
         setRegistryName(regName);
@@ -34,7 +31,6 @@ public class ItemLightbinder extends Item {
         func_77637_a(TabsInit.TAB_AUXMATS);
         ItemInit.ITEMS.add(this);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (!worldIn.field_72995_K) {
             boolean foundLeaves = false;
@@ -75,7 +71,6 @@ public class ItemLightbinder extends Item {
         playerIn.func_184586_b(handIn).func_190918_g(1);
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Light_Purple + "Binds darkness to a creature of light.");

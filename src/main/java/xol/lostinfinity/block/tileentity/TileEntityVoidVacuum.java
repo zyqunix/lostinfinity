@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.tileentity;
-
 import java.util.List;
 import java.util.UUID;
 import net.minecraft.entity.Entity;
@@ -24,47 +23,36 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.damagesource.DeathMessage;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/tileentity/TileEntityVoidVacuum.class */
 public class TileEntityVoidVacuum extends TileEntity implements ITickable {
     boolean active = false;
     EntityLivingBase target = null;
     boolean hasPulled = false;
-
     public void resetPulled() {
         this.hasPulled = false;
     }
-
     public void setTarget(EntityLivingBase target) {
         this.target = target;
     }
-
     public EntityLivingBase getTarget() {
         return this.target;
     }
-
     public void setActive(boolean active) {
         this.active = active;
     }
-
     public boolean getActive() {
         return this.active;
     }
-
     public boolean shouldRenderInPass(int pass) {
         return true;
     }
-
     public AxisAlignedBB getRenderBoundingBox() {
         AxisAlignedBB bb = INFINITE_EXTENT_AABB;
         return bb;
     }
-
     @SideOnly(Side.CLIENT)
     public double func_145833_n() {
         return 65536.0d;
     }
-
     public void func_73660_a() {
         if (!this.field_145850_b.field_72995_K) {
             this.field_145850_b.func_184138_a(func_174877_v(), this.field_145850_b.func_180495_p(func_174877_v()), this.field_145850_b.func_180495_p(func_174877_v()), 2);
@@ -94,7 +82,6 @@ public class TileEntityVoidVacuum extends TileEntity implements ITickable {
             }
         }
     }
-
     public NBTTagCompound func_189517_E_() {
         NBTTagCompound compound = super.func_189517_E_();
         if (this.target != null) {
@@ -104,7 +91,6 @@ public class TileEntityVoidVacuum extends TileEntity implements ITickable {
         }
         return compound;
     }
-
     public void handleUpdateTag(NBTTagCompound tag) {
         if (tag.func_186855_b("PlayerID") && tag.func_186857_a("PlayerID") != null) {
             this.target = entityByID(tag.func_186857_a("PlayerID"));
@@ -119,15 +105,12 @@ public class TileEntityVoidVacuum extends TileEntity implements ITickable {
         }
         super.handleUpdateTag(tag);
     }
-
     public SPacketUpdateTileEntity func_189518_D_() {
         return new SPacketUpdateTileEntity(func_174877_v(), 1, func_189517_E_());
     }
-
     public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
         handleUpdateTag(pkt.func_148857_g());
     }
-
     private EntityLivingBase entityByID(UUID id) {
         List<Entity> entityList = this.field_145850_b.func_72910_y();
         for (Entity entity : entityList) {

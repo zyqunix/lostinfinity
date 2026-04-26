@@ -1,17 +1,13 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.world.World;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.projectile.entity.EntityGenericBomb;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityTotemMoon.class */
 public class EntityTotemMoon extends EntityLiving {
     private EntityPlayer owner;
     private int timer;
-
     public EntityTotemMoon(World worldIn) {
         super(worldIn);
         this.owner = null;
@@ -19,16 +15,13 @@ public class EntityTotemMoon extends EntityLiving {
         func_70105_a(1.0f, 1.0f);
         func_184224_h(true);
     }
-
     public void setOwner(EntityPlayer play) {
         this.owner = play;
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(3000.0d);
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         this.field_70143_R = -1.0f;

@@ -1,32 +1,22 @@
 package xol.lostinfinity.mob.render.contest;
-
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import xol.lostinfinity.block.tileentity.TileEntityFusionTable;
 import xol.lostinfinity.mob.entity.contest.misc.EntityTreadmillObstacle;
 import xol.lostinfinity.mob.model.contest.ModelTreadmillObstacle;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/render/contest/RenderTreadmillObstacle.class */
 public class RenderTreadmillObstacle extends RenderLiving<EntityTreadmillObstacle> {
     public static final ResourceLocation TEXTURES_1 = new ResourceLocation("lostinfinity:textures/entity/treadmill_obstacle_1.png");
     public static final ResourceLocation TEXTURES_2 = new ResourceLocation("lostinfinity:textures/entity/treadmill_obstacle_2.png");
     public static final ResourceLocation TEXTURES_3 = new ResourceLocation("lostinfinity:textures/entity/treadmill_obstacle_3.png");
     public static final ResourceLocation TEXTURES_4 = new ResourceLocation("lostinfinity:textures/entity/treadmill_obstacle_4.png");
     public static final ResourceLocation TEXTURES_5 = new ResourceLocation("lostinfinity:textures/entity/treadmill_obstacle_5.png");
-
     public RenderTreadmillObstacle(RenderManager manager) {
         super(manager, new ModelTreadmillObstacle(), 1.0f);
     }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX INFO: renamed from: applyRotations, reason: merged with bridge method [inline-methods] */
     public void func_77043_a(EntityTreadmillObstacle entityLiving, float p1, float rotationYaw, float partialTicks) {
         super.func_77043_a(entityLiving, p1, rotationYaw, partialTicks);
     }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX INFO: renamed from: getEntityTexture, reason: merged with bridge method [inline-methods] */
     public ResourceLocation func_110775_a(EntityTreadmillObstacle entity) {
         switch (entity.getVisual()) {
             case 0:
@@ -37,7 +27,7 @@ public class RenderTreadmillObstacle extends RenderLiving<EntityTreadmillObstacl
                 return TEXTURES_3;
             case 3:
                 return TEXTURES_4;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 return TEXTURES_5;
             default:
                 return TEXTURES_1;

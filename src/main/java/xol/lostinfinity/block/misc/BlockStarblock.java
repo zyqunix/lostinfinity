@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.misc;
-
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.block.Block;
@@ -13,13 +12,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import xol.lostinfinity.block.basic.BlockBasic;
 import xol.lostinfinity.mob.entity.misc.EntityStarfiend;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/misc/BlockStarblock.class */
 public class BlockStarblock extends BlockBasic {
     public BlockStarblock(String name) {
         super(name);
     }
-
     public void func_180633_a(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
         if (!worldIn.field_72995_K && (placer instanceof EntityPlayer)) {
             List<BlockPos> validBlocks = isStructureComplete(worldIn, state.func_177230_c(), pos);
@@ -55,7 +51,6 @@ public class BlockStarblock extends BlockBasic {
             }
         }
     }
-
     private AxisAlignedBB getAxisFromList(List<BlockPos> blocks) {
         int lowx = 0;
         int lowy = 0;
@@ -80,11 +75,9 @@ public class BlockStarblock extends BlockBasic {
         }
         return new AxisAlignedBB(new BlockPos(lowx, lowy, lowz), new BlockPos(lowx + 5, lowy + 4, lowz + 5));
     }
-
     private Block getBlockAt(BlockPos pos, World world) {
         return world.func_180495_p(pos).func_177230_c();
     }
-
     private List<BlockPos> addBlocksToList(List<BlockPos> blocks, BlockPos basePos, int operationType) {
         blocks.add(basePos);
         if (operationType <= 1) {
@@ -120,7 +113,6 @@ public class BlockStarblock extends BlockBasic {
         }
         return blocks;
     }
-
     private List<BlockPos> getValidBlocks(World world, Block block, BlockPos basePos) {
         List<BlockPos> allValidBlocks = new ArrayList<>();
         if (getBlockAt(new BlockPos(basePos).func_177982_a(4, 0, 0), world).equals(block)) {
@@ -141,7 +133,6 @@ public class BlockStarblock extends BlockBasic {
         }
         return allValidBlocks;
     }
-
     private List<BlockPos> isStructureComplete(World world, Block block, BlockPos pos) {
         List<BlockPos> validBlocks = getValidBlocks(world, block, pos);
         if (!validBlocks.isEmpty()) {

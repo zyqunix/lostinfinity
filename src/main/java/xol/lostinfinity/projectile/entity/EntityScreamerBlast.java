@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import java.util.Arrays;
 import java.util.List;
 import net.minecraft.entity.Entity;
@@ -12,23 +11,18 @@ import net.minecraft.world.World;
 import xol.lostinfinity.init.ParticleInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityScreamerBlast.class */
 public class EntityScreamerBlast extends EntityBaseThrowable {
     private boolean redirected;
-
     public EntityScreamerBlast(World par1World) {
         super(par1World);
         this.redirected = false;
         func_70105_a(0.75f, 0.75f);
     }
-
     public EntityScreamerBlast(World par1World, double par2, double par4, double par6) {
         super(par1World, par2, par4, par6);
         this.redirected = false;
         func_70105_a(0.75f, 0.75f);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -38,11 +32,9 @@ public class EntityScreamerBlast extends EntityBaseThrowable {
             func_70106_y();
         }
     }
-
     protected float func_70185_h() {
         return 0.0f;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void func_70071_h_() {
         super.func_70071_h_();

@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.base;
-
 import com.google.common.base.Optional;
 import java.util.UUID;
 import javax.annotation.Nullable;
@@ -17,47 +16,37 @@ import net.minecraft.scoreboard.Team;
 import net.minecraft.server.management.PreYggdrasilConverter;
 import net.minecraft.world.World;
 import xol.lostinfinity.mob.ai.EntityAIFloatAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/base/EntityFloatingTameable.class */
 public class EntityFloatingTameable extends EntityFloatingBase implements IEntityOwnable {
     protected static final DataParameter<Boolean> TAMED = EntityDataManager.func_187226_a(EntityFloatingTameable.class, DataSerializers.field_187198_h);
     protected static final DataParameter<Optional<UUID>> OWNER_UNIQUE_ID = EntityDataManager.func_187226_a(EntityFloatingTameable.class, DataSerializers.field_187203_m);
-
     public EntityFloatingTameable(World worldIn) {
         super(worldIn);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(TAMED, false);
         this.field_70180_af.func_187214_a(OWNER_UNIQUE_ID, Optional.absent());
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_184651_r() {
         super.func_184651_r();
         this.field_70715_bh.func_75776_a(1, new EntityAINearestAttackableTarget(this, EntityLivingBase.class, false));
         this.field_70715_bh.func_75776_a(3, new EntityAIHurtByTarget(this, true, new Class[0]));
     }
-
     public boolean isTamed() {
         return ((Boolean) this.field_70180_af.func_187225_a(TAMED)).booleanValue();
     }
-
     public void setTamed(boolean tamed) {
         this.field_70180_af.func_187227_b(TAMED, Boolean.valueOf(tamed));
     }
-
     public void setTamedBy(EntityPlayer player) {
         setTamed(true);
         setOwnerId(player.func_110124_au());
     }
-
     public void setOwnerId(@Nullable UUID uuid) {
         this.field_70180_af.func_187227_b(OWNER_UNIQUE_ID, Optional.fromNullable(uuid));
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void func_70014_b(NBTTagCompound compound) {
         super.func_70014_b(compound);
@@ -67,7 +56,6 @@ public class EntityFloatingTameable extends EntityFloatingBase implements IEntit
             compound.func_74778_a("OwnerUUID", func_184753_b().toString());
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void func_70037_a(NBTTagCompound compound) {
         String s;
@@ -87,9 +75,7 @@ public class EntityFloatingTameable extends EntityFloatingBase implements IEntit
             }
         }
     }
-
     @Nullable
-    /* JADX INFO: renamed from: getOwner, reason: merged with bridge method [inline-methods] */
     public EntityLivingBase func_70902_q() {
         try {
             UUID uuid = func_184753_b();
@@ -101,16 +87,13 @@ public class EntityFloatingTameable extends EntityFloatingBase implements IEntit
             return null;
         }
     }
-
     @Nullable
     public UUID func_184753_b() {
         return (UUID) ((Optional) this.field_70180_af.func_187225_a(OWNER_UNIQUE_ID)).orNull();
     }
-
     public boolean isOwner(EntityLivingBase entityIn) {
         return entityIn == func_70902_q();
     }
-
     public Team func_96124_cp() {
         EntityLivingBase entitylivingbase;
         if (isTamed() && (entitylivingbase = func_70902_q()) != null) {
@@ -118,7 +101,6 @@ public class EntityFloatingTameable extends EntityFloatingBase implements IEntit
         }
         return super.func_96124_cp();
     }
-
     public boolean func_184191_r(Entity entityIn) {
         if (isTamed()) {
             EntityLivingBase entitylivingbase = func_70902_q();
@@ -131,12 +113,10 @@ public class EntityFloatingTameable extends EntityFloatingBase implements IEntit
         }
         return super.func_184191_r(entityIn);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     protected EntityAIFloatAttack createShootAI() {
         return null;
     }
-
     public boolean shouldAttackEntity(EntityLivingBase target, EntityLivingBase owner) {
         if ((target instanceof EntityPlayer) && (owner instanceof EntityPlayer) && !((EntityPlayer) owner).func_96122_a((EntityPlayer) target)) {
             return false;

@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.sea;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.DamageSource;
@@ -9,26 +8,20 @@ import net.minecraft.world.World;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/sea/EntityGlowfish.class */
 public class EntityGlowfish extends EntitySeaCreature {
     public EntityGlowfish(World worldIn) {
         super(worldIn);
         func_70105_a(1.0f, 1.0f);
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.LONGFIN_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.LONGFIN_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundInit.LONGFIN_AMBIENT;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void trueDeathAction() {
         EntityPlayer player;

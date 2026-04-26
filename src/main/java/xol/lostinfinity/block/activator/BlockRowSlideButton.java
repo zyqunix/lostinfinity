@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import java.util.ArrayList;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -9,13 +8,10 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Vec3i;
 import net.minecraft.world.World;
 import xol.lostinfinity.block.basic.BlockBasic;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockRowSlideButton.class */
 public class BlockRowSlideButton extends BlockBasic {
     public BlockRowSlideButton(String name) {
         super(name);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!playerIn.func_70093_af() && !worldIn.field_72995_K) {
             ArrayList<BlockPos> tiles = new ArrayList<>();
@@ -46,7 +42,6 @@ public class BlockRowSlideButton extends BlockBasic {
         }
         return true;
     }
-
     private static Vec3i findTileDir(World worldIn, BlockPos pos) {
         ArrayList<Vec3i> dirs = new ArrayList<>();
         dirs.add(new Vec3i(1, 0, 0));

@@ -1,17 +1,13 @@
 package xol.lostinfinity.mob.model.fungal;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/fungal/ModelFungfly.class */
 public class ModelFungfly extends ModelBase {
     private final ModelRenderer WingL;
     private final ModelRenderer Body;
     private final ModelRenderer WingR;
-
     public ModelFungfly() {
         this.field_78090_t = 64;
         this.field_78089_u = 64;
@@ -27,19 +23,16 @@ public class ModelFungfly extends ModelBase {
         this.WingR.func_78793_a(-8.0f, 15.5f, -5.0f);
         this.WingR.field_78804_l.add(new ModelBox(this.WingR, 0, 31, -20.0f, -0.5f, -2.0f, 20, 1, 12, 0.0f, true));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.WingL.func_78785_a(f5);
         this.Body.func_78785_a(f5);
         this.WingR.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.WingL.field_78808_h = MathHelper.func_76134_b(ageInTicks * 1.5f) * 3.1415927f * 0.15f;
         this.WingR.field_78808_h = -this.WingL.field_78808_h;

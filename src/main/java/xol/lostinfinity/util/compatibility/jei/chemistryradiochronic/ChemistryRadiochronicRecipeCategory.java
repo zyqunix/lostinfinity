@@ -1,5 +1,4 @@
 package xol.lostinfinity.util.compatibility.jei.chemistryradiochronic;
-
 import javax.annotation.Nullable;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IDrawable;
@@ -13,8 +12,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.util.Reference;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/compatibility/jei/chemistryradiochronic/ChemistryRadiochronicRecipeCategory.class */
 public class ChemistryRadiochronicRecipeCategory implements IRecipeCategory {
     private final IDrawable background;
     private final IDrawable icon;
@@ -24,7 +21,6 @@ public class ChemistryRadiochronicRecipeCategory implements IRecipeCategory {
     private final IDrawable greenline;
     private final IDrawable orangeline;
     private static final ResourceLocation BACKGROUND_TEXTURE = new ResourceLocation(Reference.MODID, "textures/gui/chemistry_table.png");
-
     public ChemistryRadiochronicRecipeCategory(IGuiHelper guiHelper) {
         this.background = guiHelper.drawableBuilder(BACKGROUND_TEXTURE, 6, 5, 160, 74).build();
         this.icon = guiHelper.createDrawableIngredient(new ItemStack(ItemInit.radiochronicIsotope));
@@ -32,28 +28,22 @@ public class ChemistryRadiochronicRecipeCategory implements IRecipeCategory {
         this.greenline = guiHelper.drawableBuilder(BACKGROUND_TEXTURE, 0, 189, 56, 5).build();
         this.orangeline = guiHelper.drawableBuilder(BACKGROUND_TEXTURE, 0, 184, 56, 5).build();
     }
-
     public String getUid() {
         return "lostinfinity.chemistryradiochronic";
     }
-
     public String getTitle() {
         return "Chemistry - Radiochronic";
     }
-
     public String getModName() {
         return Reference.NAME;
     }
-
     public IDrawable getBackground() {
         return this.background;
     }
-
     @Nullable
     public IDrawable getIcon() {
         return this.icon;
     }
-
     public void setRecipe(IRecipeLayout recipeLayout, IRecipeWrapper recipeWrapper, IIngredients ingredients) {
         IGuiItemStackGroup guiItemStackGroup = recipeLayout.getItemStacks();
         guiItemStackGroup.init(0, true, 11, 6);
@@ -62,7 +52,6 @@ public class ChemistryRadiochronicRecipeCategory implements IRecipeCategory {
         guiItemStackGroup.init(3, false, 135, 29);
         guiItemStackGroup.set(ingredients);
     }
-
     public void drawExtras(Minecraft minecraft) {
         this.orangeline.draw(minecraft, 66, 63);
         this.greenline.draw(minecraft, 66, 56);

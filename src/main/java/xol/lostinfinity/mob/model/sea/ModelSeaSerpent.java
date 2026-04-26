@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.model.sea;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -9,8 +8,6 @@ import xol.lostinfinity.mob.entity.sea.seaserpent.EntitySeaSerpentHead;
 import xol.lostinfinity.mob.entity.sea.seaserpent.EntitySeaSerpentSegment;
 import xol.lostinfinity.mob.entity.sea.seaserpent.EntitySeaSerpentTail;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/sea/ModelSeaSerpent.class */
 public class ModelSeaSerpent extends ModelBase {
     private final ModelRenderer Head;
     private final ModelRenderer JawTop;
@@ -26,7 +23,6 @@ public class ModelSeaSerpent extends ModelBase {
     private final ModelRenderer FinLeft;
     private final ModelRenderer FinRight;
     private final ModelRenderer BodyTail;
-
     public ModelSeaSerpent() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -125,12 +121,10 @@ public class ModelSeaSerpent extends ModelBase {
         this.BodyTail.field_78804_l.add(new ModelBox(this.BodyTail, 84, 56, -7.0f, 5.5f, -15.0f, 14, 2, 6, 0.0f, false));
         this.BodyTail.field_78804_l.add(new ModelBox(this.BodyTail, 84, 56, -7.0f, 4.5f, -10.0f, 14, 2, 6, -0.5f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         ModelRenderer modelRenderer = getModelRenderer(entity);
         modelRenderer.func_78785_a(f5);
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         ModelRenderer modelRenderer = getModelRenderer(entityIn);
         modelRenderer.field_78795_f = headPitch * 0.017453292f;
@@ -150,13 +144,11 @@ public class ModelSeaSerpent extends ModelBase {
             }
         }
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     protected ModelRenderer getModelRenderer(Entity entity) {
         if (entity instanceof EntitySeaSerpentHead) {
             return this.Head;

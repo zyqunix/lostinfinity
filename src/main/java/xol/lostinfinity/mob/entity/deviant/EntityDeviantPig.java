@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.deviant;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -13,21 +12,17 @@ import xol.lostinfinity.mob.entity.base.EntityDeviantMob;
 import xol.lostinfinity.mob.entity.base.IConditionalDamage;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/deviant/EntityDeviantPig.class */
 public class EntityDeviantPig extends EntityDeviantMob implements IMaxAttack, IConditionalDamage {
     public EntityDeviantPig(World worldIn) {
         super(worldIn);
         func_70105_a(2.3f, 2.75f);
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(1.0d);
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.3d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(1200.0d);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -36,29 +31,23 @@ public class EntityDeviantPig extends EntityDeviantMob implements IMaxAttack, IC
         }
         return false;
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundEvents.field_187700_dM;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundEvents.field_187703_dN;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundEvents.field_187697_dL;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityDeviantMob
     protected ResourceLocation deviantDrop() {
         return LootTableRegistry.ENTITIES_DEVIANTPIG;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityDeviantMob
     protected ResourceLocation superMutatedDrop() {
         return LootTableRegistry.ENTITIES_SUPERMUTANT_PIG;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.IConditionalDamage
     public boolean canBeDamaged(Entity attacker) {
         return (attacker instanceof EntityLivingBase) && ((EntityLivingBase) attacker).func_70644_a(PotionInit.PLAGUE) && ((EntityLivingBase) attacker).func_70660_b(PotionInit.PLAGUE).func_76458_c() >= getMutation();

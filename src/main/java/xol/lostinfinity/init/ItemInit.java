@@ -1,5 +1,4 @@
 package xol.lostinfinity.init;
-
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.item.Item;
@@ -282,8 +281,6 @@ import xol.lostinfinity.item.weapon.droid.ItemDroidConstructorMK3;
 import xol.lostinfinity.item.weapon.droid.ItemDroidRelocator;
 import xol.lostinfinity.item.weapon.droid.ItemDroidRelocatorMK2;
 import xol.lostinfinity.item.weapon.droid.ItemDroidRelocatorStorage;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/init/ItemInit.class */
 public class ItemInit {
     public static final List<Item> ITEMS = new ArrayList();
     public static final List<ItemLostArmor> ARMORS = new ArrayList();
@@ -1321,11 +1318,9 @@ public class ItemInit {
     public static final Item eternoCell = new ItemBasic("eterno_cell", TabsInit.TAB_AUXMATS);
     public static final Item entangledHeart = new ItemBasic("entangled_heart", TabsInit.TAB_AUXMATS);
     public static final Item unpoweredCell = new ItemBasic("unpowered_cell", TabsInit.TAB_AUXMATS);
-
     public static Item[] getValidPickChargingCrystals() {
         return new Item[]{reactiveCrystalEmberium, reactiveCrystalHextorium, reactiveCrystalCrystonium, reactiveCrystalAstrallium, reactiveCrystalKylaxium, reactiveCrystalVellorium, reactiveCrystalIncadium, reactiveCrystalNoxerium, reactiveCrystalOlysium, reactiveCrystalDetherium, reactiveCrystalPhytrosium, reactiveCrystalXerovium};
     }
-
     public static void objectPassing() {
         ((ItemCatenationPouch) colixiumCatenationPouch).setRecipe(darksteelShards, elasticTissue, supermutatedCrystals, colixium);
         ((ItemCatenationPouch) phoroxiumCatenationPouch).setRecipe(auradine, pickle, supermutatedPelt, phoroxium);

@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.tool;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -19,14 +18,11 @@ import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.basics.ItemCooldown;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/tool/ItemScrambleDevice.class */
 public class ItemScrambleDevice extends ItemCooldown {
     public ItemScrambleDevice(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (!showDurabilityBar(playerIn.func_184586_b(handIn)) && !worldIn.field_72995_K) {
             for (EntityFireball entityFireball : worldIn.func_72872_a(Entity.class, playerIn.func_174813_aQ().func_72314_b(30.0d, 30.0d, 30.0d))) {
@@ -47,12 +43,10 @@ public class ItemScrambleDevice extends ItemCooldown {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 500;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Deflects projectiles in a 30 block radius.");

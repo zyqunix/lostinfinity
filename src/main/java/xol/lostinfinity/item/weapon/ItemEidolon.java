@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -16,8 +15,6 @@ import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.mob.entity.misc.EntityEidolonMist;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemEidolon.class */
 public class ItemEidolon extends ItemSword implements IMaxAttack {
     public ItemEidolon(String regName) {
         super(Item.ToolMaterial.DIAMOND);
@@ -26,7 +23,6 @@ public class ItemEidolon extends ItemSword implements IMaxAttack {
         func_77655_b(regName);
         ItemInit.ITEMS.add(this);
     }
-
     public boolean func_77644_a(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         World world = attacker.field_70170_p;
         if (!world.field_72995_K) {
@@ -40,7 +36,6 @@ public class ItemEidolon extends ItemSword implements IMaxAttack {
         }
         return true;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Aqua + "Melee hits create a mist.");

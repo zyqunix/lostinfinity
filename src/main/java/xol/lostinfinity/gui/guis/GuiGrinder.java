@@ -1,5 +1,4 @@
 package xol.lostinfinity.gui.guis;
-
 import java.util.AbstractMap;
 import java.util.ArrayList;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -12,8 +11,6 @@ import xol.lostinfinity.common.packets.serverbound.PacketGrinder;
 import xol.lostinfinity.gui.containers.ContainerGrinder;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.util.Reference;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/guis/GuiGrinder.class */
 public class GuiGrinder extends GuiContainer {
     private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MODID, "textures/gui/grinder.png");
     private final InventoryPlayer player;
@@ -30,7 +27,6 @@ public class GuiGrinder extends GuiContainer {
     private static final int debrisTexY = 166;
     ArrayList<AbstractMap.SimpleEntry<Integer, Integer>> points;
     ArrayList<AbstractMap.SimpleEntry<Integer, Integer>> debris;
-
     public GuiGrinder(InventoryPlayer player, TileEntityGrinder tileentity) {
         super(new ContainerGrinder(player, tileentity));
         this.points = new ArrayList<>();
@@ -38,7 +34,6 @@ public class GuiGrinder extends GuiContainer {
         this.player = player;
         this.tileentity = tileentity;
     }
-
     public void func_73863_a(int mouseX, int mouseY, float partialTicks) {
         GlStateManager.func_179131_c(1.0f, 1.0f, 1.0f, 1.0f);
         func_146276_q_();
@@ -47,7 +42,6 @@ public class GuiGrinder extends GuiContainer {
         GlStateManager.func_179140_f();
         GlStateManager.func_179084_k();
     }
-
     protected void func_146976_a(float partialTicks, int mouseX, int mouseY) {
         this.field_146297_k.func_110434_K().func_110577_a(TEXTURE);
         func_73729_b(this.field_147003_i, this.field_147009_r, materialTextureX, materialTextureX, this.field_146999_f, this.field_147000_g);
@@ -63,15 +57,12 @@ public class GuiGrinder extends GuiContainer {
             }
         }
     }
-
     protected void func_146979_b(int mouseX, int mouseY) {
         this.field_146289_q.func_78276_b("Grinder", 70, 6, materialTextureX);
     }
-
     public static boolean isInRect(int x, int y, int xSize, int ySize, int mouseX, int mouseY) {
         return mouseX >= x && mouseX <= x + xSize && mouseY >= y && mouseY <= y + ySize;
     }
-
     protected void func_146273_a(int mouseX, int mouseY, int clickedMouseButton, long timeSinceLastClick) {
         super.func_146273_a(mouseX, mouseY, clickedMouseButton, timeSinceLastClick);
         if (isInRect(this.field_147003_i + materialX + 2, this.field_147009_r + materialY + 2, 30, 28, mouseX, mouseY)) {
@@ -95,7 +86,6 @@ public class GuiGrinder extends GuiContainer {
             }
         }
     }
-
     private void resetDebris() {
         int leftBound = this.field_147003_i + materialX + 2;
         int topBound = this.field_147009_r + materialY + 2;

@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.nbt.NBTTagCompound;
@@ -13,8 +12,6 @@ import net.minecraft.world.World;
 import xol.lostinfinity.init.PotionInit;
 import xol.lostinfinity.mob.entity.boss.EntityCryonus;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityCryoBeamEffect.class */
 public class EntityCryoBeamEffect extends Entity implements IMaxAttack {
     private static final DataParameter<Float> PLAYER_X = EntityDataManager.func_187226_a(EntityCryoBeamEffect.class, DataSerializers.field_187193_c);
     private static final DataParameter<Float> PLAYER_Y = EntityDataManager.func_187226_a(EntityCryoBeamEffect.class, DataSerializers.field_187193_c);
@@ -26,22 +23,18 @@ public class EntityCryoBeamEffect extends Entity implements IMaxAttack {
     private float growth;
     private float alpha;
     private boolean hasDamaged;
-
     public void setIceBlast(boolean mode) {
         this.field_70180_af.func_187227_b(ICE_BLAST, Boolean.valueOf(mode));
     }
-
     public boolean isIceBlast() {
         return ((Boolean) this.field_70180_af.func_187225_a(ICE_BLAST)).booleanValue();
     }
-
     public Vec3d getPlayerPos() {
         double x = ((Float) this.field_70180_af.func_187225_a(PLAYER_X)).floatValue();
         double y = ((Float) this.field_70180_af.func_187225_a(PLAYER_Y)).floatValue();
         double z = ((Float) this.field_70180_af.func_187225_a(PLAYER_Z)).floatValue();
         return new Vec3d(x, y, z);
     }
-
     public void setPlayerXYZ(Vec3d pos) {
         float xpos = (float) pos.field_72450_a;
         float ypos = (float) pos.field_72448_b;
@@ -50,7 +43,6 @@ public class EntityCryoBeamEffect extends Entity implements IMaxAttack {
         this.field_70180_af.func_187227_b(PLAYER_Y, Float.valueOf(ypos));
         this.field_70180_af.func_187227_b(PLAYER_Z, Float.valueOf(zpos));
     }
-
     public EntityCryoBeamEffect(World worldIn) {
         super(worldIn);
         this.target = null;
@@ -60,7 +52,6 @@ public class EntityCryoBeamEffect extends Entity implements IMaxAttack {
         this.alpha = 1.0f;
         this.hasDamaged = false;
     }
-
     public void func_70071_h_() {
         super.func_70071_h_();
         boolean isIceBlast = isIceBlast();
@@ -128,36 +119,28 @@ public class EntityCryoBeamEffect extends Entity implements IMaxAttack {
             }
         }
     }
-
     public Vec3d getStopPos() {
         return this.stopPos;
     }
-
     protected void func_70037_a(NBTTagCompound compound) {
     }
-
     protected void func_70014_b(NBTTagCompound compound) {
     }
-
     protected void func_70088_a() {
         this.field_70180_af.func_187214_a(ICE_BLAST, false);
         this.field_70180_af.func_187214_a(PLAYER_X, Float.valueOf(0.0f));
         this.field_70180_af.func_187214_a(PLAYER_Y, Float.valueOf(0.0f));
         this.field_70180_af.func_187214_a(PLAYER_Z, Float.valueOf(0.0f));
     }
-
     public void setOwner(EntityCryonus owner) {
         this.owner = owner;
     }
-
     public void setTarget(EntityPlayer target) {
         this.target = target;
     }
-
     public float getGrowth() {
         return this.growth;
     }
-
     public float getAlpha() {
         return this.alpha;
     }

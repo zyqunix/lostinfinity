@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.sea;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
@@ -7,14 +6,11 @@ import net.minecraft.world.World;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/sea/EntityFish.class */
 public class EntityFish extends EntitySeaCreature {
     BlockPos targetPos;
     private int timer;
     private boolean fed;
     private int recentFood;
-
     public EntityFish(World worldIn) {
         super(worldIn);
         this.targetPos = null;
@@ -22,12 +18,10 @@ public class EntityFish extends EntitySeaCreature {
         this.fed = false;
         this.recentFood = 0;
     }
-
     public void setTargetPos(BlockPos pos) {
         this.targetPos = pos;
         this.recentFood = 120;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     public void func_70636_d() {
         super.func_70636_d();

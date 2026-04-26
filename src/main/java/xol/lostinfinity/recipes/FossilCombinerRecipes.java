@@ -1,18 +1,13 @@
 package xol.lostinfinity.recipes;
-
 import java.util.ArrayList;
 import net.minecraft.item.ItemStack;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/recipes/FossilCombinerRecipes.class */
 public class FossilCombinerRecipes {
     private static ArrayList<Recipe> recipes = new ArrayList<>();
-
     private static void init() {
         Recipe testRec = new Recipe(ItemInit.remainsPelicanEel, ItemStack.field_190927_a, ItemStack.field_190927_a, ItemStack.field_190927_a, ItemStack.field_190927_a, ItemStack.field_190927_a, new ItemStack(ItemInit.fossilRibbedTail), new ItemStack(ItemInit.fossilSmallRibs), new ItemStack(ItemInit.fossilSmallRibs), new ItemStack(ItemInit.fossilSmallRibs), new ItemStack(ItemInit.fossilEelTopjaw), new ItemStack(ItemInit.fossilRibbedTail), ItemStack.field_190927_a, ItemStack.field_190927_a, ItemStack.field_190927_a, new ItemStack(ItemInit.fossilEelBotjaw));
         recipes.add(testRec);
     }
-
     public static ItemStack getResult(ItemStack... inputs) {
         if (recipes.isEmpty()) {
             init();

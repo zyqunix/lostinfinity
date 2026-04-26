@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.misc;
-
 import java.util.UUID;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -17,8 +16,6 @@ import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.classify.IHotbarTick;
 import xol.lostinfinity.projectile.entity.EntityExothermite;
 import xol.lostinfinity.util.damagesource.DeathMessage;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/misc/ItemExothermite.class */
 public class ItemExothermite extends Item implements IHotbarTick {
     public ItemExothermite(String regName) {
         func_77637_a(TabsInit.TAB_AUXMATS);
@@ -27,7 +24,6 @@ public class ItemExothermite extends Item implements IHotbarTick {
         func_77625_d(1);
         ItemInit.ITEMS.add(this);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (!worldIn.field_72995_K) {
@@ -41,7 +37,6 @@ public class ItemExothermite extends Item implements IHotbarTick {
         playerIn.func_184185_a(SoundEvents.field_187578_au, 1.0f, 1.0f);
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @Override // xol.lostinfinity.item.classify.IHotbarTick
     public void hotbarTick(EntityPlayer player, int itemSlot, ItemStack stack) {
         if (showDurabilityBar(stack)) {
@@ -81,7 +76,6 @@ public class ItemExothermite extends Item implements IHotbarTick {
             }
         }
     }
-
     public boolean showDurabilityBar(ItemStack stack) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
@@ -90,11 +84,9 @@ public class ItemExothermite extends Item implements IHotbarTick {
         long progress = stack.func_77978_p().func_74763_f("progress");
         return progress <= ((long) getDuration());
     }
-
     protected static int getDuration() {
         return 1000;
     }
-
     public double getDurabilityForDisplay(ItemStack stack) {
         if (showDurabilityBar(stack)) {
             double progress = stack.func_77978_p().func_74763_f("progress");

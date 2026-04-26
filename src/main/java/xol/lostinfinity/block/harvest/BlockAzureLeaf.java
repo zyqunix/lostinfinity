@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.harvest;
-
 import java.util.Random;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
@@ -13,20 +12,16 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import xol.lostinfinity.block.basic.BlockCappedPlant;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/harvest/BlockAzureLeaf.class */
 public class BlockAzureLeaf extends BlockCappedPlant {
     public BlockAzureLeaf(String name) {
         super(name);
         func_149675_a(true);
     }
-
     public void func_180650_b(World world, BlockPos pos, IBlockState state, Random rand) {
         if (!world.field_72995_K && func_176201_c(state) == 0) {
             world.func_175656_a(pos, func_176203_a(1));
         }
     }
-
     @Override // xol.lostinfinity.block.basic.BlockCappedPlant
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         ItemStack held = playerIn.func_184614_ca();

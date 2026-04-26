@@ -1,5 +1,4 @@
 package xol.lostinfinity.gui.containers;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -9,8 +8,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.block.tileentity.TileEntityChemistryTable;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/containers/ContainerChemistryTable.class */
 public class ContainerChemistryTable extends Container {
     private static final int PLAYER_INVENTORY_ROW_COUNT = 3;
     private static final int PLAYER_INVENTORY_COLUMN_COUNT = 9;
@@ -30,7 +27,6 @@ public class ContainerChemistryTable extends Container {
     private int mix7;
     private int mix8;
     private int currentMixLevel = 0;
-
     public ContainerChemistryTable(InventoryPlayer invPlayer, TileEntityChemistryTable tileEntity) {
         this.invPlayer = invPlayer;
         this.tileEntity = tileEntity;
@@ -51,25 +47,20 @@ public class ContainerChemistryTable extends Container {
             func_75146_a(new Slot(this.invPlayer, hotbarSlotIndex, 8 + (hotbarSlotIndex * 18), 142));
         }
     }
-
     public ItemStack func_82846_b(EntityPlayer playerIn, int index) {
         return ItemStack.field_190927_a;
     }
-
     public void func_75132_a(IContainerListener listener) {
         super.func_75132_a(listener);
         listener.func_175173_a(this, this.tileEntity);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_75137_b(int id, int data) {
         this.tileEntity.func_174885_b(id, data);
     }
-
     public boolean func_75145_c(EntityPlayer playerIn) {
         return true;
     }
-
     public void func_75142_b() {
         super.func_75142_b();
         for (int i = 0; i < this.field_75149_d.size(); i++) {

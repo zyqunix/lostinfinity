@@ -1,5 +1,4 @@
 package xol.lostinfinity.common.packets.serverbound;
-
 import io.netty.buffer.ByteBuf;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.tileentity.TileEntity;
@@ -9,18 +8,14 @@ import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import xol.lostinfinity.block.tileentity.TileEntityFusionTable;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/common/packets/serverbound/PacketFusionTable.class */
 public class PacketFusionTable implements IMessage {
     private int x;
     private int y;
     private int z;
     private int shapeId;
     private int fieldId;
-
     public PacketFusionTable() {
     }
-
     public PacketFusionTable(BlockPos blockPos, int shapeId, int fieldId) {
         this.x = blockPos.func_177958_n();
         this.y = blockPos.func_177956_o();
@@ -28,7 +23,6 @@ public class PacketFusionTable implements IMessage {
         this.shapeId = shapeId;
         this.fieldId = fieldId;
     }
-
     public void fromBytes(ByteBuf buf) {
         this.x = buf.readInt();
         this.y = buf.readInt();
@@ -36,7 +30,6 @@ public class PacketFusionTable implements IMessage {
         this.shapeId = buf.readInt();
         this.fieldId = buf.readInt();
     }
-
     public void toBytes(ByteBuf buf) {
         buf.writeInt(this.x);
         buf.writeInt(this.y);
@@ -44,8 +37,6 @@ public class PacketFusionTable implements IMessage {
         buf.writeInt(this.shapeId);
         buf.writeInt(this.fieldId);
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/common/packets/serverbound/PacketFusionTable$FusionTableGUIPacketHandler.class */
     public static class FusionTableGUIPacketHandler implements IMessageHandler<PacketFusionTable, IMessage> {
         public IMessage onMessage(PacketFusionTable message, MessageContext ctx) {
             EntityPlayerMP player = ctx.getServerHandler().field_147369_b;

@@ -1,12 +1,9 @@
 package xol.lostinfinity.mob.model.deviant;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/deviant/ModelDeviantSquid.class */
 public class ModelDeviantSquid extends ModelBase {
     private final ModelRenderer body;
     private final ModelRenderer tentacle1;
@@ -17,7 +14,6 @@ public class ModelDeviantSquid extends ModelBase {
     private final ModelRenderer tentacle6;
     private final ModelRenderer tentacle7;
     private final ModelRenderer tentacle8;
-
     public ModelDeviantSquid() {
         this.field_78090_t = 64;
         this.field_78089_u = 64;
@@ -66,7 +62,6 @@ public class ModelDeviantSquid extends ModelBase {
         this.tentacle8.field_78804_l.add(new ModelBox(this.tentacle8, 48, 0, -1.0f, 0.0f, -1.0f, 2, 18, 2, 0.0f, false));
         this.tentacle8.field_78804_l.add(new ModelBox(this.tentacle8, 48, 21, 0.0f, 0.0f, 1.0f, 1, 18, 7, 0.0f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.body.func_78785_a(f5);
         this.tentacle1.func_78785_a(f5);
@@ -78,13 +73,11 @@ public class ModelDeviantSquid extends ModelBase {
         this.tentacle7.func_78785_a(f5);
         this.tentacle8.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.tentacle1.field_78795_f = 0.7f + (0.7f * MathHelper.func_76126_a(ageInTicks * 0.1f));
         this.tentacle2.field_78795_f = this.tentacle1.field_78795_f;

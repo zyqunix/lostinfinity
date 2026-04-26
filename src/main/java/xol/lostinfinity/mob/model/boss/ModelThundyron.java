@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.model.boss;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -10,8 +9,6 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import xol.lostinfinity.mob.entity.boss.EntityThundyron;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/boss/ModelThundyron.class */
 public class ModelThundyron extends ModelBase {
     private final ModelRenderer Orb;
     private final ModelRenderer Eye;
@@ -31,7 +28,6 @@ public class ModelThundyron extends ModelBase {
     private final ModelRenderer Tendril11;
     private final ModelRenderer Tendril12;
     private List<ModelRenderer> Tendrils = new ArrayList();
-
     public ModelThundyron() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -125,7 +121,6 @@ public class ModelThundyron extends ModelBase {
         this.Tendrils.add(this.Tendril12);
         Collections.shuffle(this.Tendrils);
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.Eye.func_78785_a(f5);
         GlStateManager.func_179147_l();
@@ -156,13 +151,11 @@ public class ModelThundyron extends ModelBase {
         }
         GlStateManager.func_179084_k();
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.Eye.field_78796_g = ageInTicks * 0.2f;
         this.Eye.field_78808_h = 0.1f * MathHelper.func_76126_a(ageInTicks * 0.2f);

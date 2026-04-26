@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.activate;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -18,8 +17,6 @@ import xol.lostinfinity.dimension.util.DimensionEffectRegistry;
 import xol.lostinfinity.init.DimensionInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/activate/ItemMagicConch.class */
 public class ItemMagicConch extends Item {
     public ItemMagicConch(String regName) {
         setRegistryName(regName);
@@ -28,7 +25,6 @@ public class ItemMagicConch extends Item {
         func_77625_d(1);
         ItemInit.ITEMS.add(this);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (!worldIn.field_72995_K) {
             if (worldIn.field_73011_w.func_186058_p() != DimensionInit.shadowSea) {
@@ -39,7 +35,6 @@ public class ItemMagicConch extends Item {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Aqua + "Listen to the ocean and be taken away...");

@@ -1,5 +1,4 @@
 package xol.lostinfinity.client.screen;
-
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -23,14 +22,11 @@ import net.minecraftforge.client.event.RenderWorldLastEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/client/screen/HeadHunterVision.class */
 public class HeadHunterVision {
     public static final Map<UUID, Vec3d> oorPlayer = new ConcurrentHashMap();
     private static final ResourceLocation BULLSEYE = new ResourceLocation("lostinfinity:textures/gui/bullseye.png");
     private static final int DISTANCE = 160000;
     private final Minecraft mc = Minecraft.func_71410_x();
-
     @SubscribeEvent
     public void onPostRender(RenderWorldLastEvent event) {
         if (this.mc.field_71439_g.func_184586_b(EnumHand.MAIN_HAND).func_77973_b() == ItemInit.headHunter || this.mc.field_71439_g.func_184586_b(EnumHand.OFF_HAND).func_77973_b() == ItemInit.headHunter) {
@@ -65,7 +61,6 @@ public class HeadHunterVision {
         }
         oorPlayer.clear();
     }
-
     private void onTickRender(EntityPlayer other, double dist) {
         GlStateManager.func_179131_c(1.0f, 1.0f, 1.0f, 1.0f);
         double partialTicks = this.mc.func_184121_ak();
@@ -74,7 +69,6 @@ public class HeadHunterVision {
         double dZ = MathHelper.func_151238_b(other.field_70136_U, other.field_70161_v, partialTicks);
         onTickRender(((AbstractClientPlayer) other).func_110306_p(), dX, dY, dZ, dist);
     }
-
     private void onTickRender(ResourceLocation skin, double dX, double dY, double dZ, double dist) {
         GlStateManager.func_179131_c(1.0f, 1.0f, 1.0f, 1.0f);
         double partialTicks = this.mc.func_184121_ak();
@@ -93,7 +87,6 @@ public class HeadHunterVision {
         drawBullseye(0.5d * r, 0.5d * r, r);
         cleanup();
     }
-
     private void initialize(double x, double y, double z, float cameraYaw, float cameraPitch) {
         GlStateManager.func_179094_E();
         GlStateManager.func_179137_b(x, y, z);
@@ -102,13 +95,11 @@ public class HeadHunterVision {
         GlStateManager.func_179097_i();
         RenderHelper.func_74518_a();
     }
-
     private void cleanup() {
         RenderHelper.func_74519_b();
         GlStateManager.func_179126_j();
         GlStateManager.func_179121_F();
     }
-
     private void drawPlayerFace(ResourceLocation playerSkin, double width, double height) {
         double growX = 0.0625d * width;
         double growY = 0.0625d * height;
@@ -128,7 +119,6 @@ public class HeadHunterVision {
         bufferbuilder.func_181662_b(((-width) * 0.5d) - growX, ((-height) * 0.5d) - growY, 0.0d).func_187315_a(48.0f * 0.015625f, 16.0f * 0.015625f).func_181675_d();
         tessellator.func_78381_a();
     }
-
     private void drawBullseye(double width, double height, double size) {
         this.mc.func_110434_K().func_110577_a(BULLSEYE);
         Tessellator tessellator = Tessellator.func_178181_a();

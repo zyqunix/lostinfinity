@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.model.deviant;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -7,8 +6,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import xol.lostinfinity.mob.entity.deviant.EntityDeviantCreeper;
 import xol.lostinfinity.mob.entity.deviant.titan.EntityTitanCreeper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/deviant/ModelDeviantCreeper.class */
 public class ModelDeviantCreeper extends ModelBase {
     public ModelRenderer body;
     public ModelRenderer legbl;
@@ -26,7 +23,6 @@ public class ModelDeviantCreeper extends ModelBase {
     public ModelRenderer legfrm;
     public ModelRenderer legbrm;
     public ModelRenderer head2;
-
     public ModelDeviantCreeper() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -85,7 +81,6 @@ public class ModelDeviantCreeper extends ModelBase {
         this.legbrm.func_78793_a(-8.0f, 13.0f, 6.0f);
         this.legbrm.func_78790_a(-1.0f, 0.0f, -1.0f, 2, 2, 2, 0.0f);
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         boolean cageVis = false;
         if (entity instanceof EntityDeviantCreeper) {
@@ -122,13 +117,11 @@ public class ModelDeviantCreeper extends ModelBase {
         this.legbr.func_78785_a(f5);
         this.legbrm.func_78785_a(f5);
     }
-
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.head.field_78796_g = netHeadYaw * 0.017453292f;
         this.head.field_78795_f = headPitch * 0.017453292f;

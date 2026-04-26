@@ -1,11 +1,8 @@
 package xol.lostinfinity.mob.model.item;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/item/ModelIonicChakram.class */
 public class ModelIonicChakram extends ModelBase {
     private final ModelRenderer Ring;
     private final ModelRenderer cube_r1;
@@ -17,7 +14,6 @@ public class ModelIonicChakram extends ModelBase {
     private final ModelRenderer cube_r7;
     private final ModelRenderer cube_r8;
     private final ModelRenderer cube_r9;
-
     public ModelIonicChakram() {
         this.field_78090_t = 32;
         this.field_78089_u = 32;
@@ -102,11 +98,9 @@ public class ModelIonicChakram extends ModelBase {
         this.cube_r9.field_78804_l.add(new ModelBox(this.cube_r9, 0, 27, 7.0f, -1.0f, -5.5f, 1, 1, 2, 0.0f, false));
         this.cube_r9.field_78804_l.add(new ModelBox(this.cube_r9, 0, 27, 10.0f, -1.0f, -5.5f, 1, 1, 2, 0.0f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.Ring.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;

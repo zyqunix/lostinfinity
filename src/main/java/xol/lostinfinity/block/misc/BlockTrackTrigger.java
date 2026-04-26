@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.misc;
-
 import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.entity.item.EntityItem;
@@ -18,18 +17,14 @@ import xol.lostinfinity.mob.entity.deviant.EntityDeviantPiglin;
 import xol.lostinfinity.mob.entity.deviant.EntityDeviantSkeleton;
 import xol.lostinfinity.mob.entity.deviant.EntityDeviantSpider;
 import xol.lostinfinity.mob.entity.deviant.EntityDeviantStray;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/misc/BlockTrackTrigger.class */
 public class BlockTrackTrigger extends BlockBasicLight {
     private int active_num;
-
     public BlockTrackTrigger(String name, int triggernum) {
         super(name);
         this.active_num = 0;
         this.active_num = triggernum;
         BlockInit.TRIGGER_BLOCKS.add(this);
     }
-
     public void trigger(World world, BlockPos pos) {
         if (!world.field_72995_K) {
             switch (this.active_num) {
@@ -53,7 +48,7 @@ public class BlockTrackTrigger extends BlockBasicLight {
                     Piglin.func_70107_b(pos.func_177958_n(), pos.func_177956_o() + 2, pos.func_177952_p());
                     world.func_72838_d(Piglin);
                     break;
-                case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+                case TileEntityFusionTable.BOARD_ROWS :
                     EntityDeviantEnderman Enderman = new EntityDeviantEnderman(world);
                     Enderman.func_70107_b(pos.func_177958_n(), pos.func_177956_o() + 2, pos.func_177952_p());
                     world.func_72838_d(Enderman);
@@ -63,7 +58,7 @@ public class BlockTrackTrigger extends BlockBasicLight {
                     Spider.func_70107_b(pos.func_177958_n(), pos.func_177956_o() + 2, pos.func_177952_p());
                     world.func_72838_d(Spider);
                     break;
-                case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+                case TileEntityFusionTable.BOARD_COLUMNS :
                     EntityDeviantBlaze Blaze = new EntityDeviantBlaze(world);
                     Blaze.func_70107_b(pos.func_177958_n(), pos.func_177956_o() + 2, pos.func_177952_p());
                     world.func_72838_d(Blaze);
@@ -97,7 +92,6 @@ public class BlockTrackTrigger extends BlockBasicLight {
             }
         }
     }
-
     public static Block randomTriggerBlock(Random rand) {
         return BlockInit.TRIGGER_BLOCKS.get(rand.nextInt(BlockInit.TRIGGER_BLOCKS.size()));
     }

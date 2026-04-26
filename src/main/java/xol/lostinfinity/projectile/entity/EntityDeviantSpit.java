@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.RayTraceResult;
@@ -7,21 +6,16 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityDeviantSpit.class */
 public class EntityDeviantSpit extends EntityBaseThrowable {
     public EntityDeviantSpit(World par1World) {
         super(par1World);
     }
-
     public EntityDeviantSpit(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
     }
-
     public EntityDeviantSpit(World par1World, double par2, double par4, double par6) {
         super(par1World, par2, par4, par6);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -37,11 +31,9 @@ public class EntityDeviantSpit extends EntityBaseThrowable {
             func_70106_y();
         }
     }
-
     protected float func_70185_h() {
         return 0.05f;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     @SideOnly(Side.CLIENT)
     public void func_70071_h_() {

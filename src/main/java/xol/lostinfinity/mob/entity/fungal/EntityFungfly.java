@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.fungal;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.IEntityLivingData;
@@ -17,22 +16,17 @@ import xol.lostinfinity.mob.ai.EntityAIFloatAttack;
 import xol.lostinfinity.mob.entity.base.EntityFloatingBase;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/fungal/EntityFungfly.class */
 public class EntityFungfly extends EntityFloatingBase implements IMaxAttack {
     private static final DataParameter<Integer> VISUAL_STYLE = EntityDataManager.func_187226_a(EntityFungfly.class, DataSerializers.field_187192_b);
-
     public EntityFungfly(World worldIn) {
         super(worldIn);
         func_70105_a(0.5f, 0.5f);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(VISUAL_STYLE, -1);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -41,20 +35,16 @@ public class EntityFungfly extends EntityFloatingBase implements IMaxAttack {
         }
         return false;
     }
-
     public IEntityLivingData func_180482_a(DifficultyInstance difficulty, IEntityLivingData livingdata) {
         setVisual(this.field_70146_Z.nextInt(5));
         return super.func_180482_a(difficulty, livingdata);
     }
-
     public int getVisual() {
         return ((Integer) this.field_70180_af.func_187225_a(VISUAL_STYLE)).intValue();
     }
-
     public void setVisual(int v) {
         this.field_70180_af.func_187227_b(VISUAL_STYLE, Integer.valueOf(v));
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     public void func_70636_d() {
         super.func_70636_d();
@@ -63,7 +53,6 @@ public class EntityFungfly extends EntityFloatingBase implements IMaxAttack {
             func_70605_aq().func_75642_a(target.field_70165_t, target.field_70163_u, target.field_70161_v, 1.0d);
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     public void func_110147_ax() {
         super.func_110147_ax();
@@ -72,28 +61,22 @@ public class EntityFungfly extends EntityFloatingBase implements IMaxAttack {
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.25d);
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.TERROR_FLY_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.TERROR_FLY_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundInit.TERROR_FLY_AMBIENT;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 7;
     }
-
     protected ResourceLocation func_184647_J() {
         return LootTableRegistry.ENTITIES_TERRORFLY;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     protected EntityAIFloatAttack createShootAI() {
         return null;

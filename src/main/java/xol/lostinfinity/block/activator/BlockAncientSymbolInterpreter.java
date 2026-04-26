@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import java.util.ArrayList;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.state.IBlockState;
@@ -12,18 +11,13 @@ import xol.lostinfinity.block.basic.BlockBasic;
 import xol.lostinfinity.block.tileentity.TileEntityAncientSymbolInterpreter;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockAncientSymbolInterpreter.class */
 public class BlockAncientSymbolInterpreter extends BlockBasic implements ITileEntityProvider {
     public BlockAncientSymbolInterpreter(String name) {
         super(name);
     }
-
     private boolean validInput(ItemStack stack) {
         return stack.func_77973_b().equals(ItemInit.magicalBook);
     }
-
-    /* JADX WARN: Incorrect condition in loop: B:14:0x007a */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
@@ -35,8 +29,6 @@ public class BlockAncientSymbolInterpreter extends BlockBasic implements ITileEn
         */
         throw new UnsupportedOperationException("Method not decompiled: xol.lostinfinity.block.activator.BlockAncientSymbolInterpreter.func_180639_a(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState, net.minecraft.entity.player.EntityPlayer, net.minecraft.util.EnumHand, net.minecraft.util.EnumFacing, float, float, float):boolean");
     }
-
-    /* JADX WARN: Incorrect condition in loop: B:4:0x0041 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
@@ -48,7 +40,6 @@ public class BlockAncientSymbolInterpreter extends BlockBasic implements ITileEn
         */
         throw new UnsupportedOperationException("Method not decompiled: xol.lostinfinity.block.activator.BlockAncientSymbolInterpreter.reset(net.minecraft.world.World, net.minecraft.util.math.BlockPos, net.minecraft.block.state.IBlockState):void");
     }
-
     private static Vec3i findTileDir(World worldIn, BlockPos pos) {
         ArrayList<Vec3i> dirs = new ArrayList<>();
         dirs.add(new Vec3i(1, 0, 1));
@@ -62,15 +53,12 @@ public class BlockAncientSymbolInterpreter extends BlockBasic implements ITileEn
         }
         return null;
     }
-
     public TileEntity func_149915_a(World worldIn, int meta) {
         return null;
     }
-
     public boolean func_149716_u() {
         return true;
     }
-
     public TileEntity createTileEntity(World world, IBlockState state) {
         return new TileEntityAncientSymbolInterpreter();
     }

@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.activate;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.block.Block;
@@ -27,8 +26,6 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.classify.ICustomRaytrace;
 import xol.lostinfinity.util.data.CustomRayTraceResult;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/activate/ItemElasticThread.class */
 public class ItemElasticThread extends Item implements ICustomRaytrace {
     public ItemElasticThread(String regName) {
         setRegistryName(regName);
@@ -37,7 +34,6 @@ public class ItemElasticThread extends Item implements ICustomRaytrace {
         func_77625_d(1);
         ItemInit.ITEMS.add(this);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (!worldIn.field_72995_K) {
@@ -68,7 +64,6 @@ public class ItemElasticThread extends Item implements ICustomRaytrace {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Green + "A very elastic and sticky thread.");

@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.model.murk;
-
 import java.util.concurrent.ThreadLocalRandom;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
@@ -7,8 +6,6 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import xol.lostinfinity.mob.entity.murk.EntityScreamer;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/murk/ModelScreamer.class */
 public class ModelScreamer extends ModelBase {
     private final ModelRenderer Body;
     private final ModelRenderer WingLeft;
@@ -30,7 +27,6 @@ public class ModelScreamer extends ModelBase {
     private final ModelRenderer Body_r10;
     private final ModelRenderer Body_r11;
     private final ModelRenderer Body_r12;
-
     public ModelScreamer() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -136,17 +132,14 @@ public class ModelScreamer extends ModelBase {
         this.Body_r12.field_78804_l.add(new ModelBox(this.Body_r12, 15, 30, -5.0f, -1.5f, -1.5f, 9, 2, 3, 0.0f, true));
         this.Body_r12.field_78804_l.add(new ModelBox(this.Body_r12, 40, 29, -11.0f, -2.5f, -2.5f, 7, 4, 5, 0.0f, true));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.Body.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         float pincerInitial = 0.61f - this.Body.field_78795_f;
         this.WingLeft.field_78808_h = MathHelper.func_76134_b(ageInTicks * 2.5f) * 0.12f;
@@ -189,7 +182,6 @@ public class ModelScreamer extends ModelBase {
             this.Body.field_78795_f += 0.05f;
         }
     }
-
     private void flexPincer(EntityScreamer entityIn) {
         if (entityIn.isPincerMovingUp()) {
             this.Pincer2.field_78795_f -= 0.003f;

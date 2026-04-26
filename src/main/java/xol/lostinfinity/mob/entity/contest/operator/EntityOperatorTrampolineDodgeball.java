@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.contest.operator;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -14,16 +13,12 @@ import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.mob.entity.contest.controller.EntityControllerTrampolineDodgeball;
 import xol.lostinfinity.util.coordinates.ContestCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/contest/operator/EntityOperatorTrampolineDodgeball.class */
 public class EntityOperatorTrampolineDodgeball extends EntityOperatorBase {
     private List<BlockPos> spawnPositions;
-
     public EntityOperatorTrampolineDodgeball(World worldIn) {
         super(worldIn);
         this.spawnPositions = new ArrayList();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected void startGame() {
         this.spawnPositions = ContestCoordinates.dodgeballSpawnPositions();
@@ -65,12 +60,10 @@ public class EntityOperatorTrampolineDodgeball extends EntityOperatorBase {
         this.spawnPositions.clear();
         this.contenders.clear();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected AxisAlignedBB getArenaAABB() {
         return ContestCoordinates.dodgeballArenaAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected AxisAlignedBB getLobbyAABB() {
         return ContestCoordinates.dodgeballLobbyAABB();

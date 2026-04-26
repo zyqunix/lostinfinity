@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -24,19 +23,15 @@ import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.classify.ICustomRaytrace;
 import xol.lostinfinity.util.data.CustomRayTraceResult;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemBladeOfDead.class */
 public class ItemBladeOfDead extends ItemCooldownSword implements IMaxAttack, ICustomRaytrace {
     public ItemBladeOfDead(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_INFINITYWEP);
     }
-
     public boolean func_77644_a(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         IMaxAttack.dealMaxHealth(attacker, target, 5);
         return true;
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (!showDurabilityBar(playerIn.func_184586_b(handIn))) {
             if (!worldIn.field_72995_K) {
@@ -77,12 +72,10 @@ public class ItemBladeOfDead extends ItemCooldownSword implements IMaxAttack, IC
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @Override // xol.lostinfinity.item.weapon.ItemCooldownSword
     protected int getCooldown() {
         return 1000;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Deals 20% Max Health Damage");

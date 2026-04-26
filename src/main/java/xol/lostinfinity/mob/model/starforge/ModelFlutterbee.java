@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.model.starforge;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -9,8 +8,6 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/starforge/ModelFlutterbee.class */
 public class ModelFlutterbee extends ModelBase {
     private final ModelRenderer WingR;
     private final ModelRenderer WingL;
@@ -26,7 +23,6 @@ public class ModelFlutterbee extends ModelBase {
     private final ModelRenderer Leg5;
     private final ModelRenderer Leg6;
     private List<ModelRenderer> legs = new ArrayList();
-
     public ModelFlutterbee() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -92,7 +88,6 @@ public class ModelFlutterbee extends ModelBase {
         this.legs.add(this.Leg6);
         Collections.shuffle(this.legs);
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         GlStateManager.func_179147_l();
         GlStateManager.func_179112_b(770, 771);
@@ -111,13 +106,11 @@ public class ModelFlutterbee extends ModelBase {
         this.Leg5.func_78785_a(f5);
         this.Leg6.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.WingL.field_78808_h = MathHelper.func_76134_b(ageInTicks * 1.5f) * 3.1415927f * 0.15f;
         this.WingL2.field_78808_h = this.WingL.field_78808_h;

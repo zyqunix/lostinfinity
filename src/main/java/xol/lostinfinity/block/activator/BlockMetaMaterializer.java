@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import net.minecraft.block.state.IBlockState;
@@ -20,16 +19,11 @@ import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.coordinates.GalaxyCoordinates;
 import xol.lostinfinity.util.damagesource.DeathMessage;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockMetaMaterializer.class */
 public class BlockMetaMaterializer extends BlockBasic {
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockMetaMaterializer$MetaRecipe.class */
     public class MetaRecipe {
         private ArrayList<Item> ingots;
         private ArrayList<Item> organics;
         private Item result;
-
         private MetaRecipe(Item ingot1, Item ingot2, Item ingot3, Item organic1, Item organic2, Item organic3, Item result) {
             this.ingots = null;
             this.organics = null;
@@ -44,27 +38,19 @@ public class BlockMetaMaterializer extends BlockBasic {
             this.organics.add(organic3);
             this.result = result;
         }
-
-        /* JADX INFO: Access modifiers changed from: private */
         public ArrayList<Item> getIngots() {
             return this.ingots;
         }
-
-        /* JADX INFO: Access modifiers changed from: private */
         public ArrayList<Item> getOrganics() {
             return this.organics;
         }
-
-        /* JADX INFO: Access modifiers changed from: private */
         public Item getResult() {
             return this.result;
         }
     }
-
     public BlockMetaMaterializer(String name) {
         super(name);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         MetaRecipe rec;
         if (!playerIn.func_70093_af() && !worldIn.field_72995_K && (rec = getRecipe(playerIn.func_184586_b(hand))) != null) {
@@ -158,7 +144,6 @@ public class BlockMetaMaterializer extends BlockBasic {
         }
         return true;
     }
-
     private MetaRecipe getRecipe(ItemStack heldItem) {
         if (heldItem.func_77973_b().equals(ItemInit.clovinitePowerBank)) {
             return new MetaRecipe(ItemInit.velloriumIngot, ItemInit.kylaxiumIngot, ItemInit.xeroviumIngot, ItemInit.organicPlate, ItemInit.corruptedRoot, ItemInit.giantTentacle, ItemInit.kyvoriumIngot);

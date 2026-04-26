@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.murk;
-
 import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -33,21 +32,17 @@ import xol.lostinfinity.projectile.entity.EntityScreamerPortalEffect;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/murk/EntityScreamer.class */
 public class EntityScreamer extends EntityFloatingBase implements IConditionalDamage {
     private static final DataParameter<Boolean> PINCERS_MOVING = EntityDataManager.func_187226_a(EntityScreamer.class, DataSerializers.field_187198_h);
     private static final DataParameter<Boolean> MOVE_PINCER_UP = EntityDataManager.func_187226_a(EntityScreamer.class, DataSerializers.field_187198_h);
     private static final DataParameter<Boolean> IN_OCEAN = EntityDataManager.func_187226_a(EntityScreamer.class, DataSerializers.field_187198_h);
     private boolean hasPortal;
-
     public EntityScreamer(World worldIn) {
         super(worldIn);
         this.hasPortal = false;
         func_70105_a(5.0f, 8.0f);
         this.rawFlySpeed = 0.94f;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     public void func_110147_ax() {
         super.func_110147_ax();
@@ -56,7 +51,6 @@ public class EntityScreamer extends EntityFloatingBase implements IConditionalDa
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(5000.0d);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_70088_a() {
         super.func_70088_a();
@@ -64,7 +58,6 @@ public class EntityScreamer extends EntityFloatingBase implements IConditionalDa
         func_184212_Q().func_187214_a(MOVE_PINCER_UP, false);
         func_184212_Q().func_187214_a(IN_OCEAN, false);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -73,53 +66,41 @@ public class EntityScreamer extends EntityFloatingBase implements IConditionalDa
         }
         return false;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     @Nullable
     protected EntityAIFloatAttack createShootAI() {
         return null;
     }
-
     public boolean isPincerMovingUp() {
         return ((Boolean) func_184212_Q().func_187225_a(MOVE_PINCER_UP)).booleanValue();
     }
-
     public boolean isPincerMoving() {
         return ((Boolean) func_184212_Q().func_187225_a(PINCERS_MOVING)).booleanValue();
     }
-
     public void setPincerMoving(boolean moving) {
         func_184212_Q().func_187227_b(PINCERS_MOVING, Boolean.valueOf(moving));
     }
-
     public void setPincerMovingUp(boolean moving) {
         func_184212_Q().func_187227_b(MOVE_PINCER_UP, Boolean.valueOf(moving));
     }
-
     public boolean getInOcean() {
         return ((Boolean) this.field_70180_af.func_187225_a(IN_OCEAN)).booleanValue();
     }
-
     public void setInOcean(boolean inOcean) {
         func_184212_Q().func_187227_b(IN_OCEAN, false);
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.WHISPER_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.WHISPER_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundInit.WHISPER_AMBIENT;
     }
-
     protected boolean func_70692_ba() {
         return false;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     public void func_70636_d() {
         EntityPlayer closest;
@@ -183,18 +164,15 @@ public class EntityScreamer extends EntityFloatingBase implements IConditionalDa
             }
         }
     }
-
     protected void soundPlayers(SoundEvent sound, float vol, float pitch) {
         for (EntityPlayer contender : this.field_70170_p.func_72872_a(EntityPlayer.class, new AxisAlignedBB(func_180425_c()).func_186662_g(25.0d))) {
             this.field_70170_p.func_184133_a((EntityPlayer) null, contender.func_180425_c(), sound, SoundCategory.MASTER, vol, pitch);
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 100;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void updateLifeAction() {
         if (!this.field_70170_p.field_72995_K) {
@@ -214,19 +192,16 @@ public class EntityScreamer extends EntityFloatingBase implements IConditionalDa
             }
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void trueDeathAction() {
         if (!this.field_70170_p.field_72995_K) {
             func_145779_a(ItemInit.astralOrgan, 1);
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.IConditionalDamage
     public boolean canBeDamaged(Entity attacker) {
         return !this.hasPortal;
     }
-
     private SoundEvent randomWhisper(int i) {
         switch (i) {
             case 0:
@@ -237,7 +212,7 @@ public class EntityScreamer extends EntityFloatingBase implements IConditionalDa
                 return SoundInit.WHISPER_3;
             case 3:
                 return SoundInit.WHISPER_4;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 return SoundInit.WHISPER_5;
             default:
                 return SoundInit.WHISPER_5;

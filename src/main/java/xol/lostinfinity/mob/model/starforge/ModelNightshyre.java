@@ -1,11 +1,8 @@
 package xol.lostinfinity.mob.model.starforge;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/starforge/ModelNightshyre.class */
 public class ModelNightshyre extends ModelBase {
     private final ModelRenderer Body;
     private final ModelRenderer cube_r1;
@@ -20,7 +17,6 @@ public class ModelNightshyre extends ModelBase {
     private final ModelRenderer horn2;
     private final ModelRenderer cube_r4;
     private final ModelRenderer cube_r5;
-
     public ModelNightshyre() {
         this.field_78090_t = 64;
         this.field_78089_u = 64;
@@ -96,18 +92,15 @@ public class ModelNightshyre extends ModelBase {
         this.cube_r5.field_78804_l.add(new ModelBox(this.cube_r5, 42, 1, -1.0f, -5.0f, -11.0f, 1, 8, 10, 0.0f, false));
         this.cube_r5.field_78804_l.add(new ModelBox(this.cube_r5, 42, 0, -1.0f, -5.0f, -2.0f, 2, 8, 2, -0.4f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.Body.func_78785_a(f5);
         this.Head.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.Head.field_78796_g = netHeadYaw * 0.017453292f;
         this.Head.field_78795_f = headPitch * 0.017453292f;

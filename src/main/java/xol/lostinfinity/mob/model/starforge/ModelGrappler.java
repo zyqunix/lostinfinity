@@ -1,10 +1,7 @@
 package xol.lostinfinity.mob.model.starforge;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/starforge/ModelGrappler.class */
 public class ModelGrappler extends ModelBase {
     public ModelRenderer eye;
     public ModelRenderer leg1;
@@ -17,7 +14,6 @@ public class ModelGrappler extends ModelBase {
     public ModelRenderer leg9;
     public ModelRenderer leg7;
     public ModelRenderer eye2;
-
     public ModelGrappler() {
         this.field_78090_t = 64;
         this.field_78089_u = 32;
@@ -65,17 +61,14 @@ public class ModelGrappler extends ModelBase {
         this.eye.func_78792_a(this.leg5);
         this.eye.func_78792_a(this.leg7);
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.eye.func_78785_a(f5);
     }
-
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         double x = entityIn.field_70159_w;
         double y = entityIn.field_70181_x;

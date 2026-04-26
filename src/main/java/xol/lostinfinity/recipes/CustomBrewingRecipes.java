@@ -1,12 +1,9 @@
 package xol.lostinfinity.recipes;
-
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.brewing.BrewingRecipeRegistry;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/recipes/CustomBrewingRecipes.class */
 public class CustomBrewingRecipes {
     public static void init() {
         BrewingRecipeRegistry.addRecipe(new ItemStack(Items.field_151068_bn), new ItemStack(ItemInit.explosiveSack), new ItemStack(ItemInit.firebloodSolution));

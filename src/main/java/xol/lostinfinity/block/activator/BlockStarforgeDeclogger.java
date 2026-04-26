@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.block.material.Material;
@@ -18,13 +17,10 @@ import xol.lostinfinity.block.basic.BlockBasic;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockStarforgeDeclogger.class */
 public class BlockStarforgeDeclogger extends BlockBasic {
     public BlockStarforgeDeclogger(String name) {
         super(name, Material.field_151576_e);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!playerIn.func_70093_af()) {
             List<BlockPos> blocks = new ArrayList<>();

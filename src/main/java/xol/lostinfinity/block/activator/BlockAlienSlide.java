@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,18 +12,14 @@ import xol.lostinfinity.block.basic.BlockBasic;
 import xol.lostinfinity.block.tileentity.TileEntityFusionTable;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.item.weapon.ItemHeadCollector;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockAlienSlide.class */
 public class BlockAlienSlide extends BlockBasic {
     private int slideNum;
-
     public BlockAlienSlide(String name) {
         super(name);
         this.slideNum = 0;
         this.slideNum = Integer.parseInt(name.replace("slide_puzzle_alien_", ""));
         func_149715_a(1.0f);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!worldIn.field_72995_K) {
             if (this.slideNum != 17) {
@@ -52,11 +47,9 @@ public class BlockAlienSlide extends BlockBasic {
         }
         return true;
     }
-
     public int getBlockNum() {
         return this.slideNum;
     }
-
     public static Block getSlideByNum(int num) {
         switch (num) {
             case 0:
@@ -67,11 +60,11 @@ public class BlockAlienSlide extends BlockBasic {
                 return BlockInit.alienSlide2;
             case 3:
                 return BlockInit.alienSlide3;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 return BlockInit.alienSlide4;
             case 5:
                 return BlockInit.alienSlide5;
-            case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+            case TileEntityFusionTable.BOARD_COLUMNS :
                 return BlockInit.alienSlide6;
             case 7:
                 return BlockInit.alienSlide7;
@@ -79,7 +72,7 @@ public class BlockAlienSlide extends BlockBasic {
                 return BlockInit.alienSlide8;
             case 9:
                 return BlockInit.alienSlide9;
-            case ItemHeadCollector.CHARGE_LIMIT /* 10 */:
+            case ItemHeadCollector.CHARGE_LIMIT :
                 return BlockInit.alienSlide10;
             case 11:
                 return BlockInit.alienSlide11;
@@ -107,7 +100,7 @@ public class BlockAlienSlide extends BlockBasic {
                 return BlockInit.alienSlide22;
             case 23:
                 return BlockInit.alienSlide23;
-            case TileEntityFusionTable.BOARD_SIZE /* 24 */:
+            case TileEntityFusionTable.BOARD_SIZE :
                 return BlockInit.alienSlide24;
             default:
                 return BlockInit.alienSlide17;

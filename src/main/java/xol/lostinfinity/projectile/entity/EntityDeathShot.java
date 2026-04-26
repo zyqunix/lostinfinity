@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -21,8 +20,6 @@ import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityDeathShot.class */
 public class EntityDeathShot extends EntityBaseThrowable implements IMaxAttack {
     private static final int MARK_RANGE = 15;
     private static final float GRAVITY = 0.01f;
@@ -30,13 +27,11 @@ public class EntityDeathShot extends EntityBaseThrowable implements IMaxAttack {
     private static final EnumParticleTypes MARK_PARTICLE = ParticleInit.RED_SKULL;
     private static final EnumParticleTypes DAMAGE_PARTICLE = ParticleInit.EXPLOSION;
     private List<EntityLivingBase> markedEntities;
-
     public EntityDeathShot(World par1World) {
         super(par1World);
         this.markedEntities = new ArrayList();
         func_70105_a(0.75f, 0.75f);
     }
-
     public EntityDeathShot(World worldIn, EntityLivingBase entityIn) {
         super(worldIn, entityIn);
         this.markedEntities = new ArrayList();
@@ -55,18 +50,14 @@ public class EntityDeathShot extends EntityBaseThrowable implements IMaxAttack {
             case 3:
                 spawnX += 1.0d;
                 break;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 spawnX -= 1.0d;
                 break;
         }
         func_70634_a(spawnX, spawnY, spawnZ);
     }
-
-    /* JADX INFO: renamed from: xol.lostinfinity.projectile.entity.EntityDeathShot$1, reason: invalid class name */
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityDeathShot$1.class */
-    static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] $SwitchMap$net$minecraft$util$EnumFacing = new int[EnumFacing.values().length];
-
+    static  class AnonymousClass1 {
+        static final  int[] $SwitchMap$net$minecraft$util$EnumFacing = new int[EnumFacing.values().length];
         static {
             try {
                 $SwitchMap$net$minecraft$util$EnumFacing[EnumFacing.NORTH.ordinal()] = 1;
@@ -86,13 +77,11 @@ public class EntityDeathShot extends EntityBaseThrowable implements IMaxAttack {
             }
         }
     }
-
     public EntityDeathShot(World par1World, double par2, double par4, double par6) {
         super(par1World, par2, par4, par6);
         this.markedEntities = new ArrayList();
         func_70105_a(0.75f, 0.75f);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void func_70071_h_() {
         super.func_70071_h_();
@@ -126,7 +115,6 @@ public class EntityDeathShot extends EntityBaseThrowable implements IMaxAttack {
             }
         }
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if ((result.field_72308_g == null || func_85052_h() == null || !result.field_72308_g.equals(func_85052_h())) && !this.field_70170_p.field_72995_K) {
@@ -153,7 +141,6 @@ public class EntityDeathShot extends EntityBaseThrowable implements IMaxAttack {
             func_70106_y();
         }
     }
-
     protected float func_70185_h() {
         return GRAVITY;
     }

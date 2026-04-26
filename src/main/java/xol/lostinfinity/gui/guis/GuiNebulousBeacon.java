@@ -1,5 +1,4 @@
 package xol.lostinfinity.gui.guis;
-
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.util.ResourceLocation;
@@ -7,18 +6,14 @@ import xol.lostinfinity.block.tileentity.TileEntityNebulousBeacon;
 import xol.lostinfinity.gui.containers.ContainerNebulousBeacon;
 import xol.lostinfinity.util.Reference;
 import xol.lostinfinity.util.client.GuiUtil;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/guis/GuiNebulousBeacon.class */
 public class GuiNebulousBeacon extends GuiContainer {
     private static final boolean DEBUG = false;
     private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MODID, "textures/gui/nebulous_beacon.png");
     private final TileEntityNebulousBeacon tileEntity;
-
     public GuiNebulousBeacon(InventoryPlayer invPlayer, TileEntityNebulousBeacon tileEntity) {
         super(new ContainerNebulousBeacon(invPlayer, tileEntity));
         this.tileEntity = tileEntity;
     }
-
     protected void func_146976_a(float partialTicks, int mouseX, int mouseY) {
         this.field_146297_k.func_110434_K().func_110577_a(TEXTURE);
         func_73729_b(this.field_147003_i, this.field_147009_r, DEBUG, DEBUG, this.field_146999_f, this.field_147000_g);

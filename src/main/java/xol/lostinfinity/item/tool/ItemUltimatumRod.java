@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.tool;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -24,8 +23,6 @@ import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.classify.IDeviator;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/tool/ItemUltimatumRod.class */
 public class ItemUltimatumRod extends Item implements IDeviator {
     public ItemUltimatumRod(String regName) {
         func_77637_a(TabsInit.TAB_AUXWEP);
@@ -33,7 +30,6 @@ public class ItemUltimatumRod extends Item implements IDeviator {
         func_77655_b(regName);
         ItemInit.ITEMS.add(this);
     }
-
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer attacker, Entity target) {
         if (!superMutateCreature(stack, attacker, target) && !deviateCreature(stack, attacker, target)) {
             ultimatumMutation(stack, attacker, target);
@@ -41,7 +37,6 @@ public class ItemUltimatumRod extends Item implements IDeviator {
         }
         return true;
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (!stack.func_77942_o()) {
@@ -71,7 +66,6 @@ public class ItemUltimatumRod extends Item implements IDeviator {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Dark_Aqua + "Deviates creatures.");

@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.model.deviant;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -7,8 +6,6 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import xol.lostinfinity.mob.entity.deviant.EntityDeviantWolf;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/deviant/ModelDeviantWolf.class */
 public class ModelDeviantWolf extends ModelBase {
     private final ModelRenderer head;
     private final ModelRenderer head_r1;
@@ -23,7 +20,6 @@ public class ModelDeviantWolf extends ModelBase {
     private final ModelRenderer leg3;
     private final ModelRenderer tail;
     private final ModelRenderer tail_r1;
-
     public ModelDeviantWolf() {
         this.field_78090_t = 64;
         this.field_78089_u = 64;
@@ -95,7 +91,6 @@ public class ModelDeviantWolf extends ModelBase {
         this.tail_r1.field_78804_l.add(new ModelBox(this.tail_r1, 16, 14, -0.5f, -3.0f, -2.0f, 1, 6, 2, 0.0f, true));
         this.tail_r1.field_78804_l.add(new ModelBox(this.tail_r1, 16, 14, 2.5f, -3.0f, -2.0f, 1, 6, 2, 0.0f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.head.field_82906_o = 0.0f;
         this.body.field_82906_o = 0.0f;
@@ -141,13 +136,11 @@ public class ModelDeviantWolf extends ModelBase {
             GlStateManager.func_179084_k();
         }
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.leg0.field_78795_f = MathHelper.func_76134_b(limbSwing * 0.6662f) * 1.4f * limbSwingAmount;
         this.leg1.field_78795_f = MathHelper.func_76134_b((limbSwing * 0.6662f) + 3.1415927f) * 1.4f * limbSwingAmount;

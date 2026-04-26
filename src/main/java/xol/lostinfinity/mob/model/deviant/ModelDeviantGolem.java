@@ -1,12 +1,9 @@
 package xol.lostinfinity.mob.model.deviant;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/deviant/ModelDeviantGolem.class */
 public class ModelDeviantGolem extends ModelBase {
     private final ModelRenderer body2;
     private final ModelRenderer legl;
@@ -17,7 +14,6 @@ public class ModelDeviantGolem extends ModelBase {
     private final ModelRenderer heart;
     private final ModelRenderer wingr;
     private final ModelRenderer wingl;
-
     public ModelDeviantGolem() {
         this.field_78090_t = 128;
         this.field_78089_u = 128;
@@ -62,7 +58,6 @@ public class ModelDeviantGolem extends ModelBase {
         this.wingl.func_78793_a(0.0f, 24.0f, 0.0f);
         this.wingl.field_78804_l.add(new ModelBox(this.wingl, 0, 59, 5.0f, -35.0f, 4.0f, 1, 30, 13, 0.0f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.body2.func_78785_a(f5);
         this.legl.func_78785_a(f5);
@@ -74,13 +69,11 @@ public class ModelDeviantGolem extends ModelBase {
         this.wingr.func_78785_a(f5);
         this.wingl.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.head.field_78796_g = netHeadYaw * 0.017453292f;
         this.head.field_78795_f = headPitch * 0.017453292f;
@@ -91,7 +84,6 @@ public class ModelDeviantGolem extends ModelBase {
         this.wingl.field_78796_g = MathHelper.func_76134_b(ageInTicks * 0.1f) * 0.1f;
         this.wingr.field_78796_g = -this.wingl.field_78796_g;
     }
-
     private float triangleWave(float p_78172_1_, float p_78172_2_) {
         return (Math.abs((p_78172_1_ % p_78172_2_) - (p_78172_2_ * 0.5f)) - (p_78172_2_ * 0.25f)) / (p_78172_2_ * 0.25f);
     }

@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.misc;
-
 import javax.annotation.Nullable;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -13,23 +12,18 @@ import net.minecraft.world.World;
 import xol.lostinfinity.block.basic.BlockBasicGlass;
 import xol.lostinfinity.init.PotionInit;
 import xol.lostinfinity.init.SoundInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/misc/BlockLaserField.class */
 public class BlockLaserField extends BlockBasicGlass {
     private int securityLevel;
-
     public BlockLaserField(String name, int security) {
         super(name);
         this.securityLevel = 0;
         this.securityLevel = security;
         func_149715_a(1.0f);
     }
-
     @Nullable
     public AxisAlignedBB func_180646_a(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
         return field_185506_k;
     }
-
     public void func_180634_a(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
         if (!worldIn.field_72995_K) {
             boolean kill = true;

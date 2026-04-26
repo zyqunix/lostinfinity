@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon.droid;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -21,15 +20,12 @@ import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.classify.ISwitchModels;
 import xol.lostinfinity.projectile.entity.EntityDroidBall;
 import xol.lostinfinity.projectile.entity.EntityDroidSucker;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/droid/ItemDroidConstructorMK3.class */
 public class ItemDroidConstructorMK3 extends ItemDroidRelocatorMK2 implements ISwitchModels {
     public ItemDroidConstructorMK3(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_INFINITYWEP);
         setModelSwitch("primarytype", this, 2);
     }
-
     @Override // xol.lostinfinity.item.weapon.droid.ItemDroidRelocatorStorage
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
@@ -94,16 +90,13 @@ public class ItemDroidConstructorMK3 extends ItemDroidRelocatorMK2 implements IS
         }
         return new ActionResult<>(EnumActionResult.PASS, playerIn.func_184586_b(handIn));
     }
-
     @Override // xol.lostinfinity.item.weapon.droid.ItemDroidRelocatorStorage, xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 300;
     }
-
     private boolean atMaxMode(int primary, int mode) {
         return mode == primary + 1;
     }
-
     private String getModeDescription(int primary, int mode) {
         String msg;
         if (primary == 0) {
@@ -121,7 +114,6 @@ public class ItemDroidConstructorMK3 extends ItemDroidRelocatorMK2 implements IS
         }
         return msg;
     }
-
     @Override // xol.lostinfinity.item.weapon.droid.ItemDroidRelocatorStorage
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {

@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.activate;
-
 import java.util.Arrays;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -25,14 +24,11 @@ import xol.lostinfinity.mob.entity.misc.EntityRift;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/activate/ItemRiftWalker.class */
 public class ItemRiftWalker extends ItemCooldown implements IMaxAttack {
     public ItemRiftWalker(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (playerIn.func_70644_a(PotionInit.SPECTRAL) && playerIn.func_70644_a(Potion.func_188412_a(14))) {
@@ -51,7 +47,6 @@ public class ItemRiftWalker extends ItemCooldown implements IMaxAttack {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     public static void endEffect(EntityPlayer player) {
         if (!player.field_70170_p.field_72995_K) {
             player.func_82142_c(false);
@@ -70,12 +65,10 @@ public class ItemRiftWalker extends ItemCooldown implements IMaxAttack {
             player.field_70170_p.func_72838_d(rift);
         }
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 8000;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Light_Purple + "Enter a spectral form, separated from your body, becoming immune and invisible.");

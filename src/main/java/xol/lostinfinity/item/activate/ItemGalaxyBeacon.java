@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.activate;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -19,8 +18,6 @@ import xol.lostinfinity.init.DimensionInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.util.coordinates.GalaxyCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/activate/ItemGalaxyBeacon.class */
 public class ItemGalaxyBeacon extends Item {
     public ItemGalaxyBeacon(String regName) {
         setRegistryName(regName);
@@ -29,7 +26,6 @@ public class ItemGalaxyBeacon extends Item {
         func_77625_d(1);
         ItemInit.ITEMS.add(this);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (!worldIn.field_72995_K) {
             if (worldIn.field_73011_w.func_186058_p() != DimensionInit.nonexistence) {
@@ -41,7 +37,6 @@ public class ItemGalaxyBeacon extends Item {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Teleports you to the Galaxy Dungeon, located in Nonexistence.");

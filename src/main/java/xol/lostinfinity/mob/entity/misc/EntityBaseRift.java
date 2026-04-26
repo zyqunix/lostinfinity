@@ -1,13 +1,9 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import net.minecraft.world.World;
 import xol.lostinfinity.mob.entity.base.EntityImmaterial;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityBaseRift.class */
 public class EntityBaseRift extends EntityImmaterial implements IMaxAttack {
     private float alpha;
-
     public EntityBaseRift(World worldIn) {
         super(worldIn);
         this.alpha = 0.0f;
@@ -16,11 +12,9 @@ public class EntityBaseRift extends EntityImmaterial implements IMaxAttack {
         func_82142_c(true);
         func_189654_d(true);
     }
-
     public float getAlpha() {
         return this.alpha;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityImmaterial
     public void func_70636_d() {
         super.func_70636_d();
@@ -31,7 +25,6 @@ public class EntityBaseRift extends EntityImmaterial implements IMaxAttack {
             this.alpha += 0.025f;
         }
     }
-
     protected double getROD(int multi) {
         return ((-0.5d) + this.field_70146_Z.nextDouble()) * ((double) multi);
     }

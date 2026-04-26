@@ -1,16 +1,12 @@
 package xol.lostinfinity.util.compatibility.jei.trades.chemist;
-
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 import java.util.Map;
 import net.minecraft.item.ItemStack;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/compatibility/jei/trades/chemist/ChemistTradeJEI.class */
 public class ChemistTradeJEI {
     private static final ChemistTradeJEI INSTANCE = new ChemistTradeJEI();
     private final Table<ItemStack, ItemStack, ItemStack> chemistTradeList = HashBasedTable.create();
-
     public ChemistTradeJEI() {
         ItemStack goldToken = new ItemStack(ItemInit.goldToken);
         ItemStack blueCompound = new ItemStack(ItemInit.cureSampleBlue);
@@ -43,18 +39,15 @@ public class ChemistTradeJEI {
         luminecentCubes.func_190920_e(60);
         addChemistTradeRecipe(luminecentCubes, new ItemStack(ItemInit.containerOfCollectionFull), new ItemStack(ItemInit.laraxiumCatenationPouch));
     }
-
     public static ChemistTradeJEI getInstance() {
         return INSTANCE;
     }
-
     public void addChemistTradeRecipe(ItemStack input1, ItemStack input2, ItemStack result) {
         if (getChemistTradeResult(input1, input2) != ItemStack.field_190927_a) {
             return;
         }
         this.chemistTradeList.put(input1, input2, result);
     }
-
     public ItemStack getChemistTradeResult(ItemStack input1, ItemStack input2) {
         for (Map.Entry<ItemStack, Map<ItemStack, ItemStack>> entry : this.chemistTradeList.columnMap().entrySet()) {
             if (compareItemStacks(input1, entry.getKey())) {
@@ -67,11 +60,9 @@ public class ChemistTradeJEI {
         }
         return ItemStack.field_190927_a;
     }
-
     private boolean compareItemStacks(ItemStack stack1, ItemStack stack2) {
         return stack1.func_77973_b() == stack2.func_77973_b() && stack1.func_77960_j() == stack2.func_77960_j();
     }
-
     public Table<ItemStack, ItemStack, ItemStack> getChemistTradeList() {
         return this.chemistTradeList;
     }

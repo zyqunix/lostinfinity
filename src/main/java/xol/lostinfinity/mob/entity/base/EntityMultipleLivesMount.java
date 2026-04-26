@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.base;
-
 import com.google.common.base.Optional;
 import java.lang.reflect.Field;
 import java.util.UUID;
@@ -25,8 +24,6 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.common.ObfuscationReflectionHelper;
 import xol.lostinfinity.util.data.CustomDamageResult;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/base/EntityMultipleLivesMount.class */
 public class EntityMultipleLivesMount extends EntityMultipleLives implements IEntityOwnable {
     protected float ascendSpeed;
     protected boolean isActuallyOnGround;
@@ -35,58 +32,45 @@ public class EntityMultipleLivesMount extends EntityMultipleLives implements IEn
     protected EntityPlayer owner;
     private static final DataParameter<Optional<UUID>> OWNER_ID = EntityDataManager.func_187226_a(EntityMultipleLivesMount.class, DataSerializers.field_187203_m);
     private static final Field VEHICLE_FLOATING_TICK_COUNT = ObfuscationReflectionHelper.findField(NetHandlerPlayServer.class, "field_184346_E");
-
     static {
         VEHICLE_FLOATING_TICK_COUNT.setAccessible(true);
     }
-
     public EntityMultipleLivesMount(World worldIn) {
         super(worldIn);
         this.ascendSpeed = 1.0f;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(OWNER_ID, Optional.absent());
     }
-
     public void func_70071_h_() {
         if (this.field_70173_aa % 20 == 0) {
             resetFloatTime();
         }
         super.func_70071_h_();
     }
-
     public void setOwner(EntityPlayer player) {
         this.owner = player;
         this.field_70180_af.func_187227_b(OWNER_ID, Optional.of(player.func_110124_au()));
     }
-
     public void onDriverCommand(EntityPlayer driver) {
     }
-
     public void onDriverDamaged(Entity driver, CustomDamageResult result) {
     }
-
     protected void func_184231_a(double y, boolean onGroundIn, IBlockState state, BlockPos pos) {
     }
-
     public void func_180430_e(float distance, float damageMultiplier) {
     }
-
     public boolean func_82171_bF() {
         return func_184179_bs() instanceof EntityLivingBase;
     }
-
     public double func_70042_X() {
         return super.func_70042_X();
     }
-
     public boolean shouldDismountInWater(Entity rider) {
         return false;
     }
-
     @Nullable
     public Entity func_184179_bs() {
         if (func_184188_bt().isEmpty()) {
@@ -94,7 +78,6 @@ public class EntityMultipleLivesMount extends EntityMultipleLives implements IEn
         }
         return (Entity) func_184188_bt().get(0);
     }
-
     public void func_191986_a(float strafe, float vertical, float forward) {
         if (func_184207_aI() && func_82171_bF() && !this.field_70128_L) {
             EntityPlayerSP entityPlayerSP = (EntityLivingBase) func_184179_bs();
@@ -124,11 +107,9 @@ public class EntityMultipleLivesMount extends EntityMultipleLives implements IEn
         }
         updateOnGroundState();
     }
-
     protected void originalTravel(float strafe, float vertical, float forward) {
         super.func_191986_a(strafe, vertical, forward);
     }
-
     protected void resetFloatTime() {
         EntityPlayerMP entityPlayerMPFunc_184179_bs = func_184179_bs();
         if (entityPlayerMPFunc_184179_bs instanceof EntityPlayerMP) {
@@ -139,11 +120,9 @@ public class EntityMultipleLivesMount extends EntityMultipleLives implements IEn
             }
         }
     }
-
     protected void updateOnGroundState() {
         this.isActuallyOnGround = this.field_70170_p.func_180495_p(func_180425_c().func_177977_b()).func_185904_a() != Material.field_151579_a;
     }
-
     protected boolean func_184645_a(EntityPlayer player, EnumHand hand) {
         if (this.field_70170_p.field_72995_K) {
             return !player.func_70093_af();
@@ -154,30 +133,23 @@ public class EntityMultipleLivesMount extends EntityMultipleLives implements IEn
         }
         return false;
     }
-
     public boolean canDismount() {
         return this.field_70128_L || this.field_70122_E || func_110143_aJ() <= 0.0f;
     }
-
     public boolean isActuallyOnGround() {
         return this.isActuallyOnGround;
     }
-
     public float getPrevSpeed() {
         return this.prevSpeed;
     }
-
     public float getSpeed() {
         return this.speed;
     }
-
     @Nullable
     public UUID func_184753_b() {
         return (UUID) ((Optional) this.field_70180_af.func_187225_a(OWNER_ID)).orNull();
     }
-
     @Nullable
-    /* JADX INFO: renamed from: getOwner, reason: merged with bridge method [inline-methods] */
     public EntityPlayer func_70902_q() {
         if (this.owner == null) {
             Optional<UUID> ownerId = (Optional) this.field_70180_af.func_187225_a(OWNER_ID);

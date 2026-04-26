@@ -1,5 +1,4 @@
 package xol.lostinfinity.gui.guis;
-
 import java.io.IOException;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.renderer.GlStateManager;
@@ -12,19 +11,15 @@ import xol.lostinfinity.gui.containers.ContainerChemistryTable;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.Reference;
 import xol.lostinfinity.util.client.GuiUtil;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/guis/GuiChemistryTable.class */
 public class GuiChemistryTable extends GuiContainer {
     private static final ResourceLocation TEXTURE = new ResourceLocation(Reference.MODID, "textures/gui/chemistry_table.png");
     private final InventoryPlayer player;
     private final TileEntityChemistryTable tileEntity;
-
     public GuiChemistryTable(InventoryPlayer invPlayer, TileEntityChemistryTable tileEntity) {
         super(new ContainerChemistryTable(invPlayer, tileEntity));
         this.player = invPlayer;
         this.tileEntity = tileEntity;
     }
-
     protected void func_146976_a(float partialTicks, int mouseX, int mouseY) {
         this.field_146297_k.func_110434_K().func_110577_a(TEXTURE);
         func_73729_b(this.field_147003_i, this.field_147009_r, 0, 0, this.field_146999_f, this.field_147000_g);
@@ -60,7 +55,6 @@ public class GuiChemistryTable extends GuiContainer {
             }
         }
     }
-
     public void func_73863_a(int mouseX, int mouseY, float partialTicks) {
         GlStateManager.func_179131_c(1.0f, 1.0f, 1.0f, 1.0f);
         func_146276_q_();
@@ -69,7 +63,6 @@ public class GuiChemistryTable extends GuiContainer {
         GlStateManager.func_179140_f();
         GlStateManager.func_179084_k();
     }
-
     protected void func_73864_a(int mouseX, int mouseY, int mouseButton) throws IOException {
         super.func_73864_a(mouseX, mouseY, mouseButton);
         int buttonX = this.field_147003_i + 43;
@@ -87,7 +80,6 @@ public class GuiChemistryTable extends GuiContainer {
             this.player.field_70458_d.func_184185_a(SoundInit.CHEMICAL_MIX, 1.0f, 1.0f);
         }
     }
-
     public void func_146281_b() {
         super.func_146281_b();
         this.tileEntity.func_174886_c(this.player.field_70458_d);

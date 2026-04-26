@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import java.util.regex.Pattern;
 import javax.annotation.Nullable;
@@ -25,14 +24,11 @@ import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.classify.IHeldTick;
 import xol.lostinfinity.item.classify.ISwitchModels;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemSwordOfSelection.class */
 public class ItemSwordOfSelection extends ItemSword implements IMaxAttack, ISwitchModels, IHeldTick {
     static Pattern pattern_ah = Pattern.compile("[a-h]");
     static Pattern pattern_io = Pattern.compile("[i-o]");
     static Pattern pattern_pz = Pattern.compile("[p-z]");
     static Pattern pattern_09 = Pattern.compile("[0-9]");
-
     public ItemSwordOfSelection(String regName) {
         super(Item.ToolMaterial.DIAMOND);
         func_77637_a(TabsInit.TAB_AUXWEP);
@@ -41,11 +37,9 @@ public class ItemSwordOfSelection extends ItemSword implements IMaxAttack, ISwit
         ItemInit.ITEMS.add(this);
         setModelSwitch("characters", this, 4);
     }
-
     public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
         return false;
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (!stack.func_77942_o()) {
@@ -58,7 +52,6 @@ public class ItemSwordOfSelection extends ItemSword implements IMaxAttack, ISwit
         worldIn.func_184133_a((EntityPlayer) null, playerIn.func_180425_c(), SoundEvents.field_187556_aj, SoundCategory.MASTER, 1.0f, 1.0f);
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     public boolean func_77644_a(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         if (stack.func_77942_o()) {
             String hit_name = target.func_70005_c_().toLowerCase();
@@ -71,7 +64,6 @@ public class ItemSwordOfSelection extends ItemSword implements IMaxAttack, ISwit
         }
         return false;
     }
-
     private boolean regexMatch(int selection, String ch) {
         switch (selection) {
             case 0:
@@ -86,14 +78,12 @@ public class ItemSwordOfSelection extends ItemSword implements IMaxAttack, ISwit
                 return false;
         }
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Light_Purple + "Right Click: Toggle cycling through groups of characters.");
         tooltip.add(TextFmt.Red + "When hitting an entity who's name begins with a character in the group:");
         tooltip.add(TextFmt.Green + "Deal 150% maximum life damage to the entity.");
     }
-
     @Override // xol.lostinfinity.item.classify.IHeldTick
     public void heldTick(EntityPlayer player, EnumHand hand, ItemStack stack) {
         int data;

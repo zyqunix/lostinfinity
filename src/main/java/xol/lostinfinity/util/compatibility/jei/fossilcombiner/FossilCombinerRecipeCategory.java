@@ -1,5 +1,4 @@
 package xol.lostinfinity.util.compatibility.jei.fossilcombiner;
-
 import javax.annotation.Nullable;
 import mezz.jei.api.IGuiHelper;
 import mezz.jei.api.gui.IDrawable;
@@ -12,41 +11,32 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.util.Reference;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/compatibility/jei/fossilcombiner/FossilCombinerRecipeCategory.class */
 public class FossilCombinerRecipeCategory implements IRecipeCategory {
     private final IDrawable background;
     private final IDrawable icon;
     private final String uid = "lostinfinity.fossilcombiner";
     private final String title = "Fossil Combiner";
     private static final ResourceLocation BACKGROUND_TEXTURE = new ResourceLocation(Reference.MODID, "textures/gui/fossil_combiner.png");
-
     public FossilCombinerRecipeCategory(IGuiHelper guiHelper) {
         this.background = guiHelper.drawableBuilder(BACKGROUND_TEXTURE, 5, 5, 150, 76).build();
         this.icon = guiHelper.createDrawableIngredient(new ItemStack(BlockInit.fossilCombiner));
     }
-
     public String getUid() {
         return "lostinfinity.fossilcombiner";
     }
-
     public String getTitle() {
         return "Fossil Combiner";
     }
-
     public String getModName() {
         return Reference.NAME;
     }
-
     public IDrawable getBackground() {
         return this.background;
     }
-
     @Nullable
     public IDrawable getIcon() {
         return this.icon;
     }
-
     public void setRecipe(IRecipeLayout recipeLayout, IRecipeWrapper recipeWrapper, IIngredients ingredients) {
         IGuiItemStackGroup guiItemStackGroup = recipeLayout.getItemStacks();
         guiItemStackGroup.init(0, true, 3, 10);

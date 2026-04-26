@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.block.Block;
@@ -15,13 +14,10 @@ import net.minecraft.world.WorldServer;
 import xol.lostinfinity.block.basic.BlockBasic;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.mob.entity.misc.EntityLightGame;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockLightSwitchGame.class */
 public class BlockLightSwitchGame extends BlockBasic {
     public BlockLightSwitchGame(String name) {
         super(name);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!worldIn.field_72995_K) {
             AxisAlignedBB checkBox = new AxisAlignedBB(pos.func_177982_a(-10, -10, -10), pos.func_177982_a(10, 10, 10));

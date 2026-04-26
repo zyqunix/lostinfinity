@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.sea;
-
 import java.util.Arrays;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -13,15 +12,12 @@ import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/sea/EntityOctobrella.class */
 public class EntityOctobrella extends EntitySeaCreature {
     public EntityOctobrella(World worldIn) {
         super(worldIn);
         this.rawFlySpeed = 0.8f;
         func_70105_a(2.5f, 2.5f);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -30,7 +26,6 @@ public class EntityOctobrella extends EntitySeaCreature {
         }
         return false;
     }
-
     protected boolean func_184645_a(EntityPlayer player, EnumHand hand) {
         ItemStack stack = player.func_184586_b(hand);
         if (stack.func_77973_b() == ItemInit.deviantEgg) {
@@ -60,15 +55,12 @@ public class EntityOctobrella extends EntitySeaCreature {
         }
         return true;
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.OCTOBRELLA_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.OCTOBRELLA_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundInit.OCTOBRELLA_AMBIENT;
     }

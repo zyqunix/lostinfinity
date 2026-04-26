@@ -1,5 +1,4 @@
 package xol.lostinfinity.dimension.celestialvoid;
-
 import java.util.List;
 import java.util.Random;
 import net.minecraft.entity.EnumCreatureType;
@@ -10,18 +9,14 @@ import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.ChunkPrimer;
 import net.minecraft.world.gen.IChunkGenerator;
 import xol.lostinfinity.dimension.util.WorldGenStructure;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/dimension/celestialvoid/ChunkGeneratorCelestialVoid.class */
 public class ChunkGeneratorCelestialVoid implements IChunkGenerator {
     private final Random rand;
     private final World world;
     private Biome[] biomesForGeneration;
-
     public ChunkGeneratorCelestialVoid(World world, long seed) {
         this.world = world;
         this.rand = new Random(seed);
     }
-
     public Chunk func_185932_a(int x, int z) {
         this.rand.setSeed((((long) x) * 341873128712L) + (((long) z) * 132897987541L));
         this.biomesForGeneration = this.world.func_72959_q().func_76933_b(this.biomesForGeneration, x * 16, z * 16, 16, 16);
@@ -34,7 +29,6 @@ public class ChunkGeneratorCelestialVoid implements IChunkGenerator {
         chunk.func_76603_b();
         return chunk;
     }
-
     public List<Biome.SpawnListEntry> func_177458_a(EnumCreatureType creatureType, BlockPos pos) {
         Biome biome = this.world.func_72959_q().func_180631_a(pos);
         if (biome != null) {
@@ -42,22 +36,17 @@ public class ChunkGeneratorCelestialVoid implements IChunkGenerator {
         }
         return null;
     }
-
     public boolean func_185933_a(Chunk chunkIn, int chunkX, int chunkZ) {
         return false;
     }
-
     public void func_180514_a(Chunk p_180514_1_, int x, int z) {
     }
-
     public boolean func_193414_a(World worldIn, String structureName, BlockPos pos) {
         return false;
     }
-
     public BlockPos func_180513_a(World worldIn, String structureName, BlockPos position, boolean findUnexplored) {
         return null;
     }
-
     public void func_185931_b(int chunkX, int chunkZ) {
         if (chunkX == 0 && chunkZ == 0) {
             generateGrandArena(chunkX, chunkZ);
@@ -77,7 +66,6 @@ public class ChunkGeneratorCelestialVoid implements IChunkGenerator {
             generateCelestialMaze(chunkX, chunkZ);
         }
     }
-
     private void generateCelestialMaze(int chunkX, int chunkZ) {
         int posX = chunkX * 16;
         int posZ = chunkZ * 16;
@@ -95,7 +83,6 @@ public class ChunkGeneratorCelestialVoid implements IChunkGenerator {
         new WorldGenStructure("celestialmaze/celestialmazep12").func_180709_b(this.world, this.rand, new BlockPos(posX + 39, 63, posZ - 52));
         new WorldGenStructure("celestialmaze/celestialmazep13").func_180709_b(this.world, this.rand, new BlockPos(posX + 7, 63, posZ - 52));
     }
-
     private void generateTrialArena(int chunkX, int chunkZ) {
         int posX = chunkX * 16;
         int posZ = chunkZ * 16;
@@ -115,7 +102,6 @@ public class ChunkGeneratorCelestialVoid implements IChunkGenerator {
         new WorldGenStructure("trials/trial_arena_p14").func_180709_b(this.world, this.rand, new BlockPos(posX - 3, 60, posZ - 90));
         new WorldGenStructure("trials/trial_arena_p15").func_180709_b(this.world, this.rand, new BlockPos(posX + 29, 60, posZ - 90));
     }
-
     private void generateDeviationArena(int chunkX, int chunkZ) {
         int posX = chunkX * 16;
         int posZ = chunkZ * 16;
@@ -135,7 +121,6 @@ public class ChunkGeneratorCelestialVoid implements IChunkGenerator {
         new WorldGenStructure("deviation/deviation_arena_p14").func_180709_b(this.world, this.rand, new BlockPos(posX - 3, 60, posZ - 90));
         new WorldGenStructure("deviation/deviation_arena_p15").func_180709_b(this.world, this.rand, new BlockPos(posX + 29, 60, posZ - 90));
     }
-
     private void generateGrandArena(int chunkX, int chunkZ) {
         new WorldGenStructure("grandarena/celestialarenap1").func_180709_b(this.world, this.rand, new BlockPos(chunkX, 30, chunkZ));
         new WorldGenStructure("grandarena/celestialarenap2").func_180709_b(this.world, this.rand, new BlockPos(chunkX + 32, 30, chunkZ));

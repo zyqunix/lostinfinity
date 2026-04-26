@@ -1,13 +1,10 @@
 package xol.lostinfinity.mob.model.item;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import xol.lostinfinity.projectile.entity.EntityTitanRing;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/item/ModelTitanRing.class */
 public class ModelTitanRing extends ModelBase {
     private final ModelRenderer Ring;
     private final ModelRenderer RingPiece1;
@@ -18,7 +15,6 @@ public class ModelTitanRing extends ModelBase {
     private final ModelRenderer cube_r3;
     private final ModelRenderer RingPiece4;
     private final ModelRenderer cube_r4;
-
     public ModelTitanRing() {
         this.field_78090_t = 64;
         this.field_78089_u = 64;
@@ -109,7 +105,6 @@ public class ModelTitanRing extends ModelBase {
         this.cube_r4.field_78804_l.add(new ModelBox(this.cube_r4, 29, 11, -13.0f, -1.5f, 2.0f, 1, 3, 5, 0.0f, false));
         this.cube_r4.field_78804_l.add(new ModelBox(this.cube_r4, 29, 11, -8.0f, -1.5f, 2.0f, 1, 3, 5, 0.0f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         EntityTitanRing ring = (EntityTitanRing) entity;
         GlStateManager.func_179147_l();
@@ -119,7 +114,6 @@ public class ModelTitanRing extends ModelBase {
         this.Ring.func_78785_a(f5);
         GlStateManager.func_179084_k();
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;

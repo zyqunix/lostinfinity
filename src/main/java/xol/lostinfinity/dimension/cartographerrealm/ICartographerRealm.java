@@ -1,29 +1,18 @@
 package xol.lostinfinity.dimension.cartographerrealm;
-
 import java.util.Random;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import xol.lostinfinity.dimension.util.WorldGenStructure;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/dimension/cartographerrealm/ICartographerRealm.class */
 public interface ICartographerRealm {
     String teleRoom();
-
     String gateRoom();
-
     String[] stairsRoom();
-
     String[] twoLevelRoom();
-
     String connectorRoom();
-
     String crossRoom();
-
     String gameRoom();
-
     String portalRoom();
-
     default void doGeneration(World world, Random rand, int chunkX, int chunkZ) {
         String top_name;
         String bottom_name;
@@ -71,7 +60,6 @@ public interface ICartographerRealm {
         new WorldGenStructure(top_name).generateWithRotation(world, rand, new BlockPos(posX + 8, 20, posZ + 8), top_rot);
         new WorldGenStructure(bottom_name).generateWithRotation(world, rand, new BlockPos(posX + 8, 11, posZ + 8), bottom_rot);
     }
-
     default Rotation randomRota(Random rand) {
         int rot_pick = rand.nextInt(4);
         switch (rot_pick) {

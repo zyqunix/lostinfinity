@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.basics;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -19,13 +18,10 @@ import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.mob.entity.boss.EntityElara;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/basics/ItemOldLostMap.class */
 public class ItemOldLostMap extends Item {
     private String loc_clue;
     private String originatorName;
     private String biomeType;
-
     public ItemOldLostMap(String regName, String clue, String orname) {
         this.loc_clue = "";
         this.originatorName = "";
@@ -38,7 +34,6 @@ public class ItemOldLostMap extends Item {
         this.biomeType = regName.replace("map_", "");
         ItemInit.ITEMS.add(this);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (biomeMatchMap(playerIn)) {
             Item spawnItem = getSpawnItem();
@@ -70,7 +65,6 @@ public class ItemOldLostMap extends Item {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     private boolean biomeMatchMap(EntityPlayer player) {
         BiomeDictionary.Type biotype;
         switch (this.biomeType) {
@@ -92,13 +86,11 @@ public class ItemOldLostMap extends Item {
         }
         return BiomeDictionary.getBiomes(biotype).contains(player.field_70170_p.func_180494_b(player.func_180425_c()));
     }
-
     private Item getSpawnItem() {
         switch (this.biomeType) {
         }
         return ItemInit.elarasNecklace;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "A map " + this.loc_clue);

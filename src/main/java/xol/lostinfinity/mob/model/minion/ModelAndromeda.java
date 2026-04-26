@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.model.minion;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.model.ModelBase;
@@ -10,8 +9,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import xol.lostinfinity.mob.entity.minion.andromeda.EntityAndromedaController;
 import xol.lostinfinity.mob.entity.minion.andromeda.EntityAndromedaSegment;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/minion/ModelAndromeda.class */
 public class ModelAndromeda extends ModelBase {
     private final ModelRenderer BodyPlate;
     private final ModelRenderer LeftPlate;
@@ -29,7 +26,6 @@ public class ModelAndromeda extends ModelBase {
     private final ModelRenderer Drill2;
     private final ModelRenderer Drill3;
     private final ModelRenderer Tail;
-
     public ModelAndromeda() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -160,7 +156,6 @@ public class ModelAndromeda extends ModelBase {
         this.Tail.field_78804_l.add(new ModelBox(this.Tail, 112, 46, 2.5f, 2.5f, 2.0f, 2, 2, 6, 0.0f, false));
         this.Tail.field_78804_l.add(new ModelBox(this.Tail, 38, 31, -7.0f, -7.0f, -6.0f, 14, 14, 2, 0.0f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         EntityAndromedaSegment segment = (EntityAndromedaSegment) entity;
         EntityAndromedaController controller = segment.getController();
@@ -180,7 +175,6 @@ public class ModelAndromeda extends ModelBase {
         }
         getModelRenderer(entity).func_78785_a(f5);
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         ModelRenderer renderer = getModelRenderer(entityIn);
         renderer.field_78795_f = headPitch * 0.017453292f;
@@ -195,13 +189,11 @@ public class ModelAndromeda extends ModelBase {
             this.Rotor.field_78808_h = (-ageInTicks) * 18.0f * 0.017453292f;
         }
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     protected ModelRenderer getModelRenderer(Entity entity) {
         if (entity instanceof EntityAndromedaSegment.Head) {
             return this.Head;

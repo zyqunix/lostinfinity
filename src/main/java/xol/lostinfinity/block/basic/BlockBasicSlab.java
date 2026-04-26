@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.basic;
-
 import java.util.Random;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
@@ -16,12 +15,9 @@ import net.minecraft.world.World;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/basic/BlockBasicSlab.class */
 public class BlockBasicSlab extends BlockSlab {
     public static final PropertyEnum<Variant> VARIANT = PropertyEnum.func_177709_a("variant", Variant.class);
     public BlockBasicSlab mySlab;
-
     public BlockBasicSlab(String name, Material Material) {
         super(Material);
         func_149663_c(name);
@@ -37,19 +33,15 @@ public class BlockBasicSlab extends BlockSlab {
         func_180632_j(iblockstate.func_177226_a(VARIANT, Variant.DEFAULT));
         BlockInit.BLOCKS.add(this);
     }
-
     public void setMySlab(BlockBasicSlab slab) {
         this.mySlab = slab;
     }
-
     public Item func_180660_a(IBlockState state, Random rand, int fortune) {
         return Item.func_150898_a(this.mySlab);
     }
-
     public ItemStack func_185473_a(World worldIn, BlockPos pos, IBlockState state) {
         return new ItemStack(this.mySlab);
     }
-
     public IBlockState func_176203_a(int meta) {
         IBlockState iblockstate = func_176223_P().func_177226_a(VARIANT, Variant.DEFAULT);
         if (!func_176552_j()) {
@@ -57,7 +49,6 @@ public class BlockBasicSlab extends BlockSlab {
         }
         return iblockstate;
     }
-
     public int func_176201_c(IBlockState state) {
         int i = 0;
         if (!func_176552_j() && state.func_177229_b(field_176554_a) == BlockSlab.EnumBlockHalf.TOP) {
@@ -65,56 +56,42 @@ public class BlockBasicSlab extends BlockSlab {
         }
         return i;
     }
-
     protected BlockStateContainer func_180661_e() {
         return func_176552_j() ? new BlockStateContainer(this, new IProperty[]{VARIANT}) : new BlockStateContainer(this, new IProperty[]{field_176554_a, VARIANT});
     }
-
     public String func_150002_b(int meta) {
         return super.func_149739_a();
     }
-
     public IProperty<?> func_176551_l() {
         return VARIANT;
     }
-
     public Comparable<?> func_185674_a(ItemStack stack) {
         return Variant.DEFAULT;
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/basic/BlockBasicSlab$Double.class */
     public static class Double extends BlockBasicSlab {
         public Double(String name, Material material) {
             super(name, material);
         }
-
         @Override // xol.lostinfinity.block.basic.BlockBasicSlab
         public boolean func_176552_j() {
             return true;
         }
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/basic/BlockBasicSlab$Half.class */
     public static class Half extends BlockBasicSlab {
         public Half(String name, Material material) {
             super(name, material);
         }
-
         @Override // xol.lostinfinity.block.basic.BlockBasicSlab
         public boolean func_176552_j() {
             return false;
         }
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/basic/BlockBasicSlab$Variant.class */
     public enum Variant implements IStringSerializable {
         DEFAULT;
-
         public String func_176610_l() {
             return "default";
         }
     }
-
     public boolean func_176552_j() {
         this.field_176227_L.func_177621_b();
         if (func_176552_j()) {

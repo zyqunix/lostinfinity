@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.model.minion;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -8,12 +7,9 @@ import net.minecraft.util.math.MathHelper;
 import xol.lostinfinity.block.tileentity.TileEntityFusionTable;
 import xol.lostinfinity.mob.entity.minion.EntityLostBlade;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/minion/ModelLostBlade.class */
 public class ModelLostBlade extends ModelBase {
     private final ModelRenderer lostBlade;
     private final ModelRenderer lostBladeParts;
-
     public ModelLostBlade() {
         this.field_78090_t = 256;
         this.field_78089_u = 256;
@@ -112,11 +108,9 @@ public class ModelLostBlade extends ModelBase {
         this.lostBladeParts.field_78804_l.add(new ModelBox(this.lostBladeParts, 0, 30, -32.0f, -0.5f, -31.0f, 3, 1, 3, 0.0f, false));
         this.lostBladeParts.field_78804_l.add(new ModelBox(this.lostBladeParts, 109, 84, -29.0f, -0.5f, -31.0f, 7, 1, 8, 0.0f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.lostBlade.func_78785_a(f5);
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         EntityLostBlade blade = (EntityLostBlade) entityIn;
         if (blade.isActive()) {
@@ -145,7 +139,7 @@ public class ModelLostBlade extends ModelBase {
             case 3:
                 angle = 15.0f;
                 break;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 angle = 30.0f;
                 break;
             case 5:
@@ -154,7 +148,6 @@ public class ModelLostBlade extends ModelBase {
         }
         this.lostBlade.field_78808_h = angle * 0.017453292f;
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;

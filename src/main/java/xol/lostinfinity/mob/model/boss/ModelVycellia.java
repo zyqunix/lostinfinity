@@ -1,13 +1,10 @@
 package xol.lostinfinity.mob.model.boss;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import xol.lostinfinity.mob.entity.boss.EntityVycellia;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/boss/ModelVycellia.class */
 public class ModelVycellia extends ModelBase {
     private final ModelRenderer Form1;
     private final ModelRenderer Body;
@@ -93,7 +90,6 @@ public class ModelVycellia extends ModelBase {
     private final ModelRenderer Body_r43;
     private final ModelRenderer SpidLeg6;
     private final ModelRenderer Body_r44;
-
     public ModelVycellia() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -554,7 +550,6 @@ public class ModelVycellia extends ModelBase {
         this.Body_r44.field_78804_l.add(new ModelBox(this.Body_r44, 62, 14, -5.0f, -1.5f, -1.5f, 9, 2, 3, 0.0f, true));
         this.Body_r44.field_78804_l.add(new ModelBox(this.Body_r44, 65, 20, -9.0f, -1.5f, -1.5f, 4, 3, 3, 0.0f, true));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         if (entity instanceof EntityVycellia) {
             EntityVycellia vycellia = (EntityVycellia) entity;
@@ -565,13 +560,11 @@ public class ModelVycellia extends ModelBase {
             }
         }
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         if (entityIn instanceof EntityVycellia) {
             EntityVycellia vycellia = (EntityVycellia) entityIn;

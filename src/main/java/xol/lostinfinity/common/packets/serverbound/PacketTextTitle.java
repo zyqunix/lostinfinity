@@ -1,5 +1,4 @@
 package xol.lostinfinity.common.packets.serverbound;
-
 import io.netty.buffer.ByteBuf;
 import java.nio.charset.Charset;
 import net.minecraft.network.play.server.SPacketTitle;
@@ -7,8 +6,6 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessage;
 import net.minecraftforge.fml.common.network.simpleimpl.IMessageHandler;
 import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/common/packets/serverbound/PacketTextTitle.class */
 public class PacketTextTitle implements IMessage {
     private boolean title;
     private boolean subtitle;
@@ -16,10 +13,8 @@ public class PacketTextTitle implements IMessage {
     private int fadeOut;
     private int timeUntilFade;
     private String message;
-
     public PacketTextTitle() {
     }
-
     public PacketTextTitle(boolean title, boolean subtitle, int timeUntilFade, int fadeIn, int fadeOut, String message) {
         this.title = title;
         this.subtitle = subtitle;
@@ -28,7 +23,6 @@ public class PacketTextTitle implements IMessage {
         this.timeUntilFade = timeUntilFade;
         this.message = message;
     }
-
     public void toBytes(ByteBuf buf) {
         buf.writeBoolean(this.title);
         buf.writeBoolean(this.subtitle);
@@ -38,7 +32,6 @@ public class PacketTextTitle implements IMessage {
         buf.writeInt(this.message.length());
         buf.writeCharSequence(this.message, Charset.defaultCharset());
     }
-
     public void fromBytes(ByteBuf buf) {
         this.title = buf.readBoolean();
         this.subtitle = buf.readBoolean();
@@ -48,8 +41,6 @@ public class PacketTextTitle implements IMessage {
         int msgLength = buf.readInt();
         this.message = String.valueOf(buf.readCharSequence(msgLength, Charset.defaultCharset()));
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/common/packets/serverbound/PacketTextTitle$TitlePacketHandler.class */
     public static class TitlePacketHandler implements IMessageHandler<PacketTextTitle, IMessage> {
         public IMessage onMessage(PacketTextTitle message, MessageContext ctx) {
             SPacketTitle.Type type;

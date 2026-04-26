@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.deviant.titan;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
@@ -18,14 +17,11 @@ import xol.lostinfinity.mob.entity.base.EntityDeviantTitan;
 import xol.lostinfinity.projectile.entity.EntityDeviantShulkerBullet;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/deviant/titan/EntityTitanShulker.class */
 public class EntityTitanShulker extends EntityDeviantTitan implements IMaxAttack {
     public EntityTitanShulker(World worldIn) {
         super(worldIn);
         func_70105_a(5.0f, 5.0f);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_184651_r() {
         this.field_70714_bg.func_75776_a(5, new EntityAIMoveTowardsRestriction(this, 1.0d));
@@ -35,14 +31,12 @@ public class EntityTitanShulker extends EntityDeviantTitan implements IMaxAttack
         this.field_70715_bh.func_75776_a(1, new EntityAIHurtByTarget(this, true, new Class[0]));
         this.field_70715_bh.func_75776_a(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, true));
     }
-
     protected void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(0.5d);
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.23000000417232513d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(2000.0d);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -51,7 +45,6 @@ public class EntityTitanShulker extends EntityDeviantTitan implements IMaxAttack
         }
         return false;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         if (this.field_70173_aa % 35 <= 20 && this.field_70173_aa % 4 == 0) {
@@ -68,19 +61,15 @@ public class EntityTitanShulker extends EntityDeviantTitan implements IMaxAttack
             }
         }
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundEvents.field_187781_eS;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundEvents.field_187783_eT;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundEvents.field_187773_eO;
     }
-
     protected ResourceLocation func_184647_J() {
         if (onFinalLife()) {
             return LootTableRegistry.ENTITIES_TITAN_SHULKER;

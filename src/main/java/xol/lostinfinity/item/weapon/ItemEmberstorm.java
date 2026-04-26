@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -22,14 +21,11 @@ import xol.lostinfinity.projectile.entity.EntityEmberShot;
 import xol.lostinfinity.util.data.CustomRayTraceResult;
 import xol.lostinfinity.util.data.RayTraceBuilder;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemEmberstorm.class */
 public class ItemEmberstorm extends ItemChanneling {
     public ItemEmberstorm(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemChanneling
     public void chargeTick(World worldIn, EntityPlayer player, EnumHand hand, ItemStack stack, int chargeTime) {
         if (worldIn.field_72995_K || chargeTime % 2 != 0 || chargeTime > 100) {
@@ -46,7 +42,6 @@ public class ItemEmberstorm extends ItemChanneling {
         bullet.func_70107_b(((double) pos.func_177958_n()) + 0.5d, ((double) pos.func_177956_o()) + 0.5d, ((double) pos.func_177952_p()) + 0.5d);
         worldIn.func_72838_d(bullet);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemChanneling
     public void chargeStop(ItemStack stack, World worldIn, EntityLivingBase entityLiving, int chargeTime) {
         CustomRayTraceResult result;
@@ -61,7 +56,6 @@ public class ItemEmberstorm extends ItemChanneling {
             }
         }
     }
-
     private void setTargetLocation(ItemStack stack, Vec3d target) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
@@ -70,7 +64,6 @@ public class ItemEmberstorm extends ItemChanneling {
         stack.func_77978_p().func_74776_a("targetY", (float) target.field_72448_b);
         stack.func_77978_p().func_74776_a("targetZ", (float) target.field_72449_c);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Aqua + "Can be channelled to summon fireballs around you.");

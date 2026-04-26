@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.model.sea;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -11,8 +10,6 @@ import xol.lostinfinity.mob.entity.sea.leviathan.EntityLeviathanHead;
 import xol.lostinfinity.mob.entity.sea.leviathan.EntityLeviathanSegment;
 import xol.lostinfinity.mob.entity.sea.leviathan.EntityLeviathanTail;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/sea/ModelLeviathan.class */
 public class ModelLeviathan extends ModelBase {
     private final ModelRenderer Head;
     private final ModelRenderer JawTop;
@@ -34,7 +31,6 @@ public class ModelLeviathan extends ModelBase {
     private final ModelRenderer FinBottom;
     private final ModelRenderer cube_r3;
     private final ModelRenderer cube_r4;
-
     public ModelLeviathan() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -171,11 +167,9 @@ public class ModelLeviathan extends ModelBase {
         setRotationAngle(this.cube_r4, -0.6109f, 0.0f, 0.0f);
         this.cube_r4.field_78804_l.add(new ModelBox(this.cube_r4, 94, 25, -1.0f, 12.0f, 6.0f, 1, 14, 16, 0.0f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         getModelRenderer(entity).func_78785_a(f5);
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         ModelRenderer modelRenderer = getModelRenderer(entityIn);
         modelRenderer.field_78795_f = headPitch * 0.017453292f;
@@ -201,19 +195,15 @@ public class ModelLeviathan extends ModelBase {
                     this.JawTop.field_78795_f = 0.0f;
                     this.JawBottom.field_78795_f = 0.0f;
                     break;
-                case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+                case TileEntityFusionTable.BOARD_ROWS :
                     this.JawTop.field_78795_f = -0.17453292f;
                     this.JawBottom.field_78795_f = 0.43633232f;
                     break;
             }
         }
     }
-
-    /* JADX INFO: renamed from: xol.lostinfinity.mob.model.sea.ModelLeviathan$1, reason: invalid class name */
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/sea/ModelLeviathan$1.class */
-    static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] $SwitchMap$xol$lostinfinity$mob$entity$sea$leviathan$EntityLeviathanController$Phase = new int[EntityLeviathanController.Phase.values().length];
-
+    static  class AnonymousClass1 {
+        static final  int[] $SwitchMap$xol$lostinfinity$mob$entity$sea$leviathan$EntityLeviathanController$Phase = new int[EntityLeviathanController.Phase.values().length];
         static {
             try {
                 $SwitchMap$xol$lostinfinity$mob$entity$sea$leviathan$EntityLeviathanController$Phase[EntityLeviathanController.Phase.BEAM.ordinal()] = 1;
@@ -233,13 +223,11 @@ public class ModelLeviathan extends ModelBase {
             }
         }
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     protected ModelRenderer getModelRenderer(Entity entity) {
         if (entity instanceof EntityLeviathanHead) {
             return this.Head;

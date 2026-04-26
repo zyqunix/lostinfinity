@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import com.google.common.base.Optional;
 import java.util.Arrays;
 import java.util.UUID;
@@ -19,42 +18,33 @@ import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityEmberShot.class */
 public class EntityEmberShot extends EntityBaseThrowable {
     private static final DataParameter<ItemStack> ITEM_STACK = EntityDataManager.func_187226_a(EntityEmberShot.class, DataSerializers.field_187196_f);
     private static final DataParameter<Optional<UUID>> OWNER = EntityDataManager.func_187226_a(EntityEmberShot.class, DataSerializers.field_187203_m);
     private static final DataParameter<Boolean> RELEASED = EntityDataManager.func_187226_a(EntityEmberShot.class, DataSerializers.field_187198_h);
     private int releaseTick;
-
     public EntityEmberShot(World worldIn) {
         super(worldIn);
         this.releaseTick = -1;
         func_70105_a(0.25f, 0.25f);
     }
-
     protected void func_70088_a() {
         this.field_70180_af.func_187214_a(ITEM_STACK, ItemStack.field_190927_a);
         this.field_70180_af.func_187214_a(OWNER, Optional.absent());
         this.field_70180_af.func_187214_a(RELEASED, false);
     }
-
     public void setItemStack(ItemStack stack) {
         this.field_70180_af.func_187227_b(ITEM_STACK, stack);
     }
-
     public ItemStack getItemStack() {
         return (ItemStack) this.field_70180_af.func_187225_a(ITEM_STACK);
     }
-
     public void setReleased() {
         this.field_70180_af.func_187227_b(RELEASED, true);
     }
-
     public boolean isReleased() {
         return ((Boolean) this.field_70180_af.func_187225_a(RELEASED)).booleanValue();
     }
-
     @Nullable
     public EntityLivingBase func_85052_h() {
         if (this.field_70192_c != null) {
@@ -66,13 +56,11 @@ public class EntityEmberShot extends EntityBaseThrowable {
         }
         return this.field_70192_c;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void setThrower(EntityLivingBase throwset) {
         super.setThrower(throwset);
         this.field_70180_af.func_187227_b(OWNER, Optional.of(throwset.func_110124_au()));
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (isReleased() && !this.field_70170_p.field_72995_K && result.field_72313_a == RayTraceResult.Type.ENTITY && (result.field_72308_g instanceof EntityLivingBase) && result.field_72308_g != this.field_70192_c) {
@@ -92,7 +80,6 @@ public class EntityEmberShot extends EntityBaseThrowable {
             func_70106_y();
         }
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void func_70071_h_() {
         super.func_70071_h_();
@@ -120,11 +107,9 @@ public class EntityEmberShot extends EntityBaseThrowable {
             this.field_70170_p.func_175682_a(ParticleInit.FLAME_MEDIUM, true, this.field_70165_t, this.field_70163_u, this.field_70161_v, 0.0d, 0.0d, 0.0d, new int[0]);
         }
     }
-
     protected float func_70185_h() {
         return 0.0f;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected boolean willDespawn() {
         return false;

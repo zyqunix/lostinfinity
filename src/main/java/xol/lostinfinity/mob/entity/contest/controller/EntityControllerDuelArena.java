@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.contest.controller;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -19,14 +18,11 @@ import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.projectile.entity.EntityFountainPellet;
 import xol.lostinfinity.util.coordinates.ContestCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/contest/controller/EntityControllerDuelArena.class */
 public class EntityControllerDuelArena extends EntityControllerBase {
     private ArrayList<BlockPos> heatTraps;
     private ArrayList<BlockPos> fountainTraps;
     private HashMap<UUID, Integer> playerHits;
     private static final int maxHits = 30;
-
     public void initDuel() {
         this.playerHits = new HashMap<>();
         this.heatTraps = new ArrayList<>();
@@ -47,7 +43,6 @@ public class EntityControllerDuelArena extends EntityControllerBase {
             }
         }
     }
-
     public void hitPlayer(EntityPlayer player, int numHits) {
         UUID pl_id = player.func_110124_au();
         int hits = 0;
@@ -63,7 +58,6 @@ public class EntityControllerDuelArena extends EntityControllerBase {
         }
         messageContenders(TextFmt.Red, String.format("%s is at %d hits", player.func_70005_c_(), Integer.valueOf(hits)));
     }
-
     public EntityControllerDuelArena(World worldIn) {
         super(worldIn);
         this.heatTraps = null;
@@ -71,12 +65,10 @@ public class EntityControllerDuelArena extends EntityControllerBase {
         this.playerHits = null;
         func_70105_a(5.0f, 12.0f);
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     public AxisAlignedBB getArenaAABB() {
         return ContestCoordinates.duelArenaAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase, xol.lostinfinity.mob.entity.base.EntityImmaterial
     public void func_70636_d() {
         super.func_70636_d();
@@ -149,12 +141,10 @@ public class EntityControllerDuelArena extends EntityControllerBase {
             }
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected BlockPos getSnapPos() {
         return ContestCoordinates.duelControllerPos();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected void rewardPlayer(EntityPlayer player, int placement) {
         this.playerHits = null;

@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import java.util.UUID;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -10,14 +9,11 @@ import xol.lostinfinity.init.ParticleInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.data.CustomDamageResult;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityForbiddenBrand.class */
 public class EntityForbiddenBrand extends Entity implements IMaxAttack {
     private EntityPlayer creator;
     private EntityLivingBase target;
     private float rotation;
     private UUID targetID;
-
     public EntityForbiddenBrand(World worldIn) {
         super(worldIn);
         this.creator = null;
@@ -25,7 +21,6 @@ public class EntityForbiddenBrand extends Entity implements IMaxAttack {
         this.rotation = 0.0f;
         this.targetID = null;
     }
-
     public void func_70071_h_() {
         super.func_70071_h_();
         if (!this.field_70170_p.field_72995_K) {
@@ -68,21 +63,16 @@ public class EntityForbiddenBrand extends Entity implements IMaxAttack {
             }
         }
     }
-
     public void setTarget(EntityLivingBase target) {
         this.target = target;
     }
-
     public void setCreator(EntityPlayer creator) {
         this.creator = creator;
     }
-
     protected void func_70037_a(NBTTagCompound compound) {
     }
-
     protected void func_70014_b(NBTTagCompound compound) {
     }
-
     protected void func_70088_a() {
     }
 }

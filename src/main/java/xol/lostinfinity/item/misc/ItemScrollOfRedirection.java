@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.misc;
-
 import java.util.Random;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -15,24 +14,19 @@ import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.basics.ItemBasic;
 import xol.lostinfinity.item.classify.IDimensionSwitch;
 import xol.lostinfinity.mob.entity.murk.EntityScreamer;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/misc/ItemScrollOfRedirection.class */
 public class ItemScrollOfRedirection extends ItemBasic implements IDimensionSwitch {
     public ItemScrollOfRedirection(String regName) {
         super(regName, TabsInit.TAB_AUXMATS);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (!worldIn.field_72995_K && worldIn.field_73011_w.func_186058_p() == DimensionType.OVERWORLD) {
             DimensionActivator.transferEntityWithCoords(playerIn, DimensionInit.shadowSea, randomCoordinate(playerIn.field_70170_p.field_73012_v), 160.0d, randomCoordinate(playerIn.field_70170_p.field_73012_v));
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     private static double randomCoordinate(Random rand) {
         return ((-0.5d) + rand.nextDouble()) * 10000.0d;
     }
-
     @Override // xol.lostinfinity.item.classify.IDimensionSwitch
     public void onDimensionSwitch(EntityPlayer player, ItemStack stack) {
         if (!player.field_70170_p.field_72995_K) {

@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import com.google.common.base.Optional;
 import java.util.UUID;
 import net.minecraft.entity.Entity;
@@ -13,44 +12,36 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityMarkOfInfiniteDespair.class */
 public class EntityMarkOfInfiniteDespair extends Entity {
     protected static final DataParameter<Optional<UUID>> OWNER_ID = EntityDataManager.func_187226_a(EntityMarkOfInfiniteDespair.class, DataSerializers.field_187203_m);
     protected static final DataParameter<Optional<UUID>> TARGET_PLAYER_ID = EntityDataManager.func_187226_a(EntityMarkOfInfiniteDespair.class, DataSerializers.field_187203_m);
     private static final int pitRadius = 2;
     private int timer;
     private double speed;
-
     public EntityMarkOfInfiniteDespair(World worldIn) {
         super(worldIn);
         this.timer = 180;
         this.speed = -1.0d;
         func_184224_h(true);
     }
-
     public EntityPlayer getOwner() {
         if (((Optional) this.field_70180_af.func_187225_a(OWNER_ID)).orNull() != null) {
             return this.field_70170_p.func_152378_a((UUID) ((Optional) this.field_70180_af.func_187225_a(OWNER_ID)).get());
         }
         return null;
     }
-
     public void setOwner(EntityPlayer player) {
         this.field_70180_af.func_187227_b(OWNER_ID, Optional.fromNullable(player.func_110124_au()));
     }
-
     public EntityPlayer getPlayerTarget() {
         if (((Optional) this.field_70180_af.func_187225_a(TARGET_PLAYER_ID)).orNull() != null) {
             return this.field_70170_p.func_152378_a((UUID) ((Optional) this.field_70180_af.func_187225_a(TARGET_PLAYER_ID)).get());
         }
         return null;
     }
-
     public void setPlayerTarget(EntityPlayer player) {
         this.field_70180_af.func_187227_b(TARGET_PLAYER_ID, Optional.fromNullable(player.func_110124_au()));
     }
-
     public void func_70071_h_() {
         super.func_70071_h_();
         this.field_70143_R = -1.0f;
@@ -89,15 +80,12 @@ public class EntityMarkOfInfiniteDespair extends Entity {
             }
         }
     }
-
     protected void func_70088_a() {
         this.field_70180_af.func_187214_a(OWNER_ID, Optional.absent());
         this.field_70180_af.func_187214_a(TARGET_PLAYER_ID, Optional.absent());
     }
-
     protected void func_70037_a(NBTTagCompound compound) {
     }
-
     protected void func_70014_b(NBTTagCompound compound) {
     }
 }

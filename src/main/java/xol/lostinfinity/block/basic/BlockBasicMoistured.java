@@ -1,18 +1,14 @@
 package xol.lostinfinity.block.basic;
-
 import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.fluids.BlockFluidBase;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/basic/BlockBasicMoistured.class */
 public class BlockBasicMoistured extends BlockBasic {
     private Block replacementBlock;
     private boolean requiresMoisture;
     private BlockFluidBase mositureLiquid;
-
     public BlockBasicMoistured(String name, boolean moisture) {
         super(name);
         this.replacementBlock = null;
@@ -21,12 +17,10 @@ public class BlockBasicMoistured extends BlockBasic {
         func_149675_a(true);
         this.requiresMoisture = moisture;
     }
-
     public void setReplacementAndLiquid(Block replace, BlockFluidBase liquid) {
         this.replacementBlock = replace;
         this.mositureLiquid = liquid;
     }
-
     public void func_180650_b(World worldIn, BlockPos pos, IBlockState state, Random rand) {
         boolean hasMoisture = false;
         if (worldIn.func_180495_p(pos.func_177977_b()).func_177230_c() == this.mositureLiquid) {

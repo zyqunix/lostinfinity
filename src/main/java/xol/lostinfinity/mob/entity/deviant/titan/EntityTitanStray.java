@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.deviant.titan;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -12,21 +11,17 @@ import xol.lostinfinity.mob.entity.base.EntityDeviantTitan;
 import xol.lostinfinity.projectile.entity.EntitySkullShot;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/deviant/titan/EntityTitanStray.class */
 public class EntityTitanStray extends EntityDeviantTitan {
     public EntityTitanStray(World worldIn) {
         super(worldIn);
         func_70105_a(3.0f, 8.0f);
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(1.0d);
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.32d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(2500.0d);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -35,19 +30,15 @@ public class EntityTitanStray extends EntityDeviantTitan {
         }
         return false;
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundEvents.field_190033_gv;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundEvents.field_190034_gw;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundEvents.field_190032_gu;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         EntityLivingBase target = func_70638_az();
@@ -63,7 +54,6 @@ public class EntityTitanStray extends EntityDeviantTitan {
             func_184185_a(SoundEvents.field_193784_dd, 1.0f, 1.0f);
         }
     }
-
     protected ResourceLocation func_184647_J() {
         if (onFinalLife()) {
             return LootTableRegistry.ENTITIES_TITAN_STRAY;

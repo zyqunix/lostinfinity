@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -39,8 +38,6 @@ import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemDuskOfEternity.class */
 public class ItemDuskOfEternity extends ItemSword implements IMaxAttack, IHitReactive, IPotionReactive, ISwitchModels, IModeSelect {
     private static final String MODE_DATA = "mode_data";
     private static final int HEX_MODE = 0;
@@ -51,7 +48,6 @@ public class ItemDuskOfEternity extends ItemSword implements IMaxAttack, IHitRea
     private static final float SEN_SWEEP_RANGE = 10.0f;
     private static final float SEN_SWEEP_VELOCITY = 5.0f;
     private static final float SEN_SWEEP_DAMAGE = 0.33f;
-
     public ItemDuskOfEternity(String regName) {
         super(Item.ToolMaterial.DIAMOND);
         func_77637_a(TabsInit.TAB_AUXWEP);
@@ -60,13 +56,12 @@ public class ItemDuskOfEternity extends ItemSword implements IMaxAttack, IHitRea
         ItemInit.ITEMS.add(this);
         setModelSwitch("mode", this, 2);
     }
-
     public boolean func_77644_a(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         if (!isPaired(attacker, EnumHand.OFF_HAND)) {
             return true;
         }
         switch (getMode(stack)) {
-            case HEX_MODE /* 0 */:
+            case HEX_MODE :
                 IMaxAttack.dealTrueDamage(attacker, target, target.func_110138_aP() * HEX_HIT_DAMAGE);
                 for (PotionEffect effect : attacker.func_70651_bq()) {
                     Potion potion = effect.func_188419_a();
@@ -75,7 +70,7 @@ public class ItemDuskOfEternity extends ItemSword implements IMaxAttack, IHitRea
                     }
                 }
                 break;
-            case SEN_MODE /* 1 */:
+            case SEN_MODE :
                 IMaxAttack.dealTrueDamage(attacker, target, target.func_110138_aP() * SEN_HIT_DAMAGE);
                 float yaw = attacker.field_70177_z;
                 Vec3d attackerPos = attacker.func_174791_d();
@@ -105,7 +100,6 @@ public class ItemDuskOfEternity extends ItemSword implements IMaxAttack, IHitRea
         attacker.func_184611_a(EnumHand.OFF_HAND, stack);
         return true;
     }
-
     @Override // xol.lostinfinity.item.classify.IHitReactive
     public void hitReaction(EntityPlayer player, Entity attacker, float damage, ItemStack stack) {
         if (!player.field_70170_p.field_72995_K && player.func_184586_b(EnumHand.OFF_HAND) == stack && getMode(stack) == SEN_MODE && isPaired(player, EnumHand.MAIN_HAND)) {
@@ -120,7 +114,6 @@ public class ItemDuskOfEternity extends ItemSword implements IMaxAttack, IHitRea
             }
         }
     }
-
     @Override // xol.lostinfinity.item.classify.IPotionReactive
     public void potionAddReaction(EntityPlayer player, ItemStack stack, EnumHand hand, PotionEffect newEffect, PotionEffect prevEffect) {
         if (hand == EnumHand.OFF_HAND && getMode(stack) == 0 && isPaired(player, EnumHand.MAIN_HAND)) {
@@ -140,12 +133,10 @@ public class ItemDuskOfEternity extends ItemSword implements IMaxAttack, IHitRea
             }
         }
     }
-
     @Override // xol.lostinfinity.item.classify.IModeSelect
     public void modeUpdate(ItemStack stack, EntityPlayer player) {
         toggleMode(stack);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add("Twin sword of the " + TextFmt.Light_Purple + "Dawn of Eternity" + TextFmt.Reset + ".");
@@ -158,13 +149,13 @@ public class ItemDuskOfEternity extends ItemSword implements IMaxAttack, IHitRea
             }
         }
         switch (getMode(stack)) {
-            case HEX_MODE /* 0 */:
+            case HEX_MODE :
                 tooltip.add(TextFmt.Light_Purple + "Current mode: Hexcorum");
                 tooltip.add(TextFmt.Red + "Main hand: Copy all negative effects to your target.");
                 tooltip.add(TextFmt.Red + "50% Health True Damage");
                 tooltip.add(TextFmt.Blue + "Off hand: When receiving a negative effect, cleanse a random negative effect you have.");
                 break;
-            case SEN_MODE /* 1 */:
+            case SEN_MODE :
                 tooltip.add(TextFmt.Gold + "Current mode: Sentinum");
                 tooltip.add(TextFmt.Red + "Main hand: Send a shockwave behind your target and blast anything away.");
                 tooltip.add(TextFmt.Red + "75% Health True Damage To Target, 33% Health True Damage Shockwave");
@@ -172,7 +163,6 @@ public class ItemDuskOfEternity extends ItemSword implements IMaxAttack, IHitRea
                 break;
         }
     }
-
     private void toggleMode(ItemStack stack) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
@@ -180,22 +170,18 @@ public class ItemDuskOfEternity extends ItemSword implements IMaxAttack, IHitRea
         NBTTagCompound compound = stack.func_77978_p();
         compound.func_74768_a(MODE_DATA, (compound.func_74762_e(MODE_DATA) + SEN_MODE) % 2);
     }
-
     private int getMode(ItemStack stack) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
         }
         return stack.func_77978_p().func_74762_e(MODE_DATA);
     }
-
     private boolean isBadPotion(Potion potion) {
         return potion.func_76398_f() || ((potion instanceof PotionBasic) && ((PotionBasic) potion).negativeLostEffect());
     }
-
     private boolean isProjectile(Entity entity) {
         return (entity instanceof EntityThrowable) || (entity instanceof EntityArrow) || (entity instanceof EntityFireball) || (entity instanceof EntityShulkerBullet);
     }
-
     private boolean isPaired(EntityLivingBase player, EnumHand other) {
         return player.func_184586_b(other).func_77973_b() instanceof ItemDawnOfEternity;
     }

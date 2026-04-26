@@ -1,5 +1,4 @@
 package xol.lostinfinity.init;
-
 import java.util.ArrayList;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.SoundEvent;
@@ -8,8 +7,6 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.registries.IForgeRegistry;
 import xol.lostinfinity.util.Reference;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/init/SoundInit.class */
 @Mod.EventBusSubscriber(modid = Reference.MODID)
 public class SoundInit {
     private static ArrayList<SoundEvent> SOUNDS = new ArrayList<>();
@@ -543,14 +540,12 @@ public class SoundInit {
     public static final SoundEvent RIFF_3 = registerCustomSound("riff_3");
     public static final SoundEvent RIFF_4 = registerCustomSound("riff_4");
     public static final SoundEvent RIFF_5 = registerCustomSound("riff_5");
-
     private static SoundEvent registerCustomSound(String sound) {
         ResourceLocation soundLocation = new ResourceLocation(Reference.MODID, sound);
         SoundEvent event = new SoundEvent(soundLocation).setRegistryName(soundLocation);
         SOUNDS.add(event);
         return event;
     }
-
     @SubscribeEvent
     public static void registerSounds(RegistryEvent.Register<SoundEvent> evt) {
         IForgeRegistry<SoundEvent> registry = evt.getRegistry();

@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.tileentity.render;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -14,12 +13,8 @@ import xol.lostinfinity.block.activator.BlockPortalNode;
 import xol.lostinfinity.block.tileentity.TileEntityPortalNexus;
 import xol.lostinfinity.block.tileentity.TileEntityPortalNode;
 import xol.lostinfinity.init.BlockInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/tileentity/render/RenderPortalNodeEffect.class */
 public class RenderPortalNodeEffect extends TileEntitySpecialRenderer<TileEntityPortalNode> {
     public static final ResourceLocation TEXTURE_PORTAL_BEAM = new ResourceLocation("lostinfinity:textures/particles/portal_beam.png");
-
-    /* JADX INFO: renamed from: render, reason: merged with bridge method [inline-methods] */
     public void func_192841_a(TileEntityPortalNode te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
         BlockPos nexusPos;
         TileEntityPortalNexus nexus;

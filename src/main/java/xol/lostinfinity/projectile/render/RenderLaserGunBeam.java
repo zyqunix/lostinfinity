@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.render;
-
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -11,16 +10,12 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import xol.lostinfinity.projectile.entity.EntityLaserGunBeam;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/render/RenderLaserGunBeam.class */
 public class RenderLaserGunBeam<T extends Entity> extends Render<T> {
     public static final ResourceLocation TEXTURE_LASER_BEAM = new ResourceLocation("lostinfinity:textures/particles/laser_beam.png");
     public static final ResourceLocation TEXTURE_LASER_END = new ResourceLocation("lostinfinity:textures/particles/laser_beam_blue_bright.png");
-
     public RenderLaserGunBeam(RenderManager renderManager) {
         super(renderManager);
     }
-
     public void func_76986_a(T entity, double x, double y, double z, float entityYaw, float partialTicks) {
         EntityLaserGunBeam attackEntity = (EntityLaserGunBeam) entity;
         Vec3d stopPos = attackEntity.getTargetPos();
@@ -72,11 +67,9 @@ public class RenderLaserGunBeam<T extends Entity> extends Render<T> {
             GlStateManager.func_179084_k();
         }
     }
-
     protected ResourceLocation func_110775_a(T entity) {
         return null;
     }
-
     public boolean func_177071_a(T livingEntity, ICamera camera, double camX, double camY, double camZ) {
         return true;
     }

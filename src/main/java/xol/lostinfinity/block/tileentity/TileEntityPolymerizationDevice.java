@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.tileentity;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -16,12 +15,9 @@ import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/tileentity/TileEntityPolymerizationDevice.class */
 public class TileEntityPolymerizationDevice extends TileEntity {
     private boolean active = false;
     private int nextMonomer = 0;
-
     public AxisAlignedBB getTank() {
         int minY = this.field_174879_c.func_177956_o() + 3;
         int minX = this.field_174879_c.func_177958_n() - 2;
@@ -31,11 +27,9 @@ public class TileEntityPolymerizationDevice extends TileEntity {
         int maxZ = minZ + 4;
         return new AxisAlignedBB(minX, minY, minZ, maxX, maxY, maxZ);
     }
-
     public boolean isActivated() {
         return this.active;
     }
-
     public void activate(EntityPlayer playerIn, EnumHand hand) {
         Item nextMonomer;
         IBlockState state;
@@ -68,7 +62,7 @@ public class TileEntityPolymerizationDevice extends TileEntity {
                 case 3:
                     nextMonomer = ItemInit.yellowMonomerSample;
                     break;
-                case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+                case TileEntityFusionTable.BOARD_ROWS :
                     nextMonomer = ItemInit.greenMonomerSample;
                     break;
                 default:
@@ -148,7 +142,6 @@ public class TileEntityPolymerizationDevice extends TileEntity {
             }
         }
     }
-
     private void messageMonomer(EntityPlayer player) {
         String monomer;
         TextFmt fmt;
@@ -170,7 +163,7 @@ public class TileEntityPolymerizationDevice extends TileEntity {
                 monomer = "Yellow";
                 fmt = TextFmt.Yellow;
                 break;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 monomer = "Green";
                 fmt = TextFmt.Green;
                 break;
@@ -181,7 +174,6 @@ public class TileEntityPolymerizationDevice extends TileEntity {
         }
         player.func_145747_a(new TextComponentString(String.format(fmt + "%s monomer is needed next", monomer)));
     }
-
     private void clearTank() {
         AxisAlignedBB tank = getTank();
         int xMin = (int) tank.field_72340_a;

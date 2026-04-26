@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -20,11 +19,8 @@ import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.weapon.ItemHeadCollector;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockItemChallenge.class */
 public class BlockItemChallenge extends Block {
     private int item_num;
-
     public BlockItemChallenge(String name, int itemNum) {
         super(Material.field_151573_f);
         this.item_num = 0;
@@ -41,7 +37,6 @@ public class BlockItemChallenge extends Block {
         BlockInit.BLOCKS.add(this);
         ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(getRegistryName()));
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (this.item_num != 0) {
             ItemStack held = playerIn.func_184614_ca();
@@ -68,7 +63,6 @@ public class BlockItemChallenge extends Block {
         }
         return true;
     }
-
     private Item getItemNeeded() {
         switch (this.item_num) {
             case 1:
@@ -77,11 +71,11 @@ public class BlockItemChallenge extends Block {
                 return ItemInit.firefeather;
             case 3:
                 return ItemInit.hypnoticEye;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 return ItemInit.nightmarePowder;
             case 5:
                 return ItemInit.stickyHide;
-            case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+            case TileEntityFusionTable.BOARD_COLUMNS :
                 return ItemInit.mysteriousGloop;
             case 7:
                 return ItemInit.glowBulb;
@@ -89,7 +83,7 @@ public class BlockItemChallenge extends Block {
                 return ItemInit.metalBranch;
             case 9:
                 return ItemInit.shadowHide;
-            case ItemHeadCollector.CHARGE_LIMIT /* 10 */:
+            case ItemHeadCollector.CHARGE_LIMIT :
                 return ItemInit.heavyCrystal;
             case 11:
                 return ItemInit.duskerEggs;
@@ -115,7 +109,6 @@ public class BlockItemChallenge extends Block {
                 return ItemInit.masterCraftedAlloy;
         }
     }
-
     public static Block randomItemBlock(Random rand) {
         return BlockInit.ITEM_CHALLENGE_BLOCKS.get(rand.nextInt(BlockInit.ITEM_CHALLENGE_BLOCKS.size()));
     }

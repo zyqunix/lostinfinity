@@ -1,12 +1,9 @@
 package xol.lostinfinity.mob.model.starforge;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/starforge/ModelEssenceDweller.class */
 public class ModelEssenceDweller extends ModelBase {
     private final ModelRenderer Body;
     private final ModelRenderer Body_r1;
@@ -15,7 +12,6 @@ public class ModelEssenceDweller extends ModelBase {
     private final ModelRenderer RightLeg;
     private final ModelRenderer LeftLeg;
     private final ModelRenderer LeftArm;
-
     public ModelEssenceDweller() {
         this.field_78090_t = 64;
         this.field_78089_u = 64;
@@ -49,7 +45,6 @@ public class ModelEssenceDweller extends ModelBase {
         this.LeftArm.field_78804_l.add(new ModelBox(this.LeftArm, 40, 24, -1.0f, 5.0f, -2.0f, 4, 4, 4, -0.25f, true));
         this.LeftArm.field_78804_l.add(new ModelBox(this.LeftArm, 40, 14, -1.0f, 8.0f, -2.0f, 4, 5, 4, -0.5f, true));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.Body.func_78785_a(f5);
         this.head.func_78785_a(f5);
@@ -58,13 +53,11 @@ public class ModelEssenceDweller extends ModelBase {
         this.LeftLeg.func_78785_a(f5);
         this.LeftArm.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.head.field_78796_g = netHeadYaw * 0.017453292f;
         this.head.field_78795_f = headPitch * 0.017453292f;

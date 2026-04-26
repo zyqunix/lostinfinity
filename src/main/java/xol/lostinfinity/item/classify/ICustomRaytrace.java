@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.classify;
-
 import java.util.function.Predicate;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -12,49 +11,37 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import xol.lostinfinity.mob.entity.base.EntityImmaterial;
 import xol.lostinfinity.util.data.CustomRayTraceResult;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/classify/ICustomRaytrace.class */
 public interface ICustomRaytrace {
     public static final Predicate<Entity> ANTI_IMMATERIAL = entity -> {
         return !(entity instanceof EntityImmaterial);
     };
-
     default CustomRayTraceResult simpleBlockTrace(World world, EntityLivingBase entityFrom, int distance) {
         return doRayTrace(world, entityFrom, distance, null, 0, 1, false, null, 1, 1, 0.3f, null);
     }
-
     default CustomRayTraceResult forwardTrace(World world, Entity entityFrom, int distance) {
         return doRayTrace(world, entityFrom, distance, null, 0, 0, true, null, 1, 1, 0.3f, null);
     }
-
     default CustomRayTraceResult immaterialTrace(World world, EntityLivingBase entityFrom, int distance) {
         return doRayTrace(world, entityFrom, distance, null, 0, 2, false, null, 1, 1, 0.3f, null);
     }
-
     default CustomRayTraceResult entityTrace(World world, EntityLivingBase entityFrom, int distance, Class<? extends Entity> entityclass) {
         return doRayTrace(world, entityFrom, distance, null, 0, 1, false, entityclass, 1, 1, 0.3f, ANTI_IMMATERIAL);
     }
-
     default CustomRayTraceResult entitiesTrace(World world, EntityLivingBase entityFrom, int distance, Class<? extends Entity> entityclass, int count) {
         return doRayTrace(world, entityFrom, distance, null, 0, 1, false, entityclass, count, 1, 0.3f, ANTI_IMMATERIAL);
     }
-
     default CustomRayTraceResult standardFXTrace(World world, EntityLivingBase entityFrom, int distance, EnumParticleTypes trailFX, Class<? extends Entity> stopEntityType) {
         return doRayTrace(world, entityFrom, distance, trailFX, 3, 1, false, stopEntityType, 1, 1, 0.3f, ANTI_IMMATERIAL);
     }
-
     default CustomRayTraceResult forcedDistanceTrace(World world, Entity entityFrom, int distance) {
         return doRayTrace(world, entityFrom, distance, null, 0, 1, true, null, 1, 1, 0.3f, null);
     }
-
     default CustomRayTraceResult complexTrace(World world, EntityLivingBase entityFrom, int distance, EnumParticleTypes trailFX, int trailDelay, int blockType, boolean forceResult, Class<? extends Entity> stopEntityType, int lookYOffset, float expand) {
         return doRayTrace(world, entityFrom, distance, trailFX, trailDelay, blockType, forceResult, stopEntityType, 1, lookYOffset, expand, ANTI_IMMATERIAL);
     }
-
     default CustomRayTraceResult predicateTrace(World world, EntityLivingBase entityFrom, int distance, EnumParticleTypes trailFX, int trailDelay, int blockType, boolean forceResult, Class<? extends Entity> stopEntityType, int lookYOffset, float expand, Predicate<Entity> entityPredicate) {
         return doRayTrace(world, entityFrom, distance, trailFX, trailDelay, blockType, forceResult, stopEntityType, 1, lookYOffset, expand, entityPredicate);
     }
-
     default CustomRayTraceResult doRayTrace(World world, Entity entityFrom, int distance, EnumParticleTypes trailFX, int trailDelay, int stopBlock, boolean forceResult, Class<? extends Entity> stopEntityType, int maxEntity, int lookYOffset, float inaccuracy, Predicate<Entity> entityPredicate) {
         Vec3d modifiedLookPosition;
         Vec3d vec = entityFrom.func_70040_Z();

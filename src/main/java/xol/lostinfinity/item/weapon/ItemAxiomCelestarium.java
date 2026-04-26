@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -20,8 +19,6 @@ import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.classify.IHeldTick;
 import xol.lostinfinity.projectile.entity.EntityCelestialFire;
 import xol.lostinfinity.util.player.HoldItemUtil;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemAxiomCelestarium.class */
 public class ItemAxiomCelestarium extends Item implements IHeldTick {
     public ItemAxiomCelestarium(String regName) {
         func_77637_a(TabsInit.TAB_INFINITYWEP);
@@ -29,7 +26,6 @@ public class ItemAxiomCelestarium extends Item implements IHeldTick {
         func_77655_b(regName);
         ItemInit.ITEMS.add(this);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer player, EnumHand handIn) {
         ItemStack stack = player.func_184586_b(handIn);
         if (!stack.func_77942_o()) {
@@ -65,7 +61,6 @@ public class ItemAxiomCelestarium extends Item implements IHeldTick {
         }
         return super.func_77659_a(worldIn, player, handIn);
     }
-
     public boolean showDurabilityBar(ItemStack stack) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
@@ -74,7 +69,6 @@ public class ItemAxiomCelestarium extends Item implements IHeldTick {
         int chrg = stack.func_77978_p().func_74762_e("Charge");
         return chrg != 25;
     }
-
     public double getDurabilityForDisplay(ItemStack stack) {
         if (showDurabilityBar(stack)) {
             double result = stack.func_77978_p().func_74762_e("Charge");
@@ -83,7 +77,6 @@ public class ItemAxiomCelestarium extends Item implements IHeldTick {
         }
         return 1.0d;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "When held destroys incoming projectiles.");
@@ -93,7 +86,6 @@ public class ItemAxiomCelestarium extends Item implements IHeldTick {
             tooltip.add(TextFmt.Aqua + "Charges: " + charges + "/25");
         }
     }
-
     @Override // xol.lostinfinity.item.classify.IHeldTick
     public void heldTick(EntityPlayer player, EnumHand hand, ItemStack stack) {
         HoldItemUtil.axiomProtection(player);

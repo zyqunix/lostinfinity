@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import java.util.Arrays;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,24 +9,19 @@ import net.minecraft.world.World;
 import xol.lostinfinity.init.ParticleInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityIonicChakram.class */
 public class EntityIonicChakram extends EntityBaseThrowable {
     public EntityIonicChakram(World par1World) {
         super(par1World);
         func_70105_a(0.75f, 0.75f);
     }
-
     public EntityIonicChakram(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
         func_70105_a(0.75f, 0.75f);
     }
-
     public EntityIonicChakram(World par1World, double par2, double par4, double par6) {
         super(par1World, par2, par4, par6);
         func_70105_a(0.75f, 0.75f);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -47,7 +41,6 @@ public class EntityIonicChakram extends EntityBaseThrowable {
             }
         }
     }
-
     private void split() {
         Vec3d dir = new Vec3d(1.0d, 0.0d, 1.0d);
         for (int i = 0; i < 8; i++) {
@@ -64,14 +57,12 @@ public class EntityIonicChakram extends EntityBaseThrowable {
         this.field_70170_p.func_184133_a((EntityPlayer) null, func_180425_c(), SoundInit.GENERIC_WEAPON_20, SoundCategory.PLAYERS, 1.5f, 1.0f);
         func_70106_y();
     }
-
     private Vec3d rotVecAboutY(Vec3d vec, double rad) {
         double x = (vec.field_72450_a * Math.cos(rad)) + (vec.field_72449_c * Math.sin(rad));
         double y = vec.field_72448_b;
         double z = ((-vec.field_72450_a) * Math.sin(rad)) + (vec.field_72449_c * Math.cos(rad));
         return new Vec3d(x, y, z);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void func_70071_h_() {
         super.func_70071_h_();
@@ -88,7 +79,6 @@ public class EntityIonicChakram extends EntityBaseThrowable {
         }
         this.field_70170_p.func_175688_a(ParticleInit.GENERIC_DOT_ORANGE, this.field_70165_t, this.field_70163_u, this.field_70161_v, 0.25d * ((-0.5d) + this.field_70146_Z.nextDouble()), 0.0d, 0.25d * ((-0.5d) + this.field_70146_Z.nextDouble()), new int[0]);
     }
-
     protected float func_70185_h() {
         return 0.0f;
     }

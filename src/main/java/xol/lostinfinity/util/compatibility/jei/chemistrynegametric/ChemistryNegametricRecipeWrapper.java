@@ -1,5 +1,4 @@
 package xol.lostinfinity.util.compatibility.jei.chemistrynegametric;
-
 import com.google.common.collect.Lists;
 import java.util.List;
 import java.util.Map;
@@ -9,22 +8,17 @@ import mezz.jei.api.ingredients.IIngredients;
 import mezz.jei.api.ingredients.VanillaTypes;
 import mezz.jei.api.recipe.IRecipeWrapper;
 import net.minecraft.item.ItemStack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/compatibility/jei/chemistrynegametric/ChemistryNegametricRecipeWrapper.class */
 public class ChemistryNegametricRecipeWrapper implements IRecipeWrapper {
     private final List<ItemStack> inputs;
     private final ItemStack output;
-
     public ChemistryNegametricRecipeWrapper(List<ItemStack> inputs, ItemStack output, IGuiHelper helper) {
         this.inputs = inputs;
         this.output = output;
     }
-
     public void getIngredients(IIngredients ingredients) {
         ingredients.setInputs(VanillaTypes.ITEM, this.inputs);
         ingredients.setOutput(VanillaTypes.ITEM, this.output);
     }
-
     public static List<ChemistryNegametricRecipeWrapper> getRecipes(IJeiHelpers helpers) {
         helpers.getStackHelper();
         ChemistryNegametricRecipeJEI instance = ChemistryNegametricRecipeJEI.getInstance();

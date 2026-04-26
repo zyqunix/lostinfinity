@@ -1,14 +1,10 @@
 package xol.lostinfinity.dimension.data;
-
 import java.util.List;
 import java.util.Random;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/dimension/data/LightTileMap.class */
 public class LightTileMap {
     private int col;
     private int row;
     private LightTileNode[][] lightTileGrid;
-
     public LightTileMap(int columns, int rows, int numSteps) {
         this.col = columns;
         this.row = rows;
@@ -30,7 +26,6 @@ public class LightTileMap {
             }
         }
     }
-
     public LightTileNode getNodeAtLocation(int col, int row) {
         if (col < 0 || row < 0 || col >= this.col || row >= this.row) {
             return null;

@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import com.google.common.base.Optional;
 import java.util.UUID;
 import net.minecraft.entity.Entity;
@@ -12,17 +11,13 @@ import net.minecraft.world.World;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.ParticleInit;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityEffigyEffect.class */
 public class EntityEffigyEffect extends Entity implements IMaxAttack {
     protected static final DataParameter<Optional<UUID>> CASTER_ID = EntityDataManager.func_187226_a(EntityEffigyEffect.class, DataSerializers.field_187203_m);
     protected static final DataParameter<Optional<UUID>> TARGET_ID = EntityDataManager.func_187226_a(EntityEffigyEffect.class, DataSerializers.field_187203_m);
-
     public EntityEffigyEffect(World worldIn) {
         super(worldIn);
         func_184224_h(true);
     }
-
     public void func_70071_h_() {
         super.func_70071_h_();
         EntityPlayer caster = getCaster();
@@ -100,36 +95,29 @@ public class EntityEffigyEffect extends Entity implements IMaxAttack {
             }
         }
     }
-
     protected void func_70088_a() {
         this.field_70180_af.func_187214_a(CASTER_ID, Optional.absent());
         this.field_70180_af.func_187214_a(TARGET_ID, Optional.absent());
     }
-
     protected void func_70037_a(NBTTagCompound compound) {
     }
-
     protected void func_70014_b(NBTTagCompound compound) {
     }
-
     public EntityPlayer getCaster() {
         if (((Optional) this.field_70180_af.func_187225_a(CASTER_ID)).orNull() != null) {
             return this.field_70170_p.func_152378_a((UUID) ((Optional) this.field_70180_af.func_187225_a(CASTER_ID)).get());
         }
         return null;
     }
-
     public void setCaster(EntityPlayer player) {
         this.field_70180_af.func_187227_b(CASTER_ID, Optional.fromNullable(player.func_110124_au()));
     }
-
     public EntityPlayer getTarget() {
         if (((Optional) this.field_70180_af.func_187225_a(TARGET_ID)).orNull() != null) {
             return this.field_70170_p.func_152378_a((UUID) ((Optional) this.field_70180_af.func_187225_a(TARGET_ID)).get());
         }
         return null;
     }
-
     public void setTarget(UUID id) {
         this.field_70180_af.func_187227_b(TARGET_ID, Optional.fromNullable(id));
     }

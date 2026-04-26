@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.armor;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.model.ModelBiped;
@@ -21,21 +20,16 @@ import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ArmorInit;
 import xol.lostinfinity.item.armor.model.ModelArmorSpectros;
 import xol.lostinfinity.mob.entity.misc.EntitySpectre;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/armor/ItemSpectrosPrimeArmor.class */
 public class ItemSpectrosPrimeArmor extends ItemLostArmor {
     private static final ItemArmor.ArmorMaterial SpectrosMaterial = EnumHelper.addArmorMaterial("SpectrosPrimeArmor", "lostinfinity:spectros_prime_armor", -1, new int[]{12, 24, 32, 12}, 20, SoundEvents.field_187716_o, 3.0f);
     private static final int spectreLimit = 15;
     private static final int radius = 10;
-
     public ItemSpectrosPrimeArmor(String regName, EntityEquipmentSlot slot) {
         super(SpectrosMaterial, regName, slot);
     }
-
     @Override // xol.lostinfinity.item.armor.ItemLostArmor
     protected void handleSpecialArmorBonus(EntityPlayer player) {
     }
-
     public void spectreEffect(World world, EntityPlayer player, EntityLivingBase target, ItemStack stack) {
         if (!world.field_72995_K && isArmorActive(player, stack) && world.field_73012_v.nextInt(3) == 1) {
             int count = 0;
@@ -55,22 +49,18 @@ public class ItemSpectrosPrimeArmor extends ItemLostArmor {
             world.func_72838_d(spectre);
         }
     }
-
     @Override // xol.lostinfinity.item.armor.ItemLostArmor
     public ArmorInit.ArmorSet getArmorSet() {
         return ArmorInit.spectrosPrimeSet;
     }
-
     @Override // xol.lostinfinity.item.armor.ItemLostArmor
     public boolean isPrimeSet() {
         return true;
     }
-
     public String getArmorTexture(ItemStack itemstack, Entity entity, EntityEquipmentSlot slot, String layer) {
         int sprite = Math.abs(20 - (MathHelper.func_76141_d(entity.field_70173_aa / 2) % 40));
         return "lostinfinity:textures/armor/prime/spectros_prime_armor_" + (sprite > 4 ? 4 : sprite) + ".png";
     }
-
     @SideOnly(Side.CLIENT)
     @Nullable
     public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
@@ -92,7 +82,6 @@ public class ItemSpectrosPrimeArmor extends ItemLostArmor {
         }
         return null;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Immune to normal hits.");

@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.deviant.prime;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -13,26 +12,21 @@ import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.mob.entity.base.EntityDeviantPrime;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/deviant/prime/EntityAzross.class */
 public class EntityAzross extends EntityDeviantPrime implements IMaxAttack {
     private EntityLivingBase marked;
     private int markedTimer;
-
     public EntityAzross(World worldIn) {
         super(worldIn);
         this.marked = null;
         this.markedTimer = 0;
         func_70105_a(1.75f, 2.9f);
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(1.0d);
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.32d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(2000.0d);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -48,7 +42,6 @@ public class EntityAzross extends EntityDeviantPrime implements IMaxAttack {
         }
         return false;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         this.field_70143_R = -1.0f;
@@ -71,24 +64,19 @@ public class EntityAzross extends EntityDeviantPrime implements IMaxAttack {
             this.markedTimer = 0;
         }
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.GENERIC_STYLE1_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.GENERIC_STYLE1_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return null;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityDeviantPrime
     protected String primeName() {
         return "Azross";
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityDeviantPrime
     protected Item primeDrop() {
         return ItemInit.deviantFragmentTR;

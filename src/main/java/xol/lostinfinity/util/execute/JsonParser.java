@@ -1,15 +1,11 @@
 package xol.lostinfinity.util.execute;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/execute/JsonParser.class */
 public class JsonParser {
     private PrintWriter pw;
-
     public JsonParser(String path, String name) {
         try {
             File parentDirectory = new File(path);
@@ -20,7 +16,6 @@ public class JsonParser {
             e.printStackTrace();
         }
     }
-
     private void WriteKeyValue(JsonNode node, Boolean comma, Integer level, boolean compress) {
         if (node.hasChildren()) {
             Integer.valueOf(level.intValue() + 1);
@@ -62,7 +57,6 @@ public class JsonParser {
         }
         this.pw.println(line2);
     }
-
     public void WriteNode(JsonNode node, Boolean comma, Integer level, boolean compress) {
         if (!node.hasChildren()) {
             WriteKeyValue(node, comma, level, compress);
@@ -102,7 +96,6 @@ public class JsonParser {
             this.pw.println("\t}");
         }
     }
-
     public void WriteJson(JsonObject json) {
         List<JsonNode> nodes = json.getNodes();
         this.pw.println("{");
@@ -117,7 +110,6 @@ public class JsonParser {
         this.pw.print("}");
         this.pw.close();
     }
-
     public void WriteJson(JsonObject json, boolean compress) {
         List<JsonNode> nodes = json.getNodes();
         this.pw.println("{");

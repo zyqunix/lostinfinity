@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.RayTraceResult;
@@ -7,16 +6,12 @@ import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityCreepingVineArrow.class */
 public class EntityCreepingVineArrow extends EntityBaseThrowable {
     private static final int POD_COUNT = 20;
-
     public EntityCreepingVineArrow(World worldIn) {
         super(worldIn);
         func_70105_a(0.75f, 0.75f);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (this.field_70170_p.field_72995_K) {
@@ -33,12 +28,8 @@ public class EntityCreepingVineArrow extends EntityBaseThrowable {
                 break;
         }
     }
-
-    /* JADX INFO: renamed from: xol.lostinfinity.projectile.entity.EntityCreepingVineArrow$1, reason: invalid class name */
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityCreepingVineArrow$1.class */
-    static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] $SwitchMap$net$minecraft$util$math$RayTraceResult$Type = new int[RayTraceResult.Type.values().length];
-
+    static  class AnonymousClass1 {
+        static final  int[] $SwitchMap$net$minecraft$util$math$RayTraceResult$Type = new int[RayTraceResult.Type.values().length];
         static {
             try {
                 $SwitchMap$net$minecraft$util$math$RayTraceResult$Type[RayTraceResult.Type.BLOCK.ordinal()] = 1;
@@ -50,7 +41,6 @@ public class EntityCreepingVineArrow extends EntityBaseThrowable {
             }
         }
     }
-
     private void spawnPods() {
         this.field_70170_p.func_184133_a((EntityPlayer) null, func_180425_c(), SoundInit.SPLAT_EXPLODE, SoundCategory.PLAYERS, 1.5f, 1.0f);
         for (int i = 0; i < POD_COUNT; i++) {

@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.cthulhu;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
@@ -11,14 +10,11 @@ import xol.lostinfinity.mob.entity.cthulhu.ICthulhuMinion;
 import xol.lostinfinity.projectile.entity.EntityBaseThrowable;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/cthulhu/EntityCthulhuMeteor.class */
 public class EntityCthulhuMeteor extends EntityBaseThrowable {
     public EntityCthulhuMeteor(World worldIn) {
         super(worldIn);
         func_70105_a(6.0f, 6.0f);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (result.field_72313_a == RayTraceResult.Type.BLOCK) {
@@ -34,7 +30,6 @@ public class EntityCthulhuMeteor extends EntityBaseThrowable {
             func_184185_a(SoundInit.ASTEROID_IMPACT, 2.0f, 0.5f + (0.7f * this.field_70146_Z.nextFloat()));
         }
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void func_70071_h_() {
         super.func_70071_h_();
@@ -57,7 +52,6 @@ public class EntityCthulhuMeteor extends EntityBaseThrowable {
             }
         }
     }
-
     protected float func_70185_h() {
         return 0.0f;
     }

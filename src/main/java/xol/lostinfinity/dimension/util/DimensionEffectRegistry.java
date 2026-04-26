@@ -1,5 +1,4 @@
 package xol.lostinfinity.dimension.util;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
@@ -21,15 +20,11 @@ import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.ParticleInit;
 import xol.lostinfinity.init.PotionInit;
 import xol.lostinfinity.util.player.PlayerManager;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/dimension/util/DimensionEffectRegistry.class */
 public class DimensionEffectRegistry {
     private static final Map<DimensionType, DimensionEffect> DIMENSION_EFFECTS = new HashMap();
-
     public static void dimensionEffect(DimensionType type, DimensionEffect effect) {
         DIMENSION_EFFECTS.put(type, effect);
     }
-
     public static void tickPlayerDimensionEffects(EntityPlayer player) {
         DimensionType type = player.field_70170_p.field_73011_w.func_186058_p();
         DimensionEffect effect = DIMENSION_EFFECTS.getOrDefault(type, null);
@@ -37,11 +32,9 @@ public class DimensionEffectRegistry {
             effect.tickPlayerInDimension(player);
         }
     }
-
     public static double randomCoordinate(Random rand) {
         return ((-0.5d) + rand.nextDouble()) * 10000.0d;
     }
-
     public static void registerDimensionEffects() {
         dimensionEffect(DimensionType.OVERWORLD, new DimensionEffect() { // from class: xol.lostinfinity.dimension.util.DimensionEffectRegistry.1
             @Override // xol.lostinfinity.dimension.util.DimensionEffect
@@ -155,8 +148,6 @@ public class DimensionEffectRegistry {
             }
         });
     }
-
-    /* JADX INFO: Access modifiers changed from: private */
     public static void dimensionalTear(EntityPlayer player) {
         int level = 0;
         if (player.func_70644_a(PotionInit.DIMENSIONAL_TEAR)) {

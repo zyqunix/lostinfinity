@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.render;
-
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -13,15 +12,11 @@ import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec2f;
 import org.lwjgl.opengl.GL11;
 import xol.lostinfinity.projectile.entity.EntityWandAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/render/RenderWandAttack.class */
 public class RenderWandAttack<T extends Entity> extends Render<T> {
     public static final ResourceLocation TEXTURE_BEACON_BEAM = new ResourceLocation("textures/entity/beacon_beam.png");
-
     public RenderWandAttack(RenderManager renderManager) {
         super(renderManager);
     }
-
     public void func_76986_a(T entity, double x, double y, double z, float entityYaw, float partialTicks) {
         EntityWandAttack attackEntity = (EntityWandAttack) entity;
         BlockPos aimBlockReal = attackEntity.getAimBlock();
@@ -36,7 +31,6 @@ public class RenderWandAttack<T extends Entity> extends Render<T> {
         entity.func_70080_a(playerPos.func_177958_n(), playerPos.func_177956_o(), playerPos.func_177952_p(), 0.0f, 0.0f);
         renderBeamSegment(x, y + 1.0d, z, partialTicks, 1.0d, 10000.0d, 0, (int) dist, colours, 0.1d, 0.2d);
     }
-
     public static void renderBeamSegment(double x, double y, double z, double partialTicks, double textureScale, double totalWorldTime, int yOffset, double height, float[] colors, double beamRadius, double glowRadius) {
         int i = (int) (((double) yOffset) + height);
         GlStateManager.func_187421_b(3553, 10242, 10497);
@@ -118,7 +112,6 @@ public class RenderWandAttack<T extends Entity> extends Render<T> {
         GlStateManager.func_179098_w();
         GlStateManager.func_179132_a(true);
     }
-
     protected ResourceLocation func_110775_a(T entity) {
         return null;
     }

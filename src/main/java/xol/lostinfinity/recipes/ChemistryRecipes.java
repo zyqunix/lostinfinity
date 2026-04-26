@@ -1,24 +1,18 @@
 package xol.lostinfinity.recipes;
-
 import java.util.ArrayList;
 import net.minecraft.item.ItemStack;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/recipes/ChemistryRecipes.class */
 public class ChemistryRecipes {
     public static ArrayList<Recipe> recipes = new ArrayList<>();
-
     public static ArrayList<Recipe> getRecipes() {
         return recipes;
     }
-
     private static void init() {
         Recipe radiochron = new Recipe(ItemInit.radiochronicIsotope, new ItemStack(ItemInit.radioactiveIsotopes), new ItemStack(ItemInit.polyamplificationSolution), new ItemStack(ItemInit.radioactiveIsotopes), new ItemStack(ItemInit.polyamplificationSolution), new ItemStack(ItemInit.solarumVial), new ItemStack(ItemInit.solarumVial), new ItemStack(ItemInit.solarumVial), new ItemStack(ItemInit.radioactiveIsotopes), new ItemStack(ItemInit.polyamplificationSolution));
         Recipe negamet = new Recipe(ItemInit.negametricIsotope, new ItemStack(ItemInit.chromeAlumVial), new ItemStack(ItemInit.gigachargeSolutions), new ItemStack(ItemInit.gigachargeSolutions), new ItemStack(ItemInit.negativeMagnecronite), new ItemStack(ItemInit.negativeMagnecronite), new ItemStack(ItemInit.gigachargeSolutions), new ItemStack(ItemInit.negativeMagnecronite), new ItemStack(ItemInit.gigachargeSolutions), new ItemStack(ItemInit.chromeAlumVial));
         recipes.add(radiochron);
         recipes.add(negamet);
     }
-
     public static ItemStack getResult(ItemStack... inputs) {
         if (recipes.isEmpty()) {
             init();

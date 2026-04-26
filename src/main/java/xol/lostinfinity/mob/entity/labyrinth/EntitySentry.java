@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.labyrinth;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -17,14 +16,11 @@ import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/labyrinth/EntitySentry.class */
 public class EntitySentry extends EntityMultipleLives implements IMaxAttack {
     public EntitySentry(World worldIn) {
         super(worldIn);
         func_70105_a(1.75f, 1.75f);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -41,7 +37,6 @@ public class EntitySentry extends EntityMultipleLives implements IMaxAttack {
         }
         return false;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         if (!this.field_70170_p.field_72995_K && this.field_70173_aa % 120 == 0) {
@@ -54,7 +49,6 @@ public class EntitySentry extends EntityMultipleLives implements IMaxAttack {
             }
         }
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(10000.0d);
@@ -62,24 +56,19 @@ public class EntitySentry extends EntityMultipleLives implements IMaxAttack {
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.22d);
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.SENTRY_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.SENTRY_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundInit.SENTRY_AMBIENT;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 5;
     }
-
     protected ResourceLocation func_184647_J() {
         if (this.field_70146_Z.nextInt(7) == 0) {
             return LootTableRegistry.LABYRINTH_BOTTOM;

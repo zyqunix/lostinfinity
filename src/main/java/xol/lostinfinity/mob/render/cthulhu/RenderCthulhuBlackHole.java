@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.render.cthulhu;
-
 import javax.annotation.Nullable;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -11,22 +10,15 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import xol.lostinfinity.mob.entity.cthulhu.EntityCthulhuBlackHole;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/render/cthulhu/RenderCthulhuBlackHole.class */
 public class RenderCthulhuBlackHole extends Render<EntityCthulhuBlackHole> {
     public static final ResourceLocation TEXTURE = new ResourceLocation("lostinfinity:textures/particles/blackhole_portal.png");
     private static final ResourceLocation TEXTURE_RING = new ResourceLocation("lostinfinity:textures/particles/blackhole_ring.png");
-
     public RenderCthulhuBlackHole(RenderManager renderManager) {
         super(renderManager);
     }
-
-    /* JADX INFO: renamed from: shouldRender, reason: merged with bridge method [inline-methods] */
     public boolean func_177071_a(EntityCthulhuBlackHole livingEntity, ICamera camera, double camX, double camY, double camZ) {
         return true;
     }
-
-    /* JADX INFO: renamed from: doRender, reason: merged with bridge method [inline-methods] */
     public void func_76986_a(EntityCthulhuBlackHole entity, double x, double y, double z, float entityYaw, float partialTicks) {
         int animationTick = entity.getAnimationTick();
         func_110776_a(TEXTURE);
@@ -81,10 +73,7 @@ public class RenderCthulhuBlackHole extends Render<EntityCthulhuBlackHole> {
         GlStateManager.func_179089_o();
         GlStateManager.func_179084_k();
     }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Nullable
-    /* JADX INFO: renamed from: getEntityTexture, reason: merged with bridge method [inline-methods] */
     public ResourceLocation func_110775_a(EntityCthulhuBlackHole entity) {
         return null;
     }

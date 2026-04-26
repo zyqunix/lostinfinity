@@ -1,13 +1,10 @@
 package xol.lostinfinity.mob.model.cthulhu;
-
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import xol.lostinfinity.util.Reference;
 import xol.lostinfinity.util.animation.model.IXolModel;
 import xol.lostinfinity.util.animation.model.ModelRenderer;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/cthulhu/ModelCthulhuTentacle.class */
 public class ModelCthulhuTentacle extends AnimatedModelBase {
     private static final ResourceLocation ANIMATION = new ResourceLocation(Reference.MODID, "animation/cthulhu/tentacle.json");
     private final ModelRenderer root;
@@ -15,7 +12,6 @@ public class ModelCthulhuTentacle extends AnimatedModelBase {
     private final ModelRenderer root3;
     private final ModelRenderer root4;
     private final ModelRenderer portal;
-
     public ModelCthulhuTentacle() {
         this.field_78090_t = 256;
         this.field_78089_u = 256;
@@ -39,19 +35,16 @@ public class ModelCthulhuTentacle extends AnimatedModelBase {
         this.portal.field_78804_l.add(new ModelBox(this.portal, 0, 0, -30.0f, 0.0f, -30.0f, 60, 0, 60, 0.0f, false));
         IXolModel.initializeModel(this);
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         animate(entity);
         this.root.func_78785_a(f5);
         this.portal.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     @Override // xol.lostinfinity.util.animation.model.IXolModel
     public ResourceLocation getAnimationJson() {
         return ANIMATION;

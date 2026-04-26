@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import java.util.UUID;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.BlockPos;
@@ -10,32 +9,25 @@ import xol.lostinfinity.mob.entity.base.EntityImmaterial;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityStickyBomb.class */
 public class EntityStickyBomb extends EntityImmaterial implements IMaxAttack {
     private UUID creator_UUID;
     private EntityLivingBase holdEntity;
     private BlockPos holdPos;
-
     public EntityStickyBomb(World worldIn) {
         super(worldIn);
         this.holdEntity = null;
         this.holdPos = null;
         func_70105_a(0.25f, 0.25f);
     }
-
     public void setCreator(UUID uuid) {
         this.creator_UUID = uuid;
     }
-
     public void setHoldPos(BlockPos pos) {
         this.holdPos = pos;
     }
-
     public void setHoldPos(EntityLivingBase entity) {
         this.holdEntity = entity;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityImmaterial
     public void func_70636_d() {
         super.func_70636_d();
@@ -58,7 +50,6 @@ public class EntityStickyBomb extends EntityImmaterial implements IMaxAttack {
             }
         }
     }
-
     public void explosionEffect() {
         CustomParticleConfig config1 = new CustomParticleConfig();
         config1.createInstance().setParticle(ParticleInit.EXPLOSION).setIgnoreRange(true);

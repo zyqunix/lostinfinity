@@ -1,13 +1,10 @@
 package xol.lostinfinity.mob.model.starforge;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/starforge/ModelGlobro.class */
 public class ModelGlobro extends ModelBase {
     private final ModelRenderer Body;
     private final ModelRenderer head;
@@ -16,7 +13,6 @@ public class ModelGlobro extends ModelBase {
     private final ModelRenderer RightLeg;
     private final ModelRenderer LeftLeg;
     private final ModelRenderer headouter;
-
     public ModelGlobro() {
         this.field_78090_t = 64;
         this.field_78089_u = 32;
@@ -42,7 +38,6 @@ public class ModelGlobro extends ModelBase {
         this.headouter.func_78793_a(0.0f, 0.0f, 0.0f);
         this.headouter.field_78804_l.add(new ModelBox(this.headouter, 0, 0, -5.0f, -10.1f, -5.0f, 10, 10, 10, 0.0f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.Body.func_78785_a(f5);
         this.head.func_78785_a(f5);
@@ -56,13 +51,11 @@ public class ModelGlobro extends ModelBase {
         this.headouter.func_78785_a(f5);
         GlStateManager.func_179084_k();
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.head.field_78796_g = netHeadYaw * 0.017453292f;
         this.head.field_78795_f = headPitch * 0.017453292f;

@@ -1,12 +1,9 @@
 package xol.lostinfinity.mob.model.starforge;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/starforge/ModelTentaclon.class */
 public class ModelTentaclon extends ModelBase {
     private final ModelRenderer Mouth1;
     private final ModelRenderer Mouth2;
@@ -29,7 +26,6 @@ public class ModelTentaclon extends ModelBase {
     private final ModelRenderer Tentacle6;
     private final ModelRenderer body_r6;
     private final ModelRenderer bb_main;
-
     public ModelTentaclon() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -167,7 +163,6 @@ public class ModelTentaclon extends ModelBase {
         this.bb_main.func_78793_a(0.0f, 24.0f, 0.0f);
         this.bb_main.field_78804_l.add(new ModelBox(this.bb_main, 0, 0, -8.0f, -28.0f, 2.0f, 16, 16, 16, 0.0f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.Mouth1.func_78785_a(f5);
         this.Mouth2.func_78785_a(f5);
@@ -185,13 +180,11 @@ public class ModelTentaclon extends ModelBase {
         this.Tentacle6.func_78785_a(f5);
         this.bb_main.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.Mouth1.field_78795_f = (-0.6f) + (0.6f * MathHelper.func_76126_a(ageInTicks * 0.1f));
         this.Mouth2.field_78795_f = this.Mouth1.field_78795_f;

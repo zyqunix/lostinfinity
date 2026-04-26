@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.mount;
-
 import java.util.ArrayList;
 import java.util.UUID;
 import net.minecraft.client.Minecraft;
@@ -26,33 +25,27 @@ import xol.lostinfinity.item.classify.IMovingSoundSource;
 import xol.lostinfinity.mob.entity.base.EntityMultipleLivesMount;
 import xol.lostinfinity.mob.entity.misc.EntityCourseRing;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/mount/EntityJetMount.class */
 public class EntityJetMount extends EntityMultipleLivesMount implements IMovingSoundSource {
     private static final double ACCELERATION = 1.0d;
     private static final double AIR_DRAG = 0.1d;
     private static final int NUM_RINGS = 15;
     private int ringCount;
     private ArrayList<UUID> ringIds;
-
     public EntityJetMount(World worldIn) {
         super(worldIn);
         this.ringCount = 0;
         this.ringIds = new ArrayList<>();
         func_70105_a(1.0f, 1.0f);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_184651_r() {
     }
-
     public void func_70106_y() {
         super.func_70106_y();
         if (!this.field_70170_p.field_72995_K) {
             clearRings();
         }
     }
-
     private void clearRings() {
         if (this.ringIds != null && !this.ringIds.isEmpty()) {
             for (UUID ringId : this.ringIds) {
@@ -64,7 +57,6 @@ public class EntityJetMount extends EntityMultipleLivesMount implements IMovingS
             this.ringIds.clear();
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLivesMount
     public void func_191986_a(float strafe, float vertical, float forward) {
         if (!this.field_70170_p.field_72995_K && this.field_70173_aa % 30 == 0) {
@@ -121,7 +113,6 @@ public class EntityJetMount extends EntityMultipleLivesMount implements IMovingS
         }
         updateOnGroundState();
     }
-
     public void startCourse(EntityPlayer player) {
         this.ringCount = 0;
         placeRings(player.func_174811_aO(), func_180425_c(), 0);
@@ -131,7 +122,6 @@ public class EntityJetMount extends EntityMultipleLivesMount implements IMovingS
         }
         player.func_145747_a(new TextComponentString(TextFmt.Gold + "Navigate through the rings!"));
     }
-
     private void placeRings(EnumFacing facing, BlockPos pos, int i) {
         Vec3i forwardDir;
         EnumFacing nextFacing;
@@ -151,7 +141,7 @@ public class EntityJetMount extends EntityMultipleLivesMount implements IMovingS
                 forwardDir = new Vec3i(1, 0, 0);
                 nextFacing = EnumFacing.SOUTH;
                 break;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 forwardDir = new Vec3i(0, 0, 1);
                 nextFacing = EnumFacing.WEST;
                 break;
@@ -188,12 +178,8 @@ public class EntityJetMount extends EntityMultipleLivesMount implements IMovingS
         }
         placeRings(facing, pos, height);
     }
-
-    /* JADX INFO: renamed from: xol.lostinfinity.mob.entity.mount.EntityJetMount$1, reason: invalid class name */
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/mount/EntityJetMount$1.class */
-    static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] $SwitchMap$net$minecraft$util$EnumFacing = new int[EnumFacing.values().length];
-
+    static  class AnonymousClass1 {
+        static final  int[] $SwitchMap$net$minecraft$util$EnumFacing = new int[EnumFacing.values().length];
         static {
             try {
                 $SwitchMap$net$minecraft$util$EnumFacing[EnumFacing.WEST.ordinal()] = 1;
@@ -213,11 +199,9 @@ public class EntityJetMount extends EntityMultipleLivesMount implements IMovingS
             }
         }
     }
-
     public int getRingIndex() {
         return this.ringCount;
     }
-
     public void progressCourse(EntityPlayer player) {
         Entity entity;
         this.ringCount++;
@@ -235,7 +219,6 @@ public class EntityJetMount extends EntityMultipleLivesMount implements IMovingS
             ((EntityCourseRing) entity).setNext();
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void func_70014_b(NBTTagCompound tag) {
         super.func_70014_b(tag);
@@ -243,7 +226,6 @@ public class EntityJetMount extends EntityMultipleLivesMount implements IMovingS
             tag.func_186854_a("ringId" + i, this.ringIds.get(i));
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void func_70037_a(NBTTagCompound tag) {
         super.func_70037_a(tag);

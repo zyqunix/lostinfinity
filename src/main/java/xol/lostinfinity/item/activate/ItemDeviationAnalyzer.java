@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.activate;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -22,8 +21,6 @@ import xol.lostinfinity.mob.entity.deviant.EntityDeviantCreeper;
 import xol.lostinfinity.mob.entity.deviant.EntityDeviantEnderman;
 import xol.lostinfinity.mob.entity.deviant.EntityDeviantShulker;
 import xol.lostinfinity.mob.entity.deviant.EntityDeviantSkeleton;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/activate/ItemDeviationAnalyzer.class */
 public class ItemDeviationAnalyzer extends Item {
     public ItemDeviationAnalyzer(String regName) {
         func_77637_a(TabsInit.TAB_AUXMATS);
@@ -31,7 +28,6 @@ public class ItemDeviationAnalyzer extends Item {
         func_77655_b(regName);
         ItemInit.ITEMS.add(this);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         boolean found_creeper = false;
         boolean found_skeleton = false;
@@ -66,7 +62,6 @@ public class ItemDeviationAnalyzer extends Item {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Use near the following all at once to charge it:");

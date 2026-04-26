@@ -1,5 +1,4 @@
 package xol.lostinfinity.util.animation.packet;
-
 import io.netty.buffer.ByteBuf;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
@@ -10,8 +9,6 @@ import net.minecraftforge.fml.common.network.simpleimpl.MessageContext;
 import xol.lostinfinity.util.animation.client.AnimationHandler;
 import xol.lostinfinity.util.animation.client.blueprint.LoopMode;
 import xol.lostinfinity.util.animation.entity.IXolAnimated;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/animation/packet/PacketAnimation.class */
 public class PacketAnimation implements IMessage {
     private int entityId;
     private String animation;
@@ -19,23 +16,19 @@ public class PacketAnimation implements IMessage {
     private float speed;
     private LoopMode mode;
     private boolean isOverride;
-
     public PacketAnimation() {
     }
-
     public PacketAnimation(IXolAnimated animated, String animation) {
         this.entityId = animated.getEntity().func_145782_y();
         this.animation = animation;
         this.add = 0;
     }
-
     public PacketAnimation(IXolAnimated animated, String animation, float speed) {
         this.entityId = animated.getEntity().func_145782_y();
         this.animation = animation;
         this.add = 1;
         this.speed = speed;
     }
-
     public PacketAnimation(IXolAnimated animated, String animation, LoopMode mode, boolean isOverride, float speed) {
         this.entityId = ((Entity) animated).func_145782_y();
         this.animation = animation;
@@ -44,7 +37,6 @@ public class PacketAnimation implements IMessage {
         this.isOverride = isOverride;
         this.speed = speed;
     }
-
     public void fromBytes(ByteBuf b) {
         PacketBuffer buf = new PacketBuffer(b);
         this.entityId = buf.func_150792_a();
@@ -58,7 +50,6 @@ public class PacketAnimation implements IMessage {
             this.isOverride = buf.readBoolean();
         }
     }
-
     public void toBytes(ByteBuf b) {
         PacketBuffer buf = new PacketBuffer(b);
         buf.func_150787_b(this.entityId);
@@ -72,8 +63,6 @@ public class PacketAnimation implements IMessage {
             buf.writeBoolean(this.isOverride);
         }
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/animation/packet/PacketAnimation$AnimationPacketHandler.class */
     public static class AnimationPacketHandler implements IMessageHandler<PacketAnimation, IMessage> {
         public IMessage onMessage(PacketAnimation message, MessageContext ctx) {
             Entity entity = Minecraft.func_71410_x().field_71441_e.func_73045_a(message.entityId);
@@ -83,7 +72,6 @@ public class PacketAnimation implements IMessage {
             }
             return null;
         }
-
         private void execute(Entity entity, PacketAnimation message) {
             if (entity instanceof IXolAnimated) {
                 AnimationHandler handler = ((IXolAnimated) entity).getAnimationHandler();

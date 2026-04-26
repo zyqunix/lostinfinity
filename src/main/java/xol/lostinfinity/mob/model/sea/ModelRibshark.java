@@ -1,12 +1,9 @@
 package xol.lostinfinity.mob.model.sea;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/sea/ModelRibshark.class */
 public class ModelRibshark extends ModelBase {
     private final ModelRenderer Body;
     private final ModelRenderer cube_r1;
@@ -18,7 +15,6 @@ public class ModelRibshark extends ModelBase {
     private final ModelRenderer TailEnd;
     private final ModelRenderer cube_r4;
     private final ModelRenderer cube_r5;
-
     public ModelRibshark() {
         this.field_78090_t = 64;
         this.field_78089_u = 64;
@@ -85,17 +81,14 @@ public class ModelRibshark extends ModelBase {
         setRotationAngle(this.cube_r5, 0.7854f, 0.0f, 0.0f);
         this.cube_r5.field_78804_l.add(new ModelBox(this.cube_r5, 25, 16, -0.75f, -3.0f, -1.5f, 1, 4, 7, 0.0f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.Body.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.MiddleBody.field_78796_g = MathHelper.func_76134_b(ageInTicks * 0.3f) * 0.3f;
         this.TailEnd.field_78796_g = MathHelper.func_76126_a(ageInTicks * 0.3f) * 0.3f;

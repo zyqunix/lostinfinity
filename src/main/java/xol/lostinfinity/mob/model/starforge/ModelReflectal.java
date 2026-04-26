@@ -1,13 +1,10 @@
 package xol.lostinfinity.mob.model.starforge;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import xol.lostinfinity.mob.entity.starforge.EntityReflectal;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/starforge/ModelReflectal.class */
 public class ModelReflectal extends ModelBase {
     public ModelRenderer legbl;
     public ModelRenderer legfl;
@@ -23,7 +20,6 @@ public class ModelReflectal extends ModelBase {
     public ModelRenderer body;
     public ModelRenderer flap2;
     public ModelRenderer flap1;
-
     public ModelReflectal() {
         this.field_78090_t = 64;
         this.field_78089_u = 64;
@@ -83,7 +79,6 @@ public class ModelReflectal extends ModelBase {
         this.headbar4.func_78790_a(-3.5f, -3.0f, -2.0f, 1, 1, 4, 0.0f);
         setRotateAngle(this.headbar4, -0.34906584f, 0.0f, 0.0f);
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         GlStateManager.func_179147_l();
         GlStateManager.func_179112_b(770, 771);
@@ -104,13 +99,11 @@ public class ModelReflectal extends ModelBase {
         this.headbar4.func_78785_a(f5);
         GlStateManager.func_179084_k();
     }
-
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.legbr.field_78795_f = MathHelper.func_76134_b(limbSwing * 0.6662f) * 1.4f * limbSwingAmount;
         this.legbl.field_78795_f = MathHelper.func_76134_b((limbSwing * 0.6662f) + 3.1415927f) * 1.4f * limbSwingAmount;

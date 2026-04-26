@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.labyrinth;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -20,61 +19,49 @@ import xol.lostinfinity.mob.entity.base.EntityMultipleLives;
 import xol.lostinfinity.projectile.entity.EntityDeviantFireball;
 import xol.lostinfinity.projectile.entity.EntityWizardBlast;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/labyrinth/EntityAspect.class */
 public class EntityAspect extends EntityMultipleLives implements IMaxAttack {
     private static final DataParameter<Integer> STYLE = EntityDataManager.func_187226_a(EntityAspect.class, DataSerializers.field_187192_b);
     private Item map_drop;
-
     public EntityAspect(World worldIn) {
         super(worldIn);
         func_70105_a(1.0f, 2.5f);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(STYLE, 0);
     }
-
     public int getStyle() {
         return ((Integer) this.field_70180_af.func_187225_a(STYLE)).intValue();
     }
-
     public void setStyle(int f) {
         this.field_70180_af.func_187227_b(STYLE, Integer.valueOf(f));
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void func_70014_b(NBTTagCompound tag) {
         super.func_70014_b(tag);
         tag.func_74768_a("SpawnForm", getStyle());
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void func_70037_a(NBTTagCompound tag) {
         super.func_70037_a(tag);
         setStyle(tag.func_74762_e("SpawnForm"));
     }
-
     public void setMapDrop(Item item) {
         this.map_drop = item;
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(1.0d);
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.2d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(1000.0d);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void trueDeathAction() {
         if (!this.field_70170_p.field_72995_K && this.map_drop != null) {
             func_145779_a(this.map_drop, 1);
         }
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -83,19 +70,15 @@ public class EntityAspect extends EntityMultipleLives implements IMaxAttack {
         }
         return false;
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.ASPECT_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.ASPECT_HIT;
     }
-
     protected SoundEvent func_184639_G() {
         return null;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         if (!this.field_70170_p.field_72995_K) {
@@ -175,29 +158,23 @@ public class EntityAspect extends EntityMultipleLives implements IMaxAttack {
             }
         }
     }
-
     public boolean func_180427_aV() {
         return true;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 5;
     }
-
     protected boolean func_70692_ba() {
         return false;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public boolean func_70814_o() {
         return true;
     }
-
     public int func_70641_bl() {
         return 1;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public boolean func_70601_bi() {
         return this.field_70170_p.func_175659_aa() != EnumDifficulty.PEACEFUL;

@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -10,20 +9,15 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityUnstableRift.class */
 public class EntityUnstableRift extends EntityBaseRift implements IMaxAttack {
     private EntityPlayer owner;
-
     public EntityUnstableRift(World worldIn) {
         super(worldIn);
         this.owner = null;
     }
-
     public void setOwner(EntityPlayer play) {
         this.owner = play;
     }
-
     @Override // xol.lostinfinity.mob.entity.misc.EntityBaseRift, xol.lostinfinity.mob.entity.base.EntityImmaterial
     public void func_70636_d() {
         super.func_70636_d();

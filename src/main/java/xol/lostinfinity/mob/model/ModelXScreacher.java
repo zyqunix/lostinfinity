@@ -1,12 +1,9 @@
 package xol.lostinfinity.mob.model;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/ModelXScreacher.class */
 public class ModelXScreacher extends ModelBase {
     private final ModelRenderer mouth;
     private final ModelRenderer body;
@@ -26,7 +23,6 @@ public class ModelXScreacher extends ModelBase {
     private final ModelRenderer wingr1;
     private final ModelRenderer body3;
     private final ModelRenderer body2;
-
     public ModelXScreacher() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -110,7 +106,6 @@ public class ModelXScreacher extends ModelBase {
         this.body2.field_78804_l.add(new ModelBox(this.body2, 0, 46, 2.0f, -11.0f, 15.0f, 1, 4, 1, 0.1f, false));
         this.body2.field_78804_l.add(new ModelBox(this.body2, 92, 3, -4.0f, -4.0f, 21.0f, 8, 9, 3, 0.2f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.mouth.func_78785_a(f5);
         this.body.func_78785_a(f5);
@@ -131,13 +126,11 @@ public class ModelXScreacher extends ModelBase {
         this.body3.func_78785_a(f5);
         this.body2.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.wingl1.field_78808_h = MathHelper.func_76134_b(ageInTicks * 0.1f) * 3.1415927f * 0.15f;
         this.wingr1.field_78808_h = -this.wingl1.field_78808_h;

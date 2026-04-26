@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.render;
-
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -10,15 +9,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import xol.lostinfinity.projectile.entity.EntityPicklePortal;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/render/RenderPicklePortal.class */
 public class RenderPicklePortal<T extends Entity> extends Render<T> {
     public static final ResourceLocation TEXTURE_PORTAL_EFFECT = new ResourceLocation("lostinfinity:textures/particles/pickle_portal.png");
-
     public RenderPicklePortal(RenderManager renderManager) {
         super(renderManager);
     }
-
     public void func_76986_a(T entity, double x, double y, double z, float entityYaw, float partialTicks) {
         EntityPicklePortal attackEntity = (EntityPicklePortal) entity;
         Vec3d target = attackEntity.func_174791_d();
@@ -53,7 +48,6 @@ public class RenderPicklePortal<T extends Entity> extends Render<T> {
             GlStateManager.func_179118_c();
         }
     }
-
     protected ResourceLocation func_110775_a(T entity) {
         return null;
     }

@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.tileentity.render;
-
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.OpenGlHelper;
@@ -12,14 +11,10 @@ import net.minecraft.util.math.Rotations;
 import net.minecraft.util.math.Vec3d;
 import xol.lostinfinity.block.tileentity.TileEntityTeslaTower;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/tileentity/render/RenderTeslaTower.class */
 public class RenderTeslaTower extends TileEntitySpecialRenderer<TileEntityTeslaTower> {
     public static final ResourceLocation TEXTURE_LIGHTNING_BOLT_YELLOW = new ResourceLocation("lostinfinity:textures/particles/lightning_bolt.png");
     public static final ResourceLocation TEXTURE_LIGHTNING_BOLT_BRIGHT = new ResourceLocation("lostinfinity:textures/particles/lightning_bolt_bright.png");
     public static final ResourceLocation TEXTURE_LIGHTNING_BOLT_BLUE = new ResourceLocation("lostinfinity:textures/particles/lightning_bolt_blue.png");
-
-    /* JADX INFO: renamed from: render, reason: merged with bridge method [inline-methods] */
     public void func_192841_a(TileEntityTeslaTower te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
         if (!te.isActive()) {
             return;
@@ -73,12 +68,9 @@ public class RenderTeslaTower extends TileEntitySpecialRenderer<TileEntityTeslaT
         GlStateManager.func_179121_F();
         GlStateManager.func_179084_k();
     }
-
-    /* JADX INFO: renamed from: isGlobalRenderer, reason: merged with bridge method [inline-methods] */
     public boolean func_188185_a(TileEntityTeslaTower te) {
         return true;
     }
-
     private void bindTextureForTE(TileEntityTeslaTower te) {
         int remainder = te.getTickExisted() % (te.getRandom2() + 1);
         switch (remainder) {
@@ -93,7 +85,6 @@ public class RenderTeslaTower extends TileEntitySpecialRenderer<TileEntityTeslaT
                 break;
         }
     }
-
     private void enableMaxLighting() {
         GlStateManager.func_179140_f();
         OpenGlHelper.func_77475_a(OpenGlHelper.field_77476_b, 240.0f, 240.0f);

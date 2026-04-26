@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.starforge;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
@@ -24,51 +23,40 @@ import xol.lostinfinity.mob.ai.IBasicAI;
 import xol.lostinfinity.projectile.entity.EntityCellularRock;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/starforge/EntityRockslug.class */
 public class EntityRockslug extends EntityMob implements IMaxAttack, IBasicAI {
     private float chargerDist;
     private int feedLevel;
     private static final DataParameter<Integer> ATTACK_TIME = EntityDataManager.func_187226_a(EntityRockslug.class, DataSerializers.field_187192_b);
-
     public EntityRockslug(World worldIn) {
         super(worldIn);
         this.chargerDist = 0.0f;
         this.feedLevel = 0;
         func_70105_a(1.85f, 3.0f);
     }
-
     protected void func_184651_r() {
         initBasicTasks(this);
     }
-
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(ATTACK_TIME, 0);
     }
-
     public int getAttackTime() {
         return ((Integer) this.field_70180_af.func_187225_a(ATTACK_TIME)).intValue();
     }
-
     public void setAttackTime(int f) {
         this.field_70180_af.func_187227_b(ATTACK_TIME, Integer.valueOf(f));
     }
-
     public float getChargerOffset() {
         return this.chargerDist;
     }
-
     public void func_70014_b(NBTTagCompound tag) {
         super.func_70014_b(tag);
         tag.func_74768_a("FeedLevel", this.feedLevel);
     }
-
     public void func_70037_a(NBTTagCompound tag) {
         super.func_70037_a(tag);
         this.feedLevel = tag.func_74762_e("FeedLevel");
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -77,7 +65,6 @@ public class EntityRockslug extends EntityMob implements IMaxAttack, IBasicAI {
         }
         return false;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         if (!this.field_70170_p.field_72995_K) {
@@ -106,7 +93,6 @@ public class EntityRockslug extends EntityMob implements IMaxAttack, IBasicAI {
             }
         }
     }
-
     private void fireRock() {
         EntityCellularRock shot = new EntityCellularRock(this.field_70170_p);
         shot.setThrower(this);
@@ -116,7 +102,6 @@ public class EntityRockslug extends EntityMob implements IMaxAttack, IBasicAI {
         this.field_70170_p.func_72838_d(shot);
         func_184185_a(SoundInit.ROCKSLUG_HURL, 1.0f, 0.8f + (0.4f * this.field_70146_Z.nextFloat()));
     }
-
     public boolean func_184645_a(EntityPlayer player, EnumHand hand) {
         ItemStack itemstack = player.func_184586_b(hand);
         if (itemstack.func_77973_b() == ItemInit.rockfeed) {
@@ -129,7 +114,6 @@ public class EntityRockslug extends EntityMob implements IMaxAttack, IBasicAI {
         }
         return true;
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(1000.0d);
@@ -137,35 +121,27 @@ public class EntityRockslug extends EntityMob implements IMaxAttack, IBasicAI {
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.25d);
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.ROCKSLUG_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.ROCKSLUG_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundInit.ROCKSLUG_AMBIENT;
     }
-
     protected boolean func_70692_ba() {
         return false;
     }
-
     public boolean func_70814_o() {
         return true;
     }
-
     public int func_70641_bl() {
         return 1;
     }
-
     public boolean func_70601_bi() {
         return this.field_70170_p.func_175659_aa() != EnumDifficulty.PEACEFUL;
     }
-
     protected ResourceLocation func_184647_J() {
         return LootTableRegistry.ENTITIES_ROCKSLUG;
     }

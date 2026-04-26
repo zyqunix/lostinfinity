@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.block.Block;
@@ -25,8 +24,6 @@ import xol.lostinfinity.init.DimensionInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.activate.ItemComplexLostMap;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockDimensionalizer.class */
 public class BlockDimensionalizer extends Block {
     public BlockDimensionalizer(String name) {
         super(Material.field_151573_f);
@@ -39,7 +36,6 @@ public class BlockDimensionalizer extends Block {
         BlockInit.BLOCKS.add(this);
         ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(getRegistryName()));
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         BlockPos check_pos;
         if (!playerIn.func_70093_af()) {
@@ -89,7 +85,6 @@ public class BlockDimensionalizer extends Block {
         }
         return true;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_190948_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Match launch coordinator values to Advanced Celestial Map.");

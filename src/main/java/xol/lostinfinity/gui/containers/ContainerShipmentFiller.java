@@ -1,5 +1,4 @@
 package xol.lostinfinity.gui.containers;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.ClickType;
@@ -13,8 +12,6 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.block.tileentity.TileEntityShipmentFiller;
 import xol.lostinfinity.item.misc.ItemShipmentBox;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/containers/ContainerShipmentFiller.class */
 public class ContainerShipmentFiller extends Container {
     private static final int PLAYER_INVENTORY_ROW_COUNT = 3;
     private static final int PLAYER_INVENTORY_COLUMN_COUNT = 9;
@@ -50,7 +47,6 @@ public class ContainerShipmentFiller extends Container {
     private final Slot itemSlot25;
     private final Slot itemSlot26;
     private final Slot itemSlot27;
-
     public ContainerShipmentFiller(InventoryPlayer invPlayer, TileEntityShipmentFiller tileEntity) {
         this.player = invPlayer;
         this.tileEntity = tileEntity;
@@ -123,7 +119,6 @@ public class ContainerShipmentFiller extends Container {
             func_75146_a(new Slot(this.player, hotbarSlotIndex, 8 + (hotbarSlotIndex * 18), 142));
         }
     }
-
     public ItemStack func_184996_a(int slotId, int dragType, ClickType clickTypeIn, EntityPlayer player) {
         ItemStack heldStack = player.field_71071_by.func_70445_o();
         if (slotId == 0) {
@@ -170,21 +165,17 @@ public class ContainerShipmentFiller extends Container {
         }
         return super.func_184996_a(slotId, dragType, clickTypeIn, player);
     }
-
     public boolean func_75145_c(EntityPlayer playerIn) {
         return this.tileEntity.func_70300_a(playerIn);
     }
-
     public void func_75132_a(IContainerListener listener) {
         super.func_75132_a(listener);
         listener.func_175173_a(this, this.tileEntity);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_75137_b(int id, int data) {
         this.tileEntity.func_174885_b(id, data);
     }
-
     public ItemStack func_82846_b(EntityPlayer playerIn, int index) {
         return ItemStack.field_190927_a;
     }

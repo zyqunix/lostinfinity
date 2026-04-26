@@ -1,5 +1,4 @@
 package xol.lostinfinity.util.compatibility.jei.augmentor;
-
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 import java.util.Map;
@@ -8,12 +7,9 @@ import net.minecraft.nbt.NBTTagInt;
 import net.minecraft.nbt.NBTTagList;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.item.misc.ItemAugmenticonBox;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/compatibility/jei/augmentor/AugmentorRecipeJEI.class */
 public class AugmentorRecipeJEI {
     private static final AugmentorRecipeJEI INSTANCE = new AugmentorRecipeJEI();
     private final Table<ItemStack, ItemStack, ItemStack> augmentorList = HashBasedTable.create();
-
     public AugmentorRecipeJEI() {
         ItemStack boxDash = new ItemStack(ItemInit.augmenticonBox);
         NBTTagList nbtDash = ItemAugmenticonBox.getAugmentList(boxDash);
@@ -96,18 +92,15 @@ public class AugmentorRecipeJEI {
         nbtRegenerative.func_74742_a(new NBTTagInt(19));
         addAugmentorRecipe(new ItemStack(ItemInit.augmentSlideRegenerative), new ItemStack(ItemInit.augmenticonBox), boxRegenerative);
     }
-
     public static AugmentorRecipeJEI getInstance() {
         return INSTANCE;
     }
-
     public void addAugmentorRecipe(ItemStack input1, ItemStack input2, ItemStack result) {
         if (getAugmentorResult(input1, input2) != ItemStack.field_190927_a) {
             return;
         }
         this.augmentorList.put(input1, input2, result);
     }
-
     public ItemStack getAugmentorResult(ItemStack input1, ItemStack input2) {
         for (Map.Entry<ItemStack, Map<ItemStack, ItemStack>> entry : this.augmentorList.columnMap().entrySet()) {
             if (compareItemStacks(input1, entry.getKey())) {
@@ -120,11 +113,9 @@ public class AugmentorRecipeJEI {
         }
         return ItemStack.field_190927_a;
     }
-
     private boolean compareItemStacks(ItemStack stack1, ItemStack stack2) {
         return stack1.func_77973_b() == stack2.func_77973_b() && stack1.func_77960_j() == stack2.func_77960_j();
     }
-
     public Table<ItemStack, ItemStack, ItemStack> getAugmentorList() {
         return this.augmentorList;
     }

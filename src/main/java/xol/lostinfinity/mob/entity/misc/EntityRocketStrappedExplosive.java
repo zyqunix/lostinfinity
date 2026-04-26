@@ -1,18 +1,14 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityRocketStrappedExplosive.class */
 public class EntityRocketStrappedExplosive extends Entity {
     private EntityPlayer owner;
     private int timer;
     private double speed;
-
     public EntityRocketStrappedExplosive(World worldIn) {
         super(worldIn);
         this.owner = null;
@@ -20,11 +16,9 @@ public class EntityRocketStrappedExplosive extends Entity {
         this.speed = 0.01d;
         func_184224_h(true);
     }
-
     public void setOwner(EntityPlayer play) {
         this.owner = play;
     }
-
     public void func_70071_h_() {
         super.func_70071_h_();
         this.field_70143_R = -1.0f;
@@ -50,13 +44,10 @@ public class EntityRocketStrappedExplosive extends Entity {
             }
         }
     }
-
     protected void func_70088_a() {
     }
-
     protected void func_70037_a(NBTTagCompound compound) {
     }
-
     protected void func_70014_b(NBTTagCompound compound) {
     }
 }

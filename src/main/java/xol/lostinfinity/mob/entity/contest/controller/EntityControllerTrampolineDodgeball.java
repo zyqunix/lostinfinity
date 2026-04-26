@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.contest.controller;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -18,19 +17,15 @@ import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.coordinates.ContestCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/contest/controller/EntityControllerTrampolineDodgeball.class */
 public class EntityControllerTrampolineDodgeball extends EntityControllerBase {
     private HashMap<UUID, Integer> playerScores;
     private ArrayList<UUID> playersInRound;
     private ArrayList<BlockPos> spawnPositions;
     private static final int maxScore = 3;
-
     public void setSpawnPositions(List<BlockPos> spawnPositions) {
         this.spawnPositions.clear();
         this.spawnPositions.addAll(spawnPositions);
     }
-
     public void initGame() {
         this.playersInRound.clear();
         this.playerScores.clear();
@@ -39,7 +34,6 @@ public class EntityControllerTrampolineDodgeball extends EntityControllerBase {
             this.playersInRound.add(pl_id);
         }
     }
-
     public void eliminatePlayerFromRound(EntityPlayer player) {
         UUID pl_id = player.func_110124_au();
         this.playersInRound.remove(pl_id);
@@ -50,7 +44,6 @@ public class EntityControllerTrampolineDodgeball extends EntityControllerBase {
             roundUp(this.playersInRound.get(0));
         }
     }
-
     private void roundUp(UUID uuid) {
         int score;
         this.playersInRound.clear();
@@ -96,11 +89,9 @@ public class EntityControllerTrampolineDodgeball extends EntityControllerBase {
         soundContenders(SoundInit.MINIGAME_POWERUP, 1.0f, 1.0f);
         messageContenders(TextFmt.Green, "Next round, begin!");
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected void playerStatusCheck() {
     }
-
     public EntityControllerTrampolineDodgeball(World worldIn) {
         super(worldIn);
         this.playerScores = new HashMap<>();
@@ -108,12 +99,10 @@ public class EntityControllerTrampolineDodgeball extends EntityControllerBase {
         this.spawnPositions = new ArrayList<>();
         func_70105_a(5.0f, 12.0f);
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     public AxisAlignedBB getArenaAABB() {
         return ContestCoordinates.dodgeballArenaAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase, xol.lostinfinity.mob.entity.base.EntityImmaterial
     public void func_70636_d() {
         EntityPlayer lastPlayer;
@@ -189,12 +178,10 @@ public class EntityControllerTrampolineDodgeball extends EntityControllerBase {
             }
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected BlockPos getSnapPos() {
         return ContestCoordinates.dodgeballControllerPos();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected void rewardPlayer(EntityPlayer player, int placement) {
         for (int i = 0; i < player.field_71071_by.func_70302_i_(); i++) {

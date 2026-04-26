@@ -1,5 +1,4 @@
 package xol.lostinfinity.client.special;
-
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.MovementInput;
 import net.minecraftforge.client.event.InputUpdateEvent;
@@ -11,8 +10,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.common.lostinfinity;
 import xol.lostinfinity.common.packets.PacketSendInput;
 import xol.lostinfinity.common.special.CommonMindControlHandler;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/client/special/ClientMindControlHandler.class */
 @SideOnly(Side.CLIENT)
 public class ClientMindControlHandler {
     public static ClientMindControlHandler INSTANCE;
@@ -21,16 +18,13 @@ public class ClientMindControlHandler {
     public float lastStrafe = 0.0f;
     public boolean lastJump = false;
     public boolean lastSneak = false;
-
     public ClientMindControlHandler() {
         INSTANCE = this;
     }
-
     @SubscribeEvent
     public void onClientDisconnect(FMLNetworkEvent.ClientDisconnectionFromServerEvent event) {
         this.state = CommonMindControlHandler.State.NONE;
     }
-
     @SubscribeEvent
     public void onRightClick(PlayerInteractEvent event) {
         if (this.state == CommonMindControlHandler.State.CONTROLLED) {
@@ -40,7 +34,6 @@ public class ClientMindControlHandler {
             }
         }
     }
-
     @SubscribeEvent
     public void onInputEvent(InputUpdateEvent event) {
         switch (this.state) {
@@ -58,7 +51,6 @@ public class ClientMindControlHandler {
                 break;
         }
     }
-
     private void recordInput(MovementInput input) {
         this.lastForward = input.field_192832_b;
         this.lastStrafe = input.field_78902_a;
@@ -66,14 +58,12 @@ public class ClientMindControlHandler {
         this.lastSneak = input.field_78899_d;
         lostinfinity.instance.packetHandler.sendServerBasicPacket(new PacketSendInput(this.lastForward, this.lastStrafe, this.lastJump, this.lastSneak));
     }
-
     private void voidInput(MovementInput input) {
         input.field_192832_b = 0.0f;
         input.field_78902_a = 0.0f;
         input.field_78901_c = false;
         input.field_78899_d = false;
     }
-
     private void forceInput(MovementInput input) {
         input.field_192832_b = this.lastForward;
         input.field_78902_a = this.lastStrafe;

@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.contest.controller;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,14 +15,11 @@ import xol.lostinfinity.block.misc.BlockInkable;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.util.coordinates.ContestCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/contest/controller/EntityControllerInkBattle.class */
 public class EntityControllerInkBattle extends EntityControllerBase {
     private int time;
     private static final int duration = 5000;
     private List<BlockPos> spawnPositions;
     private HashMap<UUID, Integer> inks;
-
     public void initInkBattle(List<BlockPos> spawnPositions) {
         this.spawnPositions.clear();
         this.spawnPositions.addAll(spawnPositions);
@@ -39,7 +35,6 @@ public class EntityControllerInkBattle extends EntityControllerBase {
             }
         }
     }
-
     public void inkBlock(UUID id, BlockPos pos) {
         if (this.inks != null && this.inks.containsKey(id)) {
             int ink = this.inks.get(id).intValue();
@@ -50,7 +45,6 @@ public class EntityControllerInkBattle extends EntityControllerBase {
             }
         }
     }
-
     public EntityControllerInkBattle(World worldIn) {
         super(worldIn);
         this.time = 0;
@@ -58,12 +52,10 @@ public class EntityControllerInkBattle extends EntityControllerBase {
         this.inks = new HashMap<>();
         func_70105_a(5.0f, 12.0f);
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     public AxisAlignedBB getArenaAABB() {
         return ContestCoordinates.inkBattleArenaAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase, xol.lostinfinity.mob.entity.base.EntityImmaterial
     public void func_70636_d() {
         super.func_70636_d();
@@ -136,11 +128,9 @@ public class EntityControllerInkBattle extends EntityControllerBase {
             }
         }
     }
-
     private ArrayList<BlockPos> getPowerupPostions() {
         return ContestCoordinates.inkBattlePowerUpPositions();
     }
-
     public void inkPlayer(EntityPlayer target) {
         if (this.spawnPositions != null && !this.spawnPositions.isEmpty()) {
             int randSpawn = this.field_70146_Z.nextInt(this.spawnPositions.size());
@@ -148,12 +138,10 @@ public class EntityControllerInkBattle extends EntityControllerBase {
             target.func_70634_a(spawn.func_177958_n(), spawn.func_177956_o(), spawn.func_177952_p());
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected BlockPos getSnapPos() {
         return ContestCoordinates.inkBattleControllerPos();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected void rewardPlayer(EntityPlayer player, int placement) {
         BlockPos teleTo = ContestCoordinates.inkBattleLobbyPos();
@@ -166,7 +154,6 @@ public class EntityControllerInkBattle extends EntityControllerBase {
         int reward_count = Math.min(10 + (20 * placement) + (placement == this.contenderCount - 1 ? this.contenderCount * 10 : 0), 50);
         player.func_191521_c(new ItemStack(ItemInit.zirconiaIvory, reward_count));
     }
-
     public void setInk(UUID pl_id, int i) {
         if (this.inks != null) {
             this.inks.put(pl_id, Integer.valueOf(i));

@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.tileentity;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import net.minecraft.entity.item.EntityItem;
@@ -15,8 +14,6 @@ import xol.lostinfinity.dimension.data.PowerColliderNode;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/tileentity/TileEntityPowerCollider.class */
 public class TileEntityPowerCollider extends TileEntity implements ITickable {
     private static final int dimension = 25;
     private static final Vec3i offset = new Vec3i(0, 0, 0);
@@ -33,15 +30,12 @@ public class TileEntityPowerCollider extends TileEntity implements ITickable {
     private PowerColliderGrid grid = null;
     private boolean[] trackActive = null;
     private boolean wonLast = false;
-
     public void setUpDir(Vec3i upDir) {
         this.upDir = upDir;
     }
-
     public void setLeftDir(Vec3i leftDir) {
         this.leftDir = leftDir;
     }
-
     private Vec3i findTileDir(BlockPos pos) {
         ArrayList<Vec3i> dirs = new ArrayList<>();
         dirs.add(new Vec3i(1, 0, 1));
@@ -55,7 +49,6 @@ public class TileEntityPowerCollider extends TileEntity implements ITickable {
         }
         return null;
     }
-
     public void reset() {
         this.tiles.clear();
         BlockPos ref = this.field_174879_c.func_177971_a(offset);
@@ -119,11 +112,9 @@ public class TileEntityPowerCollider extends TileEntity implements ITickable {
         this.game = true;
         this.field_145850_b.func_184133_a((EntityPlayer) null, this.field_174879_c, SoundInit.MANUFACTURE_MACHINE, SoundCategory.BLOCKS, 1.0f, 1.0f);
     }
-
     public void setTiles(ArrayList<BlockPos> tiles) {
         this.tiles = tiles;
     }
-
     public void func_73660_a() {
         if (!this.field_145850_b.field_72995_K && this.field_145850_b.func_82737_E() % 3 == 0 && this.game && this.trackActive != null) {
             int count = 0;
@@ -163,7 +154,6 @@ public class TileEntityPowerCollider extends TileEntity implements ITickable {
             }
         }
     }
-
     public void light(BlockPos pos) {
         int j;
         int i;

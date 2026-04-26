@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.harvest;
-
 import java.util.Random;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.Item;
@@ -7,8 +6,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import xol.lostinfinity.block.basic.BlockBasicBoolState;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/harvest/BlockSeaClay.class */
 public class BlockSeaClay extends BlockBasicBoolState {
     public BlockSeaClay(String name) {
         super(name);
@@ -16,7 +13,6 @@ public class BlockSeaClay extends BlockBasicBoolState {
         func_149711_c(3.0f);
         func_149752_b(5.0f);
     }
-
     public void func_180650_b(World world, BlockPos pos, IBlockState state, Random rand) {
         if (!world.field_72995_K) {
             Iterable<BlockPos> nearblocks = BlockPos.func_177980_a(pos.func_177982_a(-3, -3, -3), pos.func_177982_a(3, 3, 3));
@@ -33,7 +29,6 @@ public class BlockSeaClay extends BlockBasicBoolState {
             }
         }
     }
-
     public Item func_180660_a(IBlockState state, Random rand, int fortune) {
         return ItemStack.field_190927_a.func_77973_b();
     }

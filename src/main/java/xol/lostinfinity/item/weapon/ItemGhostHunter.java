@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -23,19 +22,15 @@ import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemGhostHunter.class */
 public class ItemGhostHunter extends ItemCooldownSword implements IMaxAttack {
     public ItemGhostHunter(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_DEVIANTWEP);
     }
-
     public boolean func_77644_a(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         IMaxAttack.dealMaxHealth(attacker, target, 10);
         return true;
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (!showDurabilityBar(playerIn.func_184586_b(handIn))) {
             RayTraceResult mop = func_77621_a(worldIn, playerIn, true);
@@ -75,7 +70,6 @@ public class ItemGhostHunter extends ItemCooldownSword implements IMaxAttack {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     protected RayTraceResult func_77621_a(World worldIn, EntityPlayer playerIn, boolean useLiquids) {
         float f = playerIn.field_70125_A;
         float f1 = playerIn.field_70177_z;
@@ -92,7 +86,6 @@ public class ItemGhostHunter extends ItemCooldownSword implements IMaxAttack {
         Vec3d vec3d1 = vec3d.func_72441_c(((double) f6) * 40.0d, ((double) f5) * 40.0d, ((double) f7) * 40.0d);
         return worldIn.func_147447_a(vec3d, vec3d1, useLiquids, !useLiquids, false);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Deals 10% Max Health Damage");

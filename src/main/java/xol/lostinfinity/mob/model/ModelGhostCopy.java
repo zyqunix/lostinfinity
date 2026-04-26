@@ -1,17 +1,13 @@
 package xol.lostinfinity.mob.model;
-
 import net.minecraft.client.model.ModelPlayer;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import xol.lostinfinity.mob.entity.misc.EntityGhostCopy;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/ModelGhostCopy.class */
 public class ModelGhostCopy extends ModelPlayer {
     public ModelGhostCopy() {
         super(1.0f, true);
     }
-
     public void func_78088_a(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
         EntityGhostCopy ghost = (EntityGhostCopy) entityIn;
         float colors = ghost.getGhostColor();
@@ -21,13 +17,11 @@ public class ModelGhostCopy extends ModelPlayer {
         super.func_78088_a(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
         GlStateManager.func_179084_k();
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         EntityGhostCopy ghost = (EntityGhostCopy) entityIn;
         float angleModification = ageInTicks * 0.03f;

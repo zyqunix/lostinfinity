@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.render;
-
 import javax.annotation.Nullable;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -10,29 +9,21 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import xol.lostinfinity.projectile.entity.EntityGalaxyDragonFireball;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/render/RenderGalaxyDragonFireball.class */
 public class RenderGalaxyDragonFireball extends Render<EntityGalaxyDragonFireball> {
     private static final ResourceLocation FLAME_0 = new ResourceLocation("lostinfinity:textures/projectiles/cosmic_flame_0.png");
     private static final ResourceLocation FLAME_1 = new ResourceLocation("lostinfinity:textures/projectiles/cosmic_flame_1.png");
-
     public RenderGalaxyDragonFireball(RenderManager renderManager) {
         super(renderManager);
     }
-
     public void func_76979_b(Entity entityIn, double x, double y, double z, float yaw, float partialTicks) {
         if (this.field_76990_c.field_78733_k != null) {
             renderEntityOnFire(entityIn, x, y, z, partialTicks);
         }
     }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Nullable
-    /* JADX INFO: renamed from: getEntityTexture, reason: merged with bridge method [inline-methods] */
     public ResourceLocation func_110775_a(EntityGalaxyDragonFireball entity) {
         return null;
     }
-
     private void renderEntityOnFire(Entity entity, double x, double y, double z, float partialTicks) {
         GlStateManager.func_179140_f();
         GlStateManager.func_179094_E();

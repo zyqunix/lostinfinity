@@ -1,18 +1,14 @@
 package xol.lostinfinity.block.misc;
-
 import java.util.ArrayList;
 import net.minecraft.block.Block;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import xol.lostinfinity.block.basic.BlockBasic;
 import xol.lostinfinity.init.BlockInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/misc/BlockLightReceiver.class */
 public class BlockLightReceiver extends BlockBasic {
     public BlockLightReceiver(String name) {
         super(name);
     }
-
     public void openGate(World worldIn, BlockPos pos) {
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
@@ -28,7 +24,6 @@ public class BlockLightReceiver extends BlockBasic {
             }
         }
     }
-
     public void closeGate(World worldIn, BlockPos pos) {
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
@@ -44,7 +39,6 @@ public class BlockLightReceiver extends BlockBasic {
             }
         }
     }
-
     public void propogatePass(World worldIn, BlockPos pos, ArrayList<BlockPos> visited, int meta) {
         if (visited == null) {
             visited = new ArrayList<>();

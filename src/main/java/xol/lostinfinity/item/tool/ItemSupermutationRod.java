@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.tool;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -14,8 +13,6 @@ import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.classify.IDeviator;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/tool/ItemSupermutationRod.class */
 public class ItemSupermutationRod extends Item implements IDeviator {
     public ItemSupermutationRod(String regName) {
         func_77637_a(TabsInit.TAB_AUXWEP);
@@ -23,12 +20,10 @@ public class ItemSupermutationRod extends Item implements IDeviator {
         func_77655_b(regName);
         ItemInit.ITEMS.add(this);
     }
-
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer attacker, Entity target) {
         superMutateCreature(stack, attacker, target);
         return true;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Green + "Super-mutates deviant creatures.");

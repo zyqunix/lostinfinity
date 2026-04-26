@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import java.util.Arrays;
 import java.util.List;
 import net.minecraft.entity.Entity;
@@ -17,8 +16,6 @@ import xol.lostinfinity.mob.entity.cthulhu.EntityCthulhu;
 import xol.lostinfinity.mob.entity.cthulhu.EntityCthulhuTurret;
 import xol.lostinfinity.mob.entity.misc.EntityRift;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityWhirlpool.class */
 public class EntityWhirlpool extends Entity {
     private static final double RANGE = 15.0d;
     private float growth;
@@ -26,7 +23,6 @@ public class EntityWhirlpool extends Entity {
     private float angle;
     private Entity owner;
     private static final int LIFESPAN_TICKS = 200;
-
     public EntityWhirlpool(World worldIn) {
         super(worldIn);
         this.growth = 0.0f;
@@ -34,7 +30,6 @@ public class EntityWhirlpool extends Entity {
         this.angle = 0.0f;
         func_70105_a(0.5f, 0.5f);
     }
-
     public void func_70071_h_() {
         super.func_70071_h_();
         if (this.field_70173_aa < 100) {
@@ -73,7 +68,6 @@ public class EntityWhirlpool extends Entity {
             this.field_70170_p.func_175688_a(this.field_70146_Z.nextBoolean() ? ParticleInit.GENERIC_DOT_AQUA : ParticleInit.GENERIC_DOT_BLUE, this.field_70165_t + (velocity_x / 2.0d), this.field_70163_u, this.field_70161_v + (velocity_z / 2.0d), 0.0d, 0.0d, 0.0d, new int[0]);
         }
     }
-
     public void func_70037_a(NBTTagCompound compound) {
         this.growth = compound.func_74760_g("growth");
         this.rotation = compound.func_74760_g("rotation");
@@ -82,7 +76,6 @@ public class EntityWhirlpool extends Entity {
             this.owner = this.field_70170_p.func_73045_a(compound.func_74762_e("owner"));
         }
     }
-
     public void func_70014_b(NBTTagCompound compound) {
         compound.func_74776_a("growth", this.growth);
         compound.func_74776_a("rotation", this.rotation);
@@ -91,22 +84,17 @@ public class EntityWhirlpool extends Entity {
             compound.func_74768_a("owner", this.owner.func_145782_y());
         }
     }
-
     protected void func_70088_a() {
     }
-
     public float getGrowth() {
         return this.growth;
     }
-
     public float getRotation() {
         return this.rotation;
     }
-
     public void setOwner(Entity owner) {
         this.owner = owner;
     }
-
     public void func_70106_y() {
         this.field_70170_p.func_72876_a(this, this.field_70165_t, this.field_70163_u, this.field_70161_v, 5.0f, false);
         List<EntityLivingBase> nearbyEntities = this.field_70170_p.func_72872_a(EntityLivingBase.class, func_174813_aQ().func_186662_g(5.0d));

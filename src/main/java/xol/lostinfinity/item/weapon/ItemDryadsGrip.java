@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -26,15 +25,12 @@ import xol.lostinfinity.item.classify.ISwitchModels;
 import xol.lostinfinity.mob.entity.misc.EntityNitroExplosion;
 import xol.lostinfinity.projectile.entity.EntityDryadsGripAttack;
 import xol.lostinfinity.util.data.CustomRayTraceResult;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemDryadsGrip.class */
 public class ItemDryadsGrip extends ItemCooldown implements IModeSelect, ICustomRaytrace, ISwitchModels {
     public ItemDryadsGrip(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
         setModelSwitch("usetype", this, 2);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (!showDurabilityBar(stack)) {
@@ -82,7 +78,6 @@ public class ItemDryadsGrip extends ItemCooldown implements IModeSelect, ICustom
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     private ArrayList<BlockPos> propogateExplosions(World worldIn, BlockPos pos, ArrayList<BlockPos> visited) {
         if (visited == null) {
             visited = new ArrayList<>();
@@ -106,7 +101,6 @@ public class ItemDryadsGrip extends ItemCooldown implements IModeSelect, ICustom
         }
         return visited;
     }
-
     public void createExplosion(World worldIn, BlockPos pos, int numBlocks, EntityPlayer player) {
         EntityNitroExplosion bomb = new EntityNitroExplosion(worldIn);
         bomb.setNumBlocks(numBlocks);
@@ -115,18 +109,15 @@ public class ItemDryadsGrip extends ItemCooldown implements IModeSelect, ICustom
         worldIn.func_72838_d(bomb);
         worldIn.func_175698_g(pos);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 100;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Green + "Summons a tree and tethers nearby entities to them.");
         tooltip.add(TextFmt.Gold + "Alt Fire: Detonates trees, dealing 5% Health True Damage per Block");
     }
-
     @Override // xol.lostinfinity.item.classify.IModeSelect
     public void modeUpdate(ItemStack stack, EntityPlayer player) {
         if (!stack.func_77942_o()) {

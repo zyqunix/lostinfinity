@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import java.util.Collections;
 import java.util.List;
 import net.minecraft.entity.Entity;
@@ -12,19 +11,15 @@ import xol.lostinfinity.mob.entity.base.EntityImmaterial;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityGalaxyDragonFireball.class */
 public class EntityGalaxyDragonFireball extends EntityBaseThrowable {
     public EntityGalaxyDragonFireball(World worldIn) {
         super(worldIn);
         func_70105_a(0.25f, 0.25f);
     }
-
     public EntityGalaxyDragonFireball(World worldIn, double x, double y, double z) {
         super(worldIn, x, y, z);
         func_70105_a(0.25f, 0.25f);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (this.field_70170_p.field_72995_K) {
@@ -60,12 +55,8 @@ public class EntityGalaxyDragonFireball extends EntityBaseThrowable {
         config.createInstance().setParticle(ParticleInit.COSMIC_EXPLOSION_TYPE4).setSpread(10.0d, 10.0d, 10.0d).setIgnoreRange(true);
         IParticleSpawner.spawnParticle(this.field_70170_p, config, func_174791_d());
     }
-
-    /* JADX INFO: renamed from: xol.lostinfinity.projectile.entity.EntityGalaxyDragonFireball$1, reason: invalid class name */
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityGalaxyDragonFireball$1.class */
-    static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] $SwitchMap$net$minecraft$util$math$RayTraceResult$Type = new int[RayTraceResult.Type.values().length];
-
+    static  class AnonymousClass1 {
+        static final  int[] $SwitchMap$net$minecraft$util$math$RayTraceResult$Type = new int[RayTraceResult.Type.values().length];
         static {
             try {
                 $SwitchMap$net$minecraft$util$math$RayTraceResult$Type[RayTraceResult.Type.BLOCK.ordinal()] = 1;
@@ -77,7 +68,6 @@ public class EntityGalaxyDragonFireball extends EntityBaseThrowable {
             }
         }
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void func_70071_h_() {
         double mX = this.field_70159_w;
@@ -94,7 +84,6 @@ public class EntityGalaxyDragonFireball extends EntityBaseThrowable {
             ClientParticleRenderer.renderComplex(config);
         }
     }
-
     protected float func_70185_h() {
         return 0.0f;
     }

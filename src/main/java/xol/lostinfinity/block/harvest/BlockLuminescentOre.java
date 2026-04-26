@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.harvest;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -15,28 +14,22 @@ import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.mob.entity.starforge.EntityEssenceDweller;
 import xol.lostinfinity.mob.entity.starforge.EntityGlochipper;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/harvest/BlockLuminescentOre.class */
 public class BlockLuminescentOre extends BlockBasicLight implements ISpecialHarvest, IMaxAttack {
     public BlockLuminescentOre(String name) {
         super(name);
         func_149711_c(2.0f);
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public void failedHarvest(World world, BlockPos pos, EntityPlayer harvester) {
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public Item getHarvestResult(World world, BlockPos pos) {
         return ItemInit.luminessence;
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public Item getToolNeeded() {
         return ItemInit.crystalPickaxe;
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public void worldHarvestEffect(World world, BlockPos pos, EntityPlayer harvester) {
         if (!world.field_72995_K) {
@@ -69,7 +62,6 @@ public class BlockLuminescentOre extends BlockBasicLight implements ISpecialHarv
             }
         }
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public boolean isHarvestable(World world, BlockPos pos, EntityPlayer harvester) {
         return true;

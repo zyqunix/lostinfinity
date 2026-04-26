@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -32,14 +31,11 @@ import xol.lostinfinity.mob.entity.misc.EntityBaseRift;
 import xol.lostinfinity.util.data.CustomRayTraceResult;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemPowerPuncher.class */
 public class ItemPowerPuncher extends ItemCooldown implements IMaxAttack, ICustomRaytrace, ICustomHoldPose, IMoveTick, ITransfusionEffect, IMovingSoundSource {
     public ItemPowerPuncher(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (!showDurabilityBar(stack)) {
@@ -62,12 +58,10 @@ public class ItemPowerPuncher extends ItemCooldown implements IMaxAttack, ICusto
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 600;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Aqua + "Dashes where you are looking towards.");
@@ -75,7 +69,6 @@ public class ItemPowerPuncher extends ItemCooldown implements IMaxAttack, ICusto
         tooltip.add(TextFmt.Red + "Deal 20% Health True Damage Per Buff Stolen");
         tooltip.add(TextFmt.Underline + "Dashes close nearby dimensional anomalies.");
     }
-
     @Override // xol.lostinfinity.item.classify.IMoveTick
     public void moveTick(EntityPlayer player, EnumHand hand, ItemStack stack) {
         if (isTravelling(stack) && !player.field_70170_p.field_72995_K) {
@@ -117,13 +110,11 @@ public class ItemPowerPuncher extends ItemCooldown implements IMaxAttack, ICusto
             }
         }
     }
-
     @Override // xol.lostinfinity.item.classify.ITransfusionEffect
     public void transfuse(EntityPlayer player, EntityLivingBase stolenFrom, EnumHand hand, ItemStack stack, List<Potion> potionsStolen) {
         IMaxAttack.dealTrueDamage(player, stolenFrom, stolenFrom.func_110138_aP() * 0.2f * potionsStolen.size());
         stolenFrom.field_70170_p.func_184133_a(player, stolenFrom.func_180425_c(), SoundInit.SUPERSONIC_DASH, SoundCategory.PLAYERS, 0.7f, 0.7f + (stolenFrom.field_70170_p.field_73012_v.nextFloat() * 0.6f));
     }
-
     public boolean isTravelling(ItemStack stack) {
         return stack.func_77942_o() && stack.func_77978_p().func_74764_b("TargetX") && stack.func_77978_p().func_74764_b("TargetY") && stack.func_77978_p().func_74764_b("TargetZ");
     }

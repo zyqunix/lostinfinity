@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.starforge;
-
 import java.util.Iterator;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -14,21 +13,16 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.projectile.entity.EntityBlightPellet;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/starforge/EntityBlisterweed.class */
 public class EntityBlisterweed extends EntityMob implements IMaxAttack {
     public EntityBlisterweed(World worldIn) {
         super(worldIn);
         func_70105_a(1.0f, 2.2f);
     }
-
     public boolean func_180427_aV() {
         return true;
     }
-
     protected void func_184651_r() {
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -37,7 +31,6 @@ public class EntityBlisterweed extends EntityMob implements IMaxAttack {
         }
         return false;
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(700.0d);
@@ -45,7 +38,6 @@ public class EntityBlisterweed extends EntityMob implements IMaxAttack {
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.3d);
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         this.field_70159_w = 0.0d;
@@ -70,35 +62,27 @@ public class EntityBlisterweed extends EntityMob implements IMaxAttack {
             }
         }
     }
-
     protected SoundEvent func_184615_bR() {
         return null;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return null;
     }
-
     protected SoundEvent func_184639_G() {
         return null;
     }
-
     protected ResourceLocation func_184647_J() {
         return LootTableRegistry.ENTITIES_BLISTERWEED;
     }
-
     protected boolean func_70692_ba() {
         return false;
     }
-
     public boolean func_70814_o() {
         return true;
     }
-
     public int func_70641_bl() {
         return 1;
     }
-
     public boolean func_70601_bi() {
         return this.field_70170_p.func_175659_aa() != EnumDifficulty.PEACEFUL;
     }

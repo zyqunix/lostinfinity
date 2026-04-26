@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
@@ -7,30 +6,23 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import xol.lostinfinity.item.weapon.ItemStickyBombLauncher;
 import xol.lostinfinity.mob.entity.misc.EntityStickyBomb;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityStickyProjectile.class */
 public class EntityStickyProjectile extends EntityBaseThrowable {
     private ItemStack referenceStack;
-
     public EntityStickyProjectile(World par1World) {
         super(par1World);
         this.referenceStack = null;
     }
-
     public EntityStickyProjectile(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
         this.referenceStack = null;
     }
-
     public EntityStickyProjectile(World par1World, double par2, double par4, double par6) {
         super(par1World, par2, par4, par6);
         this.referenceStack = null;
     }
-
     public void setStack(ItemStack stack) {
         this.referenceStack = stack;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -52,7 +44,6 @@ public class EntityStickyProjectile extends EntityBaseThrowable {
             func_70106_y();
         }
     }
-
     protected float func_70185_h() {
         return 0.030000001f;
     }

@@ -1,21 +1,16 @@
 package xol.lostinfinity.dimension.data;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/dimension/data/GridParse.class */
 public class GridParse {
     public static String grid_file = "";
     private GridNode[][] grid;
     private int max_rows = 0;
     private int max_columns = 0;
-
     public GridParse(String path) {
         grid_file = "assets/lostinfinity/structures/predefined/" + path;
         ParseGridFile(grid_file);
     }
-
     private void ParseGridFile(String grid_file_location) {
         try {
             this.max_rows = rowCount();
@@ -49,7 +44,6 @@ public class GridParse {
             e.printStackTrace();
         }
     }
-
     private int rowCount() {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getClassLoader().getResourceAsStream(grid_file), "UTF-8"));
@@ -64,7 +58,6 @@ public class GridParse {
             return -1;
         }
     }
-
     private int columnCount() {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getClassLoader().getResourceAsStream(grid_file), "UTF-8"));
@@ -77,7 +70,6 @@ public class GridParse {
             return -1;
         }
     }
-
     public GridNode getNodeAtLocation(int x, int y, int offset_x, int offset_y) {
         try {
             if (this.grid[((this.max_rows - 1) - x) + offset_x][y + offset_y] == null) {
@@ -88,7 +80,6 @@ public class GridParse {
             return null;
         }
     }
-
     public GridNode[][] getGrid() {
         return this.grid;
     }

@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.activate;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -21,8 +20,6 @@ import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.classify.IModeSelect;
 import xol.lostinfinity.item.classify.ISwitchModels;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/activate/ItemSolarGlobe.class */
 public class ItemSolarGlobe extends Item implements IModeSelect, ISwitchModels {
     public ItemSolarGlobe(String regName) {
         setRegistryName(regName);
@@ -32,7 +29,6 @@ public class ItemSolarGlobe extends Item implements IModeSelect, ISwitchModels {
         func_77625_d(1);
         setModelSwitch("floor", this, 3);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         double yPlace;
         if (!worldIn.field_72995_K) {
@@ -62,13 +58,11 @@ public class ItemSolarGlobe extends Item implements IModeSelect, ISwitchModels {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Teleports you in and out of the Cartographers Labyrinth.");
         tooltip.add(TextFmt.Gold + "Can select any floor to teleport to.");
     }
-
     @Override // xol.lostinfinity.item.classify.IModeSelect
     public void modeUpdate(ItemStack stack, EntityPlayer player) {
         if (!stack.func_77942_o()) {

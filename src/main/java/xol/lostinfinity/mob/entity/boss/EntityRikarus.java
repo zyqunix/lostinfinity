@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.boss;
-
 import java.util.Iterator;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -23,43 +22,33 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.mob.ai.IBasicAI;
 import xol.lostinfinity.stone.EntityInfinityStone;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/boss/EntityRikarus.class */
 public class EntityRikarus extends EntityMob implements IMaxAttack, IBasicAI {
     private static final DataParameter<Byte> FORM = EntityDataManager.func_187226_a(EntityRikarus.class, DataSerializers.field_187191_a);
     private static final DataParameter<Boolean> SPINNING = EntityDataManager.func_187226_a(EntityRikarus.class, DataSerializers.field_187198_h);
-
     public EntityRikarus(World worldIn) {
         super(worldIn);
         func_70105_a(3.5f, 5.5f);
     }
-
     protected void func_184651_r() {
         initBasicTasks(this);
     }
-
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(FORM, (byte) 0);
         this.field_70180_af.func_187214_a(SPINNING, false);
     }
-
     public byte getForm() {
         return ((Byte) this.field_70180_af.func_187225_a(FORM)).byteValue();
     }
-
     public void setForm(byte f) {
         this.field_70180_af.func_187227_b(FORM, Byte.valueOf(f));
     }
-
     public boolean isSpinning() {
         return ((Boolean) this.field_70180_af.func_187225_a(SPINNING)).booleanValue();
     }
-
     public void setSpinning(boolean f) {
         this.field_70180_af.func_187227_b(SPINNING, Boolean.valueOf(f));
     }
-
     public void gainFormBack() {
         if (getForm() > 0) {
             setForm((byte) (getForm() - 1));
@@ -68,19 +57,16 @@ public class EntityRikarus extends EntityMob implements IMaxAttack, IBasicAI {
             }
         }
     }
-
     public void func_70014_b(NBTTagCompound tag) {
         super.func_70014_b(tag);
         tag.func_74774_a("BossForm", getForm());
         tag.func_74757_a("SpinningAttack", isSpinning());
     }
-
     public void func_70037_a(NBTTagCompound tag) {
         super.func_70037_a(tag);
         setForm(tag.func_74771_c("BossForm"));
         setSpinning(tag.func_74767_n("SpinningAttack"));
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(1.0d);
@@ -88,7 +74,6 @@ public class EntityRikarus extends EntityMob implements IMaxAttack, IBasicAI {
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(5000.0d);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -97,15 +82,12 @@ public class EntityRikarus extends EntityMob implements IMaxAttack, IBasicAI {
         }
         return false;
     }
-
     private AxisAlignedBB getArenaAABB() {
         return new AxisAlignedBB(new BlockPos(-3.0d, 60.0d, -145.0d), new BlockPos(52.0d, 85.0d, -40.0d));
     }
-
     private void sendHealthMSG(EntityPlayer play, int topnum) {
         play.func_145747_a(new TextComponentString(TextFmt.Light_Purple + "Rikarus is at " + (topnum - (10 * getForm())) + "% health"));
     }
-
     public void func_70645_a(DamageSource cause) {
         if (this.field_70170_p.field_73011_w.func_186058_p() == DimensionInit.celestialVoid) {
             int stage = getForm();
@@ -142,7 +124,6 @@ public class EntityRikarus extends EntityMob implements IMaxAttack, IBasicAI {
             }
         }
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         this.field_70143_R = -1.0f;
@@ -208,30 +189,24 @@ public class EntityRikarus extends EntityMob implements IMaxAttack, IBasicAI {
             setSpinning(false);
         }
     }
-
     protected SoundEvent func_184615_bR() {
         if (getForm() == 9) {
             return SoundInit.RIKARUS_DEATH;
         }
         return SoundInit.RIKARUS_HURT;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.RIKARUS_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundInit.RIKARUS_AMBIENT;
     }
-
     protected boolean func_70692_ba() {
         return false;
     }
-
     public boolean func_70814_o() {
         return true;
     }
-
     public int func_70641_bl() {
         return 1;
     }

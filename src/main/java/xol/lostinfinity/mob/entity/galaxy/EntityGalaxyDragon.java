@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.galaxy;
-
 import java.util.Collections;
 import java.util.Iterator;
 import net.minecraft.entity.Entity;
@@ -19,32 +18,25 @@ import xol.lostinfinity.util.data.CustomRayTraceResult;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.data.RayTraceBuilder;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/galaxy/EntityGalaxyDragon.class */
 public class EntityGalaxyDragon extends EntityMultipleLivesMount implements IConditionalDamage {
     private static final Vec3d GROUND_OFFSET = new Vec3d(0.0d, 1.3d, 1.0d);
     private static final Vec3d AIR_OFFSET = new Vec3d(0.0d, 0.765d, 1.0d);
     private long nextFireballAttack;
-
     public EntityGalaxyDragon(World worldIn) {
         super(worldIn);
         func_70105_a(2.0f, 1.53f);
         this.field_70138_W = 5.0f;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_184651_r() {
     }
-
     public float func_70047_e() {
         return this.field_70131_O;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 15;
     }
-
     public void fireBreathAttack(EntityPlayer driver) {
         CustomRayTraceResult result = RayTraceBuilder.entity(EntityLivingBase.class, 30).maxEntity(0).raySize(2.625f).custom((lastPos, currentPos, distance) -> {
             float spread = ((distance * distance) / 180.0f) + 0.25f;
@@ -65,7 +57,6 @@ public class EntityGalaxyDragon extends EntityMultipleLivesMount implements ICon
         }
         func_184185_a(SoundInit.DRAGON_FIRE_BREATH, 0.7f, 0.8f + (0.4f * this.field_70146_Z.nextFloat()));
     }
-
     public void fireballAttack(EntityPlayer driver) {
         if (System.currentTimeMillis() < this.nextFireballAttack) {
             return;
@@ -81,32 +72,25 @@ public class EntityGalaxyDragon extends EntityMultipleLivesMount implements ICon
         func_184185_a(SoundInit.DRAGON_FIRE_BALL, 1.0f, 0.8f + (0.4f * this.field_70146_Z.nextFloat()));
         this.nextFireballAttack = System.currentTimeMillis() + 500;
     }
-
     public Vec3d getHeadOffset() {
         return func_174791_d().func_178787_e((this.isActuallyOnGround ? GROUND_OFFSET : AIR_OFFSET).func_178785_b((-this.field_70177_z) * 0.017453292f));
     }
-
     protected float func_70599_aP() {
         return 0.3f;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLivesMount
     public double func_70042_X() {
         return super.func_70042_X() - 0.25d;
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.DRAGON_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.DRAGON_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundInit.DRAGON_AMBIENT;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.IConditionalDamage
     public boolean canBeDamaged(Entity attacker) {
         return attacker != this.owner;

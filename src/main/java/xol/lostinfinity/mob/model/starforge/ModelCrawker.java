@@ -1,12 +1,9 @@
 package xol.lostinfinity.mob.model.starforge;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import xol.lostinfinity.mob.entity.starforge.EntityCrawker;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/starforge/ModelCrawker.class */
 public class ModelCrawker extends ModelBase {
     public ModelRenderer body;
     public ModelRenderer legbl;
@@ -23,7 +20,6 @@ public class ModelCrawker extends ModelBase {
     public ModelRenderer body5;
     public ModelRenderer body6;
     public ModelRenderer body7;
-
     public ModelCrawker() {
         this.field_78090_t = 64;
         this.field_78089_u = 64;
@@ -74,7 +70,6 @@ public class ModelCrawker extends ModelBase {
         this.eye2p2.func_78793_a(0.0f, 14.0f, -6.4f);
         this.eye2p2.func_78790_a(-3.5f, -1.0f, -3.8f, 7, 1, 4, 0.0f);
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.eye1.func_78785_a(f5);
         this.body3.func_78785_a(f5);
@@ -92,13 +87,11 @@ public class ModelCrawker extends ModelBase {
         this.legbr.func_78785_a(f5);
         this.eye2p2.func_78785_a(f5);
     }
-
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.legbr.field_78795_f = MathHelper.func_76134_b(limbSwing * 0.6662f) * 1.4f * limbSwingAmount;
         this.legbl.field_78795_f = MathHelper.func_76134_b((limbSwing * 0.6662f) + 3.1415927f) * 1.4f * limbSwingAmount;

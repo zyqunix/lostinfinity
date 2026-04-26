@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -19,15 +18,12 @@ import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.basics.ItemCooldown;
 import xol.lostinfinity.item.classify.IModeSelect;
 import xol.lostinfinity.projectile.entity.EntityTitanRing;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemTitanRing.class */
 public class ItemTitanRing extends ItemCooldown implements IModeSelect {
     public ItemTitanRing(String regName) {
         super(regName);
         func_77625_d(5);
         func_77637_a(TabsInit.TAB_AUXWEP);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (!showDurabilityBar(stack)) {
@@ -47,7 +43,6 @@ public class ItemTitanRing extends ItemCooldown implements IModeSelect {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @Override // xol.lostinfinity.item.classify.IModeSelect
     public void modeUpdate(ItemStack stack, EntityPlayer player) {
         if (!stack.func_77942_o()) {
@@ -63,12 +58,10 @@ public class ItemTitanRing extends ItemCooldown implements IModeSelect {
             stack.func_77978_p().func_74768_a("throw_mode", 0);
         }
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 50;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Aqua + "Throws out an unfolding, returning ring.");

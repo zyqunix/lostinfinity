@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.model;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
@@ -7,12 +6,9 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import xol.lostinfinity.mob.entity.misc.EntityBaseRift;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/ModelRift.class */
 public class ModelRift extends ModelBase {
     private final ModelRenderer Planes;
     private final ModelRenderer cube_r1;
-
     public ModelRift() {
         this.field_78090_t = 64;
         this.field_78089_u = 64;
@@ -25,7 +21,6 @@ public class ModelRift extends ModelBase {
         setRotationAngle(this.cube_r1, 0.0f, -1.0472f, 0.0f);
         this.cube_r1.field_78804_l.add(new ModelBox(this.cube_r1, 0, 0, -11.0f, -31.5f, -0.5f, 22, 63, 1, 0.0f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         GlStateManager.func_179147_l();
         GlStateManager.func_179112_b(770, 771);
@@ -34,13 +29,11 @@ public class ModelRift extends ModelBase {
         this.Planes.func_78785_a(f5);
         GlStateManager.func_179084_k();
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.Planes.field_78795_f = 1.5707964f + (0.25f * MathHelper.func_76126_a(ageInTicks * 0.01f));
         this.Planes.field_78808_h = 0.1f * MathHelper.func_76126_a(ageInTicks * 0.025f);

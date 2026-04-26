@@ -1,11 +1,8 @@
 package xol.lostinfinity.mob.model.deviant;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/deviant/ModelDeviantBear.class */
 public class ModelDeviantBear extends ModelBase {
     public ModelRenderer back;
     public ModelRenderer front;
@@ -20,7 +17,6 @@ public class ModelDeviantBear extends ModelBase {
     public ModelRenderer finbr;
     public ModelRenderer finb;
     public ModelRenderer finbl;
-
     public ModelDeviantBear() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -69,7 +65,6 @@ public class ModelDeviantBear extends ModelBase {
         this.front.func_78790_a(-4.0f, -25.0f, -7.0f, 12, 12, 10, 0.0f);
         setRotateAngle(this.front, 1.5707964f, 0.0f, 0.0f);
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.back.func_78785_a(f5);
         this.legfr.func_78785_a(f5);
@@ -85,13 +80,11 @@ public class ModelDeviantBear extends ModelBase {
         this.legbr.func_78785_a(f5);
         this.front.func_78785_a(f5);
     }
-
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.legfl.field_78795_f = MathHelper.func_76134_b(limbSwing * 0.2662f) * 1.4f * limbSwingAmount;
         this.legfr.field_78795_f = MathHelper.func_76134_b(limbSwing * 0.2662f) * 1.4f * limbSwingAmount;

@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import java.util.ArrayList;
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
@@ -17,19 +16,15 @@ import xol.lostinfinity.dimension.data.TetrisMap;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockNeocraftingStation.class */
 public class BlockNeocraftingStation extends BlockBasic {
     private static int[][][] linePiece = {new int[]{new int[]{0, 1, 2, 3}, new int[]{0, 0, 0, 0}}, new int[]{new int[]{0, 0, 0, 0}, new int[]{0, 1, 2, 3}}};
     private static int[][][] lPiece = {new int[]{new int[]{0, 1, 2, 2}, new int[]{0, 0, 0, 1}}, new int[]{new int[]{0, 0, 0, 1}, new int[]{0, 1, 2, 2}}, new int[]{new int[]{0, 0, 0, -1}, new int[]{0, 1, 2, 2}}, new int[]{new int[]{-1, 0, 0, 0}, new int[]{0, 0, 1, 2}}, new int[]{new int[]{1, 0, 0, 0}, new int[]{0, 0, 1, 2}}, new int[]{new int[]{0, 1, 2, 2}, new int[]{0, 0, 0, -1}}, new int[]{new int[]{0, 0, 1, 2}, new int[]{-1, 0, 0, 0}}, new int[]{new int[]{0, 0, 1, 2}, new int[]{1, 0, 0, 0}}};
     private static int[][][] tPiece = {new int[]{new int[]{0, 1, 1, 2}, new int[]{0, 0, -1, 0}}, new int[]{new int[]{0, 1, 1, 1}, new int[]{0, 1, 0, -1}}, new int[]{new int[]{0, 0, 0, 1}, new int[]{1, 0, -1, 0}}, new int[]{new int[]{0, 1, 1, 2}, new int[]{0, 0, 1, 0}}};
     private static int[][][] zigPiece = {new int[]{new int[]{0, 0, 1, 1}, new int[]{-1, 0, 0, 1}}, new int[]{new int[]{1, 1, 0, 0}, new int[]{1, 0, 0, -1}}, new int[]{new int[]{0, 1, 1, 2}, new int[]{0, 0, 1, 1}}, new int[]{new int[]{0, 1, 1, 2}, new int[]{0, 0, -1, -1}}};
     private static int[][][] squarePiece = {new int[]{new int[]{0, 0, 1, 1}, new int[]{0, 1, 0, 1}}};
-
     public BlockNeocraftingStation(String name) {
         super(name);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         BlockPos checkPos;
         BlockPos checkPos2;
@@ -229,7 +224,6 @@ public class BlockNeocraftingStation extends BlockBasic {
         }
         return true;
     }
-
     private void reset(Vec3i upDir, Vec3i rightDir, World worldIn, BlockPos ref) {
         BlockPos checkPos;
         BlockPos checkPos2;
@@ -276,7 +270,6 @@ public class BlockNeocraftingStation extends BlockBasic {
             }
         }
     }
-
     private boolean findPiece(World worldIn, BlockPos pos, String pieceName) {
         int[][][] orientations;
         Block block;

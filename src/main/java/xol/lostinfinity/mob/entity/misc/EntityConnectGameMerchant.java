@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -23,8 +22,6 @@ import net.minecraft.world.World;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityConnectGameMerchant.class */
 public class EntityConnectGameMerchant extends EntityLiving {
     private boolean game;
     private ArrayList<BlockPos> buttons;
@@ -38,15 +35,12 @@ public class EntityConnectGameMerchant extends EntityLiving {
     private int lastMove;
     private boolean horizontal;
     private int up;
-
     private int getLastMove() {
         return this.lastMove;
     }
-
     private void setLastMove(int lastMove) {
         this.lastMove = lastMove;
     }
-
     public EntityConnectGameMerchant(World worldIn) {
         super(worldIn);
         this.game = false;
@@ -60,19 +54,15 @@ public class EntityConnectGameMerchant extends EntityLiving {
         this.horizontal = true;
         this.up = 1;
     }
-
     public void setDir(Vec3i dir) {
         this.dir = dir;
     }
-
     protected void func_70088_a() {
         super.func_70088_a();
     }
-
     public void startGame() {
         this.game = true;
     }
-
     public BlockPos nearestButton(BlockPos pos, ArrayList<BlockPos> visited) {
         BlockPos a = pos.func_177982_a(1, 0, 1);
         BlockPos b = pos.func_177982_a(-1, 0, 1);
@@ -113,7 +103,6 @@ public class EntityConnectGameMerchant extends EntityLiving {
         }
         return null;
     }
-
     public void setButtonPositions(BlockPos reference, int stretch, int yRange, int numConnect) {
         this.numConnect = numConnect;
         this.top = stretch * 2;
@@ -167,11 +156,9 @@ public class EntityConnectGameMerchant extends EntityLiving {
             this.startPos = b1.func_177982_a(0, 0, 1);
         }
     }
-
     public boolean playerPlaced() {
         return this.playerPlaced;
     }
-
     public void clearTokens() {
         BlockPos ref = this.startPos;
         if (ref != null) {
@@ -192,7 +179,6 @@ public class EntityConnectGameMerchant extends EntityLiving {
             }
         }
     }
-
     public boolean func_184645_a(EntityPlayer player, EnumHand hand) {
         if (this.field_70170_p.field_72995_K || !this.win) {
             if (!this.field_70170_p.field_72995_K && !this.game) {
@@ -222,7 +208,6 @@ public class EntityConnectGameMerchant extends EntityLiving {
         deathEffect();
         return true;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         if (!this.field_70170_p.field_72995_K) {
@@ -250,11 +235,9 @@ public class EntityConnectGameMerchant extends EntityLiving {
             }
         }
     }
-
     public boolean isLost() {
         return this.lose;
     }
-
     private void opponentPlace() {
         int ability;
         BlockPos playerWinPos = findPlayerWin();
@@ -298,9 +281,7 @@ public class EntityConnectGameMerchant extends EntityLiving {
                 break;
         }
     }
-
     /* JADX WARN: Code restructure failed: missing block: B:25:0x007e, code lost:
-    
         r7 = r7 + 1;
      */
     /*
@@ -389,9 +370,7 @@ public class EntityConnectGameMerchant extends EntityLiving {
         */
         throw new UnsupportedOperationException("Method not decompiled: xol.lostinfinity.mob.entity.misc.EntityConnectGameMerchant.replacePlayerPiece():void");
     }
-
     /* JADX WARN: Code restructure failed: missing block: B:27:0x008a, code lost:
-    
         r7 = r7 + 1;
      */
     /*
@@ -487,7 +466,6 @@ public class EntityConnectGameMerchant extends EntityLiving {
         */
         throw new UnsupportedOperationException("Method not decompiled: xol.lostinfinity.mob.entity.misc.EntityConnectGameMerchant.placeOnTop():void");
     }
-
     private BlockPos findPlayerWin() {
         BlockPos ref = this.startPos;
         if (ref != null) {
@@ -580,7 +558,6 @@ public class EntityConnectGameMerchant extends EntityLiving {
             return null;
         }
     }
-
     private void randomPlace() {
         Random rand = new Random();
         int randButton = rand.nextInt(this.buttons.size());
@@ -588,7 +565,6 @@ public class EntityConnectGameMerchant extends EntityLiving {
             this.playerPlaced = false;
         }
     }
-
     private void deathEffect() {
         if (!this.buttons.isEmpty()) {
             clearTokens();
@@ -596,25 +572,20 @@ public class EntityConnectGameMerchant extends EntityLiving {
         this.field_70170_p.func_175739_a(EnumParticleTypes.PORTAL, this.field_70165_t, this.field_70163_u, this.field_70161_v, 12, ((-0.5d) + this.field_70146_Z.nextDouble()) * 3.0d, 0.3d, ((-0.5d) + this.field_70146_Z.nextDouble()) * 3.0d, 0.15000000596046448d, new int[0]);
         func_70106_y();
     }
-
     protected SoundEvent func_184639_G() {
         return SoundEvents.field_187910_gj;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundEvents.field_187912_gl;
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundEvents.field_187911_gk;
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.2d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(20.0d);
     }
-
     public boolean put(BlockPos pos, boolean isPlayer) {
         if (isComplete()) {
             if (isPlayer) {
@@ -678,9 +649,7 @@ public class EntityConnectGameMerchant extends EntityLiving {
         }
         return placed;
     }
-
     /* JADX WARN: Code restructure failed: missing block: B:168:0x0360, code lost:
-    
         r9 = r9 + 1;
      */
     /*

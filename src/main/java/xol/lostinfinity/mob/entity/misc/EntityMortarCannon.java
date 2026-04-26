@@ -1,15 +1,11 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import net.minecraft.world.World;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.projectile.entity.EntityMortarShot;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityMortarCannon.class */
 public class EntityMortarCannon extends EntityBaseCannon {
     public EntityMortarCannon(World worldIn) {
         super(worldIn);
     }
-
     @Override // xol.lostinfinity.mob.entity.misc.EntityBaseCannon, xol.lostinfinity.mob.entity.base.EntityImmaterial
     public void func_70636_d() {
         super.func_70636_d();

@@ -1,12 +1,9 @@
 package xol.lostinfinity.mob.model.contest;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/contest/ModelBloodhunter.class */
 public class ModelBloodhunter extends ModelBase {
     private final ModelRenderer bipedHead;
     private final ModelRenderer jaw_bottom;
@@ -16,7 +13,6 @@ public class ModelBloodhunter extends ModelBase {
     private final ModelRenderer right_foot_bone;
     private final ModelRenderer bipedLeftLeg;
     private final ModelRenderer left_foot_bone;
-
     public ModelBloodhunter() {
         this.field_78090_t = 64;
         this.field_78089_u = 32;
@@ -77,20 +73,17 @@ public class ModelBloodhunter extends ModelBase {
         this.left_foot_bone.field_78804_l.add(new ModelBox(this.left_foot_bone, 1, 17, 2.5f, -2.0f, -4.0f, 1, 2, 1, 0.0f, false));
         this.left_foot_bone.field_78804_l.add(new ModelBox(this.left_foot_bone, 14, 17, 2.5f, -3.0f, -4.0f, 1, 1, 2, 0.0f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.bipedHead.func_78785_a(f5);
         this.bipedBody.func_78785_a(f5);
         this.bipedRightLeg.func_78785_a(f5);
         this.bipedLeftLeg.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.bipedHead.field_78796_g = netHeadYaw * 0.017453292f;
         this.bipedHead.field_78795_f = headPitch * 0.017453292f;

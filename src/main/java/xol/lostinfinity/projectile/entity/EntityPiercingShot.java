@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.entity.Entity;
@@ -8,21 +7,16 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import xol.lostinfinity.init.ParticleInit;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityPiercingShot.class */
 public class EntityPiercingShot extends EntityBaseThrowable {
     private List<EntityLivingBase> hitCreatures;
-
     public EntityPiercingShot(World par1World) {
         super(par1World);
         this.hitCreatures = new ArrayList();
     }
-
     public EntityPiercingShot(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
         this.hitCreatures = new ArrayList();
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K && result.field_72313_a == RayTraceResult.Type.BLOCK) {
@@ -35,11 +29,9 @@ public class EntityPiercingShot extends EntityBaseThrowable {
             func_70106_y();
         }
     }
-
     protected float func_70185_h() {
         return 0.02f;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void func_70071_h_() {
         super.func_70071_h_();

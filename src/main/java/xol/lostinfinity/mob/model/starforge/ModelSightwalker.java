@@ -1,12 +1,9 @@
 package xol.lostinfinity.mob.model.starforge;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/starforge/ModelSightwalker.class */
 public class ModelSightwalker extends ModelBase {
     private final ModelRenderer Body;
     private final ModelRenderer head;
@@ -16,7 +13,6 @@ public class ModelSightwalker extends ModelBase {
     private final ModelRenderer RightLeg;
     private final ModelRenderer LeftLeg_r3;
     private final ModelRenderer LeftLeg_r4;
-
     public ModelSightwalker() {
         this.field_78090_t = 64;
         this.field_78089_u = 32;
@@ -66,20 +62,17 @@ public class ModelSightwalker extends ModelBase {
         this.LeftLeg_r4.field_78804_l.add(new ModelBox(this.LeftLeg_r4, 35, 3, -1.0f, 1.0f, -2.0f, 4, 1, 4, 0.0f, false));
         this.LeftLeg_r4.field_78804_l.add(new ModelBox(this.LeftLeg_r4, 25, 17, -0.5f, -7.0f, -1.5f, 3, 12, 3, 0.0f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.Body.func_78785_a(f5);
         this.head.func_78785_a(f5);
         this.LeftLeg.func_78785_a(f5);
         this.RightLeg.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.LeftLeg.field_78795_f = MathHelper.func_76134_b((limbSwing * 0.9662f) + 3.1415927f) * 0.5f * limbSwingAmount * 0.5f;
         this.LeftLeg.field_78808_h = 0.5f * MathHelper.func_76134_b((limbSwing * 0.9662f) + 3.1415927f) * 1.1f * limbSwingAmount * 0.5f;

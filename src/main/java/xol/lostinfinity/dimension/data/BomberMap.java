@@ -1,15 +1,11 @@
 package xol.lostinfinity.dimension.data;
-
 import java.util.ArrayList;
 import java.util.List;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/dimension/data/BomberMap.class */
 public class BomberMap {
     private int col;
     private int row;
     private static int softWallRatio = 50;
     private BomberNode[][] bomberGrid;
-
     public static void main(String[] args) {
         BomberMap bombMap = new BomberMap(31, 31, 10);
         bombMap.setSpawns(3);
@@ -41,7 +37,6 @@ public class BomberMap {
             System.out.print("\r\n");
         }
     }
-
     public BomberMap(int columns, int rows, int numPowerups) {
         BomberNode node;
         this.col = columns;
@@ -73,7 +68,6 @@ public class BomberMap {
             }
         }
     }
-
     public void setSpawns(int numPlayers) {
         int c = this.col;
         int r = this.row;
@@ -91,7 +85,6 @@ public class BomberMap {
             }
         }
     }
-
     public List<BomberNode> findSpawnPointsFromPerimeterDist(BomberNode startNode, int pointDist, int n) {
         List<BomberNode> spawnList = new ArrayList<>();
         spawnList.add(startNode);
@@ -173,7 +166,6 @@ public class BomberMap {
         }
         return spawnList;
     }
-
     public BomberNode getNodeAtLocation(int col, int row) {
         if (col < 0 || row < 0 || col >= this.col || row >= this.row) {
             return null;

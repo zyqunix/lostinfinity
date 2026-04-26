@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import java.util.Random;
 import java.util.UUID;
 import net.minecraft.entity.Entity;
@@ -20,17 +19,13 @@ import xol.lostinfinity.mob.entity.base.EntityImmaterial;
 import xol.lostinfinity.mob.entity.base.EntityMultipleLives;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityNuclearExplosion.class */
 public class EntityNuclearExplosion extends EntityImmaterial implements IMaxAttack {
     private static final DataParameter<Integer> ANIMATION_TICK = EntityDataManager.func_187226_a(EntityNuclearExplosion.class, DataSerializers.field_187192_b);
     private static final float PULL_STRENGTH = 0.2f;
     private UUID ownerUUID;
     private boolean hasExploded;
-
     @SideOnly(Side.CLIENT)
     private Quaternion[] rotations;
-
     public EntityNuclearExplosion(World worldIn) {
         super(worldIn);
         func_70105_a(0.001f, 0.001f);
@@ -44,40 +39,32 @@ public class EntityNuclearExplosion extends EntityImmaterial implements IMaxAtta
             }
         }
     }
-
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(ANIMATION_TICK, 0);
     }
-
     public void addAnimationTick() {
         this.field_70180_af.func_187227_b(ANIMATION_TICK, Integer.valueOf(getAnimationTick() + 1));
         ((EntityDataManager.DataEntry) this.field_70180_af.func_187231_c().get(ANIMATION_TICK.func_187155_a())).func_187208_a(false);
     }
-
     public int getAnimationTick() {
         return ((Integer) this.field_70180_af.func_187225_a(ANIMATION_TICK)).intValue();
     }
-
     public void func_70014_b(NBTTagCompound tag) {
         super.func_70014_b(tag);
         tag.func_186854_a("OwnerUUID", this.ownerUUID);
     }
-
     public void func_70037_a(NBTTagCompound tag) {
         super.func_70037_a(tag);
         this.ownerUUID = tag.func_186857_a("OwnerUUID");
     }
-
     public void setOwner(UUID uuid) {
         this.ownerUUID = uuid;
     }
-
     @SideOnly(Side.CLIENT)
     public Quaternion getRotation(int i) {
         return this.rotations[i];
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityImmaterial
     public void func_70636_d() {
         super.func_70636_d();
@@ -106,10 +93,8 @@ public class EntityNuclearExplosion extends EntityImmaterial implements IMaxAtta
             this.rotations[this.rotations.length - 1] = LMath.fromEulerDegree(this.field_70170_p.field_73012_v.nextFloat() * 360.0f, this.field_70170_p.field_73012_v.nextFloat() * 360.0f, this.field_70170_p.field_73012_v.nextFloat() * 360.0f);
         }
     }
-
     protected void func_82167_n(Entity entityIn) {
     }
-
     private void pullNearby() {
         EntityNuclearExplosion entityNuclearExplosion = this;
         EntityNuclearExplosion entityNuclearExplosionFunc_152378_a = this.field_70170_p.func_152378_a(this.ownerUUID);
@@ -130,7 +115,6 @@ public class EntityNuclearExplosion extends EntityImmaterial implements IMaxAtta
             this.field_70170_p.func_184133_a((EntityPlayer) null, func_180425_c(), SoundInit.GENERIC_WEAPON_12, SoundCategory.MASTER, 5.0f, 0.5f);
         }
     }
-
     private void explosion() {
         this.hasExploded = true;
         EntityNuclearExplosion entityNuclearExplosion = this;

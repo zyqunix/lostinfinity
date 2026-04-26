@@ -1,29 +1,23 @@
 package xol.lostinfinity.projectile.entity;
-
 import java.util.ArrayList;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityZenonShot.class */
 public class EntityZenonShot extends EntityBaseThrowable implements IMaxAttack {
     private static final float mult = 0.96f;
     private ArrayList<EntityLivingBase> entitiesHit;
-
     public EntityZenonShot(World par1World) {
         super(par1World);
         this.entitiesHit = null;
         func_189654_d(true);
     }
-
     public EntityZenonShot(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
         this.entitiesHit = null;
         func_189654_d(true);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -41,17 +35,14 @@ public class EntityZenonShot extends EntityBaseThrowable implements IMaxAttack {
             }
         }
     }
-
     public void clearHits() {
         if (this.entitiesHit != null) {
             this.entitiesHit.clear();
         }
     }
-
     protected float func_70185_h() {
         return 0.0f;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void func_70071_h_() {
         super.func_70071_h_();

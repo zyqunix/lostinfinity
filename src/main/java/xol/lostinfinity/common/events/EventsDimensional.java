@@ -1,5 +1,4 @@
 package xol.lostinfinity.common.events;
-
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,8 +18,6 @@ import xol.lostinfinity.dimension.util.DimensionNoBuild;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.DimensionInit;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/common/events/EventsDimensional.class */
 public class EventsDimensional {
     @SubscribeEvent
     public void celestialArenaNoBuild(BlockEvent.EntityPlaceEvent event) {
@@ -31,7 +28,6 @@ public class EventsDimensional {
             }
         }
     }
-
     @SubscribeEvent
     public void celestialArenaProt(BlockEvent.BreakEvent event) {
         if (event.getWorld().func_180494_b(event.getPos()).equals(DimensionInit.biomeNonexistence) && event.getState().func_177230_c().equals(Blocks.field_189877_df) && event.getPlayer() != null) {

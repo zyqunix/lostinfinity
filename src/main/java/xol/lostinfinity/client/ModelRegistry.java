@@ -1,5 +1,4 @@
 package xol.lostinfinity.client;
-
 import java.util.Iterator;
 import net.minecraft.entity.Entity;
 import net.minecraft.item.Item;
@@ -838,14 +837,11 @@ import xol.lostinfinity.projectile.render.RenderWhirlpool;
 import xol.lostinfinity.stone.EntityInfinityStone;
 import xol.lostinfinity.stone.RenderInfinityStone;
 import xol.lostinfinity.util.Reference;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/client/ModelRegistry.class */
 @Mod.EventBusSubscriber
 public class ModelRegistry {
     private static <T extends Entity> void registerRender(Class<T> entityClass, IRenderFactory<? super T> renderFactory) {
         RenderingRegistry.registerEntityRenderingHandler(entityClass, renderFactory);
     }
-
     @SubscribeEvent
     @SideOnly(Side.CLIENT)
     public static void registerAllModels(ModelRegistryEvent event) {

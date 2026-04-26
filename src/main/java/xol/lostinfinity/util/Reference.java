@@ -1,13 +1,10 @@
 package xol.lostinfinity.util;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/Reference.class */
 public class Reference {
     public static final String MODID = "lostinfinity";
     public static final String NAME = "Lost Infinity Stones";
     public static final String VERSION = "1.15.4";
     public static final String CLIENT = "xol.lostinfinity.common.ClientProxy";
     public static final String COMMON = "xol.lostinfinity.common.CommonProxy";
-
     public static int getDecimalColorFromRGB(int r, int g, int b) {
         int R = Math.min(r, 255);
         int G = Math.min(g, 255);

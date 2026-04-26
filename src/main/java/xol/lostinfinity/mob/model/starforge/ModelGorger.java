@@ -1,19 +1,15 @@
 package xol.lostinfinity.mob.model.starforge;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/starforge/ModelGorger.class */
 public class ModelGorger extends ModelBase {
     private final ModelRenderer Body;
     private final ModelRenderer MouthL;
     private final ModelRenderer MouthR;
     private final ModelRenderer LeafL;
     private final ModelRenderer LeafR;
-
     public ModelGorger() {
         this.field_78090_t = 128;
         this.field_78089_u = 128;
@@ -54,7 +50,6 @@ public class ModelGorger extends ModelBase {
         this.LeafR.func_78793_a(-1.0f, -9.5f, 0.0f);
         this.LeafR.field_78804_l.add(new ModelBox(this.LeafR, 52, 85, -23.0f, -0.5f, -7.0f, 24, 1, 14, 0.0f, true));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.Body.func_78785_a(f5);
         this.MouthL.func_78785_a(f5);
@@ -62,13 +57,11 @@ public class ModelGorger extends ModelBase {
         this.LeafL.func_78785_a(f5);
         this.LeafR.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.MouthL.field_78808_h = (-0.35f) + (0.35f * MathHelper.func_76126_a(ageInTicks * 0.1f));
         this.MouthR.field_78808_h = -this.MouthL.field_78808_h;

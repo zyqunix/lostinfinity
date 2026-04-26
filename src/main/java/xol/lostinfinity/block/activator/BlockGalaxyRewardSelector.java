@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -21,13 +20,10 @@ import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.mob.entity.galaxy.EntityGalaxySpire;
 import xol.lostinfinity.util.coordinates.GalaxyCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockGalaxyRewardSelector.class */
 public class BlockGalaxyRewardSelector extends Block {
     public BlockGalaxyRewardSelector(String name, float hardness) {
         this(name, hardness, 1.0f);
     }
-
     public BlockGalaxyRewardSelector(String name, float hardness, float lilev) {
         super(Material.field_151576_e);
         func_149663_c(name);
@@ -39,7 +35,6 @@ public class BlockGalaxyRewardSelector extends Block {
         BlockInit.BLOCKS.add(this);
         ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(getRegistryName()));
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!worldIn.field_72995_K) {
             Block below = worldIn.func_180495_p(pos.func_177977_b()).func_177230_c();
@@ -101,7 +96,6 @@ public class BlockGalaxyRewardSelector extends Block {
         }
         return true;
     }
-
     private void replaceFloor(World world, AxisAlignedBB box, Block repblock, Block newblock, int size) {
         for (int blx = 0; blx < size; blx++) {
             for (int blz = 0; blz < size; blz++) {
@@ -112,10 +106,9 @@ public class BlockGalaxyRewardSelector extends Block {
             }
         }
     }
-
     private int lightToItem() {
         switch (this.field_149784_t) {
-            case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+            case TileEntityFusionTable.BOARD_COLUMNS :
                 return 3;
             case 9:
                 return 2;
@@ -125,7 +118,6 @@ public class BlockGalaxyRewardSelector extends Block {
                 return 0;
         }
     }
-
     private Block getMyBarrier(int style) {
         Block bl = BlockInit.astroBarrierBlue;
         switch (style) {
@@ -135,10 +127,10 @@ public class BlockGalaxyRewardSelector extends Block {
             case 3:
                 bl = BlockInit.astroBarrierPurple;
                 break;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 bl = BlockInit.astroBarrierYellow;
                 break;
-            case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+            case TileEntityFusionTable.BOARD_COLUMNS :
                 bl = BlockInit.astroBarrierGreen;
                 break;
             case 7:

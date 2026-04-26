@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
@@ -27,14 +26,11 @@ import net.minecraft.world.World;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.mob.entity.base.EntityMultiLivesTameable;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityPickleMan.class */
 public class EntityPickleMan extends EntityMultiLivesTameable implements IMaxAttack {
     private static final DataParameter<Float> SCALE = EntityDataManager.func_187226_a(EntityPickleMan.class, DataSerializers.field_187193_c);
     private int myLives;
     private float currentStepScale;
     private float addedTrueDamage;
-
     public EntityPickleMan(World worldIn) {
         super(worldIn);
         this.myLives = 5;
@@ -42,35 +38,28 @@ public class EntityPickleMan extends EntityMultiLivesTameable implements IMaxAtt
         this.addedTrueDamage = 0.0f;
         func_70105_a(1.2f, 2.5f);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultiLivesTameable
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(SCALE, Float.valueOf(1.0f));
     }
-
     public float getMyScale() {
         return ((Float) this.field_70180_af.func_187225_a(SCALE)).floatValue();
     }
-
     public void setMyScale(float f) {
         if (f > getMyScale()) {
             this.field_70180_af.func_187227_b(SCALE, Float.valueOf(f));
         }
     }
-
     public float getMyStepScale() {
         return this.currentStepScale;
     }
-
     public void addExtraLives(int lifeSet) {
         this.myLives += lifeSet;
     }
-
     public void addTrueDamageToAttacks(float damage) {
         this.addedTrueDamage += damage;
     }
-
     protected void func_184651_r() {
         this.field_70714_bg.func_75776_a(1, new EntityAISwimming(this));
         this.field_70714_bg.func_75776_a(3, new EntityAILeapAtTarget(this, 0.4f));
@@ -82,13 +71,11 @@ public class EntityPickleMan extends EntityMultiLivesTameable implements IMaxAtt
         this.field_70715_bh.func_75776_a(2, new EntityAIOwnerHurtTarget(this));
         this.field_70715_bh.func_75776_a(3, new EntityAIHurtByTarget(this, true, new Class[0]));
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.45d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(2500.0d);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -104,7 +91,6 @@ public class EntityPickleMan extends EntityMultiLivesTameable implements IMaxAtt
         }
         return false;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         this.field_70143_R = -1.0f;
@@ -130,33 +116,26 @@ public class EntityPickleMan extends EntityMultiLivesTameable implements IMaxAtt
             }
         }
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundEvents.field_187943_hq;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundEvents.field_187944_hr;
     }
-
     protected SoundEvent func_184639_G() {
         return null;
     }
-
     protected boolean func_70692_ba() {
         return func_70902_q() == null;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultiLivesTameable
     public boolean func_70601_bi() {
         return this.field_70170_p.func_175659_aa() != EnumDifficulty.PEACEFUL;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultiLivesTameable
     public EntityAgeable func_90011_a(EntityAgeable ageable) {
         return null;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultiLivesTameable
     protected int numberOfLives() {
         return this.myLives;

@@ -1,26 +1,19 @@
 package xol.lostinfinity.mob.entity.base;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.MoverType;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/base/EntityFlyingDeviant.class */
 public abstract class EntityFlyingDeviant extends EntityDeviantMob {
     protected float rawFlySpeed;
-
     public EntityFlyingDeviant(World worldIn) {
         super(worldIn);
         this.rawFlySpeed = 0.91f;
     }
-
     public void func_180430_e(float distance, float damageMultiplier) {
     }
-
     protected void func_184231_a(double y, boolean onGroundIn, IBlockState state, BlockPos pos) {
     }
-
     public void func_191986_a(float strafe, float vertical, float forward) {
         if (func_70090_H()) {
             func_191958_b(strafe, vertical, forward, 0.02f);
@@ -64,7 +57,6 @@ public abstract class EntityFlyingDeviant extends EntityDeviantMob {
         this.field_70721_aZ += (f22 - this.field_70721_aZ) * 0.4f;
         this.field_184619_aG += this.field_70721_aZ;
     }
-
     public boolean func_70617_f_() {
         return false;
     }

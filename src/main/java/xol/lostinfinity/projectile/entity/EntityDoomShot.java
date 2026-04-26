@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import java.util.Arrays;
 import java.util.List;
 import net.minecraft.entity.Entity;
@@ -10,19 +9,15 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.init.ParticleInit;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityDoomShot.class */
 public class EntityDoomShot extends EntityBaseThrowable {
     public EntityDoomShot(World par1World) {
         super(par1World);
         func_70105_a(0.75f, 0.75f);
     }
-
     public EntityDoomShot(World par1World, double par2, double par4, double par6) {
         super(par1World, par2, par4, par6);
         func_70105_a(0.75f, 0.75f);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -32,11 +27,9 @@ public class EntityDoomShot extends EntityBaseThrowable {
             func_70106_y();
         }
     }
-
     protected float func_70185_h() {
         return 0.05f;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     @SideOnly(Side.CLIENT)
     public void func_70071_h_() {

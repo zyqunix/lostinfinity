@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.model.starforge;
-
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.client.model.ModelBase;
@@ -8,8 +7,6 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/starforge/ModelClusterweed.class */
 public class ModelClusterweed extends ModelBase {
     private final ModelRenderer Orb;
     private final ModelRenderer OrbInner;
@@ -32,7 +29,6 @@ public class ModelClusterweed extends ModelBase {
     private final ModelRenderer Needle15;
     private final ModelRenderer Needle16;
     private List<ModelRenderer> needles = new ArrayList();
-
     public ModelClusterweed() {
         this.field_78090_t = 64;
         this.field_78089_u = 64;
@@ -130,7 +126,6 @@ public class ModelClusterweed extends ModelBase {
         this.needles.add(this.Needle15);
         this.needles.add(this.Needle16);
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.OrbInner2.func_78785_a(f5);
         this.Body.func_78785_a(f5);
@@ -159,13 +154,11 @@ public class ModelClusterweed extends ModelBase {
         this.Orb.func_78785_a(f5);
         GlStateManager.func_179084_k();
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         for (int i = 0; i < this.needles.size(); i++) {
             ModelRenderer need = this.needles.get(i);

@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.capability;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import net.minecraft.item.Item;
@@ -14,18 +13,14 @@ import net.minecraftforge.common.capabilities.ICapabilitySerializable;
 import net.minecraftforge.items.CapabilityItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
 import xol.lostinfinity.item.misc.ItemShipmentBox;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/capability/ShipmentBoxProvider.class */
 public class ShipmentBoxProvider implements ICapabilityProvider, ICapabilitySerializable<NBTBase> {
     private ItemStackHandler handler = new ItemStackHandler(28);
-
     public boolean hasCapability(@Nonnull Capability<?> capability, @Nullable EnumFacing facing) {
         if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
             return true;
         }
         return false;
     }
-
     @Nullable
     public <T> T getCapability(@Nonnull Capability<T> capability, @Nullable EnumFacing enumFacing) {
         if (capability == CapabilityItemHandler.ITEM_HANDLER_CAPABILITY) {
@@ -33,15 +28,12 @@ public class ShipmentBoxProvider implements ICapabilityProvider, ICapabilitySeri
         }
         return null;
     }
-
     public NBTBase serializeNBT() {
         return this.handler.serializeNBT();
     }
-
     public void deserializeNBT(NBTBase nbt) {
         this.handler.deserializeNBT((NBTTagCompound) nbt);
     }
-
     public static int getWeight(ItemStackHandler handler) {
         int weight = 0;
         if (handler == null) {
@@ -55,7 +47,6 @@ public class ShipmentBoxProvider implements ICapabilityProvider, ICapabilitySeri
         }
         return weight;
     }
-
     public static boolean transferItems(ItemStackHandler handler, NonNullList<ItemStack> invTo) {
         if (handler == null || invTo == null) {
             return false;
@@ -91,7 +82,6 @@ public class ShipmentBoxProvider implements ICapabilityProvider, ICapabilitySeri
         mergeStacks(invTo);
         return true;
     }
-
     private static void mergeStacks(NonNullList<ItemStack> inventory) {
         for (int i = 0; i < inventory.size(); i++) {
             if (inventory.get(i) != ItemStack.field_190927_a) {

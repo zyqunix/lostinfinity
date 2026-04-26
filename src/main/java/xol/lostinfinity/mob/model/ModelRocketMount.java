@@ -1,16 +1,12 @@
 package xol.lostinfinity.mob.model;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/ModelRocketMount.class */
 public class ModelRocketMount extends ModelBase {
     private final ModelRenderer Rocket;
     private final ModelRenderer fin_r1;
     private final ModelRenderer fin_r2;
-
     public ModelRocketMount() {
         this.field_78090_t = 64;
         this.field_78089_u = 64;
@@ -39,11 +35,9 @@ public class ModelRocketMount extends ModelBase {
         setRotationAngle(this.fin_r2, 0.0f, 0.0f, 2.3562f);
         this.fin_r2.field_78804_l.add(new ModelBox(this.fin_r2, 46, 5, 4.5f, -19.0f, -3.5f, 1, 7, 8, 0.0f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.Rocket.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;

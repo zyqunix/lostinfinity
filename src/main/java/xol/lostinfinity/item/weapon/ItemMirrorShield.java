@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -11,8 +10,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemMirrorShield.class */
 public class ItemMirrorShield extends Item {
     public ItemMirrorShield(String regName) {
         func_77637_a(TabsInit.TAB_INFINITYWEP);
@@ -20,7 +17,6 @@ public class ItemMirrorShield extends Item {
         func_77655_b(regName);
         ItemInit.ITEMS.add(this);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Aqua + "When held in the offhand slot, reflect 100% of max health damage taken.");

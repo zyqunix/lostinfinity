@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -13,30 +12,23 @@ import xol.lostinfinity.mob.entity.base.EntityParticleTrojan;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityFearBomb.class */
 public class EntityFearBomb extends EntityBaseThrowable {
     private boolean splitting;
-
     public EntityFearBomb(World par1World) {
         super(par1World);
         this.splitting = false;
     }
-
     public EntityFearBomb(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
         this.splitting = false;
     }
-
     public EntityFearBomb(World par1World, double par2, double par4, double par6) {
         super(par1World, par2, par4, par6);
         this.splitting = false;
     }
-
     public void setSplitting() {
         this.splitting = true;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -63,11 +55,9 @@ public class EntityFearBomb extends EntityBaseThrowable {
             func_70106_y();
         }
     }
-
     protected float func_70185_h() {
         return 0.05f;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void func_70071_h_() {
         super.func_70071_h_();

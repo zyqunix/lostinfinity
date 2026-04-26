@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import java.util.ArrayList;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -17,8 +16,6 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.mob.entity.base.EntityImmaterial;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityLuminousGuardianLaser.class */
 public class EntityLuminousGuardianLaser extends Entity implements IMaxAttack {
     private EntityLivingBase owner;
     private static final DataParameter<Float> TARGET_X = EntityDataManager.func_187226_a(EntityLuminousGuardianLaser.class, DataSerializers.field_187193_c);
@@ -29,7 +26,6 @@ public class EntityLuminousGuardianLaser extends Entity implements IMaxAttack {
     EntityPlayer playerOwner;
     private final double dist = 20.0d;
     public int counter;
-
     public EntityLuminousGuardianLaser(World worldIn) {
         super(worldIn);
         this.owner = null;
@@ -37,29 +33,24 @@ public class EntityLuminousGuardianLaser extends Entity implements IMaxAttack {
         this.dist = 20.0d;
         this.counter = 0;
     }
-
     protected void func_70088_a() {
         this.field_70180_af.func_187214_a(TARGET_X, Float.valueOf(0.0f));
         this.field_70180_af.func_187214_a(TARGET_Y, Float.valueOf(0.0f));
         this.field_70180_af.func_187214_a(TARGET_Z, Float.valueOf(0.0f));
         this.field_70180_af.func_187214_a(OWNER_ID, 0);
     }
-
     public void setOwnerID(int id) {
         this.field_70180_af.func_187227_b(OWNER_ID, Integer.valueOf(id));
     }
-
     public int getOwnerID() {
         return ((Integer) this.field_70180_af.func_187225_a(OWNER_ID)).intValue();
     }
-
     public Vec3d getTargetPos() {
         double x = ((Float) this.field_70180_af.func_187225_a(TARGET_X)).floatValue();
         double y = ((Float) this.field_70180_af.func_187225_a(TARGET_Y)).floatValue();
         double z = ((Float) this.field_70180_af.func_187225_a(TARGET_Z)).floatValue();
         return new Vec3d(x, y, z);
     }
-
     public void setTargetPos(Vec3d pos) {
         float xpos = (float) pos.field_72450_a;
         float ypos = (float) pos.field_72448_b;
@@ -68,15 +59,12 @@ public class EntityLuminousGuardianLaser extends Entity implements IMaxAttack {
         this.field_70180_af.func_187227_b(TARGET_Y, Float.valueOf(ypos));
         this.field_70180_af.func_187227_b(TARGET_Z, Float.valueOf(zpos));
     }
-
     public EntityLivingBase getOwner() {
         return this.owner;
     }
-
     public void setOwner(EntityLivingBase owner) {
         this.owner = owner;
     }
-
     public void func_70030_z() {
         super.func_70030_z();
         this.counter++;
@@ -103,7 +91,6 @@ public class EntityLuminousGuardianLaser extends Entity implements IMaxAttack {
         }
         spawnParticles();
     }
-
     private void damageTarget() {
         Vec3d dir = getTargetPos().func_178788_d(this.owner.func_174791_d()).func_72432_b();
         ArrayList<EntityLivingBase> hitEntities = new ArrayList<>();
@@ -126,7 +113,6 @@ public class EntityLuminousGuardianLaser extends Entity implements IMaxAttack {
             }
         }
     }
-
     private void spawnParticles() {
         int id = getOwnerID();
         Entity owner = this.field_70170_p.func_73045_a(id);
@@ -148,17 +134,13 @@ public class EntityLuminousGuardianLaser extends Entity implements IMaxAttack {
             }
         }
     }
-
     public double getDist() {
         return 20.0d;
     }
-
     protected void func_70037_a(NBTTagCompound compound) {
     }
-
     protected void func_70014_b(NBTTagCompound compound) {
     }
-
     public void setPlayerOwner(EntityPlayer player) {
         this.playerOwner = player;
     }

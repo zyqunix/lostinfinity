@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.contest.operator;
-
 import java.util.UUID;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.Rotation;
@@ -13,20 +12,16 @@ import xol.lostinfinity.dimension.util.WorldGenStructure;
 import xol.lostinfinity.mob.entity.contest.EntityBloodhunter;
 import xol.lostinfinity.mob.entity.contest.controller.EntityControllerHunters;
 import xol.lostinfinity.util.coordinates.ContestCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/contest/operator/EntityOperatorHunters.class */
 public class EntityOperatorHunters extends EntityOperatorBase {
     public EntityOperatorHunters(World worldIn) {
         super(worldIn);
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected void arenaClear() {
         for (EntityBloodhunter hunter : this.field_70170_p.func_72872_a(EntityBloodhunter.class, getArenaAABB())) {
             hunter.func_70106_y();
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected void startGame() {
         EntityControllerHunters gamehologram = new EntityControllerHunters(this.field_70170_p);
@@ -46,17 +41,14 @@ public class EntityOperatorHunters extends EntityOperatorBase {
         this.field_70170_p.func_72838_d(gamehologram);
         this.contenders.clear();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected AxisAlignedBB getArenaAABB() {
         return ContestCoordinates.huntersArenaAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected AxisAlignedBB getLobbyAABB() {
         return ContestCoordinates.huntersLobbyAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected void generateArena() {
         ChunkPairing chunk = ContestCoordinates.huntersGenLoc();
@@ -69,11 +61,9 @@ public class EntityOperatorHunters extends EntityOperatorBase {
         new WorldGenStructure(randomHuntersGame()).generateWithRotation(this.field_70170_p, this.field_70146_Z, new BlockPos(posX + 32, 22, posZ + 32), Rotation.CLOCKWISE_180);
         new WorldGenStructure(randomHuntersGame()).generateWithRotation(this.field_70170_p, this.field_70146_Z, new BlockPos(posX, 22, posZ + 32), Rotation.COUNTERCLOCKWISE_90);
     }
-
     private double startingOffset() {
         return 2.0d * ((-0.5d) + this.field_70146_Z.nextDouble());
     }
-
     private String randomHuntersGame() {
         int game_pick = this.field_70146_Z.nextInt(7);
         return "contest/contest_hunters_game" + (game_pick + 1);

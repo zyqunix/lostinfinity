@@ -1,5 +1,4 @@
 package xol.lostinfinity.util.compatibility.jei;
-
 import java.util.Arrays;
 import javax.annotation.Nonnull;
 import mezz.jei.api.IGuiHelper;
@@ -74,8 +73,6 @@ import xol.lostinfinity.util.compatibility.jei.trades.zirconia.oyster.OysterTrad
 import xol.lostinfinity.util.compatibility.jei.trades.zirconia.oyster.OysterTradeWrapper;
 import xol.lostinfinity.util.compatibility.jei.trades.zirconia.rosewood.RosewoodTradeCategory;
 import xol.lostinfinity.util.compatibility.jei.trades.zirconia.rosewood.RosewoodTradeWrapper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/compatibility/jei/JEICompatibility.class */
 @JEIPlugin
 public class JEICompatibility implements IModPlugin {
     public void registerCategories(@Nonnull IRecipeCategoryRegistration registry) {
@@ -115,7 +112,6 @@ public class JEICompatibility implements IModPlugin {
         registry.addRecipeCategories(new IRecipeCategory[]{new OysterTradeCategory(guiHelper)});
         registry.addRecipeCategories(new IRecipeCategory[]{new RosewoodTradeCategory(guiHelper)});
     }
-
     public void register(@Nonnull IModRegistry registry) {
         registry.getIngredientRegistry();
         IJeiHelpers jeiHelpers = registry.getJeiHelpers();

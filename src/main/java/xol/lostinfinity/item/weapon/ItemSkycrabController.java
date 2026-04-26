@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import java.util.UUID;
 import javax.annotation.Nullable;
@@ -24,14 +23,11 @@ import xol.lostinfinity.item.classify.ICustomRaytrace;
 import xol.lostinfinity.item.classify.IModeSelect;
 import xol.lostinfinity.mob.entity.misc.EntitySkycrab;
 import xol.lostinfinity.util.data.CustomRayTraceResult;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemSkycrabController.class */
 public class ItemSkycrabController extends ItemCooldown implements IModeSelect, ICustomRaytrace {
     public ItemSkycrabController(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         EntitySkycrab existing;
         ItemStack stack = playerIn.func_184586_b(handIn);
@@ -86,23 +82,19 @@ public class ItemSkycrabController extends ItemCooldown implements IModeSelect, 
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     private boolean isExistingCrab(UUID idToCheck) {
         return (idToCheck == null || idToCheck.equals(UUID.fromString("00000000-0000-0000-0000-000000000000"))) ? false : true;
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 750;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Summons a Sky Crab to defend an area.");
         tooltip.add(TextFmt.Aqua + "Switch modes to control your Sky Crab.");
         tooltip.add(TextFmt.Italic + "The Sky Crab obliterates targets that it detects.");
     }
-
     @Override // xol.lostinfinity.item.classify.IModeSelect
     public void modeUpdate(ItemStack stack, EntityPlayer player) {
         if (!stack.func_77942_o()) {

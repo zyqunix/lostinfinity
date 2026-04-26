@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.ai;
-
 import net.minecraft.entity.EntityCreature;
 import net.minecraft.entity.ai.EntityAIAttackMelee;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
@@ -14,8 +13,6 @@ import net.minecraft.entity.monster.EntityIronGolem;
 import net.minecraft.entity.monster.EntityPigZombie;
 import net.minecraft.entity.passive.EntityVillager;
 import net.minecraft.entity.player.EntityPlayer;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/ai/IBasicAI.class */
 public interface IBasicAI {
     default void initBasicTasks(EntityCreature entityIn) {
         entityIn.field_70714_bg.func_75776_a(0, new EntityAISwimming(entityIn));

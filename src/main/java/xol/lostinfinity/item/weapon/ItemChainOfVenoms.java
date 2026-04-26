@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.Nullable;
@@ -26,17 +25,13 @@ import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.CustomRayTraceResult;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemChainOfVenoms.class */
 public class ItemChainOfVenoms extends ItemCooldownSword implements IMaxAttack, ICustomRaytrace {
     private static final int chainCount = 4;
     private static final int range = 10;
-
     public ItemChainOfVenoms(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
     }
-
     private ArrayList<EntityLivingBase> findChainEnemies(EntityLivingBase target, EntityPlayer playerIn, World worldIn) {
         ArrayList<EntityLivingBase> entitiesHit = new ArrayList<>();
         ArrayList<EntityLivingBase> entitiesVisited = new ArrayList<>();
@@ -65,7 +60,6 @@ public class ItemChainOfVenoms extends ItemCooldownSword implements IMaxAttack, 
         }
         return entitiesHit;
     }
-
     private void dealChainDamage(EntityPlayer playerIn, ArrayList<EntityLivingBase> entitiesHit) {
         for (EntityLivingBase target : entitiesHit) {
             int potion_count = target.func_70651_bq().size();
@@ -74,7 +68,6 @@ public class ItemChainOfVenoms extends ItemCooldownSword implements IMaxAttack, 
             }
         }
     }
-
     private ArrayList<EntityChainOfVenomsAttack> createChainRender(World worldIn, EntityPlayer player, ArrayList<EntityLivingBase> entitiesHit) {
         ArrayList<EntityChainOfVenomsAttack> attackEntities = new ArrayList<>();
         if (entitiesHit != null && entitiesHit.size() > 1) {
@@ -97,7 +90,6 @@ public class ItemChainOfVenoms extends ItemCooldownSword implements IMaxAttack, 
         }
         return attackEntities;
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         CustomRayTraceResult trace_result;
         ItemStack stack = playerIn.func_184586_b(handIn);
@@ -120,7 +112,6 @@ public class ItemChainOfVenoms extends ItemCooldownSword implements IMaxAttack, 
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     private void renderChains(World worldIn, ArrayList<EntityChainOfVenomsAttack> attackEntities) {
         if (attackEntities != null) {
             for (EntityChainOfVenomsAttack attackEntity : attackEntities) {
@@ -128,12 +119,10 @@ public class ItemChainOfVenoms extends ItemCooldownSword implements IMaxAttack, 
             }
         }
     }
-
     @Override // xol.lostinfinity.item.weapon.ItemCooldownSword
     protected int getCooldown() {
         return 300;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Fires a projectile that chains between nearby enemies, dealing damage based on potion effects.");

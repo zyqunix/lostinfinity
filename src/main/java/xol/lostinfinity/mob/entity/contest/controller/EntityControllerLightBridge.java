@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.contest.controller;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,8 +15,6 @@ import xol.lostinfinity.dimension.data.LightBridgeNode;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.util.coordinates.ContestCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/contest/controller/EntityControllerLightBridge.class */
 public class EntityControllerLightBridge extends EntityControllerBase {
     private Vec3i dirRight;
     private Vec3i dirUp;
@@ -26,7 +23,6 @@ public class EntityControllerLightBridge extends EntityControllerBase {
     private boolean game;
     private BlockPos ref;
     private HashMap<UUID, BlockPos> respawnPositions;
-
     public EntityControllerLightBridge(World worldIn) {
         super(worldIn);
         this.dirRight = new Vec3i(0, 0, 1);
@@ -36,12 +32,10 @@ public class EntityControllerLightBridge extends EntityControllerBase {
         this.ref = new BlockPos(0, 0, 0);
         func_70105_a(5.0f, 12.0f);
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     public AxisAlignedBB getArenaAABB() {
         return ContestCoordinates.lightBridgeArenaAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase, xol.lostinfinity.mob.entity.base.EntityImmaterial
     public void func_70636_d() {
         super.func_70636_d();
@@ -94,7 +88,6 @@ public class EntityControllerLightBridge extends EntityControllerBase {
             }
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     public void registerTouch(EntityPlayer player) {
         List<UUID> toRemove = new ArrayList<>();
@@ -105,15 +98,12 @@ public class EntityControllerLightBridge extends EntityControllerBase {
         }
         removeMultiplePlayers(toRemove);
     }
-
     private int getBridgeX(EntityPlayer player) {
         return player.func_180425_c().func_177952_p() - this.ref.func_177952_p();
     }
-
     private int getBridgeY(EntityPlayer player) {
         return player.func_180425_c().func_177958_n() - this.ref.func_177958_n();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected void playerStatusCheck() {
         boolean end_flag = false;
@@ -132,7 +122,6 @@ public class EntityControllerLightBridge extends EntityControllerBase {
             endGame();
         }
     }
-
     private void respawn(UUID pl_id) {
         if (this.respawnPositions.get(pl_id) != null) {
             BlockPos respawnPos = this.respawnPositions.get(pl_id);
@@ -140,12 +129,10 @@ public class EntityControllerLightBridge extends EntityControllerBase {
             messageContenders(TextFmt.Red, String.format("%s has fallen", this.field_70170_p.func_152378_a(pl_id).func_70005_c_()));
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected BlockPos getSnapPos() {
         return ContestCoordinates.lightBridgeControllerPos();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected void rewardPlayer(EntityPlayer player, int placement) {
         BlockPos teleTo = ContestCoordinates.lightBridgeLobbyPos();
@@ -153,7 +140,6 @@ public class EntityControllerLightBridge extends EntityControllerBase {
         int reward_count = placement == this.contenderCount - 1 ? 20 * this.contenderCount : 0;
         player.func_191521_c(new ItemStack(ItemInit.zirconiaOyster, reward_count));
     }
-
     public void setBridgePositions(BlockPos ref, int columns, int rows, World worldIn) {
         ArrayList<LightBridgeNode> bridge;
         this.bridgeMap = new LightBridgeNode[columns][rows];
@@ -182,18 +168,15 @@ public class EntityControllerLightBridge extends EntityControllerBase {
             }
         }
     }
-
     private BlockPos getBridgeNodePos(LightBridgeNode bridgeNode) {
         return this.ref.func_177982_a((this.dirRight.func_177958_n() * bridgeNode.getX()) + (this.dirUp.func_177958_n() * bridgeNode.getY()), 0, (this.dirRight.func_177952_p() * bridgeNode.getX()) + (this.dirUp.func_177952_p() * bridgeNode.getY()));
     }
-
     private LightBridgeNode getNodeAtLocation(int x, int y) {
         if (x >= 0 && x < this.bridgeMap.length && y >= 0 && y < this.bridgeMap[x].length) {
             return this.bridgeMap[x][y];
         }
         return null;
     }
-
     public void setRespawns(HashMap<UUID, BlockPos> respawnPositions) {
         this.respawnPositions = respawnPositions;
     }

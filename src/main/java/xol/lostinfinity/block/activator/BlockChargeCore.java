@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -23,11 +22,8 @@ import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.mob.entity.misc.EntityMemPuzzleMerchant;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockChargeCore.class */
 public class BlockChargeCore extends Block {
     private boolean hard_mode;
-
     public BlockChargeCore(String name, boolean hard) {
         super(Material.field_151573_f);
         this.hard_mode = false;
@@ -41,14 +37,12 @@ public class BlockChargeCore extends Block {
         BlockInit.BLOCKS.add(this);
         ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(getRegistryName()));
     }
-
     private boolean validInput(Item item) {
         if (this.hard_mode) {
             return item.equals(ItemInit.unpoweredEmberstar);
         }
         return item.equals(ItemInit.unpoweredStarcrystal);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!playerIn.func_70093_af() && !worldIn.field_72995_K && validInput(playerIn.func_184586_b(hand).func_77973_b())) {
             Random rand = worldIn.field_73012_v;

@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import java.util.ArrayList;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -12,17 +11,13 @@ import xol.lostinfinity.block.basic.BlockBasicBoolState;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.mob.entity.boss.EntityDuskerQueen;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockTerrorGlow.class */
 public class BlockTerrorGlow extends BlockBasicBoolState {
     public BlockTerrorGlow(String name) {
         super(name);
     }
-
     private static boolean validInput(ItemStack stack) {
         return stack.func_77973_b().equals(ItemInit.quickflameSolution);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!playerIn.func_70093_af()) {
             if (validInput(playerIn.func_184586_b(hand)) && !worldIn.field_72995_K && state == BlockInit.terrorGlow.func_176203_a(0)) {

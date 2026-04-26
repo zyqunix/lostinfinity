@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
@@ -34,15 +33,12 @@ import xol.lostinfinity.item.classify.ICustomRaytrace;
 import xol.lostinfinity.item.classify.ISwitchModels;
 import xol.lostinfinity.mob.entity.base.EntityDeviantMob;
 import xol.lostinfinity.util.data.CustomRayTraceResult;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemBranchOfLife.class */
 public class ItemBranchOfLife extends ItemCooldown implements ICustomRaytrace, ISwitchModels {
     public ItemBranchOfLife(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
         setModelSwitch("deviation", this, 4);
     }
-
     public boolean onLeftClickEntity(ItemStack stack, EntityPlayer player, Entity entity) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
@@ -83,7 +79,7 @@ public class ItemBranchOfLife extends ItemCooldown implements ICustomRaytrace, I
                 case 2:
                     msg = "Entity cannot have a custom name.";
                     break;
-                case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+                case TileEntityFusionTable.BOARD_ROWS :
                     msg = "Already have " + entity.func_70005_c_() + " stored.";
                     break;
                 case 5:
@@ -98,7 +94,6 @@ public class ItemBranchOfLife extends ItemCooldown implements ICustomRaytrace, I
         }
         return true;
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         CustomRayTraceResult trace_result;
         ItemStack stack = playerIn.func_184586_b(handIn);
@@ -139,12 +134,10 @@ public class ItemBranchOfLife extends ItemCooldown implements ICustomRaytrace, I
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 100;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Aqua + "Permanently stores the DNA of fully super-mutated deviants.");

@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.starforge;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
@@ -13,18 +12,14 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.mob.ai.IBasicAI;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/starforge/EntityEyeSlug.class */
 public class EntityEyeSlug extends EntityMob implements IMaxAttack, IBasicAI {
     public EntityEyeSlug(World worldIn) {
         super(worldIn);
         func_70105_a(1.0f, 1.0f);
     }
-
     protected void func_184651_r() {
         initBasicTasks(this);
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(1300.0d);
@@ -32,14 +27,12 @@ public class EntityEyeSlug extends EntityMob implements IMaxAttack, IBasicAI {
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.15d);
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         if (!this.field_70170_p.field_72995_K && this.field_70170_p.func_82736_K().func_82766_b("mobGriefing") && this.field_70170_p.func_180495_p(func_180425_c().func_177977_b()).func_185914_p() && this.field_70170_p.func_180495_p(func_180425_c()).func_185904_a().func_76222_j()) {
             this.field_70170_p.func_175656_a(func_180425_c(), BlockInit.acidicGel.func_176223_P());
         }
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -48,35 +41,27 @@ public class EntityEyeSlug extends EntityMob implements IMaxAttack, IBasicAI {
         }
         return false;
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.STARFORGE_EYESLUG_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.STARFORGE_EYESLUG_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundInit.STARFORGE_EYESLUG_AMBIENT;
     }
-
     protected boolean func_70692_ba() {
         return false;
     }
-
     public boolean func_70814_o() {
         return true;
     }
-
     public int func_70641_bl() {
         return 1;
     }
-
     public boolean func_70601_bi() {
         return this.field_70170_p.func_175659_aa() != EnumDifficulty.PEACEFUL;
     }
-
     protected ResourceLocation func_184647_J() {
         return LootTableRegistry.ENTITIES_STARFORGE_EYE_SLUG;
     }

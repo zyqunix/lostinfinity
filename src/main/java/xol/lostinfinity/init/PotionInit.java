@@ -1,10 +1,7 @@
 package xol.lostinfinity.init;
-
 import net.minecraft.potion.Potion;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
 import xol.lostinfinity.util.PotionBasic;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/init/PotionInit.class */
 public class PotionInit {
     public static final Potion SECURITY_CLEARANCE = new PotionBasic("security_clearance", false, 16711757, 0, 0);
     public static final Potion IRONHEART = new PotionBasic("ironheart", false, 16711757, 1, 0);
@@ -45,7 +42,6 @@ public class PotionInit {
     public static final Potion FEARED = new PotionBasic("feared", false, 16711757, 36, 0);
     public static final Potion TERRIFIED = new PotionBasic("terrified", false, 16711757, 37, 0);
     public static final Potion SUPERCHARGED = new PotionBasic("supercharged", false, 16711757, 38, 0);
-
     public static void registerPotions() {
         ForgeRegistries.POTIONS.register(SECURITY_CLEARANCE);
         ForgeRegistries.POTIONS.register(IRONHEART);

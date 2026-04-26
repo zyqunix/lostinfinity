@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -21,19 +20,15 @@ import xol.lostinfinity.item.basics.ItemChanneling;
 import xol.lostinfinity.mob.entity.misc.EntityRisingPhantom;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemRiseOfPhantoms.class */
 public class ItemRiseOfPhantoms extends ItemChanneling {
     private static final float MIN_VELOCITY = 0.1f;
     private static final float MAX_VELOCITY = 0.5f;
     private static final float MIN_DAMAGE = 0.0f;
     private static final float MAX_DAMAGE = 10.0f;
-
     public ItemRiseOfPhantoms(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemChanneling
     public void chargeTick(World worldIn, EntityPlayer player, EnumHand hand, ItemStack stack, int chargeTime) {
         if (worldIn.field_72995_K) {
@@ -65,13 +60,12 @@ public class ItemRiseOfPhantoms extends ItemChanneling {
                 case 3:
                     worldIn.func_184133_a((EntityPlayer) null, phantom.func_180425_c(), SoundInit.WHISPER_4, SoundCategory.PLAYERS, 0.25f, 0.8f + (worldIn.field_73012_v.nextFloat() * 0.4f));
                     break;
-                case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+                case TileEntityFusionTable.BOARD_ROWS :
                     worldIn.func_184133_a((EntityPlayer) null, phantom.func_180425_c(), SoundInit.WHISPER_5, SoundCategory.PLAYERS, 0.25f, 0.8f + (worldIn.field_73012_v.nextFloat() * 0.4f));
                     break;
             }
         }
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Light_Purple + "Raises phantoms around you.");
@@ -81,7 +75,6 @@ public class ItemRiseOfPhantoms extends ItemChanneling {
         tooltip.add(TextFmt.Red + "The longer you channel, the more lives phantoms take (max 10).");
         tooltip.add(TextFmt.Dark_Aqua + "Darkborn");
     }
-
     private float spawnChance(int chargeTime) {
         return Math.min(1.0f, chargeTime / 200.0f);
     }

@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -18,8 +17,6 @@ import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.util.coordinates.CelestialCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockGuideButton.class */
 public class BlockGuideButton extends Block {
     public BlockGuideButton(String name) {
         super(Material.field_151573_f);
@@ -32,7 +29,6 @@ public class BlockGuideButton extends Block {
         BlockInit.BLOCKS.add(this);
         ItemInit.ITEMS.add(new ItemBlock(this).setRegistryName(getRegistryName()));
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         int side;
         if (!worldIn.field_72995_K) {
@@ -134,7 +130,6 @@ public class BlockGuideButton extends Block {
         }
         return true;
     }
-
     private int trackStyle(Block block) {
         if (block instanceof BlockTrackTrigger) {
             return 2;

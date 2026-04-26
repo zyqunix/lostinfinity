@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.tool;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -24,8 +23,6 @@ import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.basics.ItemBasic;
 import xol.lostinfinity.item.classify.IHeldTick;
 import xol.lostinfinity.util.Reference;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/tool/ItemCloakingDevice.class */
 public class ItemCloakingDevice extends ItemBasic implements IHeldTick {
     public ItemCloakingDevice(String regName) {
         super(regName, TabsInit.TAB_AUXWEP);
@@ -35,14 +32,12 @@ public class ItemCloakingDevice extends ItemBasic implements IHeldTick {
             }
         });
     }
-
     public static float getCloakingProperty(ItemStack stack, @Nullable EntityLivingBase entityIn) {
         if (entityIn != null && !stack.func_190926_b() && (stack.func_77973_b() instanceof ItemCloakingDevice) && stack.func_77942_o() && stack.func_77978_p().func_74767_n("Cloaking")) {
             return 0.1f;
         }
         return 0.0f;
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (!stack.func_77942_o()) {
@@ -60,7 +55,6 @@ public class ItemCloakingDevice extends ItemBasic implements IHeldTick {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Toggle a cloaking mode that avoids radar detection.");
@@ -72,7 +66,6 @@ public class ItemCloakingDevice extends ItemBasic implements IHeldTick {
             }
         }
     }
-
     @Override // xol.lostinfinity.item.classify.IHeldTick
     public void heldTick(EntityPlayer player, EnumHand hand, ItemStack stack) {
         if (player.field_70173_aa % 10 == 0 && stack.func_77942_o() && stack.func_77978_p().func_74767_n("Cloaking")) {

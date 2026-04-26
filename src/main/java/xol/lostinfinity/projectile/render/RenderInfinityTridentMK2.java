@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.render;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -9,29 +8,20 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import org.lwjgl.opengl.GL11;
 import xol.lostinfinity.mob.model.item.ModelInfinityTrident;
 import xol.lostinfinity.projectile.entity.EntityInfinityTridentMK2;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/render/RenderInfinityTridentMK2.class */
 @SideOnly(Side.CLIENT)
 public class RenderInfinityTridentMK2<T extends EntityInfinityTridentMK2> extends Render<T> {
     public static final ResourceLocation TEXTURES = new ResourceLocation("lostinfinity:textures/entity/infinity_trident_mk2.png");
     private ModelBase model;
-
     public RenderInfinityTridentMK2(RenderManager renderManagerIn) {
         super(renderManagerIn);
         this.model = new ModelInfinityTrident();
     }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX INFO: renamed from: getEntityTexture, reason: merged with bridge method [inline-methods] */
     public ResourceLocation func_110775_a(T entity) {
         return getCustomTexture(entity);
     }
-
     private ResourceLocation getCustomTexture(EntityInfinityTridentMK2 entity) {
         return TEXTURES;
     }
-
-    /* JADX INFO: renamed from: doRender, reason: merged with bridge method [inline-methods] */
     public void func_76986_a(T entity, double x, double y, double z, float yaw, float partialTick) {
         GL11.glPushMatrix();
         func_110776_a(TEXTURES);

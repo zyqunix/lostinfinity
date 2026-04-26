@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.harvest;
-
 import java.util.Iterator;
 import java.util.Random;
 import net.minecraft.block.state.IBlockState;
@@ -14,18 +13,14 @@ import xol.lostinfinity.block.activator.BlockRadionPillar;
 import xol.lostinfinity.block.basic.BlockBasicBoolState;
 import xol.lostinfinity.block.tileentity.TileEntityFusionTable;
 import xol.lostinfinity.init.SoundInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/harvest/BlockRadionOre.class */
 public class BlockRadionOre extends BlockBasicBoolState {
     private static final boolean DEBUG = true;
-
     public BlockRadionOre(String name) {
         super(name);
         func_149675_a(true);
         func_149711_c(3.0f);
         func_149752_b(5.0f);
     }
-
     public void func_180650_b(World world, BlockPos pos, IBlockState state, Random rand) {
         if (!world.field_72995_K) {
             Iterable<BlockPos> nearblocks = BlockPos.func_177980_a(pos.func_177982_a(-3, -3, -3), pos.func_177982_a(3, 3, 3));
@@ -42,11 +37,9 @@ public class BlockRadionOre extends BlockBasicBoolState {
             }
         }
     }
-
     public Item func_180660_a(IBlockState state, Random rand, int fortune) {
         return ItemStack.field_190927_a.func_77973_b();
     }
-
     public void func_176206_d(World worldIn, BlockPos pos, IBlockState state) {
         if (!worldIn.field_72995_K && !worldIn.func_184137_a(pos.func_177958_n(), pos.func_177956_o(), pos.func_177952_p(), 15.0d, false).func_184812_l_()) {
             worldIn.func_175656_a(pos, func_176203_a(0));
@@ -75,7 +68,7 @@ public class BlockRadionOre extends BlockBasicBoolState {
             double centerY = ((double) pos.func_177956_o()) + 0.5d;
             double centerZ = ((double) pos.func_177952_p()) + 0.5d;
             switch (AnonymousClass1.$SwitchMap$net$minecraft$util$EnumFacing[facing.ordinal()]) {
-                case DEBUG /* 1 */:
+                case DEBUG :
                     for (int i = 0; i < 15; i += DEBUG) {
                         double offSetX = worldIn.field_73012_v.nextBoolean() ? worldIn.field_73012_v.nextDouble() % 0.8d : -(worldIn.field_73012_v.nextDouble() % 0.8d);
                         double offsetY = worldIn.field_73012_v.nextBoolean() ? worldIn.field_73012_v.nextDouble() % 0.5d : -(worldIn.field_73012_v.nextDouble() % 0.5d);
@@ -96,7 +89,7 @@ public class BlockRadionOre extends BlockBasicBoolState {
                         worldIn.func_175688_a(EnumParticleTypes.DRAGON_BREATH, centerX - (((double) worldIn.field_73012_v.nextFloat()) % 0.8d), centerY + offsetY3, centerZ + offSetZ, 0.0d, 0.0d, 0.0d, new int[0]);
                     }
                     break;
-                case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+                case TileEntityFusionTable.BOARD_ROWS :
                     for (int i4 = 0; i4 < 15; i4 += DEBUG) {
                         double offSetZ2 = worldIn.field_73012_v.nextBoolean() ? worldIn.field_73012_v.nextDouble() % 0.8d : -(worldIn.field_73012_v.nextDouble() % 0.8d);
                         double offsetY4 = worldIn.field_73012_v.nextBoolean() ? worldIn.field_73012_v.nextDouble() % 0.5d : -(worldIn.field_73012_v.nextDouble() % 0.5d);
@@ -106,12 +99,8 @@ public class BlockRadionOre extends BlockBasicBoolState {
             }
         }
     }
-
-    /* JADX INFO: renamed from: xol.lostinfinity.block.harvest.BlockRadionOre$1, reason: invalid class name */
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/harvest/BlockRadionOre$1.class */
-    static /* synthetic */ class AnonymousClass1 {
-        static final /* synthetic */ int[] $SwitchMap$net$minecraft$util$EnumFacing = new int[EnumFacing.values().length];
-
+    static  class AnonymousClass1 {
+        static final  int[] $SwitchMap$net$minecraft$util$EnumFacing = new int[EnumFacing.values().length];
         static {
             try {
                 $SwitchMap$net$minecraft$util$EnumFacing[EnumFacing.NORTH.ordinal()] = BlockRadionOre.DEBUG;

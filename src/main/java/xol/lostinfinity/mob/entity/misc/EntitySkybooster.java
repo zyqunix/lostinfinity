@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
@@ -11,17 +10,13 @@ import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.dimension.util.DimensionActivator;
 import xol.lostinfinity.init.DimensionInit;
 import xol.lostinfinity.util.coordinates.ContestCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntitySkybooster.class */
 public class EntitySkybooster extends EntityLiving {
     private float scale;
     private EntityPlayer owner;
     private int timer;
-
     public float getMyScale() {
         return this.scale;
     }
-
     public EntitySkybooster(World worldIn) {
         super(worldIn);
         this.scale = 1.0f;
@@ -30,11 +25,9 @@ public class EntitySkybooster extends EntityLiving {
         func_70105_a(1.0f, 1.0f);
         func_184224_h(true);
     }
-
     public void setOwner(EntityPlayer play) {
         this.owner = play;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         this.field_70143_R = -1.0f;

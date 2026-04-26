@@ -1,5 +1,4 @@
 package xol.lostinfinity.init;
-
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.block.Block;
@@ -250,8 +249,6 @@ import xol.lostinfinity.block.misc.BlockViralGrowth;
 import xol.lostinfinity.block.misc.BlockVoidVacuum;
 import xol.lostinfinity.block.misc.BlockWeaverWeb;
 import xol.lostinfinity.gui.GuiHandler;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/init/BlockInit.class */
 public class BlockInit {
     public static final List<Block> BLOCKS = new ArrayList();
     public static final Block arenaBrickBlue = new BlockBasic("arena_brick_blue");
@@ -1083,13 +1080,11 @@ public class BlockInit {
     public static final Block cellCharger = new BlockCellCharger("cell_charger");
     public static final Block sunstoneOre = new BlockSunstoneOre("sunstone_ore");
     public static final Block blightedCore = new BlockBlightedCore("blighted_core");
-
     public static Block getRandomOre(World world) {
         Block[] ores = {oreEmberium, oreHextorium, oreCrystonium, oreAstrallium, oreKylaxium, oreVellorium, oreIncadium, oreNoxerium, oreolysium, oreDetherium, oreXerovium, orePhytrosium};
         int block = world.field_73012_v.nextInt(ores.length);
         return ores[block];
     }
-
     public static void objectPassing() {
         factoryPlatformHalf.setMySlab((BlockBasicSlab) factoryPlatformHalf);
         gloglobes.setSeedCropSoil(ItemInit.glowingSeeds, ItemInit.glowingGlobes, poweredCrystallizedSoil);

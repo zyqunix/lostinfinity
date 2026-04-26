@@ -1,10 +1,7 @@
 package xol.lostinfinity.util.load;
-
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.LootTableList;
 import xol.lostinfinity.util.Reference;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/load/LootTableRegistry.class */
 public class LootTableRegistry {
     public static final ResourceLocation ENTITIES_DEVIANTEVOKER = LootTableList.func_186375_a(new ResourceLocation(Reference.MODID, "deviantevoker"));
     public static final ResourceLocation ENTITIES_DEVIANTCOW = LootTableList.func_186375_a(new ResourceLocation(Reference.MODID, "deviantcow"));

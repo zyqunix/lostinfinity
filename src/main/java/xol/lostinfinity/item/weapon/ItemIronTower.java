@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -22,8 +21,6 @@ import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.classify.ICooldown;
 import xol.lostinfinity.item.classify.IHitReactive;
 import xol.lostinfinity.item.classify.IMaxReducible;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemIronTower.class */
 public class ItemIronTower extends Item implements IMaxReducible, IHitReactive {
     public ItemIronTower(String regName) {
         func_77637_a(TabsInit.TAB_AUXWEP);
@@ -31,18 +28,15 @@ public class ItemIronTower extends Item implements IMaxReducible, IHitReactive {
         func_77655_b(regName);
         ItemInit.ITEMS.add(this);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Light_Purple + "When held, reduces max health damage taken by 30%.");
         tooltip.add(TextFmt.Aqua + "When reducing damage, advance ALL cooldowns in your hotbar by 30%.");
     }
-
     @Override // xol.lostinfinity.item.classify.IMaxReducible
     public float reduceMaxDamage(EntityPlayer player, boolean isMainHand, float damage, float reductionMultiplier, ItemStack stack) {
         return reductionMultiplier - 0.3f;
     }
-
     @Override // xol.lostinfinity.item.classify.IHitReactive
     public void hitReaction(EntityPlayer player, Entity attacker, float damage, ItemStack stack) {
         boolean didSound = false;

@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.contest.controller;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -19,8 +18,6 @@ import xol.lostinfinity.block.tileentity.TileEntityFusionTable;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.util.coordinates.ContestCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/contest/controller/EntityControllerBattleSnakes.class */
 public class EntityControllerBattleSnakes extends EntityControllerBase {
     private static final Vec3i dirRight = new Vec3i(1, 0, 0);
     private static final Vec3i dirUp = new Vec3i(0, 0, 1);
@@ -29,8 +26,6 @@ public class EntityControllerBattleSnakes extends EntityControllerBase {
     ArrayList<BattleSnake> snakes;
     HashMap<UUID, BattleSnake> snakeMap;
     HashMap<UUID, BlockPos> controllerMap;
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/contest/controller/EntityControllerBattleSnakes$BattleSnake.class */
     private class BattleSnake {
         private UUID playerID;
         private int num;
@@ -41,48 +36,38 @@ public class EntityControllerBattleSnakes extends EntityControllerBase {
         private SnakeNode tail;
         private boolean isDead;
         private boolean turned;
-
-        /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/contest/controller/EntityControllerBattleSnakes$BattleSnake$SnakeNode.class */
         private class SnakeNode {
             private BlockPos pos;
             private SnakeNode next;
             private SnakeNode prev;
-
             private SnakeNode(BlockPos pos) {
                 this.pos = null;
                 this.next = null;
                 this.prev = null;
                 setPos(pos);
             }
-
             public void setPos(BlockPos pos) {
                 this.pos = new BlockPos(pos);
             }
-
             public BlockPos getPos() {
                 return this.pos;
             }
-
             public void setNext(SnakeNode next) {
                 this.next = next;
                 if (next != null) {
                     next.setPrev(this);
                 }
             }
-
             public void setPrev(SnakeNode prev) {
                 this.prev = prev;
             }
-
             public SnakeNode getPrev() {
                 return this.prev;
             }
-
             public SnakeNode getNext() {
                 return this.next;
             }
         }
-
         private BattleSnake(UUID playerID, int num) {
             this.playerID = null;
             this.num = -1;
@@ -97,30 +82,25 @@ public class EntityControllerBattleSnakes extends EntityControllerBase {
             this.num = num;
             this.dir = num - 1;
         }
-
         public UUID getPlayerID() {
             return this.playerID;
         }
-
         public boolean isDead() {
             return this.isDead;
         }
-
         public void setTimer(int timer) {
             this.timer = timer;
         }
-
         public int getTimer() {
             return this.timer;
         }
-
         private Vec3i getDirectionVec() {
             switch (this.dir) {
                 case 0:
                     return EntityControllerBattleSnakes.dirUp;
                 case 1:
                     return EntityControllerBattleSnakes.dirRight;
-                case EntityControllerBattleSnakes.numPowerups /* 2 */:
+                case EntityControllerBattleSnakes.numPowerups :
                     return new Vec3i(EntityControllerBattleSnakes.dirUp.func_177958_n() * (-1), 0, EntityControllerBattleSnakes.dirUp.func_177952_p() * (-1));
                 case 3:
                     return new Vec3i(EntityControllerBattleSnakes.dirRight.func_177958_n() * (-1), 0, EntityControllerBattleSnakes.dirRight.func_177952_p() * (-1));
@@ -128,7 +108,6 @@ public class EntityControllerBattleSnakes extends EntityControllerBase {
                     return EntityControllerBattleSnakes.dirUp;
             }
         }
-
         public void turn(boolean right) {
             if (!this.turned) {
                 if (!right) {
@@ -145,7 +124,6 @@ public class EntityControllerBattleSnakes extends EntityControllerBase {
                 this.turned = true;
             }
         }
-
         public void createSnake(BlockPos pos, World world) {
             BlockPos centrePos;
             BlockPos headPos;
@@ -154,7 +132,7 @@ public class EntityControllerBattleSnakes extends EntityControllerBase {
                     centrePos = pos.func_177971_a(EntityControllerBattleSnakes.dirUp);
                     headPos = centrePos.func_177971_a(EntityControllerBattleSnakes.dirUp);
                     break;
-                case EntityControllerBattleSnakes.numPowerups /* 2 */:
+                case EntityControllerBattleSnakes.numPowerups :
                     centrePos = pos.func_177971_a(EntityControllerBattleSnakes.dirRight);
                     headPos = centrePos.func_177971_a(EntityControllerBattleSnakes.dirRight);
                     break;
@@ -162,7 +140,7 @@ public class EntityControllerBattleSnakes extends EntityControllerBase {
                     centrePos = pos.func_177973_b(EntityControllerBattleSnakes.dirUp);
                     headPos = centrePos.func_177973_b(EntityControllerBattleSnakes.dirUp);
                     break;
-                case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+                case TileEntityFusionTable.BOARD_ROWS :
                     centrePos = pos.func_177973_b(EntityControllerBattleSnakes.dirRight);
                     headPos = centrePos.func_177973_b(EntityControllerBattleSnakes.dirRight);
                     break;
@@ -182,7 +160,6 @@ public class EntityControllerBattleSnakes extends EntityControllerBase {
                 world.func_175656_a(pos, BlockInit.battleSnake.func_176203_a(this.num - 1));
             }
         }
-
         public void advance(World world) {
             if (this.head == null || this.tail == null) {
                 return;
@@ -208,7 +185,7 @@ public class EntityControllerBattleSnakes extends EntityControllerBase {
                                 setTimer(getTimer() - EntityControllerBattleSnakes.numPowerups);
                             }
                             break;
-                        case EntityControllerBattleSnakes.numPowerups /* 2 */:
+                        case EntityControllerBattleSnakes.numPowerups :
                             poisoned = true;
                             break;
                     }
@@ -244,8 +221,6 @@ public class EntityControllerBattleSnakes extends EntityControllerBase {
                 prevTail.setNext(null);
             }
         }
-
-        /* JADX INFO: Access modifiers changed from: private */
         public void die(World world) {
             this.isDead = true;
             SnakeNode snakeNode = this.head;
@@ -260,11 +235,9 @@ public class EntityControllerBattleSnakes extends EntityControllerBase {
                 }
             }
         }
-
         public SnakeNode getHead() {
             return this.head;
         }
-
         public void update(World world) {
             if (this.time < this.timer) {
                 this.time++;
@@ -275,7 +248,6 @@ public class EntityControllerBattleSnakes extends EntityControllerBase {
             advance(world);
         }
     }
-
     public EntityControllerBattleSnakes(World worldIn) {
         super(worldIn);
         this.snakes = null;
@@ -283,20 +255,16 @@ public class EntityControllerBattleSnakes extends EntityControllerBase {
         this.controllerMap = null;
         func_70105_a(1.0f, 1.0f);
     }
-
     public void setControllerMap(HashMap<UUID, BlockPos> controllerMap) {
         this.controllerMap = controllerMap;
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     public AxisAlignedBB getArenaAABB() {
         return ContestCoordinates.battleSnakesArenaAABB();
     }
-
     protected AxisAlignedBB getBoardAABB() {
         return ContestCoordinates.battleSnakesBoardAABB();
     }
-
     public void turnSnake(BlockPos pos, boolean right) {
         BattleSnake snake;
         if (this.snakeMap == null || this.controllerMap == null) {
@@ -326,13 +294,11 @@ public class EntityControllerBattleSnakes extends EntityControllerBase {
             snake.turn(right);
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     public void removePlayerByUUID(UUID playerID) {
         super.removePlayerByUUID(playerID);
         this.snakeMap.remove(playerID);
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase, xol.lostinfinity.mob.entity.base.EntityImmaterial
     public void func_70636_d() {
         super.func_70636_d();
@@ -381,7 +347,6 @@ public class EntityControllerBattleSnakes extends EntityControllerBase {
             }
         }
     }
-
     private boolean inBoard(BattleSnake snake) {
         if (snake.getHead() != null) {
             int x = snake.getHead().getPos().func_177958_n();
@@ -394,7 +359,6 @@ public class EntityControllerBattleSnakes extends EntityControllerBase {
         }
         return false;
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected void endGame() {
         if (this.snakes != null) {
@@ -406,12 +370,10 @@ public class EntityControllerBattleSnakes extends EntityControllerBase {
         }
         func_70106_y();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected BlockPos getSnapPos() {
         return ContestCoordinates.battleSnakesControllerPos();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected void rewardPlayer(EntityPlayer player, int placement) {
         BlockPos teleTo = ContestCoordinates.battleSnakesLobbyPos();
@@ -419,7 +381,6 @@ public class EntityControllerBattleSnakes extends EntityControllerBase {
         int reward_count = Math.min(10 + (20 * placement) + (placement == this.contenderCount - 1 ? this.contenderCount * 10 : 0), 50);
         player.func_191521_c(new ItemStack(ItemInit.zirconiaCeladon, reward_count));
     }
-
     public void setupSnakes() {
         int x1 = (int) getBoardAABB().field_72340_a;
         int z1 = (int) getBoardAABB().field_72339_c;

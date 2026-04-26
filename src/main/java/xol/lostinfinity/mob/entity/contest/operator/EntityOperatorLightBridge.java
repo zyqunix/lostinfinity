@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.contest.operator;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -13,18 +12,14 @@ import net.minecraft.world.World;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.mob.entity.contest.controller.EntityControllerLightBridge;
 import xol.lostinfinity.util.coordinates.ContestCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/contest/operator/EntityOperatorLightBridge.class */
 public class EntityOperatorLightBridge extends EntityOperatorBase {
     private List<BlockPos> spawnPositions;
     private BlockPos ref;
-
     public EntityOperatorLightBridge(World worldIn) {
         super(worldIn);
         this.spawnPositions = new ArrayList();
         this.ref = null;
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected void startGame() {
         EntityControllerLightBridge gamehologram = new EntityControllerLightBridge(this.field_70170_p);
@@ -53,21 +48,17 @@ public class EntityOperatorLightBridge extends EntityOperatorBase {
         this.spawnPositions.clear();
         this.contenders.clear();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected AxisAlignedBB getArenaAABB() {
         return ContestCoordinates.lightBridgeArenaAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected AxisAlignedBB getLobbyAABB() {
         return ContestCoordinates.lightBridgeLobbyAABB();
     }
-
     protected AxisAlignedBB getBoardAABB() {
         return ContestCoordinates.lightBridgeBoardAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected void generateArena() {
         BlockPos arenaPos = ContestCoordinates.lightBridgeArenaPos();

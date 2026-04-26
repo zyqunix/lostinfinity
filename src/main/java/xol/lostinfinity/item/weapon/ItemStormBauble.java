@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -20,8 +19,6 @@ import xol.lostinfinity.item.classify.ICustomHoldPose;
 import xol.lostinfinity.item.classify.IHotbarTick;
 import xol.lostinfinity.mob.entity.base.EntityImmaterial;
 import xol.lostinfinity.mob.entity.misc.EntityStormBomb;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemStormBauble.class */
 public class ItemStormBauble extends Item implements IHotbarTick, ICustomHoldPose {
     public ItemStormBauble(String regName) {
         func_77637_a(TabsInit.TAB_AUXWEP);
@@ -29,7 +26,6 @@ public class ItemStormBauble extends Item implements IHotbarTick, ICustomHoldPos
         func_77655_b(regName);
         ItemInit.ITEMS.add(this);
     }
-
     @Override // xol.lostinfinity.item.classify.IHotbarTick
     public void hotbarTick(EntityPlayer player, int slot, ItemStack stack) {
         World world = player.field_70170_p;
@@ -57,7 +53,6 @@ public class ItemStormBauble extends Item implements IHotbarTick, ICustomHoldPos
             }
         }
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Light_Purple + "While in the hotbar, if you've taken damage recently:");

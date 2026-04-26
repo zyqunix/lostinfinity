@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.tileentity;
-
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -26,8 +25,6 @@ import xol.lostinfinity.util.data.CustomRayTraceResult;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.data.RayTraceBuilder;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/tileentity/TileEntityTeslaTower.class */
 public class TileEntityTeslaTower extends TileEntity implements ITickable {
     private static final double RANGE = 40.0d;
     private final Set<BlockPos> others = new HashSet();
@@ -40,7 +37,6 @@ public class TileEntityTeslaTower extends TileEntity implements ITickable {
     private int random1;
     private int random2;
     private float random3;
-
     public void func_73660_a() {
         if (this.tickExisted == 1200) {
             this.field_145850_b.func_175698_g(func_174877_v());
@@ -58,62 +54,49 @@ public class TileEntityTeslaTower extends TileEntity implements ITickable {
         this.random2 = this.field_145850_b.field_73012_v.nextInt(7);
         this.random3 = this.field_145850_b.field_73012_v.nextFloat();
     }
-
     public void setTowerId(int towerId) {
         this.towerId = towerId;
     }
-
     public int getTowerId() {
         return this.towerId;
     }
-
     public int getRandom1() {
         return this.random1;
     }
-
     public int getRandom2() {
         return this.random2;
     }
-
     public float getRandom3() {
         return this.random3;
     }
-
     public void setOwner(UUID owner) {
         this.owner = owner;
     }
-
     public void setOthers(Set<BlockPos> set) {
         this.others.clear();
         this.others.addAll(set);
         this.others.remove(func_174877_v());
         updateConnected();
     }
-
     public void setActive(boolean state) {
         this.active = state;
         if (this.active) {
             this.field_145850_b.func_184133_a((EntityPlayer) null, this.field_174879_c, SoundInit.ELECTRIC_SHOCK, SoundCategory.BLOCKS, 1.0f, 1.0f);
         }
     }
-
     public boolean isActive() {
         return this.active;
     }
-
     public void doBlockUpdate() {
         IBlockState blockState = this.field_145850_b.func_180495_p(func_174877_v());
         this.field_145850_b.func_184138_a(func_174877_v(), blockState, blockState, 3);
     }
-
     public Set<BlockPos> getConnected() {
         return this.connected;
     }
-
     public int getTickExisted() {
         return this.tickExisted;
     }
-
     public void func_145839_a(NBTTagCompound compound) {
         super.func_145839_a(compound);
         this.towerId = compound.func_74762_e("tower_id");
@@ -122,7 +105,6 @@ public class TileEntityTeslaTower extends TileEntity implements ITickable {
         this.active = compound.func_74767_n("active");
         readOthers(compound);
     }
-
     public NBTTagCompound func_189515_b(NBTTagCompound compound) {
         super.func_189515_b(compound);
         compound.func_74768_a("tower_id", this.towerId);
@@ -134,12 +116,10 @@ public class TileEntityTeslaTower extends TileEntity implements ITickable {
         writeOthers(compound);
         return compound;
     }
-
     @SideOnly(Side.CLIENT)
     public AxisAlignedBB getRenderBoundingBox() {
         return INFINITE_EXTENT_AABB;
     }
-
     private boolean shouldRefresh() {
         for (BlockPos pos : this.connected) {
             if (this.field_145850_b.func_180495_p(pos) != BlockInit.teslaTower.func_176223_P()) {
@@ -148,7 +128,6 @@ public class TileEntityTeslaTower extends TileEntity implements ITickable {
         }
         return this.pendingUpdate || this.tickExisted % 100 == 0;
     }
-
     private void updateConnected() {
         this.connected.clear();
         for (BlockPos pos : this.others) {
@@ -157,7 +136,6 @@ public class TileEntityTeslaTower extends TileEntity implements ITickable {
             }
         }
     }
-
     private void zapEntities() {
         EntityPlayer player = null;
         if (this.owner != null) {
@@ -178,14 +156,12 @@ public class TileEntityTeslaTower extends TileEntity implements ITickable {
             }
         }
     }
-
     private void readOthers(NBTTagCompound compound) {
         this.others.clear();
         for (int id = 0; compound.func_74764_b("pos_x_" + id); id++) {
             this.others.add(new BlockPos(compound.func_74762_e("pos_x_" + id), compound.func_74762_e("pos_y_" + id), compound.func_74762_e("pos_z_" + id)));
         }
     }
-
     private void writeOthers(NBTTagCompound compound) {
         int i = 0;
         for (BlockPos pos : this.others) {
@@ -195,16 +171,13 @@ public class TileEntityTeslaTower extends TileEntity implements ITickable {
             i++;
         }
     }
-
     public NBTTagCompound func_189517_E_() {
         return func_189515_b(new NBTTagCompound());
     }
-
     @Nullable
     public SPacketUpdateTileEntity func_189518_D_() {
         return new SPacketUpdateTileEntity(this.field_174879_c, 0, func_189517_E_());
     }
-
     public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
         func_145839_a(pkt.func_148857_g());
         updateConnected();

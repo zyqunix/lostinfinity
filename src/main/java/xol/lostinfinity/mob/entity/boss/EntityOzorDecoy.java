@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.boss;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -22,14 +21,11 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/boss/EntityOzorDecoy.class */
 public class EntityOzorDecoy extends EntityMob implements IMaxAttack {
     private float ozorAlpha;
     private float growAlphaSpeed;
     private int fadeTimer;
     private static final DataParameter<Boolean> FADING = EntityDataManager.func_187226_a(EntityOzor.class, DataSerializers.field_187198_h);
-
     public EntityOzorDecoy(World worldIn) {
         super(worldIn);
         this.ozorAlpha = 0.0f;
@@ -37,30 +33,24 @@ public class EntityOzorDecoy extends EntityMob implements IMaxAttack {
         this.fadeTimer = 30;
         func_70105_a(7.5f, 7.5f);
     }
-
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(FADING, false);
     }
-
     public boolean getFading() {
         return ((Boolean) this.field_70180_af.func_187225_a(FADING)).booleanValue();
     }
-
     public void setFading(boolean fade) {
         this.field_70180_af.func_187227_b(FADING, Boolean.valueOf(fade));
     }
-
     public void func_70014_b(NBTTagCompound tag) {
         super.func_70014_b(tag);
         tag.func_74757_a("FadingStage", getFading());
     }
-
     public void func_70037_a(NBTTagCompound tag) {
         super.func_70037_a(tag);
         setFading(tag.func_74767_n("FadingStage"));
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(1.0d);
@@ -68,15 +58,12 @@ public class EntityOzorDecoy extends EntityMob implements IMaxAttack {
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(15000.0d);
     }
-
     public float getAlpha() {
         return this.ozorAlpha;
     }
-
     private AxisAlignedBB getArenaAABB() {
         return new AxisAlignedBB(new BlockPos(-3.0d, 60.0d, -149.0d), new BlockPos(52.0d, 85.0d, -36.0d));
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         this.field_70143_R = -1.0f;
@@ -103,7 +90,6 @@ public class EntityOzorDecoy extends EntityMob implements IMaxAttack {
             this.fadeTimer--;
         }
     }
-
     public void func_70645_a(DamageSource cause) {
         if (!this.field_70170_p.field_72995_K) {
             CustomParticleConfig config1 = new CustomParticleConfig();
@@ -116,35 +102,28 @@ public class EntityOzorDecoy extends EntityMob implements IMaxAttack {
             }
         }
     }
-
     protected SoundEvent func_184615_bR() {
         return null;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return null;
     }
-
     protected SoundEvent func_184639_G() {
         return null;
     }
-
     protected void messagePlayers(String message) {
         for (EntityPlayer contender : this.field_70170_p.func_72872_a(EntityPlayer.class, getArenaAABB())) {
             contender.func_145747_a(new TextComponentString(message));
         }
     }
-
     protected void soundPlayers(SoundEvent sound, float vol) {
         for (EntityPlayer contender : this.field_70170_p.func_72872_a(EntityPlayer.class, getArenaAABB())) {
             this.field_70170_p.func_184133_a((EntityPlayer) null, contender.func_180425_c(), sound, SoundCategory.MASTER, vol, 0.9f + (this.field_70146_Z.nextFloat() * 0.2f));
         }
     }
-
     protected boolean func_70692_ba() {
         return false;
     }
-
     public boolean func_70814_o() {
         return true;
     }

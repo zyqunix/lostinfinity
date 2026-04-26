@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.starforge;
-
 import java.util.Iterator;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.Entity;
@@ -25,13 +24,10 @@ import xol.lostinfinity.mob.ai.EntityAIFloatAttack;
 import xol.lostinfinity.mob.entity.base.EntityFloatingBase;
 import xol.lostinfinity.util.coordinates.GalaxyCoordinates;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/starforge/EntityGalacticTerror.class */
 public class EntityGalacticTerror extends EntityFloatingBase implements IMaxAttack {
     private static final DataParameter<Boolean> STEALTH = EntityDataManager.func_187226_a(EntityGalacticTerror.class, DataSerializers.field_187198_h);
     private int floorStyle;
     private float renderAlpha;
-
     public EntityGalacticTerror(World worldIn) {
         super(worldIn);
         this.floorStyle = 0;
@@ -39,25 +35,20 @@ public class EntityGalacticTerror extends EntityFloatingBase implements IMaxAtta
         func_70105_a(2.5f, 2.25f);
         this.rawFlySpeed = 0.97f;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(STEALTH, false);
     }
-
     public boolean isInStealth() {
         return ((Boolean) this.field_70180_af.func_187225_a(STEALTH)).booleanValue();
     }
-
     public void setStealtActive(boolean s) {
         this.field_70180_af.func_187227_b(STEALTH, Boolean.valueOf(s));
     }
-
     public float getRenderAlpha() {
         return this.renderAlpha;
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -66,7 +57,6 @@ public class EntityGalacticTerror extends EntityFloatingBase implements IMaxAtta
         }
         return false;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     public void func_70636_d() {
         super.func_70636_d();
@@ -118,7 +108,6 @@ public class EntityGalacticTerror extends EntityFloatingBase implements IMaxAtta
             this.renderAlpha += 0.05f;
         }
     }
-
     private void floorIncrement() {
         this.floorStyle++;
         if (this.floorStyle == 3) {
@@ -202,29 +191,24 @@ public class EntityGalacticTerror extends EntityFloatingBase implements IMaxAtta
                 break;
         }
     }
-
     private AxisAlignedBB getArenaAABB() {
         return GalaxyCoordinates.getShockArenaAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void updateLifeAction() {
         int lifePercent = Math.round((100 * (numberOfLives() - getLivesCount())) / numberOfLives());
         messagePlayers(TextFmt.Gold + "The Galactic Terror is at " + lifePercent + "% health.");
     }
-
     protected void messagePlayers(String message) {
         for (EntityPlayer contender : this.field_70170_p.func_72872_a(EntityPlayer.class, getArenaAABB())) {
             contender.func_145747_a(new TextComponentString(message));
         }
     }
-
     protected void soundPlayers(SoundEvent sound, float vol) {
         for (EntityPlayer contender : this.field_70170_p.func_72872_a(EntityPlayer.class, getArenaAABB())) {
             this.field_70170_p.func_184133_a((EntityPlayer) null, contender.func_180425_c(), sound, SoundCategory.MASTER, vol, 0.9f + (this.field_70146_Z.nextFloat() * 0.2f));
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     public void func_110147_ax() {
         super.func_110147_ax();
@@ -233,31 +217,25 @@ public class EntityGalacticTerror extends EntityFloatingBase implements IMaxAtta
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.25d);
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.GALACTIC_TERROR_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.GALACTIC_TERROR_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundInit.GALACTIC_TERROR_AMBIENT;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 250;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void trueDeathAction() {
         if (!this.field_70170_p.field_72995_K) {
             func_145779_a(ItemInit.multigalacticPowerCrystal, 1);
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     protected EntityAIFloatAttack createShootAI() {
         return null;

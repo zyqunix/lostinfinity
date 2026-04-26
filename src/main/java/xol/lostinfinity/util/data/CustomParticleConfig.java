@@ -1,36 +1,27 @@
 package xol.lostinfinity.util.data;
-
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.Vec3d;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/data/CustomParticleConfig.class */
 public class CustomParticleConfig {
     public int count = 1;
     public Vec3d origin = Vec3d.field_186680_a;
     public final List<Instance> particles = new ArrayList();
-
     public Instance createInstance() {
         Instance instance = new Instance();
         this.particles.add(instance);
         return instance;
     }
-
     public void setCount(int count) {
         this.count = Math.max(1, count);
     }
-
     public void setOrigin(double x, double y, double z) {
         this.origin = new Vec3d(x, y, z);
     }
-
     public void setOrigin(Vec3d origin) {
         this.origin = origin;
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/data/CustomParticleConfig$Instance.class */
     public static class Instance {
         public EnumParticleTypes particleType;
         public boolean ignoreRange;
@@ -41,73 +32,59 @@ public class CustomParticleConfig {
         public Vec3d velSpread = Vec3d.field_186680_a;
         public int count = 1;
         public int[] args = new int[0];
-
         public Instance setWeight(int weight) {
             this.weight = Math.max(1, weight);
             return this;
         }
-
         public Instance setParticle(EnumParticleTypes type) {
             this.particleType = type;
             return this;
         }
-
         public Instance setIgnoreRange(boolean flag) {
             this.ignoreRange = flag;
             return this;
         }
-
         public Instance setOffset(Vec3d offset) {
             this.offset = offset;
             return this;
         }
-
         public Instance setOffset(double x, double y, double z) {
             this.offset = new Vec3d(x, y, z);
             return this;
         }
-
         public Instance setSpeed(Vec3d speed) {
             this.speed = speed;
             return this;
         }
-
         public Instance setSpeed(double x, double y, double z) {
             this.speed = new Vec3d(x, y, z);
             return this;
         }
-
         public Instance setSpread(Vec3d spread) {
             this.spread = spread;
             return this;
         }
-
         public Instance setSpread(double x, double y, double z) {
             this.spread = new Vec3d(x, y, z);
             return this;
         }
-
         public Instance setVelSpread(Vec3d velSpread) {
             this.velSpread = velSpread;
             return this;
         }
-
         public Instance setVelSpread(double x, double y, double z) {
             this.velSpread = new Vec3d(x, y, z);
             return this;
         }
-
         public Instance setCount(int count) {
             this.count = Math.max(1, count);
             return this;
         }
-
         public Instance setArgs(int... args) {
             this.args = args;
             return this;
         }
     }
-
     public static CustomParticleConfig read(PacketBuffer buf) {
         CustomParticleConfig config = new CustomParticleConfig();
         config.setCount(buf.func_150792_a());
@@ -119,7 +96,6 @@ public class CustomParticleConfig {
         }
         return config;
     }
-
     public static void write(CustomParticleConfig config, PacketBuffer buf) {
         buf.func_150787_b(config.count);
         buf.writeFloat((float) config.origin.field_72450_a);

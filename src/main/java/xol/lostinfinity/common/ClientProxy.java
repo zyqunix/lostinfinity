@@ -1,5 +1,4 @@
 package xol.lostinfinity.common;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
 import net.minecraft.client.settings.KeyBinding;
@@ -23,18 +22,14 @@ import xol.lostinfinity.client.special.ClientMindControlHandler;
 import xol.lostinfinity.init.ParticleInit;
 import xol.lostinfinity.item.classify.IMovingSoundSource;
 import xol.lostinfinity.util.compatibility.jer.JERCompatibility;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/common/ClientProxy.class */
 public class ClientProxy extends CommonProxy {
     public static KeyBinding armorSetBonus = null;
     public static KeyBinding itemMode = null;
     public static KeyBinding dismount = null;
-
     @Override // xol.lostinfinity.common.CommonProxy
     public void registerItemRenderer(Item item, int meta, String id) {
         ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(item.getRegistryName(), id));
     }
-
     @Override // xol.lostinfinity.common.CommonProxy
     public void preInit(FMLPreInitializationEvent event) {
         super.preInit(event);
@@ -42,7 +37,6 @@ public class ClientProxy extends CommonProxy {
         forgeBus.register(new ParticleInit());
         forgeBus.register(new ModelRegistry());
     }
-
     @Override // xol.lostinfinity.common.CommonProxy
     public void init() {
         super.init();
@@ -51,7 +45,6 @@ public class ClientProxy extends CommonProxy {
             JERCompatibility.init();
         }
     }
-
     @Override // xol.lostinfinity.common.CommonProxy
     public void postInit(FMLPostInitializationEvent event) {
         super.postInit(event);
@@ -62,12 +55,10 @@ public class ClientProxy extends CommonProxy {
         MinecraftForge.EVENT_BUS.register(new ClientMindControlHandler());
         ParticleInit.init();
     }
-
     @Override // xol.lostinfinity.common.CommonProxy
     public void playMovingSound(SoundEvent soundIn, SoundCategory categoryIn, IMovingSoundSource.Special special, float volume, float pitch) {
         Minecraft.func_71410_x().func_147118_V().func_147682_a(new UniversalMovingSound(soundIn, categoryIn, special, volume, pitch));
     }
-
     private void registerKeybinds() {
         armorSetBonus = new KeyBinding("key.lostinfinity.armor_set_bonus.desc", 47, "key.lostinfinity.category");
         ClientRegistry.registerKeyBinding(armorSetBonus);

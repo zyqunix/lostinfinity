@@ -1,5 +1,4 @@
 package xol.lostinfinity.init;
-
 import net.minecraft.world.DimensionType;
 import net.minecraft.world.biome.Biome;
 import net.minecraftforge.common.DimensionManager;
@@ -24,8 +23,6 @@ import xol.lostinfinity.dimension.shadowsea.BiomeShadowSea;
 import xol.lostinfinity.dimension.shadowsea.WorldProviderShadowSea;
 import xol.lostinfinity.dimension.util.DimensionEffectRegistry;
 import xol.lostinfinity.util.ConfigurationHandler;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/init/DimensionInit.class */
 @Mod.EventBusSubscriber
 public class DimensionInit {
     public static DimensionType cartographerRealmTop;
@@ -43,13 +40,11 @@ public class DimensionInit {
     public static final Biome biomeInfiniteMurk = new BiomeInfiniteMurk();
     public static final Biome biomeShadowSea = new BiomeShadowSea();
     public static final Biome biomeMoltenSea = new BiomeMoltenSea();
-
     @SubscribeEvent
     public static void registerBiomes(RegistryEvent.Register<Biome> event) {
         IForgeRegistry<Biome> registry = event.getRegistry();
         registry.registerAll(new Biome[]{biomeCelestialArena, biomeGrandmasterOutpost, biomeCartographerRealm, biomeNonexistence, biomeShadowSea, biomeMoltenSea, biomeInfiniteMurk});
     }
-
     public static void dimensionInit() {
         infiniteMurk = DimensionType.register("lostinfinity:infinitemurk", "_infinitemurk", ConfigurationHandler.infinite_murk_id, WorldProviderInfiniteMurk.class, false);
         DimensionManager.registerDimension(ConfigurationHandler.infinite_murk_id, infiniteMurk);

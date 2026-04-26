@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.armor;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.model.ModelBiped;
@@ -24,15 +23,11 @@ import xol.lostinfinity.mob.entity.base.EntityImmaterial;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/armor/ItemVampyreonPrimeArmor.class */
 public class ItemVampyreonPrimeArmor extends ItemLostArmor {
     private static final ItemArmor.ArmorMaterial vampyreanMaterial = EnumHelper.addArmorMaterial("vampyreonprimeArmor", "lostinfinity:vampyreon_prime_armor", -1, new int[]{12, 24, 32, 12}, 20, SoundEvents.field_187716_o, 3.0f);
-
     public ItemVampyreonPrimeArmor(String regName, EntityEquipmentSlot slot) {
         super(vampyreanMaterial, regName, slot);
     }
-
     @Override // xol.lostinfinity.item.armor.ItemLostArmor
     protected void handleSpecialArmorBonus(EntityPlayer player) {
         World world = player.field_70170_p;
@@ -59,22 +54,18 @@ public class ItemVampyreonPrimeArmor extends ItemLostArmor {
             }
         }
     }
-
     @Override // xol.lostinfinity.item.armor.ItemLostArmor
     public ArmorInit.ArmorSet getArmorSet() {
         return ArmorInit.vampyreonPrimeSet;
     }
-
     @Override // xol.lostinfinity.item.armor.ItemLostArmor
     public boolean isPrimeSet() {
         return true;
     }
-
     public String getArmorTexture(ItemStack itemstack, Entity entity, EntityEquipmentSlot slot, String layer) {
         int sprite = Math.abs(4 - (MathHelper.func_76141_d(entity.field_70173_aa / 3) % 8));
         return "lostinfinity:textures/armor/prime/vampyreon_prime_armor_" + sprite + ".png";
     }
-
     @SideOnly(Side.CLIENT)
     @Nullable
     public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
@@ -96,7 +87,6 @@ public class ItemVampyreonPrimeArmor extends ItemLostArmor {
         }
         return null;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Immune to normal hits.");

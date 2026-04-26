@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.harvest;
-
 import java.util.Random;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
@@ -24,33 +23,25 @@ import xol.lostinfinity.init.ParticleInit;
 import xol.lostinfinity.util.coordinates.GalaxyCoordinates;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/harvest/BlockSynchroniteOre.class */
 public class BlockSynchroniteOre extends BlockBasic implements ISpecialHarvest {
     public static final PropertyInteger AMOUNT = PropertyInteger.func_177719_a("amount", 0, 4);
-
     public BlockSynchroniteOre(String name) {
         super(name);
         func_149675_a(true);
         func_149711_c(2.0f);
     }
-
     public IBlockState func_180642_a(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
         return func_176223_P().func_177226_a(AMOUNT, 0);
     }
-
     public IBlockState func_176203_a(int meta) {
         return func_176223_P().func_177226_a(AMOUNT, Integer.valueOf(meta));
     }
-
     public int func_176201_c(IBlockState state) {
         return ((Integer) state.func_177229_b(AMOUNT)).intValue();
     }
-
     protected BlockStateContainer func_180661_e() {
         return new BlockStateContainer(this, new IProperty[]{AMOUNT});
     }
-
     public void func_180650_b(World world, BlockPos pos, IBlockState state, Random rand) {
         if (!world.field_72995_K) {
             Iterable<BlockPos> nearblocks = BlockPos.func_177980_a(pos.func_177982_a(-3, -3, -3), pos.func_177982_a(3, 3, 3));
@@ -62,7 +53,6 @@ public class BlockSynchroniteOre extends BlockBasic implements ISpecialHarvest {
             }
         }
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public Item getHarvestResult(World world, BlockPos pos) {
         switch (func_176201_c(world.func_180495_p(pos))) {
@@ -72,25 +62,22 @@ public class BlockSynchroniteOre extends BlockBasic implements ISpecialHarvest {
                 return ItemInit.synchroniteTypeB;
             case 3:
                 return ItemInit.synchroniteTypeC;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 return ItemInit.synchroniteTypeD;
             default:
                 return ItemInit.synchroniteTypeA;
         }
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public Item getToolNeeded() {
         return ItemInit.crystalPickaxe;
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public void worldHarvestEffect(World world, BlockPos pos, EntityPlayer harvester) {
         if (!world.field_72995_K) {
             world.func_175656_a(pos, func_176203_a(0));
         }
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public boolean isHarvestable(World world, BlockPos pos, EntityPlayer harvester) {
         int meta = func_176201_c(world.func_180495_p(pos));
@@ -99,7 +86,6 @@ public class BlockSynchroniteOre extends BlockBasic implements ISpecialHarvest {
         int requiredMeta = 1 + signal.func_176201_c(state);
         return meta != 0 && meta == requiredMeta;
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public void failedHarvest(World world, BlockPos pos, EntityPlayer harvester) {
         if (!world.field_72995_K) {

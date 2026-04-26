@@ -1,18 +1,14 @@
 package xol.lostinfinity.mob.model.labyrinth;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/labyrinth/ModelGloop.class */
 public class ModelGloop extends ModelBase {
     public ModelRenderer eye;
     public ModelRenderer floater1;
     public ModelRenderer floater2;
     public ModelRenderer floater3;
     public ModelRenderer floater4;
-
     public ModelGloop() {
         this.field_78090_t = 32;
         this.field_78089_u = 32;
@@ -36,7 +32,6 @@ public class ModelGloop extends ModelBase {
         this.eye.func_78792_a(this.floater1);
         this.eye.func_78792_a(this.floater3);
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         GlStateManager.func_179147_l();
         GlStateManager.func_179112_b(770, 771);
@@ -44,13 +39,11 @@ public class ModelGloop extends ModelBase {
         this.eye.func_78785_a(f5);
         GlStateManager.func_179084_k();
     }
-
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.floater1.field_78796_g = ageInTicks * 0.6f;
         this.floater2.field_78796_g = ageInTicks * 0.6f;

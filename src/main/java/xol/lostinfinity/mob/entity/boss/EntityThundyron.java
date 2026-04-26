@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.boss;
-
 import java.util.Iterator;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -18,15 +17,12 @@ import xol.lostinfinity.mob.entity.base.EntityMultipleLives;
 import xol.lostinfinity.mob.entity.misc.EntityThunderBomb;
 import xol.lostinfinity.stone.EntityInfinityStone;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/boss/EntityThundyron.class */
 public class EntityThundyron extends EntityMultipleLives implements IMaxAttack {
     private int thunderOrb;
     private float thunderAlph;
     private boolean amAttackingNext;
     private BlockPos goalPos;
     private int graceHit;
-
     public EntityThundyron(World worldIn) {
         super(worldIn);
         this.thunderOrb = 0;
@@ -37,11 +33,9 @@ public class EntityThundyron extends EntityMultipleLives implements IMaxAttack {
         func_70105_a(3.5f, 6.0f);
         func_189654_d(true);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_184651_r() {
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(1.0d);
@@ -49,7 +43,6 @@ public class EntityThundyron extends EntityMultipleLives implements IMaxAttack {
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(5000.0d);
     }
-
     protected void func_82167_n(Entity entityIn) {
         if (entityIn instanceof EntityPlayer) {
             EntityPlayer play = (EntityPlayer) entityIn;
@@ -61,11 +54,9 @@ public class EntityThundyron extends EntityMultipleLives implements IMaxAttack {
         }
         entityIn.func_70108_f(this);
     }
-
     private AxisAlignedBB getArenaAABB() {
         return new AxisAlignedBB(new BlockPos(-3.0d, 60.0d, -149.0d), new BlockPos(52.0d, 85.0d, -36.0d));
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         this.field_70143_R = -1.0f;
@@ -107,7 +98,6 @@ public class EntityThundyron extends EntityMultipleLives implements IMaxAttack {
             this.thunderAlph -= 0.18f;
         }
     }
-
     private void dropBomb() {
         BlockPos bombPos = posInArena();
         if (this.field_70170_p.func_175623_d(bombPos)) {
@@ -116,14 +106,12 @@ public class EntityThundyron extends EntityMultipleLives implements IMaxAttack {
             this.field_70170_p.func_72838_d(bomb);
         }
     }
-
     private BlockPos posInArena() {
         AxisAlignedBB aabb = getArenaAABB();
         int length = ((int) Math.round(aabb.field_72336_d - aabb.field_72340_a)) - 6;
         int width = ((int) Math.round(aabb.field_72334_f - aabb.field_72339_c)) - 6;
         return new BlockPos(aabb.field_72340_a + 3.0d + ((double) this.field_70146_Z.nextInt(length)), aabb.field_72338_b + ((double) this.field_70146_Z.nextInt(20)), aabb.field_72339_c + 3.0d + ((double) this.field_70146_Z.nextInt(width)));
     }
-
     private void findNewMove() {
         if (this.amAttackingNext) {
             Iterator it = this.field_70170_p.func_72872_a(EntityPlayer.class, getArenaAABB()).iterator();
@@ -137,38 +125,30 @@ public class EntityThundyron extends EntityMultipleLives implements IMaxAttack {
         this.goalPos = posInArena();
         this.amAttackingNext = true;
     }
-
     public float getThunderAlpha() {
         return this.thunderAlph;
     }
-
     public int getThunderOrb() {
         return this.thunderOrb;
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.GENERIC_STYLE3_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.GENERIC_STYLE3_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return null;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 150;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void updateLifeAction() {
         int lifePercent = Math.round((100 * (numberOfLives() - getLivesCount())) / numberOfLives());
         messagePlayers(TextFmt.Gold + "Thundyron is at " + lifePercent + "% health.");
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void trueDeathAction() {
         if (!this.field_70170_p.field_72995_K) {
@@ -179,19 +159,16 @@ public class EntityThundyron extends EntityMultipleLives implements IMaxAttack {
             func_145779_a(ItemInit.arenaCard, 1);
         }
     }
-
     protected void messagePlayers(String message) {
         for (EntityPlayer contender : this.field_70170_p.func_72872_a(EntityPlayer.class, getArenaAABB())) {
             contender.func_145747_a(new TextComponentString(message));
         }
     }
-
     protected void soundPlayers(SoundEvent sound, float vol) {
         for (EntityPlayer contender : this.field_70170_p.func_72872_a(EntityPlayer.class, getArenaAABB())) {
             this.field_70170_p.func_184133_a((EntityPlayer) null, contender.func_180425_c(), sound, SoundCategory.MASTER, vol, 0.9f + (this.field_70146_Z.nextFloat() * 0.2f));
         }
     }
-
     protected boolean func_70692_ba() {
         return false;
     }

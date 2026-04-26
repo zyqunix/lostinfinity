@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.activate;
-
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.entity.EntityLivingBase;
@@ -14,18 +13,14 @@ import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.item.basics.ItemRemoteControl;
 import xol.lostinfinity.mob.entity.misc.EntityTentacleTrap;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/activate/ItemTentacleRemote.class */
 public class ItemTentacleRemote extends ItemRemoteControl {
     public ItemTentacleRemote(String regName) {
         super(regName);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemRemoteControl
     public BlockRemoteControl getControlBlock() {
         return (BlockRemoteControl) BlockInit.tentacleSynthesizer;
     }
-
     @Override // xol.lostinfinity.item.basics.ItemRemoteControl
     public void tickEffect(TileEntityRemoteControl te, World world, BlockPos pos, EntityPlayer owner) {
         if (!world.field_72995_K && te.getExisted() % 20 == 0) {
@@ -50,7 +45,6 @@ public class ItemTentacleRemote extends ItemRemoteControl {
             }
         }
     }
-
     @Override // xol.lostinfinity.item.basics.ItemRemoteControl
     public void toggleEffect(TileEntityRemoteControl te, World world, BlockPos pos, EntityPlayer owner, boolean active) {
     }

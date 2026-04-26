@@ -1,10 +1,7 @@
 package xol.lostinfinity.block.tileentity;
-
 import java.util.ArrayList;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/tileentity/IMachine.class */
 public interface IMachine {
     default ArrayList<IMachine> getConnectedMachines(TileEntity te, ArrayList<IMachine> machines) {
         IMachine iMachineFunc_175625_s;
@@ -25,7 +22,6 @@ public interface IMachine {
         }
         return machines;
     }
-
     default boolean getPowered() {
         return false;
     }

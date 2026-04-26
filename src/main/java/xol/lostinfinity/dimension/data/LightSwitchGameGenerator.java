@@ -1,14 +1,10 @@
 package xol.lostinfinity.dimension.data;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/dimension/data/LightSwitchGameGenerator.class */
 public class LightSwitchGameGenerator {
     private List<LightSwitchNode> switches = new ArrayList();
     private List<SwitchableLightNode> lights = new ArrayList();
-
     public LightSwitchGameGenerator(int numSwitches, int numLights) {
         Random rand = new Random();
         for (int i = 0; i < numLights; i++) {
@@ -41,7 +37,6 @@ public class LightSwitchGameGenerator {
             }
         }
     }
-
     public static void main(String[] args) {
         LightSwitchGameGenerator switchGen = new LightSwitchGameGenerator(5, 5);
         for (int i = 0; i < 5; i++) {
@@ -55,19 +50,15 @@ public class LightSwitchGameGenerator {
             System.out.println(String.format("Light %d %b", Integer.valueOf(j), Boolean.valueOf(switchGen.getLight(j).isLit())));
         }
     }
-
     private void addLight(SwitchableLightNode light) {
         this.lights.add(light);
     }
-
     private void addSwitch(LightSwitchNode lightSwitch) {
         this.switches.add(lightSwitch);
     }
-
     public LightSwitchNode getSwitch(int i) {
         return this.switches.get(i);
     }
-
     public SwitchableLightNode getLight(int i) {
         return this.lights.get(i);
     }

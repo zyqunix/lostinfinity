@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.Minecraft;
@@ -24,8 +23,6 @@ import xol.lostinfinity.item.classify.IModeSelect;
 import xol.lostinfinity.item.classify.ISwitchModels;
 import xol.lostinfinity.util.data.CustomDamageResult;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemDawnOfEternity.class */
 public class ItemDawnOfEternity extends ItemSword implements IMaxAttack, IMaxNullable, ISwitchModels, IModeSelect {
     private static final String MODE_DATA = "mode_data";
     private static final int ASC_MODE = 0;
@@ -34,7 +31,6 @@ public class ItemDawnOfEternity extends ItemSword implements IMaxAttack, IMaxNul
     private static final int RES_MODE = 1;
     private static final float RES_HIT_DAMAGE = 0.5f;
     private static final float RES_OH_BLOCK_CHANCE = 0.5f;
-
     public ItemDawnOfEternity(String regName) {
         super(Item.ToolMaterial.DIAMOND);
         func_77637_a(TabsInit.TAB_AUXWEP);
@@ -43,20 +39,19 @@ public class ItemDawnOfEternity extends ItemSword implements IMaxAttack, IMaxNul
         ItemInit.ITEMS.add(this);
         setModelSwitch("mode", this, 2);
     }
-
     public boolean func_77644_a(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         if (!isPaired(attacker, EnumHand.OFF_HAND)) {
             return true;
         }
         switch (getMode(stack)) {
-            case ASC_MODE /* 0 */:
+            case ASC_MODE :
                 if (target.field_70122_E) {
                     IMaxAttack.dealMaxHealth((Entity) attacker, target, 2, ASC_HIT_DAMAGE);
                 } else {
                     IMaxAttack.dealTrueDamage(attacker, target, target.func_110138_aP() * ASC_AIR_DAMAGE);
                 }
                 break;
-            case RES_MODE /* 1 */:
+            case RES_MODE :
                 IMaxAttack.dealTrueDamage(attacker, target, target.func_110138_aP() * 0.5f);
                 attacker.func_70691_i(attacker.func_110138_aP());
                 break;
@@ -66,7 +61,6 @@ public class ItemDawnOfEternity extends ItemSword implements IMaxAttack, IMaxNul
         attacker.func_184611_a(EnumHand.OFF_HAND, stack);
         return true;
     }
-
     @Override // xol.lostinfinity.item.classify.IMaxNullable
     public float nullableReaction(EntityPlayer player, boolean isMainHand, float originalDamage, float newDamage, ItemStack stack) {
         if (player.field_70170_p.field_72995_K || isMainHand || !isPaired(player, EnumHand.MAIN_HAND)) {
@@ -78,7 +72,6 @@ public class ItemDawnOfEternity extends ItemSword implements IMaxAttack, IMaxNul
         }
         return newDamage;
     }
-
     @Override // xol.lostinfinity.item.classify.IMaxNullable
     public float trueNullableReaction(EntityPlayer player, boolean isMainHand, float originalDamage, float newDamage, ItemStack stack, CustomDamageResult result) {
         if (player.field_70170_p.field_72995_K || isMainHand || !isPaired(player, EnumHand.MAIN_HAND)) {
@@ -90,12 +83,10 @@ public class ItemDawnOfEternity extends ItemSword implements IMaxAttack, IMaxNul
         }
         return newDamage;
     }
-
     @Override // xol.lostinfinity.item.classify.IModeSelect
     public void modeUpdate(ItemStack stack, EntityPlayer player) {
         toggleMode(stack);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add("Twin sword of the " + TextFmt.Light_Purple + "Dusk of Eternity" + TextFmt.Reset + ".");
@@ -108,13 +99,13 @@ public class ItemDawnOfEternity extends ItemSword implements IMaxAttack, IMaxNul
             }
         }
         switch (getMode(stack)) {
-            case ASC_MODE /* 0 */:
+            case ASC_MODE :
                 tooltip.add(TextFmt.Aqua + "Current mode: Ascentrum");
                 tooltip.add(TextFmt.Red + "Main hand: If your target is airborne. deals true damage.");
                 tooltip.add(TextFmt.Red + "Deals 150% Health Damage");
                 tooltip.add(TextFmt.Blue + "Off hand: 50% chance dodging (infinity) damage dealt by airborne enemies.");
                 break;
-            case RES_MODE /* 1 */:
+            case RES_MODE :
                 tooltip.add(TextFmt.Green + "Current mode: Restorum");
                 tooltip.add(TextFmt.Red + "Main hand: Restore all your health on hit.");
                 tooltip.add(TextFmt.Red + "Deal 50% Health True Damage");
@@ -122,7 +113,6 @@ public class ItemDawnOfEternity extends ItemSword implements IMaxAttack, IMaxNul
                 break;
         }
     }
-
     private void toggleMode(ItemStack stack) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
@@ -130,14 +120,12 @@ public class ItemDawnOfEternity extends ItemSword implements IMaxAttack, IMaxNul
         NBTTagCompound compound = stack.func_77978_p();
         compound.func_74768_a(MODE_DATA, (compound.func_74762_e(MODE_DATA) + RES_MODE) % 2);
     }
-
     private int getMode(ItemStack stack) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
         }
         return stack.func_77978_p().func_74762_e(MODE_DATA);
     }
-
     private boolean isPaired(EntityLivingBase player, EnumHand other) {
         return player.func_184586_b(other).func_77973_b() instanceof ItemDuskOfEternity;
     }

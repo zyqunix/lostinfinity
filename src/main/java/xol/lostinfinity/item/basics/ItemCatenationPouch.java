@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.basics;
-
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -14,14 +13,11 @@ import xol.lostinfinity.dimension.murk.BiomeInfiniteMurk;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.init.TabsInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/basics/ItemCatenationPouch.class */
 public class ItemCatenationPouch extends ItemBasic {
     private Item item1;
     private Item item2;
     private Item item3;
     private Item result;
-
     public ActionResult<ItemStack> func_77659_a(World world, EntityPlayer player, EnumHand hand) {
         ItemStack held = player.func_184586_b(hand);
         if (world.func_180494_b(player.func_180425_c()) instanceof BiomeInfiniteMurk) {
@@ -70,30 +66,24 @@ public class ItemCatenationPouch extends ItemBasic {
         }
         return super.func_77659_a(world, player, hand);
     }
-
     public ItemCatenationPouch(String regName) {
         super(regName, TabsInit.TAB_AUXMATS);
     }
-
     public void setRecipe(Item item1, Item item2, Item item3, Item result) {
         this.item1 = item1;
         this.item2 = item2;
         this.item3 = item3;
         this.result = result;
     }
-
     public Item getFirstIngredient() {
         return this.item1;
     }
-
     public Item getSecondIngredient() {
         return this.item2;
     }
-
     public Item getThirdIngredient() {
         return this.item3;
     }
-
     public Item getResult() {
         return this.result;
     }

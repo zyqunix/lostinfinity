@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -8,19 +7,15 @@ import net.minecraft.potion.Potion;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityTekBullet.class */
 public class EntityTekBullet extends EntityBaseThrowable {
     public EntityTekBullet(World par1World) {
         super(par1World);
         func_70105_a(0.5f, 0.5f);
     }
-
     public EntityTekBullet(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
         func_70105_a(0.5f, 0.5f);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -38,7 +33,6 @@ public class EntityTekBullet extends EntityBaseThrowable {
             func_70106_y();
         }
     }
-
     protected float func_70185_h() {
         return 0.0f;
     }

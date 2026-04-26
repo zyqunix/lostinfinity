@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.tileentity;
-
 import javax.annotation.Nullable;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
@@ -15,19 +14,15 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.MathHelper;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.mob.entity.starforge.EntityDusker;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/tileentity/TileEntityCompressionTable.class */
 public class TileEntityCompressionTable extends TileEntity implements IInventory, ITickable {
     public NonNullList<ItemStack> compressionItemStacks;
     private int progress = -1;
     private static final byte PROGRESS = 0;
-
     public TileEntityCompressionTable() {
         this.compressionItemStacks = NonNullList.func_191197_a(3, ItemStack.field_190927_a);
         this.compressionItemStacks = NonNullList.func_191197_a(3, ItemStack.field_190927_a);
         func_174888_l();
     }
-
     public void func_145839_a(NBTTagCompound compound) {
         NBTTagList dataForSlots = compound.func_150295_c("Items", 10);
         this.compressionItemStacks = NonNullList.func_191197_a(3, ItemStack.field_190927_a);
@@ -41,7 +36,6 @@ public class TileEntityCompressionTable extends TileEntity implements IInventory
         this.progress = compound.func_74762_e("Progress");
         super.func_145839_a(compound);
     }
-
     public NBTTagCompound func_189515_b(NBTTagCompound compound) {
         NBTTagList dataForSlots = new NBTTagList();
         for (int i = PROGRESS; i < this.compressionItemStacks.size(); i++) {
@@ -56,36 +50,29 @@ public class TileEntityCompressionTable extends TileEntity implements IInventory
         compound.func_74768_a("Progress", this.progress);
         return super.func_189515_b(compound);
     }
-
     public int updateProgress(int increment) {
         this.progress = Math.min(this.progress + increment, 500);
         func_70296_d();
         return this.progress;
     }
-
     public void updateSlot(int index, ItemStack itemStack) {
         this.compressionItemStacks.set(index, itemStack);
         func_70296_d();
     }
-
     public int getProgress() {
         return this.progress;
     }
-
     public int setProgress(int newValue) {
         this.progress = newValue;
         func_70296_d();
         return this.progress;
     }
-
     public double getProgressAsFraction() {
         return MathHelper.func_151237_a(getProgress() >= 0 ? ((double) getProgress()) / 500.0d : 0.0d, 0.0d, 1.0d);
     }
-
     public ItemStack getResult() {
         return (ItemStack) this.compressionItemStacks.get(2);
     }
-
     public void func_73660_a() {
         boolean flag = this.progress > -1;
         boolean flag1 = PROGRESS;
@@ -122,7 +109,6 @@ public class TileEntityCompressionTable extends TileEntity implements IInventory
             func_70296_d();
         }
     }
-
     public ItemStack getResultFor(ItemStack iteminput1) {
         ItemStack result = ItemStack.field_190927_a;
         if (iteminput1.func_77973_b().equals(ItemInit.astralliumIngot)) {
@@ -162,7 +148,6 @@ public class TileEntityCompressionTable extends TileEntity implements IInventory
         }
         return result;
     }
-
     private void compressItem() {
         ItemStack result = getResultFor((ItemStack) this.compressionItemStacks.get(PROGRESS));
         this.compressionItemStacks.set(2, ItemStack.field_190927_a);
@@ -182,32 +167,26 @@ public class TileEntityCompressionTable extends TileEntity implements IInventory
             }
         }
     }
-
     public boolean canProgress() {
         return !((ItemStack) this.compressionItemStacks.get(PROGRESS)).func_190926_b() && ((ItemStack) this.compressionItemStacks.get(PROGRESS)).func_190916_E() >= 25;
     }
-
     @Nullable
     public SPacketUpdateTileEntity func_189518_D_() {
         NBTTagCompound updateTag = func_189517_E_();
         return new SPacketUpdateTileEntity(this.field_174879_c, PROGRESS, updateTag);
     }
-
     public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity packet) {
         NBTTagCompound updateTag = packet.func_148857_g();
         handleUpdateTag(updateTag);
     }
-
     public NBTTagCompound func_189517_E_() {
         NBTTagCompound nbtTagCompound = new NBTTagCompound();
         func_189515_b(nbtTagCompound);
         return nbtTagCompound;
     }
-
     public void handleUpdateTag(NBTTagCompound tag) {
         func_145839_a(tag);
     }
-
     public int func_174887_a_(int id) {
         if (id == 0) {
             return this.progress;
@@ -215,7 +194,6 @@ public class TileEntityCompressionTable extends TileEntity implements IInventory
         System.err.println("Invalid field ID in TileEntityCompressionTable#getField:" + id);
         return PROGRESS;
     }
-
     public void func_174885_b(int id, int value) {
         if (id == 0) {
             this.progress = value;
@@ -223,41 +201,32 @@ public class TileEntityCompressionTable extends TileEntity implements IInventory
             System.err.println("Invalid field ID in TileEntityCompressionTable#setField:" + id);
         }
     }
-
     public int func_174890_g() {
         return 1;
     }
-
     public void func_174888_l() {
         this.compressionItemStacks = NonNullList.func_191197_a(3, ItemStack.field_190927_a);
     }
-
     public boolean func_94041_b(int slotIndex, ItemStack itemstack) {
         return true;
     }
-
     public int func_70302_i_() {
         return this.compressionItemStacks.size();
     }
-
     public boolean func_191420_l() {
         return this.compressionItemStacks.stream().allMatch(it -> {
             return it.func_190926_b();
         });
     }
-
     public ItemStack func_70301_a(int index) {
         return (ItemStack) this.compressionItemStacks.get(index);
     }
-
     public ItemStack func_70298_a(int index, int count) {
         return ItemStackHelper.func_188382_a(this.compressionItemStacks, index, count);
     }
-
     public ItemStack func_70304_b(int index) {
         return ItemStackHelper.func_188383_a(this.compressionItemStacks, index);
     }
-
     public void func_70299_a(int index, ItemStack stack) {
         ItemStack itemstack = (ItemStack) this.compressionItemStacks.get(index);
         boolean flag = !stack.func_190926_b() && stack.func_77969_a(itemstack) && ItemStack.func_77970_a(stack, itemstack);
@@ -270,25 +239,19 @@ public class TileEntityCompressionTable extends TileEntity implements IInventory
             func_70296_d();
         }
     }
-
     public int func_70297_j_() {
         return 64;
     }
-
     public boolean func_70300_a(EntityPlayer player) {
         return this.field_145850_b.func_175625_s(this.field_174879_c) == this && player.func_70092_e(((double) this.field_174879_c.func_177958_n()) + 0.5d, ((double) this.field_174879_c.func_177956_o()) + 0.5d, ((double) this.field_174879_c.func_177952_p()) + 0.5d) < 64.0d;
     }
-
     public void func_174889_b(EntityPlayer player) {
     }
-
     public void func_174886_c(EntityPlayer player) {
     }
-
     public String func_70005_c_() {
         return null;
     }
-
     public boolean func_145818_k_() {
         return false;
     }

@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.deviant;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.init.SoundEvents;
@@ -13,21 +12,17 @@ import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.mob.entity.base.EntityDeviantMob;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/deviant/EntityDeviantSlimeStrider.class */
 public class EntityDeviantSlimeStrider extends EntityDeviantMob implements IMaxAttack {
     public EntityDeviantSlimeStrider(World worldIn) {
         super(worldIn);
         func_70105_a(1.5f, 0.5f);
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(1.0d);
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.378d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(200.0d);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -36,34 +31,27 @@ public class EntityDeviantSlimeStrider extends EntityDeviantMob implements IMaxA
         }
         return false;
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundEvents.field_187874_fm;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundEvents.field_187880_fp;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundEvents.field_187886_fs;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityDeviantMob, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public boolean func_70814_o() {
         return true;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityDeviantMob
     protected Item playerInput() {
         return ItemInit.deviantMilk;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityDeviantMob
     protected Item mutantOutput() {
         return ItemInit.superStimulant;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         this.field_70143_R = -0.5f;
@@ -85,16 +73,13 @@ public class EntityDeviantSlimeStrider extends EntityDeviantMob implements IMaxA
             }
         }
     }
-
     public boolean func_70648_aU() {
         return true;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityDeviantMob
     protected ResourceLocation deviantDrop() {
         return LootTableRegistry.ENTITIES_DEVIANTSLIMESTRIDER;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityDeviantMob
     protected ResourceLocation superMutatedDrop() {
         return LootTableRegistry.ENTITIES_SUPERMUTANT_SLIMESTRIDER;

@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -21,16 +20,12 @@ import xol.lostinfinity.item.classify.ICustomRaytrace;
 import xol.lostinfinity.item.classify.IModeSelect;
 import xol.lostinfinity.mob.entity.misc.EntityNuclearExplosion;
 import xol.lostinfinity.util.data.CustomRayTraceResult;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemNuclearReceiver.class */
 public class ItemNuclearReceiver extends ItemCooldown implements IModeSelect, ICustomRaytrace {
     private static final int MAX_BOMB = 3;
-
     public ItemNuclearReceiver(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         CustomRayTraceResult trace_result;
         if (!showDurabilityBar(playerIn.func_184586_b(handIn))) {
@@ -77,7 +72,6 @@ public class ItemNuclearReceiver extends ItemCooldown implements IModeSelect, IC
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     private boolean areNoBombs(ItemStack stack) {
         if (stack.func_77978_p().func_74764_b("BombY0")) {
             boolean foundBomb = false;
@@ -91,7 +85,6 @@ public class ItemNuclearReceiver extends ItemCooldown implements IModeSelect, IC
         }
         return true;
     }
-
     private void clearBombs(ItemStack stack) {
         for (int i = 0; i < MAX_BOMB; i++) {
             stack.func_77978_p().func_74768_a("BombX" + i, -10);
@@ -99,7 +92,6 @@ public class ItemNuclearReceiver extends ItemCooldown implements IModeSelect, IC
             stack.func_77978_p().func_74768_a("BombZ" + i, -10);
         }
     }
-
     @Override // xol.lostinfinity.item.classify.IModeSelect
     public void modeUpdate(ItemStack stack, EntityPlayer player) {
         if (!showDurabilityBar(stack)) {
@@ -131,14 +123,12 @@ public class ItemNuclearReceiver extends ItemCooldown implements IModeSelect, IC
             startCooldown(stack);
         }
     }
-
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Yellow + "Can place up to 3 Nuclear Bombs which can be detonated.");
         tooltip.add(TextFmt.Red + "Deals 200% Health True Damage To Nearby Enemies");
         tooltip.add(TextFmt.Red + "Deals 400% Max Health Damage In a Giant Radius");
         tooltip.add(TextFmt.Gold + "Nearby Multi-Life Creatures Lose 8 lives");
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected boolean hasSimpleCooldown() {
         return false;

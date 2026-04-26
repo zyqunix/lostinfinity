@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.activate;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -21,8 +20,6 @@ import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.mob.entity.boss.EntityPuzzleMaster;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/activate/ItemBeaconKey.class */
 public class ItemBeaconKey extends Item {
     public ItemBeaconKey(String regName) {
         setRegistryName(regName);
@@ -30,7 +27,6 @@ public class ItemBeaconKey extends Item {
         func_77637_a(TabsInit.TAB_AUXMATS);
         ItemInit.ITEMS.add(this);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (worldIn.field_73011_w.func_186058_p() == DimensionInit.cartographerRealmBot && playerIn.field_70165_t > -16.0d && playerIn.field_70165_t < 16.0d && playerIn.field_70161_v > -16.0d && playerIn.field_70161_v < 16.0d && playerIn.field_70163_u > 29.0d) {
             if (!worldIn.field_72995_K) {
@@ -47,7 +43,6 @@ public class ItemBeaconKey extends Item {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "This key is glowing strangely...");

@@ -1,5 +1,4 @@
 package xol.lostinfinity.client.fx;
-
 import java.util.Iterator;
 import java.util.Random;
 import net.minecraft.client.Minecraft;
@@ -13,8 +12,6 @@ import xol.lostinfinity.block.tileentity.TileEntityFusionTable;
 import xol.lostinfinity.init.ParticleInit;
 import xol.lostinfinity.item.weapon.ItemHeadCollector;
 import xol.lostinfinity.util.data.CustomParticleConfig;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/client/fx/ClientParticleRenderer.class */
 @SideOnly(Side.CLIENT)
 public class ClientParticleRenderer {
     public static void renderSimple(int id, int extra, double posX, double posY, double posZ) {
@@ -47,7 +44,7 @@ public class ClientParticleRenderer {
                     world.func_175682_a(ParticleInit.QUANTUM_MARK, true, posX + getROD(rand, 2.0d), posY + getROD(rand, 1.0d), posZ + getROD(rand, 2.0d), 0.0d, 0.0d, 0.0d, new int[0]);
                 }
                 break;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 for (int i6 = 0; i6 < 3; i6++) {
                     world.func_175682_a(ParticleInit.ATTRACT_FIELD, true, posX + getROD(rand, 1.0d), posY + getROD(rand, 1.0d), posZ + getROD(rand, 1.0d), 0.0d, 0.0d, 0.0d, new int[0]);
                 }
@@ -57,7 +54,7 @@ public class ClientParticleRenderer {
                     world.func_175682_a(ParticleInit.REPEL_FIELD, true, posX + getROD(rand, 1.0d), posY + getROD(rand, 1.0d), posZ + getROD(rand, 1.0d), 0.0d, 0.0d, 0.0d, new int[0]);
                 }
                 break;
-            case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+            case TileEntityFusionTable.BOARD_COLUMNS :
                 for (int i8 = 0; i8 < 2; i8++) {
                     world.func_175682_a(ParticleInit.SLAM, true, posX + getROD(rand, 1.0d), posY + getROD(rand, 1.0d), posZ + getROD(rand, 1.0d), 0.0d, 0.0d, 0.0d, new int[0]);
                 }
@@ -73,7 +70,7 @@ public class ClientParticleRenderer {
             case 9:
                 world.func_175682_a(ParticleInit.EXPLOSION, true, posX, posY, posZ, 0.0d, 0.0d, 0.0d, new int[0]);
                 break;
-            case ItemHeadCollector.CHARGE_LIMIT /* 10 */:
+            case ItemHeadCollector.CHARGE_LIMIT :
                 for (int i10 = 0; i10 < 3; i10++) {
                     world.func_175682_a(ParticleInit.EXPLOSION_RING, true, posX + getROD(rand, 2.0d), posY + getROD(rand, 1.0d), posZ + getROD(rand, 2.0d), 0.0d, 0.0d, 0.0d, new int[0]);
                 }
@@ -136,7 +133,7 @@ public class ClientParticleRenderer {
             case 23:
                 world.func_175682_a(ParticleInit.POWER_FIELD, true, posX, posY, posZ, 0.0d, 0.0d, 0.0d, new int[0]);
                 break;
-            case TileEntityFusionTable.BOARD_SIZE /* 24 */:
+            case TileEntityFusionTable.BOARD_SIZE :
                 world.func_175682_a(ParticleInit.POWER_LOSS, true, posX, posY, posZ, 0.0d, 0.0d, 0.0d, new int[0]);
                 break;
             case 25:
@@ -164,7 +161,7 @@ public class ClientParticleRenderer {
                     world.func_175682_a(ParticleInit.CORRUPTION_MAGIC, true, posX + getROD(rand, 4.0d), posY + getROD(rand, 1.0d), posZ + getROD(rand, 4.0d), 0.0d, 0.0d, 0.0d, new int[0]);
                 }
                 break;
-            case BlockCthulhuSpawner.BLOCK_DISTANCE /* 30 */:
+            case BlockCthulhuSpawner.BLOCK_DISTANCE :
                 for (int i25 = 0; i25 < 3; i25++) {
                     world.func_175682_a(ParticleInit.NATURE_RING, true, posX, posY, posZ, 0.0d, 0.0d, 0.0d, new int[0]);
                 }
@@ -395,7 +392,6 @@ public class ClientParticleRenderer {
                 break;
         }
     }
-
     public static void renderComplex(CustomParticleConfig config) {
         World world = Minecraft.func_71410_x().field_71439_g.field_70170_p;
         Random rand = world.field_73012_v;
@@ -423,7 +419,6 @@ public class ClientParticleRenderer {
             }
         }
     }
-
     private static void renderInstance(World world, Vec3d origin, Random rand, CustomParticleConfig.Instance instance) {
         Vec3d offset = instance.offset;
         Vec3d speed = instance.speed;
@@ -433,7 +428,6 @@ public class ClientParticleRenderer {
             world.func_175682_a(instance.particleType, instance.ignoreRange, origin.field_72450_a + offset.field_72450_a + getROD(rand, spread.field_72450_a), origin.field_72448_b + offset.field_72448_b + getROD(rand, spread.field_72448_b), origin.field_72449_c + offset.field_72449_c + getROD(rand, spread.field_72449_c), speed.field_72450_a * getROD(rand, velSpread.field_72450_a), speed.field_72448_b * getROD(rand, velSpread.field_72448_b), speed.field_72449_c * getROD(rand, velSpread.field_72449_c), instance.args);
         }
     }
-
     private static double getROD(Random rand, double multi) {
         return ((-0.5d) + rand.nextDouble()) * multi;
     }

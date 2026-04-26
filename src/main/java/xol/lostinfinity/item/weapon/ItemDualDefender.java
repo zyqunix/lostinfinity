@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -13,8 +12,6 @@ import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.classify.IMaxReducible;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemDualDefender.class */
 public class ItemDualDefender extends Item implements IMaxReducible {
     public ItemDualDefender(String regName) {
         func_77637_a(TabsInit.TAB_INFINITYWEP);
@@ -22,7 +19,6 @@ public class ItemDualDefender extends Item implements IMaxReducible {
         func_77655_b(regName);
         ItemInit.ITEMS.add(this);
     }
-
     @Override // xol.lostinfinity.item.classify.IMaxReducible
     public float reduceMaxDamage(EntityPlayer player, boolean isMainHand, float damage, float reductionMultiplier, ItemStack stack) {
         if (player.func_110143_aJ() == player.func_110138_aP()) {
@@ -32,7 +28,6 @@ public class ItemDualDefender extends Item implements IMaxReducible {
         }
         return reductionMultiplier;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Italic + "Grants effects while held in offhand.");

@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.contest.controller;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -17,23 +16,18 @@ import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.item.activate.ItemBombDeployer;
 import xol.lostinfinity.util.coordinates.ContestCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/contest/controller/EntityControllerBombers.class */
 public class EntityControllerBombers extends EntityControllerBase {
     private int stageTimer;
     private List<BlockPos> powerupLocations;
-
     public EntityControllerBombers(World worldIn) {
         super(worldIn);
         this.stageTimer = 400;
         this.powerupLocations = new ArrayList();
         func_70105_a(3.0f, 6.0f);
     }
-
     public void addPowerupLocation(BlockPos pos) {
         this.powerupLocations.add(pos);
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase, xol.lostinfinity.mob.entity.base.EntityImmaterial
     public void func_70636_d() {
         super.func_70636_d();
@@ -47,7 +41,6 @@ public class EntityControllerBombers extends EntityControllerBase {
             this.stageTimer--;
         }
     }
-
     private void createPowerups() {
         int max = this.powerupLocations.size();
         if (max >= 6) {
@@ -58,7 +51,6 @@ public class EntityControllerBombers extends EntityControllerBase {
             messageContendersWithSound(this.stage % 2 == 0 ? TextFmt.Gold : TextFmt.Green, randomPowerupMessage(), SoundInit.MINIGAME_ANNOUNCEMENT);
         }
     }
-
     private Block randomPowerupBlock() {
         switch (this.field_70146_Z.nextInt(4)) {
             case 0:
@@ -73,7 +65,6 @@ public class EntityControllerBombers extends EntityControllerBase {
                 return BlockInit.bombersPowerupSize;
         }
     }
-
     private String randomPowerupMessage() {
         switch (this.field_70146_Z.nextInt(8)) {
             case 0:
@@ -84,11 +75,11 @@ public class EntityControllerBombers extends EntityControllerBase {
                 return "Somebody blow up already! I've enabled powerups to help you do that.";
             case 3:
                 return "Why does it take so long to see somebody explode? Here I'll lend you a hand... powerups are now open.";
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 return "Quick contenders, grab the powerups before you get eliminated!";
             case 5:
                 return "I've opened powerups. Hopefully one of you explodes trying to grab one.";
-            case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+            case TileEntityFusionTable.BOARD_COLUMNS :
                 return "Powerups are open, grab them quickly contenders.";
             case 7:
                 return "I've opened powerups so that one of you can get eliminated already.";
@@ -96,17 +87,14 @@ public class EntityControllerBombers extends EntityControllerBase {
                 return "";
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected AxisAlignedBB getArenaAABB() {
         return ContestCoordinates.bombersArenaAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected BlockPos getSnapPos() {
         return ContestCoordinates.bombersControllerPos();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected void rewardPlayer(EntityPlayer player, int placement) {
         BlockPos teleTo = ContestCoordinates.bombersLobbyPos();
@@ -115,7 +103,6 @@ public class EntityControllerBombers extends EntityControllerBase {
         removeBombBag(player);
         player.func_191521_c(new ItemStack(ItemInit.zirconiaCitrine, reward_count));
     }
-
     private void removeBombBag(EntityPlayer player) {
         for (int i = 0; i < player.field_71071_by.func_70302_i_(); i++) {
             if (player.field_71071_by.func_70301_a(i).func_77973_b() instanceof ItemBombDeployer) {

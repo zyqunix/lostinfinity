@@ -1,5 +1,4 @@
 package xol.lostinfinity.gui.containers;
-
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
@@ -14,8 +13,6 @@ import net.minecraft.world.World;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.recipes.ModuleCreatorRecipes;
 import xol.lostinfinity.util.Reference;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/containers/ContainerModuleCreator.class */
 public class ContainerModuleCreator extends Container {
     private final Block modulator;
     private final BlockPos blockPos;
@@ -29,7 +26,6 @@ public class ContainerModuleCreator extends Container {
             ContainerModuleCreator.this.func_75130_a(this);
         }
     };
-
     public ContainerModuleCreator(InventoryPlayer player, final World worldIn, final BlockPos blockPosIn, Block modulator) {
         this.modulator = modulator;
         this.world = worldIn;
@@ -38,11 +34,9 @@ public class ContainerModuleCreator extends Container {
             public boolean func_75214_a(ItemStack stack) {
                 return true;
             }
-
             public int func_178170_b(ItemStack stack) {
                 return 1;
             }
-
             public int func_75219_a() {
                 return 1;
             }
@@ -51,11 +45,9 @@ public class ContainerModuleCreator extends Container {
             public boolean func_75214_a(ItemStack stack) {
                 return true;
             }
-
             public int func_178170_b(ItemStack stack) {
                 return 1;
             }
-
             public int func_75219_a() {
                 return 1;
             }
@@ -64,11 +56,9 @@ public class ContainerModuleCreator extends Container {
             public boolean func_75214_a(ItemStack stack) {
                 return true;
             }
-
             public int func_178170_b(ItemStack stack) {
                 return 1;
             }
-
             public int func_75219_a() {
                 return 1;
             }
@@ -77,11 +67,9 @@ public class ContainerModuleCreator extends Container {
             public boolean func_75214_a(ItemStack stack) {
                 return stack.func_77973_b().equals(ItemInit.moduleContainer);
             }
-
             public int func_178170_b(ItemStack stack) {
                 return 1;
             }
-
             public int func_75219_a() {
                 return 1;
             }
@@ -90,11 +78,9 @@ public class ContainerModuleCreator extends Container {
             public boolean func_75214_a(ItemStack stack) {
                 return false;
             }
-
             public boolean func_82869_a(EntityPlayer playerIn) {
                 return func_75216_d();
             }
-
             public ItemStack func_190901_a(EntityPlayer thePlayer, ItemStack stack) {
                 for (int i = 0; i < 4; i++) {
                     ItemStack input = ContainerModuleCreator.this.inputSlots.func_70301_a(i).func_77946_l();
@@ -116,14 +102,12 @@ public class ContainerModuleCreator extends Container {
             func_75146_a(new Slot(player, k, 8 + (k * 18), 142));
         }
     }
-
     public void func_75130_a(IInventory inventoryIn) {
         super.func_75130_a(inventoryIn);
         if (inventoryIn == this.inputSlots) {
             updateOutput();
         }
     }
-
     public void updateOutput() {
         ItemStack input1 = this.inputSlots.func_70301_a(0).func_77946_l();
         ItemStack input2 = this.inputSlots.func_70301_a(1).func_77946_l();
@@ -144,18 +128,15 @@ public class ContainerModuleCreator extends Container {
             this.status = ModulatorStatus.AWAITING_INPUT;
         }
     }
-
     public void func_75134_a(EntityPlayer playerIn) {
         super.func_75134_a(playerIn);
         if (!this.world.field_72995_K) {
             func_193327_a(playerIn, this.world, this.inputSlots);
         }
     }
-
     public boolean func_75145_c(EntityPlayer playerIn) {
         return this.world.func_180495_p(this.blockPos).func_177230_c().equals(this.modulator) && playerIn.func_70092_e(((double) this.blockPos.func_177958_n()) + 0.5d, ((double) this.blockPos.func_177956_o()) + 0.5d, ((double) this.blockPos.func_177952_p()) + 0.5d) <= 64.0d;
     }
-
     public ItemStack func_82846_b(EntityPlayer playerIn, int index) {
         ItemStack itemstack = ItemStack.field_190927_a;
         Slot slot = (Slot) this.field_75151_b.get(index);
@@ -177,18 +158,13 @@ public class ContainerModuleCreator extends Container {
         }
         return itemstack;
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/containers/ContainerModuleCreator$ModulatorStatus.class */
     public enum ModulatorStatus {
         AWAITING_INPUT("Awaiting valid module creation input..."),
         VALID("Valid module creation detected, proceed.");
-
         final String descriptor;
-
         ModulatorStatus(String descriptor) {
             this.descriptor = descriptor;
         }
-
         public int getColor() {
             switch (this) {
                 case AWAITING_INPUT:

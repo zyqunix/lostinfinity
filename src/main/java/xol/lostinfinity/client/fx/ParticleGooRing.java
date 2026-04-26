@@ -1,5 +1,4 @@
 package xol.lostinfinity.client.fx;
-
 import java.util.Random;
 import javax.annotation.Nullable;
 import net.minecraft.client.particle.IParticleFactory;
@@ -8,11 +7,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.init.ParticleInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/client/fx/ParticleGooRing.class */
 public class ParticleGooRing extends LostParticle {
     private static final Random RANDOM = new Random();
-
     protected ParticleGooRing(World worldIn, double xCoordIn, double yCoordIn, double zCoordIn, double xSpeedIn, double ySpeed, double zSpeedIn) {
         super(worldIn, xCoordIn, yCoordIn, zCoordIn, 0.5d - RANDOM.nextDouble(), ySpeed, 0.5d - RANDOM.nextDouble());
         this.field_187130_j *= 0.20000000298023224d;
@@ -24,16 +20,13 @@ public class ParticleGooRing extends LostParticle {
         this.field_70547_e = (int) (14.0d / ((Math.random() * 0.8d) + 0.2d));
         func_187117_a(ParticleInit.GOO_RING_SPRITE);
     }
-
     public ParticleGooRing setParticleGravity(double motionY) {
         this.field_187130_j = motionY;
         return this;
     }
-
     public boolean func_187111_c() {
         return true;
     }
-
     @Override // xol.lostinfinity.client.fx.LostParticle
     public void func_189213_a() {
         updatePos();
@@ -68,12 +61,9 @@ public class ParticleGooRing extends LostParticle {
             this.field_187131_k *= 0.699999988079071d;
         }
     }
-
     public int func_70537_b() {
         return 1;
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/client/fx/ParticleGooRing$Factory.class */
     @SideOnly(Side.CLIENT)
     public static class Factory implements IParticleFactory {
         @Nullable

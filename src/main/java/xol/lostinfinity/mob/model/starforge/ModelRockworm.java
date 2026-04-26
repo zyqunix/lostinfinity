@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.model.starforge;
-
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.client.model.ModelBase;
@@ -9,8 +8,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import xol.lostinfinity.block.tileentity.TileEntityFusionTable;
 import xol.lostinfinity.mob.entity.starforge.EntityRockworm;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/starforge/ModelRockworm.class */
 public class ModelRockworm extends ModelBase {
     private final ModelRenderer Body;
     private final ModelRenderer Body2;
@@ -19,7 +16,6 @@ public class ModelRockworm extends ModelBase {
     private final ModelRenderer Body5;
     private final ModelRenderer Body6;
     private List<ModelRenderer> Segments = new ArrayList();
-
     public ModelRockworm() {
         this.field_78090_t = 64;
         this.field_78089_u = 64;
@@ -69,17 +65,14 @@ public class ModelRockworm extends ModelBase {
         this.Segments.add(this.Body5);
         this.Segments.add(this.Body6);
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.Body.func_78785_a(f5);
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         EntityRockworm worm = (EntityRockworm) entityIn;
         if (worm.isAwake()) {
@@ -99,7 +92,7 @@ public class ModelRockworm extends ModelBase {
                     case 3:
                         goalAngle = (-0.4f) * MathHelper.func_76126_a(ageInTicks * 0.1f);
                         break;
-                    case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+                    case TileEntityFusionTable.BOARD_ROWS :
                         goalAngle = (-0.4f) * MathHelper.func_76126_a(ageInTicks * 0.1f);
                         break;
                     case 5:

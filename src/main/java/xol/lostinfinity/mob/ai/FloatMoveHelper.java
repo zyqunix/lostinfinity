@@ -1,20 +1,15 @@
 package xol.lostinfinity.mob.ai;
-
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.ai.EntityMoveHelper;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/ai/FloatMoveHelper.class */
 public class FloatMoveHelper extends EntityMoveHelper {
     private final EntityLiving parentEntity;
     private int courseChangeCooldown;
-
     public FloatMoveHelper(EntityLiving ghast) {
         super(ghast);
         this.parentEntity = ghast;
     }
-
     public void func_75641_c() {
         if (this.field_188491_h == EntityMoveHelper.Action.MOVE_TO) {
             double d0 = this.field_75646_b - this.parentEntity.field_70165_t;
@@ -36,7 +31,6 @@ public class FloatMoveHelper extends EntityMoveHelper {
             }
         }
     }
-
     private boolean isNotColliding(double x, double y, double z, double p_179926_7_) {
         double d0 = (x - this.parentEntity.field_70165_t) / p_179926_7_;
         double d1 = (y - this.parentEntity.field_70163_u) / p_179926_7_;

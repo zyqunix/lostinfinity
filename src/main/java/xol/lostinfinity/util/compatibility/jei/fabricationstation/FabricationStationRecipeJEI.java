@@ -1,5 +1,4 @@
 package xol.lostinfinity.util.compatibility.jei.fabricationstation;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -9,12 +8,9 @@ import java.util.Objects;
 import net.minecraft.item.ItemStack;
 import xol.lostinfinity.init.ArmorInit;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/compatibility/jei/fabricationstation/FabricationStationRecipeJEI.class */
 public class FabricationStationRecipeJEI {
     private static final FabricationStationRecipeJEI INSTANCE = new FabricationStationRecipeJEI();
     private final Map<List<ItemStack>, ItemStack> fabricationStationList = new HashMap();
-
     public FabricationStationRecipeJEI() {
         ItemStack emb = new ItemStack(ItemInit.emberiumCondensed);
         ItemStack inc = new ItemStack(ItemInit.incadiumCondensed);
@@ -86,18 +82,15 @@ public class FabricationStationRecipeJEI {
         List<ItemStack> gravB = new ArrayList<>(Arrays.asList(ItemStack.field_190927_a, ItemStack.field_190927_a, ast, ItemStack.field_190927_a, ast, emb, emb));
         addFabricationStationRecipe(gravB, new ItemStack(ArmorInit.graviteriumSet.boots));
     }
-
     public static FabricationStationRecipeJEI getInstance() {
         return INSTANCE;
     }
-
     public void addFabricationStationRecipe(List<ItemStack> inputs, ItemStack result) {
         if (getFabricationStationResult(inputs) != ItemStack.field_190927_a) {
             return;
         }
         this.fabricationStationList.put(inputs, result);
     }
-
     public ItemStack getFabricationStationResult(List<ItemStack> inputs) {
         for (Map.Entry<List<ItemStack>, ItemStack> entry : this.fabricationStationList.entrySet()) {
             if (Objects.equals(inputs, entry.getKey())) {
@@ -106,7 +99,6 @@ public class FabricationStationRecipeJEI {
         }
         return ItemStack.field_190927_a;
     }
-
     public Map<List<ItemStack>, ItemStack> getFabricationStationList() {
         return this.fabricationStationList;
     }

@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.contest.operator;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -12,16 +11,12 @@ import net.minecraft.world.World;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.mob.entity.contest.controller.EntityControllerBattleSnakes;
 import xol.lostinfinity.util.coordinates.ContestCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/contest/operator/EntityOperatorBattleSnakes.class */
 public class EntityOperatorBattleSnakes extends EntityOperatorBase {
     private List<BlockPos> spawnPositions;
-
     public EntityOperatorBattleSnakes(World worldIn) {
         super(worldIn);
         this.spawnPositions = new ArrayList();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected void startGame() {
         for (EntityControllerBattleSnakes entity : this.field_70170_p.func_72872_a(EntityControllerBattleSnakes.class, getArenaAABB())) {
@@ -62,7 +57,6 @@ public class EntityOperatorBattleSnakes extends EntityOperatorBase {
         this.spawnPositions.clear();
         this.contenders.clear();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected void arenaClear() {
         BlockPos arenaPos = ContestCoordinates.battleSnakesArenaPos();
@@ -74,21 +68,17 @@ public class EntityOperatorBattleSnakes extends EntityOperatorBase {
             }
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected AxisAlignedBB getArenaAABB() {
         return ContestCoordinates.battleSnakesArenaAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected AxisAlignedBB getLobbyAABB() {
         return ContestCoordinates.battleSnakesLobbyAABB();
     }
-
     protected AxisAlignedBB getBoardAABB() {
         return ContestCoordinates.battleSnakesBoardAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected void generateArena() {
         ContestCoordinates.battleSnakesArenaPos();

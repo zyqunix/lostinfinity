@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -25,14 +24,11 @@ import xol.lostinfinity.item.classify.ISwitchModels;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.CustomRayTraceResult;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemAttractorBeam.class */
 public class ItemAttractorBeam extends ItemBasic implements ICustomRaytrace, ICustomHoldPose, ISwitchModels {
     public ItemAttractorBeam(String regName) {
         super(regName, TabsInit.TAB_AUXWEP);
         setModelSwitch("beamtype", this, 2);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         CustomRayTraceResult trace_result;
         ItemStack stack = playerIn.func_184586_b(handIn);
@@ -83,7 +79,6 @@ public class ItemAttractorBeam extends ItemBasic implements ICustomRaytrace, ICu
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Aqua + "Can be switched between a beam that pulls entities and pushes entities.");

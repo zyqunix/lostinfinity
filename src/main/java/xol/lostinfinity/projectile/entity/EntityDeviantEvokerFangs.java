@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import java.util.UUID;
 import javax.annotation.Nullable;
 import net.minecraft.entity.Entity;
@@ -12,8 +11,6 @@ import net.minecraft.world.WorldServer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityDeviantEvokerFangs.class */
 public class EntityDeviantEvokerFangs extends Entity implements IMaxAttack {
     private int warmupDelayTicks;
     private boolean sentSpikeEvent;
@@ -21,13 +18,11 @@ public class EntityDeviantEvokerFangs extends Entity implements IMaxAttack {
     private boolean clientSideAttackStarted;
     private EntityLivingBase caster;
     private UUID casterUuid;
-
     public EntityDeviantEvokerFangs(World worldIn) {
         super(worldIn);
         this.lifeTicks = 22;
         func_70105_a(0.5f, 0.8f);
     }
-
     public EntityDeviantEvokerFangs(World worldIn, double x, double y, double z, float yaw, int warmupTicks, EntityLivingBase casterIn) {
         this(worldIn);
         this.warmupDelayTicks = warmupTicks;
@@ -35,15 +30,12 @@ public class EntityDeviantEvokerFangs extends Entity implements IMaxAttack {
         this.field_70177_z = yaw * 57.295776f;
         func_70107_b(x, y, z);
     }
-
     protected void func_70088_a() {
     }
-
     public void setCaster(@Nullable EntityLivingBase caster) {
         this.caster = caster;
         this.casterUuid = caster == null ? null : caster.func_110124_au();
     }
-
     @Nullable
     public EntityLivingBase getCaster() {
         if (this.caster == null && this.casterUuid != null && (this.field_70170_p instanceof WorldServer)) {
@@ -54,19 +46,16 @@ public class EntityDeviantEvokerFangs extends Entity implements IMaxAttack {
         }
         return this.caster;
     }
-
     protected void func_70037_a(NBTTagCompound compound) {
         this.warmupDelayTicks = compound.func_74762_e("Warmup");
         this.casterUuid = compound.func_186857_a("OwnerUUID");
     }
-
     protected void func_70014_b(NBTTagCompound compound) {
         compound.func_74768_a("Warmup", this.warmupDelayTicks);
         if (this.casterUuid != null) {
             compound.func_186854_a("OwnerUUID", this.casterUuid);
         }
     }
-
     public void func_70071_h_() {
         super.func_70071_h_();
         if (this.field_70170_p.field_72995_K) {
@@ -107,7 +96,6 @@ public class EntityDeviantEvokerFangs extends Entity implements IMaxAttack {
             }
         }
     }
-
     private void damage(EntityLivingBase target) {
         EntityLivingBase entitylivingbase = getCaster();
         if (target.func_70089_S() && !target.func_190530_aW() && target != entitylivingbase) {
@@ -121,7 +109,6 @@ public class EntityDeviantEvokerFangs extends Entity implements IMaxAttack {
             }
         }
     }
-
     @SideOnly(Side.CLIENT)
     public void func_70103_a(byte id) {
         super.func_70103_a(id);
@@ -132,7 +119,6 @@ public class EntityDeviantEvokerFangs extends Entity implements IMaxAttack {
             }
         }
     }
-
     @SideOnly(Side.CLIENT)
     public float getAnimationProgress(float partialTicks) {
         if (!this.clientSideAttackStarted) {

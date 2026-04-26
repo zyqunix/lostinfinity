@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.boss;
-
 import java.util.Iterator;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -22,32 +21,25 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.projectile.entity.EntityAtlasAttack;
 import xol.lostinfinity.stone.EntityInfinityStone;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/boss/EntityAtlasSpire.class */
 public class EntityAtlasSpire extends EntityMob implements IMaxAttack {
     private static final DataParameter<Integer> CRYSTAL_STYLE = EntityDataManager.func_187226_a(EntityAtlasCrystal.class, DataSerializers.field_187192_b);
     private static final DataParameter<Integer> ROUNDS_PASSED = EntityDataManager.func_187226_a(EntityAtlasCrystal.class, DataSerializers.field_187192_b);
-
     public EntityAtlasSpire(World worldIn) {
         super(worldIn);
         func_70105_a(3.5f, 6.0f);
         func_184224_h(true);
     }
-
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(CRYSTAL_STYLE, 0);
         this.field_70180_af.func_187214_a(ROUNDS_PASSED, 0);
     }
-
     public int getStyle() {
         return ((Integer) this.field_70180_af.func_187225_a(CRYSTAL_STYLE)).intValue();
     }
-
     public void setStyle(int f) {
         this.field_70180_af.func_187227_b(CRYSTAL_STYLE, Integer.valueOf(f));
     }
-
     public void passRound() {
         int roundsSoFar = getRounds();
         this.field_70180_af.func_187227_b(ROUNDS_PASSED, Integer.valueOf(roundsSoFar + 1));
@@ -63,7 +55,6 @@ public class EntityAtlasSpire extends EntityMob implements IMaxAttack {
         func_184185_a(SoundInit.SPIRE_TARGET, 1.0f, 1.0f);
         messageRound(style, roundsSoFar + 1);
     }
-
     private void messageRound(int newStyle, int round) {
         String msg;
         switch (newStyle) {
@@ -88,27 +79,22 @@ public class EntityAtlasSpire extends EntityMob implements IMaxAttack {
             near_pl.func_145747_a(new TextComponentString(TextFmt.Aqua + msg));
         }
     }
-
     public int getRounds() {
         return ((Integer) this.field_70180_af.func_187225_a(ROUNDS_PASSED)).intValue();
     }
-
     private void setRounds(int r) {
         this.field_70180_af.func_187227_b(ROUNDS_PASSED, Integer.valueOf(r));
     }
-
     public void func_70014_b(NBTTagCompound tag) {
         super.func_70014_b(tag);
         tag.func_74768_a("SpawnForm", getStyle());
         tag.func_74768_a("Rounds", getRounds());
     }
-
     public void func_70037_a(NBTTagCompound tag) {
         super.func_70037_a(tag);
         setStyle(tag.func_74762_e("SpawnForm"));
         setRounds(tag.func_74762_e("Rounds"));
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(1.0d);
@@ -116,11 +102,9 @@ public class EntityAtlasSpire extends EntityMob implements IMaxAttack {
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(50000.0d);
     }
-
     private AxisAlignedBB getArenaAABB() {
         return new AxisAlignedBB(new BlockPos(-3.0d, 60.0d, -145.0d), new BlockPos(52.0d, 85.0d, -40.0d));
     }
-
     private void fireBlast() {
         if (!this.field_70170_p.field_72995_K) {
             boolean fired = false;
@@ -144,7 +128,6 @@ public class EntityAtlasSpire extends EntityMob implements IMaxAttack {
             }
         }
     }
-
     private void spawnCrystals(int count) {
         for (int crystal = 0; crystal < count; crystal++) {
             EntityAtlasCrystal crystal_spawn = new EntityAtlasCrystal(this.field_70170_p);
@@ -162,7 +145,6 @@ public class EntityAtlasSpire extends EntityMob implements IMaxAttack {
             this.field_70170_p.func_72838_d(crystal_spawn);
         }
     }
-
     private int getCrystalCount() {
         int num = 0;
         for (EntityAtlasCrystal entityAtlasCrystal : this.field_70170_p.func_72872_a(EntityAtlasCrystal.class, getArenaAABB())) {
@@ -170,7 +152,6 @@ public class EntityAtlasSpire extends EntityMob implements IMaxAttack {
         }
         return num;
     }
-
     public void func_70636_d() {
         int count;
         super.func_70636_d();
@@ -237,31 +218,24 @@ public class EntityAtlasSpire extends EntityMob implements IMaxAttack {
             }
         }
     }
-
     protected SoundEvent func_184639_G() {
         return null;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return null;
     }
-
     protected SoundEvent func_184615_bR() {
         return null;
     }
-
     public boolean func_70104_M() {
         return false;
     }
-
     protected boolean func_70692_ba() {
         return false;
     }
-
     public boolean func_70814_o() {
         return true;
     }
-
     public int func_70641_bl() {
         return 1;
     }

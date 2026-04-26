@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.model;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
@@ -8,8 +7,6 @@ import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import xol.lostinfinity.mob.entity.misc.EntityRisingPhantom;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/ModelRisingPhantom.class */
 public class ModelRisingPhantom extends ModelBase {
     private final ModelRenderer Body;
     private final ModelRenderer BodyBlock_r1;
@@ -26,7 +23,6 @@ public class ModelRisingPhantom extends ModelBase {
     private final ModelRenderer BodyBlock_r3;
     private final ModelRenderer Tentacle3;
     private final ModelRenderer BodyBlock_r4;
-
     public ModelRisingPhantom() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -98,7 +94,6 @@ public class ModelRisingPhantom extends ModelBase {
         setRotationAngle(this.BodyBlock_r4, 0.2618f, 0.0f, 0.0f);
         this.BodyBlock_r4.field_78804_l.add(new ModelBox(this.BodyBlock_r4, 67, 19, 1.5f, 3.0f, 1.0f, 5, 12, 5, -1.5f, false));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         GlStateManager.func_179147_l();
         GlStateManager.func_179092_a(516, 0.0f);
@@ -107,13 +102,11 @@ public class ModelRisingPhantom extends ModelBase {
         this.Body.func_78785_a(f5);
         GlStateManager.func_179084_k();
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         EntityRisingPhantom phantom = (EntityRisingPhantom) entityIn;
         this.Head.field_78795_f = (float) (1.5707963267948966d - ((double) phantom.getFaceRotation()));
@@ -130,7 +123,6 @@ public class ModelRisingPhantom extends ModelBase {
         this.Tentacle2.field_78795_f = (-0.4f) * MathHelper.func_76126_a(ageInTicks * 0.1f);
         this.Tentacle3.field_78795_f = 0.4f * MathHelper.func_76134_b(ageInTicks * 0.1f);
     }
-
     private float getAlpha(Entity phantom, float partialTickTime) {
         float alpha = (float) (MathHelper.func_151238_b(phantom.field_70173_aa - 1, phantom.field_70173_aa, partialTickTime) / 20.0d);
         if (phantom.field_70173_aa < 20) {

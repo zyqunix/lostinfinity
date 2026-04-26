@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.contest.controller;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
@@ -16,8 +15,6 @@ import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.coordinates.ContestCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/contest/controller/EntityControllerTargets.class */
 public class EntityControllerTargets extends EntityControllerBase {
     private int stageTimer;
     private int betweenTimer;
@@ -28,7 +25,6 @@ public class EntityControllerTargets extends EntityControllerBase {
     private int score;
     private static int stageLength = 400;
     private static int betweenRoundLength = 80;
-
     public EntityControllerTargets(World worldIn) {
         super(worldIn);
         this.stageTimer = 0;
@@ -43,17 +39,14 @@ public class EntityControllerTargets extends EntityControllerBase {
         this.targetPositions = new ArrayList<>();
         this.activeTargets = new ArrayList<>();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected AxisAlignedBB getArenaAABB() {
         return ContestCoordinates.targetsArenaAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected BlockPos getSnapPos() {
         return ContestCoordinates.targetsControllerPos();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase, xol.lostinfinity.mob.entity.base.EntityImmaterial
     public void func_70636_d() {
         super.func_70636_d();
@@ -88,7 +81,6 @@ public class EntityControllerTargets extends EntityControllerBase {
             toggleTargets();
         }
     }
-
     private void betweenStage() {
         if (this.betweenTimer == betweenRoundLength - 1) {
             resetTargets();
@@ -97,7 +89,6 @@ public class EntityControllerTargets extends EntityControllerBase {
             messageContenders(TextFmt.Green, String.format("%d", Integer.valueOf(this.betweenTimer / 20)));
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected void endGame() {
         this.game = false;
@@ -124,7 +115,6 @@ public class EntityControllerTargets extends EntityControllerBase {
         }
         func_70106_y();
     }
-
     public void scoreTarget(BlockPos pos) {
         int timeDiff;
         if (this.stageTimer == 0) {
@@ -161,7 +151,6 @@ public class EntityControllerTargets extends EntityControllerBase {
             scoreMessage();
         }
     }
-
     private void setGraceTimer(TargetNode activeTarget) {
         ArrayList<TargetNode> toRemove = new ArrayList<>();
         BlockPos pos = activeTarget.getPos();
@@ -180,11 +169,9 @@ public class EntityControllerTargets extends EntityControllerBase {
             this.activeTargets.remove(it.next());
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected void playerStatusCheck() {
     }
-
     private void toggleTargets() {
         if (this.roundTargets != null && !this.roundTargets.isEmpty()) {
             for (TargetNode roundTarget : this.roundTargets) {
@@ -207,23 +194,19 @@ public class EntityControllerTargets extends EntityControllerBase {
             }
         }
     }
-
     private void scoreMessage() {
         messageContenders(TextFmt.Green, String.format("SCORE : %d", Integer.valueOf(this.score)));
     }
-
     private void upStage() {
         this.stage++;
         this.stageTimer = stageLength;
         resetTargets();
     }
-
     private void resetTargets() {
         for (BlockPos pos : this.targetPositions) {
             this.field_70170_p.func_175656_a(pos, ((BlockTarget) BlockInit.target).getInactiveState());
         }
     }
-
     public void setTargetPositions(World worldIn) {
         AxisAlignedBB arena = ContestCoordinates.targetsArenaAABB();
         for (int i = (int) arena.field_72340_a; i <= ((int) arena.field_72336_d); i++) {
@@ -238,7 +221,6 @@ public class EntityControllerTargets extends EntityControllerBase {
             }
         }
     }
-
     public void setUpRoundTargets() {
         if (this.targetPositions.isEmpty()) {
             return;
@@ -247,7 +229,7 @@ public class EntityControllerTargets extends EntityControllerBase {
         int minDuration = 0;
         int maxDuration = 0;
         switch (this.stage) {
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 roundTargets = 40;
                 minDuration = 45;
                 maxDuration = 55;
@@ -263,7 +245,6 @@ public class EntityControllerTargets extends EntityControllerBase {
             this.roundTargets.add(node);
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected void rewardPlayer(EntityPlayer player, int placement) {
         for (int i = 0; i < player.field_71071_by.func_70302_i_(); i++) {

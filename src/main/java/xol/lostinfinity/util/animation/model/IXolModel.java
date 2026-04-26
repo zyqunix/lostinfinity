@@ -1,5 +1,4 @@
 package xol.lostinfinity.util.animation.model;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.InputStream;
@@ -14,26 +13,18 @@ import net.minecraft.util.ResourceLocation;
 import xol.lostinfinity.util.animation.client.AnimationDeserializer;
 import xol.lostinfinity.util.animation.client.blueprint.AnimationBlueprint;
 import xol.lostinfinity.util.animation.entity.IXolAnimated;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/animation/model/IXolModel.class */
 public interface IXolModel {
     public static final Set<IXolModel> models = new HashSet();
     public static final Gson gson = new GsonBuilder().registerTypeAdapter(AnimationBlueprint.class, new AnimationDeserializer()).create();
-
     ResourceLocation getAnimationJson();
-
     void setBlueprint(AnimationBlueprint animationBlueprint);
-
     AnimationBlueprint getBlueprint();
-
     Map<String, ModelRenderer> getIndex();
-
     static void initializeModel(IXolModel model) {
         models.add(model);
         model.indexModel();
         model.refresh();
     }
-
     default void indexModel() {
         ModelRenderer renderer;
         try {
@@ -49,7 +40,6 @@ public interface IXolModel {
             e.printStackTrace();
         }
     }
-
     default void refresh() {
         try {
             InputStream input = Minecraft.func_71410_x().func_110442_L().func_110536_a(getAnimationJson()).func_110527_b();
@@ -59,7 +49,6 @@ public interface IXolModel {
             e.printStackTrace();
         }
     }
-
     default void animate(Entity entity) {
         if (entity instanceof IXolAnimated) {
             IXolAnimated animated = (IXolAnimated) entity;

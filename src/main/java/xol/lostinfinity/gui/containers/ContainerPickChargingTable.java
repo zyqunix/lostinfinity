@@ -1,5 +1,4 @@
 package xol.lostinfinity.gui.containers;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
@@ -19,8 +18,6 @@ import net.minecraft.world.World;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.item.tool.ItemForgefirePickaxe;
 import xol.lostinfinity.util.Reference;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/containers/ContainerPickChargingTable.class */
 public class ContainerPickChargingTable extends Container {
     private final Block pickChargingTable;
     private final BlockPos blockPos;
@@ -34,7 +31,6 @@ public class ContainerPickChargingTable extends Container {
             ContainerPickChargingTable.this.func_75130_a(this);
         }
     };
-
     public ContainerPickChargingTable(InventoryPlayer player, final World worldIn, final BlockPos blockPosIn, Block pickChargingTable) {
         this.pickChargingTable = pickChargingTable;
         this.world = worldIn;
@@ -48,7 +44,6 @@ public class ContainerPickChargingTable extends Container {
             public boolean func_75214_a(ItemStack stack) {
                 return Arrays.asList(ItemInit.getValidPickChargingCrystals()).contains(stack.func_77973_b());
             }
-
             public int func_75219_a() {
                 return this.field_75224_c.func_70297_j_();
             }
@@ -57,11 +52,9 @@ public class ContainerPickChargingTable extends Container {
             public boolean func_75214_a(ItemStack stack) {
                 return false;
             }
-
             public boolean func_82869_a(EntityPlayer playerIn) {
                 return func_75216_d();
             }
-
             public ItemStack func_190901_a(EntityPlayer thePlayer, ItemStack stack) {
                 ContainerPickChargingTable.this.inputSlots.func_70299_a(0, ItemStack.field_190927_a);
                 if (ContainerPickChargingTable.this.materialCost > 0) {
@@ -91,14 +84,12 @@ public class ContainerPickChargingTable extends Container {
             func_75146_a(new Slot(player, k, 8 + (k * 18), 142));
         }
     }
-
     public void func_75130_a(IInventory inventoryIn) {
         super.func_75130_a(inventoryIn);
         if (inventoryIn == this.inputSlots) {
             updateChargerOutput();
         }
     }
-
     public void updateChargerOutput() {
         ItemStack iteminput1 = this.inputSlots.func_70301_a(0).func_77946_l();
         ItemStack iteminput2 = this.inputSlots.func_70301_a(1).func_77946_l();
@@ -141,7 +132,6 @@ public class ContainerPickChargingTable extends Container {
             this.outputSlot.func_70299_a(0, ItemStack.field_190927_a);
         }
     }
-
     public Optional<ChargeSource> getSource() {
         Optional<ChargeSource> module = Optional.ofNullable(null);
         ItemStack src = this.inputSlots.func_70301_a(1);
@@ -154,18 +144,15 @@ public class ContainerPickChargingTable extends Container {
         }
         return module;
     }
-
     public void func_75134_a(EntityPlayer playerIn) {
         super.func_75134_a(playerIn);
         if (!this.world.field_72995_K) {
             func_193327_a(playerIn, this.world, this.inputSlots);
         }
     }
-
     public boolean func_75145_c(EntityPlayer playerIn) {
         return this.world.func_180495_p(this.blockPos).func_177230_c().equals(this.pickChargingTable) && playerIn.func_70092_e(((double) this.blockPos.func_177958_n()) + 0.5d, ((double) this.blockPos.func_177956_o()) + 0.5d, ((double) this.blockPos.func_177952_p()) + 0.5d) <= 64.0d;
     }
-
     public ItemStack func_82846_b(EntityPlayer playerIn, int index) {
         ItemStack itemstack = ItemStack.field_190927_a;
         Slot slot = (Slot) this.field_75151_b.get(index);
@@ -196,19 +183,14 @@ public class ContainerPickChargingTable extends Container {
         }
         return itemstack;
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/containers/ContainerPickChargingTable$PickChargingStatus.class */
     public enum PickChargingStatus {
         AWAITING_INPUT("Awaiting valid charging configuration..."),
         VALID("Valid charging configuration detected, proceed."),
         ERR_FULLY_CHARGED("The pickaxe is already at full charge of the provided source.");
-
         final String descriptor;
-
         PickChargingStatus(String descriptor) {
             this.descriptor = descriptor;
         }
-
         public int getColor() {
             switch (this) {
                 case AWAITING_INPUT:
@@ -222,14 +204,11 @@ public class ContainerPickChargingTable extends Container {
             }
         }
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/containers/ContainerPickChargingTable$ChargeSource.class */
     public class ChargeSource {
         final int chargeAmount = 25;
         final int chargeMax = 250;
         final String key;
         final Item item;
-
         public ChargeSource(Item item) {
             List<String> list = Arrays.asList(item.getRegistryName().func_110623_a().split("_"));
             this.key = list.get(list.size() - 1);

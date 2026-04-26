@@ -1,11 +1,8 @@
 package xol.lostinfinity.mob.model.boss;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/boss/ModelAtlasSpire.class */
 public class ModelAtlasSpire extends ModelBase {
     public ModelRenderer orb;
     public ModelRenderer base2;
@@ -20,7 +17,6 @@ public class ModelAtlasSpire extends ModelBase {
     public ModelRenderer flap7;
     public ModelRenderer flap8;
     public ModelRenderer orbring;
-
     public ModelAtlasSpire() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -73,7 +69,6 @@ public class ModelAtlasSpire extends ModelBase {
         setRotateAngle(this.flap2, -0.5235988f, 0.0f, 0.0f);
         this.orb.func_78792_a(this.orbring);
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.flap6.func_78785_a(f5);
         this.orb.func_78785_a(f5);
@@ -88,13 +83,11 @@ public class ModelAtlasSpire extends ModelBase {
         this.flap7.func_78785_a(f5);
         this.flap2.func_78785_a(f5);
     }
-
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.orb.field_78796_g = ageInTicks * 0.1f;
         this.orbring.field_78795_f = ageInTicks * 0.2f;

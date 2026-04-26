@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -17,15 +16,12 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.basics.ItemChanneling;
 import xol.lostinfinity.projectile.entity.EntityLaserGunBeam;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemLaserGun.class */
 public class ItemLaserGun extends ItemChanneling {
     public ItemLaserGun(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
         setMaxChargeTime(34);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemChanneling
     public ActionResult<ItemStack> chargeStart(World worldIn, EntityPlayer player, EnumHand handIn, ItemStack stack) {
         if (!worldIn.field_72995_K) {
@@ -42,12 +38,10 @@ public class ItemLaserGun extends ItemChanneling {
         }
         return super.chargeStart(worldIn, player, handIn, stack);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemChanneling, xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 2000;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Italic + "The Super-Mega-Ultimate Laser Gun");

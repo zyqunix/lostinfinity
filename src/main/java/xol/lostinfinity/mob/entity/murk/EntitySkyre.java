@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.murk;
-
 import java.util.Arrays;
 import java.util.Iterator;
 import net.minecraft.entity.Entity;
@@ -17,19 +16,15 @@ import xol.lostinfinity.mob.ai.EntityAIFloatAttack;
 import xol.lostinfinity.mob.entity.base.EntityFloatingBase;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/murk/EntitySkyre.class */
 public class EntitySkyre extends EntityFloatingBase implements IMaxAttack {
     private EntityLivingBase darkTarget;
     private boolean canIgnoreHeight;
-
     public EntitySkyre(World worldIn) {
         super(worldIn);
         this.darkTarget = null;
         this.canIgnoreHeight = false;
         func_70105_a(4.0f, 10.0f);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -43,12 +38,10 @@ public class EntitySkyre extends EntityFloatingBase implements IMaxAttack {
         }
         return false;
     }
-
     public void setMyDarkTarget(EntityLivingBase t) {
         this.darkTarget = t;
         func_70624_b(t);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     public void func_70636_d() {
         super.func_70636_d();
@@ -94,7 +87,6 @@ public class EntitySkyre extends EntityFloatingBase implements IMaxAttack {
             }
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     public void func_110147_ax() {
         super.func_110147_ax();
@@ -103,24 +95,19 @@ public class EntitySkyre extends EntityFloatingBase implements IMaxAttack {
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.25d);
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.SKYRE_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.SKYRE_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundInit.SKYRE_AMBIENT;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 15;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     protected void func_82167_n(Entity entityIn) {
         super.func_82167_n(entityIn);
@@ -129,17 +116,14 @@ public class EntitySkyre extends EntityFloatingBase implements IMaxAttack {
             this.attackCooldown = this.attackGracePeriod;
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public boolean func_70601_bi() {
         return super.func_70601_bi() && nothingInRadius(45);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     protected EntityAIFloatAttack createShootAI() {
         return null;
     }
-
     protected ResourceLocation func_184647_J() {
         return LootTableRegistry.ENTITIES_SKYRE;
     }

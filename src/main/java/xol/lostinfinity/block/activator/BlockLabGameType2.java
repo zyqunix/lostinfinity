@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
@@ -15,13 +14,10 @@ import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.mob.entity.labyrinth.EntityAspect;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockLabGameType2.class */
 public class BlockLabGameType2 extends BlockBasic {
     public BlockLabGameType2(String name) {
         super(name, Material.field_151576_e);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         Item mapItem;
         if (!playerIn.func_70093_af() && !playerIn.func_184586_b(hand).func_190926_b() && (mapItem = canStartGame(playerIn.func_184586_b(hand).func_77973_b())) != null) {
@@ -41,7 +37,6 @@ public class BlockLabGameType2 extends BlockBasic {
         }
         return true;
     }
-
     private Item canStartGame(Item held) {
         if (held.equals(ItemInit.deviantBlazerod)) {
             return ItemInit.dreadMap;

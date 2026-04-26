@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import java.util.ArrayList;
 import net.minecraft.block.Block;
 import net.minecraft.block.properties.IProperty;
@@ -16,15 +15,11 @@ import net.minecraft.world.World;
 import xol.lostinfinity.block.basic.BlockBasic;
 import xol.lostinfinity.block.tileentity.TileEntityChromaGame;
 import xol.lostinfinity.init.BlockInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockChromaTile.class */
 public class BlockChromaTile extends BlockBasic {
     public static final PropertyInteger AMOUNT = PropertyInteger.func_177719_a("amount", 0, 3);
-
     public BlockChromaTile(String name) {
         super(name);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!worldIn.field_72995_K) {
             worldIn.func_175656_a(pos, getNewState(worldIn, pos, state, playerIn));
@@ -44,7 +39,6 @@ public class BlockChromaTile extends BlockBasic {
         }
         return true;
     }
-
     private IBlockState getNewState(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn) {
         int meta = func_176201_c(state);
         BlockPos ref = pos.func_177982_a(0, 0, 0);
@@ -83,19 +77,15 @@ public class BlockChromaTile extends BlockBasic {
         }
         return state;
     }
-
     public IBlockState func_180642_a(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
         return func_176223_P().func_177226_a(AMOUNT, 0);
     }
-
     public IBlockState func_176203_a(int meta) {
         return func_176223_P().func_177226_a(AMOUNT, Integer.valueOf(meta));
     }
-
     public int func_176201_c(IBlockState state) {
         return ((Integer) state.func_177229_b(AMOUNT)).intValue();
     }
-
     protected BlockStateContainer func_180661_e() {
         return new BlockStateContainer(this, new IProperty[]{AMOUNT});
     }

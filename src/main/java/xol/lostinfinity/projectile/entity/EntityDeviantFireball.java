@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.item.EntityItem;
@@ -12,30 +11,24 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityDeviantFireball.class */
 public class EntityDeviantFireball extends EntityFireball implements IMaxAttack {
     private int denomDamage;
     private float explosWidth;
-
     public EntityDeviantFireball(World world, EntityLivingBase entity, double i, double j, double k) {
         super(world, entity, i, j, k);
         this.denomDamage = 4;
         this.explosWidth = 2.0f;
     }
-
     public EntityDeviantFireball(World world, EntityLivingBase entity, double i, double j, double k, int newDenom, float newExplos) {
         this(world, entity, i, j, k);
         this.denomDamage = newDenom;
         this.explosWidth = newExplos;
     }
-
     public EntityDeviantFireball(World world) {
         super(world);
         this.denomDamage = 4;
         this.explosWidth = 2.0f;
     }
-
     protected void func_70227_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
             if (result.field_72308_g != null) {
@@ -55,7 +48,6 @@ public class EntityDeviantFireball extends EntityFireball implements IMaxAttack 
             func_70106_y();
         }
     }
-
     public void shoot(double x, double y, double z, float velocity, float inaccuracy) {
         float f = MathHelper.func_76133_a((x * x) + (y * y) + (z * z));
         double x2 = x / ((double) f);

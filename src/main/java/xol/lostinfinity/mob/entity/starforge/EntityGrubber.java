@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.starforge;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -24,33 +23,26 @@ import xol.lostinfinity.mob.entity.base.EntityMultipleLives;
 import xol.lostinfinity.mob.entity.base.IConditionalDamage;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/starforge/EntityGrubber.class */
 public class EntityGrubber extends EntityMultipleLives implements IMaxAttack, IConditionalDamage {
     private static final DataParameter<Boolean> AWAKE = EntityDataManager.func_187226_a(EntityGrubber.class, DataSerializers.field_187198_h);
     private int sleepTimer;
     private float eyeCoverAng;
-
     public EntityGrubber(World worldIn) {
         super(worldIn);
         this.sleepTimer = 0;
         func_70105_a(0.75f, 0.75f);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_184651_r() {
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(AWAKE, false);
     }
-
     public boolean isAwake() {
         return ((Boolean) this.field_70180_af.func_187225_a(AWAKE)).booleanValue();
     }
-
     public void setAwake(boolean awoke) {
         this.field_70180_af.func_187227_b(AWAKE, Boolean.valueOf(awoke));
         if (!awoke) {
@@ -61,11 +53,9 @@ public class EntityGrubber extends EntityMultipleLives implements IMaxAttack, IC
         }
         this.sleepTimer = 0;
     }
-
     public float getEyeCoverRot() {
         return this.eyeCoverAng;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         this.field_70143_R = -1.0f;
@@ -93,7 +83,6 @@ public class EntityGrubber extends EntityMultipleLives implements IMaxAttack, IC
             this.eyeCoverAng -= 0.1f;
         }
     }
-
     protected boolean func_184645_a(EntityPlayer player, EnumHand hand) {
         ItemStack held = player.func_184586_b(hand);
         if (held.func_77973_b().equals(ItemInit.jarOfMurkySyrup) && this.field_70170_p.field_73011_w.func_186058_p() == DimensionInit.infiniteMurk) {
@@ -115,7 +104,6 @@ public class EntityGrubber extends EntityMultipleLives implements IMaxAttack, IC
         }
         return true;
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -127,7 +115,6 @@ public class EntityGrubber extends EntityMultipleLives implements IMaxAttack, IC
         }
         return false;
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(3000.0d);
@@ -135,31 +122,25 @@ public class EntityGrubber extends EntityMultipleLives implements IMaxAttack, IC
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.25d);
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.GRUBBER_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.GRUBBER_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         if (!isAwake()) {
             return SoundInit.GRUBBER_AMBIENT_SLEEPING;
         }
         return SoundInit.GRUBBER_AMBIENT;
     }
-
     protected ResourceLocation func_184647_J() {
         return LootTableRegistry.ENTITIES_GRUBBER;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 3;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.IConditionalDamage
     public boolean canBeDamaged(Entity attacker) {
         return isAwake();

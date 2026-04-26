@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.render.sea;
-
 import javax.annotation.Nullable;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
@@ -7,22 +6,14 @@ import net.minecraft.client.renderer.entity.RenderManager;
 import net.minecraft.util.ResourceLocation;
 import xol.lostinfinity.mob.entity.sea.EntityRibshark;
 import xol.lostinfinity.mob.model.sea.ModelRibshark;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/render/sea/RenderRibshark.class */
 public class RenderRibshark extends RenderLiving<EntityRibshark> {
     public RenderRibshark(RenderManager rendermanagerIn) {
         super(rendermanagerIn, new ModelRibshark(), 0.0f);
     }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX INFO: renamed from: preRenderCallback, reason: merged with bridge method [inline-methods] */
     public void func_77041_b(EntityRibshark entitylivingbaseIn, float partialTickTime) {
         GlStateManager.func_179152_a(2.0f, 2.0f, 2.0f);
     }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Nullable
-    /* JADX INFO: renamed from: getEntityTexture, reason: merged with bridge method [inline-methods] */
     public ResourceLocation func_110775_a(EntityRibshark entity) {
         switch (entity.getVisualStyle()) {
             case 0:

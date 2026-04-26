@@ -1,12 +1,9 @@
 package xol.lostinfinity.item.basics;
-
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.item.classify.ICooldown;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/basics/ItemCooldown.class */
 public class ItemCooldown extends Item implements ICooldown {
     public ItemCooldown(String regName) {
         setRegistryName(regName);
@@ -14,7 +11,6 @@ public class ItemCooldown extends Item implements ICooldown {
         func_77625_d(1);
         ItemInit.ITEMS.add(this);
     }
-
     public boolean showDurabilityBar(ItemStack stack) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
@@ -24,15 +20,12 @@ public class ItemCooldown extends Item implements ICooldown {
         long maxDelay = hasSimpleCooldown() ? getCooldown() : stack.func_77978_p().func_74762_e("ComplexCooldown");
         return System.currentTimeMillis() - lastUse <= maxDelay;
     }
-
     protected int getCooldown() {
         return 5000;
     }
-
     protected boolean hasSimpleCooldown() {
         return true;
     }
-
     public double getDurabilityForDisplay(ItemStack stack) {
         if (showDurabilityBar(stack)) {
             double result = System.currentTimeMillis() - stack.func_77978_p().func_74763_f("lastUse");

@@ -1,5 +1,4 @@
 package xol.lostinfinity.util.animation.client;
-
 import com.google.common.collect.Maps;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -13,17 +12,13 @@ import xol.lostinfinity.util.animation.client.blueprint.AnimationBlueprint;
 import xol.lostinfinity.util.animation.model.IXolModel;
 import xol.lostinfinity.util.animation.model.ModelRenderer;
 import xol.lostinfinity.util.math.EulerAngle;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/animation/client/AnimationHandler.class */
 public class AnimationHandler {
     private final Map<String, AnimationProperty> animations = Maps.newConcurrentMap();
     private final Set<Runnable> queue = new HashSet();
     private AnimationBlueprint blueprint;
-
     public AnimationBlueprint getBlueprint() {
         return this.blueprint;
     }
-
     public void setBlueprint(AnimationBlueprint blueprint) {
         if (this.blueprint == blueprint) {
             return;
@@ -33,11 +28,9 @@ public class AnimationHandler {
             v0.refresh();
         });
     }
-
     public Map<String, AnimationProperty> getAnimations() {
         return this.animations;
     }
-
     public void update(IXolModel model, float partialTick) {
         this.queue.forEach((v0) -> {
             v0.run();
@@ -89,11 +82,9 @@ public class AnimationHandler {
             }
         }
     }
-
     public void play(String id) {
         play(id, null);
     }
-
     public void play(String id, Consumer<AnimationProperty> consumer) {
         if (this.blueprint == null) {
             this.queue.add(() -> {
@@ -103,7 +94,6 @@ public class AnimationHandler {
             playInternal(id, consumer);
         }
     }
-
     private void playInternal(String id, Consumer<AnimationProperty> consumer) {
         String animationId = id.toLowerCase(Locale.ROOT);
         Animation animation = this.blueprint.getAnimation(animationId);
@@ -120,7 +110,6 @@ public class AnimationHandler {
         }
         this.animations.put(animationId, property);
     }
-
     public void stop(String id) {
         AnimationProperty property = this.animations.get(id.toLowerCase(Locale.ROOT));
         if (property != null) {

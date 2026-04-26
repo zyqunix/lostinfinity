@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumFacing;
@@ -9,13 +8,10 @@ import net.minecraft.world.World;
 import xol.lostinfinity.block.basic.BlockBasicBoolState;
 import xol.lostinfinity.block.tileentity.TileEntityAlignmentDialGame;
 import xol.lostinfinity.init.BlockInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockAlignmentTile.class */
 public class BlockAlignmentTile extends BlockBasicBoolState {
     public BlockAlignmentTile(String name) {
         super(name);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!worldIn.field_72995_K) {
             for (int i = -15; i <= 15; i++) {

@@ -1,23 +1,18 @@
 package xol.lostinfinity.mob.entity.cthulhu;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.world.World;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.projectile.cthulhu.EntityCthulhuTurretBullet;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/cthulhu/EntityCthulhuTurret.class */
 public class EntityCthulhuTurret extends AbstractCthulhuMinion {
     public EntityCthulhuTurret(World worldIn) {
         super(worldIn);
         func_70105_a(2.0f, 1.5f);
     }
-
     @Override // xol.lostinfinity.mob.entity.cthulhu.AbstractCthulhuMinion, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_184651_r() {
     }
-
     public void func_70636_d() {
         EntityPlayer player;
         super.func_70636_d();
@@ -37,16 +32,13 @@ public class EntityCthulhuTurret extends AbstractCthulhuMinion {
             this.field_70170_p.func_184133_a((EntityPlayer) null, func_180425_c(), SoundInit.LASER_WEAPON_7, SoundCategory.HOSTILE, 1.0f, 1.0f);
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.cthulhu.AbstractCthulhuMinion
     protected boolean func_70692_ba() {
         return false;
     }
-
     public boolean func_70097_a(DamageSource source, float amount) {
         return source != DamageSource.field_76379_h && super.func_70097_a(source, amount);
     }
-
     private EntityPlayer findClosestPlayer() {
         double dist = 2304.0d;
         EntityPlayer closest = null;

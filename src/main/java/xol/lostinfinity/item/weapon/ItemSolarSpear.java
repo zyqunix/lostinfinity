@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -19,8 +18,6 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.classify.ICustomHoldPose;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemSolarSpear.class */
 public class ItemSolarSpear extends ItemSword implements IMaxAttack, ICustomHoldPose {
     public ItemSolarSpear(String regName) {
         super(Item.ToolMaterial.WOOD);
@@ -29,7 +26,6 @@ public class ItemSolarSpear extends ItemSword implements IMaxAttack, ICustomHold
         func_77655_b(regName);
         ItemInit.ITEMS.add(this);
     }
-
     public boolean func_77644_a(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         if (target.func_70644_a(PotionInit.SHOCKED)) {
             int level = target.func_70660_b(PotionInit.SHOCKED).func_76458_c() + 1;
@@ -40,7 +36,6 @@ public class ItemSolarSpear extends ItemSword implements IMaxAttack, ICustomHold
         }
         return true;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Deals 10% True Damage Per Stack of Shock on an Enemy");

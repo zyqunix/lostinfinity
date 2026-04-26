@@ -1,12 +1,9 @@
 package xol.lostinfinity.mob.model.starforge;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import xol.lostinfinity.mob.entity.starforge.EntityFlurky;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/starforge/ModelFlurky.class */
 public class ModelFlurky extends ModelBase {
     public ModelRenderer armr;
     public ModelRenderer legr;
@@ -22,7 +19,6 @@ public class ModelFlurky extends ModelBase {
     public ModelRenderer headbottom2;
     public ModelRenderer headbottom3;
     public ModelRenderer headbottom4;
-
     public ModelFlurky() {
         this.field_78090_t = 64;
         this.field_78089_u = 64;
@@ -79,7 +75,6 @@ public class ModelFlurky extends ModelBase {
         this.headbottom.func_78792_a(this.headtop);
         this.headbottom.func_78792_a(this.headtop2);
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.tail.func_78785_a(f5);
         this.legr.func_78785_a(f5);
@@ -90,13 +85,11 @@ public class ModelFlurky extends ModelBase {
         this.body.func_78785_a(f5);
         this.arml.func_78785_a(f5);
     }
-
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.headbottom.field_78796_g = netHeadYaw * 0.017453292f;
         this.headbottom.field_78795_f = headPitch * 0.017453292f;

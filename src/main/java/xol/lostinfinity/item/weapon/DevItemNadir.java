@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -26,20 +25,14 @@ import xol.lostinfinity.util.data.CustomRayTraceResult;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.data.RayTraceBuilder;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/DevItemNadir.class */
 public class DevItemNadir extends ItemCooldown implements IMaxAttack, IModeSelect, ICustomRaytrace {
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/DevItemNadir$BladeMode.class */
     public enum BladeMode {
         INSTANT,
         ONE_LIFE
     }
-
     public DevItemNadir(String regName) {
         super(regName);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         CustomRayTraceResult trace_result;
         ItemStack stack = playerIn.func_184586_b(handIn);
@@ -74,28 +67,23 @@ public class DevItemNadir extends ItemCooldown implements IMaxAttack, IModeSelec
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 50;
     }
-
     @Override // xol.lostinfinity.item.classify.IModeSelect
     public void modeUpdate(ItemStack stack, EntityPlayer player) {
         cycleMode(stack);
     }
-
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.getFormatting(TextFmt.Dark_Red, TextFmt.Bold) + "Developer Item");
     }
-
     private void cycleMode(ItemStack stack) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
         }
         stack.func_77978_p().func_74768_a("blade_mode", (stack.func_77978_p().func_74762_e("blade_mode") + 1) % BladeMode.values().length);
     }
-
     private BladeMode getMode(ItemStack stack) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
@@ -103,7 +91,6 @@ public class DevItemNadir extends ItemCooldown implements IMaxAttack, IModeSelec
         }
         return BladeMode.values()[stack.func_77978_p().func_74762_e("blade_mode")];
     }
-
     public String getHighlightTip(ItemStack item, String displayName) {
         switch (getMode(item)) {
             case INSTANT:
@@ -114,7 +101,6 @@ public class DevItemNadir extends ItemCooldown implements IMaxAttack, IModeSelec
                 return displayName;
         }
     }
-
     public IRarity getForgeRarity(ItemStack stack) {
         return EnumRarity.EPIC;
     }

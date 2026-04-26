@@ -1,5 +1,4 @@
 package xol.lostinfinity.common.packets;
-
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelDuplexHandler;
 import io.netty.channel.ChannelHandlerContext;
@@ -9,19 +8,14 @@ import net.minecraft.network.NetHandlerPlayServer;
 import net.minecraft.network.PacketBuffer;
 import net.minecraft.network.play.client.CPacketInput;
 import xol.lostinfinity.mob.entity.base.EntityMultipleLivesMount;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/common/packets/LostInfinityPacketListener.class */
 public class LostInfinityPacketListener extends ChannelDuplexHandler {
     private final NetHandlerPlayServer connection;
-
     public LostInfinityPacketListener(NetHandlerPlayServer connection) {
         this.connection = connection;
     }
-
     public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) throws Exception {
         super.write(ctx, msg, promise);
     }
-
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         if (msg instanceof CPacketInput) {
             CPacketInput input = (CPacketInput) msg;

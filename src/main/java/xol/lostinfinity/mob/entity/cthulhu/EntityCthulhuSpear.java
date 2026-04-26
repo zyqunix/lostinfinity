@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.cthulhu;
-
 import com.google.common.base.Optional;
 import java.util.UUID;
 import net.minecraft.entity.Entity;
@@ -15,18 +14,14 @@ import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.item.basics.ItemChanneling;
 import xol.lostinfinity.mob.entity.base.EntityImmaterial;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/cthulhu/EntityCthulhuSpear.class */
 public class EntityCthulhuSpear extends EntityImmaterial {
     private static final DataParameter<Optional<UUID>> OWNER = EntityDataManager.func_187226_a(EntityCthulhuSpear.class, DataSerializers.field_187203_m);
     private EntityPlayer owner;
     private double laserDistance;
     private int barrierTick;
-
     public EntityCthulhuSpear(World worldIn) {
         super(worldIn);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityImmaterial
     public void func_70636_d() {
         super.func_70636_d();
@@ -78,20 +73,16 @@ public class EntityCthulhuSpear extends EntityImmaterial {
         this.laserDistance = 256.0d;
         this.barrierTick = 0;
     }
-
     protected void func_82167_n(Entity entityIn) {
     }
-
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(OWNER, Optional.absent());
     }
-
     public void setOwner(EntityPlayer player) {
         this.owner = player;
         this.field_70180_af.func_187227_b(OWNER, Optional.of(player.func_110124_au()));
     }
-
     public EntityPlayer getOwner() {
         if (this.owner == null) {
             Optional<UUID> uuidOptional = (Optional) this.field_70180_af.func_187225_a(OWNER);
@@ -101,12 +92,10 @@ public class EntityCthulhuSpear extends EntityImmaterial {
         }
         return this.owner;
     }
-
     public void updatePosition() {
         Vec3d dir = getOwner().func_70040_Z().func_186678_a(3.0d);
         func_70107_b(getOwner().field_70165_t + dir.field_72450_a, getOwner().field_70163_u + dir.field_72448_b, getOwner().field_70161_v + dir.field_72449_c);
     }
-
     public double getLaserDistance() {
         return this.laserDistance;
     }

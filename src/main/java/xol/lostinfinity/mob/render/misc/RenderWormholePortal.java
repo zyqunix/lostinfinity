@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.render.misc;
-
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.Tessellator;
@@ -11,15 +10,11 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import xol.lostinfinity.mob.entity.misc.EntityWormholePortal;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/render/misc/RenderWormholePortal.class */
 public class RenderWormholePortal<T extends Entity> extends Render<T> {
     public static final ResourceLocation TEXTURE_WORMHOLE_PORTAL = new ResourceLocation("lostinfinity:textures/particles/wormhole_portal.png");
-
     public RenderWormholePortal(RenderManager renderManager) {
         super(renderManager);
     }
-
     public void func_76986_a(T entity, double x, double y, double z, float entityYaw, float partialTicks) {
         EntityPlayer caster;
         EntityWormholePortal attackEntity = (EntityWormholePortal) entity;
@@ -53,25 +48,21 @@ public class RenderWormholePortal<T extends Entity> extends Render<T> {
             GlStateManager.func_179084_k();
         }
     }
-
     private double dotProduct(Vec3d vec1, Vec3d vec2) {
         return (vec1.field_72450_a * vec2.field_72450_a) + (vec1.field_72448_b * vec2.field_72448_b) + (vec1.field_72449_c * vec2.field_72449_c);
     }
-
     private Vec3d crossProduct(Vec3d vec1, Vec3d vec2) {
         double x = (vec1.field_72448_b * vec2.field_72449_c) - (vec1.field_72449_c * vec2.field_72448_b);
         double y = (vec1.field_72449_c * vec2.field_72450_a) - (vec1.field_72450_a * vec2.field_72449_c);
         double z = (vec1.field_72450_a * vec2.field_72448_b) - (vec1.field_72448_b * vec2.field_72450_a);
         return new Vec3d(x, y, z);
     }
-
     private static Vec3d rotVec(Vec3d vec, double radians) {
         double x = (vec.field_72450_a * Math.cos(radians)) + (vec.field_72449_c * Math.sin(radians));
         double y = vec.field_72448_b;
         double z = ((-vec.field_72450_a) * Math.sin(radians)) + (vec.field_72449_c * Math.cos(radians));
         return new Vec3d(x, y, z);
     }
-
     protected ResourceLocation func_110775_a(T entity) {
         return null;
     }

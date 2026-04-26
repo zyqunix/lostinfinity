@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.deviant;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import net.minecraft.block.state.IBlockState;
@@ -45,8 +44,6 @@ import xol.lostinfinity.projectile.entity.EntityPlagueBlast;
 import xol.lostinfinity.projectile.entity.EntitySkullShot;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/deviant/EntityDeviantEvoker.class */
 public class EntityDeviantEvoker extends EntityMultipleLives implements IMaxAttack {
     private static final DataParameter<Integer> INDEX = EntityDataManager.func_187226_a(EntityDeviantEvoker.class, DataSerializers.field_187192_b);
     private ResourceLocation curTexture;
@@ -54,25 +51,20 @@ public class EntityDeviantEvoker extends EntityMultipleLives implements IMaxAtta
     ArrayList<ModelBase> modelList;
     ArrayList<ResourceLocation> textureList;
     private boolean swapped;
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(INDEX, -1);
     }
-
     private int getIndex() {
         return ((Integer) this.field_70180_af.func_187225_a(INDEX)).intValue();
     }
-
     private void setIndex(int index) {
         this.field_70180_af.func_187227_b(INDEX, Integer.valueOf(index));
     }
-
     public ResourceLocation getCurTexture() {
         return this.curTexture;
     }
-
     private void skeleShot(EntityLivingBase target) {
         if (this.field_70173_aa % 12 == 0 && target != null) {
             if (!this.field_70170_p.field_72995_K) {
@@ -87,7 +79,6 @@ public class EntityDeviantEvoker extends EntityMultipleLives implements IMaxAtta
             func_184185_a(SoundEvents.field_193784_dd, 1.0f, 1.0f);
         }
     }
-
     private void huskShot() {
         if (!this.field_70170_p.field_72995_K && this.field_70173_aa % 25 == 0) {
             for (EntityPlayer near_pl : this.field_70170_p.func_72872_a(EntityPlayer.class, func_174813_aQ().func_186662_g(30.0d))) {
@@ -105,7 +96,6 @@ public class EntityDeviantEvoker extends EntityMultipleLives implements IMaxAtta
             }
         }
     }
-
     private void batShot(EntityLivingBase target) {
         if (this.field_70173_aa % 20 == 0 && target != null) {
             if (!this.field_70170_p.field_72995_K) {
@@ -120,7 +110,6 @@ public class EntityDeviantEvoker extends EntityMultipleLives implements IMaxAtta
             func_184185_a(SoundEvents.field_191255_dF, 1.0f, 1.0f);
         }
     }
-
     private void llamaShot(EntityLivingBase target) {
         if (this.field_70173_aa % 20 == 0 && target != null) {
             if (!this.field_70170_p.field_72995_K) {
@@ -135,7 +124,6 @@ public class EntityDeviantEvoker extends EntityMultipleLives implements IMaxAtta
             func_184185_a(SoundEvents.field_191255_dF, 1.0f, 1.0f);
         }
     }
-
     private void strayShot(EntityLivingBase target) {
         if (this.field_70173_aa % 18 == 0 && target != null) {
             if (!this.field_70170_p.field_72995_K) {
@@ -149,7 +137,6 @@ public class EntityDeviantEvoker extends EntityMultipleLives implements IMaxAtta
             func_184185_a(SoundEvents.field_193784_dd, 1.0f, 1.0f);
         }
     }
-
     private void spiderShot(EntityLivingBase target) {
         if (this.field_70173_aa % 20 == 0 && target != null) {
             if (!this.field_70170_p.field_72995_K) {
@@ -165,7 +152,6 @@ public class EntityDeviantEvoker extends EntityMultipleLives implements IMaxAtta
             func_184185_a(SoundEvents.field_191255_dF, 1.0f, 1.0f);
         }
     }
-
     private void chickenJump(EntityLivingBase target) {
         this.field_70143_R = -1.0f;
         if (this.field_70173_aa % 40 == 0 && target != null && (target instanceof EntityPlayer)) {
@@ -174,7 +160,6 @@ public class EntityDeviantEvoker extends EntityMultipleLives implements IMaxAtta
             this.field_70133_I = true;
         }
     }
-
     private void creeperExplosion(EntityLivingBase target) {
         if (this.field_70173_aa % 50 == 0 && !this.field_70170_p.field_72995_K) {
             this.field_70170_p.func_72876_a((Entity) null, this.field_70165_t, this.field_70163_u, this.field_70161_v, 7.0f, false);
@@ -183,7 +168,6 @@ public class EntityDeviantEvoker extends EntityMultipleLives implements IMaxAtta
             }
         }
     }
-
     private void endermanInvis() {
         if (this.field_70173_aa % 120 == 0) {
             if (this.field_70170_p.field_72995_K) {
@@ -198,7 +182,6 @@ public class EntityDeviantEvoker extends EntityMultipleLives implements IMaxAtta
             this.field_70170_p.func_175688_a(EnumParticleTypes.SPELL, this.field_70165_t + ((this.field_70146_Z.nextDouble() - 0.5d) * ((double) this.field_70130_N) * 3.0d), (this.field_70163_u + (this.field_70146_Z.nextDouble() * ((double) this.field_70131_O))) - 0.25d, this.field_70161_v + ((this.field_70146_Z.nextDouble() - 0.5d) * ((double) this.field_70130_N) * 3.0d), (this.field_70146_Z.nextDouble() - 0.5d) * 2.0d, -this.field_70146_Z.nextDouble(), (this.field_70146_Z.nextDouble() - 0.5d) * 2.0d, new int[0]);
         }
     }
-
     private void piglinJump(EntityLivingBase target) {
         this.field_70143_R = -1.0f;
         if (!this.field_70170_p.field_72995_K) {
@@ -224,7 +207,6 @@ public class EntityDeviantEvoker extends EntityMultipleLives implements IMaxAtta
             }
         }
     }
-
     public void func_70636_d() {
         EntityLivingBase entitylivingbase;
         super.func_70636_d();
@@ -243,13 +225,13 @@ public class EntityDeviantEvoker extends EntityMultipleLives implements IMaxAtta
             case 3:
                 strayShot(target);
                 break;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 llamaShot(target);
                 break;
             case 5:
                 chickenJump(target);
                 break;
-            case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+            case TileEntityFusionTable.BOARD_COLUMNS :
                 creeperExplosion(target);
                 break;
             case 7:
@@ -369,7 +351,6 @@ public class EntityDeviantEvoker extends EntityMultipleLives implements IMaxAtta
             }
         }
     }
-
     private void spawnFangs(double x, double z, double minHeight, double y, float yaw, int warmupTicks) {
         BlockPos blockpos = new BlockPos(x, y, z);
         boolean flag = false;
@@ -396,7 +377,6 @@ public class EntityDeviantEvoker extends EntityMultipleLives implements IMaxAtta
             this.field_70170_p.func_72838_d(entityevokerfangs);
         }
     }
-
     public EntityDeviantEvoker(World worldIn) {
         super(worldIn);
         this.curTexture = new ResourceLocation("lostinfinity:textures/entity/deviant/deviantevoker.png");
@@ -406,14 +386,12 @@ public class EntityDeviantEvoker extends EntityMultipleLives implements IMaxAtta
         this.swapped = false;
         func_70105_a(1.25f, 4.0f);
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(1.0d);
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.32d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(500.0d);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -422,16 +400,13 @@ public class EntityDeviantEvoker extends EntityMultipleLives implements IMaxAtta
         }
         return false;
     }
-
     public ModelBase getCurModel() {
         return this.curModel;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 300;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void updateLifeAction() {
         int lifePercent = Math.round((100 * (numberOfLives() - getLivesCount())) / numberOfLives());
@@ -440,7 +415,6 @@ public class EntityDeviantEvoker extends EntityMultipleLives implements IMaxAtta
             entity.func_145747_a(new TextComponentString(TextFmt.Gold + "The Evoker is at " + lifePercent + "% health."));
         }
     }
-
     protected ResourceLocation func_184647_J() {
         return LootTableRegistry.ENTITIES_DEVIANTEVOKER;
     }

@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.misc;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -23,14 +22,11 @@ import xol.lostinfinity.item.basics.ItemCooldown;
 import xol.lostinfinity.item.classify.IHotbarDeath;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/misc/ItemReactionChamber.class */
 public class ItemReactionChamber extends ItemCooldown implements IHotbarDeath {
     public ItemReactionChamber(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_INFINITYWEP);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (!showDurabilityBar(playerIn.func_184586_b(handIn))) {
             if (!worldIn.field_72995_K) {
@@ -40,12 +36,10 @@ public class ItemReactionChamber extends ItemCooldown implements IHotbarDeath {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 45000;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Aqua + "When used or taking max health damage that would kill you, activate this instead.");
@@ -54,7 +48,6 @@ public class ItemReactionChamber extends ItemCooldown implements IHotbarDeath {
         tooltip.add(TextFmt.getFormatting(TextFmt.Italic, TextFmt.Light_Purple) + "Grants Nearby Enemies: Blighted");
         tooltip.add(TextFmt.getFormatting(TextFmt.Italic, TextFmt.Gold) + "Grants Nearby Enemies: Vulnerability");
     }
-
     @Override // xol.lostinfinity.item.classify.IHotbarDeath
     public boolean playedKilled(ItemStack stack, EntityPlayer player, Entity attacker, float damageDealt) {
         World world = player.field_70170_p;
@@ -68,7 +61,6 @@ public class ItemReactionChamber extends ItemCooldown implements IHotbarDeath {
         }
         return true;
     }
-
     private void effect(World world, EntityPlayer player) {
         world.func_184133_a((EntityPlayer) null, player.func_180425_c(), SoundInit.SCANNER, SoundCategory.MASTER, 1.0f, 1.0f);
         player.func_70690_d(new PotionEffect(PotionInit.RACING_HEART, 400));

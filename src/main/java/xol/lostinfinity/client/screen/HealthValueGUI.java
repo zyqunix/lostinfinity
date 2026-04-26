@@ -1,5 +1,4 @@
 package xol.lostinfinity.client.screen;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiIngame;
 import net.minecraft.client.gui.ScaledResolution;
@@ -9,13 +8,10 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import xol.lostinfinity.util.ConfigurationHandler;
 import xol.lostinfinity.util.Reference;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/client/screen/HealthValueGUI.class */
 public class HealthValueGUI {
     private int tick_count = 0;
     private int diffclr = 0;
     Minecraft mc = Minecraft.func_71410_x();
-
     @SubscribeEvent
     public void onRender(RenderGameOverlayEvent.Post event) {
         if (event.getType() == RenderGameOverlayEvent.ElementType.ALL) {
@@ -26,7 +22,6 @@ public class HealthValueGUI {
             }
         }
     }
-
     private void onTickRender() {
         if (this.mc.field_71462_r == null) {
             GlStateManager.func_179124_c(1.0f, 1.0f, 1.0f);
@@ -66,7 +61,6 @@ public class HealthValueGUI {
             gig.func_73729_b(x - 11, y, 0, 0, 9, 9);
         }
     }
-
     private String convert_health(int hNum) {
         String retstr;
         if (hNum > 1000) {
@@ -77,7 +71,6 @@ public class HealthValueGUI {
         }
         return retstr;
     }
-
     private int getFontSprFromCh(char s) {
         if (s == '.' || s == 'k' || s == '/') {
             switch (s) {

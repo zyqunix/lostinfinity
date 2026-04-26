@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.item.EntityItem;
@@ -18,13 +17,10 @@ import xol.lostinfinity.block.basic.BlockBasic;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockStarforgeInput.class */
 public class BlockStarforgeInput extends BlockBasic {
     public BlockStarforgeInput(String name) {
         super(name, Material.field_151576_e);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!playerIn.func_70093_af()) {
             int freeX = 0;
@@ -65,7 +61,6 @@ public class BlockStarforgeInput extends BlockBasic {
         }
         return true;
     }
-
     private Item returnItem(Item held) {
         if (held.equals(ItemInit.emberium)) {
             return ItemInit.emberiumIngot;

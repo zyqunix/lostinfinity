@@ -1,9 +1,6 @@
 package xol.lostinfinity.item.armor.model;
-
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/armor/model/ModelArmorFiltrationMask.class */
 public class ModelArmorFiltrationMask extends ModelLostArmor {
     public ModelRenderer head3;
     public ModelRenderer head2;
@@ -22,7 +19,6 @@ public class ModelArmorFiltrationMask extends ModelLostArmor {
     public ModelRenderer head17;
     public ModelRenderer head15;
     public ModelRenderer head16;
-
     public ModelArmorFiltrationMask() {
         this.field_78090_t = 64;
         this.field_78089_u = 64;
@@ -95,11 +91,9 @@ public class ModelArmorFiltrationMask extends ModelLostArmor {
         this.field_78116_c.func_78792_a(this.head17);
         this.field_78116_c.func_78792_a(this.head18);
     }
-
     public void func_78088_a(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
         super.func_78088_a(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
     }
-
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;

@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.misc;
-
 import java.util.ArrayList;
 import javax.annotation.Nullable;
 import net.minecraft.block.Block;
@@ -15,19 +14,15 @@ import net.minecraft.world.World;
 import xol.lostinfinity.block.basic.BlockBasicGlass;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.SoundInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/misc/BlockArchlumioGate.class */
 public class BlockArchlumioGate extends BlockBasicGlass {
     public BlockArchlumioGate(String name) {
         super(name);
         func_149715_a(1.0f);
     }
-
     @Nullable
     public AxisAlignedBB func_180646_a(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
         return field_185506_k;
     }
-
     public void func_180634_a(World worldIn, BlockPos pos, IBlockState state, Entity entityIn) {
         if (!worldIn.field_72995_K && (entityIn instanceof EntityLivingBase)) {
             EntityLivingBase killed = (EntityLivingBase) entityIn;
@@ -37,7 +32,6 @@ public class BlockArchlumioGate extends BlockBasicGlass {
             }
         }
     }
-
     public void propogatePass(World worldIn, BlockPos pos, ArrayList<BlockPos> visited) {
         if (visited == null) {
             visited = new ArrayList<>();

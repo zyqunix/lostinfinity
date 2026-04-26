@@ -1,13 +1,10 @@
 package xol.lostinfinity.mob.model.boss;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import xol.lostinfinity.mob.entity.boss.EntityRikarus;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/boss/ModelRikarus.class */
 public class ModelRikarus extends ModelBase {
     public ModelRenderer leg1;
     public ModelRenderer head;
@@ -23,7 +20,6 @@ public class ModelRikarus extends ModelBase {
     public ModelRenderer arm5;
     public ModelRenderer spin1;
     public ModelRenderer spin2;
-
     public ModelRikarus() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -70,7 +66,6 @@ public class ModelRikarus extends ModelBase {
         this.spin1.func_78793_a(0.0f, 8.0f, 0.0f);
         this.spin1.func_78790_a(-14.0f, -3.0f, -3.0f, 6, 6, 6, 0.0f);
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         this.head.func_78785_a(f5);
         this.leg3.func_78785_a(f5);
@@ -91,7 +86,6 @@ public class ModelRikarus extends ModelBase {
         this.spin1.func_78785_a(f5);
         GlStateManager.func_179084_k();
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         float rotSpeed = 0.2f;
         if (((EntityRikarus) entityIn).isSpinning()) {

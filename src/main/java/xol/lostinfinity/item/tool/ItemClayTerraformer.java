@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.tool;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.block.state.IBlockState;
@@ -33,17 +32,13 @@ import xol.lostinfinity.item.classify.ISwitchModels;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.CustomRayTraceResult;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/tool/ItemClayTerraformer.class */
 public class ItemClayTerraformer extends ItemBasic implements IModeSelect, ISwitchModels, ICustomRaytrace, IHeldTick, ICustomHoldPose {
     private static final TextComponentString FAILED_HARVEST = new TextComponentString(TextFmt.Red + "You can't harvest anything here.");
     private static final TextComponentString FAILED_DEPLOY_INSUFFICIENT = new TextComponentString(TextFmt.Red + "You don't have enough clay stored to form a molded block.");
     private static final String STORED_CLAY_AMOUNT = TextFmt.Green + "You have %d clay stored.";
-
     public ItemClayTerraformer(String regName) {
         super(regName, TabsInit.TAB_AUXMATS);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack heldItem = playerIn.func_184586_b(handIn);
         if (!worldIn.field_72995_K && worldIn.field_73011_w.func_186058_p() == DimensionInit.shadowSea) {
@@ -98,10 +93,6 @@ public class ItemClayTerraformer extends ItemBasic implements IModeSelect, ISwit
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
-    /* JADX WARN: Removed duplicated region for block: B:191:0x0556  */
-    /* JADX WARN: Removed duplicated region for block: B:325:0x04db A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:339:0x0289 A[SYNTHETIC] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
         To view partially-correct code enable 'Show inconsistent code' option in preferences
@@ -113,7 +104,6 @@ public class ItemClayTerraformer extends ItemBasic implements IModeSelect, ISwit
         */
         throw new UnsupportedOperationException("Method not decompiled: xol.lostinfinity.item.tool.ItemClayTerraformer.checkForStructure(net.minecraft.util.math.BlockPos, net.minecraft.world.World, net.minecraft.entity.player.EntityPlayer):void");
     }
-
     @Override // xol.lostinfinity.item.classify.IHeldTick
     public void heldTick(EntityPlayer player, EnumHand hand, ItemStack stack) {
         CustomRayTraceResult trace;
@@ -140,7 +130,6 @@ public class ItemClayTerraformer extends ItemBasic implements IModeSelect, ISwit
             }
         }
     }
-
     @Override // xol.lostinfinity.item.classify.IModeSelect
     public void modeUpdate(ItemStack stack, EntityPlayer player) {
         if (!stack.func_77942_o()) {
@@ -156,11 +145,9 @@ public class ItemClayTerraformer extends ItemBasic implements IModeSelect, ISwit
             stack.func_77978_p().func_74768_a("mode", 0);
         }
     }
-
     public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
         return false;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         if (!stack.func_77942_o()) {

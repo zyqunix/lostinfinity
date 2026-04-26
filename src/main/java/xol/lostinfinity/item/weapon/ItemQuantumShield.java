@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -21,8 +20,6 @@ import xol.lostinfinity.item.classify.IMaxReducible;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemQuantumShield.class */
 public class ItemQuantumShield extends Item implements IMaxAttack, IMaxReducible, IMaxNullable {
     public ItemQuantumShield(String regName) {
         func_77637_a(TabsInit.TAB_AUXWEP);
@@ -30,7 +27,6 @@ public class ItemQuantumShield extends Item implements IMaxAttack, IMaxReducible
         func_77655_b(regName);
         ItemInit.ITEMS.add(this);
     }
-
     @Override // xol.lostinfinity.item.classify.IMaxReducible
     public float reduceMaxDamage(EntityPlayer player, boolean isMainHand, float damage, float reductionMultiplier, ItemStack stack) {
         float newMulti;
@@ -41,7 +37,6 @@ public class ItemQuantumShield extends Item implements IMaxAttack, IMaxReducible
         }
         return newMulti;
     }
-
     @Override // xol.lostinfinity.item.classify.IMaxNullable
     public float nullableReaction(EntityPlayer player, boolean isMainHand, float originalDamage, float newDamage, ItemStack stack) {
         float mitigated_damage = originalDamage - newDamage;
@@ -59,7 +54,6 @@ public class ItemQuantumShield extends Item implements IMaxAttack, IMaxReducible
         }
         return newDamage;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Light_Purple + "When held, reduces max health damage taken by 20%.");

@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.model.minion;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
@@ -8,13 +7,10 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import xol.lostinfinity.mob.entity.minion.EntityAuraOfAllegiance;
 import xol.lostinfinity.mob.render.minion.RenderAuraOfAllegiance;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/minion/ModelAuraOfAllegiance.class */
 public class ModelAuraOfAllegiance extends ModelBase {
     public ModelRenderer inside;
     public ModelRenderer spin;
     public ModelRenderer outside;
-
     public ModelAuraOfAllegiance() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -28,7 +24,6 @@ public class ModelAuraOfAllegiance extends ModelBase {
         this.outside.func_78793_a(0.0f, 14.0f, 0.0f);
         this.outside.func_78790_a(-8.0f, -8.0f, -8.0f, 16, 16, 16, 0.0f);
     }
-
     public void func_78088_a(Entity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
         EntityAuraOfAllegiance aura = (EntityAuraOfAllegiance) entity;
         int lives = aura.getLives();
@@ -50,19 +45,16 @@ public class ModelAuraOfAllegiance extends ModelBase {
             render(scale);
         }
     }
-
     public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.spin.field_78796_g = ageInTicks * 0.05f;
         this.inside.field_78796_g = ageInTicks * (-0.02f);
         this.outside.field_78796_g = ageInTicks * (-0.02f);
     }
-
     private void render(float scale) {
         this.inside.func_78785_a(scale);
         GlStateManager.func_179147_l();

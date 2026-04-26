@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import java.util.Collections;
 import java.util.List;
 import net.minecraft.entity.Entity;
@@ -12,30 +11,24 @@ import xol.lostinfinity.mob.entity.sea.leviathan.EntityLeviathanController;
 import xol.lostinfinity.mob.entity.sea.leviathan.EntityLeviathanSegment;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityLeviathanTracer.class */
 public class EntityLeviathanTracer extends EntityBaseThrowable {
     private static final List<String> DAMAGE_TYPE = Collections.singletonList("Aquatic");
     private final Entity target;
     private EntityLeviathanController leviathanController;
-
     public EntityLeviathanTracer(World worldIn) {
         super(worldIn);
         func_70105_a(0.5f, 0.5f);
         this.target = null;
     }
-
     public void setLeviathanThrower(EntityLeviathanController throwset) {
         super.setThrower(throwset);
         this.leviathanController = throwset;
     }
-
     public EntityLeviathanTracer(World worldIn, double x, double y, double z, Entity target) {
         super(worldIn, x, y, z);
         func_70105_a(0.5f, 0.5f);
         this.target = target;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         EntityLeviathanSegment entityLeviathanSegment;
@@ -51,7 +44,6 @@ public class EntityLeviathanTracer extends EntityBaseThrowable {
         IMaxAttack.dealMaxHealth((Entity) (this.leviathanController != null ? this.leviathanController : this), (EntityLivingBase) entityLeviathanSegment, 1, DAMAGE_TYPE);
         func_70106_y();
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void func_70071_h_() {
         super.func_70071_h_();
@@ -70,7 +62,6 @@ public class EntityLeviathanTracer extends EntityBaseThrowable {
         Vec3d dir = LMath.fastNormalize(LMath.getEntityMiddle(this.target).func_178788_d(func_174791_d())).func_186678_a(0.2d);
         func_70024_g(dir.field_72450_a, dir.field_72448_b, dir.field_72449_c);
     }
-
     protected float func_70185_h() {
         return 0.0f;
     }

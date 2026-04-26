@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import java.util.Random;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -18,22 +17,17 @@ import net.minecraft.world.WorldServer;
 import xol.lostinfinity.block.basic.BlockBasic;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.mob.entity.misc.EntityRhythmGameMerchant;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockRhythmGame.class */
 public class BlockRhythmGame extends BlockBasic {
     private boolean hard_mode;
     private Vec3i dir;
-
     public BlockRhythmGame(String name, boolean hard) {
         super(name, Material.field_151573_f);
         this.hard_mode = false;
         func_149715_a(1.0f);
     }
-
     private boolean validInput(ItemStack stack) {
         return stack.func_77973_b().equals(ItemInit.timeTrigger);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!playerIn.func_70093_af() && validInput(playerIn.func_184586_b(hand))) {
             if (!worldIn.field_72995_K) {

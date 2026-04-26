@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -16,19 +15,15 @@ import xol.lostinfinity.item.basics.ItemCooldown;
 import xol.lostinfinity.item.classify.IMaxNullable;
 import xol.lostinfinity.item.classify.IMaxReducible;
 import xol.lostinfinity.projectile.entity.EntityArcBlast;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemArcOfTheForbidden.class */
 public class ItemArcOfTheForbidden extends ItemCooldown implements IMaxReducible, IMaxNullable {
     public ItemArcOfTheForbidden(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_INFINITYWEP);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 2000;
     }
-
     @Override // xol.lostinfinity.item.classify.IMaxReducible
     public float reduceMaxDamage(EntityPlayer player, boolean isMainHand, float damage, float reductionMultiplier, ItemStack stack) {
         float newMulti = reductionMultiplier;
@@ -37,7 +32,6 @@ public class ItemArcOfTheForbidden extends ItemCooldown implements IMaxReducible
         }
         return newMulti;
     }
-
     @Override // xol.lostinfinity.item.classify.IMaxNullable
     public float nullableReaction(EntityPlayer player, boolean isMainHand, float originalDamage, float newDamage, ItemStack stack) {
         if (!showDurabilityBar(stack)) {
@@ -68,7 +62,6 @@ public class ItemArcOfTheForbidden extends ItemCooldown implements IMaxReducible
         }
         return newDamage;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Bold + "Reflects 70% of Max Health Damage Taken");

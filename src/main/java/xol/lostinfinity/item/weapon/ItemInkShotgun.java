@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
@@ -11,14 +10,11 @@ import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.basics.ItemCooldown;
 import xol.lostinfinity.item.classify.ICustomHoldPose;
 import xol.lostinfinity.projectile.entity.EntityInkShot;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemInkShotgun.class */
 public class ItemInkShotgun extends ItemCooldown implements ICustomHoldPose {
     public ItemInkShotgun(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (!showDurabilityBar(stack)) {
@@ -35,7 +31,6 @@ public class ItemInkShotgun extends ItemCooldown implements ICustomHoldPose {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 1000;

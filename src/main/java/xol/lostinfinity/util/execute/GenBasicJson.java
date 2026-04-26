@@ -1,5 +1,4 @@
 package xol.lostinfinity.util.execute;
-
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -10,12 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import xol.lostinfinity.block.tileentity.TileEntityFusionTable;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/execute/GenBasicJson.class */
 public class GenBasicJson {
     private static String assetPath = "src/main/resources/assets/lostinfinity/";
-
-    /* JADX INFO: Infinite loop detected, blocks: 109, insns: 0 */
     public static void main(String[] args) {
         Scanner myObj = new Scanner(System.in);
         while (true) {
@@ -40,7 +35,7 @@ public class GenBasicJson {
                                 GenBasicBlock(name, 0, shape);
                             }
                             break;
-                        case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+                        case TileEntityFusionTable.BOARD_ROWS :
                             try {
                                 Integer num2 = Integer.valueOf(Integer.parseInt(split[2]));
                                 String shape2 = split[3];
@@ -58,7 +53,7 @@ public class GenBasicJson {
                         case 3:
                             GenBasicBlockBoolean(name, activeName, "cube", 0);
                             break;
-                        case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+                        case TileEntityFusionTable.BOARD_ROWS :
                             try {
                                 Integer num4 = Integer.valueOf(Integer.parseInt(split[3]));
                                 GenBasicBlockBoolean(name, activeName, "cube", num4);
@@ -85,7 +80,7 @@ public class GenBasicJson {
                             int amount = Integer.parseInt(split[2]);
                             GenBasicBlockAmount(name, 0, "cube", amount);
                             break;
-                        case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+                        case TileEntityFusionTable.BOARD_ROWS :
                             try {
                                 Integer num7 = Integer.valueOf(Integer.parseInt(split[3]));
                                 int amount2 = Integer.parseInt(split[2]);
@@ -122,7 +117,6 @@ public class GenBasicJson {
             }
         }
     }
-
     private static void GenParticle(String name) {
         String capsName = name.toUpperCase();
         String spriteEntry = String.format("\tpublic static TextureAtlasSprite %s_SPRITE;", capsName);
@@ -139,7 +133,6 @@ public class GenBasicJson {
             e.printStackTrace();
         }
     }
-
     private static void GenSound(String name) {
         String soundEntry = String.format("\t\"%s\":{ \"category\":\"master\", \"sounds\":[ \"lostinfinity:%s\" ] },", name, name);
         writeBeforeLineNumber("src/main/resources/assets/lostinfinity/sounds.json", 2, soundEntry);
@@ -147,7 +140,6 @@ public class GenBasicJson {
         String soundInit = String.format("\t public static final SoundEvent %s = registerCustomSound(\"%s\");", capsName, name);
         writeBeforeLineNumber("src/main/java/xol/lostinfinity/init/SoundInit.java", 18, soundInit);
     }
-
     private static void writeBeforeLineNumber(String filename, int lineNum, String text) {
         try {
             File file = new File(filename);
@@ -175,7 +167,6 @@ public class GenBasicJson {
             e.printStackTrace();
         }
     }
-
     private static void GenBasicBlock(String name, Integer num, String shape) {
         String numStr;
         String string;
@@ -248,7 +239,6 @@ public class GenBasicJson {
             e.printStackTrace();
         }
     }
-
     private static void GenBasicBlockAmount(String name, Integer num, String shape, int amount) {
         String numStr;
         String str;
@@ -346,7 +336,6 @@ public class GenBasicJson {
             e.printStackTrace();
         }
     }
-
     private static void GenBasicBlockBoolean(String name, String activeName, String shape, Integer num) {
         String numStr;
         String string;
@@ -446,7 +435,6 @@ public class GenBasicJson {
             e.printStackTrace();
         }
     }
-
     private static void GenBasicItem(String name) {
         String itemPath = assetPath + "models/item/";
         JsonParser jsonParser = new JsonParser(itemPath, name + ".json");
@@ -466,7 +454,6 @@ public class GenBasicJson {
             e.printStackTrace();
         }
     }
-
     public static String camelCase(String name) {
         String str;
         String camel = "";
@@ -485,7 +472,6 @@ public class GenBasicJson {
         }
         return camel;
     }
-
     public static String firstCase(String name) {
         String str;
         String cased = "";
@@ -504,7 +490,6 @@ public class GenBasicJson {
         }
         return cased;
     }
-
     public static void writeBeforeAnnotatedLine(String filename, String text, String annotation) throws IOException {
         try {
             File file = new File(filename);

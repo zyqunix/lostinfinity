@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.misc;
-
 import javax.annotation.Nullable;
 import net.minecraft.block.ITileEntityProvider;
 import net.minecraft.block.state.IBlockState;
@@ -18,20 +17,15 @@ import xol.lostinfinity.gui.GuiHandler;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.mob.entity.cthulhu.EntityCthulhu;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/misc/BlockCthulhuSpawner.class */
 public class BlockCthulhuSpawner extends BlockBasicRotational implements ITileEntityProvider {
     public static final int BLOCK_DISTANCE = 30;
-
     public BlockCthulhuSpawner(String name) {
         super(name);
     }
-
     @Nullable
     public TileEntity func_149915_a(World worldIn, int meta) {
         return new TileEntityCthulhuSpawner();
     }
-
     public static EnumFacing getFacing(World world, BlockPos pos) {
         IBlockState state = world.func_180495_p(pos);
         if (state.func_177230_c() != BlockInit.cthulhuSpawner) {
@@ -39,7 +33,6 @@ public class BlockCthulhuSpawner extends BlockBasicRotational implements ITileEn
         }
         return state.func_177229_b(field_185512_D);
     }
-
     public static boolean spawnCthulhu(World world, BlockPos pos) {
         IBlockState state = world.func_180495_p(pos);
         if (state.func_177230_c() != BlockInit.cthulhuSpawner) {
@@ -70,11 +63,9 @@ public class BlockCthulhuSpawner extends BlockBasicRotational implements ITileEn
         }
         return false;
     }
-
     private static boolean isValid(TileEntityCthulhuSpawner spawner) {
         return spawner != null && spawner.canSpawn();
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!playerIn.func_70093_af()) {
             playerIn.openGui(lostinfinity.instance, GuiHandler.RegisteredGuis.CTHULHU_SPAWNER.getId(), worldIn, pos.func_177958_n(), pos.func_177956_o(), pos.func_177952_p());

@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.basic;
-
 import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -8,17 +7,13 @@ import net.minecraft.item.ItemBlock;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/basic/BlockBasicPillar.class */
 public class BlockBasicPillar extends BlockRotatedPillar {
     public BlockBasicPillar(String name) {
         this(name, Material.field_151576_e);
     }
-
     public BlockBasicPillar(String name, Material material) {
         this(name, material, TabsInit.TAB_BLOCKS);
     }
-
     public BlockBasicPillar(String name, Material material, CreativeTabs tab) {
         super(material);
         func_149663_c(name);

@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import java.util.UUID;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -15,23 +14,18 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityCosmicBomb.class */
 public class EntityCosmicBomb extends Entity implements IMaxAttack {
     private UUID creator_UUID;
     private int timer;
     private int repeats;
     private int splits;
     private Vec3d dir;
-
     public void setRepeats(int repeats) {
         this.repeats = repeats;
     }
-
     public void setDir(Vec3d dir) {
         this.dir = dir;
     }
-
     public EntityCosmicBomb(World worldIn) {
         super(worldIn);
         this.creator_UUID = null;
@@ -41,26 +35,21 @@ public class EntityCosmicBomb extends Entity implements IMaxAttack {
         this.dir = null;
         func_189654_d(true);
     }
-
     public void setTimer(int timer) {
         this.timer = timer;
     }
-
     public void setCreator(UUID uuid) {
         this.creator_UUID = uuid;
     }
-
     public void setSplits(int s) {
         this.splits = s;
     }
-
     public void func_70071_h_() {
         super.func_70071_h_();
         if (!this.field_70170_p.field_72995_K && !this.field_70128_L && this.field_70173_aa >= this.timer) {
             explosionEffect();
         }
     }
-
     public void explosionEffect() {
         if (this.creator_UUID != null && this.dir != null) {
             CustomParticleConfig config1 = new CustomParticleConfig();
@@ -124,13 +113,10 @@ public class EntityCosmicBomb extends Entity implements IMaxAttack {
         }
         func_70106_y();
     }
-
     protected void func_70088_a() {
     }
-
     protected void func_70037_a(NBTTagCompound compound) {
     }
-
     protected void func_70014_b(NBTTagCompound compound) {
     }
 }

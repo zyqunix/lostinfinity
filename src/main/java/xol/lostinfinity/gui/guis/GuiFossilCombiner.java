@@ -1,5 +1,4 @@
 package xol.lostinfinity.gui.guis;
-
 import net.minecraft.block.Block;
 import net.minecraft.client.gui.GuiTextField;
 import net.minecraft.client.gui.inventory.GuiContainer;
@@ -11,20 +10,16 @@ import net.minecraft.world.World;
 import org.lwjgl.input.Keyboard;
 import xol.lostinfinity.gui.containers.ContainerFossilCombiner;
 import xol.lostinfinity.util.Reference;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/guis/GuiFossilCombiner.class */
 public class GuiFossilCombiner extends GuiContainer {
     private static final ResourceLocation texture = new ResourceLocation(Reference.MODID, "textures/gui/fossil_combiner.png");
     private final ContainerFossilCombiner sFab;
     private final InventoryPlayer playerInventory;
     private GuiTextField nameField;
-
     public GuiFossilCombiner(InventoryPlayer invPlayer, World worldIn, BlockPos pos, Block block) {
         super(new ContainerFossilCombiner(invPlayer, worldIn, pos, block));
         this.sFab = (ContainerFossilCombiner) this.field_147002_h;
         this.playerInventory = invPlayer;
     }
-
     public void func_73866_w_() {
         super.func_73866_w_();
         Keyboard.enableRepeatEvents(true);
@@ -36,11 +31,9 @@ public class GuiFossilCombiner extends GuiContainer {
         this.nameField.func_146185_a(false);
         this.nameField.func_146203_f(35);
     }
-
     public void func_146281_b() {
         super.func_146281_b();
     }
-
     protected void func_146979_b(int mouseX, int mouseY) {
         GlStateManager.func_179140_f();
         GlStateManager.func_179084_k();
@@ -78,7 +71,6 @@ public class GuiFossilCombiner extends GuiContainer {
         }
         GlStateManager.func_179145_e();
     }
-
     public void func_73863_a(int mouseX, int mouseY, float partialTicks) {
         func_146276_q_();
         super.func_73863_a(mouseX, mouseY, partialTicks);
@@ -87,7 +79,6 @@ public class GuiFossilCombiner extends GuiContainer {
         GlStateManager.func_179084_k();
         this.nameField.func_146194_f();
     }
-
     protected void func_146976_a(float partialTicks, int mouseX, int mouseY) {
         GlStateManager.func_179131_c(1.0f, 1.0f, 1.0f, 1.0f);
         this.field_146297_k.func_110434_K().func_110577_a(texture);

@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.cthulhu;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -48,8 +47,6 @@ import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/cthulhu/EntityCthulhu.class */
 public class EntityCthulhu extends EntityMultipleLives implements IConditionalDamage, IMaxAttack, IXolAnimated, ILostMultiPart {
     public static final Map<Integer, EntityCthulhu> CTHULHUS = new HashMap();
     private static final DataParameter<Boolean> BARRIER = EntityDataManager.func_187226_a(EntityCthulhu.class, DataSerializers.field_187198_h);
@@ -82,7 +79,6 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
     private final List<EntityCelestialStatue> statues;
     private final List<BlockPos> strikeLocations;
     private boolean essenceCharged;
-
     public EntityCthulhu(World worldIn) {
         super(worldIn);
         this.parts = new EntityCthulhuPart[5];
@@ -124,11 +120,9 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
             this.parts[i].updatePosition();
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_184651_r() {
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_70088_a() {
         super.func_70088_a();
@@ -141,7 +135,6 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
         this.field_70180_af.func_187214_a(FIRST_SPAWN, true);
         this.field_70180_af.func_187214_a(ACTIVATED, false);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void updateLifeAction() {
         if (isBarrierActive()) {
@@ -156,7 +149,6 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
             setBarrierActive(true);
         }
     }
-
     public void func_70071_h_() {
         double x = this.field_70165_t;
         double y = this.field_70163_u;
@@ -170,31 +162,25 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
             entity.updatePosition();
         }
     }
-
     protected void soundPlayers(SoundEvent sound, float vol, float pitch) {
         for (EntityPlayer contender : this.field_70170_p.func_72872_a(EntityPlayer.class, func_174813_aQ().func_186662_g(64.0d))) {
             contender.field_70170_p.func_184133_a((EntityPlayer) null, contender.func_180425_c(), sound, SoundCategory.MASTER, vol + 0.3f, pitch);
         }
     }
-
     protected void soundClosePlayers(SoundEvent sound, float vol, float pitch, BlockPos pos) {
         for (EntityPlayer contender : this.field_70170_p.func_72872_a(EntityPlayer.class, new AxisAlignedBB(pos).func_186662_g(15.0d))) {
             contender.field_70170_p.func_184133_a((EntityPlayer) null, contender.func_180425_c(), sound, SoundCategory.MASTER, vol + 0.3f, pitch);
         }
     }
-
     protected SoundEvent func_184615_bR() {
         return null;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return null;
     }
-
     protected SoundEvent func_184639_G() {
         return null;
     }
-
     private SoundEvent randomAmbient() {
         switch (this.field_70146_Z.nextInt(5)) {
             case 0:
@@ -205,13 +191,12 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
                 return SoundInit.TT_AMBIENT_3;
             case 3:
                 return SoundInit.TT_AMBIENT_4;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 return SoundInit.TT_AMBIENT_5;
             default:
                 return SoundInit.TT_AMBIENT_1;
         }
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         if (this.field_70170_p.field_72995_K || func_110143_aJ() <= 0.0f) {
@@ -282,22 +267,17 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
             return statue.field_70128_L;
         });
     }
-
     public boolean func_70097_a(DamageSource source, float amount) {
         return super.func_70097_a(source, amount);
     }
-
     protected void func_82167_n(Entity entityIn) {
     }
-
     public boolean func_70104_M() {
         return false;
     }
-
     protected boolean func_70692_ba() {
         return false;
     }
-
     private void punishRange() {
         for (EntityPlayer player : this.field_70170_p.field_73010_i) {
             if (player.func_70068_e(this) > 4096.0d && player.func_70068_e(this) <= MAX_PUNISH_RANGE) {
@@ -305,7 +285,6 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
             }
         }
     }
-
     private void knockbackWave() {
         setAttackEnded(this.attackTimer >= 60);
         if (this.attackTimer == 1) {
@@ -332,7 +311,6 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
             }
         }
     }
-
     private void barrierKnockback() {
         for (EntityPlayerMP player : (List) this.field_70170_p.func_73046_m().func_184103_al().func_181057_v().stream().filter(player2 -> {
             return func_70011_f(player2.field_70165_t, this.field_70163_u, player2.field_70161_v) <= 47.8d;
@@ -347,7 +325,6 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
             player.field_70133_I = true;
         }
     }
-
     private void tentacleWave() {
         if (this.attackTimer == 1) {
             sendMessage("tentacleWave");
@@ -365,7 +342,6 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
             this.tentacles.add(tentacle);
         }
     }
-
     private void summonTurret() {
         if (this.attackTimer == 1) {
             sendMessage("summonTurret");
@@ -390,7 +366,6 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
             }
         }
     }
-
     private void missileAttack() {
         if (this.attackTimer == 1) {
             if (this.tentaclePersists.size() == 0) {
@@ -415,7 +390,6 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
             }
         }
     }
-
     private void spawnMissileAt(double x, double y, double z) {
         EntityCthulhuMissile missile = new EntityCthulhuMissile(this.field_70170_p);
         missile.setThrower(this);
@@ -426,7 +400,6 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
         soundClosePlayers(SoundInit.LASER_WEAPON_2, 1.0f, 0.6f + (this.field_70146_Z.nextFloat() * 0.8f), missile.func_180425_c());
         this.missiles.add(missile);
     }
-
     private void lightningStrike() {
         if (this.attackTimer == 1) {
             sendMessage("lightningStrike");
@@ -507,7 +480,6 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
             this.strikeLocations.clear();
         }
     }
-
     private void openRifts() {
         double y;
         if (this.attackTimer == 1) {
@@ -560,7 +532,6 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
             i++;
         }
     }
-
     private void summonHealingOrb() {
         if (this.attackTimer == 1) {
             sendMessage("summonHealingOrb");
@@ -577,7 +548,6 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
             soundPlayers(SoundInit.MAGIC_WEAPON_3, 1.0f, 0.5f + (this.field_70146_Z.nextFloat() * 0.6f));
         }
     }
-
     private void beamAttack() {
         EntityPlayer player;
         if (this.attackTimer == 1) {
@@ -597,7 +567,6 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
             soundClosePlayers(SoundInit.LASER_WEAPON_9, 1.0f, 0.7f + (this.field_70146_Z.nextFloat() * 0.6f), beam.func_180425_c());
         }
     }
-
     private void toxicCloud() {
         if (this.attackTimer == 1) {
             sendMessage("toxicCloud");
@@ -646,7 +615,6 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
             }
         }
     }
-
     private void blackHole() {
         double y;
         if (this.attackTimer == 1) {
@@ -706,7 +674,6 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
             i++;
         }
     }
-
     private void summonLargeTentacle() {
         if (this.attackTimer == 1) {
             sendMessage("summonLargeTentacle");
@@ -721,7 +688,6 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
         }
         setAttackEnded(this.attackTimer >= 100);
     }
-
     private void meteorShower() {
         if (this.attackTimer == 1) {
             sendMessage("meteorShower");
@@ -745,14 +711,11 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
             }
         }
     }
-
     private void sendMessage(String string) {
     }
-
     private void setAttackEnded(boolean flag) {
         this.canChangeAttack &= flag;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.IConditionalDamage
     public boolean canBeDamaged(Entity attacker) {
         if (isBarrierActive()) {
@@ -770,7 +733,6 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
         }
         return thrower != null ? LMath.getDistanceSquaredToAABB(thrower.func_174791_d(), func_174813_aQ()) < 4096.0d : LMath.getDistanceSquaredToAABB(attacker.func_174791_d(), func_174813_aQ()) < 4096.0d;
     }
-
     public void func_70106_y() {
         this.turrets.forEach((v0) -> {
             v0.func_70106_y();
@@ -819,16 +781,13 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
         }
         super.func_70106_y();
     }
-
     public void essenceKill() {
         this.essenceCharged = true;
         func_70106_y();
     }
-
     public boolean isEssenceCharged() {
         return this.essenceCharged;
     }
-
     private void decrementBarrierTimers() {
         if (getBarrierCd1() > 0) {
             setBarrierCd1(getBarrierCd1() - 1);
@@ -843,14 +802,12 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
             setBarrierCd4(getBarrierCd4() - 1);
         }
     }
-
     public void checkBarrierDisable() {
         if (isBarrierActive() && getBarrierCd1() != 0 && getBarrierCd2() != 0 && getBarrierCd3() != 0 && getBarrierCd4() != 0) {
             setBarrierActive(false);
             setAllBarrierCd(0);
         }
     }
-
     public void setBarrierActive(boolean flag) {
         this.field_70180_af.func_187227_b(BARRIER, Boolean.valueOf(flag));
         if (flag) {
@@ -888,61 +845,48 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
         stopAnimation("break_idle");
         playAnimation("recover", 1.0f);
     }
-
     public boolean isBarrierActive() {
         return ((Boolean) this.field_70180_af.func_187225_a(BARRIER)).booleanValue();
     }
-
     public void setBarrierCd1(int cd) {
         this.field_70180_af.func_187227_b(BARRIER_CD_1, Integer.valueOf(cd));
     }
-
     public int getBarrierCd1() {
         return ((Integer) this.field_70180_af.func_187225_a(BARRIER_CD_1)).intValue();
     }
-
     public void setBarrierCd2(int cd) {
         this.field_70180_af.func_187227_b(BARRIER_CD_2, Integer.valueOf(cd));
     }
-
     public int getBarrierCd2() {
         return ((Integer) this.field_70180_af.func_187225_a(BARRIER_CD_2)).intValue();
     }
-
     public void setBarrierCd3(int cd) {
         this.field_70180_af.func_187227_b(BARRIER_CD_3, Integer.valueOf(cd));
     }
-
     public int getBarrierCd3() {
         return ((Integer) this.field_70180_af.func_187225_a(BARRIER_CD_3)).intValue();
     }
-
     public void setBarrierCd4(int cd) {
         this.field_70180_af.func_187227_b(BARRIER_CD_4, Integer.valueOf(cd));
     }
-
     public int getBarrierCd4() {
         return ((Integer) this.field_70180_af.func_187225_a(BARRIER_CD_4)).intValue();
     }
-
     public void setAllBarrierCd(int cd) {
         setBarrierCd1(cd);
         setBarrierCd2(cd);
         setBarrierCd3(cd);
         setBarrierCd4(cd);
     }
-
     private float getRandom(float mul) {
         return (this.field_70170_p.field_73012_v.nextFloat() - 0.5f) * 2.0f * mul;
     }
-
     private EntityPlayer getRandomPlayer() {
         if (this.inRangePlayers.isEmpty()) {
             return null;
         }
         return this.inRangePlayers.get(this.field_70146_Z.nextInt(this.inRangePlayers.size()));
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void func_70014_b(NBTTagCompound tag) {
         super.func_70014_b(tag);
@@ -981,17 +925,14 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
         });
         tag.func_74782_a("minions", list);
     }
-
     @Nullable
     public Entity[] func_70021_al() {
         return this.parts;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void trueDeathAction() {
         func_70106_y();
     }
-
     public void onAddedToWorld() {
         super.onAddedToWorld();
         CTHULHUS.put(Integer.valueOf(func_145782_y()), this);
@@ -1011,12 +952,10 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
             this.field_70180_af.func_187227_b(FIRST_SPAWN, false);
         }
     }
-
     public void onRemovedFromWorld() {
         super.onRemovedFromWorld();
         CTHULHUS.remove(Integer.valueOf(func_145782_y()));
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void func_70037_a(NBTTagCompound tag) {
         super.func_70037_a(tag);
@@ -1036,12 +975,10 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
             }
         }
     }
-
     @Override // xol.lostinfinity.util.animation.entity.IXolAnimated
     public AnimationHandler getAnimationHandler() {
         return this.handler;
     }
-
     public void registerMinion(Entity entity) {
         if (entity instanceof EntityCthulhuRift) {
             this.rifts.add((EntityCthulhuRift) entity);
@@ -1075,33 +1012,26 @@ public class EntityCthulhu extends EntityMultipleLives implements IConditionalDa
             this.statues.add((EntityCelestialStatue) entity);
         }
     }
-
     public void setPhase(int phase) {
         this.field_70180_af.func_187227_b(PHASE, Integer.valueOf(phase));
     }
-
     public int getPhase() {
         return ((Integer) this.field_70180_af.func_187225_a(PHASE)).intValue();
     }
-
     public void setActivated(boolean flag) {
         this.field_70180_af.func_187227_b(ACTIVATED, Boolean.valueOf(flag));
     }
-
     public boolean isActivated() {
         return ((Boolean) this.field_70180_af.func_187225_a(ACTIVATED)).booleanValue();
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public int numberOfLives() {
         return 15000;
     }
-
     @Override // xol.lostinfinity.mob.entity.classify.ILostMultiPart
     public boolean attackEntityFromPart(EntityLivingBase part, DamageSource source, float damage) {
         return func_70097_a(source, damage);
     }
-
     public World func_82194_d() {
         return this.field_70170_p;
     }

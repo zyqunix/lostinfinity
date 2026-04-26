@@ -1,5 +1,4 @@
 package xol.lostinfinity.gui.containers;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.inventory.Container;
@@ -10,24 +9,19 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.block.tileentity.TileEntityCthulhuSpawner;
 import xol.lostinfinity.block.tileentity.TileEntityRainfallGenerator;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/containers/ContainerCthulhuSpawner.class */
 public class ContainerCthulhuSpawner extends Container {
     private final TileEntityCthulhuSpawner tileentity;
     private int burnTime;
     private int currentBurnTime;
-
     public ContainerCthulhuSpawner(InventoryPlayer player, TileEntityCthulhuSpawner tileEntityRainfallGenerator) {
         this.tileentity = tileEntityRainfallGenerator;
         func_75146_a(new Slot(tileEntityRainfallGenerator, 0, 80, 28) { // from class: xol.lostinfinity.gui.containers.ContainerCthulhuSpawner.1
             public boolean func_75214_a(ItemStack stack) {
                 return TileEntityCthulhuSpawner.isItemFuel(stack);
             }
-
             public int func_178170_b(ItemStack stack) {
                 return 64;
             }
-
             public int func_75219_a() {
                 return 64;
             }
@@ -41,12 +35,10 @@ public class ContainerCthulhuSpawner extends Container {
             func_75146_a(new Slot(player, x2, 8 + (x2 * 18), 142));
         }
     }
-
     public void func_75132_a(IContainerListener listener) {
         super.func_75132_a(listener);
         listener.func_175173_a(this, this.tileentity);
     }
-
     public void func_75142_b() {
         super.func_75142_b();
         for (int i = 0; i < this.field_75149_d.size(); i++) {
@@ -61,16 +53,13 @@ public class ContainerCthulhuSpawner extends Container {
         this.burnTime = this.tileentity.func_174887_a_(0);
         this.currentBurnTime = this.tileentity.func_174887_a_(1);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_75137_b(int id, int data) {
         this.tileentity.func_174885_b(id, data);
     }
-
     public boolean func_75145_c(EntityPlayer playerIn) {
         return this.tileentity.func_70300_a(playerIn);
     }
-
     public ItemStack func_82846_b(EntityPlayer playerIn, int index) {
         ItemStack itemstack = ItemStack.field_190927_a;
         Slot slot = (Slot) this.field_75151_b.get(index);

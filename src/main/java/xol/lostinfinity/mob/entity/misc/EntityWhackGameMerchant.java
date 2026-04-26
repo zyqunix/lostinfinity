@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import java.util.ArrayList;
 import java.util.Random;
 import net.minecraft.block.state.IBlockState;
@@ -17,8 +16,6 @@ import net.minecraft.world.World;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityWhackGameMerchant.class */
 public class EntityWhackGameMerchant extends EntityLiving {
     private int puzzleTimer;
     private boolean game;
@@ -26,7 +23,6 @@ public class EntityWhackGameMerchant extends EntityLiving {
     private int round;
     private boolean win;
     private int finalRound;
-
     public EntityWhackGameMerchant(World worldIn) {
         super(worldIn);
         this.puzzleTimer = 6;
@@ -36,15 +32,12 @@ public class EntityWhackGameMerchant extends EntityLiving {
         this.win = false;
         this.finalRound = 13;
     }
-
     protected void func_70088_a() {
         super.func_70088_a();
     }
-
     public void startGame() {
         this.game = true;
     }
-
     public void setLightPositions(BlockPos reference, int stretch, int yRange) {
         double xref = reference.func_177958_n();
         double yref = reference.func_177956_o() + 1;
@@ -64,14 +57,12 @@ public class EntityWhackGameMerchant extends EntityLiving {
             }
         }
     }
-
     private void lightBlock(int list_index) {
         if (list_index > 0 && list_index <= this.lightPositions.size()) {
             BlockPos selected_pos = this.lightPositions.get(list_index - 1);
             this.field_70170_p.func_175656_a(selected_pos, BlockInit.whackBlockLit.func_176223_P());
         }
     }
-
     public boolean func_184645_a(EntityPlayer player, EnumHand hand) {
         if (!this.field_70170_p.field_72995_K && this.win) {
             player.func_145747_a(new TextComponentString(TextFmt.getFormatting(TextFmt.Bold, TextFmt.Green) + "I have left you your new ion cell!"));
@@ -88,13 +79,11 @@ public class EntityWhackGameMerchant extends EntityLiving {
         }
         return true;
     }
-
     private void darkenAllLights() {
         for (BlockPos pos : this.lightPositions) {
             this.field_70170_p.func_175656_a(pos, BlockInit.whackBlockUnpowered.func_176223_P());
         }
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         if (!this.field_70170_p.field_72995_K) {
@@ -140,7 +129,6 @@ public class EntityWhackGameMerchant extends EntityLiving {
             }
         }
     }
-
     private boolean allUnLit() {
         boolean unlit = true;
         for (BlockPos pos : this.lightPositions) {
@@ -150,7 +138,6 @@ public class EntityWhackGameMerchant extends EntityLiving {
         }
         return unlit;
     }
-
     private void deathEffect() {
         if (!this.lightPositions.isEmpty()) {
             darkenAllLights();
@@ -158,19 +145,15 @@ public class EntityWhackGameMerchant extends EntityLiving {
         this.field_70170_p.func_175739_a(EnumParticleTypes.PORTAL, this.field_70165_t, this.field_70163_u, this.field_70161_v, 12, ((-0.5d) + this.field_70146_Z.nextDouble()) * 3.0d, 0.3d, ((-0.5d) + this.field_70146_Z.nextDouble()) * 3.0d, 0.15000000596046448d, new int[0]);
         func_70106_y();
     }
-
     protected SoundEvent func_184639_G() {
         return SoundEvents.field_187910_gj;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundEvents.field_187912_gl;
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundEvents.field_187911_gk;
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.2d);

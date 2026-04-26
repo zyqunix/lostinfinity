@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.UUID;
@@ -19,8 +18,6 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.mob.entity.minion.EntityMinion;
 import xol.lostinfinity.projectile.entity.EntityBaseThrowable;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityEidolonMist.class */
 public class EntityEidolonMist extends EntityBaseThrowable {
     private double speed;
     private EntityLivingBase target;
@@ -28,7 +25,6 @@ public class EntityEidolonMist extends EntityBaseThrowable {
     private ArrayList<UUID> hitEntities;
     int chaseTime;
     double accel;
-
     public EntityEidolonMist(World par1World) {
         super(par1World);
         this.speed = 0.3d;
@@ -38,7 +34,6 @@ public class EntityEidolonMist extends EntityBaseThrowable {
         this.accel = 0.0d;
         func_70105_a(0.75f, 0.75f);
     }
-
     public EntityEidolonMist(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
         this.speed = 0.3d;
@@ -48,7 +43,6 @@ public class EntityEidolonMist extends EntityBaseThrowable {
         this.accel = 0.0d;
         func_70105_a(0.75f, 0.75f);
     }
-
     public EntityEidolonMist(World par1World, double par2, double par4, double par6) {
         super(par1World, par2, par4, par6);
         this.speed = 0.3d;
@@ -58,10 +52,8 @@ public class EntityEidolonMist extends EntityBaseThrowable {
         this.accel = 0.0d;
         func_70105_a(0.75f, 0.75f);
     }
-
     protected void func_145775_I() {
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -96,7 +88,6 @@ public class EntityEidolonMist extends EntityBaseThrowable {
             this.field_70170_p.func_184133_a((EntityPlayer) null, func_180425_c(), SoundInit.GHOSTLY_CLOUDS, SoundCategory.PLAYERS, 1.5f, 0.6f + (0.4f * this.field_70146_Z.nextFloat()));
         }
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void func_70071_h_() {
         super.func_70071_h_();
@@ -165,7 +156,6 @@ public class EntityEidolonMist extends EntityBaseThrowable {
             this.field_70170_p.func_175682_a(ParticleInit.MURKY_MIST, true, (this.field_70165_t + (this.field_70146_Z.nextDouble() * 1.0d)) - 0.5d, (this.field_70163_u + (this.field_70146_Z.nextDouble() * 1.0d)) - 0.5d, (this.field_70161_v + (this.field_70146_Z.nextDouble() * 1.0d)) - 0.5d, (this.field_70146_Z.nextDouble() * 0.25d) - 0.125d, (this.field_70146_Z.nextDouble() * 0.25d) - 0.125d, (this.field_70146_Z.nextDouble() * 0.25d) - 0.125d, new int[0]);
         }
     }
-
     private SoundEvent randomWhisper(int i) {
         switch (i) {
             case 0:
@@ -176,17 +166,15 @@ public class EntityEidolonMist extends EntityBaseThrowable {
                 return SoundInit.WHISPER_3;
             case 3:
                 return SoundInit.WHISPER_4;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 return SoundInit.WHISPER_5;
             default:
                 return SoundInit.WHISPER_5;
         }
     }
-
     protected float func_70185_h() {
         return 0.0f;
     }
-
     public void addInitialTarget(EntityLivingBase target) {
         if (target != null) {
             this.hitEntities.add(target.func_110124_au());

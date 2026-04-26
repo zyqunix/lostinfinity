@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.MathHelper;
@@ -10,21 +9,16 @@ import xol.lostinfinity.mob.entity.base.EntityImmaterial;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntitySandAttack.class */
 public class EntitySandAttack extends EntityImmaterial implements IMaxAttack {
     private float size;
-
     public EntitySandAttack(World worldIn) {
         super(worldIn);
         this.size = 0.1f;
         func_70105_a(0.1f, 0.1f);
     }
-
     public float getCubeSize() {
         return this.size;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityImmaterial
     public void func_70636_d() {
         super.func_70636_d();
@@ -37,7 +31,6 @@ public class EntitySandAttack extends EntityImmaterial implements IMaxAttack {
             func_70106_y();
         }
     }
-
     public void func_180430_e(float distance, float damageMultiplier) {
         if (!this.field_70170_p.field_72995_K) {
             func_70106_y();

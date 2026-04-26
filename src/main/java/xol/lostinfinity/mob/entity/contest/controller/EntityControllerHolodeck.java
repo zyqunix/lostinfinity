@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.contest.controller;
-
 import java.util.ArrayList;
 import java.util.List;
 import net.minecraft.entity.item.EntityItem;
@@ -20,14 +19,11 @@ import xol.lostinfinity.init.DimensionInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.coordinates.ContestCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/contest/controller/EntityControllerHolodeck.class */
 public class EntityControllerHolodeck extends EntityControllerBase {
     private TileMap my_holodeck;
     private List<TileNode> removed_tiles;
     private int style;
     private int stageTimer;
-
     public EntityControllerHolodeck(World worldIn) {
         super(worldIn);
         this.my_holodeck = null;
@@ -36,25 +32,20 @@ public class EntityControllerHolodeck extends EntityControllerBase {
         this.stageTimer = 100;
         func_70105_a(5.0f, 12.0f);
     }
-
     public void setMyHolodeck(TileMap holo) {
         this.my_holodeck = holo;
     }
-
     public void setArenaStyle(int styleIn) {
         this.style = styleIn;
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected AxisAlignedBB getArenaAABB() {
         return ContestCoordinates.holodeckArenaAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected BlockPos getSnapPos() {
         return ContestCoordinates.holodeckControllerPos();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase, xol.lostinfinity.mob.entity.base.EntityImmaterial
     public void func_70636_d() {
         super.func_70636_d();
@@ -70,7 +61,6 @@ public class EntityControllerHolodeck extends EntityControllerBase {
             }
         }
     }
-
     private void upStage() {
         int removeTiles;
         EntitySkeleton entityHusk;
@@ -126,7 +116,6 @@ public class EntityControllerHolodeck extends EntityControllerBase {
         }
         this.stageTimer = 120;
     }
-
     private BlockPos nodeToBlockPos(TileNode tile) {
         ChunkPairing chunk = ContestCoordinates.holodeckGenLoc();
         int chunkX = chunk.chunkX();
@@ -138,11 +127,9 @@ public class EntityControllerHolodeck extends EntityControllerBase {
         int posZ = tile.getZ();
         return new BlockPos(holoX + (6 * posX), posY, holoZ + (6 * posZ));
     }
-
     private void highlightTile(TileNode tile) {
         new WorldGenStructure("contest/holodeckplatformh").func_180709_b(this.field_70170_p, this.field_70170_p.field_73012_v, nodeToBlockPos(tile));
     }
-
     private void removeTile(TileNode tile) {
         BlockPos start = nodeToBlockPos(tile);
         for (int xp = 0; xp < 5; xp++) {
@@ -151,7 +138,6 @@ public class EntityControllerHolodeck extends EntityControllerBase {
             }
         }
     }
-
     private String randomRemoveTileMsg() {
         switch (this.field_70146_Z.nextInt(5)) {
             case 0:
@@ -162,13 +148,12 @@ public class EntityControllerHolodeck extends EntityControllerBase {
                 return "Time to remove part of the arena!";
             case 3:
                 return "Who's ready to fall into the void?";
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 return "I've marked more tiles for removal contenders!";
             default:
                 return "Some more tiles are getting ready to disappear!";
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected void rewardPlayer(EntityPlayer player, int placement) {
         if (player.field_70165_t > 100.0d) {

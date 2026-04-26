@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.activator;
-
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -17,18 +16,14 @@ import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.PotionInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.item.activate.ItemBombDeployer;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/activator/BlockBombDeployerPowerup.class */
 public class BlockBombDeployerPowerup extends BlockBasicLight {
     private int power_type;
-
     public BlockBombDeployerPowerup(String name, int type) {
         super(name);
         this.power_type = 0;
         func_149715_a(1.0f);
         this.power_type = type;
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         ItemStack held = playerIn.func_184586_b(hand);
         if (held.func_77973_b() instanceof ItemBombDeployer) {

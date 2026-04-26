@@ -1,14 +1,10 @@
 package xol.lostinfinity.recipes;
-
 import java.util.ArrayList;
 import net.minecraft.item.ItemStack;
 import xol.lostinfinity.init.ArmorInit;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/recipes/ModulatorRecipes.class */
 public class ModulatorRecipes {
     private static ArrayList<Recipe> recipes = new ArrayList<>();
-
     private static void init() {
         Recipe vampHelmetUpgrade = new Recipe(ArmorInit.vampyreonPrimeSet.helmet, new ItemStack(ItemInit.moduleRange), new ItemStack(ItemInit.modulePower), new ItemStack(ArmorInit.vampyreonSet.helmet), new ItemStack(ItemInit.maliciumCondensed), new ItemStack(ItemInit.maliciumCondensed), new ItemStack(ItemInit.maliciumCondensed));
         Recipe vampLeggingsUpgrade = new Recipe(ArmorInit.vampyreonPrimeSet.leggings, new ItemStack(ItemInit.moduleRange), new ItemStack(ItemInit.moduleRestoration), new ItemStack(ArmorInit.vampyreonSet.leggings), new ItemStack(ItemInit.maliciumCondensed), new ItemStack(ItemInit.maliciumCondensed), new ItemStack(ItemInit.maliciumCondensed));
@@ -43,7 +39,6 @@ public class ModulatorRecipes {
         recipes.add(blightcystBootUpgrade);
         recipes.add(blightcystChestplateUpgrade);
     }
-
     public static ItemStack getResult(ItemStack... inputs) {
         if (recipes.isEmpty()) {
             init();

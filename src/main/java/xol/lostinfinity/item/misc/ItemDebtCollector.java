@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.misc;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -19,19 +18,15 @@ import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.basics.ItemCooldown;
 import xol.lostinfinity.item.classify.IHotbarDeath;
 import xol.lostinfinity.projectile.entity.EntityDebtCollectorEffect;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/misc/ItemDebtCollector.class */
 public class ItemDebtCollector extends ItemCooldown implements IHotbarDeath {
     public ItemDebtCollector(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_INFINITYWEP);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 15000;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Light_Purple + "A very magical scythe.");
@@ -41,7 +36,6 @@ public class ItemDebtCollector extends ItemCooldown implements IHotbarDeath {
         tooltip.add(TextFmt.getFormatting(TextFmt.Italic, TextFmt.Green) + "When a debt is paid, you heal to full health.");
         tooltip.add(TextFmt.getFormatting(TextFmt.Italic, TextFmt.Gold) + "Gain 3 seconds of immunity while a debt is paid.");
     }
-
     @Override // xol.lostinfinity.item.classify.IHotbarDeath
     public boolean playedKilled(ItemStack stack, EntityPlayer player, Entity attacker, float damageDealt) {
         World world = player.field_70170_p;

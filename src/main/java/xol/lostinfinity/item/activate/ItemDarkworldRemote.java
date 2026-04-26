@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.activate;
-
 import java.util.ArrayList;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockSlab;
@@ -25,33 +24,26 @@ import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.basics.ItemRemoteControl;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/activate/ItemDarkworldRemote.class */
 public class ItemDarkworldRemote extends ItemRemoteControl {
     private static final int radius = 60;
-
     public ItemDarkworldRemote(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemRemoteControl, xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 2000;
     }
-
     @Override // xol.lostinfinity.item.basics.ItemRemoteControl
     public BlockRemoteControl getControlBlock() {
         return (BlockRemoteControl) BlockInit.darkworldConverter;
     }
-
     @Override // xol.lostinfinity.item.basics.ItemRemoteControl
     public void tickEffect(TileEntityRemoteControl te, World world, BlockPos pos, EntityPlayer owner) {
         if (!world.field_72995_K && te.getExisted() % 10 == 0 && owner.func_70011_f(te.func_174877_v().func_177958_n(), te.func_174877_v().func_177956_o(), te.func_174877_v().func_177952_p()) < 60.0d) {
             owner.func_70690_d(new PotionEffect(PotionInit.OTHERWORLDLY, 30));
         }
     }
-
     @Override // xol.lostinfinity.item.basics.ItemRemoteControl
     public void toggleEffect(TileEntityRemoteControl te, World worldIn, BlockPos checkpos, EntityPlayer owner, boolean active) {
         CustomWorldSavedData savedData = CustomWorldSavedData.get(worldIn);
@@ -121,7 +113,6 @@ public class ItemDarkworldRemote extends ItemRemoteControl {
             }
         }
     }
-
     private SoundEvent randomWhisper(int i) {
         switch (i) {
             case 0:
@@ -132,7 +123,7 @@ public class ItemDarkworldRemote extends ItemRemoteControl {
                 return SoundInit.WHISPER_3;
             case 3:
                 return SoundInit.WHISPER_4;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 return SoundInit.WHISPER_5;
             default:
                 return SoundInit.WHISPER_5;

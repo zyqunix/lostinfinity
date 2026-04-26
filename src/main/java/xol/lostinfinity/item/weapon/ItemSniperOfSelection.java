@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import java.util.regex.Pattern;
 import javax.annotation.Nullable;
@@ -29,24 +28,19 @@ import xol.lostinfinity.item.classify.ISwitchModels;
 import xol.lostinfinity.mob.entity.base.EntityMultipleLives;
 import xol.lostinfinity.util.data.CustomRayTraceResult;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemSniperOfSelection.class */
 public class ItemSniperOfSelection extends ItemCooldown implements IMaxAttack, ICustomRaytrace, ISwitchModels, IHeldTick, IModeSelect, ICustomHoldPose {
     static Pattern pattern_ah = Pattern.compile("[a-h]");
     static Pattern pattern_io = Pattern.compile("[i-o]");
     static Pattern pattern_pz = Pattern.compile("[p-z]");
     static Pattern pattern_09 = Pattern.compile("[0-9]");
-
     public ItemSniperOfSelection(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
         setModelSwitch("characters", this, 4);
     }
-
     public boolean shouldCauseReequipAnimation(ItemStack oldStack, ItemStack newStack, boolean slotChanged) {
         return false;
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         CustomRayTraceResult trace_result;
         ItemStack stack = playerIn.func_184586_b(handIn);
@@ -67,12 +61,10 @@ public class ItemSniperOfSelection extends ItemCooldown implements IMaxAttack, I
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 2500;
     }
-
     private boolean regexMatch(int selection, String ch) {
         switch (selection) {
             case 0:
@@ -87,7 +79,6 @@ public class ItemSniperOfSelection extends ItemCooldown implements IMaxAttack, I
                 return false;
         }
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Light_Purple + "Right Click: Toggle cycling through groups of characters.");
@@ -95,7 +86,6 @@ public class ItemSniperOfSelection extends ItemCooldown implements IMaxAttack, I
         tooltip.add(TextFmt.Green + "Deal 150% maximum life damage to the entity.");
         tooltip.add(TextFmt.Gold + "Also removes 4 lives from creatures with multiple lives.");
     }
-
     @Override // xol.lostinfinity.item.classify.IHeldTick
     public void heldTick(EntityPlayer player, EnumHand hand, ItemStack stack) {
         int data;
@@ -110,7 +100,6 @@ public class ItemSniperOfSelection extends ItemCooldown implements IMaxAttack, I
             stack.func_77978_p().func_74768_a("characters_data", data);
         }
     }
-
     @Override // xol.lostinfinity.item.classify.IModeSelect
     public void modeUpdate(ItemStack stack, EntityPlayer player) {
         if (!stack.func_77942_o()) {

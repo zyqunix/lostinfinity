@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.armor;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.model.ModelBiped;
@@ -19,15 +18,11 @@ import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ArmorInit;
 import xol.lostinfinity.item.armor.model.ModelArmorVampyreon;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/armor/ItemVampyreonArmor.class */
 public class ItemVampyreonArmor extends ItemLostArmor {
     private static final ItemArmor.ArmorMaterial vampyreanMaterial = EnumHelper.addArmorMaterial("vampyreonArmor", "lostinfinity:vampyreon_armor", -1, new int[]{12, 24, 32, 12}, 20, SoundEvents.field_187716_o, 3.0f);
-
     public ItemVampyreonArmor(String regName, EntityEquipmentSlot slot) {
         super(vampyreanMaterial, regName, slot);
     }
-
     @Override // xol.lostinfinity.item.armor.ItemLostArmor
     protected void handleSpecialArmorBonus(EntityPlayer player) {
         World world = player.field_70170_p;
@@ -45,21 +40,17 @@ public class ItemVampyreonArmor extends ItemLostArmor {
             }
         }
     }
-
     @Override // xol.lostinfinity.item.armor.ItemLostArmor
     public ArmorInit.ArmorSet getArmorSet() {
         return ArmorInit.vampyreonSet;
     }
-
     @Override // xol.lostinfinity.item.armor.ItemLostArmor
     public boolean isPrimeSet() {
         return false;
     }
-
     public String getArmorTexture(ItemStack itemstack, Entity entity, EntityEquipmentSlot slot, String layer) {
         return "lostinfinity:textures/armor/vampyreon_armor.png";
     }
-
     @SideOnly(Side.CLIENT)
     @Nullable
     public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
@@ -81,7 +72,6 @@ public class ItemVampyreonArmor extends ItemLostArmor {
         }
         return null;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Immune to normal hits.");

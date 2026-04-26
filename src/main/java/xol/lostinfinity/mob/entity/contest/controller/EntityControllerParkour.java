@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.contest.controller;
-
 import java.util.List;
 import java.util.UUID;
 import net.minecraft.block.Block;
@@ -15,14 +14,11 @@ import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.mob.entity.contest.operator.EntityOperatorParkour;
 import xol.lostinfinity.util.coordinates.ContestCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/contest/controller/EntityControllerParkour.class */
 public class EntityControllerParkour extends EntityControllerBase {
     private int stage;
     private static final int maxStage = 5;
     private int fails;
     private boolean game;
-
     public EntityControllerParkour(World worldIn) {
         super(worldIn);
         this.stage = 1;
@@ -30,17 +26,14 @@ public class EntityControllerParkour extends EntityControllerBase {
         this.game = false;
         func_70105_a(5.0f, 12.0f);
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected AxisAlignedBB getArenaAABB() {
         return ContestCoordinates.parkourArenaAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected BlockPos getSnapPos() {
         return ContestCoordinates.parkourControllerPos();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     public void registerTouch(EntityPlayer player) {
         if (!this.field_70170_p.field_72995_K && this.game) {
@@ -53,14 +46,12 @@ public class EntityControllerParkour extends EntityControllerBase {
             endGame();
         }
     }
-
     private void stageUp() {
         this.stage++;
         soundContenders(SoundInit.GENERIC_UI_1, 1.0f, 1.0f);
         messageContenders(TextFmt.Green, String.format("Stage %d begins!", Integer.valueOf(this.stage)));
         EntityOperatorParkour.genParkour(this.field_70170_p, this.stage);
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase, xol.lostinfinity.mob.entity.base.EntityImmaterial
     public void func_70636_d() {
         super.func_70636_d();
@@ -104,7 +95,6 @@ public class EntityControllerParkour extends EntityControllerBase {
             }
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected void endGame() {
         this.game = false;
@@ -115,11 +105,9 @@ public class EntityControllerParkour extends EntityControllerBase {
         }
         func_70106_y();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected void playerStatusCheck() {
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.controller.EntityControllerBase
     protected void rewardPlayer(EntityPlayer player, int placement) {
         BlockPos teleTo = ContestCoordinates.parkourLobbyPos();
@@ -127,7 +115,6 @@ public class EntityControllerParkour extends EntityControllerBase {
         int reward_count = placement != 2 ? 0 : Math.max(150 - this.fails, 30);
         player.func_191521_c(new ItemStack(ItemInit.zirconiaMusky, reward_count));
     }
-
     public void startGame() {
         this.game = true;
         this.fails = 0;

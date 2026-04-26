@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -16,8 +15,6 @@ import xol.lostinfinity.mob.entity.base.EntityMultipleLives;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityDebtCollectorEffect.class */
 public class EntityDebtCollectorEffect extends Entity implements IMaxAttack {
     private boolean playedExecuteSound;
     private boolean didKill;
@@ -33,7 +30,6 @@ public class EntityDebtCollectorEffect extends Entity implements IMaxAttack {
     private float rotation;
     private float alpha;
     private float rotationIncreaser;
-
     public EntityDebtCollectorEffect(World worldIn) {
         super(worldIn);
         this.playedExecuteSound = false;
@@ -44,41 +40,34 @@ public class EntityDebtCollectorEffect extends Entity implements IMaxAttack {
         this.alpha = 1.0f;
         this.rotationIncreaser = 0.025f;
     }
-
     public Vec3d getTargetPos() {
         double x = ((Float) this.field_70180_af.func_187225_a(TARGET_X)).floatValue();
         double y = ((Float) this.field_70180_af.func_187225_a(TARGET_Y)).floatValue();
         double z = ((Float) this.field_70180_af.func_187225_a(TARGET_Z)).floatValue();
         return new Vec3d(x, y, z);
     }
-
     public Vec3d getTargetVec() {
         double x = ((Float) this.field_70180_af.func_187225_a(TARGET_LOOK_X)).floatValue();
         double y = ((Float) this.field_70180_af.func_187225_a(TARGET_LOOK_Y)).floatValue();
         double z = ((Float) this.field_70180_af.func_187225_a(TARGET_LOOK_Z)).floatValue();
         return new Vec3d(x, y, z);
     }
-
     public void setTargetVec(Vec3d vec) {
         this.field_70180_af.func_187227_b(TARGET_LOOK_X, Float.valueOf((float) vec.field_72450_a));
         this.field_70180_af.func_187227_b(TARGET_LOOK_Y, Float.valueOf((float) vec.field_72448_b));
         this.field_70180_af.func_187227_b(TARGET_LOOK_Z, Float.valueOf((float) vec.field_72449_c));
     }
-
     public void setTargetPos(Vec3d vec) {
         this.field_70180_af.func_187227_b(TARGET_X, Float.valueOf((float) vec.field_72450_a));
         this.field_70180_af.func_187227_b(TARGET_Y, Float.valueOf((float) vec.field_72448_b));
         this.field_70180_af.func_187227_b(TARGET_Z, Float.valueOf((float) vec.field_72449_c));
     }
-
     public void setTargetHeight(double height) {
         this.field_70180_af.func_187227_b(TARGET_HEIGHT, Float.valueOf((float) height));
     }
-
     public double getTargetHeight() {
         return ((Float) this.field_70180_af.func_187225_a(TARGET_HEIGHT)).floatValue();
     }
-
     public void func_70071_h_() {
         super.func_70071_h_();
         if (!this.field_70170_p.field_72995_K) {
@@ -122,21 +111,16 @@ public class EntityDebtCollectorEffect extends Entity implements IMaxAttack {
             }
         }
     }
-
     public void setTarget(EntityLivingBase target) {
         this.target = target;
     }
-
     public void setCreator(EntityPlayer creator) {
         this.creator = creator;
     }
-
     protected void func_70037_a(NBTTagCompound compound) {
     }
-
     protected void func_70014_b(NBTTagCompound compound) {
     }
-
     protected void func_70088_a() {
         this.field_70180_af.func_187214_a(TARGET_X, Float.valueOf(0.0f));
         this.field_70180_af.func_187214_a(TARGET_Y, Float.valueOf(0.0f));
@@ -146,11 +130,9 @@ public class EntityDebtCollectorEffect extends Entity implements IMaxAttack {
         this.field_70180_af.func_187214_a(TARGET_LOOK_Z, Float.valueOf(0.0f));
         this.field_70180_af.func_187214_a(TARGET_HEIGHT, Float.valueOf(0.0f));
     }
-
     public float getRotation() {
         return this.rotation;
     }
-
     public float getAlpha() {
         return this.alpha;
     }

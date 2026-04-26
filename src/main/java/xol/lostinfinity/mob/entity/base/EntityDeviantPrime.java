@@ -1,27 +1,21 @@
 package xol.lostinfinity.mob.entity.base;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraft.world.World;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/base/EntityDeviantPrime.class */
 public class EntityDeviantPrime extends EntityMultipleLives implements IMaxAttack {
     public EntityDeviantPrime(World worldIn) {
         super(worldIn);
     }
-
     protected boolean func_70692_ba() {
         return false;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 25;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void trueDeathAction() {
         if (!this.field_70170_p.field_72995_K) {
@@ -31,11 +25,9 @@ public class EntityDeviantPrime extends EntityMultipleLives implements IMaxAttac
             func_145779_a(primeDrop(), 1);
         }
     }
-
     protected String primeName() {
         return "";
     }
-
     protected Item primeDrop() {
         return null;
     }

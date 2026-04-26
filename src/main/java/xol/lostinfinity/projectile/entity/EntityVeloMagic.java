@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
@@ -11,40 +10,31 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityVeloMagic.class */
 public class EntityVeloMagic extends EntityBaseThrowable {
     private static final DataParameter<Float> PROJWEIGHT = EntityDataManager.func_187226_a(EntityVeloMagic.class, DataSerializers.field_187193_c);
     private int denom;
-
     public EntityVeloMagic(World par1World) {
         super(par1World);
         this.denom = 8;
         func_70105_a(0.4f, 0.4f);
     }
-
     public EntityVeloMagic(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
         this.denom = 8;
     }
-
     public EntityVeloMagic(World par1World, double par2, double par4, double par6) {
         super(par1World, par2, par4, par6);
         this.denom = 8;
     }
-
     public void setGravity(Float g) {
         this.field_70180_af.func_187227_b(PROJWEIGHT, g);
     }
-
     public void setDenom(int d) {
         this.denom = d;
     }
-
     protected void func_70088_a() {
         this.field_70180_af.func_187214_a(PROJWEIGHT, Float.valueOf(0.06f));
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void calculateVelocity(double x, double y, double z) {
         this.field_70159_w = x;
@@ -58,7 +48,6 @@ public class EntityVeloMagic extends EntityBaseThrowable {
             this.field_70127_C = this.field_70125_A;
         }
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -68,11 +57,9 @@ public class EntityVeloMagic extends EntityBaseThrowable {
             func_70106_y();
         }
     }
-
     protected float func_70185_h() {
         return ((Float) this.field_70180_af.func_187225_a(PROJWEIGHT)).floatValue();
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     @SideOnly(Side.CLIENT)
     public void func_70071_h_() {

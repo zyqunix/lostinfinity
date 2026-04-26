@@ -1,11 +1,8 @@
 package xol.lostinfinity.dimension.data;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 import xol.lostinfinity.block.tileentity.TileEntityFusionTable;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/dimension/data/TileMap.class */
 public class TileMap {
     private TileNode[][] map;
     private List<TileNode> remaining_nodes = new ArrayList();
@@ -14,7 +11,6 @@ public class TileMap {
     private int winz;
     private int numColumns;
     private int numRows;
-
     public TileMap(int col, int row, int winnerx, int winnerz, int style) {
         this.map = new TileNode[col][row];
         this.numColumns = col;
@@ -41,22 +37,18 @@ public class TileMap {
             }
         }
     }
-
     public TileNode getNodeAtLocation(int col, int row) {
         if (col < 0 || row < 0 || col >= this.numColumns || row >= this.numRows || this.map[col][row].isDead()) {
             return null;
         }
         return this.map[col][row];
     }
-
     public int remainingTiles() {
         return this.remaining_nodes.size();
     }
-
     public TileNode randomLivingNode() {
         return this.remaining_nodes.get(this.rand.nextInt(this.remaining_nodes.size()));
     }
-
     public List<TileNode> removeTiles(int numRemove) {
         List<TileNode> removedNodes = new ArrayList<>();
         for (int i = 0; i < numRemove; i++) {
@@ -92,7 +84,6 @@ public class TileMap {
         }
         return removedNodes;
     }
-
     private int getYfromXZStyle(int xline, int zline, int style) {
         int yheight = 28;
         switch (style) {
@@ -111,7 +102,7 @@ public class TileMap {
                 int zdiff2 = Math.abs(3 - zline);
                 yheight = xdiff2 > zdiff2 ? 31 - xdiff2 : 31 - zdiff2;
                 break;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 yheight = 28 + xline;
                 break;
         }

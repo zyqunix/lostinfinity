@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.labyrinth;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.network.datasync.DataParameter;
@@ -14,34 +13,26 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.mob.entity.base.EntityMultipleLives;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/labyrinth/EntityClinger.class */
 public class EntityClinger extends EntityMultipleLives implements IMaxAttack {
     private static final DataParameter<Boolean> ATTACKING = EntityDataManager.func_187226_a(EntityClinger.class, DataSerializers.field_187198_h);
-
     public EntityClinger(World worldIn) {
         super(worldIn);
         func_70105_a(1.5f, 1.5f);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(ATTACKING, false);
     }
-
     public boolean getAngry() {
         return ((Boolean) this.field_70180_af.func_187225_a(ATTACKING)).booleanValue();
     }
-
     public void setAngry(boolean f) {
         this.field_70180_af.func_187227_b(ATTACKING, Boolean.valueOf(f));
     }
-
     public boolean func_70652_k(Entity entity) {
         return false;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         this.field_70143_R = -1.0f;
@@ -71,7 +62,6 @@ public class EntityClinger extends EntityMultipleLives implements IMaxAttack {
             setAngry(false);
         }
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(800.0d);
@@ -79,33 +69,26 @@ public class EntityClinger extends EntityMultipleLives implements IMaxAttack {
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.45d);
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.CLINGER_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.CLINGER_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundInit.CLINGER_AMBIENT;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public boolean func_70814_o() {
         return true;
     }
-
     public int func_70641_bl() {
         return 1;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 5;
     }
-
     protected ResourceLocation func_184647_J() {
         return LootTableRegistry.ENTITIES_CLINGER;
     }

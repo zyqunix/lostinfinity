@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.activate;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -21,8 +20,6 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.TabsInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/activate/ItemElementStone.class */
 public class ItemElementStone extends Item {
     public ItemElementStone(String regName) {
         setRegistryName(regName);
@@ -31,7 +28,6 @@ public class ItemElementStone extends Item {
         func_77625_d(1);
         ItemInit.ITEMS.add(this);
     }
-
     private void populateRequirements(ItemStack stack) {
         List<BiomeDictionary.Type> types_to_pick = new ArrayList<>();
         types_to_pick.add(BiomeDictionary.Type.COLD);
@@ -57,7 +53,6 @@ public class ItemElementStone extends Item {
             stack.func_77978_p().func_74757_a("BiomeComplete" + i, false);
         }
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (!stack.func_77942_o()) {
@@ -89,15 +84,12 @@ public class ItemElementStone extends Item {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     private String biomeName(ItemStack stack, int slot) {
         return stack.func_77978_p().func_74779_i("BiomeName" + slot);
     }
-
     private boolean hasBiome(ItemStack stack, int slot) {
         return stack.func_77978_p().func_74767_n("BiomeComplete" + slot);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Needs to be taken to the following biome types:");

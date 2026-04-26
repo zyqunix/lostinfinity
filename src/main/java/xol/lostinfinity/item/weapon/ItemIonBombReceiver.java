@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -23,19 +22,15 @@ import xol.lostinfinity.item.classify.ICustomRaytrace;
 import xol.lostinfinity.item.classify.IModeSelect;
 import xol.lostinfinity.mob.entity.misc.EntityIonExplosion;
 import xol.lostinfinity.util.data.CustomRayTraceResult;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemIonBombReceiver.class */
 public class ItemIonBombReceiver extends ItemCooldown implements ICustomRaytrace, IModeSelect {
     public ItemIonBombReceiver(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected boolean hasSimpleCooldown() {
         return false;
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         CustomRayTraceResult trace_result;
         if (!showDurabilityBar(playerIn.func_184586_b(handIn))) {
@@ -82,7 +77,6 @@ public class ItemIonBombReceiver extends ItemCooldown implements ICustomRaytrace
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     private boolean areNoBombs(ItemStack stack) {
         if (stack.func_77978_p().func_74764_b("BombY0")) {
             boolean foundBomb = false;
@@ -96,7 +90,6 @@ public class ItemIonBombReceiver extends ItemCooldown implements ICustomRaytrace
         }
         return true;
     }
-
     private void clearBombs(ItemStack stack) {
         for (int i = 0; i < 5; i++) {
             stack.func_77978_p().func_74780_a("BombX" + i, -10.0d);
@@ -104,13 +97,11 @@ public class ItemIonBombReceiver extends ItemCooldown implements ICustomRaytrace
             stack.func_77978_p().func_74780_a("BombZ" + i, -10.0d);
         }
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Aqua + "Can place up to 5 Ion Bombs which can be detonated.");
         tooltip.add(TextFmt.Gold + "Ion Bomb Explosions Deal 200% Max Health Damage");
     }
-
     @Override // xol.lostinfinity.item.classify.IModeSelect
     public void modeUpdate(ItemStack stack, EntityPlayer player) {
         if (!showDurabilityBar(stack)) {

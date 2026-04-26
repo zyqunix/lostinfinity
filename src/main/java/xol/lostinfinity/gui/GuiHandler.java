@@ -1,5 +1,4 @@
 package xol.lostinfinity.gui;
-
 import java.util.Arrays;
 import java.util.Optional;
 import net.minecraft.block.state.IBlockState;
@@ -69,21 +68,16 @@ import xol.lostinfinity.gui.guis.GuiSupplyDeposit;
 import xol.lostinfinity.gui.guis.GuiSupplyStore;
 import xol.lostinfinity.gui.guis.GuiWeldingChamber;
 import xol.lostinfinity.item.weapon.ItemHeadCollector;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/GuiHandler.class */
 public class GuiHandler implements IGuiHandler {
     private static final GuiHandler guiHandler = new GuiHandler();
-
     public static GuiHandler getInstance() {
         return guiHandler;
     }
-
     private Optional<RegisteredGuis> getGuiFor(int id) {
         return Arrays.stream(RegisteredGuis.values()).filter(it -> {
             return it.id == id;
         }).findFirst();
     }
-
     public Object getServerGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
         Optional<RegisteredGuis> gui = getGuiFor(ID);
         Object result = null;
@@ -103,13 +97,13 @@ public class GuiHandler implements IGuiHandler {
                         case 3:
                             result = new ContainerFabricationStation(player.field_71071_by, world, xyz, state.func_177230_c());
                             break;
-                        case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+                        case TileEntityFusionTable.BOARD_ROWS :
                             result = new ContainerCompressionTable(player.field_71071_by, world, xyz, state.func_177230_c(), world.func_175625_s(xyz));
                             break;
                         case 5:
                             result = new ContainerAugmentor(player.field_71071_by);
                             break;
-                        case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+                        case TileEntityFusionTable.BOARD_COLUMNS :
                             result = new ContainerSapEvaporator(player.field_71071_by, (TileEntitySapEvaporator) world.func_175625_s(new BlockPos(x, y, z)));
                             break;
                         case 7:
@@ -121,7 +115,7 @@ public class GuiHandler implements IGuiHandler {
                         case 9:
                             result = new ContainerRainfallGenerator(player.field_71071_by, (TileEntityRainfallGenerator) world.func_175625_s(new BlockPos(x, y, z)));
                             break;
-                        case ItemHeadCollector.CHARGE_LIMIT /* 10 */:
+                        case ItemHeadCollector.CHARGE_LIMIT :
                             result = new ContainerWeldingChamber(player.field_71071_by, (TileEntityWeldingChamber) world.func_175625_s(new BlockPos(x, y, z)));
                             break;
                         case 11:
@@ -170,7 +164,7 @@ public class GuiHandler implements IGuiHandler {
                     case 23:
                         result = new ContainerSupplyStore(player.field_71071_by);
                         break;
-                    case TileEntityFusionTable.BOARD_SIZE /* 24 */:
+                    case TileEntityFusionTable.BOARD_SIZE :
                         result = new ContainerSupplyDeposit(player.field_71071_by);
                         break;
                 }
@@ -178,7 +172,6 @@ public class GuiHandler implements IGuiHandler {
         }
         return result;
     }
-
     public Object getClientGuiElement(int ID, EntityPlayer player, World world, int x, int y, int z) {
         Optional<RegisteredGuis> gui = getGuiFor(ID);
         Object result = null;
@@ -198,13 +191,13 @@ public class GuiHandler implements IGuiHandler {
                         case 3:
                             result = new GuiFabricationStation(player.field_71071_by, world, xyz, state.func_177230_c());
                             break;
-                        case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+                        case TileEntityFusionTable.BOARD_ROWS :
                             result = new GuiCompressionTable(player.field_71071_by, world, xyz, state.func_177230_c(), world.func_175625_s(xyz));
                             break;
                         case 5:
                             result = new GuiAugmentor(player.field_71071_by);
                             break;
-                        case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+                        case TileEntityFusionTable.BOARD_COLUMNS :
                             result = new GuiSapEvaporator(player.field_71071_by, (TileEntitySapEvaporator) world.func_175625_s(new BlockPos(x, y, z)));
                             break;
                         case 7:
@@ -216,7 +209,7 @@ public class GuiHandler implements IGuiHandler {
                         case 9:
                             result = new GuiRainfallGenerator(player.field_71071_by, (TileEntityRainfallGenerator) world.func_175625_s(new BlockPos(x, y, z)));
                             break;
-                        case ItemHeadCollector.CHARGE_LIMIT /* 10 */:
+                        case ItemHeadCollector.CHARGE_LIMIT :
                             result = new GuiWeldingChamber(player.field_71071_by, (TileEntityWeldingChamber) world.func_175625_s(new BlockPos(x, y, z)));
                             break;
                         case 11:
@@ -268,7 +261,7 @@ public class GuiHandler implements IGuiHandler {
                     case 23:
                         result = new GuiSupplyStore(player.field_71071_by);
                         break;
-                    case TileEntityFusionTable.BOARD_SIZE /* 24 */:
+                    case TileEntityFusionTable.BOARD_SIZE :
                         result = new GuiSupplyDeposit(player.field_71071_by);
                         break;
                 }
@@ -276,8 +269,6 @@ public class GuiHandler implements IGuiHandler {
         }
         return result;
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/GuiHandler$RegisteredGuis.class */
     public enum RegisteredGuis {
         MODULATOR(69, true),
         PICKAXE_CHARGETABLE(70, true),
@@ -304,14 +295,11 @@ public class GuiHandler implements IGuiHandler {
         COMBUSTION_ENGINE(91, true),
         GRINDER(92, true),
         GEARBOX(93, true);
-
         private final int id;
         final boolean requiresBlock;
-
         public int getId() {
             return this.id;
         }
-
         RegisteredGuis(int id, boolean requiresBlock) {
             this.id = id;
             this.requiresBlock = requiresBlock;

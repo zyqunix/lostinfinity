@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.misc;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityAgeable;
 import net.minecraft.entity.EntityLivingBase;
@@ -33,21 +32,17 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.mob.entity.base.EntityDeviantMob;
 import xol.lostinfinity.projectile.entity.EntityDroidLaser;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/misc/EntityDroid.class */
 public class EntityDroid extends EntityTameable implements IMaxAttack {
     private static final DataParameter<Integer> GRADE = EntityDataManager.func_187226_a(EntityDroid.class, DataSerializers.field_187192_b);
     private static final DataParameter<Boolean> AGGRESSIVE = EntityDataManager.func_187226_a(EntityDroid.class, DataSerializers.field_187198_h);
     private static final DataParameter<Integer> ATTACK_TIME = EntityDataManager.func_187226_a(EntityDroid.class, DataSerializers.field_187192_b);
     private static final DataParameter<Integer> TARGET_LEVEL = EntityDataManager.func_187226_a(EntityDroid.class, DataSerializers.field_187192_b);
     private int killcount;
-
     public EntityDroid(World worldIn) {
         super(worldIn);
         this.killcount = 0;
         func_70105_a(1.2f, 2.2f);
     }
-
     protected void func_184651_r() {
         this.field_70714_bg.func_75776_a(1, new EntityAISwimming(this));
         this.field_70714_bg.func_75776_a(3, new EntityAILeapAtTarget(this, 0.4f));
@@ -59,13 +54,11 @@ public class EntityDroid extends EntityTameable implements IMaxAttack {
         this.field_70715_bh.func_75776_a(2, new EntityAIOwnerHurtTarget(this));
         this.field_70715_bh.func_75776_a(3, new EntityAIHurtByTarget(this, true, new Class[0]));
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.35d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(1250.0d);
     }
-
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(GRADE, 0);
@@ -73,54 +66,43 @@ public class EntityDroid extends EntityTameable implements IMaxAttack {
         this.field_70180_af.func_187214_a(ATTACK_TIME, 0);
         this.field_70180_af.func_187214_a(TARGET_LEVEL, 0);
     }
-
     public int getGrade() {
         return ((Integer) this.field_70180_af.func_187225_a(GRADE)).intValue();
     }
-
     public void setGrade(int grade) {
         this.field_70180_af.func_187227_b(GRADE, Integer.valueOf(grade));
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.35d + (0.1d * ((double) grade)));
     }
-
     public boolean isAggressive() {
         return ((Boolean) this.field_70180_af.func_187225_a(AGGRESSIVE)).booleanValue();
     }
-
     public void setAggressive(boolean aggro) {
         this.field_70180_af.func_187227_b(AGGRESSIVE, Boolean.valueOf(aggro));
     }
-
     public int getAttackTime() {
         return ((Integer) this.field_70180_af.func_187225_a(ATTACK_TIME)).intValue();
     }
-
     public void setAttackTime(int f) {
         this.field_70180_af.func_187227_b(ATTACK_TIME, Integer.valueOf(f));
     }
-
     public int getTargetLevel() {
         return ((Integer) this.field_70180_af.func_187225_a(TARGET_LEVEL)).intValue();
     }
-
     public void setTargetLevel(int f) {
         this.field_70180_af.func_187227_b(TARGET_LEVEL, Integer.valueOf(f));
     }
-
     public void func_70014_b(NBTTagCompound tag) {
         super.func_70014_b(tag);
         tag.func_74768_a("KillCount", this.killcount);
         tag.func_74757_a("AttackStyle", isAggressive());
         tag.func_74768_a("DroidGrade", getGrade());
     }
-
     public void func_70037_a(NBTTagCompound tag) {
         super.func_70037_a(tag);
         this.killcount = tag.func_74762_e("KillCount");
         setAggressive(tag.func_74767_n("AttackStyle"));
         setGrade(tag.func_74762_e("DroidGrade"));
     }
-
     public boolean func_70652_k(Entity entity) {
         setAttackTime(20);
         super.func_70652_k(entity);
@@ -149,7 +131,6 @@ public class EntityDroid extends EntityTameable implements IMaxAttack {
         }
         return false;
     }
-
     public void func_70645_a(DamageSource cause) {
         super.func_70645_a(cause);
         if ((cause.func_76346_g() instanceof EntityPlayer) && cause.func_76346_g() == func_70902_q() && !this.field_70170_p.field_72995_K) {
@@ -162,7 +143,6 @@ public class EntityDroid extends EntityTameable implements IMaxAttack {
             }
         }
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         if (!this.field_70170_p.field_72995_K && this.field_70170_p.func_175659_aa() == EnumDifficulty.PEACEFUL) {
@@ -245,27 +225,21 @@ public class EntityDroid extends EntityTameable implements IMaxAttack {
             }
         }
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundEvents.field_187599_cE;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundEvents.field_187602_cF;
     }
-
     protected SoundEvent func_184639_G() {
         return null;
     }
-
     protected boolean func_70692_ba() {
         return func_70902_q() == null;
     }
-
     public boolean func_70601_bi() {
         return this.field_70170_p.func_175659_aa() != EnumDifficulty.PEACEFUL;
     }
-
     public EntityAgeable func_90011_a(EntityAgeable ageable) {
         return null;
     }

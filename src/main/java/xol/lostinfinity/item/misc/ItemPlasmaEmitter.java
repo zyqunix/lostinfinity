@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.misc;
-
 import java.util.Iterator;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -13,14 +12,11 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.basics.ItemCooldown;
 import xol.lostinfinity.mob.entity.misc.EntityPlasmaSlicer;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/misc/ItemPlasmaEmitter.class */
 public class ItemPlasmaEmitter extends ItemCooldown {
     public ItemPlasmaEmitter(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (!worldIn.field_72995_K) {
             for (EntityPlasmaSlicer slicer : worldIn.func_72872_a(EntityPlasmaSlicer.class, new AxisAlignedBB(playerIn.func_180425_c()).func_186662_g(3.0d))) {
@@ -55,7 +51,6 @@ public class ItemPlasmaEmitter extends ItemCooldown {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 10000;

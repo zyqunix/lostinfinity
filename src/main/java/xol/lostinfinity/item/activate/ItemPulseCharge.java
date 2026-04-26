@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.activate;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -21,8 +20,6 @@ import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.mob.entity.sea.leviathan.EntityLeviathanController;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/activate/ItemPulseCharge.class */
 public class ItemPulseCharge extends Item {
     public ItemPulseCharge(String regName) {
         setRegistryName(regName);
@@ -30,7 +27,6 @@ public class ItemPulseCharge extends Item {
         func_77637_a(TabsInit.TAB_AUXMATS);
         ItemInit.ITEMS.add(this);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (!worldIn.field_72995_K && worldIn.field_73011_w.func_186058_p() == DimensionInit.shadowSea) {
             EntityLeviathanController levi = new EntityLeviathanController(worldIn);
@@ -46,7 +42,6 @@ public class ItemPulseCharge extends Item {
         playerIn.func_184586_b(handIn).func_190918_g(1);
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Release a shockwave when used in the Shadow Sea.");

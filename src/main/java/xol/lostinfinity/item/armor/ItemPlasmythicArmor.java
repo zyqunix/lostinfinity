@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.armor;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.model.ModelBiped;
@@ -18,33 +17,25 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ArmorInit;
 import xol.lostinfinity.item.armor.model.ModelArmorPlasmythic;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/armor/ItemPlasmythicArmor.class */
 public class ItemPlasmythicArmor extends ItemLostArmor {
     private static final ItemArmor.ArmorMaterial PlasmythicMaterial = EnumHelper.addArmorMaterial("PlasmythicArmor", "lostinfinity:plasmythic_armor", -1, new int[]{12, 24, 32, 12}, 20, SoundEvents.field_187716_o, 3.0f);
-
     public ItemPlasmythicArmor(String regName, EntityEquipmentSlot slot) {
         super(PlasmythicMaterial, regName, slot);
     }
-
     @Override // xol.lostinfinity.item.armor.ItemLostArmor
     protected void handleSpecialArmorBonus(EntityPlayer player) {
     }
-
     @Override // xol.lostinfinity.item.armor.ItemLostArmor
     public ArmorInit.ArmorSet getArmorSet() {
         return ArmorInit.plasmythicSet;
     }
-
     @Override // xol.lostinfinity.item.armor.ItemLostArmor
     public boolean isPrimeSet() {
         return false;
     }
-
     public String getArmorTexture(ItemStack itemstack, Entity entity, EntityEquipmentSlot slot, String layer) {
         return "lostinfinity:textures/armor/plasmythic_armor.png";
     }
-
     @SideOnly(Side.CLIENT)
     @Nullable
     public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
@@ -66,7 +57,6 @@ public class ItemPlasmythicArmor extends ItemLostArmor {
         }
         return null;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Immune to Normal Hits.");

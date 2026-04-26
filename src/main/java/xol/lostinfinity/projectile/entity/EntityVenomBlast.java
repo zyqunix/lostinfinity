@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.math.RayTraceResult;
@@ -8,24 +7,19 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import xol.lostinfinity.init.ParticleInit;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityVenomBlast.class */
 public class EntityVenomBlast extends EntityBaseThrowable {
     public EntityVenomBlast(World par1World) {
         super(par1World);
         func_70105_a(0.75f, 0.75f);
     }
-
     public EntityVenomBlast(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
         func_70105_a(0.75f, 0.75f);
     }
-
     public EntityVenomBlast(World par1World, double par2, double par4, double par6) {
         super(par1World, par2, par4, par6);
         func_70105_a(0.75f, 0.75f);
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -39,7 +33,6 @@ public class EntityVenomBlast extends EntityBaseThrowable {
             func_70106_y();
         }
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     @SideOnly(Side.CLIENT)
     public void func_70071_h_() {
@@ -52,7 +45,6 @@ public class EntityVenomBlast extends EntityBaseThrowable {
             }
         }
     }
-
     protected float func_70185_h() {
         return 0.0f;
     }

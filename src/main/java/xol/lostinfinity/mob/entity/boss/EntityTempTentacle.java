@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.boss;
-
 import java.util.ArrayList;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -20,8 +19,6 @@ import xol.lostinfinity.projectile.entity.EntityBossPortalEffect;
 import xol.lostinfinity.projectile.entity.EntityHomingBlight;
 import xol.lostinfinity.projectile.entity.EntityTentacleSeed;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/boss/EntityTempTentacle.class */
 public class EntityTempTentacle extends EntityMultipleLives implements IMaxAttack {
     private int phase;
     private int nextFormTimer;
@@ -36,7 +33,6 @@ public class EntityTempTentacle extends EntityMultipleLives implements IMaxAttac
     private static final double swoopSpeed = 3.0d;
     private ArrayList<EntityLivingBase> offsetMobs;
     private boolean pulled;
-
     public EntityTempTentacle(World worldIn) {
         super(worldIn);
         this.nextFormTimer = 80;
@@ -49,7 +45,6 @@ public class EntityTempTentacle extends EntityMultipleLives implements IMaxAttac
         this.pulled = false;
         func_70105_a(2.0f, 7.0f);
     }
-
     protected void func_82167_n(Entity entityIn) {
         if (entityIn instanceof EntityPlayer) {
             EntityPlayer play = (EntityPlayer) entityIn;
@@ -61,7 +56,6 @@ public class EntityTempTentacle extends EntityMultipleLives implements IMaxAttac
         }
         entityIn.func_70108_f(this);
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(swoopHeight);
@@ -69,7 +63,6 @@ public class EntityTempTentacle extends EntityMultipleLives implements IMaxAttac
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(swoopHeight);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(15000.0d);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -78,7 +71,6 @@ public class EntityTempTentacle extends EntityMultipleLives implements IMaxAttac
         }
         return false;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         if (getLivesCount() >= numberOfLives() / 2) {
@@ -107,7 +99,6 @@ public class EntityTempTentacle extends EntityMultipleLives implements IMaxAttac
         }
         updatePhase(this.phase);
     }
-
     private void fireHomingBlights() {
         if (!this.field_70170_p.field_72995_K && this.field_70173_aa % 80 == 20) {
             targetPlayers();
@@ -122,7 +113,6 @@ public class EntityTempTentacle extends EntityMultipleLives implements IMaxAttac
             }
         }
     }
-
     private void groupPlayers() {
         if (!this.field_70170_p.field_72995_K && !this.pulled) {
             targetPlayers();
@@ -143,7 +133,6 @@ public class EntityTempTentacle extends EntityMultipleLives implements IMaxAttac
             }
         }
     }
-
     private void warpReality() {
         targetMobs();
         if (this.offsetMobs == null && this.targets != null) {
@@ -187,7 +176,6 @@ public class EntityTempTentacle extends EntityMultipleLives implements IMaxAttac
         }
         this.targets = null;
     }
-
     private void charge() {
         if (!this.field_70170_p.field_72995_K) {
             if (this.swoopTarget == null) {
@@ -230,7 +218,6 @@ public class EntityTempTentacle extends EntityMultipleLives implements IMaxAttac
             this.field_70133_I = true;
         }
     }
-
     private void launchSeeds() {
         if (!this.field_70170_p.field_72995_K && this.field_70173_aa % 40 == 10) {
             EntityTentacleSeed seed = new EntityTentacleSeed(this.field_70170_p);
@@ -240,7 +227,6 @@ public class EntityTempTentacle extends EntityMultipleLives implements IMaxAttac
             this.field_70170_p.func_72838_d(seed);
         }
     }
-
     private void rainComets() {
         if (!this.field_70170_p.field_72995_K) {
             if (this.targets == null) {
@@ -256,7 +242,6 @@ public class EntityTempTentacle extends EntityMultipleLives implements IMaxAttac
             }
         }
     }
-
     private void summonPortals() {
         if (!this.field_70170_p.field_72995_K) {
             if (this.targets == null) {
@@ -273,7 +258,6 @@ public class EntityTempTentacle extends EntityMultipleLives implements IMaxAttac
             }
         }
     }
-
     private void targetMobs() {
         this.targets = new ArrayList<>();
         for (EntityLivingBase entity : this.field_70170_p.func_72872_a(EntityLivingBase.class, func_174813_aQ().func_72314_b(9.0d, 9.0d, 9.0d))) {
@@ -282,7 +266,6 @@ public class EntityTempTentacle extends EntityMultipleLives implements IMaxAttac
             }
         }
     }
-
     private void targetPlayers() {
         this.targets = new ArrayList<>();
         for (EntityLivingBase entityLivingBase : this.field_70170_p.func_73046_m().func_184103_al().func_181057_v()) {
@@ -291,7 +274,6 @@ public class EntityTempTentacle extends EntityMultipleLives implements IMaxAttac
             }
         }
     }
-
     private void circle() {
         if (!this.field_70170_p.field_72995_K && this.swoopTarget == null) {
             if (this.homePos == null) {
@@ -326,13 +308,11 @@ public class EntityTempTentacle extends EntityMultipleLives implements IMaxAttac
             }
         }
     }
-
     private void calculateVelocity(double x, double y, double z) {
         this.field_70159_w = x;
         this.field_70181_x = y;
         this.field_70179_y = z;
     }
-
     private void updatePhase(int phase) {
         this.nextFormTimer--;
         if (this.nextFormTimer == 0) {
@@ -347,33 +327,26 @@ public class EntityTempTentacle extends EntityMultipleLives implements IMaxAttac
             }
         }
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.GENERIC_STYLE3_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.GENERIC_STYLE3_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return null;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 2000;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void updateLifeAction() {
         Math.round((100 * (numberOfLives() - getLivesCount())) / numberOfLives());
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void trueDeathAction() {
     }
-
     protected boolean func_70692_ba() {
         return false;
     }

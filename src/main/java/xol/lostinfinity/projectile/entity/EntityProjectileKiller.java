@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -14,40 +13,32 @@ import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.world.World;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityProjectileKiller.class */
 public class EntityProjectileKiller extends EntityBaseThrowable {
     private int timer;
-
     public EntityProjectileKiller(World par1World) {
         super(par1World);
         this.timer = 20;
         func_70105_a(0.75f, 0.75f);
     }
-
     public EntityProjectileKiller(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
         this.timer = 20;
         func_70105_a(0.75f, 0.75f);
     }
-
     public EntityProjectileKiller(World par1World, double par2, double par4, double par6) {
         super(par1World, par2, par4, par6);
         this.timer = 20;
         func_70105_a(0.75f, 0.75f);
     }
-
     public void shortTimer() {
         this.timer = 5;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
             func_70106_y();
         }
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void func_70071_h_() {
         super.func_70071_h_();
@@ -68,11 +59,9 @@ public class EntityProjectileKiller extends EntityBaseThrowable {
         }
         this.timer--;
     }
-
     protected float func_70185_h() {
         return 0.0f;
     }
-
     private void vaporizeProjectile(World world, Entity projectile) {
         world.func_184133_a((EntityPlayer) null, new BlockPos(projectile.field_70165_t, projectile.field_70163_u, projectile.field_70161_v), SoundInit.ITEM_AXIOMAVORUM, SoundCategory.MASTER, 2.0f, 1.0f);
         if (!world.field_72995_K) {

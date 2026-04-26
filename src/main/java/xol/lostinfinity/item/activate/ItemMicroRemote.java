@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.activate;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import javax.annotation.Nullable;
@@ -16,23 +15,18 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.basics.ItemRemoteControl;
 import xol.lostinfinity.projectile.entity.EntityMicroRocket;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/activate/ItemMicroRemote.class */
 public class ItemMicroRemote extends ItemRemoteControl {
     private static final int GROUP_RADIUS = 20;
     private static final int TARGETING_RADIUS = 30;
-
     public ItemMicroRemote(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXMATS);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemRemoteControl
     @Nullable
     public BlockRemoteControl getControlBlock() {
         return (BlockRemoteControl) BlockInit.microRocket;
     }
-
     @Override // xol.lostinfinity.item.basics.ItemRemoteControl
     public void tickEffect(TileEntityRemoteControl te, World world, BlockPos pos, EntityPlayer owner) {
         if (!world.field_72995_K && te.getExisted() % 60 == 0) {
@@ -62,7 +56,6 @@ public class ItemMicroRemote extends ItemRemoteControl {
             }
         }
     }
-
     @Override // xol.lostinfinity.item.basics.ItemRemoteControl
     public void toggleEffect(TileEntityRemoteControl te, World worldIn, BlockPos checkpos, EntityPlayer owner, boolean active) {
     }

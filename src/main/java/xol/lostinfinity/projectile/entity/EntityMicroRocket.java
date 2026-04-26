@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.SoundCategory;
@@ -12,14 +11,11 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityMicroRocket.class */
 public class EntityMicroRocket extends EntityBaseThrowable {
     private static final double SPEED = 0.3d;
     private static final int HOMING_RADIUS = 20;
     private int targetingHeight;
     private EntityLivingBase target;
-
     public EntityMicroRocket(World par1World) {
         super(par1World);
         this.targetingHeight = 0;
@@ -28,7 +24,6 @@ public class EntityMicroRocket extends EntityBaseThrowable {
         this.field_70181_x = 0.5d;
         this.field_70133_I = true;
     }
-
     public EntityMicroRocket(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
         this.targetingHeight = 0;
@@ -37,7 +32,6 @@ public class EntityMicroRocket extends EntityBaseThrowable {
         this.field_70181_x = 0.5d;
         this.field_70133_I = true;
     }
-
     public EntityMicroRocket(World par1World, double par2, double par4, double par6) {
         super(par1World, par2, par4, par6);
         this.targetingHeight = 0;
@@ -46,7 +40,6 @@ public class EntityMicroRocket extends EntityBaseThrowable {
         this.field_70181_x = 0.5d;
         this.field_70133_I = true;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K) {
@@ -64,7 +57,6 @@ public class EntityMicroRocket extends EntityBaseThrowable {
             func_70106_y();
         }
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void func_70071_h_() {
         super.func_70071_h_();
@@ -106,11 +98,9 @@ public class EntityMicroRocket extends EntityBaseThrowable {
             this.field_70170_p.func_175682_a(ParticleInit.FLAME_SMALL, true, this.field_70165_t, this.field_70163_u, this.field_70161_v, 0.0d, 0.0d, 0.0d, new int[0]);
         }
     }
-
     protected float func_70185_h() {
         return 0.0f;
     }
-
     public void setTargetingHeight(int targetingHeight) {
         this.targetingHeight = targetingHeight;
     }

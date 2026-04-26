@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.model.boss;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -12,8 +11,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import xol.lostinfinity.mob.entity.boss.EntityOzor;
 import xol.lostinfinity.mob.entity.boss.EntityOzorDecoy;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/boss/ModelOzor.class */
 public class ModelOzor extends ModelBase {
     private final ModelRenderer BaseOzor;
     private final ModelRenderer Body;
@@ -44,7 +41,6 @@ public class ModelOzor extends ModelBase {
     private Random rand = new Random();
     private List<ModelRenderer> BodyRods = new ArrayList();
     private int decoyTickOffset = 50 + (this.rand.nextInt(12) * 50);
-
     public ModelOzor() {
         this.field_78090_t = 128;
         this.field_78089_u = 64;
@@ -296,7 +292,6 @@ public class ModelOzor extends ModelBase {
         this.BodyRods.add(this.Rod8);
         Collections.shuffle(this.BodyRods);
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         float baseAlpha = 1.0f;
         if (entity instanceof EntityOzor) {
@@ -314,13 +309,11 @@ public class ModelOzor extends ModelBase {
         this.Mirage.func_78785_a(f5);
         GlStateManager.func_179084_k();
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
         this.Mirage.field_82906_o = (-0.05f) * ((float) Math.sin(ageInTicks * 0.15f));
         this.Mirage.field_82908_p = 0.05f * ((float) Math.sin(ageInTicks * 0.1f));

@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.base;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.SoundEvents;
 import net.minecraft.item.Item;
@@ -19,85 +18,66 @@ import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.mob.ai.IBasicAI;
 import xol.lostinfinity.mob.entity.deviant.prime.EntityAzross;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/base/EntityDeviantMob.class */
 public class EntityDeviantMob extends EntityMultipleLives implements IMaxAttack, IBasicAI {
     private static final DataParameter<Integer> MUTATION = EntityDataManager.func_187226_a(EntityDeviantMob.class, DataSerializers.field_187192_b);
-
     public EntityDeviantMob(World worldIn) {
         super(worldIn);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_184651_r() {
         initBasicTasks(this);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(MUTATION, 0);
     }
-
     public int getMutation() {
         return ((Integer) this.field_70180_af.func_187225_a(MUTATION)).intValue();
     }
-
     public void setMutation(int f) {
         this.field_70180_af.func_187227_b(MUTATION, Integer.valueOf(f));
     }
-
     public boolean atMaxMutation() {
         return getMutation() == 3;
     }
-
     public void increaseMutation() {
         setMutation(getMutation() + 1);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void func_70014_b(NBTTagCompound tag) {
         super.func_70014_b(tag);
         tag.func_74768_a("Mutation", getMutation());
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void func_70037_a(NBTTagCompound tag) {
         super.func_70037_a(tag);
         setMutation(tag.func_74762_e("Mutation"));
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return getMutation() == 0 ? 2 : 5;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public boolean func_70814_o() {
         return true;
     }
-
     public int func_70641_bl() {
         return 1;
     }
-
     public boolean func_180427_aV() {
         return true;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public boolean func_70601_bi() {
         return this.field_70170_p.func_175659_aa() != EnumDifficulty.PEACEFUL;
     }
-
     protected boolean func_70692_ba() {
         int time;
         return this.field_70170_p.field_73011_w.func_186058_p() == DimensionType.OVERWORLD && (time = (int) (this.field_70170_p.func_72820_D() % 24000)) > 13000 && time < 18000;
     }
-
     public void updateSupermutationAI() {
     }
-
     public boolean func_184645_a(EntityPlayer player, EnumHand hand) {
         ItemStack itemstack = player.func_184586_b(hand);
         if (playerInput() != null && atMaxMutation() && itemstack.func_77973_b().equals(playerInput())) {
@@ -112,7 +92,6 @@ public class EntityDeviantMob extends EntityMultipleLives implements IMaxAttack,
         }
         return false;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void trueDeathAction() {
         if (!this.field_70170_p.field_72995_K && this.field_70146_Z.nextInt(20) == 10 && this.field_70170_p.field_73011_w.func_186058_p() == DimensionType.OVERWORLD) {
@@ -125,23 +104,18 @@ public class EntityDeviantMob extends EntityMultipleLives implements IMaxAttack,
             }
         }
     }
-
     protected Item playerInput() {
         return null;
     }
-
     protected Item mutantOutput() {
         return null;
     }
-
     protected ResourceLocation deviantDrop() {
         return null;
     }
-
     protected ResourceLocation superMutatedDrop() {
         return null;
     }
-
     protected ResourceLocation func_184647_J() {
         return atMaxMutation() ? superMutatedDrop() : deviantDrop();
     }

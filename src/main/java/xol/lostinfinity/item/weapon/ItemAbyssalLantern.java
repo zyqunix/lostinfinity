@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -16,14 +15,11 @@ import xol.lostinfinity.item.basics.ItemCooldown;
 import xol.lostinfinity.item.classify.ICustomHoldPose;
 import xol.lostinfinity.item.classify.ISummon;
 import xol.lostinfinity.mob.entity.minion.EntityAbyssalCrabulon;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemAbyssalLantern.class */
 public class ItemAbyssalLantern extends ItemCooldown implements ICustomHoldPose, ISummon {
     public ItemAbyssalLantern(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
     }
-
     public ActionResult<ItemStack> func_77659_a(World world, EntityPlayer player, EnumHand hand) {
         ItemStack stack = player.func_184586_b(hand);
         if (!showDurabilityBar(stack)) {
@@ -42,7 +38,6 @@ public class ItemAbyssalLantern extends ItemCooldown implements ICustomHoldPose,
         }
         return super.func_77659_a(world, player, hand);
     }
-
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Dark_Purple + "Summons an Abyssal Crabulon to fight alongside you.");
     }

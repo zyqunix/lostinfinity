@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.labyrinth;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -14,21 +13,17 @@ import xol.lostinfinity.mob.entity.base.EntityMultipleLives;
 import xol.lostinfinity.projectile.entity.EntityWizardBlast;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/labyrinth/EntityLabWizard.class */
 public class EntityLabWizard extends EntityMultipleLives implements IMaxAttack {
     public EntityLabWizard(World worldIn) {
         super(worldIn);
         func_70105_a(1.0f, 2.0f);
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(1.0d);
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.27d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(300.0d);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -37,19 +32,15 @@ public class EntityLabWizard extends EntityMultipleLives implements IMaxAttack {
         }
         return false;
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.LAB_CREATURE_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.LAB_CREATURE_HIT;
     }
-
     protected SoundEvent func_184639_G() {
         return null;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         EntityLivingBase target = func_70638_az();
@@ -66,12 +57,10 @@ public class EntityLabWizard extends EntityMultipleLives implements IMaxAttack {
             func_184185_a(SoundEvents.field_191244_bn, 1.0f, 1.0f);
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 3;
     }
-
     protected ResourceLocation func_184647_J() {
         if (this.field_70146_Z.nextInt(7) == 0) {
             return LootTableRegistry.LABYRINTH_TOP;

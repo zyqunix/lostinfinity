@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.starforge;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -24,50 +23,40 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.mob.ai.IBasicAI;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/starforge/EntityAcidback.class */
 public class EntityAcidback extends EntityMob implements IMaxAttack, IBasicAI {
     private int cooldown;
     private static final DataParameter<Boolean> IS_VOLATILE = EntityDataManager.func_187226_a(EntityAcidback.class, DataSerializers.field_187198_h);
-
     public EntityAcidback(World worldIn) {
         super(worldIn);
         this.cooldown = 0;
         func_70105_a(1.0f, 1.2f);
     }
-
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(IS_VOLATILE, false);
     }
-
     public boolean isVolatile() {
         return ((Boolean) this.field_70180_af.func_187225_a(IS_VOLATILE)).booleanValue();
     }
-
     public void setVolatility(boolean bool) {
         if (bool) {
             this.cooldown = 100;
         }
         this.field_70180_af.func_187227_b(IS_VOLATILE, Boolean.valueOf(bool));
     }
-
     public void func_70014_b(NBTTagCompound tag) {
         super.func_70014_b(tag);
         tag.func_74757_a("Volatility", isVolatile());
         tag.func_74768_a("VolCooldown", this.cooldown);
     }
-
     public void func_70037_a(NBTTagCompound tag) {
         super.func_70037_a(tag);
         setVolatility(tag.func_74767_n("Volatility"));
         this.cooldown = tag.func_74762_e("VolCooldown");
     }
-
     protected void func_184651_r() {
         initBasicTasks(this);
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(700.0d);
@@ -75,7 +64,6 @@ public class EntityAcidback extends EntityMob implements IMaxAttack, IBasicAI {
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.27d);
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         IMaxAttack.dealMaxHealth(this, func_70638_az(), 5);
@@ -97,7 +85,6 @@ public class EntityAcidback extends EntityMob implements IMaxAttack, IBasicAI {
         }
         return true;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         if (!this.field_70170_p.field_72995_K && this.cooldown > 0) {
@@ -128,35 +115,27 @@ public class EntityAcidback extends EntityMob implements IMaxAttack, IBasicAI {
             }
         }
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.STARFORGE_ACIDBACK_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.STARFORGE_ACIDBACK_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundInit.STARFORGE_ACIDBACK_AMBIENT;
     }
-
     protected ResourceLocation func_184647_J() {
         return LootTableRegistry.ENTITIES_STARFORGE_ACIDBACK;
     }
-
     protected boolean func_70692_ba() {
         return false;
     }
-
     public boolean func_70814_o() {
         return true;
     }
-
     public int func_70641_bl() {
         return 1;
     }
-
     public boolean func_70601_bi() {
         return this.field_70170_p.func_175659_aa() != EnumDifficulty.PEACEFUL;
     }

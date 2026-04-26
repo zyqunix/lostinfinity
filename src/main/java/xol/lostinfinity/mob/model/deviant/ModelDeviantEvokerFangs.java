@@ -1,19 +1,15 @@
 package xol.lostinfinity.mob.model.deviant;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/deviant/ModelDeviantEvokerFangs.class */
 @SideOnly(Side.CLIENT)
 public class ModelDeviantEvokerFangs extends ModelBase {
     private final ModelRenderer base = new ModelRenderer(this, 0, 0);
     private final ModelRenderer upperJaw;
     private final ModelRenderer lowerJaw;
-
     public ModelDeviantEvokerFangs() {
         this.base.func_78793_a(-5.0f, 22.0f, -5.0f);
         this.base.func_78789_a(0.0f, 0.0f, 0.0f, 10, 12, 10);
@@ -24,7 +20,6 @@ public class ModelDeviantEvokerFangs extends ModelBase {
         this.lowerJaw.func_78793_a(-1.5f, 22.0f, 4.0f);
         this.lowerJaw.func_78789_a(0.0f, 0.0f, 0.0f, 4, 14, 8);
     }
-
     public void func_78088_a(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scale) {
         float f = limbSwing * 2.0f;
         if (f > 1.0f) {

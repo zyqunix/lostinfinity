@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.render;
-
 import javax.annotation.Nullable;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -10,20 +9,16 @@ import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.MathHelper;
 import xol.lostinfinity.projectile.entity.EntityBaseThrowable;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/render/RenderAlternatingArrow.class */
 public class RenderAlternatingArrow<T extends EntityBaseThrowable> extends Render<T> {
     private final ResourceLocation texture;
     private final ResourceLocation texture2;
     private int switch_timer;
-
     public RenderAlternatingArrow(RenderManager renderManager, ResourceLocation location, ResourceLocation loc2) {
         super(renderManager);
         this.switch_timer = 5;
         this.texture = location;
         this.texture2 = loc2;
     }
-
     public RenderAlternatingArrow(RenderManager renderManager, ResourceLocation location, ResourceLocation loc2, int timer) {
         super(renderManager);
         this.switch_timer = 5;
@@ -31,8 +26,6 @@ public class RenderAlternatingArrow<T extends EntityBaseThrowable> extends Rende
         this.texture2 = loc2;
         this.switch_timer = timer;
     }
-
-    /* JADX INFO: renamed from: doRender, reason: merged with bridge method [inline-methods] */
     public void func_76986_a(T entity, double x, double y, double z, float entityYaw, float partialTicks) {
         func_180548_c(entity);
         GlStateManager.func_179131_c(1.0f, 1.0f, 1.0f, 1.0f);
@@ -88,10 +81,7 @@ public class RenderAlternatingArrow<T extends EntityBaseThrowable> extends Rende
         GlStateManager.func_179121_F();
         super.func_76986_a(entity, x, y, z, entityYaw, partialTicks);
     }
-
-    /* JADX INFO: Access modifiers changed from: protected */
     @Nullable
-    /* JADX INFO: renamed from: getEntityTexture, reason: merged with bridge method [inline-methods] */
     public ResourceLocation func_110775_a(T entity) {
         if ((((EntityBaseThrowable) entity).field_70173_aa % this.switch_timer) * 2 < this.switch_timer) {
             return this.texture;

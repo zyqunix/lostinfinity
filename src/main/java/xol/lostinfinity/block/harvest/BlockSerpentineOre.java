@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.harvest;
-
 import java.util.ArrayList;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyInteger;
@@ -21,66 +20,51 @@ import xol.lostinfinity.block.basic.ISpecialHarvest;
 import xol.lostinfinity.client.TextFmt;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/harvest/BlockSerpentineOre.class */
 public class BlockSerpentineOre extends BlockBasicLight implements ISpecialHarvest {
     public static final PropertyInteger AMOUNT = PropertyInteger.func_177719_a("amount", 0, 2);
-
     public BlockSerpentineOre(String name) {
         super(name);
         func_149711_c(2.0f);
     }
-
     public IBlockState func_180642_a(World worldIn, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer) {
         return func_176223_P().func_177226_a(AMOUNT, 0);
     }
-
     public IBlockState func_176203_a(int meta) {
         return func_176223_P().func_177226_a(AMOUNT, Integer.valueOf(meta));
     }
-
     public int func_176201_c(IBlockState state) {
         return ((Integer) state.func_177229_b(AMOUNT)).intValue();
     }
-
     protected BlockStateContainer func_180661_e() {
         return new BlockStateContainer(this, new IProperty[]{AMOUNT});
     }
-
     public IBlockState getStateWithAmount(int amount) {
         return func_176223_P().func_177226_a(AMOUNT, Integer.valueOf(amount));
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public boolean isHarvestable(World world, BlockPos pos, EntityPlayer harvester) {
         return func_176201_c(world.func_180495_p(pos)) == 2;
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public void failedHarvest(World world, BlockPos pos, EntityPlayer harvester) {
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public Item getHarvestResult(World world, BlockPos pos) {
         return ItemInit.serpentineCrystal;
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public Item getToolNeeded() {
         return ItemInit.crystalPickaxe;
     }
-
     @Override // xol.lostinfinity.block.basic.ISpecialHarvest
     public void worldHarvestEffect(World world, BlockPos pos, EntityPlayer harvester) {
         if (!world.field_72995_K) {
             reset(world, pos);
         }
     }
-
     private boolean validInput(Item item) {
         return item.equals(ItemInit.ultravioletSolution);
     }
-
     public boolean func_180639_a(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         if (!playerIn.func_70093_af() && validInput(playerIn.func_184586_b(hand).func_77973_b()) && !worldIn.field_72995_K) {
             if (state.equals(getStateWithAmount(1))) {
@@ -104,7 +88,6 @@ public class BlockSerpentineOre extends BlockBasicLight implements ISpecialHarve
         }
         return true;
     }
-
     private boolean findOreRadius(World worldIn, BlockPos pos, int radius) {
         boolean found = false;
         for (int i = -radius; i <= radius; i++) {
@@ -123,7 +106,6 @@ public class BlockSerpentineOre extends BlockBasicLight implements ISpecialHarve
         }
         return found;
     }
-
     private ArrayList<BlockPos> setBlockNeighbours(World world, BlockPos pos, ArrayList<BlockPos> visited) {
         ArrayList<BlockPos> moreNeighbours;
         ArrayList<BlockPos> reset = new ArrayList<>();
@@ -154,7 +136,6 @@ public class BlockSerpentineOre extends BlockBasicLight implements ISpecialHarve
         }
         return reset;
     }
-
     private void reset(World world, BlockPos pos) {
         new ArrayList();
         ArrayList<BlockPos> visited = new ArrayList<>();

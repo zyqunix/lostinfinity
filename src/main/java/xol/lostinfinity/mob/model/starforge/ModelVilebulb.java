@@ -1,13 +1,10 @@
 package xol.lostinfinity.mob.model.starforge;
-
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelBox;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/starforge/ModelVilebulb.class */
 public class ModelVilebulb extends ModelBase {
     private final ModelRenderer Cube;
     private final ModelRenderer bone;
@@ -16,7 +13,6 @@ public class ModelVilebulb extends ModelBase {
     private final ModelRenderer bone6;
     private final ModelRenderer bone2;
     private final ModelRenderer bone3;
-
     public ModelVilebulb() {
         this.field_78090_t = 64;
         this.field_78089_u = 32;
@@ -71,7 +67,6 @@ public class ModelVilebulb extends ModelBase {
         this.bone3.field_78804_l.add(new ModelBox(this.bone3, 1, 1, 6.0f, -9.0f, 6.0f, 1, 9, 1, 0.0f, true));
         this.bone3.field_78804_l.add(new ModelBox(this.bone3, 1, 1, -7.0f, -9.0f, 6.0f, 1, 9, 1, 0.0f, true));
     }
-
     public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
         GlStateManager.func_179147_l();
         GlStateManager.func_179112_b(770, 771);
@@ -79,13 +74,11 @@ public class ModelVilebulb extends ModelBase {
         this.Cube.func_78785_a(f5);
         GlStateManager.func_179084_k();
     }
-
     public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
         modelRenderer.field_78795_f = x;
         modelRenderer.field_78796_g = y;
         modelRenderer.field_78808_h = z;
     }
-
     public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
     }
 }

@@ -1,15 +1,10 @@
 package xol.lostinfinity.dimension.data;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.Random;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/dimension/data/LabPathGenerator.class */
 public class LabPathGenerator {
     private LabPathNode[][] pathMap;
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/dimension/data/LabPathGenerator$LabPath.class */
     private class LabPath {
         ArrayList<Integer> connectedDoors;
         int startDoor;
@@ -17,56 +12,44 @@ public class LabPathGenerator {
         ArrayList<LabPathNode> visited = new ArrayList<>();
         ArrayList<LabPathNode> endNodes = new ArrayList<>();
         ArrayList<LabPathNode> doorNodes = new ArrayList<>();
-
         public LabPath(ArrayList<Integer> connectedDoors, boolean isDeadEnd, int startDoor) {
             this.startDoor = startDoor;
             this.connectedDoors = connectedDoors;
             this.isDeadEnd = isDeadEnd;
         }
-
         public int getStartDoor() {
             return this.startDoor;
         }
-
         public ArrayList<LabPathNode> getDoorNodes() {
             return this.doorNodes;
         }
-
         public void setDoorNodes(ArrayList<LabPathNode> doorNodes) {
             this.doorNodes = doorNodes;
         }
-
         public void setEndNodes(ArrayList<LabPathNode> endNodes) {
             this.endNodes = endNodes;
         }
-
         public ArrayList<LabPathNode> getEndNodes() {
             return this.endNodes;
         }
-
         public void setVisited(ArrayList<LabPathNode> visited) {
             this.visited = visited;
         }
-
         public ArrayList<LabPathNode> getVisited() {
             return this.visited;
         }
-
         public void addVisited(LabPathNode node) {
             if (this.visited != null) {
                 this.visited.add(node);
             }
         }
-
         public boolean isDeadEnd() {
             return this.isDeadEnd;
         }
-
         public ArrayList<Integer> getConnectedDoors() {
             return this.connectedDoors;
         }
     }
-
     public LabPathGenerator(int rows, int columns) {
         int randDoor;
         Random rand = new Random();
@@ -161,7 +144,6 @@ public class LabPathGenerator {
             }
         }
     }
-
     private boolean drawPath(LabPath path) {
         ArrayList<LabPathNode> endNodes = path.getEndNodes();
         ArrayList<LabPathNode> visited = path.getVisited();
@@ -246,7 +228,6 @@ public class LabPathGenerator {
         }
         return false;
     }
-
     private ArrayList<LabPathNode> getAdjacents(LabPathNode subNode) {
         ArrayList<LabPathNode> adjacents = new ArrayList<>();
         adjacents.add(getNodeAtLocation(subNode.getX() + 1, subNode.getZ()));
@@ -255,7 +236,6 @@ public class LabPathGenerator {
         adjacents.add(getNodeAtLocation(subNode.getX() - 1, subNode.getZ()));
         return adjacents;
     }
-
     public static void visit(ArrayList<LabPathNode> nodes) {
         for (LabPathNode node : nodes) {
             if (node != null) {
@@ -263,7 +243,6 @@ public class LabPathGenerator {
             }
         }
     }
-
     public static void main(String[] args) {
         LabPathGenerator pathMap = new LabPathGenerator(14, 14);
         for (int i = 0; i < 14; i++) {
@@ -281,14 +260,12 @@ public class LabPathGenerator {
             System.out.print("\r\n");
         }
     }
-
     public LabPathNode getNodeAtLocation(int i, int j) {
         if (this.pathMap != null && i >= 0 && j >= 0 && this.pathMap.length > i && this.pathMap[i].length > j) {
             return this.pathMap[i][j];
         }
         return null;
     }
-
     private ArrayList<LabPathNode> get2x2(int i, int j) {
         ArrayList<LabPathNode> nodes = new ArrayList<>();
         nodes.add(getNodeAtLocation(i, j));

@@ -1,10 +1,7 @@
 package xol.lostinfinity.dimension.data;
-
 import java.util.ArrayList;
 import java.util.Random;
 import net.minecraft.util.math.Vec3i;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/dimension/data/LaserTagMap.class */
 public class LaserTagMap {
     private LaserNode[][] floor1;
     private LaserNode[][] floor2;
@@ -13,7 +10,6 @@ public class LaserTagMap {
     private int rows;
     private static final Random rand = new Random();
     private static ArrayList<Vec3i> dirs = null;
-
     public static void main(String[] args) {
         LaserTagMap map = new LaserTagMap(20, 20);
         LaserNode[][] floor1 = map.getFloor1();
@@ -45,7 +41,6 @@ public class LaserTagMap {
             System.out.println();
         }
     }
-
     public LaserTagMap(int columns, int rows) {
         this.floor1 = (LaserNode[][]) null;
         this.floor2 = (LaserNode[][]) null;
@@ -73,7 +68,6 @@ public class LaserTagMap {
         generateFloor(true);
         generateFloor(false);
     }
-
     private void generateFloor(boolean firstFloor) {
         LaserNode[][] floor;
         if (firstFloor) {
@@ -97,7 +91,6 @@ public class LaserTagMap {
             }
         }
     }
-
     private ArrayList<LaserNode> traverse(int nodeX, int nodeZ, Vec3i dir, boolean firstFloor, boolean repeat, ArrayList<LaserNode> placed) {
         Vec3i newDir;
         if (placed == null) {
@@ -137,7 +130,6 @@ public class LaserTagMap {
         }
         return toPlace;
     }
-
     private boolean isValidPlacement(int nodeX, int nodeZ, boolean firstFloor, boolean canPlaceByWall) {
         if (nodeX >= this.columns - 4 && nodeZ >= this.rows - 4) {
             return false;
@@ -172,15 +164,12 @@ public class LaserTagMap {
         valid = false;
         return valid;
     }
-
     public LaserNode[][] getFloor1() {
         return this.floor1;
     }
-
     public LaserNode[][] getFloor2() {
         return this.floor2;
     }
-
     public LaserNode getNodeAtLocation(int x, int z, boolean firstFloor) {
         LaserNode[][] floor;
         if (firstFloor) {

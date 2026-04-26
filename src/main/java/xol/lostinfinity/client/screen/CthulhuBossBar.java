@@ -1,5 +1,4 @@
 package xol.lostinfinity.client.screen;
-
 import java.util.Iterator;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiIngame;
@@ -11,15 +10,12 @@ import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import xol.lostinfinity.mob.entity.cthulhu.EntityCthulhu;
 import xol.lostinfinity.util.Reference;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/client/screen/CthulhuBossBar.class */
 public class CthulhuBossBar {
     private static final int totalNameWidth = 114;
     private static final int animationTime = 300;
     private int tick_count = 0;
     private int ticks = 0;
     Minecraft mc = Minecraft.func_71410_x();
-
     @SubscribeEvent
     public void onRender(RenderGameOverlayEvent.Post event) {
         if (event.getType() == RenderGameOverlayEvent.ElementType.ALL) {
@@ -30,7 +26,6 @@ public class CthulhuBossBar {
             }
         }
     }
-
     private void onTickRender() {
         int width;
         if (this.mc.field_71462_r == null) {

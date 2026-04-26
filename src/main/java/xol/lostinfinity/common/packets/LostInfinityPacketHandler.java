@@ -1,5 +1,4 @@
 package xol.lostinfinity.common.packets;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.player.EntityPlayerMP;
@@ -32,12 +31,8 @@ import xol.lostinfinity.common.packets.serverbound.PacketUpdatePlayerPickedItem;
 import xol.lostinfinity.common.packets.serverbound.PacketWeldingChamber;
 import xol.lostinfinity.util.Reference;
 import xol.lostinfinity.util.animation.packet.PacketAnimation;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/common/packets/LostInfinityPacketHandler.class */
 public class LostInfinityPacketHandler {
     public static final SimpleNetworkWrapper INSTANCE = NetworkRegistry.INSTANCE.newSimpleChannel(Reference.MODID);
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/common/packets/LostInfinityPacketHandler$PacketID.class */
     protected enum PacketID {
         TITLE,
         ARMOR_SET,
@@ -67,7 +62,6 @@ public class LostInfinityPacketHandler {
         ANIMATION,
         CTHULHU_BARRIER
     }
-
     public LostInfinityPacketHandler() {
         INSTANCE.registerMessage(PacketTextTitle.TitlePacketHandler.class, PacketTextTitle.class, PacketID.TITLE.ordinal(), Side.SERVER);
         INSTANCE.registerMessage(PacketSetBonus.SetBonusPacketHandler.class, PacketSetBonus.class, PacketID.ARMOR_SET.ordinal(), Side.SERVER);
@@ -94,26 +88,21 @@ public class LostInfinityPacketHandler {
         INSTANCE.registerMessage(PacketShipmentBoxUpdate.ShipmentBoxUpdatePacketHandler.class, PacketShipmentBoxUpdate.class, PacketID.SHIPMENT_BOX_UPDATE.ordinal(), Side.CLIENT);
         INSTANCE.registerMessage(PacketAnimation.AnimationPacketHandler.class, PacketAnimation.class, PacketID.ANIMATION.ordinal(), Side.CLIENT);
     }
-
     public void sendServerBasicPacket(IMessage msg) {
         INSTANCE.sendToServer(msg);
     }
-
     public void sendTitleToPlayer(PacketTextTitle packet, EntityPlayer player) {
         if (FMLCommonHandler.instance().getSide() == Side.SERVER || !player.field_70170_p.field_72995_K) {
             return;
         }
         INSTANCE.sendToServer(packet);
     }
-
     public void sendToAllAround(NetworkRegistry.TargetPoint location, IMessage msg) {
         INSTANCE.sendToAllAround(msg, location);
     }
-
     public void sendToPlayerExcept(Entity exclude, IMessage msg) {
         INSTANCE.sendToAllTracking(msg, exclude);
     }
-
     public void sendToPlayer(EntityPlayerMP player, IMessage msg) {
         INSTANCE.sendTo(msg, player);
     }

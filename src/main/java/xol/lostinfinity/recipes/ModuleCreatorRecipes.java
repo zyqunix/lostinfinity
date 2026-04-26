@@ -1,13 +1,9 @@
 package xol.lostinfinity.recipes;
-
 import java.util.ArrayList;
 import net.minecraft.item.ItemStack;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/recipes/ModuleCreatorRecipes.class */
 public class ModuleCreatorRecipes {
     private static ArrayList<Recipe> recipes = new ArrayList<>();
-
     private static void init() {
         Recipe acceleration = new Recipe(ItemInit.moduleAcceleration, new ItemStack(ItemInit.supermutatedBatwing), new ItemStack(ItemInit.supermutatedWing), new ItemStack(ItemInit.superStimulant));
         Recipe power = new Recipe(ItemInit.modulePower, new ItemStack(ItemInit.powerControlDisc), new ItemStack(ItemInit.overchargedCell), new ItemStack(ItemInit.powerClamp));
@@ -30,7 +26,6 @@ public class ModuleCreatorRecipes {
         recipes.add(transmitting);
         recipes.add(biocalibration);
     }
-
     public static ItemStack getResult(ItemStack... inputs) {
         if (recipes.isEmpty()) {
             init();

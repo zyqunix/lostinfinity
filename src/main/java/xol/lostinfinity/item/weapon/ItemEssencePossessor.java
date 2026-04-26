@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -25,14 +24,11 @@ import xol.lostinfinity.mob.entity.cthulhu.EntityCthulhuPart;
 import xol.lostinfinity.util.data.CustomDamageResult;
 import xol.lostinfinity.util.data.CustomRayTraceResult;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemEssencePossessor.class */
 public class ItemEssencePossessor extends ItemBasic implements ICustomRaytrace, IMaxAttack {
     public ItemEssencePossessor(String regName) {
         super(regName, TabsInit.TAB_AUXWEP);
         func_77625_d(1);
     }
-
     public boolean func_77644_a(ItemStack stack, EntityLivingBase target, EntityLivingBase attacker) {
         if (!attacker.field_70170_p.field_72995_K) {
             CustomDamageResult dr = IMaxAttack.dealTrueDamage(attacker, target, target.func_110138_aP() * 2.0f);
@@ -44,7 +40,6 @@ public class ItemEssencePossessor extends ItemBasic implements ICustomRaytrace, 
         }
         return true;
     }
-
     public void killBound(EntityLivingBase killed, ItemStack stack, EntityLivingBase attacker) {
         int killedId = killed.func_145782_y();
         NBTTagCompound compound = stack.func_77978_p();
@@ -72,7 +67,6 @@ public class ItemEssencePossessor extends ItemBasic implements ICustomRaytrace, 
             compound.func_74768_a("essence", curEssence + 1);
         }
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (!worldIn.field_72995_K) {
@@ -142,7 +136,6 @@ public class ItemEssencePossessor extends ItemBasic implements ICustomRaytrace, 
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         if (!stack.func_77942_o()) {

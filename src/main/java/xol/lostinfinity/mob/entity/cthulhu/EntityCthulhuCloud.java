@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.cthulhu;
-
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.PotionEffect;
@@ -14,19 +13,15 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/cthulhu/EntityCthulhuCloud.class */
 public class EntityCthulhuCloud extends AbstractCthulhuMinion {
     public EntityCthulhuCloud(World worldIn) {
         super(worldIn);
         func_189654_d(true);
         func_184224_h(true);
     }
-
     @Override // xol.lostinfinity.mob.entity.cthulhu.AbstractCthulhuMinion, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_184651_r() {
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         if (this.field_70170_p.field_72995_K) {
@@ -71,7 +66,6 @@ public class EntityCthulhuCloud extends AbstractCthulhuMinion {
             func_70106_y();
         }
     }
-
     private SoundEvent randomWhisper(int i) {
         switch (i) {
             case 0:
@@ -82,7 +76,7 @@ public class EntityCthulhuCloud extends AbstractCthulhuMinion {
                 return SoundInit.WHISPER_3;
             case 3:
                 return SoundInit.WHISPER_4;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 return SoundInit.WHISPER_5;
             default:
                 return SoundInit.WHISPER_5;

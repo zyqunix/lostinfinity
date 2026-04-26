@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.tileentity;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.UUID;
@@ -22,36 +21,27 @@ import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.mob.entity.base.EntityImmaterial;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/tileentity/TileEntityKillerVine.class */
 public class TileEntityKillerVine extends TileEntity implements ITickable, IMaxAttack {
     private int ticks = 0;
     private boolean killer = false;
     private UUID placer = null;
     private ArrayList<VineNode> nodes = new ArrayList<>();
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/tileentity/TileEntityKillerVine$VineNode.class */
     public class VineNode {
         private EntityLivingBase entity;
         private int growth = 0;
-
         public VineNode(EntityLivingBase entity) {
             this.entity = entity;
         }
-
         public EntityLivingBase getEntity() {
             return this.entity;
         }
-
         public int getGrowth() {
             return this.growth;
         }
-
         public void grow() {
             this.growth++;
         }
     }
-
     public void func_73660_a() {
         EntityPlayer placerEntity;
         this.ticks++;
@@ -123,19 +113,15 @@ public class TileEntityKillerVine extends TileEntity implements ITickable, IMaxA
             }
         }
     }
-
     public boolean isKiller() {
         return this.killer;
     }
-
     public ArrayList<VineNode> getNodes() {
         return this.nodes;
     }
-
     public UUID getPlacer() {
         return getPlacer();
     }
-
     public NBTTagCompound func_189515_b(NBTTagCompound compound) {
         super.func_189515_b(compound);
         compound.func_74757_a("killer", this.killer);
@@ -144,38 +130,31 @@ public class TileEntityKillerVine extends TileEntity implements ITickable, IMaxA
         }
         return compound;
     }
-
     public void func_145839_a(NBTTagCompound compound) {
         super.func_145839_a(compound);
         this.killer = compound.func_74767_n("killer");
         this.placer = compound.func_186857_a("Placer");
     }
-
     @Nullable
     public SPacketUpdateTileEntity func_189518_D_() {
         return new SPacketUpdateTileEntity(func_174877_v(), 0, func_189517_E_());
     }
-
     public NBTTagCompound func_189517_E_() {
         return func_189515_b(new NBTTagCompound());
     }
-
     public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
         handleUpdateTag(pkt.func_148857_g());
     }
-
     protected void doBlockUpdate() {
         IBlockState state = this.field_145850_b.func_180495_p(func_174877_v());
         this.field_145850_b.func_184138_a(func_174877_v(), state, state, 3);
     }
-
     public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newSate) {
         if (world.func_180495_p(pos).func_177230_c() == BlockInit.killerVine) {
             return false;
         }
         return true;
     }
-
     public void setPlacer(EntityPlayer placer) {
         this.placer = placer.func_110124_au();
     }

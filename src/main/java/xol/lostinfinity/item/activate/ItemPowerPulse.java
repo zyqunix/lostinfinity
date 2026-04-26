@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.activate;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -16,8 +15,6 @@ import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.projectile.entity.EntityPowerPulse;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/activate/ItemPowerPulse.class */
 public class ItemPowerPulse extends Item {
     public ItemPowerPulse(String regName) {
         func_77637_a(TabsInit.TAB_AUXMATS);
@@ -26,7 +23,6 @@ public class ItemPowerPulse extends Item {
         func_77625_d(1);
         ItemInit.ITEMS.add(this);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (!worldIn.field_72995_K) {
             EntityPowerPulse shot = new EntityPowerPulse(worldIn, playerIn);
@@ -38,7 +34,6 @@ public class ItemPowerPulse extends Item {
         playerIn.func_184185_a(SoundInit.GALAXYFIRE, 1.0f, 1.0f);
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Aqua + "A slow moving projectile with severe knockback.");

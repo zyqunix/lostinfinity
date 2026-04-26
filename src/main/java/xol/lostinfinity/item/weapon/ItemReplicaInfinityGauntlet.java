@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -33,14 +32,11 @@ import xol.lostinfinity.util.PotionBasic;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemReplicaInfinityGauntlet.class */
 public class ItemReplicaInfinityGauntlet extends ItemCooldown implements IMaxAttack, IModeSelect, ICustomHoldPose, IHotbarDeath {
     public ItemReplicaInfinityGauntlet(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         ItemStack stack = playerIn.func_184586_b(handIn);
         if (showDurabilityBar(stack)) {
@@ -69,7 +65,7 @@ public class ItemReplicaInfinityGauntlet extends ItemCooldown implements IMaxAtt
                     riteOfRise(playerIn);
                     worldIn.func_184133_a((EntityPlayer) null, playerIn.func_180425_c(), SoundInit.DROID_SUMMON, SoundCategory.PLAYERS, 1.0f, 1.0f);
                     break;
-                case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+                case TileEntityFusionTable.BOARD_ROWS :
                     echoBlast(playerIn);
                     worldIn.func_184133_a((EntityPlayer) null, playerIn.func_180425_c(), SoundInit.SOUND_GUN, SoundCategory.PLAYERS, 1.0f, 0.8f + (worldIn.field_73012_v.nextFloat() * 0.4f));
                     break;
@@ -84,7 +80,6 @@ public class ItemReplicaInfinityGauntlet extends ItemCooldown implements IMaxAtt
         startCooldown(stack);
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     private void gravityGrasp(EntityPlayer playerIn) {
         List<EntityLivingBase> entities = playerIn.field_70170_p.func_72872_a(EntityLivingBase.class, playerIn.func_174813_aQ().func_186662_g(50.0d));
         for (EntityLivingBase entityLivingBase : entities) {
@@ -101,17 +96,14 @@ public class ItemReplicaInfinityGauntlet extends ItemCooldown implements IMaxAtt
             }
         }
     }
-
     private void thunderSkin(EntityPlayer playerIn) {
         playerIn.func_70690_d(new PotionEffect(PotionInit.POTION_AFFINITY, 200, 4));
         playerIn.func_70690_d(new PotionEffect(PotionInit.ADRENALINE, 200, 4));
     }
-
     private void embuedEmbers(EntityPlayer playerIn) {
         playerIn.func_70690_d(new PotionEffect(PotionInit.UNLEASHING, 400, 5));
         playerIn.func_70690_d(new PotionEffect(PotionInit.NITROUS, 400, 3));
     }
-
     private void riteOfRise(EntityPlayer playerIn) {
         Random rand = new Random();
         for (int i = 0; i < 10; i++) {
@@ -121,7 +113,6 @@ public class ItemReplicaInfinityGauntlet extends ItemCooldown implements IMaxAtt
             playerIn.field_70170_p.func_72838_d(zombie);
         }
     }
-
     private void echoBlast(EntityPlayer playerIn) {
         for (int i = 0; i < 8; i++) {
             EntitySoundwaveBullet bullet = new EntitySoundwaveBullet(playerIn.field_70170_p, playerIn);
@@ -130,7 +121,6 @@ public class ItemReplicaInfinityGauntlet extends ItemCooldown implements IMaxAtt
             playerIn.field_70170_p.func_72838_d(bullet);
         }
     }
-
     private void realityCleanse(EntityPlayer playerIn) {
         List<PotionEffect> effectsToRemove = new ArrayList<>();
         for (PotionEffect effect : playerIn.func_70651_bq()) {
@@ -148,7 +138,6 @@ public class ItemReplicaInfinityGauntlet extends ItemCooldown implements IMaxAtt
             playerIn.func_184589_d(it.next().func_188419_a());
         }
     }
-
     @Override // xol.lostinfinity.item.classify.IModeSelect
     public void modeUpdate(ItemStack stack, EntityPlayer player) {
         int mode = getMode(stack) == 5 ? 0 : getMode(stack) + 1;
@@ -173,7 +162,7 @@ public class ItemReplicaInfinityGauntlet extends ItemCooldown implements IMaxAtt
             case 3:
                 stack.func_77978_p().func_74768_a("ComplexCooldown", 2000);
                 break;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 stack.func_77978_p().func_74768_a("ComplexCooldown", 300);
                 break;
             case 5:
@@ -182,12 +171,10 @@ public class ItemReplicaInfinityGauntlet extends ItemCooldown implements IMaxAtt
         }
         announceUpdate(player, mode);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected boolean hasSimpleCooldown() {
         return false;
     }
-
     private void announceUpdate(EntityPlayer player, int mode) {
         switch (mode) {
             case 0:
@@ -202,7 +189,7 @@ public class ItemReplicaInfinityGauntlet extends ItemCooldown implements IMaxAtt
             case 3:
                 player.func_146105_b(new TextComponentString("Rite of Rise"), true);
                 break;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 player.func_146105_b(new TextComponentString("Echo Blast"), true);
                 break;
             case 5:
@@ -210,21 +197,18 @@ public class ItemReplicaInfinityGauntlet extends ItemCooldown implements IMaxAtt
                 break;
         }
     }
-
     private void setMode(ItemStack stack, int mode) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
         }
         stack.func_77978_p().func_74768_a("mode", mode);
     }
-
     private int getMode(ItemStack stack) {
         if (!stack.func_77942_o()) {
             stack.func_77982_d(new NBTTagCompound());
         }
         return stack.func_77978_p().func_74762_e("mode");
     }
-
     @Override // xol.lostinfinity.item.classify.IHotbarDeath
     public boolean playedKilled(ItemStack stack, EntityPlayer player, Entity attacker, float damageDealt) {
         World world = player.field_70170_p;
@@ -242,7 +226,6 @@ public class ItemReplicaInfinityGauntlet extends ItemCooldown implements IMaxAtt
         player.func_70691_i(player.func_110138_aP());
         return false;
     }
-
     private void potionApplication(World world, EntityPlayer player, int amp) {
         player.func_70690_d(new PotionEffect(PotionInit.LAST_BREATH, 200, amp));
         for (EntityLivingBase near_creature : player.field_70170_p.func_72872_a(EntityLivingBase.class, player.func_174813_aQ().func_72314_b(20.0d, 10.0d, 20.0d))) {

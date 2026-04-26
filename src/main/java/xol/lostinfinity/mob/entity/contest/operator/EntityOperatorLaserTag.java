@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.contest.operator;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -20,16 +19,12 @@ import xol.lostinfinity.init.BlockInit;
 import xol.lostinfinity.init.ItemInit;
 import xol.lostinfinity.mob.entity.contest.controller.EntityControllerLaserTag;
 import xol.lostinfinity.util.coordinates.ContestCoordinates;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/contest/operator/EntityOperatorLaserTag.class */
 public class EntityOperatorLaserTag extends EntityOperatorBase {
     private List<BlockPos> spawnPositions;
-
     public EntityOperatorLaserTag(World worldIn) {
         super(worldIn);
         this.spawnPositions = new ArrayList();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected void startGame() {
         for (EntityControllerLaserTag entity : this.field_70170_p.func_72872_a(EntityControllerLaserTag.class, getArenaAABB())) {
@@ -68,7 +63,6 @@ public class EntityOperatorLaserTag extends EntityOperatorBase {
         this.spawnPositions.clear();
         this.contenders.clear();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected void generateArena() {
         IBlockState wallState;
@@ -146,12 +140,10 @@ public class EntityOperatorLaserTag extends EntityOperatorBase {
             }
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected AxisAlignedBB getArenaAABB() {
         return ContestCoordinates.laserTagArenaAABB();
     }
-
     @Override // xol.lostinfinity.mob.entity.contest.operator.EntityOperatorBase
     protected AxisAlignedBB getLobbyAABB() {
         return ContestCoordinates.laserTagLobbyAABB();

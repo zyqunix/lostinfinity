@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.entity;
-
 import net.minecraft.block.BlockRotatedPillar;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.potion.PotionEffect;
@@ -15,8 +14,6 @@ import xol.lostinfinity.init.PotionInit;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/entity/EntityDryadsGripAttack.class */
 public class EntityDryadsGripAttack extends EntityBaseThrowable {
     private static final int range = 15;
     private int logNum;
@@ -25,7 +22,6 @@ public class EntityDryadsGripAttack extends EntityBaseThrowable {
     private boolean foundPos;
     private static final Vec3i[] logs = {new Vec3i(0, 1, 0), new Vec3i(0, 2, 0), new Vec3i(0, 3, 0), new Vec3i(0, 4, 0), new Vec3i(0, 5, 0)};
     private static final Vec3i[] leaves = {new Vec3i(-1, 4, 0), new Vec3i(0, 4, -1), new Vec3i(0, 4, 1), new Vec3i(1, 4, 1), new Vec3i(1, 4, 0), new Vec3i(1, 4, -1), new Vec3i(1, 4, -2), new Vec3i(1, 4, 2), new Vec3i(-1, 4, -2), new Vec3i(-1, 4, 2), new Vec3i(-1, 4, 1), new Vec3i(-1, 4, -1), new Vec3i(-2, 4, 1), new Vec3i(-2, 4, 0), new Vec3i(0, 4, 2), new Vec3i(0, 4, -2), new Vec3i(-2, 4, -1), new Vec3i(-2, 4, -2), new Vec3i(-2, 4, 2), new Vec3i(2, 4, 0), new Vec3i(2, 4, 1), new Vec3i(2, 4, -1), new Vec3i(2, 4, -2), new Vec3i(2, 4, 2), new Vec3i(0, 5, 1), new Vec3i(0, 5, -1), new Vec3i(1, 5, 0), new Vec3i(-1, 5, 0), new Vec3i(1, 5, 1), new Vec3i(-1, 5, 1), new Vec3i(1, 5, -1), new Vec3i(-1, 5, -1), new Vec3i(1, 6, 0), new Vec3i(-1, 6, 0), new Vec3i(0, 6, 1), new Vec3i(0, 6, -1), new Vec3i(0, 6, 0)};
-
     public EntityDryadsGripAttack(World par1World) {
         super(par1World);
         this.logNum = 0;
@@ -33,7 +29,6 @@ public class EntityDryadsGripAttack extends EntityBaseThrowable {
         this.treePos = null;
         this.foundPos = false;
     }
-
     public EntityDryadsGripAttack(World par1World, EntityLivingBase par2EntityLiving) {
         super(par1World, par2EntityLiving);
         this.logNum = 0;
@@ -41,7 +36,6 @@ public class EntityDryadsGripAttack extends EntityBaseThrowable {
         this.treePos = null;
         this.foundPos = false;
     }
-
     public EntityDryadsGripAttack(World par1World, double par2, double par4, double par6) {
         super(par1World, par2, par4, par6);
         this.logNum = 0;
@@ -49,7 +43,6 @@ public class EntityDryadsGripAttack extends EntityBaseThrowable {
         this.treePos = null;
         this.foundPos = false;
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     protected void func_70184_a(RayTraceResult result) {
         if (!this.field_70170_p.field_72995_K && result.field_72313_a == RayTraceResult.Type.BLOCK && !this.foundPos) {
@@ -73,7 +66,6 @@ public class EntityDryadsGripAttack extends EntityBaseThrowable {
             }
         }
     }
-
     @Override // xol.lostinfinity.projectile.entity.EntityBaseThrowable
     public void func_70071_h_() {
         if (!this.field_70170_p.field_72995_K && this.treePos != null) {
@@ -105,7 +97,6 @@ public class EntityDryadsGripAttack extends EntityBaseThrowable {
         }
         super.func_70071_h_();
     }
-
     protected float func_70185_h() {
         return 0.0f;
     }

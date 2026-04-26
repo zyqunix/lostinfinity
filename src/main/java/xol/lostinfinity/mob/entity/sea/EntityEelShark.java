@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.sea;
-
 import java.util.Arrays;
 import java.util.List;
 import net.minecraft.entity.Entity;
@@ -18,15 +17,12 @@ import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/sea/EntityEelShark.class */
 public class EntityEelShark extends EntitySeaCreature {
     public EntityEelShark(World worldIn) {
         super(worldIn);
         func_70105_a(3.0f, 3.0f);
         this.rawFlySpeed = 0.95f;
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -35,19 +31,15 @@ public class EntityEelShark extends EntitySeaCreature {
         }
         return false;
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.EELSHARK_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.EELSHARK_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundInit.EELSHARK_AMBIENT;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     public void func_70636_d() {
         super.func_70636_d();
@@ -71,16 +63,13 @@ public class EntityEelShark extends EntitySeaCreature {
             }
         }
     }
-
     private double getROD(int multi) {
         return ((-0.5d) + this.field_70146_Z.nextDouble()) * ((double) multi);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 25;
     }
-
     protected ResourceLocation func_184647_J() {
         return LootTableRegistry.ENTITIES_EELSHARK;
     }

@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.activate;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -21,8 +20,6 @@ import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/activate/ItemGlowBomb.class */
 public class ItemGlowBomb extends Item {
     public ItemGlowBomb(String regName) {
         setRegistryName(regName);
@@ -30,7 +27,6 @@ public class ItemGlowBomb extends Item {
         func_77637_a(TabsInit.TAB_AUXMATS);
         ItemInit.ITEMS.add(this);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (!worldIn.field_72995_K) {
             Iterable<BlockPos> nearblocks = BlockPos.func_177980_a(playerIn.func_180425_c().func_177982_a(-8, -8, -8), playerIn.func_180425_c().func_177982_a(8, 8, 8));
@@ -47,7 +43,6 @@ public class ItemGlowBomb extends Item {
         playerIn.func_184586_b(handIn).func_190918_g(1);
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Lights up nearby dark ores.");

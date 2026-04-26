@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
@@ -28,16 +27,12 @@ import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.data.RayTraceBuilder;
 import xol.lostinfinity.util.fx.IParticleSpawner;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemEtherealGrasp.class */
 public class ItemEtherealGrasp extends ItemChanneling implements IMaxAttack, IMovingSoundSource {
     private static final float PULL_STRENGTH = 0.5f;
-
     public ItemEtherealGrasp(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemChanneling
     public void chargeTick(World worldIn, EntityPlayer player, EnumHand hand, ItemStack stack, int chargeTime) {
         if (worldIn.field_72995_K) {
@@ -79,7 +74,6 @@ public class ItemEtherealGrasp extends ItemChanneling implements IMaxAttack, IMo
             }
         }
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Aqua + "Can be channelled to pull all entities where you are looking.");

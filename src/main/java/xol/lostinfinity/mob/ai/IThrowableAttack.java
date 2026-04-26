@@ -1,24 +1,18 @@
 package xol.lostinfinity.mob.ai;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityThrowable;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/ai/IThrowableAttack.class */
 @FunctionalInterface
 public interface IThrowableAttack {
     EntityThrowable createThowable(World world, EntityLivingBase entityLivingBase, double d, double d2, double d3);
-
     default float getVelocity() {
         return 1.6f;
     }
-
     default float getInaccuracy(World world) {
         return 3 - world.func_175659_aa().func_151525_a();
     }
-
     default Entity createFireball(EntityLivingBase parent, Entity target) {
         EntityThrowable fireball = createThowable(parent.field_70170_p, parent, parent.field_70165_t, parent.field_70163_u, parent.field_70161_v);
         double d0 = (target.field_70163_u + ((double) target.func_70047_e())) - 1.100000023841858d;

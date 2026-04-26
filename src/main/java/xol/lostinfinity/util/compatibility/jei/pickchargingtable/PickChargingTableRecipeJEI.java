@@ -1,17 +1,13 @@
 package xol.lostinfinity.util.compatibility.jei.pickchargingtable;
-
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;
 import java.util.Map;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/compatibility/jei/pickchargingtable/PickChargingTableRecipeJEI.class */
 public class PickChargingTableRecipeJEI {
     private static final PickChargingTableRecipeJEI INSTANCE = new PickChargingTableRecipeJEI();
     private final Table<ItemStack, ItemStack, ItemStack> pickChargingTableList = HashBasedTable.create();
-
     public PickChargingTableRecipeJEI() {
         ItemStack pickDefault = new ItemStack(ItemInit.forgeFirePickaxe);
         ItemStack pickEmberium = new ItemStack(ItemInit.forgeFirePickaxe);
@@ -87,18 +83,15 @@ public class PickChargingTableRecipeJEI {
         reactiveXerovium.func_190920_e(10);
         addPickChargingTableRecipe(reactiveXerovium, pickDefault, pickXerovium);
     }
-
     public static PickChargingTableRecipeJEI getInstance() {
         return INSTANCE;
     }
-
     public void addPickChargingTableRecipe(ItemStack input1, ItemStack input2, ItemStack result) {
         if (getPickChargingTableResult(input1, input2) != ItemStack.field_190927_a) {
             return;
         }
         this.pickChargingTableList.put(input1, input2, result);
     }
-
     public ItemStack getPickChargingTableResult(ItemStack input1, ItemStack input2) {
         for (Map.Entry<ItemStack, Map<ItemStack, ItemStack>> entry : this.pickChargingTableList.columnMap().entrySet()) {
             if (compareItemStacks(input1, entry.getKey())) {
@@ -111,11 +104,9 @@ public class PickChargingTableRecipeJEI {
         }
         return ItemStack.field_190927_a;
     }
-
     private boolean compareItemStacks(ItemStack stack1, ItemStack stack2) {
         return stack1.func_77973_b() == stack2.func_77973_b() && stack1.func_77960_j() == stack2.func_77960_j();
     }
-
     public Table<ItemStack, ItemStack, ItemStack> getPickChargingTableList() {
         return this.pickChargingTableList;
     }

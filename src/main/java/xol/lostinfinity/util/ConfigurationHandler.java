@@ -1,9 +1,6 @@
 package xol.lostinfinity.util;
-
 import java.io.File;
 import net.minecraftforge.common.config.Configuration;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/ConfigurationHandler.class */
 public class ConfigurationHandler {
     public static Configuration cfg;
     public static int celestial_void_id;
@@ -17,7 +14,6 @@ public class ConfigurationHandler {
     public static boolean armor_flight;
     public static int health_x;
     public static int health_y;
-
     public static void init(File dir) {
         cfg = new Configuration(new File(dir, "LostInfinityStones.cfg"));
         cfg.load();
@@ -25,7 +21,6 @@ public class ConfigurationHandler {
         do_GUI();
         cfg.save();
     }
-
     public static void do_IDs() {
         celestial_void_id = cfg.get("Dimension", "CelestialVoid ID", 2150).getInt();
         cartographer_realm_top_id = cfg.get("Dimension", "CartographerRealmTop ID", 2151).getInt();
@@ -37,7 +32,6 @@ public class ConfigurationHandler {
         shadow_sea_id = cfg.get("Dimension", "Shadow Sea ID", 2157).getInt();
         armor_flight = cfg.get("Item Effects", "Armor Flight Allowed", true).getBoolean();
     }
-
     public static void do_GUI() {
         health_x = cfg.get("GUI", "HealthGUI offsetY", 0).getInt();
         health_y = cfg.get("GUI", "HealthGUI offsetX", 0).getInt();

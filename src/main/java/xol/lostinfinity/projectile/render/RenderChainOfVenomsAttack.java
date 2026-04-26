@@ -1,5 +1,4 @@
 package xol.lostinfinity.projectile.render;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.BufferBuilder;
 import net.minecraft.client.renderer.GlStateManager;
@@ -11,15 +10,11 @@ import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import xol.lostinfinity.projectile.entity.EntityChainOfVenomsAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/projectile/render/RenderChainOfVenomsAttack.class */
 public class RenderChainOfVenomsAttack<T extends Entity> extends Render<T> {
     public static final ResourceLocation TEXTURE_VENOM_CHAIN = new ResourceLocation("lostinfinity:textures/particles/venom_chain.png");
-
     public RenderChainOfVenomsAttack(RenderManager renderManager) {
         super(renderManager);
     }
-
     public void func_76986_a(T entity, double x, double y, double z, float entityYaw, float partialTicks) {
         float alpha;
         EntityChainOfVenomsAttack attackEntity = (EntityChainOfVenomsAttack) entity;
@@ -66,7 +61,6 @@ public class RenderChainOfVenomsAttack<T extends Entity> extends Render<T> {
             GlStateManager.func_179084_k();
         }
     }
-
     protected ResourceLocation func_110775_a(T entity) {
         return null;
     }

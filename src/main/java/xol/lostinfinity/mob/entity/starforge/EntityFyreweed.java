@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.starforge;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
@@ -16,21 +15,16 @@ import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.IMaxAttack;
 import xol.lostinfinity.util.fx.IParticleSpawner;
 import xol.lostinfinity.util.load.LootTableRegistry;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/starforge/EntityFyreweed.class */
 public class EntityFyreweed extends EntityMob implements IMaxAttack {
     public EntityFyreweed(World worldIn) {
         super(worldIn);
         func_70105_a(0.75f, 1.7f);
     }
-
     public boolean func_180427_aV() {
         return true;
     }
-
     protected void func_184651_r() {
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -39,7 +33,6 @@ public class EntityFyreweed extends EntityMob implements IMaxAttack {
         }
         return false;
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(700.0d);
@@ -47,7 +40,6 @@ public class EntityFyreweed extends EntityMob implements IMaxAttack {
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.3d);
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         this.field_70159_w = 0.0d;
@@ -80,35 +72,27 @@ public class EntityFyreweed extends EntityMob implements IMaxAttack {
             }
         }
     }
-
     protected SoundEvent func_184615_bR() {
         return null;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return null;
     }
-
     protected SoundEvent func_184639_G() {
         return null;
     }
-
     protected ResourceLocation func_184647_J() {
         return LootTableRegistry.ENTITIES_STARFORGE_FYREWEED;
     }
-
     protected boolean func_70692_ba() {
         return false;
     }
-
     public boolean func_70814_o() {
         return true;
     }
-
     public int func_70641_bl() {
         return 1;
     }
-
     public boolean func_70601_bi() {
         return this.field_70170_p.func_175659_aa() != EnumDifficulty.PEACEFUL;
     }

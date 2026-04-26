@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -16,17 +15,13 @@ import xol.lostinfinity.init.TabsInit;
 import xol.lostinfinity.item.basics.ItemCooldown;
 import xol.lostinfinity.item.classify.ICustomHoldPose;
 import xol.lostinfinity.projectile.entity.EntityDeathShot;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemDeathMark.class */
 public class ItemDeathMark extends ItemCooldown implements ICustomHoldPose {
     private static final int COOLDOWN = 750;
     private static final SoundEvent SHOOT_SOUND = SoundInit.SPACE_BOW;
-
     public ItemDeathMark(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         if (!showDurabilityBar(playerIn.func_184586_b(handIn))) {
             if (!worldIn.field_72995_K) {
@@ -40,12 +35,10 @@ public class ItemDeathMark extends ItemCooldown implements ICustomHoldPose {
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return COOLDOWN;
     }
-
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Light_Purple + "A powerful bow that marks enemies for death.");
         tooltip.add(TextFmt.Aqua + "The projectile marks any enemies within 15 blocks of itself.");

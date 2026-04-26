@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.weapon;
-
 import java.util.List;
 import javax.annotation.Nullable;
 import net.minecraft.client.util.ITooltipFlag;
@@ -25,14 +24,11 @@ import xol.lostinfinity.item.classify.IHeldTick;
 import xol.lostinfinity.util.data.CustomParticleConfig;
 import xol.lostinfinity.util.data.CustomRayTraceResult;
 import xol.lostinfinity.util.fx.IParticleSpawner;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemPuppetMaster.class */
 public class ItemPuppetMaster extends ItemCooldown implements IHeldTick, ICustomRaytrace {
     public ItemPuppetMaster(String regName) {
         super(regName);
         func_77637_a(TabsInit.TAB_AUXWEP);
     }
-
     public ActionResult<ItemStack> func_77659_a(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
         CustomRayTraceResult result;
         EntityPlayerMP target;
@@ -57,7 +53,6 @@ public class ItemPuppetMaster extends ItemCooldown implements IHeldTick, ICustom
         }
         return super.func_77659_a(worldIn, playerIn, handIn);
     }
-
     @Override // xol.lostinfinity.item.classify.IHeldTick
     public void stopHolding(EntityPlayer player, EnumHand hand, ItemStack stack) {
         EntityPlayerMP targetOfPlayer = CommonMindControlHandler.getTargetOfPlayer(player);
@@ -67,12 +62,10 @@ public class ItemPuppetMaster extends ItemCooldown implements IHeldTick, ICustom
             lostinfinity.instance.packetHandler.sendToPlayer((EntityPlayerMP) player, new PacketSetControlled());
         }
     }
-
     @Override // xol.lostinfinity.item.basics.ItemCooldown
     protected int getCooldown() {
         return 50;
     }
-
     @Override // xol.lostinfinity.item.classify.IHeldTick
     public void heldTick(EntityPlayer player, EnumHand hand, ItemStack stack) {
         if (!player.field_70170_p.field_72995_K) {
@@ -87,7 +80,6 @@ public class ItemPuppetMaster extends ItemCooldown implements IHeldTick, ICustom
             }
         }
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Takes control of a target player.");

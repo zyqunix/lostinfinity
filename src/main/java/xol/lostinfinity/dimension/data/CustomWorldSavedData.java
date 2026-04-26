@@ -1,5 +1,4 @@
 package xol.lostinfinity.dimension.data;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -9,28 +8,23 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.storage.MapStorage;
 import net.minecraft.world.storage.WorldSavedData;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/dimension/data/CustomWorldSavedData.class */
 public class CustomWorldSavedData extends WorldSavedData {
     private static final String DATA_NAME = "lostinfinity_custom_data";
     private HashMap<Integer, ArrayList<BlockData>> dataMap;
     private ArrayList<Integer> tileIDs;
     private HashMap<Integer, BlockPos> tilePositions;
-
     public CustomWorldSavedData() {
         super(DATA_NAME);
         this.dataMap = new HashMap<>();
         this.tileIDs = new ArrayList<>();
         this.tilePositions = new HashMap<>();
     }
-
     public CustomWorldSavedData(String s) {
         super(s);
         this.dataMap = new HashMap<>();
         this.tileIDs = new ArrayList<>();
         this.tilePositions = new HashMap<>();
     }
-
     public void func_76184_a(NBTTagCompound nbt) {
         if (this.tileIDs.size() > 0) {
             this.tileIDs.clear();
@@ -82,7 +76,6 @@ public class CustomWorldSavedData extends WorldSavedData {
             }
         }
     }
-
     public NBTTagCompound func_189551_b(NBTTagCompound compound) {
         int[] tileids = new int[this.tileIDs.size()];
         for (int j = 0; j < this.tileIDs.size(); j++) {
@@ -127,7 +120,6 @@ public class CustomWorldSavedData extends WorldSavedData {
         }
         return compound;
     }
-
     public static CustomWorldSavedData get(World world) {
         MapStorage storage = world.getPerWorldStorage();
         CustomWorldSavedData instance = (CustomWorldSavedData) storage.func_75742_a(CustomWorldSavedData.class, DATA_NAME);
@@ -137,7 +129,6 @@ public class CustomWorldSavedData extends WorldSavedData {
         }
         return instance;
     }
-
     public void setBlockData(ArrayList<BlockData> block_data, BlockPos pos) {
         int randId;
         if (this.tilePositions.containsValue(pos)) {
@@ -166,7 +157,6 @@ public class CustomWorldSavedData extends WorldSavedData {
         }
         func_76185_a();
     }
-
     public ArrayList<BlockData> getBlockData(BlockPos pos) {
         if (this.tilePositions.containsValue(pos)) {
             Iterator<Integer> it = this.tileIDs.iterator();
@@ -181,7 +171,6 @@ public class CustomWorldSavedData extends WorldSavedData {
         }
         return null;
     }
-
     public void clearBlockData(BlockPos pos) {
         if (this.tilePositions.containsValue(pos)) {
             int toRemove = -1;

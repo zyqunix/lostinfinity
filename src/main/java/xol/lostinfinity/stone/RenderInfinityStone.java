@@ -1,5 +1,4 @@
 package xol.lostinfinity.stone;
-
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.client.renderer.entity.RenderManager;
@@ -7,8 +6,6 @@ import net.minecraft.util.ResourceLocation;
 import xol.lostinfinity.block.tileentity.TileEntityFusionTable;
 import xol.lostinfinity.item.weapon.ItemHeadCollector;
 import xol.lostinfinity.stone.model.ModelInfinityCube;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/stone/RenderInfinityStone.class */
 public class RenderInfinityStone extends RenderLiving<EntityInfinityStone> {
     public static final ResourceLocation OCEAN = new ResourceLocation("lostinfinity:textures/stone/cube_duality.png");
     public static final ResourceLocation MOUNTAIN = new ResourceLocation("lostinfinity:textures/stone/cube_aspiration.png");
@@ -26,21 +23,14 @@ public class RenderInfinityStone extends RenderLiving<EntityInfinityStone> {
     public static final ResourceLocation RESOLVE = new ResourceLocation("lostinfinity:textures/stone/cube_resolve.png");
     public static final ResourceLocation CRUELTY = new ResourceLocation("lostinfinity:textures/stone/cube_cruelty.png");
     private float scale;
-
     public RenderInfinityStone(RenderManager manager) {
         super(manager, new ModelInfinityCube(), 0.25f);
         this.scale = 0.25f;
         this.field_76989_e = 0.25f;
     }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX INFO: renamed from: preRenderCallback, reason: merged with bridge method [inline-methods] */
     public void func_77041_b(EntityInfinityStone entitylivingbaseIn, float partialTickTime) {
         GlStateManager.func_179152_a(this.scale, this.scale, this.scale);
     }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX INFO: renamed from: getEntityTexture, reason: merged with bridge method [inline-methods] */
     public ResourceLocation func_110775_a(EntityInfinityStone entity) {
         switch (entity.getStoneNum()) {
             case 0:
@@ -51,11 +41,11 @@ public class RenderInfinityStone extends RenderLiving<EntityInfinityStone> {
                 return BADLANDS;
             case 3:
                 return INGENUITY;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 return MISDIRECTION;
             case 5:
                 return VENGEANCE;
-            case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+            case TileEntityFusionTable.BOARD_COLUMNS :
                 return RETROSPECTION;
             case 7:
                 return DREAD;
@@ -63,7 +53,7 @@ public class RenderInfinityStone extends RenderLiving<EntityInfinityStone> {
                 return ANXIETY;
             case 9:
                 return IMPOSITION;
-            case ItemHeadCollector.CHARGE_LIMIT /* 10 */:
+            case ItemHeadCollector.CHARGE_LIMIT :
                 return AMBITION;
             case 11:
                 return PERCEPTION;
@@ -77,9 +67,6 @@ public class RenderInfinityStone extends RenderLiving<EntityInfinityStone> {
                 return OCEAN;
         }
     }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    /* JADX INFO: renamed from: applyRotations, reason: merged with bridge method [inline-methods] */
     public void func_77043_a(EntityInfinityStone entityLiving, float p1, float rotationYaw, float partialTicks) {
         super.func_77043_a(entityLiving, p1, rotationYaw, partialTicks);
     }

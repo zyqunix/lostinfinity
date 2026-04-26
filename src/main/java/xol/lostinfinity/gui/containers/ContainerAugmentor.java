@@ -1,5 +1,4 @@
 package xol.lostinfinity.gui.containers;
-
 import java.util.Iterator;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
@@ -13,17 +12,13 @@ import net.minecraft.nbt.NBTTagInt;
 import net.minecraft.nbt.NBTTagList;
 import xol.lostinfinity.item.misc.ItemAugmentSlide;
 import xol.lostinfinity.item.misc.ItemAugmenticonBox;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/containers/ContainerAugmentor.class */
 public class ContainerAugmentor extends Container {
     public InventoryCrafting inputs = new InventoryCrafting(this, 2, 1);
     public InventoryCraftResult result = new InventoryCraftResult();
-
     public ContainerAugmentor(IInventory playerInventory) {
         addOwnSlots();
         addPlayerSlots(playerInventory);
     }
-
     public void onInputsChanged() {
         ItemStack boxStack = this.inputs.func_70301_a(0);
         ItemStack slideStack = this.inputs.func_70301_a(1);
@@ -50,11 +45,9 @@ public class ContainerAugmentor extends Container {
             }
         }
     }
-
     public void resultItemTaken() {
         this.inputs.func_174888_l();
     }
-
     private void addPlayerSlots(IInventory playerInventory) {
         for (int row = 0; row < 3; row++) {
             for (int col = 0; col < 9; col++) {
@@ -68,13 +61,11 @@ public class ContainerAugmentor extends Container {
             func_75146_a(new Slot(playerInventory, row2, x2, 142));
         }
     }
-
     private void addOwnSlots() {
         func_75146_a(new SlotBox(this.inputs, 0, 27, 47, this));
         func_75146_a(new SlotSlide(this.inputs, 1, 76, 47, this));
         func_75146_a(new SlotResult(this.result, 0, 134, 47, this));
     }
-
     public ItemStack func_82846_b(EntityPlayer playerIn, int index) {
         ItemStack returnStack = ItemStack.field_190927_a;
         Slot slot = (Slot) this.field_75151_b.get(index);
@@ -117,69 +108,52 @@ public class ContainerAugmentor extends Container {
         }
         return returnStack;
     }
-
     public boolean func_75145_c(EntityPlayer playerIn) {
         return true;
     }
-
     public void func_75134_a(EntityPlayer playerIn) {
         super.func_75134_a(playerIn);
         if (!playerIn.field_70170_p.field_72995_K) {
             func_193327_a(playerIn, playerIn.field_70170_p, this.inputs);
         }
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/containers/ContainerAugmentor$SlotBox.class */
     private static class SlotBox extends Slot {
         private final ContainerAugmentor container;
-
         public SlotBox(IInventory inventoryIn, int index, int xPosition, int yPosition, ContainerAugmentor container) {
             super(inventoryIn, index, xPosition, yPosition);
             this.container = container;
         }
-
         public boolean func_75214_a(ItemStack stack) {
             return stack.func_77973_b() instanceof ItemAugmenticonBox;
         }
-
         public void func_75218_e() {
             super.func_75218_e();
             this.container.onInputsChanged();
         }
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/containers/ContainerAugmentor$SlotSlide.class */
     private static class SlotSlide extends Slot {
         private final ContainerAugmentor container;
-
         public SlotSlide(IInventory inventoryIn, int index, int xPosition, int yPosition, ContainerAugmentor container) {
             super(inventoryIn, index, xPosition, yPosition);
             this.container = container;
         }
-
         public boolean func_75214_a(ItemStack stack) {
             return stack.func_77973_b() instanceof ItemAugmentSlide;
         }
-
         public void func_75218_e() {
             super.func_75218_e();
             this.container.onInputsChanged();
         }
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/gui/containers/ContainerAugmentor$SlotResult.class */
     private static class SlotResult extends Slot {
         private final ContainerAugmentor container;
-
         public SlotResult(IInventory inventoryIn, int index, int xPosition, int yPosition, ContainerAugmentor container) {
             super(inventoryIn, index, xPosition, yPosition);
             this.container = container;
         }
-
         public boolean func_75214_a(ItemStack stack) {
             return false;
         }
-
         public ItemStack func_190901_a(EntityPlayer thePlayer, ItemStack stack) {
             this.container.resultItemTaken();
             return super.func_190901_a(thePlayer, stack);

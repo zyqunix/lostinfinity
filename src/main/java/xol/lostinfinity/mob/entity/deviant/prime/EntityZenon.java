@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.deviant.prime;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -20,37 +19,29 @@ import xol.lostinfinity.mob.entity.base.EntityDeviantPrime;
 import xol.lostinfinity.mob.entity.classify.IEntityReactive;
 import xol.lostinfinity.projectile.entity.EntityZenonShot;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/deviant/prime/EntityZenon.class */
 public class EntityZenon extends EntityDeviantPrime implements IMaxAttack, IEntityReactive {
     private static final DataParameter<Boolean> REFLECT = EntityDataManager.func_187226_a(EntityZenon.class, DataSerializers.field_187198_h);
-
     public EntityZenon(World worldIn) {
         super(worldIn);
         func_70105_a(1.75f, 3.2f);
     }
-
     public boolean getReflect() {
         return ((Boolean) this.field_70180_af.func_187225_a(REFLECT)).booleanValue();
     }
-
     public void setReflect(boolean reflect) {
         this.field_70180_af.func_187227_b(REFLECT, Boolean.valueOf(reflect));
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(1.0d);
         func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.32d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(4000.0d);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_70088_a() {
         super.func_70088_a();
         this.field_70180_af.func_187214_a(REFLECT, false);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -59,7 +50,6 @@ public class EntityZenon extends EntityDeviantPrime implements IMaxAttack, IEnti
         }
         return false;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         this.field_70143_R = -1.0f;
@@ -93,29 +83,23 @@ public class EntityZenon extends EntityDeviantPrime implements IMaxAttack, IEnti
             }
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityDeviantPrime, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 75;
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.GENERIC_STYLE1_DEATH;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.GENERIC_STYLE1_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return null;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityDeviantPrime
     protected String primeName() {
         return "Zenon";
     }
-
     @Override // xol.lostinfinity.mob.entity.classify.IEntityReactive
     public float hitEffect(EntityLivingBase attacker, float damage) {
         if (getReflect()) {
@@ -124,7 +108,6 @@ public class EntityZenon extends EntityDeviantPrime implements IMaxAttack, IEnti
         }
         return damage;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityDeviantPrime
     protected Item primeDrop() {
         return ItemInit.deviantFragmentBL;

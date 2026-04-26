@@ -1,17 +1,13 @@
 package xol.lostinfinity.mob.entity.sea.leviathan;
-
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import xol.lostinfinity.util.math.LMath;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/sea/leviathan/EntityLeviathanHead.class */
 public class EntityLeviathanHead extends EntityLeviathanSegment {
     public EntityLeviathanHead(EntityLeviathanController parent) {
         super(parent, null, 1.0f, 1.0f);
         this.dSocketOffset = 0.4375f;
         this.dOriginDistance = 0.4375f;
     }
-
     @Override // xol.lostinfinity.mob.entity.sea.leviathan.EntityLeviathanSegment
     protected void updatePosition() {
         if (this.awaitSync) {

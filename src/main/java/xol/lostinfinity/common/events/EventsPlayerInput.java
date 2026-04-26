@@ -1,5 +1,4 @@
 package xol.lostinfinity.common.events;
-
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -13,8 +12,6 @@ import xol.lostinfinity.common.packets.serverbound.PacketItemMode;
 import xol.lostinfinity.common.packets.serverbound.PacketSetBonus;
 import xol.lostinfinity.mob.entity.base.EntityMultipleLivesMount;
 import xol.lostinfinity.util.player.PlayerManager;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/common/events/EventsPlayerInput.class */
 public class EventsPlayerInput {
     @SideOnly(Side.CLIENT)
     @SubscribeEvent(priority = EventPriority.NORMAL, receiveCanceled = true)

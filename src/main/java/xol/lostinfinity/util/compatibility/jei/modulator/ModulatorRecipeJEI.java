@@ -1,5 +1,4 @@
 package xol.lostinfinity.util.compatibility.jei.modulator;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -9,12 +8,9 @@ import java.util.Objects;
 import net.minecraft.item.ItemStack;
 import xol.lostinfinity.init.ArmorInit;
 import xol.lostinfinity.init.ItemInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/compatibility/jei/modulator/ModulatorRecipeJEI.class */
 public class ModulatorRecipeJEI {
     private static final ModulatorRecipeJEI INSTANCE = new ModulatorRecipeJEI();
     private final Map<List<ItemStack>, ItemStack> modulatorList = new HashMap();
-
     public ModulatorRecipeJEI() {
         List<ItemStack> vampHelmetInputs = new ArrayList<>(Arrays.asList(new ItemStack(ItemInit.moduleRange), new ItemStack(ItemInit.modulePower), new ItemStack(ArmorInit.vampyreonSet.helmet), new ItemStack(ItemInit.maliciumCondensed), new ItemStack(ItemInit.maliciumCondensed), new ItemStack(ItemInit.maliciumCondensed)));
         addModulatorRecipe(vampHelmetInputs, new ItemStack(ArmorInit.vampyreonPrimeSet.helmet));
@@ -49,18 +45,15 @@ public class ModulatorRecipeJEI {
         List<ItemStack> blightcystChestplateInputs = new ArrayList<>(Arrays.asList(new ItemStack(ItemInit.moduleBiocalibration), new ItemStack(ItemInit.moduleConversion), new ItemStack(ArmorInit.blightcystSet.chestplate), new ItemStack(ItemInit.kyvoriumCondensed), new ItemStack(ItemInit.kyvoriumCondensed), new ItemStack(ItemInit.kyvoriumCondensed)));
         addModulatorRecipe(blightcystChestplateInputs, new ItemStack(ArmorInit.blightcystPrimeSet.chestplate));
     }
-
     public static ModulatorRecipeJEI getInstance() {
         return INSTANCE;
     }
-
     public void addModulatorRecipe(List<ItemStack> inputs, ItemStack result) {
         if (getModulatorResult(inputs) != ItemStack.field_190927_a) {
             return;
         }
         this.modulatorList.put(inputs, result);
     }
-
     public ItemStack getModulatorResult(List<ItemStack> inputs) {
         for (Map.Entry<List<ItemStack>, ItemStack> entry : this.modulatorList.entrySet()) {
             if (Objects.equals(inputs, entry.getKey())) {
@@ -69,7 +62,6 @@ public class ModulatorRecipeJEI {
         }
         return ItemStack.field_190927_a;
     }
-
     public Map<List<ItemStack>, ItemStack> getModulatorList() {
         return this.modulatorList;
     }

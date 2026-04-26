@@ -1,5 +1,4 @@
 package xol.lostinfinity.item.armor;
-
 import java.util.List;
 import java.util.Random;
 import javax.annotation.Nullable;
@@ -27,15 +26,11 @@ import xol.lostinfinity.common.packets.serverbound.PacketNBTSyncLong;
 import xol.lostinfinity.init.ArmorInit;
 import xol.lostinfinity.item.armor.model.ModelArmorVitralitonPrime;
 import xol.lostinfinity.item.classify.ICooldown;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/armor/ItemVitralitonPrimeArmor.class */
 public class ItemVitralitonPrimeArmor extends ItemLostArmor {
     private static final ItemArmor.ArmorMaterial VitralitonMaterial = EnumHelper.addArmorMaterial("vitralitonPrimeArmor", "lostinfinity:vitraliton_prime_armor", -1, new int[]{12, 24, 32, 12}, 20, SoundEvents.field_187716_o, 3.0f);
-
     public ItemVitralitonPrimeArmor(String regName, EntityEquipmentSlot slot) {
         super(VitralitonMaterial, regName, slot);
     }
-
     @Override // xol.lostinfinity.item.armor.ItemLostArmor
     protected void handleSpecialArmorBonus(EntityPlayer player) {
         WorldServer worldServer = player.field_70170_p;
@@ -76,26 +71,21 @@ public class ItemVitralitonPrimeArmor extends ItemLostArmor {
             }
         }
     }
-
     private double randPosDouble(Random rand) {
         return (-0.5d) + rand.nextDouble();
     }
-
     @Override // xol.lostinfinity.item.armor.ItemLostArmor
     public boolean isPrimeSet() {
         return true;
     }
-
     @Override // xol.lostinfinity.item.armor.ItemLostArmor
     public ArmorInit.ArmorSet getArmorSet() {
         return ArmorInit.vitralitonPrimeSet;
     }
-
     public String getArmorTexture(ItemStack itemstack, Entity entity, EntityEquipmentSlot slot, String layer) {
         int sprite = Math.abs(4 - (MathHelper.func_76141_d(entity.field_70173_aa / 3) % 8));
         return "lostinfinity:textures/armor/prime/vitraliton_prime_armor_" + sprite + ".png";
     }
-
     @SideOnly(Side.CLIENT)
     @Nullable
     public ModelBiped getArmorModel(EntityLivingBase entityLiving, ItemStack itemStack, EntityEquipmentSlot armorSlot, ModelBiped _default) {
@@ -117,7 +107,6 @@ public class ItemVitralitonPrimeArmor extends ItemLostArmor {
         }
         return null;
     }
-
     @SideOnly(Side.CLIENT)
     public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
         tooltip.add(TextFmt.Gold + "Immune to Normal Hits.");

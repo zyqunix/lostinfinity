@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.nebula;
-
 import com.google.common.base.Optional;
 import java.util.List;
 import net.minecraft.block.state.IBlockState;
@@ -24,13 +23,10 @@ import xol.lostinfinity.mob.ai.EntityAIFloatAttack;
 import xol.lostinfinity.mob.entity.base.EntityFloatingBase;
 import xol.lostinfinity.projectile.entity.EntityNebulaSpell;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/nebula/EntityNebulaWizard.class */
 public class EntityNebulaWizard extends EntityFloatingBase implements IMaxAttack {
     private float modelAlpha;
     private static final DataParameter<Optional<BlockPos>> HOME_POS = EntityDataManager.func_187226_a(EntityNebulaWizard.class, DataSerializers.field_187201_k);
     private static final double SPELL_RANGE = 28.0d;
-
     public EntityNebulaWizard(World worldIn) {
         super(worldIn);
         this.modelAlpha = 0.0f;
@@ -38,7 +34,6 @@ public class EntityNebulaWizard extends EntityFloatingBase implements IMaxAttack
         this.field_70765_h = new AIMoveControl(this);
         this.field_70145_X = true;
     }
-
     public EntityNebulaWizard(World worldIn, BlockPos parentBlock) {
         super(worldIn);
         this.modelAlpha = 0.0f;
@@ -47,7 +42,6 @@ public class EntityNebulaWizard extends EntityFloatingBase implements IMaxAttack
         this.field_70765_h = new AIMoveControl(this);
         this.field_70145_X = true;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     public void func_110147_ax() {
         super.func_110147_ax();
@@ -56,16 +50,13 @@ public class EntityNebulaWizard extends EntityFloatingBase implements IMaxAttack
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(800.0d);
         this.field_70765_h = new AIMoveControl(this);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 7;
     }
-
     public float getModelAlpha() {
         return this.modelAlpha;
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -74,13 +65,11 @@ public class EntityNebulaWizard extends EntityFloatingBase implements IMaxAttack
         }
         return false;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase, xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_70088_a() {
         super.func_70088_a();
         func_184212_Q().func_187214_a(HOME_POS, Optional.absent());
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     public void func_70636_d() {
         super.func_70636_d();
@@ -112,28 +101,22 @@ public class EntityNebulaWizard extends EntityFloatingBase implements IMaxAttack
             }
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     protected void func_82167_n(Entity entityIn) {
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
     protected EntityAIFloatAttack createShootAI() {
         return null;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundInit.NEBULA_WIZARD_HURT;
     }
-
     protected SoundEvent func_184639_G() {
         return SoundInit.NEBULA_WIZARD_AMBIENT;
     }
-
     protected SoundEvent func_184615_bR() {
         return SoundInit.NEBULA_WIZARD_DEATH;
     }
-
     private void attackEntityWithRangedAttack(EntityPlayer target) {
         EntityNebulaSpell darkSpell = new EntityNebulaSpell(this.field_70170_p, this);
         double d0 = target.field_70165_t - this.field_70165_t;
@@ -143,15 +126,12 @@ public class EntityNebulaWizard extends EntityFloatingBase implements IMaxAttack
         this.field_70170_p.func_184133_a((EntityPlayer) null, func_180425_c(), SoundInit.NEBULA_WIZARD_SPELL, SoundCategory.HOSTILE, 1.5f, 1.0f / ((func_70681_au().nextFloat() * 0.4f) + 0.8f));
         this.field_70170_p.func_72838_d(darkSpell);
     }
-
     public Optional<BlockPos> getHomePos() {
         return (Optional) func_184212_Q().func_187225_a(HOME_POS);
     }
-
     public void setHomePos(Optional<BlockPos> value) {
         func_184212_Q().func_187227_b(HOME_POS, value);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void func_70014_b(NBTTagCompound compound) {
         super.func_70014_b(compound);
@@ -162,7 +142,6 @@ public class EntityNebulaWizard extends EntityFloatingBase implements IMaxAttack
             compound.func_74780_a("z", ((BlockPos) home.get()).func_177952_p());
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void func_70037_a(NBTTagCompound compound) {
         super.func_70037_a(compound);
@@ -173,21 +152,16 @@ public class EntityNebulaWizard extends EntityFloatingBase implements IMaxAttack
         Optional<BlockPos> optPos = Optional.of(pos);
         setHomePos(optPos);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void trueDeathAction() {
         func_70106_y();
     }
-
-    /* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/nebula/EntityNebulaWizard$AIMoveControl.class */
     class AIMoveControl extends EntityMoveHelper {
         private final EntityLiving entityLiving;
-
         public AIMoveControl(EntityLiving vex) {
             super(vex);
             this.entityLiving = vex;
         }
-
         public void func_75641_c() {
             if (this.field_188491_h == EntityMoveHelper.Action.MOVE_TO) {
                 double d0 = this.field_75646_b - this.entityLiving.field_70165_t;

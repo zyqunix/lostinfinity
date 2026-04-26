@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.tileentity.render;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.BufferBuilder;
@@ -11,12 +10,8 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.Vec3d;
 import xol.lostinfinity.block.tileentity.TileEntityPortalNexus;
 import xol.lostinfinity.init.BlockInit;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/tileentity/render/RenderPortalNexus.class */
 public class RenderPortalNexus extends TileEntitySpecialRenderer<TileEntityPortalNexus> {
     public static final ResourceLocation TEXTURE_SUMMONING_PORTAL = new ResourceLocation("lostinfinity:textures/particles/summoning_portal.png");
-
-    /* JADX INFO: renamed from: render, reason: merged with bridge method [inline-methods] */
     public void func_192841_a(TileEntityPortalNexus te, double x, double y, double z, float partialTicks, int destroyStage, float alpha) {
         IBlockState state = te.func_145831_w().func_180495_p(te.func_174877_v());
         Block block = state.func_177230_c();

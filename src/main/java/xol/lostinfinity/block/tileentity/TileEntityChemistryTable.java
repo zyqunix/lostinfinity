@@ -1,5 +1,4 @@
 package xol.lostinfinity.block.tileentity;
-
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.inventory.ItemStackHelper;
@@ -10,8 +9,6 @@ import net.minecraft.util.NonNullList;
 import net.minecraft.util.SoundCategory;
 import xol.lostinfinity.init.SoundInit;
 import xol.lostinfinity.recipes.ChemistryRecipes;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/block/tileentity/TileEntityChemistryTable.class */
 public class TileEntityChemistryTable extends TileEntity implements IInventory, ITickable {
     private NonNullList<ItemStack> inventory = NonNullList.func_191197_a(4, ItemStack.field_190927_a);
     private int mix0;
@@ -24,7 +21,6 @@ public class TileEntityChemistryTable extends TileEntity implements IInventory, 
     private int mix7;
     private int mix8;
     private int currentMixLevel;
-
     public void func_73660_a() {
         ItemStack result;
         if (!this.field_145850_b.field_72995_K && (result = ChemistryRecipes.getResult(func_70301_a(this.mix0), func_70301_a(this.mix1), func_70301_a(this.mix2), func_70301_a(this.mix3), func_70301_a(this.mix4), func_70301_a(this.mix5), func_70301_a(this.mix6), func_70301_a(this.mix7), func_70301_a(this.mix8))) != null && this.currentMixLevel == 9 && func_70301_a(3).func_190926_b()) {
@@ -45,7 +41,6 @@ public class TileEntityChemistryTable extends TileEntity implements IInventory, 
             this.field_145850_b.func_184133_a((EntityPlayer) null, func_174877_v(), SoundInit.CHEMICAL_MIXING, SoundCategory.BLOCKS, 1.5f, 0.7f + (this.field_145850_b.field_73012_v.nextFloat() * 0.6f));
         }
     }
-
     public int func_174887_a_(int id) {
         switch (id) {
             case 0:
@@ -56,11 +51,11 @@ public class TileEntityChemistryTable extends TileEntity implements IInventory, 
                 return this.mix2;
             case 3:
                 return this.mix3;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 return this.mix4;
             case 5:
                 return this.mix5;
-            case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+            case TileEntityFusionTable.BOARD_COLUMNS :
                 return this.mix6;
             case 7:
                 return this.mix7;
@@ -72,7 +67,6 @@ public class TileEntityChemistryTable extends TileEntity implements IInventory, 
                 return 0;
         }
     }
-
     public void func_174885_b(int id, int value) {
         switch (id) {
             case 0:
@@ -87,13 +81,13 @@ public class TileEntityChemistryTable extends TileEntity implements IInventory, 
             case 3:
                 this.mix3 = value;
                 break;
-            case TileEntityFusionTable.BOARD_ROWS /* 4 */:
+            case TileEntityFusionTable.BOARD_ROWS :
                 this.mix4 = value;
                 break;
             case 5:
                 this.mix5 = value;
                 break;
-            case TileEntityFusionTable.BOARD_COLUMNS /* 6 */:
+            case TileEntityFusionTable.BOARD_COLUMNS :
                 this.mix6 = value;
                 break;
             case 7:
@@ -107,31 +101,24 @@ public class TileEntityChemistryTable extends TileEntity implements IInventory, 
                 break;
         }
     }
-
     public int func_174890_g() {
         return 10;
     }
-
     public int func_70302_i_() {
         return this.inventory.size();
     }
-
     public boolean func_191420_l() {
         return this.inventory.isEmpty();
     }
-
     public ItemStack func_70301_a(int index) {
         return (ItemStack) this.inventory.get(index);
     }
-
     public ItemStack func_70298_a(int index, int count) {
         return ItemStackHelper.func_188382_a(this.inventory, index, count);
     }
-
     public ItemStack func_70304_b(int index) {
         return ItemStackHelper.func_188383_a(this.inventory, index);
     }
-
     public void func_70299_a(int index, ItemStack stack) {
         this.inventory.set(index, stack);
         int limit = func_70297_j_();
@@ -139,32 +126,24 @@ public class TileEntityChemistryTable extends TileEntity implements IInventory, 
             stack.func_190920_e(limit);
         }
     }
-
     public int func_70297_j_() {
         return 64;
     }
-
     public boolean func_70300_a(EntityPlayer player) {
         return true;
     }
-
     public void func_174889_b(EntityPlayer player) {
     }
-
     public void func_174886_c(EntityPlayer player) {
     }
-
     public boolean func_94041_b(int index, ItemStack stack) {
         return true;
     }
-
     public void func_174888_l() {
     }
-
     public String func_70005_c_() {
         return "tile.chemistry_table";
     }
-
     public boolean func_145818_k_() {
         return false;
     }

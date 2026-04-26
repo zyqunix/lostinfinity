@@ -1,15 +1,11 @@
 package xol.lostinfinity.dimension.data;
-
 import java.util.List;
 import java.util.Random;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/dimension/data/SlideMap.class */
 public class SlideMap {
     private int col;
     private int row;
     private SlideNode[][] slideNodeGrid;
     private SlideNode empty;
-
     public SlideMap(int columns, int rows, int numSteps) {
         this.col = columns;
         this.row = rows;
@@ -36,7 +32,6 @@ public class SlideMap {
             nodeToSwap.setTileNum(0);
         }
     }
-
     public SlideMap(int columns, int rows, int numSteps, int emptyTileNum) {
         this.col = columns;
         this.row = rows;
@@ -65,7 +60,6 @@ public class SlideMap {
             nodeToSwap.setTileNum(0);
         }
     }
-
     public SlideNode getNodeAtLocation(int col, int row) {
         if (col < 0 || row < 0 || col >= this.col || row >= this.row) {
             return null;

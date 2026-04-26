@@ -1,5 +1,4 @@
 package xol.lostinfinity.mob.entity.boss;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.SharedMonsterAttributes;
@@ -32,15 +31,12 @@ import xol.lostinfinity.mob.entity.base.EntityMultipleLives;
 import xol.lostinfinity.projectile.entity.EntityVeloMagic;
 import xol.lostinfinity.stone.EntityInfinityStone;
 import xol.lostinfinity.util.data.IMaxAttack;
-
-/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/boss/EntityVelo.class */
 public class EntityVelo extends EntityMultipleLives implements IMaxAttack {
     public EntityVelo(World worldIn) {
         super(worldIn);
         func_70105_a(1.7f, 3.0f);
         this.field_70178_ae = true;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void func_184651_r() {
         this.field_70714_bg.func_75776_a(0, new EntityAISwimming(this));
@@ -51,7 +47,6 @@ public class EntityVelo extends EntityMultipleLives implements IMaxAttack {
         this.field_70714_bg.func_75776_a(8, new EntityAILookIdle(this));
         func_175456_n();
     }
-
     protected void func_175456_n() {
         this.field_70714_bg.func_75776_a(6, new EntityAIMoveThroughVillage(this, 1.0d, false));
         this.field_70715_bh.func_75776_a(1, new EntityAIHurtByTarget(this, true, new Class[]{EntityPigZombie.class}));
@@ -59,7 +54,6 @@ public class EntityVelo extends EntityMultipleLives implements IMaxAttack {
         this.field_70715_bh.func_75776_a(3, new EntityAINearestAttackableTarget(this, EntityVillager.class, false));
         this.field_70715_bh.func_75776_a(3, new EntityAINearestAttackableTarget(this, EntityIronGolem.class, true));
     }
-
     public void func_110147_ax() {
         super.func_110147_ax();
         func_110148_a(SharedMonsterAttributes.field_111264_e).func_111128_a(1.0d);
@@ -67,7 +61,6 @@ public class EntityVelo extends EntityMultipleLives implements IMaxAttack {
         func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
         func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(4000.0d);
     }
-
     public boolean func_70652_k(Entity entity) {
         super.func_70652_k(entity);
         if (func_70638_az() != null) {
@@ -76,7 +69,6 @@ public class EntityVelo extends EntityMultipleLives implements IMaxAttack {
         }
         return false;
     }
-
     public void func_70636_d() {
         super.func_70636_d();
         this.field_70143_R = -1.0f;
@@ -130,7 +122,6 @@ public class EntityVelo extends EntityMultipleLives implements IMaxAttack {
             func_184185_a(SoundEvents.field_187625_bm, 3.0f, 1.0f);
         }
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected void updateLifeAction() {
         if (this.field_70170_p.field_73011_w.func_186058_p() == DimensionInit.celestialVoid) {
@@ -174,7 +165,6 @@ public class EntityVelo extends EntityMultipleLives implements IMaxAttack {
         }
         func_184185_a(SoundEvents.field_187534_aX, 3.0f, 1.0f);
     }
-
     private void clearPlayersToStart() {
         AxisAlignedBB aabb = new AxisAlignedBB(new BlockPos(0.0d, 59.0d, -180.0d), new BlockPos(18.0d, 68.0d, -160.0d));
         for (EntityPlayer near_pl : this.field_70170_p.func_72872_a(EntityPlayer.class, aabb)) {
@@ -196,44 +186,35 @@ public class EntityVelo extends EntityMultipleLives implements IMaxAttack {
         stone.func_70107_b(25.5d, 61.2d, -73.0d);
         this.field_70170_p.func_72838_d(stone);
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     protected int numberOfLives() {
         return 10;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public void trueDeathAction() {
         if (!this.field_70170_p.field_72995_K) {
             clearPlayersToStart();
         }
     }
-
     protected SoundEvent func_184615_bR() {
         return null;
     }
-
     protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
         return SoundEvents.field_193787_df;
     }
-
     protected SoundEvent func_184639_G() {
         return null;
     }
-
     protected boolean func_70692_ba() {
         return false;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public boolean func_70814_o() {
         return true;
     }
-
     public int func_70641_bl() {
         return 1;
     }
-
     @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
     public boolean func_70601_bi() {
         return this.field_70170_p.func_175659_aa() != EnumDifficulty.PEACEFUL;
