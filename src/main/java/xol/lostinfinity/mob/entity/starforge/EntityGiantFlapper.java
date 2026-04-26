@@ -1,0 +1,96 @@
+package xol.lostinfinity.mob.entity.starforge;
+
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.SoundEvents;
+import net.minecraft.util.DamageSource;
+import net.minecraft.util.EnumParticleTypes;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.SoundEvent;
+import net.minecraft.world.EnumDifficulty;
+import net.minecraft.world.World;
+import xol.lostinfinity.init.SoundInit;
+import xol.lostinfinity.mob.ai.EntityAIFloatAttack;
+import xol.lostinfinity.mob.entity.base.EntityFloatingBase;
+import xol.lostinfinity.projectile.entity.EntityDarkSpell;
+import xol.lostinfinity.util.data.IMaxAttack;
+import xol.lostinfinity.util.load.LootTableRegistry;
+
+/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/entity/starforge/EntityGiantFlapper.class */
+public class EntityGiantFlapper extends EntityFloatingBase implements IMaxAttack {
+    public EntityGiantFlapper(World worldIn) {
+        super(worldIn);
+        func_70105_a(5.0f, 4.0f);
+    }
+
+    @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
+    public void func_110147_ax() {
+        super.func_110147_ax();
+        func_110148_a(SharedMonsterAttributes.field_111267_a).func_111128_a(1500.0d);
+        func_110148_a(SharedMonsterAttributes.field_111263_d).func_111128_a(0.3d);
+        func_110148_a(SharedMonsterAttributes.field_111266_c).func_111128_a(1.0d);
+    }
+
+    @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
+    public void func_70636_d() {
+        super.func_70636_d();
+        if (this.field_70173_aa % 40 == 0) {
+            boolean did_shot = false;
+            for (EntityPlayer near_pl : this.field_70170_p.func_72872_a(EntityPlayer.class, func_174813_aQ().func_72314_b(15.0d, 15.0d, 15.0d))) {
+                if (!near_pl.func_184812_l_() && !this.field_70170_p.field_72995_K) {
+                    func_70676_i(1.0f);
+                    double makeX = (func_174813_aQ().field_72340_a + func_174813_aQ().field_72336_d) / 2.0d;
+                    double makeY = this.field_70163_u + ((double) (this.field_70131_O / 2.0f)) + 0.5d;
+                    double makeZ = (func_174813_aQ().field_72339_c + func_174813_aQ().field_72334_f) / 2.0d;
+                    double d2 = near_pl.field_70165_t - makeX;
+                    double d3 = (near_pl.func_174813_aQ().field_72338_b + ((double) (near_pl.field_70131_O / 2.0f))) - makeY;
+                    double d4 = near_pl.field_70161_v - makeZ;
+                    EntityDarkSpell shot = new EntityDarkSpell(this.field_70170_p, this);
+                    shot.func_70186_c(d2, d3, d4, 3.2f, 0.0f);
+                    this.field_70170_p.func_72838_d(shot);
+                    did_shot = true;
+                }
+            }
+            if (did_shot) {
+                func_184185_a(SoundEvents.field_187578_au, 2.0f, 0.5f + this.field_70146_Z.nextFloat());
+            }
+        }
+        if (this.field_70170_p.field_72995_K && this.field_70173_aa % 5 == 0) {
+            this.field_70170_p.func_175688_a(EnumParticleTypes.SMOKE_LARGE, this.field_70165_t + ((this.field_70146_Z.nextDouble() - 0.5d) * ((double) this.field_70130_N)), (this.field_70163_u + (this.field_70146_Z.nextDouble() * ((double) this.field_70131_O))) - 0.25d, this.field_70161_v + ((this.field_70146_Z.nextDouble() - 0.5d) * ((double) this.field_70130_N)), (this.field_70146_Z.nextDouble() - 0.5d) * 2.0d, -this.field_70146_Z.nextDouble(), (this.field_70146_Z.nextDouble() - 0.5d) * 2.0d, new int[0]);
+        }
+    }
+
+    protected SoundEvent func_184615_bR() {
+        return SoundInit.STARFORGE_FLAPPER_DEATH;
+    }
+
+    protected SoundEvent func_184601_bQ(DamageSource damageSourceIn) {
+        return SoundInit.STARFORGE_FLAPPER_HURT;
+    }
+
+    protected SoundEvent func_184639_G() {
+        return SoundInit.STARFORGE_FLAPPER_AMBIENT;
+    }
+
+    protected ResourceLocation func_184647_J() {
+        return LootTableRegistry.ENTITIES_GIANTFLAPPER;
+    }
+
+    protected boolean func_70692_ba() {
+        return false;
+    }
+
+    public int func_70641_bl() {
+        return 1;
+    }
+
+    @Override // xol.lostinfinity.mob.entity.base.EntityMultipleLives
+    public boolean func_70601_bi() {
+        return this.field_70170_p.func_175659_aa() != EnumDifficulty.PEACEFUL;
+    }
+
+    @Override // xol.lostinfinity.mob.entity.base.EntityFloatingBase
+    protected EntityAIFloatAttack createShootAI() {
+        return null;
+    }
+}

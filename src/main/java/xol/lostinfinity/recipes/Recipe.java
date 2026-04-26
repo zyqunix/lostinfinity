@@ -1,0 +1,30 @@
+package xol.lostinfinity.recipes;
+
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+
+/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/recipes/Recipe.class */
+public class Recipe {
+    public ItemStack[] values;
+    public Item result;
+
+    public Recipe(Item result, ItemStack... values) {
+        this.result = result;
+        this.values = values;
+    }
+
+    public boolean recipeMatches(ItemStack... values) {
+        boolean result = true;
+        int index = 0;
+        for (ItemStack stack : values) {
+            if ((!stack.func_190926_b() || !this.values[index].func_190926_b()) && (!stack.func_77973_b().equals(this.values[index].func_77973_b()) || stack.func_190916_E() < this.values[index].func_190916_E())) {
+                result = false;
+            }
+            index++;
+            if (!result) {
+                break;
+            }
+        }
+        return result;
+    }
+}

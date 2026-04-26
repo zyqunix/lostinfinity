@@ -1,0 +1,47 @@
+package xol.lostinfinity.util.command;
+
+import net.minecraft.command.CommandBase;
+import net.minecraft.command.CommandException;
+import net.minecraft.command.ICommandSender;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.util.text.TextComponentString;
+import xol.lostinfinity.client.TextFmt;
+import xol.lostinfinity.mob.entity.misc.EntityBaseRift;
+
+/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/util/command/CommandClearRifts.class */
+public class CommandClearRifts extends CommandBase {
+    public String func_71517_b() {
+        return "clearrifts";
+    }
+
+    public String func_71518_a(ICommandSender sender) {
+        return "clearrifts <Range>";
+    }
+
+    public boolean func_184882_a(MinecraftServer server, ICommandSender sender) {
+        return true;
+    }
+
+    public void func_184881_a(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
+        if (args.length > 0 && (sender instanceof EntityPlayer)) {
+            EntityPlayer player = (EntityPlayer) sender;
+            int rifts = 0;
+            int range = 5;
+            try {
+                range = Integer.parseInt(args[0]);
+            } catch (NumberFormatException e) {
+                if (!player.field_70170_p.field_72995_K) {
+                    player.func_145747_a(new TextComponentString(TextFmt.Red + "Invalid number format"));
+                }
+            }
+            for (EntityBaseRift near_pl : player.field_70170_p.func_72872_a(EntityBaseRift.class, player.func_174813_aQ().func_186662_g(range))) {
+                near_pl.func_70106_y();
+                rifts++;
+            }
+            if (!player.field_70170_p.field_72995_K) {
+                player.func_145747_a(new TextComponentString(TextFmt.Gold + "Rifts cleared: " + rifts));
+            }
+        }
+    }
+}

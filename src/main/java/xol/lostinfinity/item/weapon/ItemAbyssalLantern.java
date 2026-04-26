@@ -1,0 +1,49 @@
+package xol.lostinfinity.item.weapon;
+
+import java.util.List;
+import javax.annotation.Nullable;
+import net.minecraft.client.util.ITooltipFlag;
+import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.ItemStack;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumHand;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.world.World;
+import xol.lostinfinity.client.TextFmt;
+import xol.lostinfinity.init.SoundInit;
+import xol.lostinfinity.init.TabsInit;
+import xol.lostinfinity.item.basics.ItemCooldown;
+import xol.lostinfinity.item.classify.ICustomHoldPose;
+import xol.lostinfinity.item.classify.ISummon;
+import xol.lostinfinity.mob.entity.minion.EntityAbyssalCrabulon;
+
+/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/item/weapon/ItemAbyssalLantern.class */
+public class ItemAbyssalLantern extends ItemCooldown implements ICustomHoldPose, ISummon {
+    public ItemAbyssalLantern(String regName) {
+        super(regName);
+        func_77637_a(TabsInit.TAB_AUXWEP);
+    }
+
+    public ActionResult<ItemStack> func_77659_a(World world, EntityPlayer player, EnumHand hand) {
+        ItemStack stack = player.func_184586_b(hand);
+        if (!showDurabilityBar(stack)) {
+            if (!world.field_72995_K) {
+                despawnPrevious(player);
+                EntityAbyssalCrabulon tentacleLantern = new EntityAbyssalCrabulon(player.field_70170_p);
+                tentacleLantern.setOwner(player);
+                tentacleLantern.setHand(hand);
+                tentacleLantern.setLastSlot(player.field_71071_by.field_70461_c);
+                tentacleLantern.setTrackedItemStack(stack);
+                tentacleLantern.func_70107_b(player.field_70165_t, player.field_70163_u, player.field_70161_v);
+                world.func_72838_d(tentacleLantern);
+                world.func_184133_a((EntityPlayer) null, player.func_180425_c(), SoundInit.CRABULON_AMBIENT, SoundCategory.PLAYERS, 0.7f, 0.7f + (world.field_73012_v.nextFloat() * 0.6f));
+            }
+            startCooldown(stack);
+        }
+        return super.func_77659_a(world, player, hand);
+    }
+
+    public void func_77624_a(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+        tooltip.add(TextFmt.Dark_Purple + "Summons an Abyssal Crabulon to fight alongside you.");
+    }
+}

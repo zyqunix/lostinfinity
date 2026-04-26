@@ -1,0 +1,85 @@
+package xol.lostinfinity.mob.model.contest;
+
+import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelBox;
+import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.math.MathHelper;
+
+/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/contest/ModelArcheologist.class */
+public class ModelArcheologist extends ModelBase {
+    private final ModelRenderer root;
+    private final ModelRenderer head;
+    private final ModelRenderer armr;
+    private final ModelRenderer arml;
+    private final ModelRenderer legl;
+    private final ModelRenderer bodytop;
+    private final ModelRenderer coat;
+    private final ModelRenderer legr;
+
+    public ModelArcheologist() {
+        this.field_78090_t = 64;
+        this.field_78089_u = 64;
+        this.root = new ModelRenderer(this);
+        this.root.func_78793_a(0.0f, 0.0f, 0.0f);
+        this.head = new ModelRenderer(this);
+        this.head.func_78793_a(0.0f, 0.0f, 0.0f);
+        this.root.func_78792_a(this.head);
+        this.head.field_78804_l.add(new ModelBox(this.head, 0, 0, -4.0f, -8.0f, -4.0f, 8, 8, 8, 0.0f, false));
+        this.head.field_78804_l.add(new ModelBox(this.head, 24, 53, -5.0f, -9.0f, -5.0f, 10, 1, 10, 0.0f, false));
+        this.head.field_78804_l.add(new ModelBox(this.head, 24, 8, -5.0f, -10.0f, -5.0f, 10, 1, 10, 0.0f, false));
+        this.head.field_78804_l.add(new ModelBox(this.head, 33, 40, -3.0f, -13.0f, -3.0f, 6, 4, 6, 0.0f, false));
+        this.head.field_78804_l.add(new ModelBox(this.head, 26, 1, -0.5f, -5.5f, -4.6f, 4, 1, 1, -0.25f, false));
+        this.head.field_78804_l.add(new ModelBox(this.head, 26, 4, -0.5f, -2.5f, -4.6f, 4, 1, 1, -0.25f, false));
+        this.head.field_78804_l.add(new ModelBox(this.head, 42, 1, 2.0f, -2.0f, -4.6f, 1, 4, 1, -0.25f, false));
+        this.head.field_78804_l.add(new ModelBox(this.head, 47, 1, 2.0f, 0.5f, -4.6f, 1, 1, 1, -0.15f, false));
+        this.head.field_78804_l.add(new ModelBox(this.head, 47, 1, 2.0f, -0.5f, -4.6f, 1, 1, 1, -0.15f, false));
+        this.head.field_78804_l.add(new ModelBox(this.head, 47, 1, 2.0f, -1.5f, -4.6f, 1, 1, 1, -0.15f, false));
+        this.head.field_78804_l.add(new ModelBox(this.head, 37, 1, 2.5f, -5.0f, -4.6f, 1, 3, 1, -0.25f, false));
+        this.head.field_78804_l.add(new ModelBox(this.head, 37, 1, -0.5f, -5.0f, -4.6f, 1, 3, 1, -0.25f, true));
+        this.head.field_78804_l.add(new ModelBox(this.head, 49, 1, 0.0f, -5.0f, -4.25f, 3, 3, 3, 0.0f, false));
+        this.armr = new ModelRenderer(this);
+        this.armr.func_78793_a(0.0f, 3.0f, 0.0f);
+        this.root.func_78792_a(this.armr);
+        this.armr.field_78804_l.add(new ModelBox(this.armr, 44, 22, 4.0f, -2.0f, -2.0f, 4, 12, 4, 0.0f, true));
+        this.arml = new ModelRenderer(this);
+        this.arml.func_78793_a(0.0f, 3.0f, 0.0f);
+        this.root.func_78792_a(this.arml);
+        this.arml.field_78804_l.add(new ModelBox(this.arml, 44, 22, -8.0f, -2.0f, -2.0f, 4, 12, 4, 0.0f, false));
+        this.legl = new ModelRenderer(this);
+        this.legl.func_78793_a(-2.0f, 12.0f, 0.0f);
+        this.root.func_78792_a(this.legl);
+        this.legl.field_78804_l.add(new ModelBox(this.legl, 0, 22, -2.0f, 0.0f, -2.0f, 4, 12, 4, 0.0f, true));
+        this.bodytop = new ModelRenderer(this);
+        this.bodytop.func_78793_a(0.0f, 0.0f, 0.0f);
+        this.root.func_78792_a(this.bodytop);
+        this.bodytop.field_78804_l.add(new ModelBox(this.bodytop, 16, 20, -4.0f, 0.0f, -3.0f, 8, 12, 6, -0.1f, false));
+        this.coat = new ModelRenderer(this);
+        this.coat.func_78793_a(0.0f, 0.0f, 0.0f);
+        this.root.func_78792_a(this.coat);
+        this.coat.field_78804_l.add(new ModelBox(this.coat, 0, 38, -4.0f, 0.0f, -3.0f, 8, 18, 6, 0.2f, false));
+        this.legr = new ModelRenderer(this);
+        this.legr.func_78793_a(2.0f, 12.0f, 0.0f);
+        this.root.func_78792_a(this.legr);
+        this.legr.field_78804_l.add(new ModelBox(this.legr, 0, 22, -2.0f, 0.0f, -2.0f, 4, 12, 4, 0.0f, false));
+    }
+
+    public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+        this.root.func_78785_a(f5);
+    }
+
+    public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+        modelRenderer.field_78795_f = x;
+        modelRenderer.field_78796_g = y;
+        modelRenderer.field_78808_h = z;
+    }
+
+    public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
+        this.head.field_78796_g = netHeadYaw * 0.017453292f;
+        this.head.field_78795_f = headPitch * 0.017453292f;
+        this.legr.field_78795_f = MathHelper.func_76134_b(limbSwing * 0.6662f) * 1.4f * limbSwingAmount * 0.5f;
+        this.legl.field_78795_f = MathHelper.func_76134_b((limbSwing * 0.6662f) + 3.1415927f) * 1.4f * limbSwingAmount * 0.5f;
+        this.armr.field_78795_f = MathHelper.func_76134_b((limbSwing * 0.6662f) + 3.1415927f) * 2.0f * limbSwingAmount * 0.5f;
+        this.arml.field_78795_f = MathHelper.func_76134_b(limbSwing * 0.6662f) * 2.0f * limbSwingAmount * 0.5f;
+    }
+}

@@ -1,0 +1,68 @@
+package xol.lostinfinity.client.screen;
+
+import net.minecraft.client.Minecraft;
+import net.minecraft.client.gui.ScaledResolution;
+import net.minecraft.client.renderer.BufferBuilder;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.util.ResourceLocation;
+import net.minecraft.util.math.MathHelper;
+import net.minecraftforge.client.event.RenderGameOverlayEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import xol.lostinfinity.init.PotionInit;
+import xol.lostinfinity.util.Reference;
+
+/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/client/screen/DistortionCover.class */
+public class DistortionCover {
+    Minecraft mc = Minecraft.func_71410_x();
+    private float distortionAlpha = 0.0f;
+
+    @SubscribeEvent
+    public void onRender(RenderGameOverlayEvent.Post event) {
+        if (event.getType() == RenderGameOverlayEvent.ElementType.HELMET) {
+            onTickRender();
+        }
+    }
+
+    private void onTickRender() {
+        if (this.mc.field_71462_r == null) {
+            if (this.mc.field_71439_g.func_70644_a(PotionInit.DISTORTION)) {
+                GlStateManager.func_179147_l();
+                GlStateManager.func_179112_b(770, 771);
+                int level = this.mc.field_71439_g.func_70660_b(PotionInit.DISTORTION).func_76458_c();
+                this.mc.func_110434_K().func_110577_a(getResourceFromLevel(level));
+                ScaledResolution res = new ScaledResolution(this.mc);
+                Tessellator tess = Tessellator.func_178181_a();
+                BufferBuilder buff = tess.func_178180_c();
+                int ticksExisted = this.mc.field_71439_g.field_70173_aa;
+                int remainingDuration = this.mc.field_71439_g.func_70660_b(PotionInit.DISTORTION).func_76459_b();
+                if (remainingDuration * 0.05f <= this.distortionAlpha) {
+                    this.distortionAlpha -= 0.05f;
+                } else if (this.distortionAlpha < 0.95f) {
+                    this.distortionAlpha += 0.05f;
+                }
+                GlStateManager.func_179123_a();
+                GlStateManager.func_179131_c(1.0f, 0.75f + (0.25f * MathHelper.func_76126_a(ticksExisted * 0.1f)), 1.0f, this.distortionAlpha);
+                buff.func_181668_a(7, DefaultVertexFormats.field_181710_j);
+                buff.func_181662_b(0.0d, res.func_78324_d(), -90.0d).func_187315_a(0.0d, 1.0d).func_181663_c(0.0f, 1.0f, 0.0f).func_181675_d();
+                buff.func_181662_b(res.func_78327_c(), res.func_78324_d(), -90.0d).func_187315_a(1.0d, 1.0d).func_181663_c(0.0f, 1.0f, 0.0f).func_181675_d();
+                buff.func_181662_b(res.func_78327_c(), 0.0d, -90.0d).func_187315_a(1.0d, 0.0d).func_181663_c(0.0f, 1.0f, 0.0f).func_181675_d();
+                buff.func_181662_b(0.0d, 0.0d, -90.0d).func_187315_a(0.0d, 0.0d).func_181663_c(0.0f, 1.0f, 0.0f).func_181675_d();
+                tess.func_78381_a();
+                GlStateManager.func_179084_k();
+                GlStateManager.func_179132_a(true);
+                GlStateManager.func_179099_b();
+                return;
+            }
+            this.distortionAlpha = 0.0f;
+        }
+    }
+
+    private ResourceLocation getResourceFromLevel(int i) {
+        if (i == 0) {
+            return new ResourceLocation(Reference.MODID, "textures/gui/distortion/distortion_0.png");
+        }
+        return new ResourceLocation(Reference.MODID, "textures/gui/distortion/distortion_1.png");
+    }
+}

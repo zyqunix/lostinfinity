@@ -1,0 +1,163 @@
+package xol.lostinfinity.mob.model.nebula;
+
+import net.minecraft.client.model.ModelBase;
+import net.minecraft.client.model.ModelBox;
+import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.math.MathHelper;
+import xol.lostinfinity.mob.entity.nebula.EntityNebulaGrunt;
+
+/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/mob/model/nebula/ModelNebulaGrunt.class */
+public class ModelNebulaGrunt extends ModelBase {
+    private final ModelRenderer GlowOrb;
+    private final ModelRenderer Body;
+    private final ModelRenderer Tendril1;
+    private final ModelRenderer Tendril2;
+    private final ModelRenderer Tendril3;
+    private final ModelRenderer Tendril4;
+    private final ModelRenderer Leg1;
+    private final ModelRenderer Leg1P2;
+    private final ModelRenderer Leg1P3;
+    private final ModelRenderer Leg3;
+    private final ModelRenderer Leg3P2;
+    private final ModelRenderer Leg3P3;
+    private final ModelRenderer Leg2;
+    private final ModelRenderer Leg2P2;
+    private final ModelRenderer Leg2P3;
+    private final ModelRenderer Leg4;
+    private final ModelRenderer Leg4P2;
+    private final ModelRenderer Leg4P3;
+
+    public ModelNebulaGrunt() {
+        this.field_78090_t = 128;
+        this.field_78089_u = 64;
+        this.GlowOrb = new ModelRenderer(this);
+        this.GlowOrb.func_78793_a(0.0f, -19.0f, 0.0f);
+        this.GlowOrb.field_78804_l.add(new ModelBox(this.GlowOrb, 0, 0, -8.0f, -8.0f, -8.0f, 16, 16, 16, 0.0f, false));
+        this.Body = new ModelRenderer(this);
+        this.Body.func_78793_a(0.0f, 17.0f, 0.0f);
+        this.Body.field_78804_l.add(new ModelBox(this.Body, 80, 49, -6.0f, -28.0f, -6.0f, 12, 3, 12, 0.0f, false));
+        this.Body.field_78804_l.add(new ModelBox(this.Body, 0, 40, -8.0f, -25.0f, -8.0f, 16, 8, 16, 0.0f, false));
+        this.Tendril1 = new ModelRenderer(this);
+        this.Tendril1.func_78793_a(0.0f, -18.0f, -6.0f);
+        this.Body.func_78792_a(this.Tendril1);
+        this.Tendril1.field_78804_l.add(new ModelBox(this.Tendril1, 70, 14, -1.0f, 0.0f, -1.0f, 2, 16, 2, 0.0f, false));
+        this.Tendril1.field_78804_l.add(new ModelBox(this.Tendril1, 68, 4, -1.5f, 16.0f, -1.5f, 3, 3, 3, 0.0f, false));
+        this.Tendril2 = new ModelRenderer(this);
+        this.Tendril2.func_78793_a(-6.0f, -18.0f, 0.0f);
+        this.Body.func_78792_a(this.Tendril2);
+        this.Tendril2.field_78804_l.add(new ModelBox(this.Tendril2, 70, 14, -1.0f, 0.0f, -1.0f, 2, 16, 2, 0.0f, false));
+        this.Tendril2.field_78804_l.add(new ModelBox(this.Tendril2, 68, 4, -1.5f, 16.0f, -1.5f, 3, 3, 3, 0.0f, false));
+        this.Tendril3 = new ModelRenderer(this);
+        this.Tendril3.func_78793_a(0.0f, -18.0f, 6.0f);
+        this.Body.func_78792_a(this.Tendril3);
+        this.Tendril3.field_78804_l.add(new ModelBox(this.Tendril3, 70, 14, -1.0f, 0.0f, -1.0f, 2, 16, 2, 0.0f, false));
+        this.Tendril3.field_78804_l.add(new ModelBox(this.Tendril3, 68, 4, -1.5f, 16.0f, -1.5f, 3, 3, 3, 0.0f, false));
+        this.Tendril4 = new ModelRenderer(this);
+        this.Tendril4.func_78793_a(6.0f, -18.0f, 0.0f);
+        this.Body.func_78792_a(this.Tendril4);
+        this.Tendril4.field_78804_l.add(new ModelBox(this.Tendril4, 70, 14, -1.0f, 0.0f, -1.0f, 2, 16, 2, 0.0f, false));
+        this.Tendril4.field_78804_l.add(new ModelBox(this.Tendril4, 68, 4, -1.5f, 16.0f, -1.5f, 3, 3, 3, 0.0f, false));
+        this.Leg1 = new ModelRenderer(this);
+        this.Leg1.func_78793_a(7.0f, -20.0f, 0.0f);
+        this.Body.func_78792_a(this.Leg1);
+        this.Leg1.field_78804_l.add(new ModelBox(this.Leg1, 88, 2, 0.0f, -2.0f, -5.0f, 10, 4, 10, 0.0f, false));
+        this.Leg1P2 = new ModelRenderer(this);
+        this.Leg1P2.func_78793_a(10.0f, 0.0f, 0.0f);
+        this.Leg1.func_78792_a(this.Leg1P2);
+        setRotationAngle(this.Leg1P2, 0.0f, 0.0f, 0.3491f);
+        this.Leg1P2.field_78804_l.add(new ModelBox(this.Leg1P2, 88, 18, -1.0f, -2.0f, -5.0f, 10, 4, 10, -0.1f, false));
+        this.Leg1P3 = new ModelRenderer(this);
+        this.Leg1P3.func_78793_a(9.0f, 0.0f, 0.0f);
+        this.Leg1P2.func_78792_a(this.Leg1P3);
+        setRotationAngle(this.Leg1P3, 0.0f, 0.0f, 0.3491f);
+        this.Leg1P3.field_78804_l.add(new ModelBox(this.Leg1P3, 88, 34, -1.0f, -2.0f, -5.0f, 10, 4, 10, -0.2f, false));
+        this.Leg3 = new ModelRenderer(this);
+        this.Leg3.func_78793_a(-8.0f, -20.0f, 0.0f);
+        this.Body.func_78792_a(this.Leg3);
+        setRotationAngle(this.Leg3, 0.0f, 3.1416f, 0.0f);
+        this.Leg3.field_78804_l.add(new ModelBox(this.Leg3, 88, 2, 0.0f, -2.0f, -5.0f, 10, 4, 10, 0.0f, false));
+        this.Leg3P2 = new ModelRenderer(this);
+        this.Leg3P2.func_78793_a(10.0f, 0.0f, 0.0f);
+        this.Leg3.func_78792_a(this.Leg3P2);
+        setRotationAngle(this.Leg3P2, 0.0f, 0.0f, 0.3491f);
+        this.Leg3P2.field_78804_l.add(new ModelBox(this.Leg3P2, 88, 18, -1.0f, -2.0f, -5.0f, 10, 4, 10, -0.1f, false));
+        this.Leg3P3 = new ModelRenderer(this);
+        this.Leg3P3.func_78793_a(9.0f, 0.0f, 0.0f);
+        this.Leg3P2.func_78792_a(this.Leg3P3);
+        setRotationAngle(this.Leg3P3, 0.0f, 0.0f, 0.3491f);
+        this.Leg3P3.field_78804_l.add(new ModelBox(this.Leg3P3, 88, 34, -1.0f, -2.0f, -5.0f, 10, 4, 10, -0.2f, false));
+        this.Leg2 = new ModelRenderer(this);
+        this.Leg2.func_78793_a(0.0f, -20.0f, 8.0f);
+        this.Body.func_78792_a(this.Leg2);
+        setRotationAngle(this.Leg2, 0.0f, -1.5708f, 0.0f);
+        this.Leg2.field_78804_l.add(new ModelBox(this.Leg2, 88, 2, 0.0f, -2.0f, -5.0f, 10, 4, 10, 0.0f, false));
+        this.Leg2P2 = new ModelRenderer(this);
+        this.Leg2P2.func_78793_a(10.0f, 0.0f, 0.0f);
+        this.Leg2.func_78792_a(this.Leg2P2);
+        setRotationAngle(this.Leg2P2, 0.0f, 0.0f, 0.3491f);
+        this.Leg2P2.field_78804_l.add(new ModelBox(this.Leg2P2, 88, 18, -1.0f, -2.0f, -5.0f, 10, 4, 10, -0.1f, false));
+        this.Leg2P3 = new ModelRenderer(this);
+        this.Leg2P3.func_78793_a(9.0f, 0.0f, 0.0f);
+        this.Leg2P2.func_78792_a(this.Leg2P3);
+        setRotationAngle(this.Leg2P3, 0.0f, 0.0f, 0.3491f);
+        this.Leg2P3.field_78804_l.add(new ModelBox(this.Leg2P3, 88, 34, -1.0f, -2.0f, -5.0f, 10, 4, 10, -0.2f, false));
+        this.Leg4 = new ModelRenderer(this);
+        this.Leg4.func_78793_a(0.0f, -20.0f, -8.0f);
+        this.Body.func_78792_a(this.Leg4);
+        setRotationAngle(this.Leg4, 0.0f, 1.5708f, 0.0f);
+        this.Leg4.field_78804_l.add(new ModelBox(this.Leg4, 88, 2, 0.0f, -2.0f, -5.0f, 10, 4, 10, 0.0f, false));
+        this.Leg4P2 = new ModelRenderer(this);
+        this.Leg4P2.func_78793_a(10.0f, 0.0f, 0.0f);
+        this.Leg4.func_78792_a(this.Leg4P2);
+        setRotationAngle(this.Leg4P2, 0.0f, 0.0f, 0.3491f);
+        this.Leg4P2.field_78804_l.add(new ModelBox(this.Leg4P2, 88, 18, -1.0f, -2.0f, -5.0f, 10, 4, 10, -0.1f, false));
+        this.Leg4P3 = new ModelRenderer(this);
+        this.Leg4P3.func_78793_a(9.0f, 0.0f, 0.0f);
+        this.Leg4P2.func_78792_a(this.Leg4P3);
+        setRotationAngle(this.Leg4P3, 0.0f, 0.0f, 0.3491f);
+        this.Leg4P3.field_78804_l.add(new ModelBox(this.Leg4P3, 88, 34, -1.0f, -2.0f, -5.0f, 10, 4, 10, -0.2f, false));
+    }
+
+    public void func_78088_a(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
+        EntityNebulaGrunt nebula = (EntityNebulaGrunt) entity;
+        float baseAlpha = nebula.getModelAlpha();
+        GlStateManager.func_179147_l();
+        GlStateManager.func_179112_b(770, 771);
+        GlStateManager.func_179131_c(1.0f, 1.0f, 1.0f, baseAlpha);
+        this.Body.func_78785_a(f5);
+        GlStateManager.func_179131_c(1.0f, 1.0f, 1.0f, baseAlpha * 0.75f);
+        this.GlowOrb.func_78785_a(f5);
+        GlStateManager.func_179084_k();
+    }
+
+    public void setRotationAngle(ModelRenderer modelRenderer, float x, float y, float z) {
+        modelRenderer.field_78795_f = x;
+        modelRenderer.field_78796_g = y;
+        modelRenderer.field_78808_h = z;
+    }
+
+    public void func_78087_a(float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
+        this.Tendril1.field_78795_f = MathHelper.func_76134_b(ageInTicks * 0.2f) * 0.2f;
+        this.Tendril2.field_78795_f = MathHelper.func_76126_a(ageInTicks * 0.2f) * 0.2f;
+        this.Tendril3.field_78795_f = MathHelper.func_76134_b((float) (((double) (ageInTicks * 0.2f)) + 3.141592653589793d)) * 0.2f;
+        this.Tendril4.field_78795_f = MathHelper.func_76126_a((float) (((double) (ageInTicks * 0.2f)) + 3.141592653589793d)) * 0.2f;
+        this.Tendril1.field_78808_h = MathHelper.func_76134_b(ageInTicks * 0.2f) * 0.2f;
+        this.Tendril2.field_78808_h = MathHelper.func_76126_a(ageInTicks * 0.2f) * 0.2f;
+        this.Tendril3.field_78808_h = MathHelper.func_76134_b((float) (((double) (ageInTicks * 0.2f)) + 3.141592653589793d)) * 0.2f;
+        this.Tendril4.field_78808_h = MathHelper.func_76126_a((float) (((double) (ageInTicks * 0.2f)) + 3.141592653589793d)) * 0.2f;
+        this.Leg1.field_78808_h = MathHelper.func_76126_a(ageInTicks * 0.1f) * 0.95f;
+        this.Leg2.field_78808_h = MathHelper.func_76126_a((ageInTicks + 5.0f) * 0.1f) * 0.95f;
+        this.Leg3.field_78808_h = MathHelper.func_76126_a((ageInTicks + 10.0f) * 0.1f) * 0.95f;
+        this.Leg4.field_78808_h = MathHelper.func_76126_a((ageInTicks + 15.0f) * 0.1f) * 0.95f;
+        this.Leg1P2.field_78808_h = (-MathHelper.func_76126_a(ageInTicks * 0.05f)) * 0.3f;
+        this.Leg2P2.field_78808_h = (-MathHelper.func_76126_a((ageInTicks + 5.0f) * 0.05f)) * 0.3f;
+        this.Leg3P2.field_78808_h = (-MathHelper.func_76126_a((ageInTicks + 10.0f) * 0.05f)) * 0.3f;
+        this.Leg4P2.field_78808_h = (-MathHelper.func_76126_a((ageInTicks + 15.0f) * 0.05f)) * 0.3f;
+        this.Leg1P3.field_78808_h = MathHelper.func_76126_a(ageInTicks * 0.1f) * 0.4f;
+        this.Leg2P3.field_78808_h = MathHelper.func_76126_a((ageInTicks + 5.0f) * 0.1f) * 0.4f;
+        this.Leg3P3.field_78808_h = MathHelper.func_76126_a((ageInTicks + 10.0f) * 0.1f) * 0.4f;
+        this.Leg4P3.field_78808_h = MathHelper.func_76126_a((ageInTicks + 15.0f) * 0.1f) * 0.4f;
+    }
+}

@@ -1,0 +1,90 @@
+package xol.lostinfinity.init;
+
+import net.minecraft.potion.Potion;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import xol.lostinfinity.util.PotionBasic;
+
+/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/init/PotionInit.class */
+public class PotionInit {
+    public static final Potion SECURITY_CLEARANCE = new PotionBasic("security_clearance", false, 16711757, 0, 0);
+    public static final Potion IRONHEART = new PotionBasic("ironheart", false, 16711757, 1, 0);
+    public static final Potion ADRENALINE = new PotionBasic("adrenaline", false, 16711757, 2, 0);
+    public static final Potion ULTRAHEAVY = new PotionBasic("ultraheavy", false, 16711757, 3, 0);
+    public static final Potion GRAVITATIONAL = new PotionBasic("gravitational", false, 16711757, 4, 0);
+    public static final Potion VULNERABILITY = new PotionBasic("vulnerability", true, 16711757, 5, 0);
+    public static final Potion PLAGUE = new PotionBasic("plague", true, 16711757, 6, 0);
+    public static final Potion SHOCKED = new PotionBasic("shocked", true, 16711757, 7, 0);
+    public static final Potion DIMENSIONAL_TEAR = new PotionBasic("dimensional_tear", true, 16711757, 8, 0);
+    public static final Potion PROTECTED = new PotionBasic("protected", false, 16711757, 9, 0);
+    public static final Potion RAMPAGING = new PotionBasic("rampaging", false, 16711757, 10, 0);
+    public static final Potion RACING_HEART = new PotionBasic("racing_heart", false, 16711757, 11, 0);
+    public static final Potion ARMORED = new PotionBasic("armored", false, 16711757, 12, 0);
+    public static final Potion CHARGING = new PotionBasic("charging", false, 16711757, 13, 0);
+    public static final Potion NULLIFIED = new PotionBasic("nullified", true, 16711757, 14, 0);
+    public static final Potion CONTAGIOUS = new PotionBasic("contagious", true, 16711757, 15, 0);
+    public static final Potion TETHERED = new PotionBasic("tethered", true, 16711757, 16, 0);
+    public static final Potion BLIGHTED = new PotionBasic("blighted", true, 16711757, 17, 0);
+    public static final Potion INTANGIBLE = new PotionBasic("intangible", true, 16711757, 18, 0);
+    public static final Potion LAST_BREATH = new PotionBasic("last_breath", true, 16711757, 19, 0);
+    public static final Potion NITROUS = new PotionBasic("nitrous", false, 16711757, 20, 0);
+    public static final Potion SHATTERED = new PotionBasic("shattered", true, 16711757, 21, 0);
+    public static final Potion BLOOD_TOXIN = new PotionBasic("blood_toxin", true, 16711757, 22, 0);
+    public static final Potion SPECTRAL = new PotionBasic("spectral", true, 16711757, 23, 0);
+    public static final Potion DISTORTION = new PotionBasic("distortion", true, 16711757, 24, 0);
+    public static final Potion PHASED = new PotionBasic("phased", true, 16711757, 25, 0);
+    public static final Potion POTION_AFFINITY = new PotionBasic("potion_affinity", false, 16711757, 26, 0);
+    public static final Potion OTHERWORLDLY = new PotionBasic("otherworldly", true, 16711757, 27, 0);
+    public static final Potion SPONTANEOUS_COMBUSTION = new PotionBasic("spontaneous_combustion", true, 16711757, 28, 0);
+    public static final Potion PLANESPLIT = new PotionBasic("planesplit", true, 16711757, 29, 0);
+    public static final Potion UNLEASHING = new PotionBasic("unleashing", false, 16711757, 30, 0);
+    public static final Potion MIASMA = new PotionBasic("miasma", false, 16711757, 31, 0);
+    public static final Potion TRANSFUSION = new PotionBasic("transfusion", false, 16711757, 32, 0);
+    public static final Potion SUPERSONIC = new PotionBasic("supersonic", false, 16711757, 33, 0);
+    public static final Potion ACIDIC = new PotionBasic("acidic", false, 16711757, 34, 0);
+    public static final Potion FRACTURE = new PotionBasic("fracture", false, 16711757, 35, 0);
+    public static final Potion FEARED = new PotionBasic("feared", false, 16711757, 36, 0);
+    public static final Potion TERRIFIED = new PotionBasic("terrified", false, 16711757, 37, 0);
+    public static final Potion SUPERCHARGED = new PotionBasic("supercharged", false, 16711757, 38, 0);
+
+    public static void registerPotions() {
+        ForgeRegistries.POTIONS.register(SECURITY_CLEARANCE);
+        ForgeRegistries.POTIONS.register(IRONHEART);
+        ForgeRegistries.POTIONS.register(ADRENALINE);
+        ForgeRegistries.POTIONS.register(ULTRAHEAVY);
+        ForgeRegistries.POTIONS.register(GRAVITATIONAL);
+        ForgeRegistries.POTIONS.register(VULNERABILITY);
+        ForgeRegistries.POTIONS.register(PLAGUE);
+        ForgeRegistries.POTIONS.register(SHOCKED);
+        ForgeRegistries.POTIONS.register(DIMENSIONAL_TEAR);
+        ForgeRegistries.POTIONS.register(PROTECTED);
+        ForgeRegistries.POTIONS.register(RAMPAGING);
+        ForgeRegistries.POTIONS.register(RACING_HEART);
+        ForgeRegistries.POTIONS.register(ARMORED);
+        ForgeRegistries.POTIONS.register(CHARGING);
+        ForgeRegistries.POTIONS.register(NULLIFIED);
+        ForgeRegistries.POTIONS.register(CONTAGIOUS);
+        ForgeRegistries.POTIONS.register(TETHERED);
+        ForgeRegistries.POTIONS.register(BLIGHTED);
+        ForgeRegistries.POTIONS.register(INTANGIBLE);
+        ForgeRegistries.POTIONS.register(LAST_BREATH);
+        ForgeRegistries.POTIONS.register(NITROUS);
+        ForgeRegistries.POTIONS.register(SHATTERED);
+        ForgeRegistries.POTIONS.register(BLOOD_TOXIN);
+        ForgeRegistries.POTIONS.register(SPECTRAL);
+        ForgeRegistries.POTIONS.register(DISTORTION);
+        ForgeRegistries.POTIONS.register(PHASED);
+        ForgeRegistries.POTIONS.register(POTION_AFFINITY);
+        ForgeRegistries.POTIONS.register(OTHERWORLDLY);
+        ForgeRegistries.POTIONS.register(SPONTANEOUS_COMBUSTION);
+        ForgeRegistries.POTIONS.register(PLANESPLIT);
+        ForgeRegistries.POTIONS.register(UNLEASHING);
+        ForgeRegistries.POTIONS.register(MIASMA);
+        ForgeRegistries.POTIONS.register(TRANSFUSION);
+        ForgeRegistries.POTIONS.register(SUPERSONIC);
+        ForgeRegistries.POTIONS.register(ACIDIC);
+        ForgeRegistries.POTIONS.register(FRACTURE);
+        ForgeRegistries.POTIONS.register(TERRIFIED);
+        ForgeRegistries.POTIONS.register(FEARED);
+        ForgeRegistries.POTIONS.register(SUPERCHARGED);
+    }
+}

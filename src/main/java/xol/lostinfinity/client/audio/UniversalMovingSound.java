@@ -1,0 +1,68 @@
+package xol.lostinfinity.client.audio;
+
+import net.minecraft.client.audio.ISound;
+import net.minecraft.client.audio.MovingSound;
+import net.minecraft.util.SoundCategory;
+import net.minecraft.util.SoundEvent;
+import xol.lostinfinity.item.classify.IMovingSoundSource;
+
+/* JADX INFO: loaded from: lostinfinity-1.16.4.jar:xol/lostinfinity/client/audio/UniversalMovingSound.class */
+public class UniversalMovingSound extends MovingSound {
+    private final IMovingSoundSource.Special special;
+
+    public UniversalMovingSound(SoundEvent soundIn, SoundCategory categoryIn, IMovingSoundSource.Special special, float volume, float pitch) {
+        super(soundIn, categoryIn);
+        this.special = special;
+        this.field_147662_b = volume;
+        this.field_147663_c = pitch;
+        special.onInit(this);
+    }
+
+    public void func_73660_a() {
+        this.special.onUpdate(this);
+    }
+
+    public void setAttenuationType(ISound.AttenuationType type) {
+        this.field_147666_i = type;
+    }
+
+    public void setRepeat(boolean flag) {
+        this.field_147659_g = flag;
+    }
+
+    public void setRepeatDelay(int value) {
+        this.field_147665_h = value;
+    }
+
+    public void setVolume(float value) {
+        this.field_147662_b = value;
+    }
+
+    public void setPitch(float value) {
+        this.field_147663_c = value;
+    }
+
+    public void setXPosF(float value) {
+        this.field_147660_d = value;
+    }
+
+    public void setYPosF(float value) {
+        this.field_147661_e = value;
+    }
+
+    public void setZPosF(float value) {
+        this.field_147658_f = value;
+    }
+
+    public void setDonePlaying(boolean flag) {
+        this.field_147668_j = flag;
+    }
+
+    public boolean func_147657_c() {
+        if (!super.func_147657_c()) {
+            this.special.onDone(this);
+            return false;
+        }
+        return true;
+    }
+}
